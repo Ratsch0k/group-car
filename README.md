@@ -1,3 +1,33 @@
+# Group Car
+## Website for managing usage and parking location of cars used in groups in Families
+
+--------
+
+### Create Groups for better and easier usage of a shared car 
+Know exactly where to find your car, even if it was used by others
+
+Share you car's location with your family or group with a single press of a button
+
+--------
+
+Source Code of the frontend for website www.groupcars.de (*if domain available*)
+
+Used Technologies:
+  - Managment
+    + GitHub
+    + Travis CI
+  - Frontend
+    + (OAuth2.0)
+    + React.js
+    + Material Design
+  - Backend
+    + Node.js
+    + Nginx
+    + Postgresql
+    
+Author:
+  - Ratsch0k
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
