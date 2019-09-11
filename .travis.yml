@@ -1,6 +1,12 @@
 language: node_js
 node_js:
   - lts/*
+
+addons:
+  hosts:
+    - http://206.189.63.151/
+
 before_install:
   - openssl aes-256-cbc -K $encrypted_68f7ebe520c3_key -iv $encrypted_68f7ebe520c3_iv
     -in deploy-key.enc -out deploy-key -d
+
