@@ -3,7 +3,7 @@ node_js:
   - lts/*
 addons:
   hosts:
-    - http://206.189.63.151/
+    - 206.189.63.151
 after_success:
   - bash _scripts/build.sh
   - bash _scripts/deploy.sh
