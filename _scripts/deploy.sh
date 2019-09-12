@@ -1,8 +1,10 @@
 #!/bin/bash
-set -x
+#set -x
+
+echo $TRAVIS_BRANCH
 
 # Test if branch is master branch
-if [$TRAVIS_BRANCH == "master"]; then
+if [ $TRAVIS_BRANCH == "master" ]; then
 
     # encrypt key
     openssl aes-256-cbc -K $encrypted_e9ce4c9f2f9f_key -iv $encrypted_e9ce4c9f2f9f_iv -in deploy-key.enc -out deploy-key -d
