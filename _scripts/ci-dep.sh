@@ -14,7 +14,7 @@ if [ $TRAVIS_BRANCH == "master" ]; then
     cd build
     git init
 
-    git remote add deploy "deploy@$SERVER_IP:$SERVER_HTML_PATH"
+    git remote add deploy "$SERVER_USER@$SERVER_IP:$SERVER_HTML_PATH"
     git config user.name = "Travis CI"
 
     git add .
