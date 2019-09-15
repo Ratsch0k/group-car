@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/Ratsch0k/group-car.svg?token=VoTpURfdRAcYtA5D82Re&branch=master)](https://travis-ci.com/Ratsch0k/group-car)
 # Group Car
 ## Website for managing usage and parking location of cars used in groups in Families
 
