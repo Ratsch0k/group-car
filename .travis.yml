@@ -6,5 +6,5 @@ addons:
     - 206.189.63.151
 
 after_success:
-  - bash _scripts/build.sh
-  - bash _scripts/deploy.sh
+  - bash _scripts/ci-build.sh
+  - bash _scripts/ci-dep.sh
