@@ -1,5 +1,6 @@
 #!/bin/bash
-#set -x
+set -x
+echo $TRAVIS_BRANCH
 
 # Test if branch is master branch
 if [ $TRAVIS_BRANCH == "master" ]; then
