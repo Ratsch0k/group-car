@@ -9,9 +9,9 @@ import HeaderBar from "./HeaderBar";
 const theme = createMuiTheme({
     palette: {
         primary: {
-            main: "#00C68A",
-            light: "#98F0D6",
-            dark: "#00A473",
+            main: "#000000",
+            light: "#000000",
+            dark: "#000000",
             contrastText: "#FFFFFF"
         },
         secondary: {
@@ -22,6 +22,13 @@ const theme = createMuiTheme({
         }
     }
 });
+
+/*
+              main: "#00C68A",
+            light: "#98F0D6",
+            dark: "#00A473",
+            contrastText: "#FFFFFF"
+ */
 
 const App: React.FC = () => {
     return (

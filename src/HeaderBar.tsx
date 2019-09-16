@@ -15,11 +15,11 @@ const useStyles = makeStyles({
         textAlign: "left",
     },
     toolbarIcon: {
-        fontSize: 40,
+        fontSize: 35,
     },
     title: {
         flexGrow: 1,
-    }
+    },
 });
 
 const HeaderBar: React.FC = () => {
