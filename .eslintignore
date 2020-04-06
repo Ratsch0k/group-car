@@ -1,0 +1,8 @@
+# Ignore all node modules
+node_modules
+
+# Ignore the .idea directory
+.idea
+
+# Ignore custom script used for ci
+_scripts    

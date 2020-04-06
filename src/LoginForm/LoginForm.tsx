@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
 const LoginForm: React.FC = () => {
-    return(
-        <form noValidate>
+  return (
+    <form noValidate>
 
-        </form>
-    )
+    </form>
+  );
 };
 
 export default LoginForm;
