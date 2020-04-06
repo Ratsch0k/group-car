@@ -13,7 +13,7 @@ jobs:
   include:
     - stage: "Static Analysis"
       name: "Lint"
-      script: npm eslint . --ext .js,.jsx,.ts,.tsx
+      script: npm run eslint . --ext .js,.jsx,.ts,.tsx
     - script: npm audit
       name: "Audit"
     - stage: "Test"
