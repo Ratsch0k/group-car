@@ -12,4 +12,13 @@ branches:
 
 after_success:
   - bash _scripts/ci-build.sh
-  - bash _scripts/ci-dep.sh
+  #- bash _scripts/ci-dep.sh
+
+
+jobs:
+  include:
+    - stage: "Test"
+      script: npm run test
+    - script: npm run build --prod
+    - stage: "Deploy"
+      script: bash _scripts/ci-build.sh
