@@ -26,6 +26,7 @@ jobs:
       script: bash _scripts/ci-test.sh
 
 stages:
+  - "Static Analysis"
   - "Test"
   - "Build"
   - name: "Check tag and version"
