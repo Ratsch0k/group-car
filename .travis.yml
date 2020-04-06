@@ -7,7 +7,7 @@ addons:
 
 install:
   - npm install         # Install all npm modules
-  - apt-get install jq  # Command cli for reading json, needed to check package.json version
+  - sudo apt-get install jq  # Command cli for reading json, needed to check package.json version
 
 jobs:
   include:
