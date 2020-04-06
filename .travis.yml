@@ -9,6 +9,7 @@ branches:
   only:
     - master
     - testing
+    - /^v\d+.\d+.\d+$/
 
 after_success:
   - bash _scripts/ci-build.sh
