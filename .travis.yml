@@ -19,6 +19,13 @@ jobs:
   include:
     - stage: "Test"
       script: npm run test
-    - script: npm run build --prod
+    - stage: "Build"
+      script: npm run build --prod
     - stage: "Deploy"
-      script: bash _scripts/ci-build.sh
+      script: bash _scripts/ci-test.sh
+
+stages:
+  - "Build"
+  - "Test"
+  - name: "Deploy"
+    if: tag IS present
