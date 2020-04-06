@@ -25,7 +25,7 @@ jobs:
       script: bash _scripts/ci-test.sh
 
 stages:
-  - "Build"
   - "Test"
+  - "Build"
   - name: "Deploy"
     if: tag IS present
