@@ -21,7 +21,7 @@ jobs:
     - stage: "Build"
       script: npm run build --prod
     - stage: "Check tag and version"
-      script: cat ./package.json | jq '.version'
+      script: if [[ $TRAVIS_TAG =~ $( cat ../package.json | jq '.version' | cut -d'"' -f2 )$ ]]; then exit 0; else exit 1; fi
     - stage: "Deploy"
       script: bash _scripts/ci-test.sh
 
