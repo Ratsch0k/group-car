@@ -10,16 +10,16 @@ import Toolbar from '@material-ui/core/Toolbar';
 
 
 const useStyles = makeStyles({
-  root: {
-    flexGrow: 1,
-    textAlign: 'left',
-  },
-  toolbarIcon: {
-    fontSize: 40,
-  },
-  title: {
-    flexGrow: 1,
-  },
+    root: {
+        flexGrow: 1,
+        textAlign: "left",
+    },
+    toolbarIcon: {
+        fontSize: 35,
+    },
+    title: {
+        flexGrow: 1,
+    },
 });
 
 const HeaderBar: React.FC = () => {
