@@ -5,6 +5,10 @@ addons:
   ssh_known_hosts:
     - 206.189.63.151
 
+cache:
+  directories: 
+  - build       # Cache the build directory, deploy stage uses cached build for deploying
+
 install:
   - npm install         # Install all npm modules
   - sudo apt-get install jq  # Command cli for reading json, needed to check package.json version
@@ -22,8 +26,10 @@ jobs:
       script: npm run build --prod
     - stage: "Check tag and version"
       script: if [[ $TRAVIS_TAG =~ $( cat ./package.json | jq '.version' | cut -d'"' -f2 )$ ]]; then exit 0; else exit 1; fi
+      install: skip
     - stage: "Deploy"
       script: bash _scripts/ci-dep.sh
+      install: skip
 
 stages:
   - "Static Analysis"
