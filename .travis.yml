@@ -1,3 +1,6 @@
+os: linux
+dist: bionic
+
 language: node_js
 node_js:
   - lts/*
@@ -7,7 +10,7 @@ addons:
 
 cache:
   directories: 
-  - build       # Cache the build directory, deploy stage uses cached build for deploying
+  - node_modules # Cache node modules for faster installing
 
 install:
   - npm install         # Install all npm modules
@@ -28,8 +31,9 @@ jobs:
       script: if [[ $TRAVIS_TAG =~ $( cat ./package.json | jq '.version' | cut -d'"' -f2 )$ ]]; then exit 0; else exit 1; fi
       install: skip
     - stage: "Deploy"
-      script: bash _scripts/ci-dep.sh
-      install: skip
+      script:
+      - npm run build --prod
+      - bash _scripts/ci-dep.sh
 
 stages:
   - "Static Analysis"
