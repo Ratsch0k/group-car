@@ -1,5 +1,5 @@
 #!/bin/bash
-set -x
+set -ev
 
 # encrypt key
 openssl aes-256-cbc -K $encrypted_e9ce4c9f2f9f_key -iv $encrypted_e9ce4c9f2f9f_iv -in deploy-key.enc -out deploy-key -d
