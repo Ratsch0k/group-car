@@ -9,11 +9,9 @@ mv deploy-key ~/.ssh/id_rsa
 
 # change to build directory, initialize local repository and push to server
 cd build
-git init
 
-git remote add deploy "$SERVER_USER@$SERVER_IP:$SERVER_HTML_PATH"
-git config user.name = "Travis CI"
+# Delete files on server
+ssh $SERVER_USER@$SERVER_IP rm -R $SERVER_HTML_PATH/*
 
-git add .
-git commit -m "Deploy Commit: $TRAVIS_COMMIT"
-git push --force deploy master
+# Copy build to server
+scp $PWD/* $SERVER_USER@$SERVER_IP:$SERVER_HTML_PATH
