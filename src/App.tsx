@@ -26,12 +26,16 @@ const theme = createMuiTheme({
 
 const App: React.FC = () => {
   const [data, setData] = useState<string>('');
+  const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
     fetch('/api/test').then((res) => {
+      if (res.status >= 400) {
+        setError(true);
+      }
       return res.text();
     }).then((res) => {
-      console.log(res);
+      // Parse status message
       setData(res);
     });
   }, []);
@@ -41,7 +45,7 @@ const App: React.FC = () => {
       <div className="App">
         <HeaderBar />
       </div>
-      <div style={{marginTop: '64px'}}>
+      <div style={{marginTop: '64px', color: error ? 'red' : 'black'}}>
         {data}
       </div>
     </ThemeProvider>
