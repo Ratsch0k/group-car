@@ -33,7 +33,7 @@ jobs:
     - stage: "Deploy"
       script:
       - npm run build --prod
-      - bash _scripts/ci-dep.sh
+      - bash scripts/ci-dep.sh
 
 stages:
   - "Static Analysis"

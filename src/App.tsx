@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import {createMuiTheme} from '@material-ui/core/styles';
 import {ThemeProvider} from '@material-ui/styles';
-import HeaderBar from './HeaderBar';
+import HeaderBar from './lib/HeaderBar/HeaderBar';
 import {useEffect} from 'react';
 
 

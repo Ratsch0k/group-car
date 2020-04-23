@@ -5,7 +5,7 @@ node_modules
 .idea
 
 # Ignore custom script used for ci
-_scripts
+scripts
 
 # Ignore build
 build
