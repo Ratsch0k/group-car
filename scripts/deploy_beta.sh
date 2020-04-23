@@ -11,4 +11,4 @@ mv deploy-key ~/.ssh/id_rsa
 cd build
 
 # Replace existing html directory with updated one
-rsync --recursive --times --compress --delete --quiet ./ $SERVER_USER@$SERVER_IP:$SERVER_HTML_PATH_DEV
+rsync --recursive --times --compress --delete --quiet ./ $SERVER_USER@$SERVER_IP:$SERVER_HTML_PATH_BETA
