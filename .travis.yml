@@ -30,16 +30,28 @@ jobs:
     - stage: "Check tag and version"
       script: if [[ $TRAVIS_TAG =~ $( cat ./package.json | jq '.version' | cut -d'"' -f2 )$ ]]; then exit 0; else exit 1; fi
       install: skip
-    - stage: "Deploy"
+    - stage: "Deploy Development"
       script:
       - npm run build --prod
-      - bash scripts/ci-dep.sh
+      - bash scripts/deploy_dev.sh
+    - stage: "Deploy Beta"
+      script:
+      - npm run build --prod
+      - bash scripts/deploy_beta.sh
+    - stage: "Deploy Release"
+      script:
+      - npm run build --prod
+      - bash scripts/deploy_release.sh
 
 stages:
   - "Static Analysis"
   - "Test"
   - "Build"
+  - name: "Deploy Development"
+    if: NOT tag IS present AND type = push AND fork = false AND branch = develop
+  - name: "Deploy Beta"
+    if: NOT tag IS present AND type = push AND fork = false AND branch = master
   - name: "Check tag and version"
     if: tag IS present AND tag ~= /^v\d+.\d+.\d+$/
-  - name: "Deploy"
+  - name: "Deploy Release"
     if: tag IS present AND tag ~= /^v\d+.\d+.\d+$/
