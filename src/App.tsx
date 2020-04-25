@@ -1,55 +1,47 @@
 import React, {useState} from 'react';
 import './App.css';
-import {createMuiTheme} from '@material-ui/core/styles';
-import {ThemeProvider} from '@material-ui/styles';
-import HeaderBar from './lib/HeaderBar/HeaderBar';
 import {useEffect} from 'react';
-
-
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: '#00C68A',
-      light: '#98F0D6',
-      dark: '#00A473',
-      contrastText: '#FFFFFF',
-    },
-    secondary: {
-      main: '#AD00D8',
-      light: '#ECA1FF',
-      dark: '#8900AB',
-      contrastText: '#FFFFFF',
-    },
-  },
-});
-
+import axios from 'axios';
+import GroupCar from './GroupCar';
 
 const App: React.FC = () => {
-  const [data, setData] = useState<string>('');
-  const [error, setError] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  const CsrfCancelToken = axios.CancelToken;
+  const csrfSource = CsrfCancelToken.source();
 
   useEffect(() => {
-    fetch('/api/test').then((res) => {
-      if (res.status >= 400) {
-        setError(true);
-      }
-      return res.text();
+    axios.head('/auth', {
+      cancelToken: csrfSource.token,
     }).then((res) => {
-      // Parse status message
-      setData(res);
-    });
-  }, []);
+      const csrf = res.headers['xsrf-token'];
 
-  return (
-    <ThemeProvider theme={theme}>
-      <div className="App">
-        <HeaderBar />
+      if (!csrf) {
+
+      } else {
+        axios.defaults.headers.common['XSRF-TOKEN'] = csrf;
+        setLoading(false);
+      }
+    }).catch((error) => {
+      setLoading(false);
+    });
+
+    return () => {
+      csrfSource.cancel('Request canceled');
+    };
+  });
+
+  if (loading) {
+    return (
+      <div>
+        Loading...
       </div>
-      <div style={{marginTop: '64px', color: error ? 'red' : 'black'}}>
-        {data}
-      </div>
-    </ThemeProvider>
-  );
+    );
+  } else {
+    return (
+      <GroupCar />
+    );
+  }
 };
 
 export default App;
