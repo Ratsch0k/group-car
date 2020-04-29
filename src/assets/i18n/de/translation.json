@@ -1,0 +1,26 @@
+{
+  "auth": {
+    "dialog": {
+      "title": {
+        "authenticate": "Anmeldung",
+        "login": "Anmelden",
+        "sign-up": "Account erstellen"
+      }
+    }
+  },
+  "form": {
+    "login": "Anmelden",
+    "sign-up": "Erstellen",
+    "username": "Benutzername",
+    "email": "Email",
+    "password": "Passwort",
+    "error": {
+      "required": "Benötigt",
+      "atLeast6": "Muss mindestends 6 Zeichen haben",
+      "invalidEmail": "Ungültige Email Adresse"
+    }
+  },
+  "misc": {
+    "or": "oder"
+  }
+}
