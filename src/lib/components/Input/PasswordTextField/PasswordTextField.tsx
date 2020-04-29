@@ -9,12 +9,13 @@ export interface PasswordTextFieldProps {
   value?: string;
   onChange?(arg0: React.ChangeEvent<HTMLInputElement>): void;
   size?: TextFieldProps['size'];
-  variant: TextFieldProps['variant'];
+  variant?: TextFieldProps['variant'];
   id?: string;
   label?: string;
   error?: boolean;
   name?: string;
   helperText?: string;
+  fullWidth?: boolean;
   onBlur?(event: any): void;
 }
 
@@ -38,6 +39,7 @@ const PasswordTextField: React.FC<PasswordTextFieldProps> =
       <TextField
         label={label}
         type={showPassword ? 'text' : 'password'}
+        data-testid='textfield'
         InputProps={{
           endAdornment: (
             <InputAdornment position='end'>

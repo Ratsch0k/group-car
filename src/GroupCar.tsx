@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
-import './App.css';
 import {ThemeProvider} from '@material-ui/styles';
-import HeaderBar from './lib/HeaderBar/HeaderBar';
+import HeaderBar from 'lib/components/HeaderBar/HeaderBar';
 import {useEffect} from 'react';
-import theme from './lib/theme';
+import theme from 'lib/theme';
 import axios from 'axios';
-import LoginForm from './auth/LoginForm';
-import SignUpForm from './auth/SignUpForm';
+import {NavLink} from 'react-router-dom';
+import Routes from 'lib/Routes';
 
 type AxiosError = import('axios').AxiosError;
 
@@ -30,9 +29,11 @@ const GroupCar: React.FC = () => {
         <HeaderBar />
       </div>
       <div style={{marginTop: '64px', color: error ? 'red' : 'black'}}>
+        <NavLink to='/auth'>
+            Authenticate
+        </NavLink>
         {data}
-        <LoginForm withSubmit/>
-        <SignUpForm withSubmit/>
+        <Routes />
       </div>
     </ThemeProvider>
   );

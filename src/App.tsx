@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import './App.css';
 import {useEffect} from 'react';
 import axios from 'axios';
 import GroupCar from './GroupCar';
+import {BrowserRouter} from 'react-router-dom';
+import {AuthProvider} from './lib/context/auth/authContext';
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -39,7 +40,11 @@ const App: React.FC = () => {
     );
   } else {
     return (
-      <GroupCar />
+      <BrowserRouter>
+        <AuthProvider>
+          <GroupCar />
+        </AuthProvider>
+      </BrowserRouter>
     );
   }
 };
