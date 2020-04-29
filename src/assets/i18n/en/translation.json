@@ -1,0 +1,26 @@
+{
+  "auth": {
+    "dialog": {
+      "title": {
+        "authenticate": "Authentication",
+        "login": "Log in",
+        "sign-up": "Sign up"
+      }
+    }
+  },
+  "form": {
+    "login": "Login",
+    "sign-up": "Sign up",
+    "username": "Username",
+    "email": "Email",
+    "password": "Password",
+    "error": {
+      "required": "Required",
+      "atLeast6": "At least 6 characters",
+      "invalidEmail": "Invalid email"
+    }
+  },
+  "misc": {
+    "or": "or"
+  }
+}

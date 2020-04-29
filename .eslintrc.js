@@ -21,8 +21,16 @@ module.exports = {
   },
   'plugins': [
     'react',
+    'react-hooks',
     '@typescript-eslint',
   ],
   'rules': {
+    'react/prop-types': 'off',
+    'valid-jsdoc': 'off',
+  },
+  'settings': {
+    'react': {
+      'version': 'detect',
+    },
   },
 };
