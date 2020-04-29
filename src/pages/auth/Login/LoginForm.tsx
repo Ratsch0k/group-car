@@ -87,6 +87,8 @@ const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps) => {
           <Grid item xs={12}>
             <ProgressButton
               fullWidth
+              autoFocus
+              type='submit'
               onClick={formik.handleSubmit as any}
               variant='contained'
               color='primary'

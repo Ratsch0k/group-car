@@ -368,9 +368,9 @@ exports[`back button button navigates back from form 2`] = `
                   class="MuiBox-root MuiBox-root-1342 makeStyles-wrapper-1339"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth Mui-focusVisible Mui-focusVisible"
                     tabindex="0"
-                    type="button"
+                    type="submit"
                   >
                     <span
                       class="MuiButton-label"
@@ -379,7 +379,16 @@ exports[`back button button navigates back from form 2`] = `
                     </span>
                     <span
                       class="MuiTouchRipple-root"
-                    />
+                    >
+                      <span
+                        class="MuiTouchRipple-ripple MuiTouchRipple-rippleVisible MuiTouchRipple-ripplePulsate"
+                        style="width: 1px; height: 1px; top: -0.5px; left: -0.5px;"
+                      >
+                        <span
+                          class="MuiTouchRipple-child MuiTouchRipple-childPulsate"
+                        />
+                      </span>
+                    </span>
                   </button>
                 </div>
               </div>
@@ -1048,9 +1057,9 @@ exports[`login button navigates to correct url 2`] = `
                   class="MuiBox-root MuiBox-root-1000 makeStyles-wrapper-997"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth Mui-focusVisible Mui-focusVisible"
                     tabindex="0"
-                    type="button"
+                    type="submit"
                   >
                     <span
                       class="MuiButton-label"
@@ -1059,7 +1068,16 @@ exports[`login button navigates to correct url 2`] = `
                     </span>
                     <span
                       class="MuiTouchRipple-root"
-                    />
+                    >
+                      <span
+                        class="MuiTouchRipple-ripple MuiTouchRipple-rippleVisible MuiTouchRipple-ripplePulsate"
+                        style="width: 1px; height: 1px; top: -0.5px; left: -0.5px;"
+                      >
+                        <span
+                          class="MuiTouchRipple-child MuiTouchRipple-childPulsate"
+                        />
+                      </span>
+                    </span>
                   </button>
                 </div>
               </div>
@@ -1635,9 +1653,9 @@ exports[`sign up button navigates to correct url 2`] = `
                   class="MuiBox-root MuiBox-root-658 makeStyles-wrapper-655"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth Mui-focusVisible Mui-focusVisible"
                     tabindex="0"
-                    type="button"
+                    type="submit"
                   >
                     <span
                       class="MuiButton-label"
@@ -1646,7 +1664,16 @@ exports[`sign up button navigates to correct url 2`] = `
                     </span>
                     <span
                       class="MuiTouchRipple-root"
-                    />
+                    >
+                      <span
+                        class="MuiTouchRipple-ripple MuiTouchRipple-rippleVisible MuiTouchRipple-ripplePulsate"
+                        style="width: 1px; height: 1px; top: -0.5px; left: -0.5px;"
+                      >
+                        <span
+                          class="MuiTouchRipple-child MuiTouchRipple-childPulsate"
+                        />
+                      </span>
+                    </span>
                   </button>
                 </div>
               </div>

@@ -6,7 +6,7 @@ import theme from 'lib/theme';
 import axios from 'axios';
 import {NavLink} from 'react-router-dom';
 import Routes from 'lib/Routes';
-import { Container } from '@material-ui/core';
+import {Container} from '@material-ui/core';
 
 type AxiosError = import('axios').AxiosError;
 
