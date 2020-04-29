@@ -6,6 +6,7 @@ import theme from 'lib/theme';
 import axios from 'axios';
 import {NavLink} from 'react-router-dom';
 import Routes from 'lib/Routes';
+import { Container } from '@material-ui/core';
 
 type AxiosError = import('axios').AxiosError;
 
@@ -28,12 +29,22 @@ const GroupCar: React.FC = () => {
       <div className="App">
         <HeaderBar />
       </div>
-      <div style={{marginTop: '64px', color: error ? 'red' : 'black'}}>
-        <NavLink to='/auth'>
-            Authenticate
-        </NavLink>
-        {data}
-        <Routes />
+      <div style={{marginTop: '64px'}}>
+        <Container>
+          <NavLink to='/auth'>
+              Authenticate
+          </NavLink>
+          <NavLink to='/legal/policy'>
+              Datenschutzerklärung
+          </NavLink>
+          <NavLink to='/legal/imprint'>
+              Impressum
+          </NavLink>
+          <div style={{color: error ? 'red' : 'black'}}>
+            {data}
+          </div>
+          <Routes />
+        </Container>
       </div>
     </ThemeProvider>
   );
