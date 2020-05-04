@@ -1,16 +1,21 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import IconButton from '@material-ui/core/IconButton';
 
 interface AvatarProps {
-    iconName: string
+  username?: string;
 }
 
 const Avatar: React.FC<AvatarProps> = (props: AvatarProps) => {
+  const {username} = props;
+
+  useEffect(() => {
+    if (username) {
+
+    }
+  }, [username]);
+
   return (
-    <IconButton color="inherit">
-      <AccountCircleIcon className={props.iconName}/>
-    </IconButton>
+    <AccountCircleIcon fontSize='large'/>
   );
 };
 

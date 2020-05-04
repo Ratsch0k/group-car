@@ -1,3 +1,3 @@
-export {default} from './Authentication';
+export {default} from './AuthenticationDialog';
 export * from './Login';
 export * from './SignUp';

@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import checkLoggedIn from 'util/requests/checkLoggedIn';
+import AuthenticationDialog from 'lib/components/Authentication';
 
 export interface IUser {
   username: string;
@@ -17,6 +18,7 @@ export interface IAuthContext {
   logout(): Request;
   user: IUser | undefined;
   isLoggedIn: boolean;
+  openAuthDialog(): void;
 }
 
 const AuthContext = React.createContext<IAuthContext>({
@@ -24,11 +26,13 @@ const AuthContext = React.createContext<IAuthContext>({
   logout: () => Promise.reject(new Error()),
   user: undefined,
   isLoggedIn: false,
+  openAuthDialog: () => {},
 });
 
 export const AuthProvider: React.FC = (props) => {
   const [user, setUser] = useState<IUser | undefined>();
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [open, setOpen] = useState<boolean>(false);
 
   // Send request which checks if client is logged in
   useEffect(() => {
@@ -46,6 +50,10 @@ export const AuthProvider: React.FC = (props) => {
     });
   };
 
+  const openAuthDialog = () => {
+    setOpen(true);
+  };
+
   const logout = (): Request => {
     setUser(undefined);
     setIsLoggedIn(false);
@@ -53,8 +61,16 @@ export const AuthProvider: React.FC = (props) => {
   };
 
   return (
-    <AuthContext.Provider value={{login, logout, user, isLoggedIn}}>
+    <AuthContext.Provider
+      value={{
+        login,
+        logout,
+        user,
+        isLoggedIn,
+        openAuthDialog}}
+    >
       {props.children}
+      <AuthenticationDialog open={open} close={() => setOpen(false)} />
     </AuthContext.Provider>
   );
 };
