@@ -95,6 +95,8 @@ const AuthenticationDialog: React.FC<AuthenticationDialogProps> =
    * Navigates to the page from which auth was called.
    */
   const onFinished = () => {
+    setLoading(false);
+    setAuthType(undefined);
     props.close();
   };
 
