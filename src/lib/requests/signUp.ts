@@ -11,7 +11,12 @@ type Request = import('./request').Request;
  * @param email     Email of the user
  * @param password  The password for the account
  */
-const signUp = (username: string, email: string, password: string): Request => {
+const signUp = (
+    username: string,
+    email: string,
+    password: string,
+    offset: number,
+): Request => {
   // Check if provided arguments are non empty strings
   if (!username || username.length <= 0 ||
     !email || email.length <= 0 ||
@@ -31,6 +36,7 @@ const signUp = (username: string, email: string, password: string): Request => {
         username,
         email,
         password,
+        offset,
       },
       {
         cancelToken: source.token,
