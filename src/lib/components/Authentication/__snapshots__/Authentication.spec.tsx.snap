@@ -61,7 +61,7 @@ exports[`back button button navigates back from form 1`] = `
             </button>
             auth.dialog.title.authenticate
             <button
-              class="MuiButtonBase-root MuiIconButton-root makeStyles-closeButton-1005"
+              class="MuiButtonBase-root MuiIconButton-root makeStyles-closeButton-1009"
               data-testid="close-dialog"
               tabindex="0"
               type="button"
@@ -87,7 +87,7 @@ exports[`back button button navigates back from form 1`] = `
           </h2>
         </div>
         <div
-          class="MuiDialogContent-root makeStyles-content-1001"
+          class="MuiDialogContent-root makeStyles-content-1005"
         >
           <button
             class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
@@ -105,13 +105,13 @@ exports[`back button button navigates back from form 1`] = `
             />
           </button>
           <div
-            class="MuiContainer-root makeStyles-dividerContainer-1003 MuiContainer-maxWidthLg"
+            class="MuiContainer-root makeStyles-dividerContainer-1007 MuiContainer-maxWidthLg"
           >
             <hr
-              class="MuiDivider-root makeStyles-divider-1002"
+              class="MuiDivider-root makeStyles-divider-1006"
             />
             <span
-              class="MuiTypography-root makeStyles-dividerText-1004 MuiTypography-body1"
+              class="MuiTypography-root makeStyles-dividerText-1008 MuiTypography-body1"
             >
               misc.or
             </span>
@@ -203,7 +203,7 @@ exports[`back button button navigates back from form 2`] = `
             </button>
             auth.dialog.title.login
             <button
-              class="MuiButtonBase-root MuiIconButton-root makeStyles-closeButton-1005"
+              class="MuiButtonBase-root MuiIconButton-root makeStyles-closeButton-1009"
               data-testid="close-dialog"
               tabindex="0"
               type="button"
@@ -229,7 +229,7 @@ exports[`back button button navigates back from form 2`] = `
           </h2>
         </div>
         <div
-          class="MuiDialogContent-root makeStyles-content-1001"
+          class="MuiDialogContent-root makeStyles-content-1005"
         >
           <form>
             <div
@@ -263,10 +263,10 @@ exports[`back button button navigates back from form 2`] = `
                     />
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-1320 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-1324 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-1322"
+                        class="PrivateNotchedOutline-legendLabelled-1326"
                       >
                         <span>
                           form.username *
@@ -340,10 +340,10 @@ exports[`back button button navigates back from form 2`] = `
                     </div>
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-1320 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-1324 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-1322"
+                        class="PrivateNotchedOutline-legendLabelled-1326"
                       >
                         <span>
                           form.password *
@@ -365,7 +365,7 @@ exports[`back button button navigates back from form 2`] = `
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
               >
                 <div
-                  class="MuiBox-root MuiBox-root-1342 makeStyles-wrapper-1339"
+                  class="MuiBox-root MuiBox-root-1346 makeStyles-wrapper-1343"
                 >
                   <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth Mui-focusVisible Mui-focusVisible"
@@ -466,7 +466,7 @@ exports[`back button button navigates back from form 3`] = `
             </button>
             auth.dialog.title.authenticate
             <button
-              class="MuiButtonBase-root MuiIconButton-root makeStyles-closeButton-1005"
+              class="MuiButtonBase-root MuiIconButton-root makeStyles-closeButton-1009"
               data-testid="close-dialog"
               tabindex="0"
               type="button"
@@ -492,7 +492,7 @@ exports[`back button button navigates back from form 3`] = `
           </h2>
         </div>
         <div
-          class="MuiDialogContent-root makeStyles-content-1001"
+          class="MuiDialogContent-root makeStyles-content-1005"
         >
           <button
             class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
@@ -510,13 +510,13 @@ exports[`back button button navigates back from form 3`] = `
             />
           </button>
           <div
-            class="MuiContainer-root makeStyles-dividerContainer-1003 MuiContainer-maxWidthLg"
+            class="MuiContainer-root makeStyles-dividerContainer-1007 MuiContainer-maxWidthLg"
           >
             <hr
-              class="MuiDivider-root makeStyles-divider-1002"
+              class="MuiDivider-root makeStyles-divider-1006"
             />
             <span
-              class="MuiTypography-root makeStyles-dividerText-1004 MuiTypography-body1"
+              class="MuiTypography-root makeStyles-dividerText-1008 MuiTypography-body1"
             >
               misc.or
             </span>
@@ -608,7 +608,7 @@ exports[`if user logged in redirect to last origin 1`] = `
             </button>
             auth.dialog.title.authenticate
             <button
-              class="MuiButtonBase-root MuiIconButton-root makeStyles-closeButton-1362"
+              class="MuiButtonBase-root MuiIconButton-root makeStyles-closeButton-1366"
               data-testid="close-dialog"
               tabindex="0"
               type="button"
@@ -634,7 +634,7 @@ exports[`if user logged in redirect to last origin 1`] = `
           </h2>
         </div>
         <div
-          class="MuiDialogContent-root makeStyles-content-1358"
+          class="MuiDialogContent-root makeStyles-content-1362"
         >
           <button
             class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
@@ -652,13 +652,13 @@ exports[`if user logged in redirect to last origin 1`] = `
             />
           </button>
           <div
-            class="MuiContainer-root makeStyles-dividerContainer-1360 MuiContainer-maxWidthLg"
+            class="MuiContainer-root makeStyles-dividerContainer-1364 MuiContainer-maxWidthLg"
           >
             <hr
-              class="MuiDivider-root makeStyles-divider-1359"
+              class="MuiDivider-root makeStyles-divider-1363"
             />
             <span
-              class="MuiTypography-root makeStyles-dividerText-1361 MuiTypography-body1"
+              class="MuiTypography-root makeStyles-dividerText-1365 MuiTypography-body1"
             >
               misc.or
             </span>
@@ -750,7 +750,7 @@ exports[`login button navigates to correct url 1`] = `
             </button>
             auth.dialog.title.authenticate
             <button
-              class="MuiButtonBase-root MuiIconButton-root makeStyles-closeButton-663"
+              class="MuiButtonBase-root MuiIconButton-root makeStyles-closeButton-667"
               data-testid="close-dialog"
               tabindex="0"
               type="button"
@@ -776,7 +776,7 @@ exports[`login button navigates to correct url 1`] = `
           </h2>
         </div>
         <div
-          class="MuiDialogContent-root makeStyles-content-659"
+          class="MuiDialogContent-root makeStyles-content-663"
         >
           <button
             class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-fullWidth"
@@ -794,13 +794,13 @@ exports[`login button navigates to correct url 1`] = `
             />
           </button>
           <div
-            class="MuiContainer-root makeStyles-dividerContainer-661 MuiContainer-maxWidthLg"
+            class="MuiContainer-root makeStyles-dividerContainer-665 MuiContainer-maxWidthLg"
           >
             <hr
-              class="MuiDivider-root makeStyles-divider-660"
+              class="MuiDivider-root makeStyles-divider-664"
             />
             <span
-              class="MuiTypography-root makeStyles-dividerText-662 MuiTypography-body1"
+              class="MuiTypography-root makeStyles-dividerText-666 MuiTypography-body1"
             >
               misc.or
             </span>
@@ -892,7 +892,7 @@ exports[`login button navigates to correct url 2`] = `
             </button>
             auth.dialog.title.login
             <button
-              class="MuiButtonBase-root MuiIconButton-root makeStyles-closeButton-663"
+              class="MuiButtonBase-root MuiIconButton-root makeStyles-closeButton-667"
               data-testid="close-dialog"
               tabindex="0"
               type="button"
@@ -918,7 +918,7 @@ exports[`login button navigates to correct url 2`] = `
           </h2>
         </div>
         <div
-          class="MuiDialogContent-root makeStyles-content-659"
+          class="MuiDialogContent-root makeStyles-content-663"
         >
           <form>
             <div
@@ -952,10 +952,10 @@ exports[`login button navigates to correct url 2`] = `
                     />
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-978 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-982 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-980"
+                        class="PrivateNotchedOutline-legendLabelled-984"
                       >
                         <span>
                           form.username *
@@ -1029,10 +1029,10 @@ exports[`login button navigates to correct url 2`] = `
                     </div>
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-978 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-982 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-980"
+                        class="PrivateNotchedOutline-legendLabelled-984"
                       >
                         <span>
                           form.password *
@@ -1054,7 +1054,7 @@ exports[`login button navigates to correct url 2`] = `
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
               >
                 <div
-                  class="MuiBox-root MuiBox-root-1000 makeStyles-wrapper-997"
+                  class="MuiBox-root MuiBox-root-1004 makeStyles-wrapper-1001"
                 >
                   <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth Mui-focusVisible Mui-focusVisible"
@@ -1475,6 +1475,56 @@ exports[`sign up button navigates to correct url 2`] = `
                 class="MuiGrid-root MuiGrid-item"
               >
                 <div
+                  class="MuiContainer-root MuiContainer-maxWidthLg"
+                >
+                  <div
+                    class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center MuiGrid-justify-xs-space-around"
+                  >
+                    <div
+                      class="MuiGrid-root MuiGrid-item"
+                    >
+                      <div
+                        class="MuiPaper-root makeStyles-imgContainer-579 MuiPaper-elevation5 MuiPaper-rounded"
+                      >
+                        <p
+                          class="MuiTypography-root makeStyles-imgText-580 MuiTypography-body1 MuiTypography-alignCenter"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root makeStyles-imgIconAlt-581"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"
+                            />
+                          </svg>
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="MuiGrid-root MuiGrid-item"
+                    >
+                      <button
+                        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textSecondary Mui-disabled Mui-disabled"
+                        disabled=""
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="MuiButton-label"
+                        >
+                          form.profilePicture.noUsername
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item"
+              >
+                <div
                   class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
                 >
                   <label
@@ -1499,10 +1549,10 @@ exports[`sign up button navigates to correct url 2`] = `
                     />
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-636 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-640 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-638"
+                        class="PrivateNotchedOutline-legendLabelled-642"
                       >
                         <span>
                           form.username *
@@ -1548,10 +1598,10 @@ exports[`sign up button navigates to correct url 2`] = `
                     />
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-636 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-640 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-638"
+                        class="PrivateNotchedOutline-legendLabelled-642"
                       >
                         <span>
                           form.email *
@@ -1625,10 +1675,10 @@ exports[`sign up button navigates to correct url 2`] = `
                     </div>
                     <fieldset
                       aria-hidden="true"
-                      class="PrivateNotchedOutline-root-636 MuiOutlinedInput-notchedOutline"
+                      class="PrivateNotchedOutline-root-640 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-638"
+                        class="PrivateNotchedOutline-legendLabelled-642"
                       >
                         <span>
                           form.password *
@@ -1650,7 +1700,7 @@ exports[`sign up button navigates to correct url 2`] = `
                 class="MuiGrid-root MuiGrid-item"
               >
                 <div
-                  class="MuiBox-root MuiBox-root-658 makeStyles-wrapper-655"
+                  class="MuiBox-root MuiBox-root-662 makeStyles-wrapper-659"
                 >
                   <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth Mui-focusVisible Mui-focusVisible"
