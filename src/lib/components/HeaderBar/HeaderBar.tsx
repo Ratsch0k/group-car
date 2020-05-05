@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {makeStyles} from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '../Avatar';
@@ -22,6 +22,7 @@ const useStyles = makeStyles({
 const HeaderBar: React.FC = () => {
   const classes = useStyles();
   const auth = useContext(AuthContext);
+  const [userId, setUserId] = useState<number>();
 
   const handleAvatarClick = () => {
     if (auth.user && auth.user.username) {
@@ -31,6 +32,14 @@ const HeaderBar: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    if (auth.user && auth.user.id !== undefined) {
+      setUserId(auth.user.id);
+    } else {
+      setUserId(undefined);
+    }
+  }, [auth.user]);
+
   return (
     <AppBar>
       <Toolbar className={classes.root}>
@@ -39,7 +48,7 @@ const HeaderBar: React.FC = () => {
         </Typography>
         <IconButton color='inherit' onClick={handleAvatarClick}>
           <Avatar
-            username={auth.user && auth.user.username}
+            userId={userId}
           />
         </IconButton>
         <IconButton color='inherit'>
