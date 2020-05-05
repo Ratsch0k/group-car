@@ -18,9 +18,16 @@
       "required": "Required",
       "atLeast6": "At least 6 characters",
       "invalidEmail": "Invalid email"
+    },
+    "profilePicture": {
+      "alt": "profile picture",
+      "generateNew": "Generate a new profile picture",
+      "noUsername": "Enter a username to generate a profile picture",
+      "noPic": "No profile picture"
     }
   },
   "misc": {
-    "or": "or"
+    "or": "or",
+    "loading": "Loading"
   }
 }
