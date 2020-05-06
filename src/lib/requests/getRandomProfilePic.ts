@@ -15,7 +15,7 @@ const getRandomProfilePic = (username: string, offset?: number): Request => {
 
   const source = axios.CancelToken.source();
 
-  const request = axios.get('/user/generate-pb', {
+  const request = axios.get('/user/generate-profile-pic', {
     params: {
       username,
       offset,
