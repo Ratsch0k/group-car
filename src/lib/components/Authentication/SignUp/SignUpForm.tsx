@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {useState, useContext} from 'react';
 import PasswordTextField from 'lib/components/Input/PasswordTextField';
-import {TextField, Grid} from '@material-ui/core';
-import axios from 'axios';
+import {TextField, Grid, Container} from '@material-ui/core';
 import {useFormik} from 'formik';
 import * as yup from 'yup';
 import {useTranslation} from 'react-i18next';
 import ProgressButton from 'lib/components/Input/ProgressButton';
+import GenerateProfilePic from './GenerateProfilePic/GenProfilePic';
+import AuthContext from 'lib/context/auth/authContext';
 
 export interface SignUpFormProps {
   withSubmit?: boolean;
@@ -15,9 +16,13 @@ export interface SignUpFormProps {
 
 const SignUpForm: React.FC<SignUpFormProps> = (props: SignUpFormProps) => {
   const {t} = useTranslation();
+  const [offset, setOffset] = useState<number>(0);
+  const auth = useContext(AuthContext);
 
   const validationSchema = yup.object({
-    username: yup.string().required(t('form.error.required')),
+    username: yup.string().required(t('form.error.required'))
+        .min(3, t('form.error.usernameToShort'))
+        .matches(/^(\S)*$/, {message: t('form.error.usernameWhitespace')}),
     email: yup.string().email(t('form.error.invalidEmail'))
         .required(t('form.error.required')),
     password: yup.string().min(6, t('form.error.atLeast6'))
@@ -33,13 +38,14 @@ const SignUpForm: React.FC<SignUpFormProps> = (props: SignUpFormProps) => {
     validationSchema,
     onSubmit: (values) => {
       props.setLoading && props.setLoading(true);
-      axios.put('/auth/sign-up', values).then(() => {
-        props.setLoading && props.setLoading(false);
-        props.onFinished && props.onFinished();
-      }).catch(() => {
-        props.setLoading && props.setLoading(false);
-        formik.setSubmitting(false);
-      });
+      auth.signUp(values.username, values.email, values.password, offset)
+          .then(() => {
+            props.setLoading && props.setLoading(false);
+            props.onFinished && props.onFinished();
+          }).catch(() => {
+            props.setLoading && props.setLoading(false);
+            formik.setSubmitting(false);
+          });
     },
   });
 
@@ -50,7 +56,17 @@ const SignUpForm: React.FC<SignUpFormProps> = (props: SignUpFormProps) => {
         spacing={1}
         direction='column'
         justify='flex-start'
-        alignItems='stretch'>
+        alignItems='stretch'
+      >
+        <Grid item>
+          <Container>
+            <GenerateProfilePic
+              username={formik.values.username}
+              offset={offset}
+              setOffset={setOffset}
+            />
+          </Container>
+        </Grid>
         <Grid item>
           <TextField
             fullWidth

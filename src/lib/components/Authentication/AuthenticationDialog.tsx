@@ -54,6 +54,7 @@ interface AuthenticationDialogProps {
   close(): void;
   initialAuthType?: AuthType;
   onAuthTypeChange?(type: AuthType): void;
+  authType?: AuthType;
 }
 
 const AuthenticationDialog: React.FC<AuthenticationDialogProps> =
@@ -61,17 +62,23 @@ const AuthenticationDialog: React.FC<AuthenticationDialogProps> =
   const classes = useStyle();
   const {t} = useTranslation();
   const auth = useContext(AuthContext);
+  const {onAuthTypeChange} = props;
 
   const [loading, setLoading] = useState<boolean>(false);
   const [authType, setAuthType] = useState<AuthType>(props.initialAuthType);
 
-  const {onAuthTypeChange} = props;
+  /**
+   * Give the parent component control over the authentication type.
+   */
+  useEffect(() => {
+    setAuthType(props.authType);
+  }, [props.authType]);
 
   /**
    * Handles navigation to sign up page
    */
   const handleSignUp = () => {
-    onAuthTypeChange && onAuthTypeChange('login');
+    onAuthTypeChange && onAuthTypeChange('sign-up');
     setAuthType('sign-up');
   };
 
@@ -79,7 +86,7 @@ const AuthenticationDialog: React.FC<AuthenticationDialogProps> =
    * Handles navigation to login page
    */
   const handleLogin = () => {
-    onAuthTypeChange && onAuthTypeChange('sign-up');
+    onAuthTypeChange && onAuthTypeChange('login');
     setAuthType('login');
   };
 
