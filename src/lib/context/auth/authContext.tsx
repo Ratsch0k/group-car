@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import checkLoggedIn from 'lib/requests/checkLoggedIn';
 import loginRequest from 'lib/requests/login';
+import logoutRequest from 'lib/requests/logout';
 import signUpRequest from 'lib/requests/signUp';
 import {useLocation, useHistory} from 'react-router-dom';
 import queryString from 'query-string';
@@ -98,9 +99,11 @@ export const AuthProvider: React.FC = (props) => {
   };
 
   const logout = (): Request => {
-    setUser(undefined);
-    setIsLoggedIn(false);
-    return Promise.reject(new Error('Not yet implemented'));
+    return logoutRequest().request.then((res) => {
+      setUser(undefined);
+      setIsLoggedIn(false);
+      return res;
+    });
   };
 
   return (
