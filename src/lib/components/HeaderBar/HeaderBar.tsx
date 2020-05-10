@@ -1,13 +1,21 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {makeStyles} from '@material-ui/core';
+import {
+  makeStyles,
+  Popper,
+  ClickAwayListener,
+  Box,
+  Paper,
+  Fade,
+} from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
-import Avatar from '../Avatar';
+import UserAvatar from '../UserAvatar';
 import IconButton from '@material-ui/core/IconButton';
 import EmojiTransportationIcon from '@material-ui/icons/EmojiTransportation';
 import MenuIcon from '@material-ui/icons/Menu';
 import AppBar from '@material-ui/core/AppBar/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import AuthContext from 'lib/context/auth/authContext';
+import UserOverview from '../UserOverview/UserOverview';
 
 const useStyles = makeStyles({
   root: {
@@ -23,13 +31,23 @@ const HeaderBar: React.FC = () => {
   const classes = useStyles();
   const auth = useContext(AuthContext);
   const [userId, setUserId] = useState<number>();
+  const [userOverviewAnchor, setUserOverviewAnchor] =
+      useState<HTMLElement | null>(null);
 
-  const handleAvatarClick = () => {
+  const handleAvatarClick = (event: React.MouseEvent<HTMLElement>) => {
     if (auth.user && auth.user.username) {
-
+      if (userOverviewAnchor) {
+        setUserOverviewAnchor(null);
+      } else {
+        setUserOverviewAnchor(event.currentTarget);
+      }
     } else {
       auth.openAuthDialog();
     }
+  };
+
+  const handleUserOverviewClose = () => {
+    setUserOverviewAnchor(null);
   };
 
   useEffect(() => {
@@ -46,11 +64,38 @@ const HeaderBar: React.FC = () => {
         <Typography className={classes.title} variant="h4">
           Group Car
         </Typography>
-        <IconButton color='inherit' onClick={handleAvatarClick}>
-          <Avatar
-            userId={userId}
-          />
-        </IconButton>
+        <ClickAwayListener
+          onClickAway={handleUserOverviewClose}
+        >
+          <Box>
+            <IconButton color='inherit' onClick={handleAvatarClick}>
+              <UserAvatar
+                userId={userId}
+              />
+            </IconButton>
+
+            <Popper
+              open={Boolean(userOverviewAnchor)}
+              anchorEl={userOverviewAnchor}
+              placement='bottom'
+              disablePortal={true}
+              transition
+            >
+              {({TransitionProps}) => (
+                <Fade {...TransitionProps} timeout={200}>
+                  <Paper
+                    elevation={6}
+                  >
+                    <UserOverview
+                      onClose={handleUserOverviewClose}
+                    />
+                  </Paper>
+                </Fade>
+              )}
+
+            </Popper>
+          </Box>
+        </ClickAwayListener>
         <IconButton color='inherit'>
           <EmojiTransportationIcon fontSize='large'/>
         </IconButton>

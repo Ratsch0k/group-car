@@ -11,6 +11,7 @@
   "form": {
     "login": "Login",
     "sign-up": "Sign up",
+    "logout": "Log out",
     "username": "Username",
     "email": "Email",
     "password": "Password",

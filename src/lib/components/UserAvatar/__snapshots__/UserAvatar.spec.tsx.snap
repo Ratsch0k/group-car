@@ -2,11 +2,15 @@
 
 exports[`renders with given userId 1`] = `
 <div>
-  <img
-    alt="misc.avatar"
-    class="makeStyles-img-12"
-    src="/api/user/12/profile-pic"
-  />
+  <div
+    class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-12"
+  >
+    <img
+      alt="user-12"
+      class="MuiAvatar-img"
+      src="/api/user/12/profile-pic"
+    />
+  </div>
 </div>
 `;
 
