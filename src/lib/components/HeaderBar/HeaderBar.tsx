@@ -1,5 +1,11 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {makeStyles, Popover} from '@material-ui/core';
+import {
+  makeStyles,
+  Popper,
+  ClickAwayListener,
+  Box,
+  Paper,
+} from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import UserAvatar from '../UserAvatar';
 import IconButton from '@material-ui/core/IconButton';
@@ -53,32 +59,32 @@ const HeaderBar: React.FC = () => {
         <Typography className={classes.title} variant="h4">
           Group Car
         </Typography>
-        <IconButton color='inherit' onClick={handleAvatarClick}>
-          <UserAvatar
-            userId={userId}
-          />
-        </IconButton>
-        <Popover
-          open={Boolean(userOverviewAnchor)}
-          onClose={handleUserOverviewClose}
-          anchorEl={userOverviewAnchor}
-          anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'center',
-          }}
-          transformOrigin={{
-            horizontal: 'center',
-            vertical: 'top',
-          }}
-          transitionDuration={{
-            enter: 200,
-            exit: 200,
-          }}
+        <ClickAwayListener
+          onClickAway={handleUserOverviewClose}
         >
-          <UserOverview
-            onClose={handleUserOverviewClose}
-          />
-        </Popover>
+          <Box>
+            <IconButton color='inherit' onClick={handleAvatarClick}>
+              <UserAvatar
+                userId={userId}
+              />
+            </IconButton>
+
+            <Popper
+              open={Boolean(userOverviewAnchor)}
+              anchorEl={userOverviewAnchor}
+              placement='bottom'
+              disablePortal={true}
+            >
+              <Paper
+                elevation={6}
+              >
+                <UserOverview
+                  onClose={handleUserOverviewClose}
+                />
+              </Paper>
+            </Popper>
+          </Box>
+        </ClickAwayListener>
         <IconButton color='inherit'>
           <EmojiTransportationIcon fontSize='large'/>
         </IconButton>
