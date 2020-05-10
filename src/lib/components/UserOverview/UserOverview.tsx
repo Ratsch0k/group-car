@@ -55,9 +55,17 @@ const UserOverview: React.FC<UserOverviewProps> =
             <Typography align='center'>
               {auth.user && auth.user.username}
             </Typography>
+            <Typography
+              align='center'
+              variant='caption'
+              color='textSecondary'
+            >
+              {auth.user && auth.user.email}
+            </Typography>
           </>,
       );
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth.user]);
 
   return (
@@ -66,7 +74,7 @@ const UserOverview: React.FC<UserOverviewProps> =
         container
         direction='column'
         justify='flex-start'
-        alignItems='center'
+        alignItems='stretch'
       >
         <Grid
           item
