@@ -12,25 +12,15 @@
     "login": "Anmelden",
     "sign-up": "Erstellen",
     "username": "Benutzername",
-    "logout": "Abmelden",
     "email": "Email",
     "password": "Passwort",
     "error": {
       "required": "Benötigt",
       "atLeast6": "Muss mindestends 6 Zeichen haben",
-      "invalidEmail": "Ungültige Email Adresse",
-      "usernameWhitespace": "Leerzeichen sind nicht erlaubt",
-      "usernameToShort": "Benutzername muss mindestens ${min} zeichen enthalten"
-    },
-    "profilePicture": {
-      "alt": "Profil Bild",
-      "generateNew": "Generiere ein neues Profil Bild",
-      "noUsername": "Gebe einen Benutzername ein um ein Profil Bild zu generieren",
-      "noPic": "Kein Profil Bild"
+      "invalidEmail": "Ungültige Email Adresse"
     }
   },
   "misc": {
-    "or": "oder",
-    "loading": "Lade"
+    "or": "oder"
   }
 }

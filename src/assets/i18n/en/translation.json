@@ -11,26 +11,16 @@
   "form": {
     "login": "Login",
     "sign-up": "Sign up",
-    "logout": "Log out",
     "username": "Username",
     "email": "Email",
     "password": "Password",
     "error": {
       "required": "Required",
       "atLeast6": "At least 6 characters",
-      "invalidEmail": "Invalid email",
-      "usernameWhitespace": "Whitespace not allowed",
-      "usernameToShort": "Username has to be at least ${min} characters long"
-    },
-    "profilePicture": {
-      "alt": "profile picture",
-      "generateNew": "Generate a new profile picture",
-      "noUsername": "Enter a username to generate a profile picture",
-      "noPic": "No profile picture"
+      "invalidEmail": "Invalid email"
     }
   },
   "misc": {
-    "or": "or",
-    "loading": "Loading"
+    "or": "or"
   }
 }
