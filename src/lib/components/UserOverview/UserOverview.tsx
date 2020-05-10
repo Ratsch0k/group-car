@@ -1,4 +1,4 @@
-import {Button, Grid, Paper, Typography} from '@material-ui/core';
+import {Button, Grid, Box, Typography} from '@material-ui/core';
 import {createStyles, makeStyles} from '@material-ui/styles';
 import AuthContext from 'lib/context/auth/authContext';
 import React, {useContext, useState, useEffect} from 'react';
@@ -48,7 +48,7 @@ const UserOverview: React.FC<UserOverviewProps> =
 
   useEffect(() => {
     // Only update the user info if the user changes
-    if (auth.user) {
+    if (auth.isLoggedIn && auth.user) {
       setUserInfo(
           <>
             <UserAvatar userId={auth.user && auth.user.id} size={100}/>
@@ -61,7 +61,7 @@ const UserOverview: React.FC<UserOverviewProps> =
   }, [auth.user]);
 
   return (
-    <Paper className={classes.container}>
+    <Box className={classes.container}>
       <Grid
         container
         direction='column'
@@ -71,12 +71,12 @@ const UserOverview: React.FC<UserOverviewProps> =
         <Grid
           item
           className={classes.userInfo}
-          alignContent='center'
         >
           {userInfo}
         </Grid>
         <Grid item>
           <Button
+            data-testid='logout-button'
             color='primary'
             variant='contained'
             onClick={handleLogout}
@@ -86,7 +86,7 @@ const UserOverview: React.FC<UserOverviewProps> =
           </Button>
         </Grid>
       </Grid>
-    </Paper>
+    </Box>
   );
 };
 
