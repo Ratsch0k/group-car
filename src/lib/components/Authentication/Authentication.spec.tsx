@@ -102,6 +102,7 @@ it('if user logged in redirect to last origin', () => {
   // Fake auth context
   const login = jest.fn();
   const logout = jest.fn();
+  const signUp = jest.fn();
 
   const {baseElement} = render(
       <MemoryRouter>
@@ -109,6 +110,7 @@ it('if user logged in redirect to last origin', () => {
           isLoggedIn: true,
           login,
           logout,
+          signUp,
           user: undefined,
           openAuthDialog: () => {},
         }}>
