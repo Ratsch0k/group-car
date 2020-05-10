@@ -5,6 +5,7 @@ import {
   ClickAwayListener,
   Box,
   Paper,
+  Fade,
 } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import UserAvatar from '../UserAvatar';
@@ -35,7 +36,11 @@ const HeaderBar: React.FC = () => {
 
   const handleAvatarClick = (event: React.MouseEvent<HTMLElement>) => {
     if (auth.user && auth.user.username) {
-      setUserOverviewAnchor(event.currentTarget);
+      if (userOverviewAnchor) {
+        setUserOverviewAnchor(null);
+      } else {
+        setUserOverviewAnchor(event.currentTarget);
+      }
     } else {
       auth.openAuthDialog();
     }
@@ -74,14 +79,20 @@ const HeaderBar: React.FC = () => {
               anchorEl={userOverviewAnchor}
               placement='bottom'
               disablePortal={true}
+              transition
             >
-              <Paper
-                elevation={6}
-              >
-                <UserOverview
-                  onClose={handleUserOverviewClose}
-                />
-              </Paper>
+              {({TransitionProps}) => (
+                <Fade {...TransitionProps} timeout={200}>
+                  <Paper
+                    elevation={6}
+                  >
+                    <UserOverview
+                      onClose={handleUserOverviewClose}
+                    />
+                  </Paper>
+                </Fade>
+              )}
+
             </Popper>
           </Box>
         </ClickAwayListener>
