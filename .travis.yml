@@ -21,8 +21,8 @@ jobs:
     - stage: "Static Analysis"
       name: "Lint"
       script: npm run eslint
-#    - script: npm audit
-#      name: "Audit"
+    - script: npm audit
+      name: "Audit"
     - stage: "Test"
       script: npm run test
     - stage: "Build"
@@ -42,8 +42,6 @@ jobs:
       script:
       - npm run build --prod
       - bash scripts/deploy_release.sh
-  allow_failures:
-
 
 stages:
   - "Static Analysis"
