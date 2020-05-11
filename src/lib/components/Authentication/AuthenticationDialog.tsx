@@ -12,14 +12,6 @@ import {
 } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import React, {useState, useEffect, useContext} from 'react';
-import {
-  Redirect,
-  Route,
-  Switch,
-  useHistory,
-  useRouteMatch,
-  useLocation,
-} from 'react-router-dom';
 import {LoginForm} from './Login';
 import {SignUpForm} from './SignUp';
 import {useTranslation} from 'react-i18next';
@@ -55,47 +47,64 @@ const useStyle = makeStyles((theme: Theme) =>
   }),
 );
 
-const Authentication: React.FC = () => {
-  const match = useRouteMatch();
-  const history = useHistory();
+export const AuthType = ['login', 'sign-up'];
+export type AuthType = 'login' | 'sign-up' | undefined;
+interface AuthenticationDialogProps {
+  open: boolean;
+  close(): void;
+  initialAuthType?: AuthType;
+  onAuthTypeChange?(type: AuthType): void;
+  authType?: AuthType;
+}
+
+const AuthenticationDialog: React.FC<AuthenticationDialogProps> =
+(props: AuthenticationDialogProps) => {
   const classes = useStyle();
   const {t} = useTranslation();
-  const location = useLocation();
   const auth = useContext(AuthContext);
+  const {onAuthTypeChange} = props;
 
   const [loading, setLoading] = useState<boolean>(false);
+  const [authType, setAuthType] = useState<AuthType>(props.initialAuthType);
 
   /**
-   * Save the url from which the client navigated to this component
+   * Give the parent component control over the authentication type.
    */
-  const [origin] = useState<string>('/');
+  useEffect(() => {
+    setAuthType(props.authType);
+  }, [props.authType]);
 
   /**
    * Handles navigation to sign up page
    */
   const handleSignUp = () => {
-    history.push(`${match.url}/sign-up`);
+    onAuthTypeChange && onAuthTypeChange('sign-up');
+    setAuthType('sign-up');
   };
 
   /**
    * Handles navigation to login page
    */
   const handleLogin = () => {
-    history.push(`${match.url}/login`);
+    onAuthTypeChange && onAuthTypeChange('login');
+    setAuthType('login');
   };
 
   /**
    * Handles go back action
    */
   const handleBack = () => {
-    history.goBack();
+    onAuthTypeChange && onAuthTypeChange(undefined);
+    setAuthType(undefined);
   };
 
   /**
    * Navigates to the page from which auth was called.
    */
   const onFinished = () => {
-    history.replace(origin);
+    setLoading(false);
+    setAuthType(undefined);
+    props.close();
   };
 
   /**
@@ -109,8 +118,56 @@ const Authentication: React.FC = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth.isLoggedIn]);
 
+  let authContainer: JSX.Element;
+  if (authType === 'login') {
+    authContainer = (
+      <LoginForm
+        withSubmit
+        onFinished={onFinished}
+        setLoading={setLoading}
+      />
+    );
+  } else if (authType === 'sign-up') {
+    authContainer = (
+      <SignUpForm
+        withSubmit
+        onFinished={onFinished}
+        setLoading={setLoading}
+      />
+    );
+  } else {
+    authContainer = (
+      <>
+        <Button
+          data-testid='to-login'
+          fullWidth
+          variant='outlined'
+          color='primary'
+          onClick={handleLogin}
+        >
+          {t('form.login')}
+        </Button>
+        <Container className={classes.dividerContainer}>
+          <Divider orientation='horizontal' className={classes.divider}/>
+          <Typography component='span' className={classes.dividerText}>
+            {t('misc.or')}
+          </Typography>
+        </Container>
+        <Button
+          data-testid='to-signup'
+          fullWidth
+          variant='outlined'
+          color='primary'
+          onClick={handleSignUp}
+        >
+          {t('form.sign-up')}
+        </Button>
+      </>
+    );
+  }
+
   return (
-    <Dialog open={true} fullWidth maxWidth='xs'>
+    <Dialog open={props.open} fullWidth maxWidth='xs'>
       <DialogTitle>
         <IconButton
           data-testid='go-back'
@@ -118,15 +175,14 @@ const Authentication: React.FC = () => {
           disableRipple
           disabled={loading}
           onClick={handleBack}
-          style={{visibility: match.isExact ? 'hidden' : 'visible'}}
+          style={{visibility: authType === undefined ? 'hidden' : 'visible'}}
         >
           <ArrowBackIcon/>
         </IconButton>
         {
-          match.isExact ?
+          authType === undefined ?
           t('auth.dialog.title.authenticate') :
-          t('auth.dialog.title.' +
-            location.pathname.replace(match.path + '/', ''))
+          t(`auth.dialog.title.${authType}`)
         }
         <IconButton
           className={classes.closeButton}
@@ -138,54 +194,10 @@ const Authentication: React.FC = () => {
         </IconButton>
       </DialogTitle>
       <DialogContent className={classes.content}>
-        <Switch>
-          <Route exact path={match.path}>
-            <Button
-              data-testid='to-login'
-              fullWidth
-              variant='outlined'
-              color='primary'
-              onClick={handleLogin}
-            >
-              {t('form.login')}
-            </Button>
-            <Container className={classes.dividerContainer}>
-              <Divider orientation='horizontal' className={classes.divider}/>
-              <Typography component='span' className={classes.dividerText}>
-                {t('misc.or')}
-              </Typography>
-            </Container>
-            <Button
-              data-testid='to-signup'
-              fullWidth
-              variant='outlined'
-              color='primary'
-              onClick={handleSignUp}
-            >
-              {t('form.sign-up')}
-            </Button>
-          </Route>
-          <Route path={`${match.path}/sign-up`}>
-            <SignUpForm
-              withSubmit
-              onFinished={onFinished}
-              setLoading={setLoading}
-            />
-          </Route>
-          <Route path={`${match.path}/login`}>
-            <LoginForm
-              withSubmit
-              onFinished={onFinished}
-              setLoading={setLoading}
-            />
-          </Route>
-          <Route path='*'>
-            <Redirect to='/auth' />
-          </Route>
-        </Switch>
+        {authContainer}
       </DialogContent>
     </Dialog>
   );
 };
 
-export default Authentication;
+export default AuthenticationDialog;

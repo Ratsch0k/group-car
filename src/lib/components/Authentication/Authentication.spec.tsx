@@ -1,21 +1,21 @@
 import React from 'react';
 import {render, screen, fireEvent} from '@testing-library/react';
-import Authentication from './Authentication';
+import AuthenticationDialog from './AuthenticationDialog';
 import {MemoryRouter} from 'react-router-dom';
 import '@testing-library/jest-dom/extend-expect';
-import AuthContext from 'lib/context/auth/authContext';
+import AuthContext from '../../context/auth/authContext';
 
 it('renders without crashing', () => {
   render(
       <MemoryRouter>
-        <Authentication />
+        <AuthenticationDialog open={true} close={() => {}}/>
       </MemoryRouter>);
 });
 
 it('matches snapshot', async () => {
   const {baseElement} = render(
       <MemoryRouter>
-        <Authentication />
+        <AuthenticationDialog open={true} close={() => {}}/>
       </MemoryRouter>);
 
   expect(baseElement).toMatchSnapshot();
@@ -24,7 +24,7 @@ it('matches snapshot', async () => {
 it('sign up button navigates to correct url', () => {
   const {baseElement} = render(
       <MemoryRouter>
-        <Authentication />
+        <AuthenticationDialog open={true} close={() => {}}/>
       </MemoryRouter>);
 
   screen.getByTestId('to-signup');
@@ -48,7 +48,7 @@ it('sign up button navigates to correct url', () => {
 it('login button navigates to correct url', () => {
   const {baseElement} = render(
       <MemoryRouter>
-        <Authentication />
+        <AuthenticationDialog open={true} close={() => {}}/>
       </MemoryRouter>);
 
   screen.getByTestId('to-signup');
@@ -71,7 +71,7 @@ it('login button navigates to correct url', () => {
 it('back button button navigates back from form', () => {
   const {baseElement} = render(
       <MemoryRouter>
-        <Authentication />
+        <AuthenticationDialog open={true} close={() => {}}/>
       </MemoryRouter>);
 
   screen.getByTestId('to-signup');
@@ -102,6 +102,7 @@ it('if user logged in redirect to last origin', () => {
   // Fake auth context
   const login = jest.fn();
   const logout = jest.fn();
+  const signUp = jest.fn();
 
   const {baseElement} = render(
       <MemoryRouter>
@@ -109,9 +110,11 @@ it('if user logged in redirect to last origin', () => {
           isLoggedIn: true,
           login,
           logout,
+          signUp,
           user: undefined,
+          openAuthDialog: () => {},
         }}>
-          <Authentication />
+          <AuthenticationDialog open={true} close={() => {}}/>
         </AuthContext.Provider>
       </MemoryRouter>,
   );
