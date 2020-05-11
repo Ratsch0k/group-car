@@ -13,34 +13,34 @@ cache:
   - node_modules # Cache node modules for faster installing
 
 install:
-  - npm install         # Install all npm modules
+  - yarn install         # Install all npm modules
   - sudo apt-get install jq  # Command cli for reading json, needed to check package.json version
 
 jobs:
   include:
     - stage: "Static Analysis"
       name: "Lint"
-      script: npm run eslint
-    - script: npm audit
+      script: yarn eslint
+    - script: yarn audit
       name: "Audit"
     - stage: "Test"
-      script: npm run test
+      script: yarn test
     - stage: "Build"
-      script: npm run build --prod
+      script: yarn build --prod
     - stage: "Check tag and version"
       script: if [[ $TRAVIS_TAG =~ $( cat ./package.json | jq '.version' | cut -d'"' -f2 )$ ]]; then exit 0; else exit 1; fi
       install: skip
     - stage: "Deploy Development"
       script:
-      - npm run build --prod
+      - yarn build --prod
       - bash scripts/deploy_dev.sh
     - stage: "Deploy Beta"
       script:
-      - npm run build --prod
+      - yarn build --prod
       - bash scripts/deploy_beta.sh
     - stage: "Deploy Release"
       script:
-      - npm run build --prod
+      - yarn build --prod
       - bash scripts/deploy_release.sh
   allow_failures:
 
