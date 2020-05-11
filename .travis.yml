@@ -21,8 +21,8 @@ jobs:
     - stage: "Static Analysis"
       name: "Lint"
       script: npm run eslint
-    #- script: npm audit
-    #  name: "Audit"
+    - script: npm audit
+      name: "Audit"
     - stage: "Test"
       script: npm run test
     - stage: "Build"
