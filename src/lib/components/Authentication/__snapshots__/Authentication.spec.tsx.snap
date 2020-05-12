@@ -242,15 +242,15 @@ exports[`back button button navigates back from form 2`] = `
                   class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-marginDense MuiInputLabel-outlined"
-                    data-shrink="false"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-marginDense MuiInputLabel-outlined Mui-focused Mui-focused"
+                    data-shrink="true"
                     for="login-username"
                     id="login-username-label"
                   >
                     form.username *
                   </label>
                   <div
-                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-marginDense MuiOutlinedInput-marginDense"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth Mui-focused Mui-focused MuiInputBase-formControl MuiInputBase-marginDense MuiOutlinedInput-marginDense"
                   >
                     <input
                       aria-describedby="login-username-helper-text"
@@ -266,7 +266,7 @@ exports[`back button button navigates back from form 2`] = `
                       class="PrivateNotchedOutline-root-1324 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-1326"
+                        class="PrivateNotchedOutline-legendLabelled-1326 PrivateNotchedOutline-legendNotched-1327"
                       >
                         <span>
                           form.username *
@@ -275,7 +275,7 @@ exports[`back button button navigates back from form 2`] = `
                     </fieldset>
                   </div>
                   <p
-                    class="MuiFormHelperText-root MuiFormHelperText-contained MuiFormHelperText-marginDense"
+                    class="MuiFormHelperText-root MuiFormHelperText-contained Mui-focused MuiFormHelperText-marginDense"
                     id="login-username-helper-text"
                   >
                     <span>
@@ -368,7 +368,7 @@ exports[`back button button navigates back from form 2`] = `
                   class="MuiBox-root MuiBox-root-1346 makeStyles-wrapper-1343"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth Mui-focusVisible Mui-focusVisible"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"
                     tabindex="0"
                     type="submit"
                   >
@@ -379,16 +379,7 @@ exports[`back button button navigates back from form 2`] = `
                     </span>
                     <span
                       class="MuiTouchRipple-root"
-                    >
-                      <span
-                        class="MuiTouchRipple-ripple MuiTouchRipple-rippleVisible MuiTouchRipple-ripplePulsate"
-                        style="width: 1px; height: 1px; top: -0.5px; left: -0.5px;"
-                      >
-                        <span
-                          class="MuiTouchRipple-child MuiTouchRipple-childPulsate"
-                        />
-                      </span>
-                    </span>
+                    />
                   </button>
                 </div>
               </div>
@@ -931,15 +922,15 @@ exports[`login button navigates to correct url 2`] = `
                   class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-marginDense MuiInputLabel-outlined"
-                    data-shrink="false"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-marginDense MuiInputLabel-outlined Mui-focused Mui-focused"
+                    data-shrink="true"
                     for="login-username"
                     id="login-username-label"
                   >
                     form.username *
                   </label>
                   <div
-                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-marginDense MuiOutlinedInput-marginDense"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth Mui-focused Mui-focused MuiInputBase-formControl MuiInputBase-marginDense MuiOutlinedInput-marginDense"
                   >
                     <input
                       aria-describedby="login-username-helper-text"
@@ -955,7 +946,7 @@ exports[`login button navigates to correct url 2`] = `
                       class="PrivateNotchedOutline-root-982 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-984"
+                        class="PrivateNotchedOutline-legendLabelled-984 PrivateNotchedOutline-legendNotched-985"
                       >
                         <span>
                           form.username *
@@ -964,7 +955,7 @@ exports[`login button navigates to correct url 2`] = `
                     </fieldset>
                   </div>
                   <p
-                    class="MuiFormHelperText-root MuiFormHelperText-contained MuiFormHelperText-marginDense"
+                    class="MuiFormHelperText-root MuiFormHelperText-contained Mui-focused MuiFormHelperText-marginDense"
                     id="login-username-helper-text"
                   >
                     <span>
@@ -1057,7 +1048,7 @@ exports[`login button navigates to correct url 2`] = `
                   class="MuiBox-root MuiBox-root-1004 makeStyles-wrapper-1001"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth Mui-focusVisible Mui-focusVisible"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"
                     tabindex="0"
                     type="submit"
                   >
@@ -1068,16 +1059,7 @@ exports[`login button navigates to correct url 2`] = `
                     </span>
                     <span
                       class="MuiTouchRipple-root"
-                    >
-                      <span
-                        class="MuiTouchRipple-ripple MuiTouchRipple-rippleVisible MuiTouchRipple-ripplePulsate"
-                        style="width: 1px; height: 1px; top: -0.5px; left: -0.5px;"
-                      >
-                        <span
-                          class="MuiTouchRipple-child MuiTouchRipple-childPulsate"
-                        />
-                      </span>
-                    </span>
+                    />
                   </button>
                 </div>
               </div>
@@ -1528,15 +1510,15 @@ exports[`sign up button navigates to correct url 2`] = `
                   class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
                 >
                   <label
-                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-marginDense MuiInputLabel-outlined"
-                    data-shrink="false"
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-marginDense MuiInputLabel-outlined Mui-focused Mui-focused"
+                    data-shrink="true"
                     for="signup-username"
                     id="signup-username-label"
                   >
                     form.username *
                   </label>
                   <div
-                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-marginDense MuiOutlinedInput-marginDense"
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth Mui-focused Mui-focused MuiInputBase-formControl MuiInputBase-marginDense MuiOutlinedInput-marginDense"
                   >
                     <input
                       aria-describedby="signup-username-helper-text"
@@ -1552,7 +1534,7 @@ exports[`sign up button navigates to correct url 2`] = `
                       class="PrivateNotchedOutline-root-640 MuiOutlinedInput-notchedOutline"
                     >
                       <legend
-                        class="PrivateNotchedOutline-legendLabelled-642"
+                        class="PrivateNotchedOutline-legendLabelled-642 PrivateNotchedOutline-legendNotched-643"
                       >
                         <span>
                           form.username *
@@ -1561,7 +1543,7 @@ exports[`sign up button navigates to correct url 2`] = `
                     </fieldset>
                   </div>
                   <p
-                    class="MuiFormHelperText-root MuiFormHelperText-contained MuiFormHelperText-marginDense"
+                    class="MuiFormHelperText-root MuiFormHelperText-contained Mui-focused MuiFormHelperText-marginDense"
                     id="signup-username-helper-text"
                   >
                     <span>
@@ -1703,7 +1685,7 @@ exports[`sign up button navigates to correct url 2`] = `
                   class="MuiBox-root MuiBox-root-662 makeStyles-wrapper-659"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth Mui-focusVisible Mui-focusVisible"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"
                     tabindex="0"
                     type="submit"
                   >
@@ -1714,16 +1696,7 @@ exports[`sign up button navigates to correct url 2`] = `
                     </span>
                     <span
                       class="MuiTouchRipple-root"
-                    >
-                      <span
-                        class="MuiTouchRipple-ripple MuiTouchRipple-rippleVisible MuiTouchRipple-ripplePulsate"
-                        style="width: 1px; height: 1px; top: -0.5px; left: -0.5px;"
-                      >
-                        <span
-                          class="MuiTouchRipple-child MuiTouchRipple-childPulsate"
-                        />
-                      </span>
-                    </span>
+                    />
                   </button>
                 </div>
               </div>
