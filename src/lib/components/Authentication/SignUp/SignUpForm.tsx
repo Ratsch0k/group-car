@@ -69,6 +69,7 @@ const SignUpForm: React.FC<SignUpFormProps> = (props: SignUpFormProps) => {
         </Grid>
         <Grid item>
           <TextField
+            autoFocus
             fullWidth
             variant='outlined'
             label={t('form.username') + ' *'}
@@ -127,7 +128,6 @@ const SignUpForm: React.FC<SignUpFormProps> = (props: SignUpFormProps) => {
           <Grid item>
             <ProgressButton
               fullWidth
-              autoFocus
               type='submit'
               loading={formik.isSubmitting}
               onClick={formik.handleSubmit as any}
