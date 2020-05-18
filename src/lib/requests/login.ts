@@ -9,6 +9,7 @@ type Request = import('./request').Request;
  * the request will not be send and will return a rejected promise.
  * @param username  Username to sign up with
  * @param password  The password for the account
+ * @return          The request and a method to cancel it
  */
 const login = (username: string, password: string): Request => {
   // Check if provided arguments are non empty strings

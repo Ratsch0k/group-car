@@ -10,6 +10,8 @@ type Request = import('./request').Request;
  * @param username  Username to sign up with
  * @param email     Email of the user
  * @param password  The password for the account
+ * @param offset    The offset with which the profile picture can be generated
+ * @return          The request and a method to cancel it
  */
 const signUp = (
     username: string,

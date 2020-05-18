@@ -4,6 +4,7 @@ type Request = import('./request').Request;
 
 /**
  * Sends a logout request to the backend.
+ * @return the request and a method to cancel it
  */
 const logout = (): Request => {
   const source = axios.CancelToken.source();
