@@ -89,7 +89,7 @@ export const AuthProvider: React.FC = (props) => {
     const query = queryString.stringify(
         {
           ...queryString.parse(location.search),
-          auth: '/',
+          modal: '/auth',
         },
         {
           encode: false,
