@@ -1,18 +1,27 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import ModalContext from 'lib/ModalRouter/ModalRouteContext';
+import {useTranslation} from 'react-i18next';
+import {Dialog, DialogContent} from '@material-ui/core';
+import CloseableDialogTitle from 'lib/components/CloseableDialog';
 
 const PrivacyPolicy: React.FC = () => {
+  const {close} = useContext(ModalContext);
+  const {t} = useTranslation();
+
   return (
-    <div>
-      <h1>
-        Datenschutzerkl&auml;rung
-      </h1>
-      <h2>
+    <Dialog open={true}>
+      <CloseableDialogTitle close={close}>
+        {t('privacyPolicy.title')}
+      </CloseableDialogTitle>
+      <DialogContent>
+        <div>
+          <h2>
         1. Datenschutz auf einen Blick
-      </h2>
-      <h3>
+          </h2>
+          <h3>
         Allgemeine Hinweise
-      </h3>
-      <p>
+          </h3>
+          <p>
         Die folgenden Hinweise geben einen einfachen &Uuml;berblick
          dar&uuml;ber, was mit Ihren personenbezogenen Daten passiert,
          wenn Sie diese Website besuchen. bPersonenbezogene Daten sind
@@ -20,55 +29,55 @@ const PrivacyPolicy: React.FC = () => {
          werden k&ouml;nnen. Ausf&uuml;hrliche Informationen zum Thema
          Datenschutz entnehmen Sie unserer unter diesem Text
          aufgef&uuml;hrten Datenschutzerkl&auml;rung.
-      </p>
-      <h3>
+          </p>
+          <h3>
         Datenerfassung auf dieser Website
-      </h3>
-      <p>
-        <strong>
+          </h3>
+          <p>
+            <strong>
           Wer ist verantwortlich f&uuml;r die Datenerfassung auf dieser
            Website?
-        </strong>
-      </p>
-      <p>
+            </strong>
+          </p>
+          <p>
         Die Datenverarbeitung auf dieser Websiteerfolgt durch den
          Websitebetreiber. Dessen Kontaktdaten k&ouml;nnen Sie dem
          Impressum dieser Website entnehmen.
-      </p>
-      <p>
-        <strong>
+          </p>
+          <p>
+            <strong>
           Wie erfassen wir Ihre Daten?
-        </strong>
-      </p>
-      <p>
+            </strong>
+          </p>
+          <p>
         Ihre Daten werden zum einen dadurch erhoben, dass Sie uns
          diese mitteilen. Hierbei kann es sich z.&nbsp;B. um Daten
          handeln, die Sie in ein Kontaktformular eingeben.
-      </p>
-      <p>
+          </p>
+          <p>
         Andere Daten werden automatisch oder nach Ihrer Einwilligung
         beim Besuch der Website durch unsere IT-Systeme erfasst.
         Das sind vor allem technische Daten (z.&nbsp;B. Internetbrowser,
         Betriebssystem oder Uhrzeit des Seitenaufrufs). Die Erfassung
         dieser Daten erfolgt automatisch, sobald Sie diese Website betreten.
-      </p>
-      <p>
-        <strong>
+          </p>
+          <p>
+            <strong>
           Wof&uuml;r nutzen wir Ihre Daten?
-        </strong>
-      </p>
-      <p>
+            </strong>
+          </p>
+          <p>
         Ein Teil der Daten wird erhoben, um eine fehlerfreie
          Bereitstellung der Website zu gew&auml;hrleisten.
          Andere Daten k&ouml;nnen zur Analyse Ihres Nutzerverhaltens
          verwendet werden.
-      </p>
-      <p>
-        <strong>
+          </p>
+          <p>
+            <strong>
           Welche Rechte haben Sie bez&uuml;glich Ihrer Daten?
-        </strong>
-      </p>
-      <p>
+            </strong>
+          </p>
+          <p>
         Sie haben jederzeit das Recht, unentgeltlich
          Auskunft &uuml;ber Herkunft, Empf&auml;nger und
          Zweck Ihrer gespeicherten personenbezogenen Daten
@@ -83,21 +92,21 @@ const PrivacyPolicy: React.FC = () => {
          Aufsichtsbeh&ouml;rde zu.</p> <p>Hierzu sowie zu weiteren Fragen
          zum Thema Datenschutz k&ouml;nnen Sie sich jederzeit unter der
          im Impressum angegebenen Adresse an uns wenden.
-      </p>
-      <h2>
+          </p>
+          <h2>
         2. Allgemeine Hinweise und Pflichtinformationen
-      </h2>
-      <h3>
+          </h2>
+          <h3>
         Datenschutz
-      </h3>
-      <p>
+          </h3>
+          <p>
         Die Betreiber dieser
          Seiten nehmen den Schutz Ihrer pers&ouml;nlichen
          Daten sehr ernst. Wir behandeln Ihre personenbezogenen
          Daten vertraulich und entsprechend der gesetzlichen
          Datenschutzvorschriften sowie dieser Datenschutzerkl&auml;rung.
-      </p>
-      <p>
+          </p>
+          <p>
         Wenn Sie diese Website benutzen,
          werden verschiedene personenbezogene
          Daten erhoben. Personenbezogene Daten sind Daten,
@@ -110,51 +119,51 @@ const PrivacyPolicy: React.FC = () => {
          Kommunikation per E-Mail) Sicherheitsl&uuml;cken aufweisen
          kann. Ein l&uuml;ckenloser Schutz der Daten vor dem Zugriff
          durch Dritte ist nicht m&ouml;glich.
-      </p>
-      <h3>
+          </p>
+          <h3>
         Hinweis zur verantwortlichen Stelle
-      </h3>
-      <p>
+          </h3>
+          <p>
         Die verantwortliche Stelle
         f&uuml;r die Datenverarbeitung auf dieser
         Website ist:
-      </p>
-      <p>
+          </p>
+          <p>
         Simon Kurz
-        <br />
+            <br />
         Am Damsberg 17a
-        <br />
+            <br />
         55130 Mainz
-      </p>
+          </p>
 
-      <p>
+          <p>
         Telefon: +49 06131 870926
-        <br />
+            <br />
         E-Mail: mygroupcar@gmail.com
-      </p>
-      <p>
+          </p>
+          <p>
         Verantwortliche Stelle ist die nat&uuml;rliche oder
          juristische Person, die allein oder
          gemeinsam mit anderen &uuml;ber die Zwecke und Mittel
          der Verarbeitung von personenbezogenen Daten (z.&nbsp;B. Namen,
          E-Mail-Adressen o. &Auml;.) entscheidet.
-      </p>
-      <h3>
+          </p>
+          <h3>
         Widerruf Ihrer Einwilligung zur Datenverarbeitung
-      </h3>
-      <p>
+          </h3>
+          <p>
         Viele Datenverarbeitungsvorg&auml;nge sind nur mit Ihrer
          ausdr&uuml;cklichen Einwilligung m&ouml;glich. Sie k&ouml;nnen
          eine bereits erteilte Einwilligung jederzeit widerrufen. Dazu
          reicht eine formlose Mitteilung per E-Mail an uns. Die
          Rechtm&auml;&szlig;igkeit der bis zum Widerruf erfolgten
          Datenverarbeitung bleibt vom Widerruf unber&uuml;hrt.
-      </p>
-      <h3>
+          </p>
+          <h3>
         Widerspruchsrecht gegen die Datenerhebung in besonderen
         F&auml;llen sowie gegen Direktwerbung (Art. 21 DSGVO)
-      </h3>
-      <p>
+          </h3>
+          <p>
         WENN DIE DATENVERARBEITUNG AUF GRUNDLAGE VON ART. 6 ABS. 1 LIT.
          E ODER F DSGVO ERFOLGT, HABEN SIE JEDERZEIT DAS RECHT,
          AUS GR&Uuml;NDEN,
@@ -169,8 +178,8 @@ const PrivacyPolicy: React.FC = () => {
          DIE IHRE INTERESSEN, RECHTE UND FREIHEITEN &Uuml;BERWIEGEN ODER DIE
          VERARBEITUNG DIENT DER GELTENDMACHUNG, AUS&Uuml;BUNG ODER VERTEIDIGUNG
          VON RECHTSANSPR&Uuml;CHEN (WIDERSPRUCH NACH ART. 21 ABS. 1 DSGVO).
-      </p>
-      <p>
+          </p>
+          <p>
         WERDEN IHRE PERSONENBEZOGENEN DATEN VERARBEITET,
          UM DIREKTWERBUNG ZU BETREIBEN, SO HABEN SIE DAS RECHT,
          JEDERZEIT WIDERSPRUCH GEGEN DIE VERARBEITUNG SIE BETREFFENDER
@@ -180,11 +189,11 @@ const PrivacyPolicy: React.FC = () => {
          WERDEN IHRE PERSONENBEZOGENEN DATEN ANSCHLIESSEND NICHT MEHR
          ZUM ZWECKE DER DIREKTWERBUNG VERWENDET (WIDERSPRUCH NACH ART.
          21 ABS. 2 DSGVO).
-      </p>
-      <h3>
+          </p>
+          <h3>
         Beschwerderecht bei der zust&auml;ndigen Aufsichtsbeh&ouml;rde
-      </h3>
-      <p>
+          </h3>
+          <p>
         Im Falle von Verst&ouml;&szlig;en gegen die DSGVO steht den
          Betroffenen ein Beschwerderecht bei einer Aufsichtsbeh&ouml;rde,
          insbesondere in dem Mitgliedstaat ihres gew&ouml;hnlichen Aufenthalts,
@@ -193,11 +202,11 @@ const PrivacyPolicy: React.FC = () => {
          zu. Das Beschwerderecht besteht unbeschadet anderweitiger
          verwaltungsrechtlicher
          oder gerichtlicher Rechtsbehelfe.
-      </p>
-      <h3>
+          </p>
+          <h3>
         Recht auf Daten&uuml;bertragbarkeit
-      </h3>
-      <p>
+          </h3>
+          <p>
         Sie haben das Recht, Daten, die wir auf Grundlage
          Ihrer Einwilligung oder in Erf&uuml;llung eines Vertrags
          automatisiert verarbeiten, an sich oder an einen Dritten
@@ -205,11 +214,11 @@ const PrivacyPolicy: React.FC = () => {
          zu lassen. Sofern Sie die direkte &Uuml;bertragung der Daten an
          einen anderen Verantwortlichen verlangen, erfolgt dies
          nur, soweit es technisch machbar ist.
-      </p>
-      <h3>
+          </p>
+          <h3>
         SSL- bzw. TLS-Verschl&uuml;sselung
-      </h3>
-      <p>
+          </h3>
+          <p>
         Diese Seite nutzt aus Sicherheitsgr&uuml;nden
          und zum Schutz der &Uuml;bertragung vertraulicher Inhalte,
          wie zum Beispiel Bestellungen oder Anfragen, die Sie an uns
@@ -218,17 +227,17 @@ const PrivacyPolicy: React.FC = () => {
          Adresszeile des Browsers von &bdquo;http://&ldquo; auf
          &bdquo;https://&ldquo; wechselt und an dem Schloss-Symbol in Ihrer
          Browserzeile.
-      </p>
-      <p>
+          </p>
+          <p>
         Wenn die SSL- bzw. TLS-Verschl&uuml;sselung
          aktiviert ist, k&ouml;nnen die Daten, die Sie
          an uns &uuml;bermitteln, nicht von Dritten
          mitgelesen werden.
-      </p>
-      <h3>
+          </p>
+          <h3>
         Auskunft, L&ouml;schung und Berichtigung
-      </h3>
-      <p>
+          </h3>
+          <p>
         Sie haben im Rahmen der geltenden
          gesetzlichen Bestimmungen jederzeit
          das Recht auf unentgeltliche Auskunft
@@ -239,34 +248,34 @@ const PrivacyPolicy: React.FC = () => {
          sowie zu weiteren Fragen zum Thema personenbezogene
          Daten k&ouml;nnen Sie sich jederzeit unter der im
          Impressum angegebenen Adresse an uns wenden.
-      </p>
-      <h3>
+          </p>
+          <h3>
         Recht auf Einschr&auml;nkung der Verarbeitung
-      </h3>
-      <p>
+          </h3>
+          <p>
         Sie haben das Recht, die Einschr&auml;nkung
          der Verarbeitung Ihrer personenbezogenen Daten
          zu verlangen. Hierzu k&ouml;nnen Sie sich jederzeit
          unter der im Impressum angegebenen Adresse an uns
          wenden. Das Recht auf Einschr&auml;nkung der Verarbeitung
          besteht in folgenden F&auml;llen:
-      </p>
-      <ul>
-        <li>
+          </p>
+          <ul>
+            <li>
           Wenn Sie die Richtigkeit Ihrer bei uns gespeicherten
            personenbezogenen Daten bestreiten, ben&ouml;tigen wir
            in der Regel Zeit, um dies zu &uuml;berpr&uuml;fen.
            F&uuml;r die Dauer der Pr&uuml;fung haben Sie das Recht,
            die Einschr&auml;nkung der Verarbeitung Ihrer personenbezogenen
            Daten zu verlangen.
-        </li>
-        <li>
+            </li>
+            <li>
           Wenn die Verarbeitung Ihrer personenbezogenen
            Daten unrechtm&auml;&szlig;ig geschah/geschieht,
            k&ouml;nnen Sie statt der L&ouml;schung die Einschr&auml;nkung
            der Datenverarbeitung verlangen.
-        </li>
-        <li>
+            </li>
+            <li>
           Wenn wir Ihre personenbezogenen Daten nicht
            mehr ben&ouml;tigen, Sie sie jedoch zur Aus&uuml;bung,
            Verteidigung oder Geltendmachung von Rechtsanspr&uuml;chen
@@ -278,9 +287,9 @@ const PrivacyPolicy: React.FC = () => {
            Solange noch nicht feststeht, wessen Interessen &uuml;berwiegen,
            haben Sie das Recht, die Einschr&auml;nkung der Verarbeitung
            Ihrer personenbezogenen Daten zu verlangen.
-        </li>
-      </ul>
-      <p>
+            </li>
+          </ul>
+          <p>
         Wenn Sie die Verarbeitung Ihrer personenbezogenen
          Daten eingeschr&auml;nkt haben, d&uuml;rfen
          diese Daten &ndash; von ihrer Speicherung abgesehen &ndash;
@@ -289,13 +298,13 @@ const PrivacyPolicy: React.FC = () => {
          Rechte einer anderen nat&uuml;rlichen oder juristischen Person oder
          aus Gr&uuml;nden eines wichtigen &ouml;ffentlichen Interesses der
          Europ&auml;ischen Union oder eines Mitgliedstaats verarbeitet werden.
-      </p>
-      <h2>
+          </p>
+          <h2>
         3. Datenerfassung auf dieser Website</h2>
-      <h3>
+          <h3>
         Cookies
-      </h3>
-      <p>
+          </h3>
+          <p>
         Unsere Internetseiten verwenden so genannte
          &bdquo;Cookies&ldquo;. Cookies sind kleine
          Textdateien und richten auf Ihrem Endger&auml;t
@@ -307,24 +316,24 @@ const PrivacyPolicy: React.FC = () => {
          gespeichert, bis Sie diese selbst l&ouml;schen&nbsp;oder
          eine automatische L&ouml;schung durch Ihren Webbrowser
          erfolgt.
-      </p>
-      <p>
+          </p>
+          <p>
         Teilweise k&ouml;nnen auch Cookies von Drittunternehmen
          auf Ihrem Endger&auml;t gespeichert werden, wenn Sie
          unsere Seite betreten (Third-Party-Cookies). Diese
          erm&ouml;glichen uns oder Ihnen die Nutzung bestimmter
          Dienstleistungen des Drittunternehmens (z.B. Cookies
          zur Abwicklung von Zahlungsdienstleistungen).
-      </p>
-      <p>
+          </p>
+          <p>
         Cookies haben verschiedene Funktionen.
          Zahlreiche Cookies sind technisch notwendig,
          da bestimmte Webseitenfunktionen ohne diese nicht
          funktionieren w&uuml;rden (z.B. die Warenkorbfunktion
          oder die Anzeige von Videos). Andere Cookies dienen dazu,
          das Nutzerverhalten auszuwerten&nbsp;oder Werbung anzuzeigen.
-      </p>
-      <p>
+          </p>
+          <p>
         Cookies, die zur Durchf&uuml;hrung des elektronischen
          Kommunikationsvorgangs (notwendige Cookies) oder zur
          Bereitstellung bestimmter, von Ihnen erw&uuml;nschter
@@ -340,8 +349,8 @@ const PrivacyPolicy: React.FC = () => {
          Cookies ausschlie&szlig;lich auf Grundlage dieser Einwilligung
          (Art. 6 Abs. 1 lit. a DSGVO); die Einwilligung
          ist jederzeit widerrufbar.
-      </p>
-      <p>
+          </p>
+          <p>
         Sie k&ouml;nnen Ihren Browser so einstellen,
          dass Sie &uuml;ber das Setzen von Cookies informiert
          werden und Cookies nur im Einzelfall erlauben, die Annahme
@@ -353,42 +362,42 @@ const PrivacyPolicy: React.FC = () => {
          oder zu Analysezwecken eingesetzt werden, werden wir Sie
          hier&uuml;ber im Rahmen dieser Datenschutzerkl&auml;rung
          gesondert informieren und ggf. eine Einwilligung abfragen.
-      </p>
-      <h3>
+          </p>
+          <h3>
         Server-Log-Dateien
-      </h3>
-      <p>
+          </h3>
+          <p>
         Der Provider der Seiten erhebt und speichert
          automatisch Informationen in so genannten
          Server-Log-Dateien, die Ihr Browser automatisch
          an uns &uuml;bermittelt. Dies sind:
-      </p>
-      <ul>
-        <li>
+          </p>
+          <ul>
+            <li>
           Browsertyp und Browserversion
-        </li>
-        <li>
+            </li>
+            <li>
           verwendetes Betriebssystem
-        </li>
-        <li>
+            </li>
+            <li>
           Referrer URL
-        </li>
-        <li>
+            </li>
+            <li>
           Hostname des zugreifenden Rechners
-        </li>
-        <li>
+            </li>
+            <li>
           Uhrzeit der Serveranfrage
-        </li>
-        <li>
+            </li>
+            <li>
           IP-Adresse
-        </li>
-      </ul>
-      <p>
+            </li>
+          </ul>
+          <p>
         Eine Zusammenf&uuml;hrung dieser
          Daten mit anderen Datenquellen wird
          nicht vorgenommen.
-      </p>
-      <p>
+          </p>
+          <p>
         Die Erfassung dieser Daten erfolgt auf
          Grundlage von Art. 6 Abs. 1 lit. f DSGVO.
          Der Websitebetreiber hat ein berechtigtes
@@ -396,11 +405,11 @@ const PrivacyPolicy: React.FC = () => {
          Darstellung und der Optimierung seiner
          Website &ndash; hierzu m&uuml;ssen die
          Server-Log-Files erfasst werden.
-      </p>
-      <h3>
+          </p>
+          <h3>
         Anfrage per E-Mail, Telefon oder Telefax
-      </h3>
-      <p>
+          </h3>
+          <p>
         Wenn Sie uns per E-Mail, Telefon oder
          Telefax kontaktieren, wird Ihre Anfrage inklusive
          aller daraus hervorgehenden personenbezogenen
@@ -408,8 +417,8 @@ const PrivacyPolicy: React.FC = () => {
          Ihres Anliegens bei uns gespeichert und verarbeitet.
          Diese Daten geben wir nicht ohne Ihre Einwilligung
          weiter.
-      </p>
-      <p>
+          </p>
+          <p>
         Die Verarbeitung dieser Daten erfolgt auf Grundlage
          von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre
          Anfrage mit der Erf&uuml;llung eines Vertrags
@@ -421,8 +430,8 @@ const PrivacyPolicy: React.FC = () => {
          gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO)
          oder auf Ihrer Einwilligung (Art. 6 Abs. 1 lit. a
          DSGVO) sofern diese abgefragt wurde.
-      </p>
-      <p>
+          </p>
+          <p>
         Die von Ihnen an uns per Kontaktanfragen &uuml;bersandten
          Daten verbleiben bei uns, bis Sie uns zur L&ouml;schung
          auffordern, Ihre Einwilligung zur Speicherung widerrufen
@@ -431,40 +440,40 @@ const PrivacyPolicy: React.FC = () => {
          Bearbeitung Ihres Anliegens). Zwingende gesetzliche
          Bestimmungen &ndash; insbesondere gesetzliche
          Aufbewahrungsfristen &ndash; bleiben unber&uuml;hrt.
-      </p>
-      <h2>
+          </p>
+          <h2>
         4. Plugins und Tools</h2>
-      <h3>
+          <h3>
         Google Web Fonts
-      </h3>
-      <p>
+          </h3>
+          <p>
         Diese Seite nutzt zur einheitlichen Darstellung
          von Schriftarten so genannte Web Fonts,
          die von Google bereitgestellt werden. Die
          Google Fonts sind lokal installiert. Eine
          Verbindung zu Servern von Google findet dabei nicht statt.
-      </p>
-      <p>
+          </p>
+          <p>
         Weitere Informationen zu Google Web Fonts
          finden Sie unter <a
-          href="https://developers.google.com/fonts/faq" target="_blank" rel="noopener noreferrer">
+              href="https://developers.google.com/fonts/faq" target="_blank" rel="noopener noreferrer">
           https://developers.google.com/fonts/faq
-        </a>
+            </a>
          und in der Datenschutzerkl&auml;rung von Google: <a
-          href="https://policies.google.com/privacy?hl=de" target="_blank" rel="noopener noreferrer">
+              href="https://policies.google.com/privacy?hl=de" target="_blank" rel="noopener noreferrer">
           https://policies.google.com/privacy?hl=de
-        </a>.
-      </p>
-      <h3>
+            </a>.
+          </p>
+          <h3>
         OpenStreetMap
-      </h3>
-      <p>
+          </h3>
+          <p>
         Wir nutzen den Kartendienst von OpenStreetMap (OSM).
          Anbieterin ist die Open-Street-Map Foundation (OSMF),
          132 Maney Hill Road, Sutton Coldfield, West Midlands,
          B72 1JU, United Kingdom.
-      </p>
-      <p>
+          </p>
+          <p>
         Wenn Sie eine Website besuchen, auf der OpenStreetMap
          eingebunden ist, werden u. a. Ihre IP-Adresse und weitere
          Informationen &uuml;ber Ihr Verhalten auf dieser Website
@@ -477,8 +486,8 @@ const PrivacyPolicy: React.FC = () => {
          darauf hin, dass Sie in diesem Fall gegebenenfalls nicht
          s&auml;mtliche Funktionen dieser Website vollumf&auml;nglich
          werden nutzen k&ouml;nnen.
-      </p>
-      <p>
+          </p>
+          <p>
         Ferner kann Ihr Standort
          erfasst werden, wenn Sie dies in Ihren Ger&auml;teeinstellungen
          &ndash; z.&nbsp;B. auf Ihrem Handy &ndash; zugelassen haben.
@@ -486,11 +495,11 @@ const PrivacyPolicy: React.FC = () => {
          diese Daten&uuml;bertragung.
          Details entnehmen Sie der Datenschutzerkl&auml;rung von OpenStreetMap
          unter folgendem Link: <a
-          href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener noreferrer">
+              href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener noreferrer">
            https://wiki.osmfoundation.org/wiki/Privacy_Policy
-        </a>.
-      </p>
-      <p>
+            </a>.
+          </p>
+          <p>
         Die Nutzung von OpenStreetMap erfolgt im Interesse einer
          ansprechenden Darstellung unserer Online-Angebote und
          einer leichten Auffindbarkeit der von uns auf der Website
@@ -501,13 +510,15 @@ const PrivacyPolicy: React.FC = () => {
          Verarbeitung ausschlie&szlig;lich auf Grundlage von Art.
          6 Abs. 1 lit. a DSGVO; die Einwilligung ist jederzeit
          widerrufbar.
-      </p>
-      <p>
+          </p>
+          <p>
         Quelle: <a href="https://www.e-recht24.de">
           https://www.e-recht24.de
-        </a>
-      </p>
-    </div>
+            </a>
+          </p>
+        </div>
+      </DialogContent>
+    </Dialog>
   );
 };
 

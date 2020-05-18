@@ -12,11 +12,13 @@ import {
 } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import React, {useState, useEffect, useContext} from 'react';
-import {LoginForm} from './Login';
-import {SignUpForm} from './SignUp';
+import {LoginForm} from '../../../lib/components/Authentication/Login';
+import {SignUpForm} from '../../../lib/components/Authentication/SignUp';
 import {useTranslation} from 'react-i18next';
 import AuthContext from 'lib/context/auth/authContext';
 import CloseIcon from '@material-ui/icons/Close';
+import {Route, Switch, useRouteMatch, useLocation} from 'react-router-dom';
+import ModalContext from 'lib/ModalRouter/ModalRouteContext';
 
 type Theme = import('@material-ui/core').Theme;
 
@@ -47,14 +49,9 @@ const useStyle = makeStyles((theme: Theme) =>
   }),
 );
 
-export const AuthType = ['login', 'sign-up'];
-export type AuthType = 'login' | 'sign-up' | undefined;
 interface AuthenticationDialogProps {
   open: boolean;
   close(): void;
-  initialAuthType?: AuthType;
-  onAuthTypeChange?(type: AuthType): void;
-  authType?: AuthType;
 }
 
 const AuthenticationDialog: React.FC<AuthenticationDialogProps> =
@@ -62,40 +59,30 @@ const AuthenticationDialog: React.FC<AuthenticationDialogProps> =
   const classes = useStyle();
   const {t} = useTranslation();
   const auth = useContext(AuthContext);
-  const {onAuthTypeChange} = props;
-
+  const {goTo} = useContext(ModalContext);
+  const {path, isExact} = useRouteMatch();
+  const {pathname} = useLocation();
   const [loading, setLoading] = useState<boolean>(false);
-  const [authType, setAuthType] = useState<AuthType>(props.initialAuthType);
-
-  /**
-   * Give the parent component control over the authentication type.
-   */
-  useEffect(() => {
-    setAuthType(props.authType);
-  }, [props.authType]);
 
   /**
    * Handles navigation to sign up page
    */
   const handleSignUp = () => {
-    onAuthTypeChange && onAuthTypeChange('sign-up');
-    setAuthType('sign-up');
+    goTo(`${path}/sign-up`);
   };
 
   /**
    * Handles navigation to login page
    */
   const handleLogin = () => {
-    onAuthTypeChange && onAuthTypeChange('login');
-    setAuthType('login');
+    goTo(`${path}/login`);
   };
 
   /**
    * Handles go back action
    */
   const handleBack = () => {
-    onAuthTypeChange && onAuthTypeChange(undefined);
-    setAuthType(undefined);
+    goTo(undefined);
   };
 
   /**
@@ -103,7 +90,6 @@ const AuthenticationDialog: React.FC<AuthenticationDialogProps> =
    */
   const onFinished = () => {
     setLoading(false);
-    setAuthType(undefined);
     props.close();
   };
 
@@ -118,83 +104,76 @@ const AuthenticationDialog: React.FC<AuthenticationDialogProps> =
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth.isLoggedIn]);
 
-  let authContainer: JSX.Element;
-  if (authType === 'login') {
-    authContainer = (
-      <LoginForm
-        withSubmit
-        onFinished={onFinished}
-        setLoading={setLoading}
-      />
-    );
-  } else if (authType === 'sign-up') {
-    authContainer = (
-      <SignUpForm
-        withSubmit
-        onFinished={onFinished}
-        setLoading={setLoading}
-      />
-    );
-  } else {
-    authContainer = (
-      <>
-        <Button
-          data-testid='to-login'
-          fullWidth
-          variant='outlined'
-          color='primary'
-          onClick={handleLogin}
-        >
-          {t('form.login')}
-        </Button>
-        <Container className={classes.dividerContainer}>
-          <Divider orientation='horizontal' className={classes.divider}/>
-          <Typography component='span' className={classes.dividerText}>
-            {t('misc.or')}
-          </Typography>
-        </Container>
-        <Button
-          data-testid='to-signup'
-          fullWidth
-          variant='outlined'
-          color='primary'
-          onClick={handleSignUp}
-        >
-          {t('form.sign-up')}
-        </Button>
-      </>
-    );
-  }
-
   return (
     <Dialog open={props.open} fullWidth maxWidth='xs'>
       <DialogTitle>
         <IconButton
-          data-testid='go-back'
+          id='auth-go-back'
           edge='start'
           disableRipple
           disabled={loading}
           onClick={handleBack}
-          style={{visibility: authType === undefined ? 'hidden' : 'visible'}}
+          style={{visibility: isExact ? 'hidden' : 'visible'}}
         >
           <ArrowBackIcon/>
         </IconButton>
         {
-          authType === undefined ?
+          isExact ?
           t('auth.dialog.title.authenticate') :
-          t(`auth.dialog.title.${authType}`)
+          t(`auth.dialog.title.${pathname}`)
         }
         <IconButton
           className={classes.closeButton}
           onClick={onFinished}
           disabled={loading}
-          data-testid='close-dialog'
+          id='auth-close-dialog'
         >
           <CloseIcon />
         </IconButton>
       </DialogTitle>
       <DialogContent className={classes.content}>
-        {authContainer}
+        <Switch>
+          <Route path={`${path}/login`}>
+            <LoginForm
+              withSubmit
+              onFinished={onFinished}
+              setLoading={setLoading}
+            />
+          </Route>
+          <Route path={`${path}/sign-up`}>
+            <SignUpForm
+              withSubmit
+              onFinished={onFinished}
+              setLoading={setLoading}
+            />
+          </Route>
+          <Route exact path={path}>
+            <Button
+              id='auth-to-login'
+              fullWidth
+              variant='outlined'
+              color='primary'
+              onClick={handleLogin}
+            >
+              {t('form.login')}
+            </Button>
+            <Container className={classes.dividerContainer}>
+              <Divider orientation='horizontal' className={classes.divider}/>
+              <Typography component='span' className={classes.dividerText}>
+                {t('misc.or')}
+              </Typography>
+            </Container>
+            <Button
+              id='auth-to-signup'
+              fullWidth
+              variant='outlined'
+              color='primary'
+              onClick={handleSignUp}
+            >
+              {t('form.sign-up')}
+            </Button>
+          </Route>
+        </Switch>
       </DialogContent>
     </Dialog>
   );
