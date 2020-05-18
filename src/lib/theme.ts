@@ -6,6 +6,7 @@ type Shape = import('@material-ui/core/styles/shape').Shape;
 
 interface IShape extends Shape {
   headerHeight: number;
+  drawerWidth: number;
 }
 
 interface IThemeOptions extends ThemeOptions {
@@ -33,6 +34,7 @@ const theme = createMuiTheme({
   },
   shape: {
     headerHeight: 64,
+    drawerWidth: 240,
   },
 } as IThemeOptions);
 
