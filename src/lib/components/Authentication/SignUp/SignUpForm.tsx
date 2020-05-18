@@ -127,6 +127,7 @@ const SignUpForm: React.FC<SignUpFormProps> = (props: SignUpFormProps) => {
           props.withSubmit &&
           <Grid item>
             <ProgressButton
+              id='signup-submit'
               fullWidth
               type='submit'
               loading={formik.isSubmitting}
