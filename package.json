@@ -34,7 +34,8 @@
     "yup": "^0.28.4"
   },
   "resolutions": {
-    "yargs": "^13.3.2"
+    "yargs": "^13.3.2",
+    "http-proxy": ">=1.18.1"
   },
   "scripts": {
     "start": "react-scripts start",
