@@ -34,7 +34,7 @@ const theme = createMuiTheme({
   },
   shape: {
     headerHeight: 64,
-    drawerWidth: 240,
+    drawerWidth: 350,
   },
 } as IThemeOptions);
 
