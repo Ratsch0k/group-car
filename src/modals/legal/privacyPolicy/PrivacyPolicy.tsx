@@ -1,15 +1,20 @@
 import React, {useContext} from 'react';
 import ModalContext from 'lib/ModalRouter/ModalRouteContext';
 import {useTranslation} from 'react-i18next';
-import {Dialog, DialogContent} from '@material-ui/core';
+import {Dialog, DialogContent, useMediaQuery} from '@material-ui/core';
 import CloseableDialogTitle from 'lib/components/CloseableDialog';
+import {useTheme} from '@material-ui/styles';
+
+type GroupCarTheme = import('lib/theme').GroupCarTheme;
 
 const PrivacyPolicy: React.FC = () => {
   const {close} = useContext(ModalContext);
   const {t} = useTranslation();
+  const theme: GroupCarTheme = useTheme();
+  const largerLg = useMediaQuery(theme.breakpoints.up('lg'));
 
   return (
-    <Dialog open={true}>
+    <Dialog open={true} maxWidth='lg' fullScreen={!largerLg}>
       <CloseableDialogTitle close={close}>
         {t('privacyPolicy.title')}
       </CloseableDialogTitle>
