@@ -1,8 +1,9 @@
 import React from 'react';
 import {Drawer as MatDrawer} from '@material-ui/core';
-import {NavLink} from 'react-router-dom';
 import {makeStyles, createStyles} from '@material-ui/styles';
 import clsx from 'clsx';
+import DrawerFooter from './DrawerFooter';
+import DrawerHeader from './DrawerHeader';
 
 type GroupCarTheme = import('lib/theme').GroupCarTheme;
 
@@ -23,6 +24,13 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
     drawerPermanent: {
       zIndex: theme.zIndex.appBar - 1,
     },
+    drawerPaperPermanent: {
+      paddingTop: theme.shape.headerHeight,
+    },
+    footer: {
+      bottom: 0,
+      position: 'absolute',
+    },
   }),
 );
 
@@ -38,16 +46,16 @@ const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
       className={clsx(classes.drawer, {[classes.drawerPermanent]: permanent})}
       variant={permanent ? 'permanent': 'temporary'}
       classes={{
-        paper: classes.drawerPaper,
+        paper: clsx(
+            classes.drawerPaper,
+            {
+              [classes.drawerPaperPermanent]: permanent,
+            },
+        ),
       }}
     >
-      <NavLink to='/?modal=/policy' style={{position: 'absolute', top: 100}}>
-              Datenschutzerklärung
-      </NavLink>
-      <br />
-      <NavLink to='/?modal=/imprint' style={{position: 'absolute', top: 100}}>
-              Impressum
-      </NavLink>
+      <DrawerHeader close={onClose} noCloseButton={permanent}/>
+      <DrawerFooter className={classes.footer}/>
     </MatDrawer>
   );
 };
