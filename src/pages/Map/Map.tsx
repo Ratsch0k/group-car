@@ -7,7 +7,7 @@ const Map: React.FC = () => {
   const [location, setLocation] = useState<LatLngTuple>([49.958958, 8.308246]);
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition((position) => {
+    navigator.geolocation.watchPosition((position) => {
       setLocation([position.coords.latitude, position.coords.longitude]);
     });
   }, []);
@@ -20,7 +20,7 @@ const Map: React.FC = () => {
       />
       <Marker position={location}>
         <Popup>
-      A pretty CSS3 popup. <br /> Easily customizable.
+          Your are here
         </Popup>
       </Marker>
     </LMap>
