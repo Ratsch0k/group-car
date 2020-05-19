@@ -11,7 +11,7 @@ exports[`matches snapshot 1`] = `
       <button
         class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
       >
-        Datenschutzerklärung
+        privacyPolicy.title
       </button>
     </div>
     <div
@@ -20,7 +20,7 @@ exports[`matches snapshot 1`] = `
       <button
         class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
       >
-        Impressum
+        imprint.title
       </button>
     </div>
   </div>

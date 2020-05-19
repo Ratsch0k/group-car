@@ -1,6 +1,7 @@
 import React from 'react';
 import {Grid, Link} from '@material-ui/core';
 import useModalRouter from 'lib/hooks/useModalRouter';
+import { useTranslation } from 'react-i18next';
 
 type GridProps = import('@material-ui/core').GridProps;
 
@@ -12,17 +13,18 @@ const DrawerFooter: React.FC<DrawerFooterProps> =
 (props: DrawerFooterProps) => {
   const {...rest} = props;
   const {goTo} = useModalRouter();
+  const {t} = useTranslation();
 
   return (
     <Grid container {...rest} justify='space-evenly'>
       <Grid item>
         <Link component='button' onClick={() => goTo('/privacy-policy')}>
-          Datenschutzerklärung
+          {t('privacyPolicy.title')}
         </Link>
       </Grid>
       <Grid item>
         <Link component='button' onClick={() => goTo('/imprint')}>
-          Impressum
+          {t('imprint.title')}
         </Link>
       </Grid>
     </Grid>

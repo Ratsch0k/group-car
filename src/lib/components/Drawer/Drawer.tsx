@@ -42,7 +42,7 @@ const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
   return (
     <MatDrawer
       anchor='right'
-      open={open}
+      open={open || permanent}
       onClose={onClose}
       className={clsx(classes.drawer, {[classes.drawerPermanent]: permanent})}
       variant={permanent ? 'permanent': 'temporary'}
