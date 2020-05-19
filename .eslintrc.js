@@ -28,4 +28,9 @@ module.exports = {
     'valid-jsdoc': 'off',
     'react/prop-types': 'off',
   },
+  'settings': {
+    'react': {
+      'version': 'detect',
+    },
+  },
 };
