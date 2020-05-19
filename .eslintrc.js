@@ -25,7 +25,7 @@ module.exports = {
     '@typescript-eslint',
   ],
   'rules': {
-    'valid-jsdoc': 'warn',
+    'valid-jsdoc': 'off',
     'react/prop-types': 'off',
   },
 };
