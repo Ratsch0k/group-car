@@ -3,6 +3,9 @@ import {Map as LMap, TileLayer, Marker, Popup} from 'react-leaflet';
 
 type LatLngTuple = import('leaflet').LatLngTuple;
 
+/**
+ * Map component
+ */
 const Map: React.FC = () => {
   const [location, setLocation] = useState<LatLngTuple>([49.958958, 8.308246]);
 
