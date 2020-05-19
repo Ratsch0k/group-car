@@ -1,6 +1,6 @@
 import React from 'react';
-import {Grid} from '@material-ui/core';
-import {NavLink} from 'react-router-dom';
+import {Grid, Link} from '@material-ui/core';
+import useModalRouter from 'lib/hooks/useModalRouter';
 
 type GridProps = import('@material-ui/core').GridProps;
 
@@ -11,18 +11,19 @@ interface DrawerFooterProps extends GridProps {
 const DrawerFooter: React.FC<DrawerFooterProps> =
 (props: DrawerFooterProps) => {
   const {...rest} = props;
+  const {goTo} = useModalRouter();
 
   return (
     <Grid container {...rest} justify='space-evenly'>
       <Grid item>
-        <NavLink to='/?modal=/policy'>
+        <Link component='button' onClick={() => goTo('/privacy-policy')}>
           Datenschutzerklärung
-        </NavLink>
+        </Link>
       </Grid>
       <Grid item>
-        <NavLink to='/?modal=/imprint'>
+        <Link component='button' onClick={() => goTo('/imprint')}>
           Impressum
-        </NavLink>
+        </Link>
       </Grid>
     </Grid>
   );

@@ -1,12 +1,12 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {DialogContent, Dialog} from '@material-ui/core';
 import {useTranslation} from 'react-i18next';
 import CloseableDialogTitle from 'lib/components/CloseableDialog';
-import ModalContext from 'lib/ModalRouter/ModalRouteContext';
+import useModalRouter from 'lib/hooks/useModalRouter';
 
 const Imprint: React.FC = () => {
   const {t} = useTranslation();
-  const {close} = useContext(ModalContext);
+  const {close} = useModalRouter();
 
   return (
     <Dialog open={true}>

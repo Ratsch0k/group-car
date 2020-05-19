@@ -18,7 +18,7 @@ import {useTranslation} from 'react-i18next';
 import AuthContext from 'lib/context/auth/authContext';
 import CloseIcon from '@material-ui/icons/Close';
 import {Route, Switch, useRouteMatch, useLocation} from 'react-router-dom';
-import ModalContext from 'lib/ModalRouter/ModalRouteContext';
+import useModalRouter from 'lib/hooks/useModalRouter';
 
 type Theme = import('@material-ui/core').Theme;
 
@@ -59,7 +59,7 @@ const AuthenticationDialog: React.FC<AuthenticationDialogProps> =
   const classes = useStyle();
   const {t} = useTranslation();
   const auth = useContext(AuthContext);
-  const {goTo} = useContext(ModalContext);
+  const {goTo} = useModalRouter();
   const {path, isExact} = useRouteMatch();
   const {pathname} = useLocation();
   const [loading, setLoading] = useState<boolean>(false);
