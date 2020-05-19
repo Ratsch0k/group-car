@@ -1,32 +1,48 @@
 import React from 'react';
-import {Box, IconButton, makeStyles} from '@material-ui/core';
+import {Box, IconButton, makeStyles, createStyles} from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 
+type GroupCarTheme = import('lib/theme').GroupCarTheme;
+
 interface DrawerHeaderProps {
-  close(): void;
   noCloseButton?: boolean;
+  close?(): void;
 }
 
-const useStyles = makeStyles({
-  closeButton: {
-    float: 'right',
-  },
-});
+const useStyles = makeStyles((theme: GroupCarTheme) =>
+  createStyles({
+    closeButton: {
+      float: 'right',
+    },
+    root: {
+      paddingRight: theme.spacing(3),
+      height: theme.shape.headerHeight,
+      alignItems: 'center',
+    },
+  }),
+);
 
+/**
+ * Top header for the drawer
+ * @param props Props for the component
+ */
 const DrawerHeader: React.FC<DrawerHeaderProps> =
 (props: DrawerHeaderProps) => {
   const classes = useStyles();
   const {
     noCloseButton,
+    close,
   } = props;
 
   return (
-    <Box>
+    <Box className={classes.root}>
       {
         !noCloseButton &&
         <IconButton
+          id='drawer-close'
+          data-testid='close'
           className={classes.closeButton}
-          onClick={props.close}
+          onClick={close}
         >
           <CloseIcon fontSize='large'/>
         </IconButton>
