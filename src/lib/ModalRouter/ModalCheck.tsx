@@ -11,18 +11,20 @@ const ModalCheck: React.FC = (props) => {
   const location = useLocation();
   const history = useHistory();
 
-
-  const state: any = location.state || {};
-
-  const routeKey = state.routeKey;
-  const routeValue = state[routeKey];
+  // Get path from query
+  let routeValue = queryString.parse(location.search).modal || '/';
+  if (Array.isArray(routeValue) && routeValue.length > 0) {
+    routeValue = routeValue[0];
+  } else if (Array.isArray(routeValue)) {
+    routeValue = '/';
+  }
 
   const close = () => {
     const search = queryString.parse(location.search);
 
     // Delete route from search
-    if (search[routeKey] !== undefined) {
-      delete search[routeKey];
+    if (search.modal !== undefined) {
+      delete search.modal;
     }
 
     const query = queryString.stringify(
@@ -41,6 +43,8 @@ const ModalCheck: React.FC = (props) => {
       value: string | undefined | null,
       replace: boolean = false,
   ) => {
+    console.log(value);
+
     /*
      * In the case that the value if undefined but the current route
      * is the only one on the history, instead of going back replace
@@ -54,7 +58,7 @@ const ModalCheck: React.FC = (props) => {
     const query = queryString.stringify(
         {
           ...queryString.parse(location.search),
-          [routeKey]: value,
+          modal: value,
         },
         {
           encode: false,
@@ -73,7 +77,7 @@ const ModalCheck: React.FC = (props) => {
       // Set route value in location state to avoid redirect
       location.state = {
         ...location.state,
-        [routeKey]: value,
+        modal: value,
       };
 
       // Push modified location to history
@@ -87,7 +91,6 @@ const ModalCheck: React.FC = (props) => {
 
   const nestedLocation: any = {
     pathname: routeValue,
-    state,
   };
 
   return (
@@ -101,7 +104,7 @@ const ModalCheck: React.FC = (props) => {
           <Route path='/imprint'>
             <Imprint />
           </Route>
-          <Route path='/policy'>
+          <Route path='/privacy-policy'>
             <PrivacyPolicy />
           </Route>
           <Route path='/auth'>
@@ -111,8 +114,8 @@ const ModalCheck: React.FC = (props) => {
             />
           </Route>
         </Switch>
+        {props.children}
       </ModalProvider>
-      {props.children}
     </>
   );
 };

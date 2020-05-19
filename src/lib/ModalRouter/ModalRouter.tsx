@@ -1,5 +1,4 @@
 import React from 'react';
-import ModalRedirect from './ModalRedirect';
 import ModalCheck from './ModalCheck';
 
 /**
@@ -9,11 +8,9 @@ import ModalCheck from './ModalCheck';
  */
 const ModalRouter: React.FC = (props) => {
   return (
-    <ModalRedirect>
-      <ModalCheck>
-        {props.children}
-      </ModalCheck>
-    </ModalRedirect>
+    <ModalCheck>
+      {props.children}
+    </ModalCheck>
   );
 };
 
