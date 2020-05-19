@@ -1,7 +1,7 @@
 import React from 'react';
 import {Grid, Link} from '@material-ui/core';
 import useModalRouter from 'lib/hooks/useModalRouter';
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 
 type GridProps = import('@material-ui/core').GridProps;
 
