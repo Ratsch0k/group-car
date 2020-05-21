@@ -16,7 +16,7 @@ module.exports = {
     'ecmaFeatures': {
       'jsx': true,
     },
-    'ecmaVersion': 2018,
+    'ecmaVersion': 11,
     'sourceType': 'module',
   },
   'plugins': [
@@ -25,8 +25,8 @@ module.exports = {
     '@typescript-eslint',
   ],
   'rules': {
-    'react/prop-types': 'off',
     'valid-jsdoc': 'off',
+    'react/prop-types': 'off',
   },
   'settings': {
     'react': {

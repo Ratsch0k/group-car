@@ -3,8 +3,8 @@
     "dialog": {
       "title": {
         "authenticate": "Authentication",
-        "login": "Log in",
-        "sign-up": "Sign up"
+        "/auth/login": "Log in",
+        "/auth/sign-up": "Sign up"
       }
     }
   },
@@ -32,5 +32,11 @@
   "misc": {
     "or": "or",
     "loading": "Loading"
+  },
+  "imprint": {
+    "title": "Imprint"
+  },
+  "privacyPolicy": {
+    "title": "Privacy policy"
   }
 }

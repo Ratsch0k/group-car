@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div>
+  <div
+    class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-item"
+    >
+      <button
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
+      >
+        privacyPolicy.title
+      </button>
+    </div>
+    <div
+      class="MuiGrid-root MuiGrid-item"
+    >
+      <button
+        class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
+      >
+        imprint.title
+      </button>
+    </div>
+  </div>
+</div>
+`;

@@ -50,6 +50,7 @@ const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps) => {
         alignItems='stretch'>
         <Grid item xs={12}>
           <TextField
+            autoFocus
             variant='outlined'
             label={t('form.username') + ' *'}
             id='login-username'
@@ -87,7 +88,7 @@ const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps) => {
           <Grid item xs={12}>
             <ProgressButton
               fullWidth
-              autoFocus
+              id='login-submit'
               type='submit'
               onClick={formik.handleSubmit as any}
               variant='contained'

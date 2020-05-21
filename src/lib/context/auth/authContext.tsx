@@ -3,8 +3,7 @@ import checkLoggedIn from 'lib/requests/checkLoggedIn';
 import loginRequest from 'lib/requests/login';
 import logoutRequest from 'lib/requests/logout';
 import signUpRequest from 'lib/requests/signUp';
-import {useLocation, useHistory} from 'react-router-dom';
-import queryString from 'query-string';
+import {useModalRouter} from 'lib/hooks';
 
 export interface IUser {
   username: string;
@@ -41,8 +40,7 @@ const AuthContext = React.createContext<IAuthContext>({
 });
 
 export const AuthProvider: React.FC = (props) => {
-  const location = useLocation();
-  const history = useHistory();
+  const {goTo} = useModalRouter();
   const [user, setUser] = useState<IUser | undefined>();
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
@@ -85,17 +83,7 @@ export const AuthProvider: React.FC = (props) => {
    * with auth
    */
   const openAuthDialog = () => {
-    const path = location.pathname;
-    const query = queryString.stringify(
-        {
-          ...queryString.parse(location.search),
-          auth: '/',
-        },
-        {
-          encode: false,
-        },
-    );
-    history.push(path + '?' + query);
+    goTo('/auth');
   };
 
   const logout = (): Request => {

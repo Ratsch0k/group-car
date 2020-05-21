@@ -3,8 +3,8 @@
     "dialog": {
       "title": {
         "authenticate": "Anmeldung",
-        "login": "Anmelden",
-        "sign-up": "Account erstellen"
+        "/auth/login": "Anmelden",
+        "/auth/sign-up": "Account erstellen"
       }
     }
   },
@@ -32,5 +32,11 @@
   "misc": {
     "or": "oder",
     "loading": "Lade"
+  },
+  "imprint": {
+    "title": "Impressum"
+  },
+  "privacyPolicy": {
+    "title": "Datenschutzerklärung"
   }
 }
