@@ -4,7 +4,7 @@ import {Dialog, DialogContent, useMediaQuery} from '@material-ui/core';
 import CloseableDialogTitle from 'lib/components/CloseableDialog';
 import {useTheme} from '@material-ui/styles';
 import {useModalRouter} from 'lib/hooks';
-import PrivacyPolicy from 'lib/components/PrivacyPolicy/PrivacyPolicy';
+import PrivacyPolicy from 'lib/components/legal/PrivacyPolicy/PrivacyPolicy';
 
 type GroupCarTheme = import('lib/theme').GroupCarTheme;
 

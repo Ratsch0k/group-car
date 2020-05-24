@@ -4,27 +4,27 @@ const PrivacyPolicy: React.FunctionComponent = () => {
   return (
     <div>
       <h2>
-  1. Datenschutz auf einen Blick
+        1. Datenschutz auf einen Blick
       </h2>
       <h3>
-  Allgemeine Hinweise
+        Allgemeine Hinweise
       </h3>
       <p>
-  Die folgenden Hinweise geben einen einfachen &Uuml;berblick
-   dar&uuml;ber, was mit Ihren personenbezogenen Daten passiert,
-   wenn Sie diese Website besuchen. bPersonenbezogene Daten sind
-   alle Daten, mit denen Sie pers&ouml;nlich identifiziert
-   werden k&ouml;nnen. Ausf&uuml;hrliche Informationen zum Thema
-   Datenschutz entnehmen Sie unserer unter diesem Text
-   aufgef&uuml;hrten Datenschutzerkl&auml;rung.
+        Die folgenden Hinweise geben einen einfachen &Uuml;berblick
+         dar&uuml;ber, was mit Ihren personenbezogenen Daten passiert,
+         wenn Sie diese Website besuchen. Personenbezogene Daten sind
+         alle Daten, mit denen Sie pers&ouml;nlich identifiziert
+         werden k&ouml;nnen. Ausf&uuml;hrliche Informationen zum Thema
+         Datenschutz entnehmen Sie unserer unter diesem Text
+         aufgef&uuml;hrten Datenschutzerkl&auml;rung.
       </p>
       <h3>
-  Datenerfassung auf dieser Website
+        Datenerfassung auf dieser Website
       </h3>
       <p>
         <strong>
-    Wer ist verantwortlich f&uuml;r die Datenerfassung auf dieser
-     Website?
+        Wer ist verantwortlich f&uuml;r die Datenerfassung auf dieser
+         Website?
         </strong>
       </p>
       <p>
@@ -77,9 +77,11 @@ const PrivacyPolicy: React.FunctionComponent = () => {
    Recht, unter bestimmten Umst&auml;nden die Einschr&auml;nkung
    der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.
    Des Weiteren steht Ihnen ein Beschwerderecht bei der zust&auml;ndigen
-   Aufsichtsbeh&ouml;rde zu.</p> <p>Hierzu sowie zu weiteren Fragen
-   zum Thema Datenschutz k&ouml;nnen Sie sich jederzeit unter der
-   im Impressum angegebenen Adresse an uns wenden.
+   Aufsichtsbeh&ouml;rde zu.</p>
+      <p>
+    Hierzu sowie zu weiteren Fragen
+    zum Thema Datenschutz k&ouml;nnen Sie sich jederzeit unter der
+    im Impressum angegebenen Adresse an uns wenden.
       </p>
       <h2>
   2. Allgemeine Hinweise und Pflichtinformationen
@@ -102,7 +104,9 @@ const PrivacyPolicy: React.FunctionComponent = () => {
    werden k&ouml;nnen. Die vorliegende Datenschutzerkl&auml;rung
    erl&auml;utert, welche Daten wir erheben und wof&uuml;r
    wir sie nutzen. Sie erl&auml;utert auch, wie und zu welchem
-   Zweck das geschieht.</p> <p>Wir weisen darauf hin, dass die
+   Zweck das geschieht.</p>
+      <p>
+       Wir weisen darauf hin, dass die
    Daten&uuml;bertragung im Internet (z.&nbsp;B. bei der
    Kommunikation per E-Mail) Sicherheitsl&uuml;cken aufweisen
    kann. Ein l&uuml;ckenloser Schutz der Daten vor dem Zugriff
@@ -288,7 +292,8 @@ const PrivacyPolicy: React.FunctionComponent = () => {
    Europ&auml;ischen Union oder eines Mitgliedstaats verarbeitet werden.
       </p>
       <h2>
-  3. Datenerfassung auf dieser Website</h2>
+  3. Datenerfassung auf dieser Website
+      </h2>
       <h3>
   Cookies
       </h3>
@@ -346,7 +351,9 @@ const PrivacyPolicy: React.FunctionComponent = () => {
    ausschlie&szlig;en sowie das automatische L&ouml;schen der Cookies
    beim Schlie&szlig;en des Browsers aktivieren. Bei der Deaktivierung
    von Cookies kann die Funktionalit&auml;t dieser Website
-   eingeschr&auml;nkt sein.</p> <p>Soweit Cookies von Drittunternehmen
+   eingeschr&auml;nkt sein.</p>
+      <p>
+    Soweit Cookies von Drittunternehmen
    oder zu Analysezwecken eingesetzt werden, werden wir Sie
    hier&uuml;ber im Rahmen dieser Datenschutzerkl&auml;rung
    gesondert informieren und ggf. eine Einwilligung abfragen.
@@ -428,6 +435,32 @@ const PrivacyPolicy: React.FunctionComponent = () => {
    Bearbeitung Ihres Anliegens). Zwingende gesetzliche
    Bestimmungen &ndash; insbesondere gesetzliche
    Aufbewahrungsfristen &ndash; bleiben unber&uuml;hrt.
+      </p>
+      <h3>
+        Benutzerdaten
+      </h3>
+      <p>
+        Um diese Seite vollständig nutzen zukönnen, müssen Sie ein
+        passwortgeschütztes Benutzerkonto erstellen.
+      </p>
+      <p>
+        Die folgenden Daten werden für ein Benutzerkonto benötigt:
+      </p>
+      <ul>
+        <li>
+            Benutzername
+        </li>
+        <li>
+            Email
+        </li>
+        <li>
+            Passwort
+        </li>
+      </ul>
+      <p>
+        Der Betreiber übernimmt keine Haftung für Passwortmissbrauch,
+        sofern dieser nicht von dem
+        Betreiber selbst verursacht wurde.
       </p>
       <h2>
   4. Plugins und Tools</h2>

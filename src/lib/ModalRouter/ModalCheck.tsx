@@ -3,9 +3,10 @@ import {useLocation, useHistory, Switch, Route} from 'react-router-dom';
 import AuthenticationDialog from
   '../../modals/legal/auth/AuthenticationDialog';
 import queryString from 'query-string';
-import Imprint from 'modals/legal/imprint/Imprint';
+import ImprintDialog from 'modals/legal/imprint/ImprintDialog';
 import {ModalProvider} from './ModalRouteContext';
-import PrivacyPolicyDialog from 'modals/legal/privacyPolicy/PrivacyPolicyDialog';
+import PrivacyPolicyDialog from
+  'modals/legal/privacyPolicy/PrivacyPolicyDialog';
 
 const ModalCheck: React.FC = (props) => {
   const location = useLocation();
@@ -102,7 +103,7 @@ const ModalCheck: React.FC = (props) => {
       >
         <Switch location={nestedLocation}>
           <Route path='/imprint'>
-            <Imprint />
+            <ImprintDialog />
           </Route>
           <Route path='/privacy-policy'>
             <PrivacyPolicyDialog />
