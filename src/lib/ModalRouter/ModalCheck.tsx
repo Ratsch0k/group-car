@@ -5,7 +5,7 @@ import AuthenticationDialog from
 import queryString from 'query-string';
 import Imprint from 'modals/legal/imprint/Imprint';
 import {ModalProvider} from './ModalRouteContext';
-import PrivacyPolicy from 'modals/legal/privacyPolicy/PrivacyPolicy';
+import PrivacyPolicyDialog from 'modals/legal/privacyPolicy/PrivacyPolicyDialog';
 
 const ModalCheck: React.FC = (props) => {
   const location = useLocation();
@@ -105,7 +105,7 @@ const ModalCheck: React.FC = (props) => {
             <Imprint />
           </Route>
           <Route path='/privacy-policy'>
-            <PrivacyPolicy />
+            <PrivacyPolicyDialog />
           </Route>
           <Route path='/auth'>
             <AuthenticationDialog
