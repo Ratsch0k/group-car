@@ -53,6 +53,7 @@ export const AuthProvider: React.FC = (props) => {
   }, []);
 
   const login = (username: string, password: string): Request => {
+    console.log('TEST');
     return loginRequest(username, password).request.then((res) => {
       setUser(res.data);
       setIsLoggedIn(true);

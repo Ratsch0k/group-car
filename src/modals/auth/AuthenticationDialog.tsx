@@ -12,8 +12,8 @@ import {
 } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import React, {useState, useEffect, useContext} from 'react';
-import {LoginForm} from '../../../lib/components/Authentication/Login';
-import {SignUpForm} from '../../../lib/components/Authentication/SignUp';
+import {LoginForm} from '../../lib/components/Authentication/Login';
+import {SignUpForm} from '../../lib/components/Authentication/SignUp';
 import {useTranslation} from 'react-i18next';
 import AuthContext from 'lib/context/auth/authContext';
 import CloseIcon from '@material-ui/icons/Close';

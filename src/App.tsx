@@ -44,13 +44,13 @@ const App: React.FC = () => {
   } else {
     return (
       <ThemeProvider theme={theme}>
-        <BrowserRouter>
-          <ModalRouter>
-            <AuthProvider>
+        <AuthProvider>
+          <BrowserRouter>
+            <ModalRouter>
               <GroupCar />
-            </AuthProvider>
-          </ModalRouter>
-        </BrowserRouter>
+            </ModalRouter>
+          </BrowserRouter>
+        </AuthProvider>
       </ThemeProvider>
     );
   }

@@ -50,7 +50,7 @@ const SignUpForm: React.FC<SignUpFormProps> = (props: SignUpFormProps) => {
   });
 
   return (
-    <form>
+    <form onSubmit={formik.handleSubmit}>
       <Grid
         container
         spacing={1}
@@ -131,7 +131,6 @@ const SignUpForm: React.FC<SignUpFormProps> = (props: SignUpFormProps) => {
               fullWidth
               type='submit'
               loading={formik.isSubmitting}
-              onClick={formik.handleSubmit as any}
               variant='contained'
               color='primary'
             >

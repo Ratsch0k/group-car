@@ -1,7 +1,7 @@
 import React from 'react';
 import {useLocation, useHistory, Switch, Route} from 'react-router-dom';
 import AuthenticationDialog from
-  '../../modals/legal/auth/AuthenticationDialog';
+  '../../modals/auth/AuthenticationDialog';
 import queryString from 'query-string';
 import ImprintDialog from 'modals/legal/imprint/ImprintDialog';
 import {ModalProvider} from './ModalRouteContext';
@@ -44,8 +44,6 @@ const ModalCheck: React.FC = (props) => {
       value: string | undefined | null,
       replace: boolean = false,
   ) => {
-    console.log(value);
-
     /*
      * In the case that the value if undefined but the current route
      * is the only one on the history, instead of going back replace

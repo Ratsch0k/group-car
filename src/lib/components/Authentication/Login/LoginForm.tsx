@@ -29,11 +29,15 @@ const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps) => {
     },
     validationSchema,
     onSubmit: (values) => {
+      console.log('onSubmit');
       props.setLoading && props.setLoading(true);
+      console.log('onSubmit');
       auth.login(values.username, values.password).then(() => {
+        console.log('onSubmit.then');
         props.setLoading && props.setLoading(false);
         props.onFinished && props.onFinished();
-      }).catch(() => {
+      }).catch((e) => {
+        console.error(e);
         props.setLoading && props.setLoading(false);
         formik.setSubmitting(false);
       });
@@ -41,7 +45,7 @@ const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps) => {
   });
 
   return (
-    <form>
+    <form onSubmit={formik.handleSubmit}>
       <Grid
         container
         spacing={1}
@@ -90,7 +94,6 @@ const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps) => {
               fullWidth
               id='login-submit'
               type='submit'
-              onClick={formik.handleSubmit as any}
               variant='contained'
               color='primary'
               loading={formik.isSubmitting}

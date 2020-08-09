@@ -32,7 +32,7 @@ const signUp = (
 
   const source = axios.CancelToken.source();
 
-  const request = axios.put(
+  const request = axios.post(
       '/auth/sign-up',
       {
         username,
