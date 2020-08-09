@@ -1,6 +1,6 @@
 {
   "name": "group-car",
-  "version": "0.3.0",
+  "version": "0.3.1-alpha.0",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.9.9",
@@ -35,7 +35,9 @@
   },
   "resolutions": {
     "yargs": "^13.3.2",
-    "http-proxy": ">=1.18.1"
+    "http-proxy": ">=1.18.1",
+    "lodash": ">=4.17.19",
+    "elliptic": ">=6.5.3"
   },
   "scripts": {
     "start": "react-scripts start",

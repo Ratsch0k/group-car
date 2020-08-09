@@ -27,9 +27,9 @@ jobs:
       script: yarn test
     - stage: "Build"
       script: yarn build --prod
-    - stage: "Check tag and version"
+    - stage: "Compare version and tag"
       script: if [[ $TRAVIS_TAG =~ $( cat ./package.json | jq '.version' | cut -d'"' -f2 )$ ]]; then exit 0; else exit 1; fi
-      install: skip
+      install: skip    
     - stage: "Deploy Development"
       script:
       - yarn build --prod
@@ -42,18 +42,20 @@ jobs:
       script:
       - yarn build --prod
       - bash scripts/deploy_release.sh
-  allow_failures:
-
 
 stages:
   - "Static Analysis"
   - "Test"
   - "Build"
+  - name: "Compare version and tag"
+    if: tag IS present AND tag ~= /^v\d+.\d+.\d+-alpha(.\d+)*$/
   - name: "Deploy Development"
-    if: NOT tag IS present AND type = push AND fork = false AND branch = develop
+    if: tag IS present AND tag ~= /^v\d+.\d+.\d+-alpha(.\d+)*$/
+  - name: "Compare version and tag"
+    if: tag IS present AND tag ~= /^v\d+.\d+.\d+-beta(.\d+)*$/
   - name: "Deploy Beta"
-    if: NOT tag IS present AND type = push AND fork = false AND branch = master
-  - name: "Check tag and version"
+    if: tag IS present AND tag ~= /^v\d+.\d+.\d+-beta(.\d+)*$/
+  - name: "Compare version and tag"
     if: tag IS present AND tag ~= /^v\d+.\d+.\d+$/
   - name: "Deploy Release"
     if: tag IS present AND tag ~= /^v\d+.\d+.\d+$/
