@@ -1,12 +1,9 @@
 import React from 'react';
-import {useLocation, useHistory, Switch, Route} from 'react-router-dom';
-import AuthenticationDialog from
-  '../../modals/auth/AuthenticationDialog';
+import {useLocation, useHistory} from 'react-router-dom';
 import queryString from 'query-string';
-import ImprintDialog from 'modals/legal/imprint/ImprintDialog';
 import {ModalProvider} from './ModalRouteContext';
-import PrivacyPolicyDialog from
-  'modals/legal/privacyPolicy/PrivacyPolicyDialog';
+import ModalRoutes from './ModalRoutes';
+
 
 const ModalCheck: React.FC = (props) => {
   const location = useLocation();
@@ -99,20 +96,7 @@ const ModalCheck: React.FC = (props) => {
         route={routeValue}
         goTo={goTo}
       >
-        <Switch location={nestedLocation}>
-          <Route path='/imprint'>
-            <ImprintDialog />
-          </Route>
-          <Route path='/privacy-policy'>
-            <PrivacyPolicyDialog />
-          </Route>
-          <Route path='/auth'>
-            <AuthenticationDialog
-              open={true}
-              close={close}
-            />
-          </Route>
-        </Switch>
+        <ModalRoutes nestedLocation={nestedLocation} close={close}/>
         {props.children}
       </ModalProvider>
     </>

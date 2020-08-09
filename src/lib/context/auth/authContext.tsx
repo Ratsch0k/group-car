@@ -3,7 +3,6 @@ import checkLoggedIn from 'lib/requests/checkLoggedIn';
 import loginRequest from 'lib/requests/login';
 import logoutRequest from 'lib/requests/logout';
 import signUpRequest from 'lib/requests/signUp';
-import {useModalRouter} from 'lib/hooks';
 
 export interface IUser {
   username: string;
@@ -27,7 +26,6 @@ export interface IAuthContext {
   ): Request;
   user: IUser | undefined;
   isLoggedIn: boolean;
-  openAuthDialog(): void;
 }
 
 const AuthContext = React.createContext<IAuthContext>({
@@ -36,11 +34,9 @@ const AuthContext = React.createContext<IAuthContext>({
   signUp: () => Promise.reject(new Error()),
   user: undefined,
   isLoggedIn: false,
-  openAuthDialog: () => {},
 });
 
 export const AuthProvider: React.FC = (props) => {
-  const {goTo} = useModalRouter();
   const [user, setUser] = useState<IUser | undefined>();
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
@@ -53,7 +49,6 @@ export const AuthProvider: React.FC = (props) => {
   }, []);
 
   const login = (username: string, password: string): Request => {
-    console.log('TEST');
     return loginRequest(username, password).request.then((res) => {
       setUser(res.data);
       setIsLoggedIn(true);
@@ -79,14 +74,6 @@ export const AuthProvider: React.FC = (props) => {
     });
   };
 
-  /**
-   * Open the auth dialog by appending the location with the query
-   * with auth
-   */
-  const openAuthDialog = () => {
-    goTo('/auth');
-  };
-
   const logout = (): Request => {
     return logoutRequest().request.then((res) => {
       setUser(undefined);
@@ -103,7 +90,7 @@ export const AuthProvider: React.FC = (props) => {
         signUp,
         user,
         isLoggedIn,
-        openAuthDialog}}
+      }}
     >
       {props.children}
     </AuthContext.Provider>

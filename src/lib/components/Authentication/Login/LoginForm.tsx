@@ -29,15 +29,11 @@ const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps) => {
     },
     validationSchema,
     onSubmit: (values) => {
-      console.log('onSubmit');
       props.setLoading && props.setLoading(true);
-      console.log('onSubmit');
       auth.login(values.username, values.password).then(() => {
-        console.log('onSubmit.then');
         props.setLoading && props.setLoading(false);
         props.onFinished && props.onFinished();
       }).catch((e) => {
-        console.error(e);
         props.setLoading && props.setLoading(false);
         formik.setSubmitting(false);
       });

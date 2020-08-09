@@ -10,9 +10,11 @@ import {
 import UserAvatar from '../UserAvatar';
 import UserOverview from '../UserOverview/UserOverview';
 import AuthContext from 'lib/context/auth/authContext';
+import {useModalRouter} from 'lib/hooks';
 
 const HeaderBarUserButton: React.FC = () => {
   const auth = useContext(AuthContext);
+  const {goTo} = useModalRouter();
 
   const [userId, setUserId] = useState<number>();
   const [anchor, setAnchor] =
@@ -33,7 +35,7 @@ const HeaderBarUserButton: React.FC = () => {
         setAnchor(event.currentTarget);
       }
     } else {
-      auth.openAuthDialog();
+      goTo('/auth');
     }
   };
 
