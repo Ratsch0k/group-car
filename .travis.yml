@@ -27,7 +27,7 @@ jobs:
       script: yarn test
     - stage: "Build"
       script: yarn build --prod
-    - stage: "Compare tag and version"
+    - stage: "Compare version and tag"
       script: if [[ $TRAVIS_TAG =~ $( cat ./package.json | jq '.version' | cut -d'"' -f2 )$ ]]; then exit 0; else exit 1; fi
       install: skip    
     - stage: "Deploy Development"
@@ -42,8 +42,6 @@ jobs:
       script:
       - yarn build --prod
       - bash scripts/deploy_release.sh
-  allow_failures:
-
 
 stages:
   - "Static Analysis"
