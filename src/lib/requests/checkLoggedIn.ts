@@ -1,8 +1,18 @@
 import axios from 'axios';
+import {Request} from './request';
 
-type Request = import('./request').Request;
+export interface CheckLoggedInResponse {
+  id: number;
+  username: string;
+  email: string;
+  isBetaUser: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+}
 
-const checkLoggedIn = (): Request => {
+export type CheckLoggedInRequest = Request<CheckLoggedInResponse>;
+
+const checkLoggedIn = (): CheckLoggedInRequest => {
   const source = axios.CancelToken.source();
 
   const request = axios.put('/auth/token', undefined, {

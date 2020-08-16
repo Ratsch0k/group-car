@@ -101,7 +101,7 @@ const AuthenticationDialog: React.FC<AuthenticationDialogProps> =
     if (auth.isLoggedIn) {
       onFinished();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
   }, [auth.isLoggedIn]);
 
   return (

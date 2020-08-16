@@ -39,7 +39,7 @@ const ModalCheck: React.FC = (props) => {
 
   const goTo = (
       value: string | undefined | null,
-      replace: boolean = false,
+      replace = false,
   ) => {
     /*
      * In the case that the value if undefined but the current route
@@ -85,7 +85,7 @@ const ModalCheck: React.FC = (props) => {
     }
   };
 
-  const nestedLocation: any = {
+  const nestedLocation = {
     pathname: routeValue,
   };
 

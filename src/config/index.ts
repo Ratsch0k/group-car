@@ -1,6 +1,6 @@
 export interface CsrfConfig {
   token: string;
-};
+}
 
 export interface Config {
   csrf: CsrfConfig;

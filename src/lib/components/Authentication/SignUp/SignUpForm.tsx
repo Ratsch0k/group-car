@@ -39,7 +39,7 @@ const SignUpForm: React.FC<SignUpFormProps> = (props: SignUpFormProps) => {
     onSubmit: (values) => {
       props.setLoading && props.setLoading(true);
       auth.signUp(values.username, values.email, values.password, offset)
-          .then(() => {
+          .request.then(() => {
             props.setLoading && props.setLoading(false);
             props.onFinished && props.onFinished();
           }).catch(() => {

@@ -4,12 +4,12 @@ import HeaderBar from 'lib/components/HeaderBar/HeaderBar';
 import Routes from 'lib/Routes';
 import React, {useState} from 'react';
 import Drawer from 'lib/components/Drawer/Drawer';
-
-type GroupCarTheme = import('lib/theme').GroupCarTheme;
+import {GroupCarTheme} from 'lib/theme';
 
 const GroupCar: React.FC = () => {
   const [open, setOpen] = useState<boolean>(false);
-  const largerLg = useMediaQuery((theme: any) => theme.breakpoints.up('lg'));
+  const largerLg = useMediaQuery((theme: GroupCarTheme) =>
+    theme.breakpoints.up('lg'));
 
   const useStyle = makeStyles((theme: GroupCarTheme) =>
     createStyles({

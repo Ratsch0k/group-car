@@ -7,8 +7,8 @@ export interface IModalContext {
 }
 
 const ModalContext = React.createContext<IModalContext>({
-  close: () => {},
-  goTo: () => {},
+  close: () => undefined,
+  goTo: () => undefined,
   route: '/',
 });
 
@@ -21,6 +21,7 @@ interface ModalProviderProps {
 /**
  * The component for providing the modal context to nested components
  * @param props Props of the component
+ * @return The provider of the modal context
  */
 export const ModalProvider: React.FC<ModalProviderProps> = (props) => {
   const {children, ...rest} = props;

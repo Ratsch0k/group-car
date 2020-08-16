@@ -6,15 +6,18 @@ import PrivacyPolicyDialog from
 import AuthenticationDialog from 'modals/auth/AuthenticationDialog';
 
 interface ModalRoutesProps {
-  nestedLocation: any;
+  nestedLocation: {
+    pathname: string;
+  };
   close(): void;
 }
 
 const ModalRoutes: React.FC<ModalRoutesProps> = (props) => {
   const {nestedLocation, close} = props;
 
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   return (
-    <Switch location={nestedLocation}>
+    <Switch location={nestedLocation as any}>
       <Route path='/imprint'>
         <ImprintDialog />
       </Route>

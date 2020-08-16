@@ -9,3 +9,8 @@ scripts
 
 # Ignore build
 build
+
+# Ignore eslint configuration
+.eslintrc.js
+
+src/**/*.spec.tsx

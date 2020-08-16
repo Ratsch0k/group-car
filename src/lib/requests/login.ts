@@ -1,6 +1,17 @@
 import axios from 'axios';
+import {Request} from 'lib/requests/request';
 
-type Request = import('./request').Request;
+export interface LoginResponse {
+  id: number;
+  username: string;
+  email: string;
+  isBetaUser: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+  deletedAt: Date;
+}
+
+export type LoginRequest = Request<LoginResponse>;
 
 /**
  * Sends a login request to the backend with the given
@@ -11,13 +22,13 @@ type Request = import('./request').Request;
  * @param password  The password for the account
  * @return          The request and a method to cancel it
  */
-const login = (username: string, password: string): Request => {
+const login = (username: string, password: string): LoginRequest => {
   // Check if provided arguments are non empty strings
   if (!username || username.length <= 0 ||
     !password || password.length <= 0) {
     return {
       request: Promise.reject(new Error('Request invalid')),
-      cancel: () => {},
+      cancel: () => undefined,
     };
   }
 

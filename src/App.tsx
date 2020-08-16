@@ -21,12 +21,12 @@ const App: React.FC = () => {
       const csrf = res.headers['xsrf-token'];
 
       if (!csrf) {
-
+        setLoading(false);
       } else {
         axios.defaults.headers.common['XSRF-TOKEN'] = csrf;
         setLoading(false);
       }
-    }).catch((error) => {
+    }).catch(() => {
       setLoading(false);
     });
 
