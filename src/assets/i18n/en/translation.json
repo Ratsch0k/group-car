@@ -6,7 +6,8 @@
         "/auth/login": "Log in",
         "/auth/sign-up": "Sign up"
       }
-    }
+    },
+    "isRequested": "It's currently not possible to sign up directly. Your request was received and will be processed shortly. If your request is granted you will receive an email."
   },
   "form": {
     "login": "Login",

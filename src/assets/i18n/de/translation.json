@@ -6,7 +6,8 @@
         "/auth/login": "Anmelden",
         "/auth/sign-up": "Account erstellen"
       }
-    }
+    },
+    "isRequested": "Zurzeit ist es nicht möglich ein Benutzerkonto direkt anzulegen. Ihre Anfrage wird überprüft und falls Sie genehmigt wird, erhalten Sie eine Email."
   },
   "form": {
     "login": "Anmelden",

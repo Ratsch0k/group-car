@@ -3,7 +3,6 @@ import {default as SignUpRequestElement} from './SignUpRequest';
 import SignUpForm from './SignUpForm';
 import AuthContext from 'lib/context/auth/authContext';
 import {SignUpRequest} from 'lib/requests/signUp';
-import {Fade} from '@material-ui/core';
 
 export interface SignUpBodyProps {
   withSubmit?: boolean;
@@ -64,15 +63,13 @@ const SignUpBody: React.FC<SignUpBodyProps> = (props) => {
 
   if (isSignUpThroughRequest) {
     return (
-      <Fade in={true}>
-        <div style={{
-          height: signUpRef.current !== null ?
+      <div style={{
+        height: signUpRef.current !== null ?
           signUpRef.current.clientHeight :
           undefined,
-        }}>
-          <SignUpRequestElement />
-        </div>
-      </Fade>
+      }}>
+        <SignUpRequestElement />
+      </div>
     );
   } else {
     return (
