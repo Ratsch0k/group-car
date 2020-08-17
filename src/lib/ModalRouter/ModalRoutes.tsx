@@ -4,20 +4,13 @@ import ImprintDialog from 'modals/legal/imprint/ImprintDialog';
 import PrivacyPolicyDialog from
   'modals/legal/privacyPolicy/PrivacyPolicyDialog';
 import AuthenticationDialog from 'modals/auth/AuthenticationDialog';
+import {useModalRouter} from 'lib/hooks';
 
-interface ModalRoutesProps {
-  nestedLocation: {
-    pathname: string;
-  };
-  close(): void;
-}
+export const ModalRoutes: React.FC = () => {
+  const {modalLocation, close} = useModalRouter();
 
-export const ModalRoutes: React.FC<ModalRoutesProps> = (props) => {
-  const {nestedLocation, close} = props;
-
-  /* eslint-disable @typescript-eslint/no-explicit-any */
   return (
-    <Switch location={nestedLocation as any}>
+    <Switch location={modalLocation}>
       <Route path='/imprint'>
         <ImprintDialog />
       </Route>

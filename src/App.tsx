@@ -9,6 +9,7 @@ import {
   AuthProvider,
   ModalRouter,
 } from 'lib';
+import ModalRoutes from 'lib/ModalRouter/ModalRoutes';
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -50,6 +51,7 @@ const App: React.FC = () => {
           <BrowserRouter>
             <ModalRouter>
               <GroupCar />
+              <ModalRoutes />
             </ModalRouter>
           </BrowserRouter>
         </AuthProvider>
