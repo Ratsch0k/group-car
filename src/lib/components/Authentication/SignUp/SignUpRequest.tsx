@@ -6,6 +6,10 @@ import {green} from '@material-ui/core/colors';
 import {GroupCarTheme} from 'lib/theme';
 import {useTranslation} from 'react-i18next';
 
+/**
+ * Element which informs the user, that the sign up was successfully received
+ * but a direct sign up is currently not possible.
+ */
 const SignUpRequest: React.FC = () => {
   const {t} = useTranslation();
 

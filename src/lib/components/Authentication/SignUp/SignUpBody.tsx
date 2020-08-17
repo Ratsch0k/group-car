@@ -10,7 +10,14 @@ export interface SignUpBodyProps {
   setLoading?(arg0: boolean): void;
 }
 
+/**
+ * Element which handles the response from the server,
+ * if direct sign up is not possible. Will animate to the SignUpRequest
+ * element.
+ * @param props Forwards props to the SignUpForm
+ */
 const SignUpBody: React.FC<SignUpBodyProps> = (props) => {
+  // Whether or not sign up is not directly possible.
   const [
     isSignUpThroughRequest,
     setIsSignUpThroughRequest,
@@ -61,6 +68,10 @@ const SignUpBody: React.FC<SignUpBodyProps> = (props) => {
     return request;
   };
 
+  /*
+   * If the sign up is not directly possible, show the user
+   * the element which will inform him/her about that.
+  */
   if (isSignUpThroughRequest) {
     return (
       <div style={{
