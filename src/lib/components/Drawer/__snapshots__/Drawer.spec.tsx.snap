@@ -11,34 +11,42 @@ exports[`renders and matches snapshot with not open and not permanent without cr
 exports[`renders and matches snapshot with not open and permanent without crashing 1`] = `
 <div>
   <div
-    class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-410 makeStyles-drawerPermanent-412"
+    class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-430 makeStyles-drawerPermanent-432"
   >
     <div
-      class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-411 makeStyles-drawerPaperPermanent-413 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+      class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-431 makeStyles-drawerPaperPermanent-433 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
     >
       <div
-        class="MuiBox-root MuiBox-root-458 makeStyles-root-456"
+        class="MuiBox-root MuiBox-root-478 makeStyles-root-476"
       />
       <div
-        class="MuiGrid-root makeStyles-footer-414 MuiGrid-container MuiGrid-justify-xs-space-evenly"
+        class="MuiPaper-root makeStyles-footer-434 makeStyles-paper-479 MuiPaper-elevation6"
       >
         <div
-          class="MuiGrid-root MuiGrid-item"
+          class="MuiContainer-root makeStyles-container-480 MuiContainer-maxWidthLg"
         >
-          <button
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
           >
-            privacyPolicy.title
-          </button>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item"
-        >
-          <button
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-          >
-            imprint.title
-          </button>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <button
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
+              >
+                privacyPolicy.title
+              </button>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <button
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
+              >
+                imprint.title
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -101,25 +109,33 @@ exports[`renders and matches snapshot with open and not permanent without crashi
         </button>
       </div>
       <div
-        class="MuiGrid-root makeStyles-footer-5 MuiGrid-container MuiGrid-justify-xs-space-evenly"
+        class="MuiPaper-root makeStyles-footer-5 makeStyles-paper-73 MuiPaper-elevation6"
       >
         <div
-          class="MuiGrid-root MuiGrid-item"
+          class="MuiContainer-root makeStyles-container-74 MuiContainer-maxWidthLg"
         >
-          <button
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
           >
-            privacyPolicy.title
-          </button>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item"
-        >
-          <button
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-          >
-            imprint.title
-          </button>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <button
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
+              >
+                privacyPolicy.title
+              </button>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <button
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
+              >
+                imprint.title
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -134,34 +150,42 @@ exports[`renders and matches snapshot with open and not permanent without crashi
 exports[`renders and matches snapshot with open and permanent without crashing 1`] = `
 <div>
   <div
-    class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-222 makeStyles-drawerPermanent-224"
+    class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-232 makeStyles-drawerPermanent-234"
   >
     <div
-      class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-223 makeStyles-drawerPaperPermanent-225 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+      class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-233 makeStyles-drawerPaperPermanent-235 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
     >
       <div
-        class="MuiBox-root MuiBox-root-270 makeStyles-root-268"
+        class="MuiBox-root MuiBox-root-280 makeStyles-root-278"
       />
       <div
-        class="MuiGrid-root makeStyles-footer-226 MuiGrid-container MuiGrid-justify-xs-space-evenly"
+        class="MuiPaper-root makeStyles-footer-236 makeStyles-paper-281 MuiPaper-elevation6"
       >
         <div
-          class="MuiGrid-root MuiGrid-item"
+          class="MuiContainer-root makeStyles-container-282 MuiContainer-maxWidthLg"
         >
-          <button
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
           >
-            privacyPolicy.title
-          </button>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item"
-        >
-          <button
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-          >
-            imprint.title
-          </button>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <button
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
+              >
+                privacyPolicy.title
+              </button>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <button
+                class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
+              >
+                imprint.title
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

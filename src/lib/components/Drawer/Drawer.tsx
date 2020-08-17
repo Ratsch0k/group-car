@@ -6,11 +6,11 @@ import {GroupCarTheme} from 'lib';
 import DrawerHeader from './DrawerHeader';
 import {DrawerFooter} from './Footer';
 
-
 interface DrawerProps {
   open: boolean;
   onClose(): void;
   permanent: boolean;
+  children?: React.ReactNode[] | React.ReactNode;
 }
 
 const useStyles = makeStyles((theme: GroupCarTheme) =>
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
 );
 
 export const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
-  const {open, onClose, permanent} = props;
+  const {open, onClose, permanent, children} = props;
   const classes = useStyles();
 
   return (
@@ -56,6 +56,7 @@ export const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
       }}
     >
       <DrawerHeader close={onClose} noCloseButton={permanent}/>
+      {children}
       <DrawerFooter className={classes.footer}/>
     </MatDrawer>
   );

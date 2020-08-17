@@ -1,4 +1,4 @@
-import {Box, useMediaQuery} from '@material-ui/core';
+import {Box, useMediaQuery, Button, Container} from '@material-ui/core';
 import {createStyles, makeStyles} from '@material-ui/styles';
 import React, {useState} from 'react';
 import {
@@ -7,8 +7,10 @@ import {
   Routes,
   HeaderBar,
 } from 'lib';
+import {useTranslation} from 'react-i18next';
 
 const GroupCar: React.FC = () => {
+  const {t} = useTranslation();
   const [open, setOpen] = useState<boolean>(false);
   const largerLg = useMediaQuery((theme: GroupCarTheme) =>
     theme.breakpoints.up('lg'));
@@ -38,7 +40,17 @@ const GroupCar: React.FC = () => {
         open={open}
         onClose={() => setOpen(false)}
         permanent={largerLg}
-      />
+      >
+        <Container>
+          <Button
+            fullWidth
+            disableElevation
+            color='primary'
+            variant='contained'
+          >{t('drawer.createGroup')}
+          </Button>
+        </Container>
+      </Drawer>
       <Box className={classes.content}>
         <Routes />
       </Box>

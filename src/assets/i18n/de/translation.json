@@ -30,6 +30,9 @@
       "noPic": "Kein Profil Bild"
     }
   },
+  "drawer": {
+    "createGroup": "Erstelle eine Gruppe"
+  },
   "misc": {
     "or": "oder",
     "loading": "Lade"

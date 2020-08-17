@@ -39,5 +39,8 @@
   },
   "privacyPolicy": {
     "title": "Privacy policy"
+  },
+  "drawer": {
+    "createGroup": "Create a group"
   }
 }
