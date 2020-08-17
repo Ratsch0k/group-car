@@ -12,13 +12,10 @@ import {
 } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import React, {useState, useEffect, useContext} from 'react';
-import {LoginForm} from '../../lib/components/Authentication/Login';
 import {useTranslation} from 'react-i18next';
-import AuthContext from 'lib/context/auth/authContext';
 import CloseIcon from '@material-ui/icons/Close';
 import {Route, Switch, useRouteMatch, useLocation} from 'react-router-dom';
-import useModalRouter from 'lib/hooks/useModalRouter';
-import SignUpBody from 'lib/components/Authentication/SignUp/SignUpBody';
+import {AuthContext, LoginForm, useModalRouter, SignUpBody} from 'lib';
 
 type Theme = import('@material-ui/core').Theme;
 
@@ -54,7 +51,7 @@ interface AuthenticationDialogProps {
   close(): void;
 }
 
-const AuthenticationDialog: React.FC<AuthenticationDialogProps> =
+export const AuthenticationDialog: React.FC<AuthenticationDialogProps> =
 (props: AuthenticationDialogProps) => {
   const classes = useStyle();
   const {t} = useTranslation();

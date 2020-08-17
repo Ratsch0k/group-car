@@ -1,1 +1,1 @@
-export {default} from './CloseableDialogTitle';
+export * from './CloseableDialogTitle';

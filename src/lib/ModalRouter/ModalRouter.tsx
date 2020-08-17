@@ -7,7 +7,7 @@ import ModalCheck from './ModalCheck';
  * @param props Props of the component. Only containing the children
  * @return Modal router
  */
-const ModalRouter: React.FC = (props) => {
+export const ModalRouter: React.FC = (props) => {
   return (
     <ModalCheck>
       {props.children}

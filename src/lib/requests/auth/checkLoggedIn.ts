@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {Request} from './request';
+import {Request} from '../request';
 
 export interface CheckLoggedInResponse {
   id: number;
@@ -12,7 +12,7 @@ export interface CheckLoggedInResponse {
 
 export type CheckLoggedInRequest = Request<CheckLoggedInResponse>;
 
-const checkLoggedIn = (): CheckLoggedInRequest => {
+export const checkLoggedIn = (): CheckLoggedInRequest => {
   const source = axios.CancelToken.source();
 
   const request = axios.put('/auth/token', undefined, {
@@ -24,5 +24,3 @@ const checkLoggedIn = (): CheckLoggedInRequest => {
     cancel: source.cancel,
   };
 };
-
-export default checkLoggedIn;

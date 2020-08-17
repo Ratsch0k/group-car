@@ -2,10 +2,10 @@ import React from 'react';
 import {Drawer as MatDrawer} from '@material-ui/core';
 import {makeStyles, createStyles} from '@material-ui/styles';
 import clsx from 'clsx';
-import DrawerFooter from './DrawerFooter';
+import {GroupCarTheme} from 'lib';
 import DrawerHeader from './DrawerHeader';
+import {DrawerFooter} from './Footer';
 
-type GroupCarTheme = import('lib/theme').GroupCarTheme;
 
 interface DrawerProps {
   open: boolean;
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
   }),
 );
 
-const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
+export const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
   const {open, onClose, permanent} = props;
   const classes = useStyles();
 

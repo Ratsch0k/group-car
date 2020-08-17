@@ -10,7 +10,7 @@ export type GetRandomProfilePicRequest = Request<any>;
  * @param offset    The offset which to use to generate
  * @return          The http request and a method to cancel it
  */
-const getRandomProfilePic = (
+export const getRandomProfilePic = (
     username: string,
     offset?: number,
 ): GetRandomProfilePicRequest => {
@@ -37,5 +37,3 @@ const getRandomProfilePic = (
     cancel: source.cancel,
   };
 };
-
-export default getRandomProfilePic;

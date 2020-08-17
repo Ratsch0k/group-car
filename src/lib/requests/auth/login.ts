@@ -1,17 +1,7 @@
 import axios from 'axios';
-import {Request} from 'lib/requests/request';
+import {User, Request} from 'lib';
 
-export interface LoginResponse {
-  id: number;
-  username: string;
-  email: string;
-  isBetaUser: boolean;
-  createdAt: Date;
-  updatedAt: Date;
-  deletedAt: Date;
-}
-
-export type LoginRequest = Request<LoginResponse>;
+export type LoginRequest = Request<User>;
 
 /**
  * Sends a login request to the backend with the given
@@ -22,7 +12,7 @@ export type LoginRequest = Request<LoginResponse>;
  * @param password  The password for the account
  * @return          The request and a method to cancel it
  */
-const login = (username: string, password: string): LoginRequest => {
+export const login = (username: string, password: string): LoginRequest => {
   // Check if provided arguments are non empty strings
   if (!username || username.length <= 0 ||
     !password || password.length <= 0) {
@@ -51,6 +41,3 @@ const login = (username: string, password: string): LoginRequest => {
     cancel: source.cancel,
   };
 };
-
-export default login;
-

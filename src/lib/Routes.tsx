@@ -2,7 +2,7 @@ import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 import Map from '../pages/Map';
 
-const Routes: React.FC = () => {
+export const Routes: React.FC = () => {
   return (
     <Switch>
       <Route path='/'>

@@ -20,7 +20,7 @@ export interface PasswordTextFieldProps {
   onBlur?(event: any): void;
 }
 
-const PasswordTextField: React.FC<PasswordTextFieldProps> =
+export const PasswordTextField: React.FC<PasswordTextFieldProps> =
   (props: PasswordTextFieldProps) => {
     const {
       label = 'Password *',
@@ -62,4 +62,4 @@ const PasswordTextField: React.FC<PasswordTextFieldProps> =
     );
   };
 
-export default PasswordTextField;
+export default PasswordTextFieldProps;

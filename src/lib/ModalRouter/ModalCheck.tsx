@@ -5,7 +5,7 @@ import {ModalProvider} from './ModalRouteContext';
 import ModalRoutes from './ModalRoutes';
 
 
-const ModalCheck: React.FC = (props) => {
+export const ModalCheck: React.FC = (props) => {
   const location = useLocation();
   const history = useHistory();
 

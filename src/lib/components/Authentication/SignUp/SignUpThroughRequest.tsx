@@ -3,14 +3,14 @@ import {Typography, Grid, Box} from '@material-ui/core';
 import {makeStyles, createStyles} from '@material-ui/styles';
 import DoneIcon from '@material-ui/icons/Done';
 import {green} from '@material-ui/core/colors';
-import {GroupCarTheme} from 'lib/theme';
+import {GroupCarTheme} from 'lib';
 import {useTranslation} from 'react-i18next';
 
 /**
  * Element which informs the user, that the sign up was successfully received
  * but a direct sign up is currently not possible.
  */
-const SignUpRequest: React.FC = () => {
+export const SignUpThroughRequest: React.FC = () => {
   const {t} = useTranslation();
 
   const useStyles = makeStyles((theme: GroupCarTheme) =>
@@ -89,4 +89,4 @@ const SignUpRequest: React.FC = () => {
   );
 };
 
-export default SignUpRequest;
+export default SignUpThroughRequest;

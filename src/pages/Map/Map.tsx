@@ -6,7 +6,7 @@ type LatLngTuple = import('leaflet').LatLngTuple;
 /**
  * Map component
  */
-const Map: React.FC = () => {
+export const Map: React.FC = () => {
   const [location, setLocation] = useState<LatLngTuple>([49.958958, 8.308246]);
 
   useEffect(() => {

@@ -1,21 +1,12 @@
 import axios from 'axios';
-import {Request} from 'lib/requests/request';
+import {User, Request} from 'lib';
 
-export interface SignUpAcceptedResponse {
-  id: number;
-  username: string;
-  email: string;
-  isBetaUser: boolean;
-  createdAt: Date;
-  updatedAt: Date;
-  deletedAt: Date;
-}
 
 export interface SignUpRequestResponse {
   message: string;
 }
 
-export type SignUpResponse = SignUpAcceptedResponse | SignUpRequestResponse;
+export type SignUpResponse = User | SignUpRequestResponse;
 
 export type SignUpRequest = Request<SignUpResponse>;
 
@@ -30,7 +21,7 @@ export type SignUpRequest = Request<SignUpResponse>;
  * @param offset    The offset with which the profile picture can be generated
  * @return          The request and a method to cancel it
  */
-const signUp = (
+export const signUp = (
     username: string,
     email: string,
     password: string,
@@ -64,6 +55,3 @@ const signUp = (
     cancel: source.cancel,
   };
 };
-
-export default signUp;
-

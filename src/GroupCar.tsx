@@ -1,10 +1,12 @@
 import {Box, useMediaQuery} from '@material-ui/core';
 import {createStyles, makeStyles} from '@material-ui/styles';
-import HeaderBar from 'lib/components/HeaderBar/HeaderBar';
-import Routes from 'lib/Routes';
 import React, {useState} from 'react';
-import Drawer from 'lib/components/Drawer/Drawer';
-import {GroupCarTheme} from 'lib/theme';
+import {
+  GroupCarTheme,
+  Drawer,
+  Routes,
+  HeaderBar,
+} from 'lib';
 
 const GroupCar: React.FC = () => {
   const [open, setOpen] = useState<boolean>(false);

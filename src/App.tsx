@@ -3,10 +3,12 @@ import {useEffect} from 'react';
 import axios from 'axios';
 import GroupCar from './GroupCar';
 import {BrowserRouter} from 'react-router-dom';
-import {AuthProvider} from './lib/context/auth/authContext';
 import {ThemeProvider} from '@material-ui/core';
-import theme from 'lib/theme';
-import ModalRouter from 'lib/ModalRouter';
+import {
+  theme,
+  AuthProvider,
+  ModalRouter,
+} from 'lib';
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);

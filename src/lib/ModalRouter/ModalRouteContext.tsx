@@ -6,7 +6,7 @@ export interface IModalContext {
   route: string;
 }
 
-const ModalContext = React.createContext<IModalContext>({
+export const ModalContext = React.createContext<IModalContext>({
   close: () => undefined,
   goTo: () => undefined,
   route: '/',

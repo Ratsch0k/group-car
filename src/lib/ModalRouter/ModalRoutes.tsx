@@ -12,7 +12,7 @@ interface ModalRoutesProps {
   close(): void;
 }
 
-const ModalRoutes: React.FC<ModalRoutesProps> = (props) => {
+export const ModalRoutes: React.FC<ModalRoutesProps> = (props) => {
   const {nestedLocation, close} = props;
 
   /* eslint-disable @typescript-eslint/no-explicit-any */

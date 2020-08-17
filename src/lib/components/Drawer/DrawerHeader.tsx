@@ -1,8 +1,7 @@
 import React from 'react';
 import {Box, IconButton, makeStyles, createStyles} from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
-
-type GroupCarTheme = import('lib/theme').GroupCarTheme;
+import {GroupCarTheme} from 'lib';
 
 interface DrawerHeaderProps {
   noCloseButton?: boolean;
@@ -26,7 +25,7 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
  * Top header for the drawer
  * @param props Props for the component
  */
-const DrawerHeader: React.FC<DrawerHeaderProps> =
+export const DrawerHeader: React.FC<DrawerHeaderProps> =
 (props: DrawerHeaderProps) => {
   const classes = useStyles();
   const {

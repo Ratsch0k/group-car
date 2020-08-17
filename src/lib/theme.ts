@@ -17,7 +17,7 @@ export interface GroupCarTheme extends Theme {
   shape: IShape;
 }
 
-const theme = createMuiTheme({
+export const theme = createMuiTheme({
   palette: {
     primary: {
       main: '#00C68A',
@@ -37,5 +37,3 @@ const theme = createMuiTheme({
     drawerWidth: 350,
   },
 } as IThemeOptions);
-
-export default theme;

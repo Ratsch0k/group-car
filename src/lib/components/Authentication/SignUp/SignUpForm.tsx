@@ -1,12 +1,10 @@
 import React, {useState} from 'react';
-import PasswordTextField from 'lib/components/Input/PasswordTextField';
 import {TextField, Grid, Container} from '@material-ui/core';
 import {useFormik} from 'formik';
 import * as yup from 'yup';
 import {useTranslation} from 'react-i18next';
-import ProgressButton from 'lib/components/Input/ProgressButton';
 import GenerateProfilePic from './GenerateProfilePic/GenProfilePic';
-import {SignUpRequest} from 'lib/requests/signUp';
+import {SignUpRequest, ProgressButton, PasswordTextField} from 'lib';
 
 export interface SignUpFormProps {
   withSubmit?: boolean;
@@ -20,7 +18,8 @@ export interface SignUpFormProps {
     ): SignUpRequest;
 }
 
-const SignUpForm: React.FC<SignUpFormProps> = (props: SignUpFormProps) => {
+export const SignUpForm: React.FC<SignUpFormProps> =
+(props: SignUpFormProps) => {
   const {t} = useTranslation();
   const [offset, setOffset] = useState<number>(0);
 

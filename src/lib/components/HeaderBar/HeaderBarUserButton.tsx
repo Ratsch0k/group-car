@@ -9,10 +9,9 @@ import {
 } from '@material-ui/core';
 import UserAvatar from '../UserAvatar';
 import UserOverview from '../UserOverview/UserOverview';
-import AuthContext from 'lib/context/auth/authContext';
-import {useModalRouter} from 'lib/hooks';
+import {useModalRouter, AuthContext} from 'lib';
 
-const HeaderBarUserButton: React.FC = () => {
+export const HeaderBarUserButton: React.FC = () => {
   const auth = useContext(AuthContext);
   const {goTo} = useModalRouter();
 

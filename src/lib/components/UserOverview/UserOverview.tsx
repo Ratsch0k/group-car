@@ -1,12 +1,10 @@
 import {Button, Grid, Box, Typography} from '@material-ui/core';
 import {createStyles, makeStyles} from '@material-ui/styles';
-import AuthContext from 'lib/context/auth/authContext';
 import React, {useContext, useState, useEffect} from 'react';
 import UserAvatar from '../UserAvatar/UserAvatar';
 import {useTranslation} from 'react-i18next';
 import {grey} from '@material-ui/core/colors';
-
-type GroupCarTheme = import('lib/theme').GroupCarTheme;
+import {AuthContext, GroupCarTheme} from 'lib';
 
 const useStyle = makeStyles((theme: GroupCarTheme) =>
   createStyles({
@@ -27,7 +25,7 @@ interface UserOverviewProps {
   onClose?(): void;
 }
 
-const UserOverview: React.FC<UserOverviewProps> =
+export const UserOverview: React.FC<UserOverviewProps> =
 (props: UserOverviewProps) => {
   const auth = useContext(AuthContext);
 

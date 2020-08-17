@@ -1,14 +1,15 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {Dialog, DialogContent, useMediaQuery} from '@material-ui/core';
-import CloseableDialogTitle from 'lib/components/CloseableDialog';
 import {useTheme} from '@material-ui/styles';
-import {useModalRouter} from 'lib/hooks';
-import PrivacyPolicy from 'lib/components/legal/PrivacyPolicy/PrivacyPolicy';
+import {
+  CloseableDialogTitle,
+  PrivacyPolicy,
+  useModalRouter,
+  GroupCarTheme,
+} from 'lib';
 
-type GroupCarTheme = import('lib/theme').GroupCarTheme;
-
-const PrivacyPolicyDialog: React.FC = () => {
+export const PrivacyPolicyDialog: React.FC = () => {
   const {close} = useModalRouter();
   const {t} = useTranslation();
   const theme: GroupCarTheme = useTheme();

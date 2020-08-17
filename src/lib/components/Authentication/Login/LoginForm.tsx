@@ -1,11 +1,9 @@
 import React, {useContext} from 'react';
-import PasswordTextField from 'lib/components/Input/PasswordTextField';
 import {TextField, Grid} from '@material-ui/core';
 import {useFormik} from 'formik';
 import * as yup from 'yup';
 import {useTranslation} from 'react-i18next';
-import AuthContext from 'lib/context/auth/authContext';
-import ProgressButton from 'lib/components/Input/ProgressButton';
+import {AuthContext, ProgressButton, PasswordTextField} from 'lib';
 
 export interface LoginFormProps {
   withSubmit?: boolean;
@@ -13,7 +11,7 @@ export interface LoginFormProps {
   setLoading?(arg0: boolean): void;
 }
 
-const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps) => {
+export const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps) => {
   const {t} = useTranslation();
   const auth = useContext(AuthContext);
 

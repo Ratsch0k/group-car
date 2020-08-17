@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const Imprint: React.FunctionComponent = () => {
+export const Imprint: React.FunctionComponent = () => {
   return (
     <div>
       <h2>Angaben gem&auml;&szlig; &sect; 5 TMG</h2>

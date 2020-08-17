@@ -15,7 +15,7 @@ const useStyles = makeStyles({
   },
 });
 
-const CloseableDialogTitle: React.FC<CloseableDialogPropsProps> =
+export const CloseableDialogTitle: React.FC<CloseableDialogPropsProps> =
 (props: CloseableDialogPropsProps) => {
   const classes = useStyles();
 

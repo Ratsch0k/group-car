@@ -1,11 +1,14 @@
 import React, {useState, useEffect} from 'react';
-import checkLoggedIn from 'lib/requests/checkLoggedIn';
-import loginRequest, {LoginRequest} from 'lib/requests/login';
-import logoutRequest, {LogOutRequest} from 'lib/requests/logout';
-import signUpRequest, {
+import {
+  signUp as signUpRequest,
+  login as loginRequest,
+  LoginRequest,
+  LogOutRequest,
+  logout as logoutRequest,
   SignUpRequest,
-  SignUpAcceptedResponse,
-} from 'lib/requests/signUp';
+  checkLoggedIn,
+  User,
+} from 'lib';
 import {AxiosResponse} from 'axios';
 
 export interface IUser {
@@ -31,7 +34,7 @@ export interface IAuthContext {
   isLoggedIn: boolean;
 }
 
-const AuthContext = React.createContext<IAuthContext>({
+export const AuthContext = React.createContext<IAuthContext>({
   login: () => ({
     request: Promise.reject(new Error('Not yet defined')),
     cancel: () => undefined,
@@ -87,8 +90,8 @@ export const AuthProvider: React.FC = (props) => {
     );
 
     request.request.then((response) => {
-      if ((response.data as SignUpAcceptedResponse).id) {
-        setUser(response.data as SignUpAcceptedResponse);
+      if ((response.data as User).id) {
+        setUser(response.data as User);
         setIsLoggedIn(true);
       }
     });
@@ -122,4 +125,4 @@ export const AuthProvider: React.FC = (props) => {
   );
 };
 
-export default AuthContext;
+export default AuthProvider;

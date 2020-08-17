@@ -1,11 +1,9 @@
 import React from 'react';
 import {DialogContent, Dialog} from '@material-ui/core';
 import {useTranslation} from 'react-i18next';
-import CloseableDialogTitle from 'lib/components/CloseableDialog';
-import useModalRouter from 'lib/hooks/useModalRouter';
-import Imprint from 'lib/components/legal/Imprint/Imprint';
+import {useModalRouter, CloseableDialogTitle, Imprint} from 'lib';
 
-const ImprintDialog: React.FC = () => {
+export const ImprintDialog: React.FC = () => {
   const {t} = useTranslation();
   const {close} = useModalRouter();
 
