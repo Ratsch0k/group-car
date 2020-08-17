@@ -62,4 +62,4 @@ export const PasswordTextField: React.FC<PasswordTextFieldProps> =
     );
   };
 
-export default PasswordTextFieldProps;
+export default PasswordTextField;

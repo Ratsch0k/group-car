@@ -3,7 +3,7 @@ import {Drawer as MatDrawer} from '@material-ui/core';
 import {makeStyles, createStyles} from '@material-ui/styles';
 import clsx from 'clsx';
 import {GroupCarTheme} from 'lib';
-import DrawerHeader from './DrawerHeader';
+import DrawerHeader from './DrawerHeader/DrawerHeader';
 import {DrawerFooter} from './Footer';
 
 interface DrawerProps {
