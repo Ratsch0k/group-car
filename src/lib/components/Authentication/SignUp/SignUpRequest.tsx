@@ -17,18 +17,17 @@ const SignUpRequest: React.FC = () => {
         height: '100%',
       },
       'checkMarkContainer': {
-        opacity: 0,
         borderRadius: '50%',
         backgroundColor: green[500],
         height: theme.spacing(8),
         width: theme.spacing(8),
         display: 'grid',
         placeItems: 'center',
-        animationName: '$fadeIn, $moveDown',
-        animationDuration: '500ms',
+        animationName: '$growIn, $moveDown',
+        animationDuration: '250ms',
         animationFillMode: 'forwards',
-        animationDelay: '0ms, 400ms',
-        animationTimingFunction: 'ease-in-out',
+        animationDelay: '0ms, 250ms',
+        animationTimingFunction: 'ease, ease-out',
         animationDirection: 'normal, reverse',
       },
       'checkMark': {
@@ -40,14 +39,18 @@ const SignUpRequest: React.FC = () => {
       'text': {
         opacity: 0,
         animationName: '$fadeIn, $moveDown',
-        animationDuration: '500ms',
-        animationDelay: '500ms',
-        animationTimingFunction: 'ease-in-out',
+        animationDuration: '250ms',
+        animationDelay: '250ms',
+        animationTimingFunction: 'ease-out',
         animationFillMode: 'forwards',
       },
       '@keyframes fadeIn': {
         from: {opacity: 0},
         to: {opacity: 1},
+      },
+      '@keyframes growIn': {
+        from: {transform: 'scale(0)'},
+        to: {transform: 'scale(1)'},
       },
       '@keyframes moveDown': {
         from: {
