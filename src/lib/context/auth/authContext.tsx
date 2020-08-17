@@ -10,6 +10,7 @@ import {
   User,
 } from 'lib';
 import {AxiosResponse} from 'axios';
+import {useModalRouter} from 'lib/hooks';
 
 export interface IUser {
   username: string;
@@ -32,6 +33,7 @@ export interface IAuthContext {
   ): SignUpRequest;
   user: IUser | undefined;
   isLoggedIn: boolean;
+  openAuthDialog(): void;
 }
 
 export const AuthContext = React.createContext<IAuthContext>({
@@ -49,11 +51,13 @@ export const AuthContext = React.createContext<IAuthContext>({
   }),
   user: undefined,
   isLoggedIn: false,
+  openAuthDialog: () => undefined,
 });
 
 export const AuthProvider: React.FC = (props) => {
   const [user, setUser] = useState<IUser | undefined>();
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const {goTo} = useModalRouter();
 
   // Send request which checks if client is logged in
   useEffect(() => {
@@ -110,6 +114,10 @@ export const AuthProvider: React.FC = (props) => {
     return request;
   };
 
+  const openAuthDialog = (): void => {
+    goTo('/auth');
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -118,6 +126,7 @@ export const AuthProvider: React.FC = (props) => {
         signUp,
         user,
         isLoggedIn,
+        openAuthDialog,
       }}
     >
       {props.children}

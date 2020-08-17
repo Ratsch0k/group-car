@@ -47,14 +47,14 @@ const App: React.FC = () => {
   } else {
     return (
       <ThemeProvider theme={theme}>
-        <AuthProvider>
-          <BrowserRouter>
-            <ModalRouter>
+        <BrowserRouter>
+          <ModalRouter>
+            <AuthProvider>
               <GroupCar />
               <ModalRoutes />
-            </ModalRouter>
-          </BrowserRouter>
-        </AuthProvider>
+            </AuthProvider>
+          </ModalRouter>
+        </BrowserRouter>
       </ThemeProvider>
     );
   }

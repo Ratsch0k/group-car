@@ -9,11 +9,11 @@ import {
 } from '@material-ui/core';
 import UserAvatar from '../UserAvatar';
 import UserOverview from '../UserOverview/UserOverview';
-import {useModalRouter, AuthContext} from 'lib';
+import {AuthContext} from 'lib';
 
 export const HeaderBarUserButton: React.FC = () => {
   const auth = useContext(AuthContext);
-  const {goTo} = useModalRouter();
+  const {openAuthDialog} = useContext(AuthContext);
 
   const [userId, setUserId] = useState<number>();
   const [anchor, setAnchor] =
@@ -34,7 +34,7 @@ export const HeaderBarUserButton: React.FC = () => {
         setAnchor(event.currentTarget);
       }
     } else {
-      goTo('/auth');
+      openAuthDialog();
     }
   };
 
