@@ -21,12 +21,12 @@ const App: React.FC = () => {
       const csrf = res.headers['xsrf-token'];
 
       if (!csrf) {
-
+        setLoading(false);
       } else {
         axios.defaults.headers.common['XSRF-TOKEN'] = csrf;
         setLoading(false);
       }
-    }).catch((error) => {
+    }).catch(() => {
       setLoading(false);
     });
 
@@ -44,13 +44,13 @@ const App: React.FC = () => {
   } else {
     return (
       <ThemeProvider theme={theme}>
-        <BrowserRouter>
-          <ModalRouter>
-            <AuthProvider>
+        <AuthProvider>
+          <BrowserRouter>
+            <ModalRouter>
               <GroupCar />
-            </AuthProvider>
-          </ModalRouter>
-        </BrowserRouter>
+            </ModalRouter>
+          </BrowserRouter>
+        </AuthProvider>
       </ThemeProvider>
     );
   }

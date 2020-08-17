@@ -4,7 +4,9 @@ module.exports = {
     'es6': true,
   },
   'extends': [
+    'eslint:recommended',
     'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
     'google',
   ],
   'globals': {
@@ -16,17 +18,16 @@ module.exports = {
     'ecmaFeatures': {
       'jsx': true,
     },
-    'ecmaVersion': 11,
+    'ecmaVersion': 2018,
     'sourceType': 'module',
   },
   'plugins': [
     'react',
-    'react-hooks',
     '@typescript-eslint',
   ],
   'rules': {
-    'valid-jsdoc': 'off',
     'react/prop-types': 'off',
+    'valid-jsdoc': 'off'
   },
   'settings': {
     'react': {

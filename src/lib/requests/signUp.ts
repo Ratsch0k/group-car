@@ -1,6 +1,23 @@
 import axios from 'axios';
+import {Request} from 'lib/requests/request';
 
-type Request = import('./request').Request;
+export interface SignUpAcceptedResponse {
+  id: number;
+  username: string;
+  email: string;
+  isBetaUser: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+  deletedAt: Date;
+}
+
+export interface SignUpRequestResponse {
+  message: string;
+}
+
+export type SignUpResponse = SignUpAcceptedResponse | SignUpRequestResponse;
+
+export type SignUpRequest = Request<SignUpResponse>;
 
 /**
  * Sends a sign up request to the backend with the given
@@ -18,21 +35,18 @@ const signUp = (
     email: string,
     password: string,
     offset: number,
-): Request => {
+): SignUpRequest => {
   // Check if provided arguments are non empty strings
   if (!username || username.length <= 0 ||
     !email || email.length <= 0 ||
     !password || password.length <= 0) {
-    return {
-      request: Promise.reject(new Error('Request invalid')),
-      cancel: () => {},
-    };
+    throw new TypeError('All parameters have to be a non-empty string');
   }
 
 
   const source = axios.CancelToken.source();
 
-  const request = axios.put(
+  const request = axios.post<SignUpResponse>(
       '/auth/sign-up',
       {
         username,

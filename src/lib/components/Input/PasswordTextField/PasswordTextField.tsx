@@ -16,6 +16,7 @@ export interface PasswordTextFieldProps {
   name?: string;
   helperText?: string;
   fullWidth?: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onBlur?(event: any): void;
 }
 
@@ -35,6 +36,7 @@ const PasswordTextField: React.FC<PasswordTextFieldProps> =
       setShowPassword((prev: boolean) => !prev);
 
 
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     return (
       <TextField
         label={label}

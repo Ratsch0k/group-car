@@ -6,7 +6,7 @@ import {
   DialogTitle,
   DialogContent,
 } from '@material-ui/core';
-import SignUpForm from './SignUpForm';
+import SignUpBody from './SignUpBody';
 
 type Theme = import('@material-ui/core').Theme;
 
@@ -15,6 +15,7 @@ const SignUpDialog: React.FC = () => {
     createStyles({
       formContainer: {
         padding: theme.spacing(2),
+        height: 430,
       },
     }),
   );
@@ -27,7 +28,7 @@ const SignUpDialog: React.FC = () => {
         Sign up
       </DialogTitle>
       <DialogContent className={classes.formContainer}>
-        <SignUpForm withSubmit/>
+        <SignUpBody withSubmit/>
       </DialogContent>
     </Dialog>
   );

@@ -1,10 +1,10 @@
 import {useContext} from 'react';
-import ModalContext from 'lib/ModalRouter/ModalRouteContext';
+import ModalContext, {IModalContext} from 'lib/ModalRouter/ModalRouteContext';
 
 /**
  * Hook for using the `ModalContext`
  */
-const useModalRouter = () => {
+const useModalRouter = (): IModalContext => {
   return useContext(ModalContext);
 };
 

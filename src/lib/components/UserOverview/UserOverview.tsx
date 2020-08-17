@@ -65,7 +65,7 @@ const UserOverview: React.FC<UserOverviewProps> =
           </>,
       );
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
   }, [auth.user]);
 
   return (

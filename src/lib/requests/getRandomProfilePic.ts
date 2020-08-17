@@ -1,6 +1,8 @@
 import axios from 'axios';
+import {Request} from './request';
 
-type Request = import('./request').Request;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type GetRandomProfilePicRequest = Request<any>;
 
 /**
  * Gets a random profile picture for the given username and offset.
@@ -8,11 +10,14 @@ type Request = import('./request').Request;
  * @param offset    The offset which to use to generate
  * @return          The http request and a method to cancel it
  */
-const getRandomProfilePic = (username: string, offset?: number): Request => {
+const getRandomProfilePic = (
+    username: string,
+    offset?: number,
+): GetRandomProfilePicRequest => {
   if (!username || username.length <= 0) {
     return {
       request: Promise.reject(new Error('Invalid arguments')),
-      cancel: () => {},
+      cancel: () => undefined,
     };
   }
 

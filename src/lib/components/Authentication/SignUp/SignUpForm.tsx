@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
 import PasswordTextField from 'lib/components/Input/PasswordTextField';
 import {TextField, Grid, Container} from '@material-ui/core';
 import {useFormik} from 'formik';
@@ -6,18 +6,23 @@ import * as yup from 'yup';
 import {useTranslation} from 'react-i18next';
 import ProgressButton from 'lib/components/Input/ProgressButton';
 import GenerateProfilePic from './GenerateProfilePic/GenProfilePic';
-import AuthContext from 'lib/context/auth/authContext';
+import {SignUpRequest} from 'lib/requests/signUp';
 
 export interface SignUpFormProps {
   withSubmit?: boolean;
   onFinished?(): void;
   setLoading?(arg0: boolean): void;
+  signUp(
+    username: string,
+    email: string,
+    password: string,
+    offset: number
+    ): SignUpRequest;
 }
 
 const SignUpForm: React.FC<SignUpFormProps> = (props: SignUpFormProps) => {
   const {t} = useTranslation();
   const [offset, setOffset] = useState<number>(0);
-  const auth = useContext(AuthContext);
 
   const validationSchema = yup.object({
     username: yup.string().required(t('form.error.required'))
@@ -38,19 +43,19 @@ const SignUpForm: React.FC<SignUpFormProps> = (props: SignUpFormProps) => {
     validationSchema,
     onSubmit: (values) => {
       props.setLoading && props.setLoading(true);
-      auth.signUp(values.username, values.email, values.password, offset)
-          .then(() => {
-            props.setLoading && props.setLoading(false);
-            props.onFinished && props.onFinished();
-          }).catch(() => {
-            props.setLoading && props.setLoading(false);
-            formik.setSubmitting(false);
-          });
+      props.signUp(
+          values.username,
+          values.email,
+          values.password,
+          offset,
+      ).request.finally(() => {
+        formik.setSubmitting(false);
+      });
     },
   });
 
   return (
-    <form>
+    <form onSubmit={formik.handleSubmit}>
       <Grid
         container
         spacing={1}
@@ -131,7 +136,6 @@ const SignUpForm: React.FC<SignUpFormProps> = (props: SignUpFormProps) => {
               fullWidth
               type='submit'
               loading={formik.isSubmitting}
-              onClick={formik.handleSubmit as any}
               variant='contained'
               color='primary'
             >

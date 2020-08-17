@@ -1,12 +1,13 @@
 import axios from 'axios';
+import {Request} from './request';
 
-type Request = import('./request').Request;
+export type LogOutRequest = Request<void>;
 
 /**
  * Sends a logout request to the backend.
  * @return the request and a method to cancel it
  */
-const logout = (): Request => {
+const logout = (): LogOutRequest => {
   const source = axios.CancelToken.source();
 
   const request = axios.put(

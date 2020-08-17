@@ -1,5 +1,12 @@
-type AxiosResponse = import('axios').AxiosResponse;
-type Canceler = import('axios').Canceler;
+import {AxiosResponse} from 'axios';
+
+export interface RestError {
+  status: string;
+  statusCode: number;
+  timestamp: Date;
+  message: string;
+  detail?: Record;
+}
 
 /**
  * Interface for the return type of each request.\
@@ -7,7 +14,7 @@ type Canceler = import('axios').Canceler;
  * `request`.\
  * The request can be canceled by calling the attribute `cancel`.
  */
-export interface Request {
-  request: Promise<AxiosResponse<any>>;
+export interface Request<T> {
+  request: Promise<AxiosResponse<T>>;
   cancel: Canceler;
-};
+}

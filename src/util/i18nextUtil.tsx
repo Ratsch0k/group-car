@@ -30,6 +30,7 @@ interface TranslationItem {
  * Converts an array of translation items into the jsx representation.
  * The components are wrapped in a fragment
  * @param array An array of translation items
+ * @return An element based on the translation item array
  */
 export const translationArrayToJsx =
 (array: Array<TranslationItem>): JSX.Element => {
@@ -50,6 +51,7 @@ export const translationArrayToJsx =
  * of that jsx component. Nested translation items will
  * also be converted into jsx components.
  * @param item An translation item or a string
+ * @return The translated item
  */
 export const translationItemToJSX =
 (item:
@@ -80,5 +82,5 @@ export const translationItemToJSX =
     );
   } else {
     throw new Error(`Given tag "${item.tag} is not allowed"`);
-  };
+  }
 };

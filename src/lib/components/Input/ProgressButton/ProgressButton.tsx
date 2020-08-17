@@ -24,7 +24,7 @@ const ProgressButton: React.FC<ProgressButtonProps> = (props) => {
     ...rest
   } = props;
 
-  const useStyle = makeStyles((theme: Theme) =>
+  const useStyle = makeStyles(() =>
     createStyles({
       wrapper: {
         position: 'relative',

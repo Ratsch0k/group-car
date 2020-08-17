@@ -12,13 +12,13 @@ import {
 } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import React, {useState, useEffect, useContext} from 'react';
-import {LoginForm} from '../../../lib/components/Authentication/Login';
-import {SignUpForm} from '../../../lib/components/Authentication/SignUp';
+import {LoginForm} from '../../lib/components/Authentication/Login';
 import {useTranslation} from 'react-i18next';
 import AuthContext from 'lib/context/auth/authContext';
 import CloseIcon from '@material-ui/icons/Close';
 import {Route, Switch, useRouteMatch, useLocation} from 'react-router-dom';
 import useModalRouter from 'lib/hooks/useModalRouter';
+import SignUpBody from 'lib/components/Authentication/SignUp/SignUpBody';
 
 type Theme = import('@material-ui/core').Theme;
 
@@ -101,7 +101,7 @@ const AuthenticationDialog: React.FC<AuthenticationDialogProps> =
     if (auth.isLoggedIn) {
       onFinished();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
   }, [auth.isLoggedIn]);
 
   return (
@@ -141,7 +141,7 @@ const AuthenticationDialog: React.FC<AuthenticationDialogProps> =
             />
           </Route>
           <Route path={`${path}/sign-up`}>
-            <SignUpForm
+            <SignUpBody
               withSubmit
               onFinished={onFinished}
               setLoading={setLoading}
