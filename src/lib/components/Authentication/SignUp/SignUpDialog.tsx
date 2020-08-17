@@ -15,7 +15,6 @@ export const SignUpDialog: React.FC = () => {
     createStyles({
       formContainer: {
         padding: theme.spacing(2),
-        height: 430,
       },
     }),
   );
