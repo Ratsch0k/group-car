@@ -1,12 +1,13 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
-import ImprintDialog from 'modals/legal/imprint/ImprintDialog';
+import ImprintDialog from 'modals/legal/ImprintDialog';
 import PrivacyPolicyDialog from
-  'modals/legal/privacyPolicy/PrivacyPolicyDialog';
+  'modals/legal/PrivacyPolicyDialog';
 import AuthenticationDialog from 'modals/auth/AuthenticationDialog';
 import {useModalRouter} from 'lib/hooks';
+import Group from 'modals/group/Group';
 
-export const ModalRoutes: React.FC = () => {
+export const Routes: React.FC = () => {
   const {modalLocation, close} = useModalRouter();
 
   return (
@@ -23,8 +24,11 @@ export const ModalRoutes: React.FC = () => {
           close={close}
         />
       </Route>
+      <Route path='/group'>
+        <Group />
+      </Route>
     </Switch>
   );
 };
 
-export default ModalRoutes;
+export default Routes;

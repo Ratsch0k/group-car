@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
-import Map from '../pages/Map';
+import Map from './Map';
 
 export const Routes: React.FC = () => {
   return (

@@ -98,6 +98,7 @@ exports[`back button button navigates back from form 1`] = `
               >
                 <div
                   class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+                  formik="[object Object]"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-marginDense MuiInputLabel-outlined Mui-focused Mui-focused"
@@ -148,6 +149,7 @@ exports[`back button button navigates back from form 1`] = `
                 <div
                   class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
                   data-testid="textfield"
+                  formik="[object Object]"
                 >
                   <label
                     class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-marginDense MuiInputLabel-outlined"

@@ -11,19 +11,34 @@ exports[`renders and matches snapshot with not open and not permanent without cr
 exports[`renders and matches snapshot with not open and permanent without crashing 1`] = `
 <div>
   <div
-    class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-430 makeStyles-drawerPermanent-432"
+    class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-499 makeStyles-drawerPermanent-501"
   >
     <div
-      class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-431 makeStyles-drawerPaperPermanent-433 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+      class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-500 makeStyles-drawerPaperPermanent-502 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
     >
       <div
-        class="MuiBox-root MuiBox-root-478 makeStyles-root-476"
-      />
+        class="MuiContainer-root makeStyles-body-504 MuiContainer-maxWidthLg"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-disableElevation MuiButton-fullWidth"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            drawer.createGroup
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
       <div
-        class="MuiPaper-root makeStyles-footer-434 makeStyles-paper-479 MuiPaper-elevation6"
+        class="MuiPaper-root makeStyles-footer-503 makeStyles-paper-585 MuiPaper-elevation6"
       >
         <div
-          class="MuiContainer-root makeStyles-container-480 MuiContainer-maxWidthLg"
+          class="MuiContainer-root makeStyles-container-586 MuiContainer-maxWidthLg"
         >
           <div
             class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
@@ -80,10 +95,10 @@ exports[`renders and matches snapshot with open and not permanent without crashi
       tabindex="-1"
     >
       <div
-        class="MuiBox-root MuiBox-root-51 makeStyles-root-49"
+        class="MuiBox-root MuiBox-root-52 makeStyles-root-50"
       >
         <button
-          class="MuiButtonBase-root MuiIconButton-root makeStyles-closeButton-48"
+          class="MuiButtonBase-root MuiIconButton-root makeStyles-closeButton-49"
           data-testid="close"
           id="drawer-close"
           tabindex="0"
@@ -109,10 +124,28 @@ exports[`renders and matches snapshot with open and not permanent without crashi
         </button>
       </div>
       <div
-        class="MuiPaper-root makeStyles-footer-5 makeStyles-paper-73 MuiPaper-elevation6"
+        class="MuiContainer-root makeStyles-body-6 MuiContainer-maxWidthLg"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-disableElevation MuiButton-fullWidth"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            drawer.createGroup
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <div
+        class="MuiPaper-root makeStyles-footer-5 makeStyles-paper-111 MuiPaper-elevation6"
       >
         <div
-          class="MuiContainer-root makeStyles-container-74 MuiContainer-maxWidthLg"
+          class="MuiContainer-root makeStyles-container-112 MuiContainer-maxWidthLg"
         >
           <div
             class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
@@ -150,19 +183,34 @@ exports[`renders and matches snapshot with open and not permanent without crashi
 exports[`renders and matches snapshot with open and permanent without crashing 1`] = `
 <div>
   <div
-    class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-232 makeStyles-drawerPermanent-234"
+    class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-262 makeStyles-drawerPermanent-264"
   >
     <div
-      class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-233 makeStyles-drawerPaperPermanent-235 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+      class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-263 makeStyles-drawerPaperPermanent-265 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
     >
       <div
-        class="MuiBox-root MuiBox-root-280 makeStyles-root-278"
-      />
+        class="MuiContainer-root makeStyles-body-267 MuiContainer-maxWidthLg"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-disableElevation MuiButton-fullWidth"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            drawer.createGroup
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
       <div
-        class="MuiPaper-root makeStyles-footer-236 makeStyles-paper-281 MuiPaper-elevation6"
+        class="MuiPaper-root makeStyles-footer-266 makeStyles-paper-348 MuiPaper-elevation6"
       >
         <div
-          class="MuiContainer-root makeStyles-container-282 MuiContainer-maxWidthLg"
+          class="MuiContainer-root makeStyles-container-349 MuiContainer-maxWidthLg"
         >
           <div
             class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"

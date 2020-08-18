@@ -1,16 +1,16 @@
 import React from 'react';
-import {Drawer as MatDrawer} from '@material-ui/core';
+import {Drawer as MatDrawer, Container} from '@material-ui/core';
 import {makeStyles, createStyles} from '@material-ui/styles';
 import clsx from 'clsx';
 import {GroupCarTheme} from 'lib';
-import DrawerHeader from './DrawerHeader/DrawerHeader';
-import {DrawerFooter} from './Footer';
+import DrawerHeader from './DrawerHeader';
+import DrawerFooter from './Footer';
+import DrawerBody from './DrawerBody';
 
 interface DrawerProps {
   open: boolean;
   onClose(): void;
   permanent: boolean;
-  children?: React.ReactNode[] | React.ReactNode;
 }
 
 const useStyles = makeStyles((theme: GroupCarTheme) =>
@@ -32,11 +32,14 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
       bottom: 0,
       position: 'absolute',
     },
+    body: {
+      paddingTop: theme.spacing(2),
+    },
   }),
 );
 
 export const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
-  const {open, onClose, permanent, children} = props;
+  const {open, onClose, permanent} = props;
   const classes = useStyles();
 
   return (
@@ -55,8 +58,13 @@ export const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
         ),
       }}
     >
-      <DrawerHeader close={onClose} noCloseButton={permanent}/>
-      {children}
+      {
+        !permanent &&
+        <DrawerHeader close={onClose} noCloseButton={permanent}/>
+      }
+      <Container className={classes.body}>
+        <DrawerBody />
+      </Container>
       <DrawerFooter className={classes.footer}/>
     </MatDrawer>
   );

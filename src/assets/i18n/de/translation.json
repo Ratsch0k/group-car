@@ -18,10 +18,12 @@
     "password": "Passwort",
     "error": {
       "required": "Benötigt",
-      "atLeast6": "Muss mindestends 6 Zeichen haben",
+      "atLeast6": "Muss mindestens 6 Zeichen haben",
       "invalidEmail": "Ungültige Email Adresse",
       "usernameWhitespace": "Leerzeichen sind nicht erlaubt",
-      "usernameToShort": "Benutzername muss mindestens ${min} zeichen enthalten"
+      "usernameToShort": "Benutzername muss mindestens ${min} zeichen enthalten",
+      "tooLong": "Darf nur maximal {{max}} Zeichen enthalten",
+      "tooShort": "Muss mindestens {{min}} Zeichen enthalten"
     },
     "profilePicture": {
       "alt": "Profil Bild",
@@ -32,6 +34,16 @@
   },
   "drawer": {
     "createGroup": "Erstelle eine Gruppe"
+  },
+  "modals": {
+    "group": {
+      "create": {
+        "title": "Neue Gruppe",
+        "name": "Name *",
+        "description": "Beschreibung",
+        "create": "Erstelle"
+      }
+    }
   },
   "misc": {
     "or": "oder",

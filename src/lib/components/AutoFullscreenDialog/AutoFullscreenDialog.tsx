@@ -35,7 +35,7 @@ export const AutoFullscreenDialog: React.FC<AutoFullscreenDialogProps> =
   );
 
   return (
-    <Dialog {...rest} maxWidth={breakpoint} fullScreen={!largerThanBreakpoint}>
+    <Dialog maxWidth={breakpoint} fullScreen={!largerThanBreakpoint} {...rest}>
       {children}
     </Dialog>
   );

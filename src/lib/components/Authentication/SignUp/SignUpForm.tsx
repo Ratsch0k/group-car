@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
-import {TextField, Grid, Container} from '@material-ui/core';
+import {Grid, Container} from '@material-ui/core';
 import {useFormik} from 'formik';
 import * as yup from 'yup';
 import {useTranslation} from 'react-i18next';
 import GenerateProfilePic from './GenerateProfilePic/GenProfilePic';
 import {SignUpRequest, ProgressButton, PasswordTextField} from 'lib';
+import {FormTextField} from 'lib/components/Input';
 
 export interface SignUpFormProps {
   withSubmit?: boolean;
@@ -72,60 +73,30 @@ export const SignUpForm: React.FC<SignUpFormProps> =
           </Container>
         </Grid>
         <Grid item>
-          <TextField
+          <FormTextField
             autoFocus
-            fullWidth
-            variant='outlined'
             label={t('form.username') + ' *'}
             id='signup-username'
-            size='small'
             name='username'
-            error={formik.touched.username &&
-              formik.errors.username !==
-              undefined}
-            helperText={formik.touched.username ?
-              formik.errors.username || ' ' :
-              ' '}
-            onBlur={formik.handleBlur}
-            onChange={formik.handleChange}
-            value={formik.values.username} />
+            formik={formik}
+          />
         </Grid>
         <Grid item>
-          <TextField
-            fullWidth
-            variant='outlined'
+          <FormTextField
+            formik={formik}
             label={t('form.email') + ' *'}
             id='signup-email'
-            size='small'
             name='email'
             type='email'
-            onBlur={formik.handleBlur}
-            error={formik.touched.email &&
-            formik.errors.email !==
-            undefined}
-            helperText={formik.touched.email ?
-              formik.errors.email || ' ' :
-              ' '}
-            onChange={formik.handleChange}
-            value={formik.values.email} />
+          />
         </Grid>
         <Grid item>
           <PasswordTextField
-            fullWidth
-            variant='outlined'
+            formik={formik}
             id='signup-password'
-            size='small'
             name='password'
             label={t('form.password') + ' *'}
-            onBlur={formik.handleBlur}
-            error={formik.touched.password &&
-            formik.errors.password !==
-            undefined}
-            helperText={formik.touched.password ?
-              formik.errors.password || ' ' :
-              ' '}
-            value={formik.values.password}
-            onChange={formik.handleChange} />
+          />
         </Grid>
         {
           props.withSubmit &&
