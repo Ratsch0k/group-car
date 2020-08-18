@@ -15,7 +15,12 @@ type FormTextFieldProps = FormTextFieldExtensionProps | TextFieldProps;
  *  - **fullWidth**: `true`
  *  - **size**: `'small'`
  *  - **variant**: `'outlined'`
- * @param props Same props as TextField
+ *
+ * and which provides integration with Formik.
+ * When the prop `formik` is provided the specified prop `name`
+ * is used to set: `onBlur`, `onChange`, `disabled`, `error`,
+ * `helperText` and `value`.
+ * @param props Props
  */
 export const FormTextField: React.FC<FormTextFieldProps> =
 (props) => {
@@ -38,6 +43,7 @@ export const FormTextField: React.FC<FormTextFieldProps> =
         onBlur={formik.handleBlur}
         onChange={formik.handleChange}
         value={formik.values[name]}
+        disabled={formik.isSubmitting}
         {...props}
       />
     );
