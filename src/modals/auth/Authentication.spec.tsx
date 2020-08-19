@@ -28,7 +28,7 @@ it('sign up button navigates to correct url', () => {
 
   const {baseElement} = render(
       <MemoryRouter initialEntries={['/auth']}>
-        <ModalProvider close={close} goTo={goTo} route={route}>
+        <ModalProvider close={close} goTo={goTo} route={route} modalLocation={'/auth/sign-up' as any}>
           <Route path='/auth'>
             <AuthenticationDialog open={true} close={() => {}}/>
           </Route>
@@ -55,7 +55,7 @@ it('login button navigates to correct url', () => {
 
   const {baseElement} = render(
       <MemoryRouter initialEntries={['/auth']}>
-        <ModalProvider close={close} goTo={goTo} route={route}>
+        <ModalProvider close={close} goTo={goTo} route={route} modalLocation={'/auth/login' as any}>
           <Route path='/auth'>
             <AuthenticationDialog open={true} close={() => {}}/>
           </Route>
@@ -82,7 +82,7 @@ it('back button button navigates back from form', () => {
 
   const {baseElement} = render(
       <MemoryRouter initialEntries={['/auth/login']}>
-        <ModalProvider close={close} goTo={goTo} route={route}>
+        <ModalProvider close={close} goTo={goTo} route={route} modalLocation={'/auth/login' as any}>
           <Route path='/auth'>
             <AuthenticationDialog open={true} close={() => {}}/>
           </Route>

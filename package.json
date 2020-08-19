@@ -30,6 +30,7 @@
     "react-i18next": "^11.3.5",
     "react-leaflet": "^2.7.0",
     "react-router-dom": "^5.1.2",
+    "typedoc": "^0.18.0",
     "typescript": "<3.6.0",
     "yup": "^0.28.4"
   },
@@ -46,7 +47,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "eslint": "./node_modules/.bin/eslint . --ext .js,.jsx,.ts,.tsx"
+    "eslint": "./node_modules/.bin/eslint . --ext .js,.jsx,.ts,.tsx",
+    "typedoc": "typedoc --exclude **/**/*.spec.ts --out public/doc/react src"
   },
   "eslintConfig": {
     "extends": "react-app"

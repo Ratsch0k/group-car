@@ -34,6 +34,8 @@ it('renders and matches snapshot when user is logged in', () => {
   const fakeUser = {
     id: 12,
     username: 'TEST',
+    email: 'TEST@mail.com',
+    isBetaUser: false,
   };
 
   const fakeContext = {
