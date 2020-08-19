@@ -1,5 +1,5 @@
-import axios from 'axios';
-import {Request} from './request';
+import axiosStatic from 'axios';
+import {Request, AxiosType} from './request';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type GetRandomProfilePicRequest = Request<any>;
@@ -13,27 +13,17 @@ export type GetRandomProfilePicRequest = Request<any>;
 export const getRandomProfilePic = (
     username: string,
     offset?: number,
+    axios: AxiosType = axiosStatic,
 ): GetRandomProfilePicRequest => {
   if (!username || username.length <= 0) {
-    return {
-      request: Promise.reject(new Error('Invalid arguments')),
-      cancel: () => undefined,
-    };
+    return Promise.reject(new TypeError('Invalid parameters'));
   }
 
-  const source = axios.CancelToken.source();
-
-  const request = axios.get('/user/generate-profile-pic', {
+  return axios.get('/user/generate-profile-pic', {
     params: {
       username,
       offset,
     },
-    cancelToken: source.token,
     responseType: 'blob',
   });
-
-  return {
-    request,
-    cancel: source.cancel,
-  };
 };

@@ -1,5 +1,6 @@
-import axios from 'axios';
+import axiosInstance from 'axios';
 import {Request, GroupWithOwner} from 'lib';
+import {AxiosType} from '../request';
 
 /**
  * Response data for the get groups request.
@@ -23,18 +24,10 @@ export type GetGroupsRequest = Request<GetGroupsResponse>;
 /**
  * Get all groups of which the currently logged in user is a member.
  */
-export const getGroups = (): GetGroupsRequest => {
-  const source = axios.CancelToken.source();
-
-  const request = axios.get<GetGroupsResponse>(
+export const getGroups = (
+    axios: AxiosType = axiosInstance,
+): GetGroupsRequest => {
+  return axios.get<GetGroupsResponse>(
       '/api/group',
-      {
-        cancelToken: source.token,
-      },
   );
-
-  return {
-    request,
-    cancel: source.cancel,
-  };
 };

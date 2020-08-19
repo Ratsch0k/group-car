@@ -1,5 +1,6 @@
-import axios from 'axios';
+import axiosStatic from 'axios';
 import {User, Request} from 'lib';
+import {AxiosType} from '../request';
 
 
 export interface SignUpRequestResponse {
@@ -9,6 +10,12 @@ export interface SignUpRequestResponse {
 export type SignUpResponse = User | SignUpRequestResponse;
 
 export type SignUpRequest = Request<SignUpResponse>;
+export type SignUp = (
+  username: string,
+  email: string,
+  password: string,
+  offset: number,
+) => SignUpRequest;
 
 /**
  * Sends a sign up request to the backend with the given
@@ -21,23 +28,23 @@ export type SignUpRequest = Request<SignUpResponse>;
  * @param offset    The offset with which the profile picture can be generated
  * @return          The request and a method to cancel it
  */
-export const signUp = (
+export const signUp: SignUp = (
     username: string,
     email: string,
     password: string,
     offset: number,
-): SignUpRequest => {
+    axios: AxiosType = axiosStatic,
+) => {
   // Check if provided arguments are non empty strings
   if (!username || username.length <= 0 ||
     !email || email.length <= 0 ||
     !password || password.length <= 0) {
-    throw new TypeError('All parameters have to be a non-empty string');
+    return Promise.reject(
+        new TypeError('All parameters have to be a non-empty string'),
+    );
   }
 
-
-  const source = axios.CancelToken.source();
-
-  const request = axios.post<SignUpResponse>(
+  return axios.post<SignUpResponse>(
       '/auth/sign-up',
       {
         username,
@@ -45,13 +52,5 @@ export const signUp = (
         password,
         offset,
       },
-      {
-        cancelToken: source.token,
-      },
   );
-
-  return {
-    request,
-    cancel: source.cancel,
-  };
 };

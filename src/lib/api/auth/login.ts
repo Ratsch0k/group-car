@@ -1,7 +1,12 @@
-import axios from 'axios';
 import {User, Request} from 'lib';
+import {AxiosType} from '../request';
+import axiosStatic from 'axios';
 
 export type LoginRequest = Request<User>;
+/**
+ * Type for login.
+ */
+export type Login = (username: string, password: string) => LoginRequest;
 
 /**
  * Sends a login request to the backend with the given
@@ -12,32 +17,22 @@ export type LoginRequest = Request<User>;
  * @param password  The password for the account
  * @return          The request and a method to cancel it
  */
-export const login = (username: string, password: string): LoginRequest => {
+export const login: Login = (
+    username,
+    password,
+    axios: AxiosType = axiosStatic,
+): LoginRequest => {
   // Check if provided arguments are non empty strings
   if (!username || username.length <= 0 ||
     !password || password.length <= 0) {
-    return {
-      request: Promise.reject(new Error('Request invalid')),
-      cancel: () => undefined,
-    };
+    throw new TypeError('Parameters invalid');
   }
 
-
-  const source = axios.CancelToken.source();
-
-  const request = axios.put(
+  return axios.put(
       '/auth/login',
       {
         username,
         password,
       },
-      {
-        cancelToken: source.token,
-      },
   );
-
-  return {
-    request,
-    cancel: source.cancel,
-  };
 };

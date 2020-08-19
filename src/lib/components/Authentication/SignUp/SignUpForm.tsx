@@ -48,7 +48,7 @@ export const SignUpForm: React.FC<SignUpFormProps> =
           values.email,
           values.password,
           offset,
-      ).request.finally(() => {
+      ).finally(() => {
         formik.setSubmitting(false);
       });
     },

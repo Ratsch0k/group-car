@@ -1,16 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import {
-  signUp as signUpRequest,
-  login as loginRequest,
   LoginRequest,
   LogOutRequest,
-  logout as logoutRequest,
   SignUpRequest,
-  checkLoggedIn,
   User,
 } from 'lib';
 import {AxiosResponse} from 'axios';
 import {useModalRouter} from 'lib/hooks';
+import {useApi} from 'lib/hooks/useApi';
 
 export interface IUser {
   username: string;
@@ -37,18 +34,9 @@ export interface IAuthContext {
 }
 
 export const AuthContext = React.createContext<IAuthContext>({
-  login: () => ({
-    request: Promise.reject(new Error('Not yet defined')),
-    cancel: () => undefined,
-  }),
-  logout: () => ({
-    request: Promise.reject(new Error('Not yet defined')),
-    cancel: () => undefined,
-  }),
-  signUp: () => ({
-    request: Promise.reject(new Error('Not yet defined')),
-    cancel: () => undefined,
-  }),
+  login: () => Promise.reject(new Error('Not yet defined')),
+  logout: () => Promise.reject(new Error('Not yet defined')),
+  signUp: () => Promise.reject(new Error('Not yet defined')),
   user: undefined,
   isLoggedIn: false,
   openAuthDialog: () => undefined,
@@ -58,21 +46,23 @@ export const AuthProvider: React.FC = (props) => {
   const [user, setUser] = useState<IUser | undefined>();
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const {goTo} = useModalRouter();
+  const api = useApi();
 
   // Send request which checks if client is logged in
   useEffect(() => {
-    checkLoggedIn().request.then((res: AxiosResponse) => {
+    api.checkLoggedIn().then((res: AxiosResponse) => {
       setUser(res.data);
       setIsLoggedIn(true);
     });
+    // eslint-disable-next-line
   }, []);
 
   const login = (
       username: string,
       password: string,
   ): LoginRequest => {
-    const request = loginRequest(username, password);
-    request.request.then((response) => {
+    const request = api.login(username, password);
+    request.then((response) => {
       setUser(response.data);
       setIsLoggedIn(true);
     });
@@ -86,14 +76,14 @@ export const AuthProvider: React.FC = (props) => {
       password: string,
       offset: number,
   ): SignUpRequest => {
-    const request = signUpRequest(
+    const request = api.signUp(
         username,
         email,
         password,
         offset,
     );
 
-    request.request.then((response) => {
+    request.then((response) => {
       if ((response.data as User).id) {
         setUser(response.data as User);
         setIsLoggedIn(true);
@@ -104,9 +94,9 @@ export const AuthProvider: React.FC = (props) => {
   };
 
   const logout = (): LogOutRequest => {
-    const request = logoutRequest();
+    const request = api.logout();
 
-    request.request.then(() => {
+    request.then(() => {
       setUser(undefined);
       setIsLoggedIn(false);
     });

@@ -1,4 +1,4 @@
-import {AxiosResponse} from 'axios';
+import {AxiosResponse, AxiosInstance, AxiosStatic} from 'axios';
 
 export interface RestError {
   status: string;
@@ -14,7 +14,6 @@ export interface RestError {
  * `request`.\
  * The request can be canceled by calling the attribute `cancel`.
  */
-export interface Request<T> {
-  request: Promise<AxiosResponse<T>>;
-  cancel: Canceler;
-}
+export type Request<T> = Promise<AxiosResponse<T>>;
+
+export type AxiosType = AxiosInstance | AxiosStatic;

@@ -62,20 +62,26 @@ export const GenerateProfilePic: React.FC<GenerateProfilePicProps> =
    */
   useEffect(() => {
     if (username.length > 0) {
+      let isSubscribed = true;
+
       const request = getRandomProfilePic(username, offset);
 
       setLoading(true);
-      request.request.then((response: AxiosResponse) => {
-        setData(response.data);
-        setLoading(false);
-      }).catch((err: AxiosError | TCancel) => {
-        if (!(err.constructor.name === 'Cancel')) {
+      request.then((response: AxiosResponse) => {
+        if (isSubscribed) {
+          setData(response.data);
+          setLoading(false);
+        }
+      }).catch(() => {
+        if (isSubscribed) {
           setData(undefined);
           setLoading(false);
         }
       });
 
-      return () => request.cancel();
+      return () => {
+        isSubscribed = false;
+      };
     }
   }, [username, offset]);
 

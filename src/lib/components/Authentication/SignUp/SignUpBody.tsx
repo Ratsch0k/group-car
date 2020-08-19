@@ -49,7 +49,7 @@ export const SignUpBody: React.FC<SignUpBodyProps> = (props) => {
   ): SignUpRequest => {
     props.setLoading && props.setLoading(true);
     const request = auth.signUp(username, email, password, offset);
-    request.request.then((response) => {
+    request.then((response) => {
       /*
            * If response status was 202 expect
            * that backend is configured to not allow direct sign up
