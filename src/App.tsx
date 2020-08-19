@@ -7,22 +7,25 @@ import {
   AuthProvider,
   ModalRouter,
   AxiosProvider,
+  ApiProvider,
 } from 'lib';
 import Routes from 'modals';
 
 const App: React.FC = () => {
   return (
     <AxiosProvider>
-      <ThemeProvider theme={theme}>
-        <BrowserRouter>
-          <ModalRouter>
-            <AuthProvider>
-              <GroupCar />
-              <Routes />
-            </AuthProvider>
-          </ModalRouter>
-        </BrowserRouter>
-      </ThemeProvider>
+      <ApiProvider>
+        <ThemeProvider theme={theme}>
+          <BrowserRouter>
+            <ModalRouter>
+              <AuthProvider>
+                <GroupCar />
+                <Routes />
+              </AuthProvider>
+            </ModalRouter>
+          </BrowserRouter>
+        </ThemeProvider>
+      </ApiProvider>
     </AxiosProvider>
   );
 };
