@@ -2,10 +2,8 @@ import React from 'react';
 import {useLocation, useHistory} from 'react-router-dom';
 import queryString from 'query-string';
 import {ModalProvider} from './ModalRouteContext';
-import ModalRoutes from './ModalRoutes';
 
-
-const ModalCheck: React.FC = (props) => {
+export const ModalCheck: React.FC = (props) => {
   const location = useLocation();
   const history = useHistory();
 
@@ -87,6 +85,9 @@ const ModalCheck: React.FC = (props) => {
 
   const nestedLocation = {
     pathname: routeValue,
+    search: '',
+    state: undefined,
+    hash: '',
   };
 
   return (
@@ -95,8 +96,8 @@ const ModalCheck: React.FC = (props) => {
         close={close}
         route={routeValue}
         goTo={goTo}
+        modalLocation={nestedLocation}
       >
-        <ModalRoutes nestedLocation={nestedLocation} close={close}/>
         {props.children}
       </ModalProvider>
     </>

@@ -1,3 +1,3 @@
 export * from './Drawer';
-export * from './DrawerFooter';
-export * from './DrawerHeader';
+export * from './Footer/DrawerFooter';
+export * from './DrawerHeader/DrawerHeader';

@@ -23,7 +23,7 @@ const avatarDims: UserAvatarDim = {
   large: 50,
 };
 
-const UserAvatar: React.FC<AvatarProps> = (props: AvatarProps) => {
+export const UserAvatar: React.FC<AvatarProps> = (props: AvatarProps) => {
   const {userId, size} = props;
 
   // Depending on size in props change width and height

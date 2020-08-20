@@ -1,11 +1,11 @@
 import React from 'react';
-import {Drawer as MatDrawer} from '@material-ui/core';
+import {Drawer as MatDrawer, Container} from '@material-ui/core';
 import {makeStyles, createStyles} from '@material-ui/styles';
 import clsx from 'clsx';
-import DrawerFooter from './DrawerFooter';
+import {GroupCarTheme} from 'lib';
 import DrawerHeader from './DrawerHeader';
-
-type GroupCarTheme = import('lib/theme').GroupCarTheme;
+import DrawerFooter from './Footer';
+import DrawerBody from './DrawerBody';
 
 interface DrawerProps {
   open: boolean;
@@ -32,10 +32,13 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
       bottom: 0,
       position: 'absolute',
     },
+    body: {
+      paddingTop: theme.spacing(2),
+    },
   }),
 );
 
-const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
+export const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
   const {open, onClose, permanent} = props;
   const classes = useStyles();
 
@@ -55,7 +58,13 @@ const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
         ),
       }}
     >
-      <DrawerHeader close={onClose} noCloseButton={permanent}/>
+      {
+        !permanent &&
+        <DrawerHeader close={onClose} noCloseButton={permanent}/>
+      }
+      <Container className={classes.body}>
+        <DrawerBody />
+      </Container>
       <DrawerFooter className={classes.footer}/>
     </MatDrawer>
   );

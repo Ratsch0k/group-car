@@ -3,8 +3,7 @@ import {render, screen, fireEvent} from '@testing-library/react';
 import AuthenticationDialog from './AuthenticationDialog';
 import {MemoryRouter, Route} from 'react-router-dom';
 import '@testing-library/jest-dom/extend-expect';
-import AuthContext from '../../lib/context/auth/authContext';
-import {ModalProvider} from 'lib/ModalRouter';
+import {ModalProvider, AuthContext} from 'lib';
 
 it('renders without crashing', () => {
   render(
@@ -29,7 +28,7 @@ it('sign up button navigates to correct url', () => {
 
   const {baseElement} = render(
       <MemoryRouter initialEntries={['/auth']}>
-        <ModalProvider close={close} goTo={goTo} route={route}>
+        <ModalProvider close={close} goTo={goTo} route={route} modalLocation={'/auth/sign-up' as any}>
           <Route path='/auth'>
             <AuthenticationDialog open={true} close={() => {}}/>
           </Route>
@@ -56,7 +55,7 @@ it('login button navigates to correct url', () => {
 
   const {baseElement} = render(
       <MemoryRouter initialEntries={['/auth']}>
-        <ModalProvider close={close} goTo={goTo} route={route}>
+        <ModalProvider close={close} goTo={goTo} route={route} modalLocation={'/auth/login' as any}>
           <Route path='/auth'>
             <AuthenticationDialog open={true} close={() => {}}/>
           </Route>
@@ -83,7 +82,7 @@ it('back button button navigates back from form', () => {
 
   const {baseElement} = render(
       <MemoryRouter initialEntries={['/auth/login']}>
-        <ModalProvider close={close} goTo={goTo} route={route}>
+        <ModalProvider close={close} goTo={goTo} route={route} modalLocation={'/auth/login' as any}>
           <Route path='/auth'>
             <AuthenticationDialog open={true} close={() => {}}/>
           </Route>

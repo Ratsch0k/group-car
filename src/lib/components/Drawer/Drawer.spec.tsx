@@ -1,8 +1,7 @@
 import React from 'react';
 import {render} from '@testing-library/react';
-import Drawer from './Drawer';
 import {ThemeProvider} from '@material-ui/core';
-import theme from 'lib/theme';
+import {theme, Drawer} from 'lib';
 
 it('renders and matches snapshot with open and ' +
     'not permanent without crashing', () => {

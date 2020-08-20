@@ -1,8 +1,10 @@
 import React, {useState, useContext, useRef} from 'react';
-import {default as SignUpRequestElement} from './SignUpRequest';
-import SignUpForm from './SignUpForm';
-import AuthContext from 'lib/context/auth/authContext';
-import {SignUpRequest} from 'lib/requests/signUp';
+import {
+  AuthContext,
+  SignUpForm,
+  SignUpRequest,
+  SignUpThroughRequest,
+} from 'lib';
 
 export interface SignUpBodyProps {
   withSubmit?: boolean;
@@ -16,7 +18,7 @@ export interface SignUpBodyProps {
  * element.
  * @param props Forwards props to the SignUpForm
  */
-const SignUpBody: React.FC<SignUpBodyProps> = (props) => {
+export const SignUpBody: React.FC<SignUpBodyProps> = (props) => {
   // Whether or not sign up is not directly possible.
   const [
     isSignUpThroughRequest,
@@ -47,7 +49,7 @@ const SignUpBody: React.FC<SignUpBodyProps> = (props) => {
   ): SignUpRequest => {
     props.setLoading && props.setLoading(true);
     const request = auth.signUp(username, email, password, offset);
-    request.request.then((response) => {
+    request.then((response) => {
       /*
            * If response status was 202 expect
            * that backend is configured to not allow direct sign up
@@ -79,7 +81,7 @@ const SignUpBody: React.FC<SignUpBodyProps> = (props) => {
           signUpRef.current.clientHeight :
           undefined,
       }}>
-        <SignUpRequestElement />
+        <SignUpThroughRequest />
       </div>
     );
   } else {

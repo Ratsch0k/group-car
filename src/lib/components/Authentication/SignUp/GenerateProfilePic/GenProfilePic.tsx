@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {makeStyles} from '@material-ui/styles';
 import {Grid, Button, Typography, Paper} from '@material-ui/core';
-import getRandomProfilePic from 'lib/requests/getRandomProfilePic';
+import {getRandomProfilePic} from 'lib';
 import {useTranslation} from 'react-i18next';
 import {grey} from '@material-ui/core/colors';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
@@ -45,7 +45,7 @@ const useStyle = makeStyles({
   },
 });
 
-const GenerateProfilePic: React.FC<GenerateProfilePicProps> =
+export const GenerateProfilePic: React.FC<GenerateProfilePicProps> =
 (props: GenerateProfilePicProps) => {
   const {username, offset, setOffset} = props;
   const [data, setData] = useState<string>();
@@ -62,20 +62,26 @@ const GenerateProfilePic: React.FC<GenerateProfilePicProps> =
    */
   useEffect(() => {
     if (username.length > 0) {
+      let isSubscribed = true;
+
       const request = getRandomProfilePic(username, offset);
 
       setLoading(true);
-      request.request.then((response: AxiosResponse) => {
-        setData(response.data);
-        setLoading(false);
-      }).catch((err: AxiosError | TCancel) => {
-        if (!(err.constructor.name === 'Cancel')) {
+      request.then((response: AxiosResponse) => {
+        if (isSubscribed) {
+          setData(response.data);
+          setLoading(false);
+        }
+      }).catch(() => {
+        if (isSubscribed) {
           setData(undefined);
           setLoading(false);
         }
       });
 
-      return () => request.cancel();
+      return () => {
+        isSubscribed = false;
+      };
     }
   }, [username, offset]);
 

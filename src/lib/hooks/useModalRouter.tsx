@@ -1,5 +1,5 @@
 import {useContext} from 'react';
-import ModalContext, {IModalContext} from 'lib/ModalRouter/ModalRouteContext';
+import {IModalContext, ModalContext} from 'lib';
 
 /**
  * Hook for using the `ModalContext`

@@ -6,16 +6,15 @@ import {
   DialogTitle,
   DialogContent,
 } from '@material-ui/core';
-import SignUpBody from './SignUpBody';
+import {SignUpBody} from 'lib';
 
 type Theme = import('@material-ui/core').Theme;
 
-const SignUpDialog: React.FC = () => {
+export const SignUpDialog: React.FC = () => {
   const useStyle = makeStyles((theme: Theme) =>
     createStyles({
       formContainer: {
         padding: theme.spacing(2),
-        height: 430,
       },
     }),
   );
@@ -33,6 +32,5 @@ const SignUpDialog: React.FC = () => {
     </Dialog>
   );
 };
-
 
 export default SignUpDialog;

@@ -14,3 +14,6 @@ build
 .eslintrc.js
 
 src/**/*.spec.tsx
+
+# Ignore public directory
+public

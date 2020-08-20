@@ -1,59 +1,35 @@
-import React, {useState} from 'react';
-import {useEffect} from 'react';
-import axios from 'axios';
+import React from 'react';
 import GroupCar from './GroupCar';
 import {BrowserRouter} from 'react-router-dom';
-import {AuthProvider} from './lib/context/auth/authContext';
 import {ThemeProvider} from '@material-ui/core';
-import theme from 'lib/theme';
-import ModalRouter from 'lib/ModalRouter';
+import {
+  theme,
+  AuthProvider,
+  ModalRouter,
+  AxiosProvider,
+  ApiProvider,
+  AxiosErrorHandler,
+} from 'lib';
+import ModalRoutes from 'modals';
 
 const App: React.FC = () => {
-  const [loading, setLoading] = useState<boolean>(true);
-
-  const CsrfCancelToken = axios.CancelToken;
-  const csrfSource = CsrfCancelToken.source();
-
-  useEffect(() => {
-    axios.head('/auth', {
-      cancelToken: csrfSource.token,
-    }).then((res) => {
-      const csrf = res.headers['xsrf-token'];
-
-      if (!csrf) {
-        setLoading(false);
-      } else {
-        axios.defaults.headers.common['XSRF-TOKEN'] = csrf;
-        setLoading(false);
-      }
-    }).catch(() => {
-      setLoading(false);
-    });
-
-    return () => {
-      csrfSource.cancel('Request canceled');
-    };
-  });
-
-  if (loading) {
-    return (
-      <div>
-        Loading...
-      </div>
-    );
-  } else {
-    return (
-      <ThemeProvider theme={theme}>
-        <AuthProvider>
+  return (
+    <AxiosProvider>
+      <ApiProvider>
+        <ThemeProvider theme={theme}>
           <BrowserRouter>
             <ModalRouter>
-              <GroupCar />
+              <AuthProvider>
+                <GroupCar />
+                <ModalRoutes />
+                <AxiosErrorHandler />
+              </AuthProvider>
             </ModalRouter>
           </BrowserRouter>
-        </AuthProvider>
-      </ThemeProvider>
-    );
-  }
+        </ThemeProvider>
+      </ApiProvider>
+    </AxiosProvider>
+  );
 };
 
 export default App;

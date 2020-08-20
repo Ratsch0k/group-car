@@ -23,7 +23,7 @@ interface HeaderBarProps {
   noMenuButton: boolean;
 }
 
-const HeaderBar: React.FC<HeaderBarProps> = (props: HeaderBarProps) => {
+export const HeaderBar: React.FC<HeaderBarProps> = (props: HeaderBarProps) => {
   const classes = useStyles();
 
   return (

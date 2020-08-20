@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div>
+  <div
+    class="MuiPaper-root makeStyles-paper-178 MuiPaper-elevation6"
+  >
+    <div
+      class="MuiContainer-root makeStyles-container-179 MuiContainer-maxWidthLg"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-item"
+        >
+          <button
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
+          >
+            privacyPolicy.title
+          </button>
+        </div>
+        <div
+          class="MuiGrid-root MuiGrid-item"
+        >
+          <button
+            class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
+          >
+            imprint.title
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

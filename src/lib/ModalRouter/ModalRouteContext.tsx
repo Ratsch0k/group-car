@@ -1,21 +1,25 @@
 import React from 'react';
+import history from 'history';
 
 export interface IModalContext {
   close(): void;
   goTo(route: string | null | undefined): void;
   route: string;
+  modalLocation: history.Location | undefined;
 }
 
-const ModalContext = React.createContext<IModalContext>({
+export const ModalContext = React.createContext<IModalContext>({
   close: () => undefined,
   goTo: () => undefined,
   route: '/',
+  modalLocation: undefined,
 });
 
 interface ModalProviderProps {
   close(): void;
   goTo(route: string | undefined | null): void;
   route: string;
+  modalLocation: history.Location;
 }
 
 /**

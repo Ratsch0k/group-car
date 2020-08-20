@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
-import PasswordTextField from 'lib/components/Input/PasswordTextField';
-import {TextField, Grid, Container} from '@material-ui/core';
+import {Grid, Container} from '@material-ui/core';
 import {useFormik} from 'formik';
 import * as yup from 'yup';
 import {useTranslation} from 'react-i18next';
-import ProgressButton from 'lib/components/Input/ProgressButton';
 import GenerateProfilePic from './GenerateProfilePic/GenProfilePic';
-import {SignUpRequest} from 'lib/requests/signUp';
+import {SignUpRequest, ProgressButton, PasswordTextField} from 'lib';
+import {FormTextField} from 'lib/components/Input';
+import {useComponentIsMounted} from 'lib/hooks';
 
 export interface SignUpFormProps {
   withSubmit?: boolean;
@@ -20,9 +20,11 @@ export interface SignUpFormProps {
     ): SignUpRequest;
 }
 
-const SignUpForm: React.FC<SignUpFormProps> = (props: SignUpFormProps) => {
+export const SignUpForm: React.FC<SignUpFormProps> =
+(props: SignUpFormProps) => {
   const {t} = useTranslation();
   const [offset, setOffset] = useState<number>(0);
+  const isMounted = useComponentIsMounted();
 
   const validationSchema = yup.object({
     username: yup.string().required(t('form.error.required'))
@@ -48,8 +50,10 @@ const SignUpForm: React.FC<SignUpFormProps> = (props: SignUpFormProps) => {
           values.email,
           values.password,
           offset,
-      ).request.finally(() => {
-        formik.setSubmitting(false);
+      ).finally(() => {
+        if (isMounted.current) {
+          formik.setSubmitting(false);
+        }
       });
     },
   });
@@ -73,60 +77,30 @@ const SignUpForm: React.FC<SignUpFormProps> = (props: SignUpFormProps) => {
           </Container>
         </Grid>
         <Grid item>
-          <TextField
+          <FormTextField
             autoFocus
-            fullWidth
-            variant='outlined'
             label={t('form.username') + ' *'}
             id='signup-username'
-            size='small'
             name='username'
-            error={formik.touched.username &&
-              formik.errors.username !==
-              undefined}
-            helperText={formik.touched.username ?
-              formik.errors.username || ' ' :
-              ' '}
-            onBlur={formik.handleBlur}
-            onChange={formik.handleChange}
-            value={formik.values.username} />
+            formik={formik}
+          />
         </Grid>
         <Grid item>
-          <TextField
-            fullWidth
-            variant='outlined'
+          <FormTextField
+            formik={formik}
             label={t('form.email') + ' *'}
             id='signup-email'
-            size='small'
             name='email'
             type='email'
-            onBlur={formik.handleBlur}
-            error={formik.touched.email &&
-            formik.errors.email !==
-            undefined}
-            helperText={formik.touched.email ?
-              formik.errors.email || ' ' :
-              ' '}
-            onChange={formik.handleChange}
-            value={formik.values.email} />
+          />
         </Grid>
         <Grid item>
           <PasswordTextField
-            fullWidth
-            variant='outlined'
+            formik={formik}
             id='signup-password'
-            size='small'
             name='password'
             label={t('form.password') + ' *'}
-            onBlur={formik.handleBlur}
-            error={formik.touched.password &&
-            formik.errors.password !==
-            undefined}
-            helperText={formik.touched.password ?
-              formik.errors.password || ' ' :
-              ' '}
-            value={formik.values.password}
-            onChange={formik.handleChange} />
+          />
         </Grid>
         {
           props.withSubmit &&

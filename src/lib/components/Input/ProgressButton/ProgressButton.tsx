@@ -7,7 +7,6 @@ import {
   Box,
 } from '@material-ui/core';
 
-type Theme = import('@material-ui/core').Theme;
 type ButtonProps = import('@material-ui/core').ButtonProps;
 
 export interface ProgressButtonProps extends ButtonProps {
@@ -15,7 +14,7 @@ export interface ProgressButtonProps extends ButtonProps {
   progressSize?: number;
 }
 
-const ProgressButton: React.FC<ProgressButtonProps> = (props) => {
+export const ProgressButton: React.FC<ProgressButtonProps> = (props) => {
   const {
     loading,
     children,

@@ -11,14 +11,17 @@ import {
   Typography,
 } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import React, {useState, useEffect, useContext} from 'react';
-import {LoginForm} from '../../lib/components/Authentication/Login';
+import React, {useEffect, useContext} from 'react';
 import {useTranslation} from 'react-i18next';
-import AuthContext from 'lib/context/auth/authContext';
 import CloseIcon from '@material-ui/icons/Close';
 import {Route, Switch, useRouteMatch, useLocation} from 'react-router-dom';
-import useModalRouter from 'lib/hooks/useModalRouter';
-import SignUpBody from 'lib/components/Authentication/SignUp/SignUpBody';
+import {
+  AuthContext,
+  LoginForm,
+  useModalRouter,
+  SignUpBody,
+  useStateIfMounted,
+} from 'lib';
 
 type Theme = import('@material-ui/core').Theme;
 
@@ -54,7 +57,7 @@ interface AuthenticationDialogProps {
   close(): void;
 }
 
-const AuthenticationDialog: React.FC<AuthenticationDialogProps> =
+export const AuthenticationDialog: React.FC<AuthenticationDialogProps> =
 (props: AuthenticationDialogProps) => {
   const classes = useStyle();
   const {t} = useTranslation();
@@ -62,7 +65,7 @@ const AuthenticationDialog: React.FC<AuthenticationDialogProps> =
   const {goTo} = useModalRouter();
   const {path, isExact} = useRouteMatch();
   const {pathname} = useLocation();
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useStateIfMounted<boolean>(false);
 
   /**
    * Handles navigation to sign up page
@@ -101,6 +104,7 @@ const AuthenticationDialog: React.FC<AuthenticationDialogProps> =
     if (auth.isLoggedIn) {
       onFinished();
     }
+
     // eslint-disable-next-line
   }, [auth.isLoggedIn]);
 

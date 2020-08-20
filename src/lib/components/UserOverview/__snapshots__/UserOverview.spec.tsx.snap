@@ -27,7 +27,9 @@ exports[`renders and matches snapshot when user is logged in 1`] = `
         </p>
         <span
           class="MuiTypography-root MuiTypography-caption MuiTypography-colorTextSecondary MuiTypography-alignCenter"
-        />
+        >
+          TEST@mail.com
+        </span>
       </div>
       <div
         class="MuiGrid-root MuiGrid-item"
