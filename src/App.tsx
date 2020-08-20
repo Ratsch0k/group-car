@@ -8,8 +8,9 @@ import {
   ModalRouter,
   AxiosProvider,
   ApiProvider,
+  AxiosErrorHandler,
 } from 'lib';
-import Routes from 'modals';
+import ModalRoutes from 'modals';
 
 const App: React.FC = () => {
   return (
@@ -20,7 +21,8 @@ const App: React.FC = () => {
             <ModalRouter>
               <AuthProvider>
                 <GroupCar />
-                <Routes />
+                <ModalRoutes />
+                <AxiosErrorHandler />
               </AuthProvider>
             </ModalRouter>
           </BrowserRouter>

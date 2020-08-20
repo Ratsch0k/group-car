@@ -7,6 +7,7 @@ type DialogTitleProps = import('@material-ui/core').DialogTitleProps;
 
 interface CloseableDialogPropsProps extends DialogTitleProps {
   close(): void;
+  disabled?: boolean;
 }
 
 const useStyles = makeStyles({
@@ -27,6 +28,7 @@ export const CloseableDialogTitle: React.FC<CloseableDialogPropsProps> =
       <IconButton
         className={classes.closeButton}
         onClick={close}
+        disabled={props.disabled}
       >
         <CloseIcon />
       </IconButton>

@@ -1,28 +1,11 @@
 import React, {useState, useEffect, useCallback} from 'react';
-import {CheckLoggedIn, Login, LogOut, SignUp, useAxios} from 'lib';
+import {useAxios} from 'lib';
 import * as apiCalls from '../api';
 
 /**
  * Api calls.
  */
-export interface Api {
-  /**
-   * @see checkLoggedInCall
-   */
-  checkLoggedIn: CheckLoggedIn;
-  /**
-   * @see loginCall
-   */
-  login: Login;
-  /**
-   * @see logoutCall
-   */
-  logout: LogOut;
-  /**
-   * @see signUpCall
-   */
-  signUp: SignUp;
-}
+export type Api = typeof apiCalls;
 
 /**
  * Default api context.

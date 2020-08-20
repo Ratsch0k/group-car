@@ -6,6 +6,7 @@ import {useTranslation} from 'react-i18next';
 import GenerateProfilePic from './GenerateProfilePic/GenProfilePic';
 import {SignUpRequest, ProgressButton, PasswordTextField} from 'lib';
 import {FormTextField} from 'lib/components/Input';
+import {useComponentIsMounted} from 'lib/hooks';
 
 export interface SignUpFormProps {
   withSubmit?: boolean;
@@ -23,6 +24,7 @@ export const SignUpForm: React.FC<SignUpFormProps> =
 (props: SignUpFormProps) => {
   const {t} = useTranslation();
   const [offset, setOffset] = useState<number>(0);
+  const isMounted = useComponentIsMounted();
 
   const validationSchema = yup.object({
     username: yup.string().required(t('form.error.required'))
@@ -49,7 +51,9 @@ export const SignUpForm: React.FC<SignUpFormProps> =
           values.password,
           offset,
       ).finally(() => {
-        formik.setSubmitting(false);
+        if (isMounted.current) {
+          formik.setSubmitting(false);
+        }
       });
     },
   });

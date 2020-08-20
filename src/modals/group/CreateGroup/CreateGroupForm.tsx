@@ -1,6 +1,6 @@
 import React from 'react';
 import {Grid} from '@material-ui/core';
-import {FormTextField, ProgressButton} from 'lib';
+import {FormTextField, ProgressButton, useApi} from 'lib';
 import {useTranslation} from 'react-i18next';
 import {useFormik} from 'formik';
 import * as yup from 'yup';
@@ -9,11 +9,18 @@ const minNameLength = 4;
 const maxNameLength = 30;
 const maxDescriptionLength = 200;
 
+interface CreateGroupFormProps {
+  setLoading?(value: boolean): void;
+  close?(): void;
+}
+
 /**
  * Form of the create group dialog.
  */
-export const CreateGroupForm: React.FC = () => {
+export const CreateGroupForm: React.FC<CreateGroupFormProps> =
+(props: CreateGroupFormProps) => {
   const {t} = useTranslation();
+  const {createGroup} = useApi();
 
   const validationSchema = yup.object({
     name: yup.string().required(t('form.error.required'))
@@ -48,7 +55,15 @@ export const CreateGroupForm: React.FC = () => {
     },
     validationSchema,
     onSubmit: (values) => {
-      console.log(values);
+      console.dir(values);
+      props.setLoading && props.setLoading(true);
+      createGroup(values.name, values.description).then(() => {
+        formik.setSubmitting(false);
+        props.close && props.close();
+      }).catch(() => {
+        formik.setSubmitting(false);
+        props.setLoading && props.setLoading(false);
+      });
     },
   });
 
@@ -74,6 +89,7 @@ export const CreateGroupForm: React.FC = () => {
             multiline
             name='description'
             formik={formik}
+            rows={6}
           />
         </Grid>
         <Grid item>

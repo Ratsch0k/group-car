@@ -11,11 +11,17 @@ import {
   Typography,
 } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useEffect, useContext} from 'react';
 import {useTranslation} from 'react-i18next';
 import CloseIcon from '@material-ui/icons/Close';
 import {Route, Switch, useRouteMatch, useLocation} from 'react-router-dom';
-import {AuthContext, LoginForm, useModalRouter, SignUpBody} from 'lib';
+import {
+  AuthContext,
+  LoginForm,
+  useModalRouter,
+  SignUpBody,
+  useStateIfMounted,
+} from 'lib';
 
 type Theme = import('@material-ui/core').Theme;
 
@@ -59,7 +65,7 @@ export const AuthenticationDialog: React.FC<AuthenticationDialogProps> =
   const {goTo} = useModalRouter();
   const {path, isExact} = useRouteMatch();
   const {pathname} = useLocation();
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useStateIfMounted<boolean>(false);
 
   /**
    * Handles navigation to sign up page
@@ -98,6 +104,7 @@ export const AuthenticationDialog: React.FC<AuthenticationDialogProps> =
     if (auth.isLoggedIn) {
       onFinished();
     }
+
     // eslint-disable-next-line
   }, [auth.isLoggedIn]);
 

@@ -973,6 +973,14 @@
     "@babel/helper-plugin-utils" "^7.8.3"
     "@babel/plugin-transform-typescript" "^7.9.0"
 
+"@babel/runtime-corejs3@^7.10.2":
+  version "7.11.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.11.2.tgz#02c3029743150188edeb66541195f54600278419"
+  integrity sha512-qh5IR+8VgFz83VBa6OkaET6uN/mJOhHONuy3m1sgF0CV6mXdPSEBdA7e1eUbVvyNtANjMbg22JUv71BaDXLY6A==
+  dependencies:
+    core-js-pure "^3.0.0"
+    regenerator-runtime "^0.13.4"
+
 "@babel/runtime-corejs3@^7.7.4", "@babel/runtime-corejs3@^7.8.3":
   version "7.9.6"
   resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.9.6.tgz#67aded13fffbbc2cb93247388cf84d77a4be9a71"
@@ -992,6 +1000,13 @@
   version "7.9.6"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.9.6.tgz#a9102eb5cadedf3f31d08a9ecf294af7827ea29f"
   integrity sha512-64AF1xY3OAkFHqOb9s4jpgk1Mm5vDZ4L3acHvAml+53nO1XbXLuDodsVpO4OIUsmemlUHMxNdYMNJmsvOwLrvQ==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
+"@babel/runtime@^7.10.2", "@babel/runtime@^7.10.3":
+  version "7.11.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.11.2.tgz#f549c13c754cc40b87644b9fa9f09a6a95fe0736"
+  integrity sha512-TeWkU52so0mPtDcaCTxNBI/IHiz0pZgr8VEFqXFtZWpYD08ZB6FaSwVAS8MKRQAP3bYKiVjwysOJgMFY28o6Tw==
   dependencies:
     regenerator-runtime "^0.13.4"
 
@@ -1438,6 +1453,17 @@
     dom-accessibility-api "^0.4.3"
     pretty-format "^25.5.0"
 
+"@testing-library/dom@^7.22.2":
+  version "7.22.2"
+  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.22.2.tgz#6deaa828500993cc94bdd62875c251b5b5b70d69"
+  integrity sha512-taxURh+4Lwr//uC1Eghat95aMnTlI4G4ETosnZK0wliwHWdutLDVKIvHXAOYdXGdzrBAy1wNhSGmNBbZ72ml4g==
+  dependencies:
+    "@babel/runtime" "^7.10.3"
+    "@types/aria-query" "^4.2.0"
+    aria-query "^4.2.2"
+    dom-accessibility-api "^0.5.0"
+    pretty-format "^25.5.0"
+
 "@testing-library/jest-dom@^5.5.0":
   version "5.7.0"
   resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-5.7.0.tgz#b2e2acb4c088a293d52ba2cd1674b526282a2f87"
@@ -1461,6 +1487,18 @@
     "@babel/runtime" "^7.9.6"
     "@testing-library/dom" "^7.2.2"
     "@types/testing-library__react" "^10.0.1"
+
+"@testing-library/user-event@^12.1.1":
+  version "12.1.1"
+  resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-12.1.1.tgz#ff985f97f7f6b8f8c3c8ae5a7deb883007bc6820"
+  integrity sha512-gJ2lD3tANqVLS6GWh2gEqvEYDPlxzR+6uLAvzdb5CH6KIM6kXfCwsvK0oLhmDRFAuj8WfnBH9CaM5YDplkWFrQ==
+  dependencies:
+    "@babel/runtime" "^7.10.2"
+
+"@types/aria-query@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@types/aria-query/-/aria-query-4.2.0.tgz#14264692a9d6e2fa4db3df5e56e94b5e25647ac0"
+  integrity sha512-iIgQNzCm0v7QMhhe4Jjn9uRh+I6GoPmt03CbEtwx3ao8/EfoQcmgtqH4vQ5Db/lxiIGaWDv6nwvunuh0RyX0+A==
 
 "@types/babel__core@^7.1.0":
   version "7.1.7"
@@ -2201,6 +2239,14 @@ aria-query@^4.0.2:
   dependencies:
     "@babel/runtime" "^7.7.4"
     "@babel/runtime-corejs3" "^7.7.4"
+
+aria-query@^4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/aria-query/-/aria-query-4.2.2.tgz#0d2ca6c9aceb56b8977e9fed6aed7e15bbd2f83b"
+  integrity sha512-o/HelwhuKpTj/frsOsbNLNgnNGVIFsVP/SW2BSF14gVl7kAfMOJ6/8wUAUvG1R1NHKrfG+2sHZTu0yauT1qBrA==
+  dependencies:
+    "@babel/runtime" "^7.10.2"
+    "@babel/runtime-corejs3" "^7.10.2"
 
 arity-n@^1.0.4:
   version "1.0.4"
@@ -3978,6 +4024,11 @@ dom-accessibility-api@^0.4.3:
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/dom-accessibility-api/-/dom-accessibility-api-0.4.3.tgz#93ca9002eb222fd5a343b6e5e6b9cf5929411c4c"
   integrity sha512-JZ8iPuEHDQzq6q0k7PKMGbrIdsgBB7TRrtVOUm4nSMCExlg5qQG4KXWTH2k90yggjM4tTumRGwTKJSldMzKyLA==
+
+dom-accessibility-api@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/dom-accessibility-api/-/dom-accessibility-api-0.5.0.tgz#fddffd04e178796e241436c3f21be2f89c91afac"
+  integrity sha512-eCVf9n4Ni5UQAFc2+fqfMPHdtiX7DA0rLakXgNBZfXNJzEbNo3MQIYd+zdYpFBqAaGYVrkd8leNSLGPrG4ODmA==
 
 dom-converter@^0.2:
   version "0.2.0"
