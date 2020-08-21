@@ -44,3 +44,29 @@ export interface GroupWithOwner extends Group {
    */
   Owner: UserSimple;
 }
+
+/**
+ * Member of a group. Contains the data of the user and whether or not
+ * the member is an admin of that group.
+ */
+export interface Member {
+  /**
+   * User data.
+   */
+  User: UserSimple;
+  /**
+   * Whether or not this member is an admin of the group.
+   */
+  isAdmin: boolean;
+}
+
+/**
+ * Extension of the group data which contains the data of the owner and
+ * a list of members.
+ */
+export interface GroupWithOwnerAndMembers extends GroupWithOwner {
+  /**
+   * List of members.
+   */
+  members: Member[];
+}
