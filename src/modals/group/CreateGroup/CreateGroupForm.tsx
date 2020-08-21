@@ -12,6 +12,7 @@ const maxDescriptionLength = 200;
 interface CreateGroupFormProps {
   setLoading?(value: boolean): void;
   close?(): void;
+  navigateToManagement?(id: number): void;
 }
 
 /**
@@ -57,9 +58,9 @@ export const CreateGroupForm: React.FC<CreateGroupFormProps> =
     onSubmit: (values) => {
       console.dir(values);
       props.setLoading && props.setLoading(true);
-      createGroup(values.name, values.description).then(() => {
+      createGroup(values.name, values.description).then((res) => {
         formik.setSubmitting(false);
-        props.close && props.close();
+        props.navigateToManagement && props.navigateToManagement(res.data.id);
       }).catch(() => {
         formik.setSubmitting(false);
         props.setLoading && props.setLoading(false);
