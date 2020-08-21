@@ -1,7 +1,8 @@
 import React from 'react';
 import {DialogTitle, IconButton} from '@material-ui/core';
-import {makeStyles} from '@material-ui/styles';
+import {makeStyles, createStyles} from '@material-ui/styles';
 import CloseIcon from '@material-ui/icons/Close';
+import {GroupCarTheme} from 'lib';
 
 type DialogTitleProps = import('@material-ui/core').DialogTitleProps;
 
@@ -10,11 +11,15 @@ interface CloseableDialogPropsProps extends DialogTitleProps {
   disabled?: boolean;
 }
 
-const useStyles = makeStyles({
-  closeButton: {
-    float: 'right',
-  },
-});
+const useStyles = makeStyles((theme: GroupCarTheme) =>
+  createStyles({
+    closeButton: {
+      float: 'right',
+      marginTop: `-${theme.spacing(1)}px`,
+      marginRight: `-${theme.spacing(1)}px`,
+    },
+  }),
+);
 
 export const CloseableDialogTitle: React.FC<CloseableDialogPropsProps> =
 (props: CloseableDialogPropsProps) => {
