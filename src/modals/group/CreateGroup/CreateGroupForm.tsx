@@ -56,7 +56,6 @@ export const CreateGroupForm: React.FC<CreateGroupFormProps> =
     },
     validationSchema,
     onSubmit: (values) => {
-      console.dir(values);
       props.setLoading && props.setLoading(true);
       createGroup(values.name, values.description).then((res) => {
         formik.setSubmitting(false);
