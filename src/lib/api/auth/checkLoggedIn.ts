@@ -1,17 +1,8 @@
 import {Request, AxiosType} from '../request';
 import axiosStatic from 'axios';
+import {User} from '../user';
 
-export interface CheckLoggedInResponse {
-  id: number;
-  username: string;
-  email: string;
-  isBetaUser: boolean;
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-export type CheckLoggedInRequest = Request<CheckLoggedInResponse>;
-
+export type CheckLoggedInRequest = Request<User>;
 export type CheckLoggedIn = () => CheckLoggedInRequest;
 
 export const checkLoggedIn: CheckLoggedIn = (
