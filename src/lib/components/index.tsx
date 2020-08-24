@@ -9,3 +9,5 @@ export * from './UserOverview';
 export * from './legal';
 export * from './AutoFullscreenDialog';
 export * from './AxiosErrorHandler';
+export * from './CenteredCircularProgress';
+export * from './Centered';
