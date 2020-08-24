@@ -1,20 +1,26 @@
-import React, {useState, useEffect} from 'react';
-import {Typography, CircularProgress} from '@material-ui/core';
-import {GroupWithOwner, useApi} from 'lib';
+import React, {useEffect} from 'react';
+import {
+  useApi,
+  RestError,
+  useStateIfMounted,
+  GroupWithOwnerAndMembers,
+  CenteredCircularProgress,
+} from 'lib';
+import ManageGroupErrorHandler from './ManageGroupNoGroupError';
+import {ManageGroupOverview} from './ManageGroupOverview';
+import {useParams} from 'react-router-dom';
 
 /**
  * Props for the manage group component.
  */
 export interface ManageGroupProps {
   /**
-   * The id of the group to display.
+   * Id of the group. If not provided this
+   * component will try to get the parameter `:groupId` from
+   * the path. If that's not possible it will show an error
+   * message.
    */
-  groupId: number;
-  /**
-   * Callback for when the group data was successfully loaded.
-   * @param group The group data.
-   */
-  onGroupLoaded?(group: GroupWithOwner): void;
+  groupId?: number;
 }
 
 /**
@@ -24,29 +30,45 @@ export interface ManageGroupProps {
 export const ManageGroup: React.FC<ManageGroupProps> =
 (props: ManageGroupProps) => {
   const {getGroup} = useApi();
+  const {groupId: groupIdParam} = useParams();
+  const [groupData, setGroupData] =
+      useStateIfMounted<GroupWithOwnerAndMembers | null>(null);
+  const [error, setError] = useStateIfMounted<RestError | null | boolean>(null);
 
-  const {groupId} = props;
-  const [groupData, setGroupData] = useState<GroupWithOwner | null>(null);
 
   // Get the group
   useEffect(() => {
-    getGroup(groupId).then((res) => {
-      setGroupData(res.data);
-      props.onGroupLoaded && props.onGroupLoaded(res.data);
-    }).catch((e) => {
-      console.dir(e);
-    });
-  }, [groupId, props, getGroup]);
+    // Get the group id
+    let selectedGroupId: number;
 
-  return (
-    <Typography>
-      {
-        groupData ?
-        JSON.stringify(groupData) :
-        <CircularProgress />
-      }
-    </Typography>
-  );
+    if (typeof props.groupId === 'number') {
+      selectedGroupId = props.groupId;
+    } else {
+      // Try to get the groupId from the path
+      selectedGroupId = parseInt(groupIdParam);
+    }
+
+    if (typeof selectedGroupId !== 'undefined' && !isNaN(selectedGroupId) &&
+        (groupData === null || selectedGroupId !== groupData.id)) {
+      getGroup(selectedGroupId).then((res) => {
+        setGroupData(res.data);
+      }).catch(() => {
+        setError(true);
+      });
+    } else {
+      setError(true);
+    }
+
+    // eslint-disable-next-line
+  }, [props, getGroup, groupIdParam]);
+
+  if (groupData === null && error === null) {
+    return <CenteredCircularProgress />;
+  } else if (error === null && groupData !== null) {
+    return <ManageGroupOverview group={groupData}/>;
+  } else {
+    return <ManageGroupErrorHandler/>;
+  }
 };
 
 export default ManageGroup;
