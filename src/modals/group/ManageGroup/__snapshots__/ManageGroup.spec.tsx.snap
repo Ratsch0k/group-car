@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`get groupId from route params if not provided as property 1`] = `
+<body>
+  <div>
+    <div
+      class="MuiBox-root MuiBox-root-203"
+    >
+      <h5
+        class="MuiTypography-root makeStyles-text-201 MuiTypography-h5 MuiTypography-gutterBottom"
+      >
+        <span>
+          name
+        </span>
+      </h5>
+      <p
+        class="MuiTypography-root makeStyles-text-201 makeStyles-description-202 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+      >
+        <span>
+          description
+        </span>
+      </p>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`renders circular progress while loading group data 1`] = `
+<body>
+  <div>
+    <div
+      class="MuiBox-root MuiBox-root-21 makeStyles-centered-19 makeStyles-container-18"
+    >
+      <div
+        class="MuiBox-root MuiBox-root-22 makeStyles-centered-19"
+      >
+        <div
+          class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+          role="progressbar"
+          style="width: 40px; height: 40px;"
+        >
+          <svg
+            class="MuiCircularProgress-svg"
+            viewBox="22 22 44 44"
+          >
+            <circle
+              class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+              cx="44"
+              cy="44"
+              fill="none"
+              r="20.2"
+              stroke-width="3.6"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`renders error message if group doesn't exist 1`] = `
+<body>
+  <div>
+    <div
+      class="MuiBox-root MuiBox-root-93 makeStyles-centered-77"
+    >
+      <div
+        class="MuiBox-root MuiBox-root-94 makeStyles-centered-77"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-colorError MuiSvgIcon-fontSizeLarge"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+          />
+        </svg>
+        <h6
+          class="MuiTypography-root MuiTypography-subtitle1 MuiTypography-colorTextSecondary"
+        >
+          modals.group.manage.loadingFailed
+        </h6>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`renders group name and description if group exists 1`] = `
+<body>
+  <div>
+    <div
+      class="MuiBox-root MuiBox-root-153"
+    >
+      <h5
+        class="MuiTypography-root makeStyles-text-151 MuiTypography-h5 MuiTypography-gutterBottom"
+      >
+        <span>
+          fake group name
+        </span>
+      </h5>
+      <p
+        class="MuiTypography-root makeStyles-text-151 makeStyles-description-152 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+      >
+        <span>
+          fake group description
+        </span>
+      </p>
+    </div>
+  </div>
+</body>
+`;

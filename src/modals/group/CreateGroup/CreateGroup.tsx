@@ -28,6 +28,16 @@ export const CreateGroup: React.FC = () => {
   const {t} = useTranslation();
   const classes = useStyles();
   const [loading, setLoading] = useState<boolean>(false);
+  const {goTo} = useModalRouter();
+
+  /**
+   * Handles if the component should navigate to the
+   * route for managing the group.
+   * @param id id of the group
+   */
+  const navToGroupManagement = (id: number) => {
+    goTo(`/group/manage/${id}`);
+  };
 
   /**
    * Handles close action.
@@ -46,6 +56,7 @@ export const CreateGroup: React.FC = () => {
         <CreateGroupForm
           setLoading={setLoading}
           close={closeDialog}
+          navigateToManagement={navToGroupManagement}
         />
       </DialogContent>
     </Dialog>

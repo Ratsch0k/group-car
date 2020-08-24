@@ -41,6 +41,24 @@
     "title": "Privacy policy"
   },
   "drawer": {
-    "createGroup": "Create a group"
+    "createGroup": "Create a group",
+    "notLoggedIn": {
+      "title": "Not logged in",
+      "message": "To access these features you have to be logged in"
+    }
+  },
+  "modals": {
+    "group": {
+      "create": {
+        "title": "New group",
+        "name": "Name *",
+        "description": "Description",
+        "create": "Create"
+      },
+      "manage": {
+        "title": "Group management",
+        "loadingFailed": "The group couldn't be found"
+      }
+    }
   }
 }

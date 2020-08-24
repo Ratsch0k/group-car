@@ -1,11 +1,13 @@
-import React from 'react';
-import {Drawer as MatDrawer, Container} from '@material-ui/core';
+import React, {useContext} from 'react';
+import {Drawer as MatDrawer, Container, Box} from '@material-ui/core';
 import {makeStyles, createStyles} from '@material-ui/styles';
 import clsx from 'clsx';
 import {GroupCarTheme} from 'lib';
 import DrawerHeader from './DrawerHeader';
 import DrawerFooter from './Footer';
 import DrawerBody from './DrawerBody';
+import {AuthContext} from 'lib/context';
+import DrawerNotLoggedIn from './DrawerNotLoggedIn';
 
 interface DrawerProps {
   open: boolean;
@@ -41,6 +43,7 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
 export const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
   const {open, onClose, permanent} = props;
   const classes = useStyles();
+  const {isLoggedIn} = useContext(AuthContext);
 
   return (
     <MatDrawer
@@ -59,13 +62,19 @@ export const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
       }}
     >
       {
-        !permanent &&
-        <DrawerHeader close={onClose} noCloseButton={permanent}/>
+        isLoggedIn ?
+        <Box>
+          {
+            !permanent &&
+            <DrawerHeader close={onClose} noCloseButton={permanent}/>
+          }
+          <Container className={classes.body}>
+            <DrawerBody />
+          </Container>
+          <DrawerFooter className={classes.footer}/>
+        </Box> :
+        <DrawerNotLoggedIn />
       }
-      <Container className={classes.body}>
-        <DrawerBody />
-      </Container>
-      <DrawerFooter className={classes.footer}/>
     </MatDrawer>
   );
 };

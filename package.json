@@ -33,7 +33,7 @@
     "start": "react-scripts start",
     "start:https": "cross-env HTTPS=true yarn start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject",
     "eslint": "./node_modules/.bin/eslint . --ext .js,.jsx,.ts,.tsx",
     "typedoc": "typedoc --exclude **/**/*.spec.ts --mode modules --target ES6 --module commonjs --out public/doc/react src"
@@ -81,6 +81,7 @@
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.0.2",
     "eslint-plugin-standard": "^4.0.1",
+    "jest-environment-jsdom-sixteen": "^1.0.3",
     "react-scripts": "^3.4.1",
     "typedoc": "^0.18.0",
     "typescript": "^3.9.7"

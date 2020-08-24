@@ -33,7 +33,11 @@
     }
   },
   "drawer": {
-    "createGroup": "Erstelle eine Gruppe"
+    "createGroup": "Erstelle eine Gruppe",
+    "notLoggedIn": {
+      "title": "Nicht angemeldet",
+      "message": "Du musst dich anmelden um auf diese Funktionalität zuzugreifen"
+    }
   },
   "modals": {
     "group": {
@@ -42,6 +46,10 @@
         "name": "Name *",
         "description": "Beschreibung",
         "create": "Erstelle"
+      },
+      "manage": {
+        "title": "Gruppenverwaltung",
+        "loadingFailed": "Die Gruppe konnte nicht gefunden werden"
       }
     }
   },

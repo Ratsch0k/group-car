@@ -11,57 +11,27 @@ exports[`renders and matches snapshot with not open and not permanent without cr
 exports[`renders and matches snapshot with not open and permanent without crashing 1`] = `
 <div>
   <div
-    class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-499 makeStyles-drawerPermanent-501"
+    class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-165 makeStyles-drawerPermanent-167"
   >
     <div
-      class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-500 makeStyles-drawerPaperPermanent-502 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+      class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-166 makeStyles-drawerPaperPermanent-168 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
     >
       <div
-        class="MuiContainer-root makeStyles-body-504 MuiContainer-maxWidthLg"
-      >
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-disableElevation MuiButton-fullWidth"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label"
-          >
-            drawer.createGroup
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-      </div>
-      <div
-        class="MuiPaper-root makeStyles-footer-503 makeStyles-paper-585 MuiPaper-elevation6"
+        class="MuiBox-root MuiBox-root-214 makeStyles-fullHeight-212 makeStyles-center-211"
       >
         <div
-          class="MuiContainer-root makeStyles-container-586 MuiContainer-maxWidthLg"
+          class="MuiBox-root MuiBox-root-215 makeStyles-center-211"
         >
-          <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
+          <h5
+            class="MuiTypography-root MuiTypography-h5 MuiTypography-alignCenter"
           >
-            <div
-              class="MuiGrid-root MuiGrid-item"
-            >
-              <button
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-              >
-                privacyPolicy.title
-              </button>
-            </div>
-            <div
-              class="MuiGrid-root MuiGrid-item"
-            >
-              <button
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-              >
-                imprint.title
-              </button>
-            </div>
-          </div>
+            drawer.notLoggedIn.title
+          </h5>
+          <p
+            class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
+          >
+            drawer.notLoggedIn.message
+          </p>
         </div>
       </div>
     </div>
@@ -95,80 +65,21 @@ exports[`renders and matches snapshot with open and not permanent without crashi
       tabindex="-1"
     >
       <div
-        class="MuiBox-root MuiBox-root-52 makeStyles-root-50"
-      >
-        <button
-          class="MuiButtonBase-root MuiIconButton-root makeStyles-closeButton-49"
-          data-testid="close"
-          id="drawer-close"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiIconButton-label"
-          >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-              />
-            </svg>
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-      </div>
-      <div
-        class="MuiContainer-root makeStyles-body-6 MuiContainer-maxWidthLg"
-      >
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-disableElevation MuiButton-fullWidth"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label"
-          >
-            drawer.createGroup
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-      </div>
-      <div
-        class="MuiPaper-root makeStyles-footer-5 makeStyles-paper-111 MuiPaper-elevation6"
+        class="MuiBox-root MuiBox-root-52 makeStyles-fullHeight-50 makeStyles-center-49"
       >
         <div
-          class="MuiContainer-root makeStyles-container-112 MuiContainer-maxWidthLg"
+          class="MuiBox-root MuiBox-root-53 makeStyles-center-49"
         >
-          <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
+          <h5
+            class="MuiTypography-root MuiTypography-h5 MuiTypography-alignCenter"
           >
-            <div
-              class="MuiGrid-root MuiGrid-item"
-            >
-              <button
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-              >
-                privacyPolicy.title
-              </button>
-            </div>
-            <div
-              class="MuiGrid-root MuiGrid-item"
-            >
-              <button
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-              >
-                imprint.title
-              </button>
-            </div>
-          </div>
+            drawer.notLoggedIn.title
+          </h5>
+          <p
+            class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
+          >
+            drawer.notLoggedIn.message
+          </p>
         </div>
       </div>
     </div>
@@ -183,57 +94,27 @@ exports[`renders and matches snapshot with open and not permanent without crashi
 exports[`renders and matches snapshot with open and permanent without crashing 1`] = `
 <div>
   <div
-    class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-262 makeStyles-drawerPermanent-264"
+    class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-84 makeStyles-drawerPermanent-86"
   >
     <div
-      class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-263 makeStyles-drawerPaperPermanent-265 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+      class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-85 makeStyles-drawerPaperPermanent-87 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
     >
       <div
-        class="MuiContainer-root makeStyles-body-267 MuiContainer-maxWidthLg"
-      >
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-disableElevation MuiButton-fullWidth"
-          tabindex="0"
-          type="button"
-        >
-          <span
-            class="MuiButton-label"
-          >
-            drawer.createGroup
-          </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
-        </button>
-      </div>
-      <div
-        class="MuiPaper-root makeStyles-footer-266 makeStyles-paper-348 MuiPaper-elevation6"
+        class="MuiBox-root MuiBox-root-133 makeStyles-fullHeight-131 makeStyles-center-130"
       >
         <div
-          class="MuiContainer-root makeStyles-container-349 MuiContainer-maxWidthLg"
+          class="MuiBox-root MuiBox-root-134 makeStyles-center-130"
         >
-          <div
-            class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
+          <h5
+            class="MuiTypography-root MuiTypography-h5 MuiTypography-alignCenter"
           >
-            <div
-              class="MuiGrid-root MuiGrid-item"
-            >
-              <button
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-              >
-                privacyPolicy.title
-              </button>
-            </div>
-            <div
-              class="MuiGrid-root MuiGrid-item"
-            >
-              <button
-                class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-              >
-                imprint.title
-              </button>
-            </div>
-          </div>
+            drawer.notLoggedIn.title
+          </h5>
+          <p
+            class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
+          >
+            drawer.notLoggedIn.message
+          </p>
         </div>
       </div>
     </div>
