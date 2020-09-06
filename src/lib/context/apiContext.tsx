@@ -11,6 +11,7 @@ export type Api = typeof apiCalls;
  * Default api context.
  */
 export const ApiContext = React.createContext<Api>(apiCalls);
+ApiContext.displayName = 'ApiContext';
 
 /**
  * Provider for the `ApiContext`.
