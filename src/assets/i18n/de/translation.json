@@ -37,6 +37,14 @@
     "notLoggedIn": {
       "title": "Nicht angemeldet",
       "message": "Du musst dich anmelden um auf diese Funktionalität zuzugreifen"
+    },
+    "groupMenu": {
+      "noSelection": "Wähle eine Gruppe",
+      "item": {
+        "manage": "Verwalte diese Gruppe",
+        "select": "Wähle eine Gruppe",
+        "create": "Neue Gruppe erstellen"
+      }
     }
   },
   "modals": {

@@ -45,6 +45,14 @@
     "notLoggedIn": {
       "title": "Not logged in",
       "message": "To access these features you have to be logged in"
+    },
+    "groupMenu": {
+      "noSelection": "Select a group",
+      "item": {
+        "manage": "Manage this group",
+        "select": "Select a group",
+        "create": "Create a new group"
+      }
     }
   },
   "modals": {
