@@ -1,9 +1,10 @@
 import React from 'react';
 import {Grid} from '@material-ui/core';
-import {FormTextField, ProgressButton, useApi} from 'lib';
+import {FormTextField, ProgressButton} from 'lib';
 import {useTranslation} from 'react-i18next';
 import {useFormik} from 'formik';
 import * as yup from 'yup';
+import useGroups from 'lib/hooks/useGroups';
 
 const minNameLength = 4;
 const maxNameLength = 30;
@@ -21,7 +22,7 @@ interface CreateGroupFormProps {
 export const CreateGroupForm: React.FC<CreateGroupFormProps> =
 (props: CreateGroupFormProps) => {
   const {t} = useTranslation();
-  const {createGroup} = useApi();
+  const {createGroup} = useGroups();
 
   const validationSchema = yup.object({
     name: yup.string().required(t('form.error.required'))
