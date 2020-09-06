@@ -41,6 +41,7 @@ export const AuthContext = React.createContext<IAuthContext>({
   isLoggedIn: false,
   openAuthDialog: () => undefined,
 });
+AuthContext.displayName = 'AuthContext';
 
 export const AuthProvider: React.FC = (props) => {
   const [user, setUser] = useState<IUser | undefined>();
