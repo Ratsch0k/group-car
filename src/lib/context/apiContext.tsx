@@ -42,3 +42,5 @@ export const ApiProvider: React.FC = (props) => {
     </ApiContext.Provider>
   );
 };
+
+export default ApiProvider;
