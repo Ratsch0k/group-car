@@ -52,3 +52,5 @@ export const AxiosProvider: React.FC = (props) => {
     </AxiosContext.Provider>
   );
 };
+
+export default AxiosProvider;
