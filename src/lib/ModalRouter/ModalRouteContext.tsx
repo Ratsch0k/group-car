@@ -1,14 +1,14 @@
 import React from 'react';
 import history from 'history';
 
-export interface IModalContext {
+export interface ModalContext {
   close(): void;
   goTo(route: string | null | undefined): void;
   route: string;
   modalLocation: history.Location | undefined;
 }
 
-export const ModalContext = React.createContext<IModalContext>({
+export const ModalContext = React.createContext<ModalContext>({
   close: () => undefined,
   goTo: () => undefined,
   route: '/',

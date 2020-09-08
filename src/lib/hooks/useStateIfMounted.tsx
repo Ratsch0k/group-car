@@ -1,5 +1,5 @@
 import {useComponentIsMounted} from 'lib';
-import {useState} from 'react';
+import {useState, useCallback} from 'react';
 
 export type useStateIfMounted<T> = [T, React.Dispatch<React.SetStateAction<T>>];
 
@@ -8,14 +8,15 @@ export type useStateIfMounted<T> = [T, React.Dispatch<React.SetStateAction<T>>];
  * the state if the component is mounted.
  * @param initValue The initial value of the state
  */
-export function useStateIfMounted<T>(initValue: T): useStateIfMounted<T> {
+export const useStateIfMounted =
+<T extends unknown>(initValue: T): useStateIfMounted<T> => {
   const isMounted = useComponentIsMounted();
   const [state, setState] = useState<T>(initValue);
-  const overriddenSetState = (value: React.SetStateAction<T>) => {
+  const overriddenSetState = useCallback((value: React.SetStateAction<T>) => {
     if (isMounted.current) {
       setState(value);
     }
-  };
+  }, [isMounted]);
 
   return [state, overriddenSetState];
-}
+};

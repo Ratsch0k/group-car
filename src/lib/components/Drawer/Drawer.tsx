@@ -37,6 +37,9 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
     body: {
       paddingTop: theme.spacing(2),
     },
+    container: {
+      height: `calc(100% - ${theme.shape.headerHeight}px)`,
+    },
   }),
 );
 
@@ -61,20 +64,22 @@ export const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
         ),
       }}
     >
-      {
-        isLoggedIn ?
-        <Box>
-          {
-            !permanent &&
+      <Box className={classes.container}>
+        {
+          !permanent &&
             <DrawerHeader close={onClose} noCloseButton={permanent}/>
-          }
-          <Container className={classes.body}>
-            <DrawerBody />
-          </Container>
-          <DrawerFooter className={classes.footer}/>
-        </Box> :
-        <DrawerNotLoggedIn />
-      }
+        }
+        {
+            isLoggedIn ?
+            <Box>
+              <Container className={classes.body}>
+                <DrawerBody />
+              </Container>
+              <DrawerFooter className={classes.footer}/>
+            </Box> :
+            <DrawerNotLoggedIn />
+        }
+      </Box>
     </MatDrawer>
   );
 };

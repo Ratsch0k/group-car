@@ -7,6 +7,9 @@ rm deploy-key.enc
 chmod 600 deploy-key
 mv deploy-key ~/.ssh/id_rsa
 
+# Build documentation
+yarn doc
+
 # change to build directory, initialize local repository and push to server
 cd build
 

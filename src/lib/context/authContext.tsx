@@ -16,7 +16,7 @@ export interface IUser {
   id: number;
 }
 
-export interface IAuthContext {
+export interface AuthContext {
   login(
     username: string,
     password: string,
@@ -33,7 +33,7 @@ export interface IAuthContext {
   openAuthDialog(): void;
 }
 
-export const AuthContext = React.createContext<IAuthContext>({
+export const AuthContext = React.createContext<AuthContext>({
   login: () => Promise.reject(new Error('Not yet defined')),
   logout: () => Promise.reject(new Error('Not yet defined')),
   signUp: () => Promise.reject(new Error('Not yet defined')),
@@ -41,6 +41,7 @@ export const AuthContext = React.createContext<IAuthContext>({
   isLoggedIn: false,
   openAuthDialog: () => undefined,
 });
+AuthContext.displayName = 'AuthContext';
 
 export const AuthProvider: React.FC = (props) => {
   const [user, setUser] = useState<IUser | undefined>();
@@ -53,6 +54,9 @@ export const AuthProvider: React.FC = (props) => {
     api.checkLoggedIn().then((res: AxiosResponse) => {
       setUser(res.data);
       setIsLoggedIn(true);
+    }).catch(() => {
+      setUser(undefined);
+      setIsLoggedIn(false);
     });
     // eslint-disable-next-line
   }, []);
@@ -65,6 +69,7 @@ export const AuthProvider: React.FC = (props) => {
     request.then((response) => {
       setUser(response.data);
       setIsLoggedIn(true);
+      return response;
     });
 
     return request;
@@ -88,6 +93,7 @@ export const AuthProvider: React.FC = (props) => {
         setUser(response.data as User);
         setIsLoggedIn(true);
       }
+      return response;
     });
 
     return request;

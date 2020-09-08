@@ -1,5 +1,5 @@
 import axiosInstance from 'axios';
-import {Request, GroupWithOwner} from 'lib';
+import {Request, GroupWithOwnerAndMembers} from 'lib';
 import {AxiosType} from '../request';
 
 /**
@@ -12,7 +12,7 @@ export interface GetGroupsResponse {
   /**
    * Array of all groups the currently logged in user is a member of.
    */
-  groups: GroupWithOwner[];
+  groups: GroupWithOwnerAndMembers[];
 }
 
 /**

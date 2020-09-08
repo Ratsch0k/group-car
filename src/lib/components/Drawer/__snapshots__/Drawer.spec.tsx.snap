@@ -11,27 +11,31 @@ exports[`renders and matches snapshot with not open and not permanent without cr
 exports[`renders and matches snapshot with not open and permanent without crashing 1`] = `
 <div>
   <div
-    class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-165 makeStyles-drawerPermanent-167"
+    class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-203 makeStyles-drawerPermanent-205"
   >
     <div
-      class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-166 makeStyles-drawerPaperPermanent-168 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+      class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-204 makeStyles-drawerPaperPermanent-206 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
     >
       <div
-        class="MuiBox-root MuiBox-root-214 makeStyles-fullHeight-212 makeStyles-center-211"
+        class="MuiBox-root MuiBox-root-251 makeStyles-container-209"
       >
         <div
-          class="MuiBox-root MuiBox-root-215 makeStyles-center-211"
+          class="MuiBox-root MuiBox-root-254 makeStyles-fullHeight-253 makeStyles-center-252"
         >
-          <h5
-            class="MuiTypography-root MuiTypography-h5 MuiTypography-alignCenter"
+          <div
+            class="MuiBox-root MuiBox-root-255 makeStyles-center-252"
           >
-            drawer.notLoggedIn.title
-          </h5>
-          <p
-            class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
-          >
-            drawer.notLoggedIn.message
-          </p>
+            <h5
+              class="MuiTypography-root MuiTypography-h5 MuiTypography-alignCenter"
+            >
+              drawer.notLoggedIn.title
+            </h5>
+            <p
+              class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
+            >
+              drawer.notLoggedIn.message
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -65,21 +69,54 @@ exports[`renders and matches snapshot with open and not permanent without crashi
       tabindex="-1"
     >
       <div
-        class="MuiBox-root MuiBox-root-52 makeStyles-fullHeight-50 makeStyles-center-49"
+        class="MuiBox-root MuiBox-root-51 makeStyles-container-7"
       >
         <div
-          class="MuiBox-root MuiBox-root-53 makeStyles-center-49"
+          class="MuiBox-root MuiBox-root-54 makeStyles-root-53"
         >
-          <h5
-            class="MuiTypography-root MuiTypography-h5 MuiTypography-alignCenter"
+          <button
+            class="MuiButtonBase-root MuiIconButton-root makeStyles-closeButton-52"
+            data-testid="close"
+            id="drawer-close"
+            tabindex="0"
+            type="button"
           >
-            drawer.notLoggedIn.title
-          </h5>
-          <p
-            class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
+            <span
+              class="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+        <div
+          class="MuiBox-root MuiBox-root-78 makeStyles-fullHeight-77 makeStyles-center-76"
+        >
+          <div
+            class="MuiBox-root MuiBox-root-79 makeStyles-center-76"
           >
-            drawer.notLoggedIn.message
-          </p>
+            <h5
+              class="MuiTypography-root MuiTypography-h5 MuiTypography-alignCenter"
+            >
+              drawer.notLoggedIn.title
+            </h5>
+            <p
+              class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
+            >
+              drawer.notLoggedIn.message
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -94,27 +131,31 @@ exports[`renders and matches snapshot with open and not permanent without crashi
 exports[`renders and matches snapshot with open and permanent without crashing 1`] = `
 <div>
   <div
-    class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-84 makeStyles-drawerPermanent-86"
+    class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-120 makeStyles-drawerPermanent-122"
   >
     <div
-      class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-85 makeStyles-drawerPaperPermanent-87 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+      class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-121 makeStyles-drawerPaperPermanent-123 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
     >
       <div
-        class="MuiBox-root MuiBox-root-133 makeStyles-fullHeight-131 makeStyles-center-130"
+        class="MuiBox-root MuiBox-root-168 makeStyles-container-126"
       >
         <div
-          class="MuiBox-root MuiBox-root-134 makeStyles-center-130"
+          class="MuiBox-root MuiBox-root-171 makeStyles-fullHeight-170 makeStyles-center-169"
         >
-          <h5
-            class="MuiTypography-root MuiTypography-h5 MuiTypography-alignCenter"
+          <div
+            class="MuiBox-root MuiBox-root-172 makeStyles-center-169"
           >
-            drawer.notLoggedIn.title
-          </h5>
-          <p
-            class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
-          >
-            drawer.notLoggedIn.message
-          </p>
+            <h5
+              class="MuiTypography-root MuiTypography-h5 MuiTypography-alignCenter"
+            >
+              drawer.notLoggedIn.title
+            </h5>
+            <p
+              class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
+            >
+              drawer.notLoggedIn.message
+            </p>
+          </div>
         </div>
       </div>
     </div>

@@ -17,6 +17,7 @@ export interface AxiosContext {
 export const AxiosContext = React.createContext<AxiosContext>({
   axios: Promise.resolve(axios.create()),
 });
+AxiosContext.displayName = 'AxiosContext';
 
 /**
  * Element which provides the axios context.
@@ -51,3 +52,5 @@ export const AxiosProvider: React.FC = (props) => {
     </AxiosContext.Provider>
   );
 };
+
+export default AxiosProvider;

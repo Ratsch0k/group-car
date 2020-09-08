@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`displays icon on the left if icon is provided 1`] = `
+<div>
+  <li
+    aria-disabled="false"
+    class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+    role="menuitem"
+    tabindex="-1"
+  >
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+      />
+    </svg>
+    <span
+      class="makeStyles-text-59"
+    >
+      TEST
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </li>
+</div>
+`;
+
+exports[`matches MenuItem if no property provided 1`] = `
+<div>
+  <li
+    aria-disabled="false"
+    class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+    role="menuitem"
+    tabindex="-1"
+  >
+    <span>
+      TEST
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </li>
+</div>
+`;
+
+exports[`shows arrow to the right if prop opensSubMenu is true 1`] = `
+<div>
+  <li
+    aria-disabled="false"
+    class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+    role="menuitem"
+    tabindex="-1"
+  >
+    <span>
+      TEST
+    </span>
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root makeStyles-arrowIcon-98"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M5.88 4.12L13.76 12l-7.88 7.88L8 22l10-10L8 2z"
+      />
+    </svg>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </li>
+</div>
+`;
+
+exports[`shows arrow to the right if prop opensSubMenu is true and icon on the left if icon is provided 1`] = `
+<div>
+  <li
+    aria-disabled="false"
+    class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+    role="menuitem"
+    tabindex="-1"
+  >
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+      />
+    </svg>
+    <span
+      class="makeStyles-text-136"
+    >
+      TEST
+    </span>
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root makeStyles-arrowIcon-137"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M5.88 4.12L13.76 12l-7.88 7.88L8 22l10-10L8 2z"
+      />
+    </svg>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </li>
+</div>
+`;
