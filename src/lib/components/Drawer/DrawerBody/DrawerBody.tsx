@@ -5,6 +5,9 @@ import {useModalRouter} from 'lib';
 import useGroups from 'lib/hooks/useGroups';
 import GroupOptionsButton from './GroupOptionsButton';
 
+/**
+ * Body of the drawer.
+ */
 export const DrawerBody: React.FC = () => {
   const {t} = useTranslation();
   const {goTo} = useModalRouter();

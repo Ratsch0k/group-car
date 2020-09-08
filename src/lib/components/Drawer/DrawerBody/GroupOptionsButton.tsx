@@ -12,6 +12,9 @@ import GroupOptionsMenu from './GroupOptionsMenu';
 import {makeStyles, createStyles} from '@material-ui/styles';
 import {GroupCarTheme} from 'lib/theme';
 
+/**
+ * Button for opening group options.
+ */
 export const GroupOptionsButton: React.FC = () => {
   const {selectedGroup} = useGroups();
   const {t} = useTranslation();
