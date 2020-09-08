@@ -1,8 +1,11 @@
 import React, {useState, useEffect, useContext, useCallback} from 'react';
-import {GroupWithOwnerAndMembers} from 'lib/api';
-import {AuthContext} from './authContext';
-import {useApi, useStateIfMounted} from 'lib/hooks';
-import {Api} from './apiContext';
+import {
+  useApi,
+  useStateIfMounted,
+  Api,
+  GroupWithOwnerAndMembers,
+  AuthContext,
+} from 'lib';
 
 /**
  * Context for the group context.
@@ -88,13 +91,21 @@ export const GroupProvider: React.FC = (props) => {
     const getGroupsResponse = await getGroups();
 
     setGroups(getGroupsResponse.data.groups);
-  }, [getGroups, setGroups]);
+
+    // Check if selected group stil exists
+    if (selectedGroup !== null &&
+        !getGroupsResponse.data.groups
+            .some((group) => group.id === selectedGroup.id)) {
+      setSelectedGroup(null);
+    }
+  }, [getGroups, setGroups, selectedGroup]);
 
   useEffect(() => {
     if (user) {
       update();
     }
-  }, [user, update]);
+    // eslint-disable-next-line
+  }, [user]);
 
   const createGroup: GroupContext['createGroup'] =
   async (name, description) => {

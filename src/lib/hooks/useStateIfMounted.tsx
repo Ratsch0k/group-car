@@ -8,7 +8,8 @@ export type useStateIfMounted<T> = [T, React.Dispatch<React.SetStateAction<T>>];
  * the state if the component is mounted.
  * @param initValue The initial value of the state
  */
-export function useStateIfMounted<T>(initValue: T): useStateIfMounted<T> {
+export const useStateIfMounted =
+<T extends unknown>(initValue: T): useStateIfMounted<T> => {
   const isMounted = useComponentIsMounted();
   const [state, setState] = useState<T>(initValue);
   const overriddenSetState = useCallback((value: React.SetStateAction<T>) => {
@@ -18,4 +19,4 @@ export function useStateIfMounted<T>(initValue: T): useStateIfMounted<T> {
   }, [isMounted]);
 
   return [state, overriddenSetState];
-}
+};
