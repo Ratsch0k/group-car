@@ -4,17 +4,17 @@ exports[`get groupId from route params if not provided as property 1`] = `
 <body>
   <div>
     <div
-      class="MuiBox-root MuiBox-root-208"
+      class="MuiBox-root MuiBox-root-249"
     >
       <h5
-        class="MuiTypography-root makeStyles-text-206 MuiTypography-h5 MuiTypography-gutterBottom"
+        class="MuiTypography-root makeStyles-text-247 MuiTypography-h5 MuiTypography-gutterBottom"
       >
         <span>
           name
         </span>
       </h5>
       <p
-        class="MuiTypography-root makeStyles-text-206 makeStyles-description-207 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+        class="MuiTypography-root makeStyles-text-247 makeStyles-description-248 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
       >
         <span>
           description
@@ -29,10 +29,10 @@ exports[`renders circular progress while loading group data 1`] = `
 <body>
   <div>
     <div
-      class="MuiBox-root MuiBox-root-23 makeStyles-centered-20 makeStyles-container-19"
+      class="MuiBox-root MuiBox-root-64 makeStyles-centered-61 makeStyles-container-60"
     >
       <div
-        class="MuiBox-root MuiBox-root-24 makeStyles-centered-20"
+        class="MuiBox-root MuiBox-root-65 makeStyles-centered-61"
       >
         <div
           class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
@@ -63,10 +63,10 @@ exports[`renders error message if group doesn't exist 1`] = `
 <body>
   <div>
     <div
-      class="MuiBox-root MuiBox-root-96 makeStyles-centered-79"
+      class="MuiBox-root MuiBox-root-137 makeStyles-centered-120"
     >
       <div
-        class="MuiBox-root MuiBox-root-97 makeStyles-centered-79"
+        class="MuiBox-root MuiBox-root-138 makeStyles-centered-120"
       >
         <svg
           aria-hidden="true"
@@ -93,17 +93,17 @@ exports[`renders group name and description if group exists 1`] = `
 <body>
   <div>
     <div
-      class="MuiBox-root MuiBox-root-157"
+      class="MuiBox-root MuiBox-root-198"
     >
       <h5
-        class="MuiTypography-root makeStyles-text-155 MuiTypography-h5 MuiTypography-gutterBottom"
+        class="MuiTypography-root makeStyles-text-196 MuiTypography-h5 MuiTypography-gutterBottom"
       >
         <span>
           fake group name
         </span>
       </h5>
       <p
-        class="MuiTypography-root makeStyles-text-155 makeStyles-description-156 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+        class="MuiTypography-root makeStyles-text-196 makeStyles-description-197 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
       >
         <span>
           fake group description

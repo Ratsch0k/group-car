@@ -1,10 +1,9 @@
 import { render, waitFor } from "@testing-library/react";
 import ManageGroup from "./ManageGroup";
 import React from "react";
-import { Api, ApiContext } from "lib";
+import { Api, ApiContext, theme, GroupContext} from 'lib';
 import { MemoryRouter, Route } from "react-router-dom";
 import { ThemeProvider } from "@material-ui/core";
-import {theme} from 'lib';
 
 it('renders without crashing', () => {
   render(
@@ -22,9 +21,9 @@ it('renders circular progress while loading group data',() => {
   const screen = render (
     <ThemeProvider theme={theme}>
       <MemoryRouter>
-        <ApiContext.Provider value={fakeApi as unknown as Api}>
+        <GroupContext.Provider value={fakeApi as unknown as Api}>
           <ManageGroup groupId={1}/>
-        </ApiContext.Provider>
+        </GroupContext.Provider>
       </MemoryRouter>
     </ThemeProvider>
   );
@@ -40,9 +39,9 @@ it('renders error message if group doesn\'t exist', async () => {
   const screen = render (
     <ThemeProvider theme={theme}>
       <MemoryRouter>
-        <ApiContext.Provider value={fakeApi as unknown as Api}>
+        <GroupContext.Provider value={fakeApi as unknown as Api}>
           <ManageGroup groupId={1}/>
-        </ApiContext.Provider>
+        </GroupContext.Provider>
       </MemoryRouter>
     </ThemeProvider>
   );
@@ -67,9 +66,9 @@ it('renders group name and description if group exists', async () => {
   const screen = render (
     <ThemeProvider theme={theme}>
       <MemoryRouter>
-        <ApiContext.Provider value={fakeApi as unknown as Api}>
+        <GroupContext.Provider value={fakeApi as unknown as Api}>
             <ManageGroup groupId={2}/>
-        </ApiContext.Provider>
+        </GroupContext.Provider>
       </MemoryRouter>
     </ThemeProvider>
   );
@@ -98,11 +97,11 @@ it('get groupId from route params if not provided as property', async () => {
   const screen = render (
     <ThemeProvider theme={theme}>
       <MemoryRouter initialEntries={[`/group/manage/${fakeGroup.id}`]}>
-        <ApiContext.Provider value={fakeApi as unknown as Api}>
+        <GroupContext.Provider value={fakeApi as unknown as Api}>
           <Route path='/group/manage/:groupId'>
             <ManageGroup />
           </Route>
-        </ApiContext.Provider>
+        </GroupContext.Provider>
       </MemoryRouter>
     </ThemeProvider>
   );
