@@ -30,7 +30,7 @@ export interface ManageGroupProps {
 export const ManageGroup: React.FC<ManageGroupProps> =
 (props: ManageGroupProps) => {
   const {getGroup} = useGroups();
-  const {groupId: groupIdParam} = useParams();
+  const {groupId: groupIdParam} = useParams<{groupId: string}>();
   const [groupData, setGroupData] =
       useStateIfMounted<GroupWithOwnerAndMembers | null>(null);
   const [error, setError] = useStateIfMounted<RestError | null | boolean>(null);
