@@ -3,10 +3,20 @@ import {AuthContext, GroupWithOwnerAndMembers} from 'lib';
 import React, {useContext} from 'react';
 import ManageGroupMemberListItem from './ManageGroupMemberListItem';
 
+/**
+ * Props for the member list.
+ */
 export interface ManageGroupMemberListProps {
+  /**
+   * Data of the group.
+   */
   group: GroupWithOwnerAndMembers;
 }
 
+/**
+ * Lists all members and their roles of the specified group.
+ * @param props Props
+ */
 export const ManageGroupMemberList: React.FC<ManageGroupMemberListProps> =
 (props: ManageGroupMemberListProps) => {
   const {user} = useContext(AuthContext);
