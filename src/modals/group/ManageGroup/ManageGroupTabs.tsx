@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {GroupWithOwnerAndMembers, TabPanel} from 'lib';
-import {Paper, Tab, Tabs, Theme, Typography} from '@material-ui/core';
+import {Paper, Tab, Tabs, Theme} from '@material-ui/core';
 import {useTranslation} from 'react-i18next';
 import SwipeableView from 'react-swipeable-views';
 import {createStyles, makeStyles} from '@material-ui/styles';

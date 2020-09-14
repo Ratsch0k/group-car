@@ -2,7 +2,6 @@ import React from 'react';
 import {GroupWithOwnerAndMembers} from 'lib';
 import ManageGroupOverviewInfo from './ManageGroupGroupInfo';
 import ManageGroupTabs from './ManageGroupTabs';
-import {makeStyles} from '@material-ui/styles';
 
 export interface ManageGroupOverviewProps {
   group: GroupWithOwnerAndMembers;
