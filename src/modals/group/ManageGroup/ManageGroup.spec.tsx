@@ -130,7 +130,7 @@ it('renders list of members correctly', async () => {
   await waitFor(() => expect(fakeApi.getGroup).toHaveBeenCalledTimes(1));
   expect(fakeApi.getGroup).toHaveBeenLastCalledWith(fakeGroup.id);
 
-  expect(screen).toMatchSnapshot();
+  expect(screen.baseElement).toMatchSnapshot();
 });
 
 it('get groupId from route params if not provided as property', async () => {
