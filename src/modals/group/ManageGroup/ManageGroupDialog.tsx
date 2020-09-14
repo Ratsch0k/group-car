@@ -16,7 +16,7 @@ import ManageGroup from './ManageGroup';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     content: {
-      paddingBottom: theme.spacing(4),
+      paddingBottom: theme.spacing(3),
     },
   }),
 );

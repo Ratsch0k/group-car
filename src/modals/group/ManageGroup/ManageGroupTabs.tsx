@@ -21,16 +21,8 @@ const useStyles = makeStyles((theme: Theme) =>
     paperOutlined: {
       borderColor: theme.palette.secondary.main,
     },
-    fullHeight: {
-      height: '100%',
-    },
-    container: {
-      height: '100%',
-      display: 'flex',
-      flexDirection: 'column',
-    },
-    tabViews: {
-      flexGrow: 1,
+    tabContent: {
+      height: '500px',
     },
   }),
 );
@@ -48,7 +40,6 @@ export const ManageGroupTabs: React.FC<ManageGroupsTabsProps> =
   return (
     <Paper
       variant='outlined'
-      className={classes.container}
       classes={{
         outlined: classes.paperOutlined,
       }}
@@ -67,12 +58,13 @@ export const ManageGroupTabs: React.FC<ManageGroupsTabsProps> =
           label={t('modals.group.manage.tabs.cars.title')}
           id='group-tab-cars'
           aria-controls='group-tabpanel-cars'
+          disabled
         />
       </Tabs>
       <SwipeableView
         index={selectedTab}
         onChangeIndex={(index: number) => setSelectedTab(index)}
-        className={classes.tabViews}
+        className={classes.tabContent}
       >
         <TabPanel
           visible={selectedTab === 0}
@@ -81,13 +73,18 @@ export const ManageGroupTabs: React.FC<ManageGroupsTabsProps> =
         >
           <ManageGroupMemberList group={props.group}/>
         </TabPanel>
-        <TabPanel
+        {
+          /*
+                  <TabPanel
           visible={selectedTab === 1}
           id='group-tabpanel-cars'
           aria-labelledby='group-tab-cars'
         >
           <Typography>CARS</Typography>
         </TabPanel>
+          */
+        }
+
       </SwipeableView>
     </Paper>
   );
