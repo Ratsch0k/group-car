@@ -13,3 +13,4 @@ export * from './CenteredCircularProgress';
 export * from './Centered';
 export * from './MenuItemToSubMenu';
 export * from './MenuIconItem';
+export * from './TabPanel';

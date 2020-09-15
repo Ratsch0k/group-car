@@ -1,6 +1,7 @@
 import React from 'react';
 import {GroupWithOwnerAndMembers} from 'lib';
 import ManageGroupOverviewInfo from './ManageGroupGroupInfo';
+import ManageGroupTabs from './ManageGroupTabs';
 
 export interface ManageGroupOverviewProps {
   group: GroupWithOwnerAndMembers;
@@ -14,7 +15,14 @@ export const ManageGroupOverview: React.FC<ManageGroupOverviewProps> =
   const {group} = props;
 
   return (
-    <ManageGroupOverviewInfo group={group}/>
+    <div>
+      <div>
+        <ManageGroupOverviewInfo group={group}/>
+      </div>
+      <div>
+        <ManageGroupTabs group={group}/>
+      </div>
+    </div>
   );
 };
 

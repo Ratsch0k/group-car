@@ -3,8 +3,9 @@ import {
   useApi,
   useStateIfMounted,
   Api,
-  GroupWithOwnerAndMembers,
   AuthContext,
+  GroupWithOwner,
+  GroupWithOwnerAndMembers,
 } from 'lib';
 
 /**
@@ -16,12 +17,12 @@ export interface GroupContext {
    *
    * If no group is selected this is null.
    */
-  selectedGroup: GroupWithOwnerAndMembers | null;
+  selectedGroup: GroupWithOwner | GroupWithOwnerAndMembers | null;
 
   /**
    * All groups of which the current user is a member of.
    */
-  groups: GroupWithOwnerAndMembers[];
+  groups: (GroupWithOwner | GroupWithOwnerAndMembers)[];
 
   /**
    * Select the group with the specified id. The
@@ -41,6 +42,22 @@ export interface GroupContext {
    * groups.
    */
   update(): Promise<void>;
+
+  /**
+   * Gets the specified group.
+   *
+   * This method will not use the
+   * `groups` array but will instead load
+   * the group data from the server.
+   * Because of this, the gotten group
+   * data will contain more information,
+   * for example the list of members.
+   * This method has the side effect, that it will
+   * update the `groups` array if the array
+   * only contains the simpler version
+   * of the group data.
+   */
+  getGroup: Api['getGroup'];
 }
 
 /**
@@ -54,6 +71,7 @@ export const GroupContext = React.createContext<GroupContext>({
   selectGroup: () => undefined,
   update: () => Promise.reject(new Error('Not defined yet')),
   createGroup: () => Promise.reject(new Error('Not defined yet')),
+  getGroup: () => Promise.reject(new Error('Not defined yet')),
 });
 GroupContext.displayName = 'GroupContext';
 
@@ -72,31 +90,45 @@ GroupContext.displayName = 'GroupContext';
  */
 export const GroupProvider: React.FC = (props) => {
   const {user} = useContext(AuthContext);
-  const {getGroups, createGroup: createGroupApi, getGroup} = useApi();
+  const {
+    getGroups,
+    createGroup: createGroupApi,
+    getGroup: getGroupApi,
+  } = useApi();
   const [groups, setGroups] = useStateIfMounted<GroupContext['groups']>([]);
   const [selectedGroup, setSelectedGroup] =
     useState<GroupContext['selectedGroup']>(null);
 
   const selectGroup: GroupContext['selectGroup'] = (id: number) => {
     if (selectedGroup === null || selectedGroup.id !== id) {
-      const groupWithId = groups.find((group) => group.id === id);
+      const group = groups.find((group) => group.id === id);
 
-      if (groupWithId) {
-        setSelectedGroup(groupWithId);
+      if (group) {
+        setSelectedGroup(group);
       }
     }
   };
 
   const update = useCallback(async () => {
     const getGroupsResponse = await getGroups();
+    const newGroups = getGroupsResponse.data.groups;
 
-    setGroups(getGroupsResponse.data.groups);
+    setGroups(newGroups);
 
     // Check if selected group stil exists
-    if (selectedGroup !== null &&
-        !getGroupsResponse.data.groups
-            .some((group) => group.id === selectedGroup.id)) {
-      setSelectedGroup(null);
+    if (selectedGroup !== null) {
+      const selectedGroupFromData = newGroups.find((group) =>
+        group.id === selectedGroup.id);
+
+      /*
+       * If the user is still a member of the selected group,
+       * update the group data. If not, remove that group.
+       */
+      if (!selectedGroupFromData) {
+        setSelectedGroup(null);
+      } else {
+        setSelectedGroup(selectedGroupFromData);
+      }
     }
   }, [getGroups, setGroups, selectedGroup]);
 
@@ -122,6 +154,28 @@ export const GroupProvider: React.FC = (props) => {
     return createGroupResponse;
   };
 
+  const getGroup: GroupContext['getGroup'] = async (id) => {
+    const getGroupResponse = await getGroupApi(id);
+    const newGroup = getGroupResponse.data;
+
+    /*
+     * Check if the received group is in the groups array and if
+     * it's the selected group. Update accordingly.
+     */
+    if (selectedGroup?.id === newGroup.id) {
+      setSelectedGroup(newGroup);
+    }
+    const indexOfGroup = groups.findIndex((group) => group.id === newGroup.id);
+    if (indexOfGroup !== -1) {
+      setGroups((prev) => {
+        prev[indexOfGroup] = newGroup;
+        return prev;
+      });
+    }
+
+    return getGroupResponse;
+  };
+
 
   return (
     <GroupContext.Provider value={{
@@ -130,6 +184,7 @@ export const GroupProvider: React.FC = (props) => {
       selectGroup,
       update,
       createGroup,
+      getGroup,
     }}>
       {props.children}
     </GroupContext.Provider>

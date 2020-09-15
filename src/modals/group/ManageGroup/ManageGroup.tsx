@@ -1,10 +1,10 @@
 import React, {useEffect} from 'react';
 import {
-  useApi,
   RestError,
   useStateIfMounted,
   GroupWithOwnerAndMembers,
   CenteredCircularProgress,
+  useGroups,
 } from 'lib';
 import ManageGroupErrorHandler from './ManageGroupNoGroupError';
 import {ManageGroupOverview} from './ManageGroupOverview';
@@ -29,8 +29,8 @@ export interface ManageGroupProps {
  */
 export const ManageGroup: React.FC<ManageGroupProps> =
 (props: ManageGroupProps) => {
-  const {getGroup} = useApi();
-  const {groupId: groupIdParam} = useParams();
+  const {getGroup} = useGroups();
+  const {groupId: groupIdParam} = useParams<{groupId: string}>();
   const [groupData, setGroupData] =
       useStateIfMounted<GroupWithOwnerAndMembers | null>(null);
   const [error, setError] = useStateIfMounted<RestError | null | boolean>(null);
@@ -48,8 +48,7 @@ export const ManageGroup: React.FC<ManageGroupProps> =
       selectedGroupId = parseInt(groupIdParam);
     }
 
-    if (typeof selectedGroupId !== 'undefined' && !isNaN(selectedGroupId) &&
-        (groupData === null || selectedGroupId !== groupData.id)) {
+    if (typeof selectedGroupId !== 'undefined' && !isNaN(selectedGroupId)) {
       getGroup(selectedGroupId).then((res) => {
         setGroupData(res.data);
       }).catch(() => {
@@ -60,7 +59,7 @@ export const ManageGroup: React.FC<ManageGroupProps> =
     }
 
     // eslint-disable-next-line
-  }, [props, getGroup, groupIdParam]);
+  }, [props, groupIdParam]);
 
   if (groupData === null && error === null) {
     return <CenteredCircularProgress />;

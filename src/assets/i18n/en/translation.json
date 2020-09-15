@@ -32,7 +32,10 @@
   },
   "misc": {
     "or": "or",
-    "loading": "Loading"
+    "loading": "Loading",
+    "admin": "Admin",
+    "owner": "Owner",
+    "you": "You"
   },
   "imprint": {
     "title": "Imprint"
@@ -65,7 +68,15 @@
       },
       "manage": {
         "title": "Group management",
-        "loadingFailed": "The group couldn't be found"
+        "loadingFailed": "The group couldn't be found",
+        "tabs": {
+          "members": {
+            "title": "Members"
+          },
+          "cars": {
+            "title": "Cars"
+          }
+        }
       }
     }
   }

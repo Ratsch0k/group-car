@@ -185,6 +185,46 @@ it('gets list of groups on first render', async () => {
       expect(groupContext.groups).toEqual([groups[0]]);
       expect(groupContext.selectedGroup).toEqual(null);
     });
+
+    it('updates selected group if the selected group exists in new group array', async () => {
+      fakeApi.getGroups.mockResolvedValueOnce({data: {groups}});
+      const changedGroups = groups;
+      changedGroups[1].name = "New description";
+      fakeApi.getGroups.mockResolvedValueOnce({data: {groups}});
+      let groupContext: GroupContext;
+  
+      render(
+        <ApiContext.Provider value={fakeApi as unknown as Api}>
+          <AuthContext.Provider value={{user: fakeUser} as unknown as AuthContext}>
+            <GroupProvider>
+              <GroupContext.Consumer>
+                {(context) => {
+                  groupContext = context;
+                  return (
+                    <div>
+                      {JSON.stringify(context)}
+                    </div>
+                  );
+                }}
+              </GroupContext.Consumer>
+            </GroupProvider>
+          </AuthContext.Provider>
+        </ApiContext.Provider>
+      );
+  
+      await waitFor(() => expect(fakeApi.getGroups).toHaveBeenCalledTimes(1));
+      expect(groupContext.groups).toEqual(groups);       
+      expect(groupContext.selectedGroup).toBe(null);
+
+      groupContext.selectGroup(1);
+
+      expect(groupContext.selectedGroup).toEqual(groups[1]);
+
+      // Call update
+      await groupContext.update();
+
+      expect(groupContext.selectedGroup).toEqual(changedGroups[1]);
+    });
   });
 
   describe('createGroup', () => {
@@ -229,6 +269,119 @@ it('gets list of groups on first render', async () => {
       expect(fakeApi.getGroup).toHaveBeenCalledWith(groups[1].id);
       expect(groupContext.groups).toEqual(groups);
       expect(groupContext.selectedGroup).toEqual(groups[1]);
+    });
+  });
+
+  describe('getGroup', () => {
+    it('gets groups from api call', async () => {
+      const fakeGroup = groups[0];
+      fakeApi.getGroups.mockResolvedValue({data: {groups: []}});
+      fakeApi.getGroup.mockResolvedValue({data: fakeGroup});
+
+      let groupContext: GroupContext;
+  
+      render(
+        <ApiContext.Provider value={fakeApi as unknown as Api}>
+          <AuthContext.Provider value={{user: fakeUser} as unknown as AuthContext}>
+            <GroupProvider>
+              <GroupContext.Consumer>
+                {(context) => {
+                  groupContext = context;
+                  return (
+                    <div>
+                      {JSON.stringify(context)}
+                    </div>
+                  );
+                }}
+              </GroupContext.Consumer>
+            </GroupProvider>
+          </AuthContext.Provider>
+        </ApiContext.Provider>
+      );
+
+      const response = await groupContext.getGroup(fakeGroup.id);
+      expect(response.data).toEqual(fakeGroup);
+      expect(fakeApi.getGroup).toHaveBeenCalledTimes(1);
+      expect(fakeApi.getGroup).toHaveBeenCalledWith(fakeGroup.id);
+    });
+
+    it('updates groups array with if it contains the gotten group', async () => {
+      fakeApi.getGroups.mockResolvedValue({data: {groups}});
+
+      const changedGroup = groups[0];
+      changedGroup.name = "New name";
+      fakeApi.getGroup.mockResolvedValue({data: changedGroup});
+
+      let groupContext: GroupContext;
+  
+      render(
+        <ApiContext.Provider value={fakeApi as unknown as Api}>
+          <AuthContext.Provider value={{user: fakeUser} as unknown as AuthContext}>
+            <GroupProvider>
+              <GroupContext.Consumer>
+                {(context) => {
+                  groupContext = context;
+                  return (
+                    <div>
+                      {JSON.stringify(context)}
+                    </div>
+                  );
+                }}
+              </GroupContext.Consumer>
+            </GroupProvider>
+          </AuthContext.Provider>
+        </ApiContext.Provider>
+      );
+
+      const response = await groupContext.getGroup(changedGroup.id);
+      expect(response.data).toEqual(changedGroup);
+      expect(fakeApi.getGroup).toHaveBeenCalledTimes(1);
+      expect(fakeApi.getGroup).toHaveBeenCalledWith(changedGroup.id);
+      expect(groupContext.groups[0]).toEqual(changedGroup);
+    });
+
+    it('updates selected group if it is the selected group', async () => {
+      fakeApi.getGroups.mockResolvedValue({data: {groups}});
+
+      const changedGroup = groups[0];
+      changedGroup.name = "New name";
+      fakeApi.getGroup.mockResolvedValue({data: changedGroup});
+
+      let groupContext: GroupContext;
+  
+      render(
+        <ApiContext.Provider value={fakeApi as unknown as Api}>
+          <AuthContext.Provider value={{user: fakeUser} as unknown as AuthContext}>
+            <GroupProvider>
+              <GroupContext.Consumer>
+                {(context) => {
+                  groupContext = context;
+                  return (
+                    <div>
+                      {JSON.stringify(context)}
+                    </div>
+                  );
+                }}
+              </GroupContext.Consumer>
+            </GroupProvider>
+          </AuthContext.Provider>
+        </ApiContext.Provider>
+      );
+
+      await waitFor(() => expect(fakeApi.getGroups).toHaveBeenCalledTimes(1));
+
+      // Select group which will be updated
+      groupContext.selectGroup(0);
+      expect(groupContext.selectedGroup).toEqual(groups[0]);
+
+      // Get that group and check if selected group is updated
+
+      const response = await groupContext.getGroup(changedGroup.id);
+      expect(response.data).toEqual(changedGroup);
+      expect(fakeApi.getGroup).toHaveBeenCalledTimes(1);
+      expect(fakeApi.getGroup).toHaveBeenCalledWith(changedGroup.id);
+      expect(groupContext.groups[0]).toEqual(changedGroup);
+      expect(groupContext.selectedGroup).toEqual(changedGroup);
     });
   });
 });

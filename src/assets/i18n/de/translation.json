@@ -57,13 +57,24 @@
       },
       "manage": {
         "title": "Gruppenverwaltung",
-        "loadingFailed": "Die Gruppe konnte nicht gefunden werden"
+        "loadingFailed": "Die Gruppe konnte nicht gefunden werden",
+        "tabs": {
+          "members": {
+            "title": "Mitglieder"
+          },
+          "cars": {
+            "title": "Autos"
+          }
+        }
       }
     }
   },
   "misc": {
     "or": "oder",
-    "loading": "Lade"
+    "loading": "Lade",
+    "admin": "Admin",
+    "owner": "Besitzer",
+    "you": "Du"
   },
   "imprint": {
     "title": "Impressum"

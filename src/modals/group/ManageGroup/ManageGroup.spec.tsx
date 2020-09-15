@@ -1,10 +1,35 @@
 import { render, waitFor } from "@testing-library/react";
 import ManageGroup from "./ManageGroup";
 import React from "react";
-import { Api, ApiContext } from "lib";
+import { theme, GroupContext, AuthContext, GroupWithOwnerAndMembers, IUser} from '../../../lib';
 import { MemoryRouter, Route } from "react-router-dom";
 import { ThemeProvider } from "@material-ui/core";
-import {theme} from 'lib';
+
+let fakeGroup: GroupWithOwnerAndMembers;
+
+beforeEach(() => {
+  fakeGroup = {
+    id: 2,
+    Owner: {
+      id: 2,
+      username: "TEST",
+    },
+    ownerId: 2,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    name: 'fake group name',
+    description: 'fake group description',
+    members: [
+      {
+        User: {
+          id: 2,
+          username: 'TEST',
+        },
+        isAdmin: true,
+      }
+    ]
+  };
+}); 
 
 it('renders without crashing', () => {
   render(
@@ -22,15 +47,15 @@ it('renders circular progress while loading group data',() => {
   const screen = render (
     <ThemeProvider theme={theme}>
       <MemoryRouter>
-        <ApiContext.Provider value={fakeApi as unknown as Api}>
+        <GroupContext.Provider value={fakeApi as unknown as GroupContext}>
           <ManageGroup groupId={1}/>
-        </ApiContext.Provider>
+        </GroupContext.Provider>
       </MemoryRouter>
     </ThemeProvider>
   );
 
   expect(screen.baseElement).toMatchSnapshot();
-})
+});
 
 it('renders error message if group doesn\'t exist', async () => {
   const fakeApi = {
@@ -40,9 +65,9 @@ it('renders error message if group doesn\'t exist', async () => {
   const screen = render (
     <ThemeProvider theme={theme}>
       <MemoryRouter>
-        <ApiContext.Provider value={fakeApi as unknown as Api}>
+        <GroupContext.Provider value={fakeApi as unknown as GroupContext}>
           <ManageGroup groupId={1}/>
-        </ApiContext.Provider>
+        </GroupContext.Provider>
       </MemoryRouter>
     </ThemeProvider>
   );
@@ -52,14 +77,9 @@ it('renders error message if group doesn\'t exist', async () => {
   expect(screen.queryByText('modals.group.manage.loadingFailed')).not.toBeNull();
 
   expect(screen.baseElement).toMatchSnapshot();  
-})
+});
 
-it('renders group name and description if group exists', async () => {
-  const fakeGroup = {
-    id: 2,
-    name: 'fake group name',
-    description: 'fake group description',
-  };
+it('renders group info if group exists', async () => {
   const fakeApi = {
     getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
   }
@@ -67,9 +87,11 @@ it('renders group name and description if group exists', async () => {
   const screen = render (
     <ThemeProvider theme={theme}>
       <MemoryRouter>
-        <ApiContext.Provider value={fakeApi as unknown as Api}>
-            <ManageGroup groupId={2}/>
-        </ApiContext.Provider>
+        <AuthContext.Provider value={{user: fakeGroup.Owner as IUser} as AuthContext}>
+          <GroupContext.Provider value={fakeApi as unknown as GroupContext}>
+              <ManageGroup groupId={2}/>
+          </GroupContext.Provider>
+        </AuthContext.Provider>
       </MemoryRouter>
     </ThemeProvider>
   );
@@ -83,26 +105,24 @@ it('renders group name and description if group exists', async () => {
   // Check if name and description exist
   expect(screen.queryByText(fakeGroup.name)).not.toBeNull();
   expect(screen.queryByText(fakeGroup.description)).not.toBeNull();
-})
+});
 
-it('get groupId from route params if not provided as property', async () => {
-  const fakeGroup = {
-    id: 2,
-    name: 'name',
-    description: 'description',
-  };
+it('renders list of members correctly', async () => {
+  // Add more members to fake group data
+  fakeGroup.members.push({User: {id: 12, username: 'ADMIN'}, isAdmin: true});
+  fakeGroup.members.push({User: {id: 13, username: 'MEMBER'}, isAdmin: false});
   const fakeApi = {
     getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-  }
+  };
 
   const screen = render (
     <ThemeProvider theme={theme}>
-      <MemoryRouter initialEntries={[`/group/manage/${fakeGroup.id}`]}>
-        <ApiContext.Provider value={fakeApi as unknown as Api}>
-          <Route path='/group/manage/:groupId'>
-            <ManageGroup />
-          </Route>
-        </ApiContext.Provider>
+      <MemoryRouter>
+        <AuthContext.Provider value={{user: fakeGroup.Owner as IUser} as AuthContext}>
+          <GroupContext.Provider value={fakeApi as unknown as GroupContext}>
+              <ManageGroup groupId={2}/>
+          </GroupContext.Provider>
+        </AuthContext.Provider>
       </MemoryRouter>
     </ThemeProvider>
   );
@@ -111,4 +131,27 @@ it('get groupId from route params if not provided as property', async () => {
   expect(fakeApi.getGroup).toHaveBeenLastCalledWith(fakeGroup.id);
 
   expect(screen.baseElement).toMatchSnapshot();
-})
+});
+
+it('get groupId from route params if not provided as property', async () => {
+  const fakeApi = {
+    getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
+  }
+
+  const screen = render (
+    <ThemeProvider theme={theme}>
+      <MemoryRouter initialEntries={[`/group/manage/${fakeGroup.id}`]}>
+        <GroupContext.Provider value={fakeApi as unknown as GroupContext}>
+          <Route path='/group/manage/:groupId'>
+            <ManageGroup />
+          </Route>
+        </GroupContext.Provider>
+      </MemoryRouter>
+    </ThemeProvider>
+  );
+
+  await waitFor(() => expect(fakeApi.getGroup).toHaveBeenCalledTimes(1));
+  expect(fakeApi.getGroup).toHaveBeenLastCalledWith(fakeGroup.id);
+
+  expect(screen.baseElement).toMatchSnapshot();
+});

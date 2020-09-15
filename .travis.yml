@@ -32,14 +32,17 @@ jobs:
       install: skip    
     - stage: "Deploy Development"
       script:
+      - yarn doc        
       - yarn build --prod
       - bash scripts/deploy_dev.sh
     - stage: "Deploy Beta"
       script:
+      - yarn doc
       - yarn build --prod
       - bash scripts/deploy_beta.sh
     - stage: "Deploy Release"
       script:
+      - yarn doc
       - yarn build --prod
       - bash scripts/deploy_release.sh
 
