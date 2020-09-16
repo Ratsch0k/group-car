@@ -1,9 +1,9 @@
 import {Fab, Theme} from '@material-ui/core';
 import {GroupWithOwnerAndMembers, TabPanel, useAuth} from 'lib';
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import ManageGroupMemberList from './ManageGroupMemberList';
 import AddIcon from '@material-ui/icons/Add';
-import { createStyles, makeStyles } from '@material-ui/styles';
+import {createStyles, makeStyles} from '@material-ui/styles';
 import {isAdmin as isAdminCheck} from '../../../util';
 
 
@@ -27,7 +27,8 @@ export const ManageGroupMembersTab: React.FC<ManageGroupMembersTab> =
 (props: ManageGroupMembersTab) => {
   const classes = useStyles();
   const {user} = useAuth();
-  const [isAdmin, setIsAdmin] = useState<boolean>(isAdminCheck(props.group, user?.id));
+  const [isAdmin, setIsAdmin] = useState<boolean>(
+      isAdminCheck(props.group, user?.id));
 
   useEffect(() => {
     setIsAdmin(isAdminCheck(props.group, user?.id));
