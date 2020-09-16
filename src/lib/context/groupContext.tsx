@@ -58,6 +58,11 @@ export interface GroupContext {
    * of the group data.
    */
   getGroup: Api['getGroup'];
+
+  /**
+   * Invites the specified user to the specified group.
+   */
+  inviteUser: Api['inviteUser'];
 }
 
 /**
@@ -72,6 +77,7 @@ export const GroupContext = React.createContext<GroupContext>({
   update: () => Promise.reject(new Error('Not defined yet')),
   createGroup: () => Promise.reject(new Error('Not defined yet')),
   getGroup: () => Promise.reject(new Error('Not defined yet')),
+  inviteUser: () => Promise.reject(new Error('Not defined yet')),
 });
 GroupContext.displayName = 'GroupContext';
 
@@ -94,6 +100,7 @@ export const GroupProvider: React.FC = (props) => {
     getGroups,
     createGroup: createGroupApi,
     getGroup: getGroupApi,
+    inviteUser,
   } = useApi();
   const [groups, setGroups] = useStateIfMounted<GroupContext['groups']>([]);
   const [selectedGroup, setSelectedGroup] =
@@ -176,7 +183,6 @@ export const GroupProvider: React.FC = (props) => {
     return getGroupResponse;
   };
 
-
   return (
     <GroupContext.Provider value={{
       groups,
@@ -185,6 +191,7 @@ export const GroupProvider: React.FC = (props) => {
       update,
       createGroup,
       getGroup,
+      inviteUser,
     }}>
       {props.children}
     </GroupContext.Provider>
