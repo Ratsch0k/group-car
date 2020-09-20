@@ -6,8 +6,10 @@
   "dependencies": {
     "@material-ui/core": "^4.9.9",
     "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.56",
     "@material-ui/styles": "^4.9.6",
     "@types/react-swipeable-views": "^0.13.0",
+    "@types/react-transition-group": "^4.4.0",
     "axios": "^0.19.2",
     "clsx": "^1.1.0",
     "formik": "^2.1.4",
@@ -22,6 +24,7 @@
     "react-leaflet": "^2.7.0",
     "react-router-dom": "^5.1.2",
     "react-swipeable-views": "^0.13.9",
+    "react-transition-group": "^4.4.1",
     "yup": "^0.28.4"
   },
   "resolutions": {
