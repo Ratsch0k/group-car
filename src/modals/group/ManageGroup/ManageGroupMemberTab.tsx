@@ -8,7 +8,6 @@ import {
 } from 'lib';
 import React, {useEffect, useState} from 'react';
 import ManageGroupMemberList from './ManageGroupMemberList';
-import AddIcon from '@material-ui/icons/Add';
 import {createStyles, makeStyles, withStyles} from '@material-ui/styles';
 import {isAdmin as isAdminCheck} from '../../../util';
 import clsx from 'clsx';
@@ -16,6 +15,7 @@ import ClearIcon from '@material-ui/icons/Clear';
 import {CSSTransition, SwitchTransition} from 'react-transition-group';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import {useTranslation} from 'react-i18next';
+import SendIcon from '@material-ui/icons/Send';
 
 
 export interface ManageGroupMembersTab {
@@ -244,7 +244,7 @@ export const ManageGroupMembersTab: React.FC<ManageGroupMembersTab> =
                       color='inherit'
                       onClick={handleInvite}
                     >
-                      <AddIcon />
+                      <SendIcon />
                     </IconButton>
                   </div>
                   <div>
@@ -256,7 +256,7 @@ export const ManageGroupMembersTab: React.FC<ManageGroupMembersTab> =
                     </IconButton>
                   </div>
                 </div>:
-                <AddIcon />
+                <SendIcon />
               }
             </CSSTransition>
           </SwitchTransition>
