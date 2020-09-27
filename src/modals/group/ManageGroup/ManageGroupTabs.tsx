@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme: Theme) =>
       borderColor: theme.palette.secondary.main,
     },
     tabContent: {
-      height: '500px',
+      height: '400px',
     },
   }),
 );
