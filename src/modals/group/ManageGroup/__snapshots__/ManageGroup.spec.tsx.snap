@@ -6,17 +6,17 @@ exports[`get groupId from route params if not provided as property 1`] = `
     <div>
       <div>
         <div
-          class="MuiBox-root MuiBox-root-540"
+          class="MuiBox-root MuiBox-root-598"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-538 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-596 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-538 makeStyles-description-539 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-596 makeStyles-description-597 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -26,7 +26,7 @@ exports[`get groupId from route params if not provided as property 1`] = `
       </div>
       <div>
         <div
-          class="MuiPaper-root MuiPaper-outlined makeStyles-paperOutlined-571 MuiPaper-rounded"
+          class="MuiPaper-root MuiPaper-outlined makeStyles-paperOutlined-629 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -75,13 +75,13 @@ exports[`get groupId from route params if not provided as property 1`] = `
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-625 PrivateTabIndicator-colorSecondary-627 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-683 PrivateTabIndicator-colorSecondary-685 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-572"
+            class="makeStyles-tabContent-630"
             style="overflow-x: hidden;"
           >
             <div
@@ -95,6 +95,7 @@ exports[`get groupId from route params if not provided as property 1`] = `
               >
                 <div
                   aria-labelledby="group-tab-members"
+                  class="makeStyles-tabContent-630"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -114,7 +115,7 @@ exports[`get groupId from route params if not provided as property 1`] = `
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-650"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-708"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -124,7 +125,7 @@ exports[`get groupId from route params if not provided as property 1`] = `
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-650"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-708"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -306,6 +307,7 @@ exports[`renders group info if group exists 1`] = `
               >
                 <div
                   aria-labelledby="group-tab-members"
+                  class="makeStyles-tabContent-230"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -347,6 +349,30 @@ exports[`renders group info if group exists 1`] = `
                       </div>
                     </li>
                   </ul>
+                  <div
+                    aria-disabled="false"
+                    class="MuiButtonBase-root MuiFab-root makeStyles-fab-339 MuiFab-secondary"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <span
+                      class="MuiFab-label"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -364,17 +390,17 @@ exports[`renders list of members correctly 1`] = `
     <div>
       <div>
         <div
-          class="MuiBox-root MuiBox-root-369"
+          class="MuiBox-root MuiBox-root-398"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-367 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-396 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-367 makeStyles-description-368 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-396 makeStyles-description-397 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -384,7 +410,7 @@ exports[`renders list of members correctly 1`] = `
       </div>
       <div>
         <div
-          class="MuiPaper-root MuiPaper-outlined makeStyles-paperOutlined-400 MuiPaper-rounded"
+          class="MuiPaper-root MuiPaper-outlined makeStyles-paperOutlined-429 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -433,13 +459,13 @@ exports[`renders list of members correctly 1`] = `
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-454 PrivateTabIndicator-colorSecondary-456 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-483 PrivateTabIndicator-colorSecondary-485 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-401"
+            class="makeStyles-tabContent-430"
             style="overflow-x: hidden;"
           >
             <div
@@ -453,6 +479,7 @@ exports[`renders list of members correctly 1`] = `
               >
                 <div
                   aria-labelledby="group-tab-members"
+                  class="makeStyles-tabContent-430"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -472,7 +499,7 @@ exports[`renders list of members correctly 1`] = `
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-479"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-508"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -482,7 +509,7 @@ exports[`renders list of members correctly 1`] = `
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-479"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-508"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -506,7 +533,7 @@ exports[`renders list of members correctly 1`] = `
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-479"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-508"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -532,6 +559,30 @@ exports[`renders list of members correctly 1`] = `
                       </div>
                     </li>
                   </ul>
+                  <div
+                    aria-disabled="false"
+                    class="MuiButtonBase-root MuiFab-root makeStyles-fab-539 MuiFab-secondary"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <span
+                      class="MuiFab-label"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
