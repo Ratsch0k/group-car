@@ -5,8 +5,7 @@ import {
   CenteredCircularProgress,
   useGroups,
   GroupWithOwnerAndMembersAndInvites,
-  getInvites,
-  getMembers,
+  useApi,
 } from 'lib';
 import ManageGroupErrorHandler from './ManageGroupNoGroupError';
 import {ManageGroupOverview} from './ManageGroupOverview';
@@ -32,6 +31,7 @@ export interface ManageGroupProps {
 export const ManageGroup: React.FC<ManageGroupProps> =
 (props: ManageGroupProps) => {
   const {getGroup} = useGroups();
+  const {getInvites, getMembers} = useApi();
   const {groupId: groupIdParam} = useParams<{groupId: string}>();
   const [groupData, setGroupData] =
       useStateIfMounted<GroupWithOwnerAndMembersAndInvites | null>(null);
