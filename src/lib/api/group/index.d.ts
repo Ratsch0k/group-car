@@ -61,12 +61,63 @@ export interface Member {
 }
 
 /**
- * Extension of the group data which contains the data of the owner and
- * a list of members.
+ * Extension of the group which includes the list of members and
+ * invites and data of the owner.
  */
-export interface GroupWithOwnerAndMembers extends GroupWithOwner {
+export interface GroupWithOwnerAndMembersAndInvites extends GroupWithOwner {
   /**
-   * List of members.
+   * All members of the group.
    */
   members: Member[];
+  /**
+   * All invites of the group.
+   */
+  invites: InviteWithUserAndInviteSender[];
+}
+
+/**
+ * The invite of the specified user for the specified group.
+ */
+export interface Invite {
+  /**
+   * The id of the user who is invited.
+   */
+  userId: number;
+  /**
+   * The id of the group for which this invite is.
+   */
+  groupId: number;
+  /**
+   * The date when this invite was created.
+   */
+  createdAt: Date;
+  /**
+   * The date when this invite was last updated.
+   */
+  updatedAt: Date;
+  /**
+   * The id of the user who created this invite.
+   */
+  invitedBy: number;
+}
+
+/**
+ * Extension of the Invite which includes the data of the invited user.
+ */
+export interface InviteWithUser extends Invite {
+  /**
+   * The data of the invited user.
+   */
+  User: UserSimple;
+}
+
+/**
+ * Extension of the InviteWIthUser which also includes
+ * the data of the invite sender.
+ */
+export interface InviteWithUserAndInviteSender extends InviteWithUser {
+  /**
+   * The data of the user who created the invite.
+   */
+  InviteSender: UserSimple;
 }

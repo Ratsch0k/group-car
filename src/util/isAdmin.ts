@@ -1,4 +1,4 @@
-import {GroupWithOwnerAndMembers} from 'lib';
+import {GroupWithOwnerAndMembersAndInvites} from 'lib';
 
 /**
  * Returns whether or not the specified user is an admin of the specified group.
@@ -6,7 +6,7 @@ import {GroupWithOwnerAndMembers} from 'lib';
  * @param userId  The id of the user
  */
 export const isAdmin = (
-    group: GroupWithOwnerAndMembers,
+    group: GroupWithOwnerAndMembersAndInvites,
     userId?: number,
 ): boolean => {
   if (userId === undefined) {

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {GroupWithOwnerAndMembers} from 'lib';
+import {GroupWithOwnerAndMembersAndInvites} from 'lib';
 import {Paper, Tab, Tabs, Theme} from '@material-ui/core';
 import {useTranslation} from 'react-i18next';
 import SwipeableView from 'react-swipeable-views';
@@ -13,7 +13,7 @@ export interface ManageGroupsTabsProps {
   /**
    * The group data.
    */
-  group: GroupWithOwnerAndMembers;
+  group: GroupWithOwnerAndMembersAndInvites;
 }
 
 const useStyles = makeStyles((theme: Theme) =>

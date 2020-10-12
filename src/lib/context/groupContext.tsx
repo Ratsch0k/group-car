@@ -5,7 +5,6 @@ import {
   Api,
   AuthContext,
   GroupWithOwner,
-  GroupWithOwnerAndMembers,
 } from 'lib';
 
 /**
@@ -17,12 +16,12 @@ export interface GroupContext {
    *
    * If no group is selected this is null.
    */
-  selectedGroup: GroupWithOwner | GroupWithOwnerAndMembers | null;
+  selectedGroup: GroupWithOwner | null;
 
   /**
    * All groups of which the current user is a member of.
    */
-  groups: (GroupWithOwner | GroupWithOwnerAndMembers)[];
+  groups: GroupWithOwner[];
 
   /**
    * Select the group with the specified id. The

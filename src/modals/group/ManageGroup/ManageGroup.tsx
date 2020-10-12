@@ -2,9 +2,11 @@ import React, {useEffect} from 'react';
 import {
   RestError,
   useStateIfMounted,
-  GroupWithOwnerAndMembers,
   CenteredCircularProgress,
   useGroups,
+  GroupWithOwnerAndMembersAndInvites,
+  getInvites,
+  getMembers,
 } from 'lib';
 import ManageGroupErrorHandler from './ManageGroupNoGroupError';
 import {ManageGroupOverview} from './ManageGroupOverview';
@@ -32,7 +34,7 @@ export const ManageGroup: React.FC<ManageGroupProps> =
   const {getGroup} = useGroups();
   const {groupId: groupIdParam} = useParams<{groupId: string}>();
   const [groupData, setGroupData] =
-      useStateIfMounted<GroupWithOwnerAndMembers | null>(null);
+      useStateIfMounted<GroupWithOwnerAndMembersAndInvites | null>(null);
   const [error, setError] = useStateIfMounted<RestError | null | boolean>(null);
 
 
@@ -49,8 +51,17 @@ export const ManageGroup: React.FC<ManageGroupProps> =
     }
 
     if (typeof selectedGroupId !== 'undefined' && !isNaN(selectedGroupId)) {
-      getGroup(selectedGroupId).then((res) => {
-        setGroupData(res.data);
+      // Get group, members and invites
+      Promise.all([
+        getGroup(selectedGroupId),
+        getMembers(selectedGroupId),
+        getInvites(selectedGroupId),
+      ]).then(([group, members, invites]) => {
+        setGroupData({
+          ...group.data,
+          invites: invites.data.invites,
+          members: members.data.members,
+        });
       }).catch(() => {
         setError(true);
       });

@@ -1,10 +1,10 @@
 import React from 'react';
-import {GroupWithOwnerAndMembers} from 'lib';
+import {GroupWithOwnerAndMembersAndInvites} from 'lib';
 import ManageGroupOverviewInfo from './ManageGroupGroupInfo';
 import ManageGroupTabs from './ManageGroupTabs';
 
 export interface ManageGroupOverviewProps {
-  group: GroupWithOwnerAndMembers;
+  group: GroupWithOwnerAndMembersAndInvites;
 }
 
 /**

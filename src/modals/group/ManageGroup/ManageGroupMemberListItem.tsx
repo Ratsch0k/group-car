@@ -1,12 +1,14 @@
 import {
   Chip,
   ListItem,
+  ListItemAvatar,
   ListItemProps,
   ListItemText,
   Typography,
 } from '@material-ui/core';
 import {withStyles} from '@material-ui/styles';
 import {Member} from 'lib';
+import UserAvatar from 'lib/components/UserAvatar';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 
@@ -55,6 +57,9 @@ ManageGroupMemberListItemProps
 
   return (
     <ListItem divider={!last} {...rest as unknown}>
+      <ListItemAvatar>
+        <UserAvatar userId={memberData.User.id}/>
+      </ListItemAvatar>
       <ListItemText
         primary={
           <Typography>

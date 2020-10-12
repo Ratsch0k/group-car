@@ -14,7 +14,13 @@ import React, {useEffect, useState} from 'react';
 import {CSSTransition, SwitchTransition} from 'react-transition-group';
 import SendIcon from '@material-ui/icons/Send';
 import ClearIcon from '@material-ui/icons/Clear';
-import {GroupWithOwnerAndMembers, useApi, UserSimple} from 'lib';
+import {
+  GroupWithOwnerAndMembersAndInvites,
+  InviteWithUserAndInviteSender,
+  useApi,
+  useAuth,
+  UserSimple,
+} from 'lib';
 import {useTranslation} from 'react-i18next';
 
 /**
@@ -107,7 +113,9 @@ export interface ManageGroupMemberTabSearchUserProps {
   /**
    * Data of the group.
    */
-  group: GroupWithOwnerAndMembers;
+  group: GroupWithOwnerAndMembersAndInvites;
+
+  addInvite(invite: InviteWithUserAndInviteSender): void;
 }
 
 /**
@@ -123,6 +131,7 @@ export const ManageGroupMemberTabSearchUser: React.FC<
   const [possibleUsers, setPossibleUsers] = useState<UserSimple[]>([]);
   const [userToInvite, setUserToInvite] = useState<string>('');
   const [open, setOpen] = useState<boolean>(false);
+  const {user} = useAuth();
   const {t} = useTranslation();
 
   /**
@@ -168,9 +177,20 @@ export const ManageGroupMemberTabSearchUser: React.FC<
   const handleInvite = async () => {
     setInviting(true);
     try {
-      await inviteUser(props.group.id, userToInvite);
+      const inviteResponse = await inviteUser(props.group.id, userToInvite);
       setInviting(false);
-      setIsInvitingUser(false);
+      props.addInvite({
+        ...inviteResponse.data,
+        User: {
+          username: userToInvite,
+          id: inviteResponse.data.userId,
+        },
+        InviteSender: {
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+          username: user!.username,
+          id: inviteResponse.data.invitedBy,
+        },
+      });
     } catch (e) {
       setInviting(false);
     }

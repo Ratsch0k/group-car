@@ -1,5 +1,6 @@
 import {
-  GroupWithOwnerAndMembers,
+  GroupWithOwnerAndMembersAndInvites,
+  InviteWithUserAndInviteSender,
   TabPanel,
   useAuth,
 } from 'lib';
@@ -11,11 +12,11 @@ import ManageGroupMemberTabSearchUser from './ManageGroupMemberTabSearchUser';
 /**
  * Props.
  */
-export interface ManageGroupMembersTab {
+export interface ManageGroupMembersTabProps {
   /**
    * The group to show the members of.
    */
-  group: GroupWithOwnerAndMembers;
+  group: GroupWithOwnerAndMembersAndInvites;
   /**
    * Will be forwarded to the top element.
    */
@@ -30,11 +31,13 @@ export interface ManageGroupMembersTab {
  * The member tab in the group management dialog.
  * @param props Props
  */
-export const ManageGroupMembersTab: React.FC<ManageGroupMembersTab> =
-(props: ManageGroupMembersTab) => {
+export const ManageGroupMembersTab: React.FC<ManageGroupMembersTabProps> =
+(props: ManageGroupMembersTabProps) => {
   const {user} = useAuth();
   const [isAdmin, setIsAdmin] = useState<boolean>(
       isAdminCheck(props.group, user?.id));
+  const [additionalInvites, setAdditionalInvites] =
+    useState<InviteWithUserAndInviteSender[]>([]);
 
   // Update isAdmin state if either the group or the user changes
   useEffect(() => {
@@ -48,10 +51,16 @@ export const ManageGroupMembersTab: React.FC<ManageGroupMembersTab> =
       id='group-tabpanel-members'
       aria-labelledby='group-tab-members'
     >
-      <ManageGroupMemberList group={props.group}/>
+      <ManageGroupMemberList
+        group={props.group}
+        additionalInvites={additionalInvites}
+      />
       {
         isAdmin &&
-        <ManageGroupMemberTabSearchUser group={props.group} />
+        <ManageGroupMemberTabSearchUser group={props.group}
+          addInvite={(invite: InviteWithUserAndInviteSender) => {
+            setAdditionalInvites((prev) => [...prev, invite]);
+          }}/>
       }
     </TabPanel>
   );
