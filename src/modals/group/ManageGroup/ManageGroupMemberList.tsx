@@ -44,7 +44,7 @@ export const ManageGroupMemberList: React.FC<ManageGroupMemberListProps> =
           // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
           memberData={group.members.find((member) =>
             member.User.id === user.id)!}
-          last={group.members.length === 1}
+          last={group.members.length + invites.length === 1}
           isCurrentUser={true}
           isOwner={group.ownerId === user.id}
         />
@@ -56,14 +56,14 @@ export const ManageGroupMemberList: React.FC<ManageGroupMemberListProps> =
               key={`member-${member.User.id}`}
               memberData={member}
               isOwner={group.ownerId === member.User.id}
-              last={index === group.members.length + group.invites.length - 1}
+              last={index === group.members.length + invites.length - 1}
             />,
           )}
       {invites.map((invite, index) =>
         <ManageGroupMemberListInvitedItem
           invitedData={invite}
           key={`invited-${invite.userId}`}
-          last={index === group.members.length + group.invites.length - 1}
+          last={index === invites.length - 1}
         />,
       )}
     </List>
