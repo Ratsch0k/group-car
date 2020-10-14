@@ -32,7 +32,8 @@
     "http-proxy": ">=1.18.1",
     "lodash": ">=4.17.19",
     "elliptic": ">=6.5.3",
-    "serialize-javascript": ">=3.1.0"
+    "serialize-javascript": ">=3.1.0",
+    "node-forge": ">=0.10.0"
   },
   "scripts": {
     "start": "react-scripts start",
