@@ -36,10 +36,10 @@ exports[`matches snapshot 1`] = `
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-381 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-8 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-383"
+                  class="PrivateNotchedOutline-legendLabelled-10"
                 >
                   <span>
                     modals.group.create.name
@@ -85,10 +85,10 @@ exports[`matches snapshot 1`] = `
               />
               <fieldset
                 aria-hidden="true"
-                class="PrivateNotchedOutline-root-381 MuiOutlinedInput-notchedOutline"
+                class="PrivateNotchedOutline-root-8 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-383"
+                  class="PrivateNotchedOutline-legendLabelled-10"
                 >
                   <span>
                     modals.group.create.description
@@ -110,7 +110,7 @@ exports[`matches snapshot 1`] = `
           class="MuiGrid-root MuiGrid-item"
         >
           <div
-            class="MuiBox-root MuiBox-root-396 makeStyles-wrapper-393"
+            class="MuiBox-root MuiBox-root-14 makeStyles-wrapper-12"
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"

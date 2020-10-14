@@ -3,8 +3,7 @@
 exports[`displays icon on the left if icon is provided 1`] = `
 <div>
   <li
-    aria-disabled="false"
-    class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+    class="MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters"
     role="menuitem"
     tabindex="-1"
   >
@@ -19,13 +18,10 @@ exports[`displays icon on the left if icon is provided 1`] = `
       />
     </svg>
     <span
-      class="makeStyles-text-59"
+      class="makeStyles-text-3"
     >
       TEST
     </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
   </li>
 </div>
 `;
@@ -33,17 +29,13 @@ exports[`displays icon on the left if icon is provided 1`] = `
 exports[`matches MenuItem if no property provided 1`] = `
 <div>
   <li
-    aria-disabled="false"
-    class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+    class="MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters"
     role="menuitem"
     tabindex="-1"
   >
     <span>
       TEST
     </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
   </li>
 </div>
 `;
@@ -51,8 +43,7 @@ exports[`matches MenuItem if no property provided 1`] = `
 exports[`shows arrow to the right if prop opensSubMenu is true 1`] = `
 <div>
   <li
-    aria-disabled="false"
-    class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+    class="MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters"
     role="menuitem"
     tabindex="-1"
   >
@@ -61,7 +52,7 @@ exports[`shows arrow to the right if prop opensSubMenu is true 1`] = `
     </span>
     <svg
       aria-hidden="true"
-      class="MuiSvgIcon-root makeStyles-arrowIcon-98"
+      class="MuiSvgIcon-root makeStyles-arrowIcon-5"
       focusable="false"
       viewBox="0 0 24 24"
     >
@@ -69,9 +60,6 @@ exports[`shows arrow to the right if prop opensSubMenu is true 1`] = `
         d="M5.88 4.12L13.76 12l-7.88 7.88L8 22l10-10L8 2z"
       />
     </svg>
-    <span
-      class="MuiTouchRipple-root"
-    />
   </li>
 </div>
 `;
@@ -79,8 +67,7 @@ exports[`shows arrow to the right if prop opensSubMenu is true 1`] = `
 exports[`shows arrow to the right if prop opensSubMenu is true and icon on the left if icon is provided 1`] = `
 <div>
   <li
-    aria-disabled="false"
-    class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+    class="MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters"
     role="menuitem"
     tabindex="-1"
   >
@@ -95,13 +82,13 @@ exports[`shows arrow to the right if prop opensSubMenu is true and icon on the l
       />
     </svg>
     <span
-      class="makeStyles-text-136"
+      class="makeStyles-text-6"
     >
       TEST
     </span>
     <svg
       aria-hidden="true"
-      class="MuiSvgIcon-root makeStyles-arrowIcon-137"
+      class="MuiSvgIcon-root makeStyles-arrowIcon-7"
       focusable="false"
       viewBox="0 0 24 24"
     >
@@ -109,9 +96,6 @@ exports[`shows arrow to the right if prop opensSubMenu is true and icon on the l
         d="M5.88 4.12L13.76 12l-7.88 7.88L8 22l10-10L8 2z"
       />
     </svg>
-    <span
-      class="MuiTouchRipple-root"
-    />
   </li>
 </div>
 `;

@@ -6,17 +6,17 @@ exports[`get groupId from route params if not provided as property 1`] = `
     <div>
       <div>
         <div
-          class="MuiBox-root MuiBox-root-845"
+          class="MuiBox-root MuiBox-root-122"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-843 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-120 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-843 makeStyles-description-844 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-120 makeStyles-description-121 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -26,7 +26,7 @@ exports[`get groupId from route params if not provided as property 1`] = `
       </div>
       <div>
         <div
-          class="MuiPaper-root MuiPaper-outlined makeStyles-paperOutlined-876 MuiPaper-rounded"
+          class="MuiPaper-root MuiPaper-outlined makeStyles-paperOutlined-123 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -75,13 +75,13 @@ exports[`get groupId from route params if not provided as property 1`] = `
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-930 PrivateTabIndicator-colorSecondary-932 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-125 PrivateTabIndicator-colorSecondary-127 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-877"
+            class="makeStyles-tabContent-124"
             style="overflow-x: hidden;"
           >
             <div
@@ -95,7 +95,7 @@ exports[`get groupId from route params if not provided as property 1`] = `
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-877"
+                  class="makeStyles-tabContent-124"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -109,7 +109,7 @@ exports[`get groupId from route params if not provided as property 1`] = `
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-1007"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-132"
                         >
                           <img
                             alt="user-2"
@@ -128,7 +128,7 @@ exports[`get groupId from route params if not provided as property 1`] = `
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-966"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-131"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -138,7 +138,7 @@ exports[`get groupId from route params if not provided as property 1`] = `
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-966"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-131"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -165,10 +165,10 @@ exports[`renders circular progress while loading group data 1`] = `
 <body>
   <div>
     <div
-      class="MuiBox-root MuiBox-root-64 makeStyles-centered-61 makeStyles-container-60"
+      class="MuiBox-root MuiBox-root-11 makeStyles-centered-9 makeStyles-container-8"
     >
       <div
-        class="MuiBox-root MuiBox-root-65 makeStyles-centered-61"
+        class="MuiBox-root MuiBox-root-12 makeStyles-centered-9"
       >
         <div
           class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
@@ -199,10 +199,10 @@ exports[`renders error message if group doesn't exist 1`] = `
 <body>
   <div>
     <div
-      class="MuiBox-root MuiBox-root-137 makeStyles-centered-120"
+      class="MuiBox-root MuiBox-root-18 makeStyles-centered-14"
     >
       <div
-        class="MuiBox-root MuiBox-root-138 makeStyles-centered-120"
+        class="MuiBox-root MuiBox-root-19 makeStyles-centered-14"
       >
         <svg
           aria-hidden="true"
@@ -231,17 +231,17 @@ exports[`renders group info if group exists 1`] = `
     <div>
       <div>
         <div
-          class="MuiBox-root MuiBox-root-198"
+          class="MuiBox-root MuiBox-root-27"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-196 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-25 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-196 makeStyles-description-197 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-25 makeStyles-description-26 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -251,7 +251,7 @@ exports[`renders group info if group exists 1`] = `
       </div>
       <div>
         <div
-          class="MuiPaper-root MuiPaper-outlined makeStyles-paperOutlined-229 MuiPaper-rounded"
+          class="MuiPaper-root MuiPaper-outlined makeStyles-paperOutlined-28 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -300,13 +300,13 @@ exports[`renders group info if group exists 1`] = `
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-283 PrivateTabIndicator-colorSecondary-285 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-30 PrivateTabIndicator-colorSecondary-32 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-230"
+            class="makeStyles-tabContent-29"
             style="overflow-x: hidden;"
           >
             <div
@@ -320,7 +320,7 @@ exports[`renders group info if group exists 1`] = `
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-230"
+                  class="makeStyles-tabContent-29"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -334,7 +334,7 @@ exports[`renders group info if group exists 1`] = `
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-389"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-47"
                         >
                           <img
                             alt="user-2"
@@ -353,7 +353,7 @@ exports[`renders group info if group exists 1`] = `
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-319"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-36"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -363,7 +363,7 @@ exports[`renders group info if group exists 1`] = `
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-319"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-36"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -377,7 +377,7 @@ exports[`renders group info if group exists 1`] = `
                   </ul>
                   <div
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiFab-root makeStyles-fab-350 MuiFab-secondary"
+                    class="MuiButtonBase-root MuiFab-root makeStyles-fab-37 MuiFab-secondary"
                     role="button"
                     tabindex="0"
                   >
@@ -416,17 +416,17 @@ exports[`renders list of invites correctly 1`] = `
     <div>
       <div>
         <div
-          class="MuiBox-root MuiBox-root-632"
+          class="MuiBox-root MuiBox-root-93"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-630 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-91 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-630 makeStyles-description-631 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-91 makeStyles-description-92 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -436,7 +436,7 @@ exports[`renders list of invites correctly 1`] = `
       </div>
       <div>
         <div
-          class="MuiPaper-root MuiPaper-outlined makeStyles-paperOutlined-663 MuiPaper-rounded"
+          class="MuiPaper-root MuiPaper-outlined makeStyles-paperOutlined-94 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -485,13 +485,13 @@ exports[`renders list of invites correctly 1`] = `
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-717 PrivateTabIndicator-colorSecondary-719 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-96 PrivateTabIndicator-colorSecondary-98 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-664"
+            class="makeStyles-tabContent-95"
             style="overflow-x: hidden;"
           >
             <div
@@ -505,7 +505,7 @@ exports[`renders list of invites correctly 1`] = `
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-664"
+                  class="makeStyles-tabContent-95"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -519,7 +519,7 @@ exports[`renders list of invites correctly 1`] = `
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-823"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-113"
                         >
                           <img
                             alt="user-2"
@@ -538,7 +538,7 @@ exports[`renders list of invites correctly 1`] = `
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-753"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-102"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -548,7 +548,7 @@ exports[`renders list of invites correctly 1`] = `
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-753"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-102"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -598,7 +598,7 @@ exports[`renders list of invites correctly 1`] = `
                   </ul>
                   <div
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiFab-root makeStyles-fab-784 MuiFab-secondary"
+                    class="MuiButtonBase-root MuiFab-root makeStyles-fab-103 MuiFab-secondary"
                     role="button"
                     tabindex="0"
                   >
@@ -637,17 +637,17 @@ exports[`renders list of members correctly 1`] = `
     <div>
       <div>
         <div
-          class="MuiBox-root MuiBox-root-411"
+          class="MuiBox-root MuiBox-root-56"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-409 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-54 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-409 makeStyles-description-410 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-54 makeStyles-description-55 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -657,7 +657,7 @@ exports[`renders list of members correctly 1`] = `
       </div>
       <div>
         <div
-          class="MuiPaper-root MuiPaper-outlined makeStyles-paperOutlined-442 MuiPaper-rounded"
+          class="MuiPaper-root MuiPaper-outlined makeStyles-paperOutlined-57 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -706,13 +706,13 @@ exports[`renders list of members correctly 1`] = `
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-496 PrivateTabIndicator-colorSecondary-498 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-59 PrivateTabIndicator-colorSecondary-61 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-443"
+            class="makeStyles-tabContent-58"
             style="overflow-x: hidden;"
           >
             <div
@@ -726,7 +726,7 @@ exports[`renders list of members correctly 1`] = `
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-443"
+                  class="makeStyles-tabContent-58"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -740,7 +740,7 @@ exports[`renders list of members correctly 1`] = `
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-606"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-80"
                         >
                           <img
                             alt="user-2"
@@ -759,7 +759,7 @@ exports[`renders list of members correctly 1`] = `
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-532"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-65"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -769,7 +769,7 @@ exports[`renders list of members correctly 1`] = `
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-532"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-65"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -787,7 +787,7 @@ exports[`renders list of members correctly 1`] = `
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-608"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-82"
                         >
                           <img
                             alt="user-12"
@@ -806,7 +806,7 @@ exports[`renders list of members correctly 1`] = `
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-532"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-65"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -824,7 +824,7 @@ exports[`renders list of members correctly 1`] = `
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-610"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-84"
                         >
                           <img
                             alt="user-13"
@@ -847,7 +847,7 @@ exports[`renders list of members correctly 1`] = `
                   </ul>
                   <div
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiFab-root makeStyles-fab-567 MuiFab-secondary"
+                    class="MuiButtonBase-root MuiFab-root makeStyles-fab-70 MuiFab-secondary"
                     role="button"
                     tabindex="0"
                   >
