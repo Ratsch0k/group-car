@@ -45,7 +45,7 @@ export const ManageGroupMemberListInvitedItem: React.FC<
         }
         secondary={
           t(
-              'modals.group.manage.members.invited',
+              'modals.group.manage.members.invitedBy',
               {by: invitedData.InviteSender.username},
           )
         }

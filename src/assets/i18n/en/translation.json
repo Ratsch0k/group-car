@@ -76,6 +76,9 @@
           "cars": {
             "title": "Cars"
           }
+        },
+        "members": {
+          "invitedBy": "Invited by {{by}}"
         }
       }
     }
