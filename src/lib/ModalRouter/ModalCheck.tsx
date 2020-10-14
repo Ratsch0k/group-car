@@ -70,7 +70,7 @@ export const ModalCheck: React.FC = (props) => {
 
       // Set route value in location state to avoid redirect
       location.state = {
-        ...location.state,
+        ...(location.state as unknown as Record<string, unknown>),
         modal: value,
       };
 

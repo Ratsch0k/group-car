@@ -45,7 +45,7 @@ export const MenuIconItem: React.FC<MenuIconItemProps> = (props) => {
   }
 
   return (
-    <Item {...rest as unknown}>
+    <Item button={false} {...rest as unknown}>
       {icon}
       <span className={icon ? classes.text : undefined}>
         {children}
