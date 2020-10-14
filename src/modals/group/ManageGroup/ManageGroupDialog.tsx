@@ -13,6 +13,9 @@ import {
 } from '@material-ui/core';
 import ManageGroup from './ManageGroup';
 
+/**
+ * Styles.
+ */
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     content: {
@@ -21,6 +24,9 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
+/**
+ * Dialog for managing groups.
+ */
 export const ManageGroupDialog: React.FC = () => {
   const {t} = useTranslation();
   const {close} = useModalRouter();
