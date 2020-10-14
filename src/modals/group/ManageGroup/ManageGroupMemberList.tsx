@@ -1,6 +1,13 @@
 import {List} from '@material-ui/core';
-import {AuthContext, GroupWithOwnerAndMembers} from 'lib';
+import {
+  AuthContext,
+  GroupWithOwnerAndMembersAndInvites,
+  InviteWithUserAndInviteSender,
+} from 'lib';
 import React, {useContext} from 'react';
+import {
+  ManageGroupMemberListInvitedItem,
+} from './ManageGroupMemberListInvitedItem';
 import ManageGroupMemberListItem from './ManageGroupMemberListItem';
 
 /**
@@ -10,7 +17,11 @@ export interface ManageGroupMemberListProps {
   /**
    * Data of the group.
    */
-  group: GroupWithOwnerAndMembers;
+  group: GroupWithOwnerAndMembersAndInvites;
+  /**
+   * List of invites which the user has invited.
+   */
+  additionalInvites: InviteWithUserAndInviteSender[];
 }
 
 /**
@@ -20,6 +31,8 @@ export interface ManageGroupMemberListProps {
 export const ManageGroupMemberList: React.FC<ManageGroupMemberListProps> =
 (props: ManageGroupMemberListProps) => {
   const {user} = useContext(AuthContext);
+  const {group, additionalInvites} = props;
+  const invites = group.invites.concat(additionalInvites);
 
   return (
     <List>
@@ -29,25 +42,30 @@ export const ManageGroupMemberList: React.FC<ManageGroupMemberListProps> =
           key={`member-${user?.id}`}
           // User should always be in members list
           // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-          memberData={props.group.members.find((member) =>
+          memberData={group.members.find((member) =>
             member.User.id === user.id)!}
-          last={props.group.members.length === 1}
+          last={group.members.length + invites.length === 1}
           isCurrentUser={true}
-          isOwner={props.group.ownerId === user.id}
+          isOwner={group.ownerId === user.id}
         />
       }
-      {props.group.members
+      {group.members
           .filter((member) => member.User.id !== user?.id)
-          .map((member, index) => {
-            return (
-              <ManageGroupMemberListItem
-                key={`member-${member.User.id}`}
-                memberData={member}
-                isOwner={props.group.ownerId === member.User.id}
-                last={index === props.group.members.length - 1}
-              />
-            );
-          })}
+          .map((member, index) =>
+            <ManageGroupMemberListItem
+              key={`member-${member.User.id}`}
+              memberData={member}
+              isOwner={group.ownerId === member.User.id}
+              last={index === group.members.length + invites.length - 1}
+            />,
+          )}
+      {invites.map((invite, index) =>
+        <ManageGroupMemberListInvitedItem
+          invitedData={invite}
+          key={`invited-${invite.userId}`}
+          last={index === invites.length - 1}
+        />,
+      )}
     </List>
   );
 };

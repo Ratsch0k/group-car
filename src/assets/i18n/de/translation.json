@@ -65,6 +65,9 @@
           "cars": {
             "title": "Autos"
           }
+        },
+        "members": {
+          "invitedBy": "Eingeladen von {{by}}"
         }
       }
     }

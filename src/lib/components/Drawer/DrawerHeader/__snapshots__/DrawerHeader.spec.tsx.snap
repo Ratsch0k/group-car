@@ -3,10 +3,10 @@
 exports[`with close button matches snapshot 1`] = `
 <div>
   <div
-    class="MuiBox-root MuiBox-root-43 makeStyles-root-41"
+    class="MuiBox-root MuiBox-root-9 makeStyles-root-8"
   >
     <button
-      class="MuiButtonBase-root MuiIconButton-root makeStyles-closeButton-40"
+      class="MuiButtonBase-root MuiIconButton-root makeStyles-closeButton-7"
       data-testid="close"
       id="drawer-close"
       tabindex="0"
@@ -37,7 +37,7 @@ exports[`with close button matches snapshot 1`] = `
 exports[`without close button matches snapshot 1`] = `
 <div>
   <div
-    class="MuiBox-root MuiBox-root-78 makeStyles-root-76"
+    class="MuiBox-root MuiBox-root-12 makeStyles-root-11"
   />
 </div>
 `;

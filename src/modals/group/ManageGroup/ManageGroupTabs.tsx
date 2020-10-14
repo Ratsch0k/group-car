@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import {GroupWithOwnerAndMembers, TabPanel} from 'lib';
+import {GroupWithOwnerAndMembersAndInvites} from 'lib';
 import {Paper, Tab, Tabs, Theme} from '@material-ui/core';
 import {useTranslation} from 'react-i18next';
 import SwipeableView from 'react-swipeable-views';
 import {createStyles, makeStyles} from '@material-ui/styles';
-import ManageGroupMemberList from './ManageGroupMemberList';
+import ManageGroupMembersTab from './ManageGroupMemberTab';
 
 /**
  * Props for the group management tabs.
@@ -13,7 +13,7 @@ export interface ManageGroupsTabsProps {
   /**
    * The group data.
    */
-  group: GroupWithOwnerAndMembers;
+  group: GroupWithOwnerAndMembersAndInvites;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme: Theme) =>
       borderColor: theme.palette.secondary.main,
     },
     tabContent: {
-      height: '500px',
+      height: '400px',
     },
   }),
 );
@@ -66,13 +66,11 @@ export const ManageGroupTabs: React.FC<ManageGroupsTabsProps> =
         onChangeIndex={(index: number) => setSelectedTab(index)}
         className={classes.tabContent}
       >
-        <TabPanel
+        <ManageGroupMembersTab
+          className={classes.tabContent}
           visible={selectedTab === 0}
-          id='group-tabpanel-members'
-          aria-labelledby='group-tab-members'
-        >
-          <ManageGroupMemberList group={props.group}/>
-        </TabPanel>
+          group={props.group}
+        />
         {
           /*
                   <TabPanel
@@ -84,7 +82,6 @@ export const ManageGroupTabs: React.FC<ManageGroupsTabsProps> =
         </TabPanel>
           */
         }
-
       </SwipeableView>
     </Paper>
   );

@@ -10,6 +10,7 @@ export interface TabPanelProps {
   visible: boolean;
   id?: string;
   'aria-labelledby'?: string;
+  className?: string;
 }
 
 /**
@@ -19,6 +20,7 @@ export interface TabPanelProps {
 export const TabPanel: React.FC<TabPanelProps> = (props) => {
   return (
     <div
+      className={props.className}
       role='tabpanel'
       hidden={!props.visible}
       id={props.id}

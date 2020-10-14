@@ -11,19 +11,19 @@ exports[`renders and matches snapshot with not open and not permanent without cr
 exports[`renders and matches snapshot with not open and permanent without crashing 1`] = `
 <div>
   <div
-    class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-203 makeStyles-drawerPermanent-205"
+    class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-28 makeStyles-drawerPermanent-30"
   >
     <div
-      class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-204 makeStyles-drawerPaperPermanent-206 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+      class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-29 makeStyles-drawerPaperPermanent-31 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
     >
       <div
-        class="MuiBox-root MuiBox-root-251 makeStyles-container-209"
+        class="MuiBox-root MuiBox-root-35 makeStyles-container-34"
       >
         <div
-          class="MuiBox-root MuiBox-root-254 makeStyles-fullHeight-253 makeStyles-center-252"
+          class="MuiBox-root MuiBox-root-38 makeStyles-fullHeight-37 makeStyles-center-36"
         >
           <div
-            class="MuiBox-root MuiBox-root-255 makeStyles-center-252"
+            class="MuiBox-root MuiBox-root-39 makeStyles-center-36"
           >
             <h5
               class="MuiTypography-root MuiTypography-h5 MuiTypography-alignCenter"
@@ -69,13 +69,13 @@ exports[`renders and matches snapshot with open and not permanent without crashi
       tabindex="-1"
     >
       <div
-        class="MuiBox-root MuiBox-root-51 makeStyles-container-7"
+        class="MuiBox-root MuiBox-root-8 makeStyles-container-7"
       >
         <div
-          class="MuiBox-root MuiBox-root-54 makeStyles-root-53"
+          class="MuiBox-root MuiBox-root-11 makeStyles-root-10"
         >
           <button
-            class="MuiButtonBase-root MuiIconButton-root makeStyles-closeButton-52"
+            class="MuiButtonBase-root MuiIconButton-root makeStyles-closeButton-9"
             data-testid="close"
             id="drawer-close"
             tabindex="0"
@@ -101,10 +101,10 @@ exports[`renders and matches snapshot with open and not permanent without crashi
           </button>
         </div>
         <div
-          class="MuiBox-root MuiBox-root-78 makeStyles-fullHeight-77 makeStyles-center-76"
+          class="MuiBox-root MuiBox-root-14 makeStyles-fullHeight-13 makeStyles-center-12"
         >
           <div
-            class="MuiBox-root MuiBox-root-79 makeStyles-center-76"
+            class="MuiBox-root MuiBox-root-15 makeStyles-center-12"
           >
             <h5
               class="MuiTypography-root MuiTypography-h5 MuiTypography-alignCenter"
@@ -131,19 +131,19 @@ exports[`renders and matches snapshot with open and not permanent without crashi
 exports[`renders and matches snapshot with open and permanent without crashing 1`] = `
 <div>
   <div
-    class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-120 makeStyles-drawerPermanent-122"
+    class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-16 makeStyles-drawerPermanent-18"
   >
     <div
-      class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-121 makeStyles-drawerPaperPermanent-123 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+      class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-17 makeStyles-drawerPaperPermanent-19 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
     >
       <div
-        class="MuiBox-root MuiBox-root-168 makeStyles-container-126"
+        class="MuiBox-root MuiBox-root-23 makeStyles-container-22"
       >
         <div
-          class="MuiBox-root MuiBox-root-171 makeStyles-fullHeight-170 makeStyles-center-169"
+          class="MuiBox-root MuiBox-root-26 makeStyles-fullHeight-25 makeStyles-center-24"
         >
           <div
-            class="MuiBox-root MuiBox-root-172 makeStyles-center-169"
+            class="MuiBox-root MuiBox-root-27 makeStyles-center-24"
           >
             <h5
               class="MuiTypography-root MuiTypography-h5 MuiTypography-alignCenter"

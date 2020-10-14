@@ -3,16 +3,16 @@
 exports[`renders and matches snapshot when user is logged in 1`] = `
 <div>
   <div
-    class="MuiBox-root MuiBox-root-153 makeStyles-container-150"
+    class="MuiBox-root MuiBox-root-6 makeStyles-container-4"
   >
     <div
       class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column"
     >
       <div
-        class="MuiGrid-root makeStyles-userInfo-151 MuiGrid-item"
+        class="MuiGrid-root makeStyles-userInfo-5 MuiGrid-item"
       >
         <div
-          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-289"
+          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-7"
         >
           <img
             alt="user-12"
@@ -58,7 +58,7 @@ exports[`renders and matches snapshot when user is logged in 1`] = `
 exports[`renders and matches snapshot when user is not logged in 1`] = `
 <div>
   <div
-    class="MuiBox-root MuiBox-root-4 makeStyles-container-1"
+    class="MuiBox-root MuiBox-root-3 makeStyles-container-1"
   >
     <div
       class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column"

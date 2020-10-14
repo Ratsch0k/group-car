@@ -89,6 +89,7 @@ export const GroupOptionsMenu: React.FC<GroupOptionsMenuProps>=
           <MenuIconItem
             onClick={() => goTo('/group/create')}
             icon={<AddIcon />}
+            button
           >
             {t('drawer.groupMenu.item.create')}
           </MenuIconItem>
@@ -97,6 +98,7 @@ export const GroupOptionsMenu: React.FC<GroupOptionsMenuProps>=
             <MenuIconItem
               onClick={() => goTo(`/group/manage/${selectedGroup.id}`)}
               icon={<EditIcon />}
+              button
             >
               {t('drawer.groupMenu.item.manage')}
             </MenuIconItem>
@@ -112,6 +114,7 @@ export const GroupOptionsMenu: React.FC<GroupOptionsMenuProps>=
               onClick={() => setOpenSubMenu(true)}
               opensSubMenu
               icon={<ListIcon />}
+              button
             >
               {t('drawer.groupMenu.item.select')}
             </MenuIconItem>

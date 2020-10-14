@@ -1,8 +1,8 @@
-import {Request, GroupWithOwnerAndMembers} from 'lib';
+import {Request, GroupWithOwner} from 'lib';
 import {AxiosType} from '../request';
 import Axios from 'axios';
 
-export type GetGroupResponse = GroupWithOwnerAndMembers;
+export type GetGroupResponse = GroupWithOwner;
 export type GetGroupRequest = Request<GetGroupResponse>;
 export type GetGroup = (id: number) => GetGroupRequest;
 

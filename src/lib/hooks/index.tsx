@@ -4,3 +4,4 @@ export * from './useApi';
 export * from './useComponentIsMounted';
 export * from './useStateIfMounted';
 export * from './useGroups';
+export * from './useAuth';

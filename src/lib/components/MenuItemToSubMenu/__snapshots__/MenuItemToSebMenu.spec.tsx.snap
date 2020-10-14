@@ -12,7 +12,7 @@ exports[`matches snapshot 1`] = `
       TEST
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root makeStyles-arrowIcon-39"
+        class="MuiSvgIcon-root makeStyles-arrowIcon-2"
         focusable="false"
         viewBox="0 0 24 24"
       >
