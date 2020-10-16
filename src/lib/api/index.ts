@@ -1,4 +1,3 @@
-export * from './auth/checkLoggedIn';
 export * from './getRandomProfilePic';
 export * from './group';
 export * from './request.d';
