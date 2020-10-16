@@ -9,6 +9,9 @@
     },
     "isRequested": "It's currently not possible to sign up directly. Your request was successfully received and will be processed shortly. If your request is granted you will receive an email."
   },
+  "user": {
+    "invites": "Invites"
+  },
   "form": {
     "login": "Login",
     "sign-up": "Sign up",

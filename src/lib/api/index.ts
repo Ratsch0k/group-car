@@ -4,3 +4,4 @@ export * from './request.d';
 export * from './userType.d';
 export * from './auth';
 export * from './user';
+export * from './index.d';

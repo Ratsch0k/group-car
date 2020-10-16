@@ -1,6 +1,6 @@
 import Axios from 'axios';
 import {AxiosType, Request} from 'lib';
-import {Invite} from '.';
+import {Invite} from '..';
 
 export type InviteUserResponse = Invite;
 /**

@@ -31,7 +31,7 @@ export interface ManageGroupProps {
 export const ManageGroup: React.FC<ManageGroupProps> =
 (props: ManageGroupProps) => {
   const {getGroup} = useGroups();
-  const {getInvites, getMembers} = useApi();
+  const {getInvitesOfGroup, getMembers} = useApi();
   const {groupId: groupIdParam} = useParams<{groupId: string}>();
   const [groupData, setGroupData] =
       useStateIfMounted<GroupWithOwnerAndMembersAndInvites | null>(null);
@@ -55,7 +55,7 @@ export const ManageGroup: React.FC<ManageGroupProps> =
       Promise.all([
         getGroup(selectedGroupId),
         getMembers(selectedGroupId),
-        getInvites(selectedGroupId),
+        getInvitesOfGroup(selectedGroupId),
       ]).then(([group, members, invites]) => {
         setGroupData({
           ...group.data,
