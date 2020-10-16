@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useCallback} from 'react';
 import {useAxios} from 'lib';
 import * as apiCalls from '../api';
 
@@ -18,23 +18,22 @@ ApiContext.displayName = 'ApiContext';
  */
 export const ApiProvider: React.FC = (props) => {
   const {axios} = useAxios();
-  const [api, setApi] = useState<Api>(apiCalls);
+  let api = apiCalls;
 
   const wrapCall = useCallback(<T extends unknown>(call: T): T => {
     return ((...params: unknown[]) =>
-        axios.then((axios) =>
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        axios!.then((axios) =>
           (call as (...params: unknown[]) => T)(...params, axios)) as T) as T;
     // eslint-disable-next-line
   }, [axios]);
 
-  useEffect(() => {
-    const _api: {[index: string]: unknown} = {};
-    for (const [name, call] of Object.entries(apiCalls)) {
-      _api[name] = wrapCall(call);
-    }
+  const _api: {[index: string]: unknown} = {};
+  for (const [name, call] of Object.entries(apiCalls)) {
+    _api[name] = wrapCall(call);
+  }
 
-    setApi(_api as unknown as Api);
-  }, [wrapCall]);
+  api = _api as unknown as Api;
 
   return (
     <ApiContext.Provider value={api}>
