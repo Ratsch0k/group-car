@@ -1,3 +1,6 @@
+import {GroupWithOwner} from './group';
+import {UserSimple} from './userType';
+
 /**
  * The invite of the specified user for the specified group.
  */
@@ -27,7 +30,7 @@ export interface Invite {
 /**
  * Extension of the Invite which includes the data of the invited user.
  */
-export interface InviteWithUser extends Invite {
+export interface InviteUser {
   /**
    * The data of the invited user.
    */
@@ -45,12 +48,23 @@ export interface InviteGroup {
 }
 
 /**
- * Extension of the InviteWIthUser which also includes
- * the data of the invite sender.
+ * Data of the sender of the invite.
  */
-export interface InviteWithUserAndInviteSender extends InviteWithUser {
+export interface InviteSender {
   /**
-   * The data of the user who created the invite.
+   * Invite sender.
    */
   InviteSender: UserSimple;
 }
+
+/**
+ * Invites which include the user and the invite sender.
+ */
+export type InviteWithUserAndInviteSender = Invite & InviteUser & InviteSender;
+
+/**
+ * Invite which includes the group and the invite sender data.
+ */
+export type InviteWithGroupAndInviteSender = Invite &
+  InviteGroup &
+  InviteSender;

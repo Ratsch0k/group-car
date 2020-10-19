@@ -226,7 +226,7 @@ it('renders list of invites correctly', async () => {
     expect(fakeGroupContext.getGroup).toHaveBeenCalledWith(fakeGroup.id);
     expect(fakeApi.getInvites).toHaveBeenLastCalledWith(fakeGroup.id);
     expect(fakeApi.getMembers).toHaveBeenLastCalledWith(fakeGroup.id);
-    expect(screen.queryAllByText('modals.group.manage.members.invitedBy')).toHaveLength(2);
+    expect(screen.queryAllByText('misc.invitedBy')).toHaveLength(2);
     fakeGroup.invites.forEach((invite) => {
       expect(screen.queryAllByText(invite.User.username)).not.toBeUndefined;
     });

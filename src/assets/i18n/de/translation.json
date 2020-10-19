@@ -68,11 +68,12 @@
           "cars": {
             "title": "Autos"
           }
-        },
-        "members": {
-          "invitedBy": "Eingeladen von {{by}}"
         }
       }
+    },
+    "invites": {
+      "title": "Einladungen",
+      "empty": "Du hast keine Einladungen"
     }
   },
   "misc": {
@@ -80,7 +81,10 @@
     "loading": "Lade",
     "admin": "Admin",
     "owner": "Besitzer",
-    "you": "Du"
+    "you": "Du",
+    "invitedBy": "Eingeladen von {{by}}",
+    "accept": "Akzeptieren",
+    "delete": "Löschen"
   },
   "imprint": {
     "title": "Impressum"

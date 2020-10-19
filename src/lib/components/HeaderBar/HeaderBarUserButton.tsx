@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 import UserAvatar from '../UserAvatar';
 import UserOverview from '../UserOverview/UserOverview';
-import {AuthContext, InvitesProvider, InvitesContext} from 'lib';
+import {AuthContext, InvitesContext} from 'lib';
 
 export const HeaderBarUserButton: React.FC = () => {
   const auth = useContext(AuthContext);
@@ -60,46 +60,44 @@ export const HeaderBarUserButton: React.FC = () => {
       onClickAway={handleClose}
     >
       <Box>
-        <InvitesProvider>
-          <IconButton color='inherit' onClick={handleClick}>
-            <InvitesContext.Consumer>
-              {
-                ({invites}) =>
-                  <Badge
-                    badgeContent={invites.length}
-                    max={9}
-                    color='secondary'
-                    overlap='circle'
-                  >
-                    <UserAvatar
-                      userId={userId}
-                    />
-                  </Badge>
-              }
-
-            </InvitesContext.Consumer>
-          </IconButton>
-
-          <Popper
-            open={Boolean(anchor)}
-            anchorEl={anchor}
-            placement='bottom'
-            disablePortal={true}
-            transition
-          >
-            {({TransitionProps}) => (
-              <Fade {...TransitionProps} timeout={200}>
-                <Paper
-                  elevation={6}
+        <IconButton color='inherit' onClick={handleClick}>
+          <InvitesContext.Consumer>
+            {
+              ({invites}) =>
+                <Badge
+                  badgeContent={invites.length}
+                  max={9}
+                  color='secondary'
+                  overlap='circle'
                 >
-                  <UserOverview
-                    onClose={handleClose}
+                  <UserAvatar
+                    userId={userId}
                   />
-                </Paper>
-              </Fade>
-            )}
-          </Popper>
-        </InvitesProvider>
+                </Badge>
+            }
+
+          </InvitesContext.Consumer>
+        </IconButton>
+
+        <Popper
+          open={Boolean(anchor)}
+          anchorEl={anchor}
+          placement='bottom'
+          disablePortal={true}
+          transition
+        >
+          {({TransitionProps}) => (
+            <Fade {...TransitionProps} timeout={200}>
+              <Paper
+                elevation={6}
+              >
+                <UserOverview
+                  onClose={handleClose}
+                />
+              </Paper>
+            </Fade>
+          )}
+        </Popper>
       </Box>
     </ClickAwayListener>
   );

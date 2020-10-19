@@ -33,19 +33,6 @@
       "noPic": "No profile picture"
     }
   },
-  "misc": {
-    "or": "or",
-    "loading": "Loading",
-    "admin": "Admin",
-    "owner": "Owner",
-    "you": "You"
-  },
-  "imprint": {
-    "title": "Imprint"
-  },
-  "privacyPolicy": {
-    "title": "Privacy policy"
-  },
   "drawer": {
     "createGroup": "Create a group",
     "notLoggedIn": {
@@ -79,11 +66,28 @@
           "cars": {
             "title": "Cars"
           }
-        },
-        "members": {
-          "invitedBy": "Invited by {{by}}"
         }
       }
+    },
+    "invites": {
+      "title": "Invites",
+      "empty": "You have no invites"
     }
+  },
+  "misc": {
+    "or": "or",
+    "loading": "Loading",
+    "admin": "Admin",
+    "owner": "Owner",
+    "you": "You",
+    "invitedBy": "Invited by {{by}}",
+    "accept": "Accept",
+    "delete": "Delete"
+  },
+  "imprint": {
+    "title": "Imprint"
+  },
+  "privacyPolicy": {
+    "title": "Privacy policy"
   }
 }

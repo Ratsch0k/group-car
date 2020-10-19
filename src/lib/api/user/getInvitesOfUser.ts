@@ -1,11 +1,11 @@
 import Axios, {AxiosInstance} from 'axios';
-import {Invite, InviteGroup, Request} from '..';
+import {Request, InviteWithGroupAndInviteSender} from '..';
 
 /**
  * Response of get invites of users request.
  */
 export interface GetInvitesOfUserResponse {
-  invites: (Invite & InviteGroup)[];
+  invites: (InviteWithGroupAndInviteSender)[];
 }
 
 /**

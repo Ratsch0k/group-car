@@ -9,6 +9,7 @@ import {
   AxiosProvider,
   ApiProvider,
   AxiosErrorHandler,
+  InvitesProvider,
 } from 'lib';
 import ModalRoutes from 'modals';
 import GroupProvider from 'lib/context/groupContext';
@@ -22,9 +23,11 @@ const App: React.FC = () => {
             <ModalRouter>
               <AuthProvider>
                 <GroupProvider>
-                  <GroupCar />
-                  <ModalRoutes />
-                  <AxiosErrorHandler />
+                  <InvitesProvider>
+                    <GroupCar />
+                    <ModalRoutes />
+                    <AxiosErrorHandler />
+                  </InvitesProvider>
                 </GroupProvider>
               </AuthProvider>
             </ModalRouter>
