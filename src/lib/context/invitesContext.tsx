@@ -1,5 +1,5 @@
 import {useApi, InviteWithGroupAndInviteSender, useAuth} from 'lib';
-import { useGroups } from 'lib/hooks';
+import {useGroups} from 'lib/hooks';
 import React, {useEffect, useState} from 'react';
 
 export interface InvitesContext {
@@ -61,7 +61,7 @@ export const InvitesProvider: React.FC<InvitesProviderProps> = (props) => {
 
   const deleteInvite = (groupId: number): Promise<void> => {
     // TODO: Replace with api call if available
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       setInvites((prev) =>
         prev.filter((invite) => invite.groupId !== groupId));
       resolve();
@@ -90,7 +90,7 @@ export const InvitesProvider: React.FC<InvitesProviderProps> = (props) => {
         clearInterval(id);
       }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
   }, [interval, getInvitesOfUser, isLoggedIn]);
 
   return (

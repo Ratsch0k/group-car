@@ -36,7 +36,7 @@ export const Invites: React.FC = () => {
   // Refresh invites on first render
   useEffect(() => {
     refresh();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
   }, []);
 
   let content: JSX.Element;
