@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {GroupWithOwnerAndMembersAndInvites} from 'lib';
 import ManageGroupOverviewInfo from './ManageGroupGroupInfo';
 import ManageGroupTabs from './ManageGroupTabs';
@@ -32,9 +32,9 @@ export const ManageGroupOverview: React.FC<ManageGroupOverviewProps> =
   const classes = useStyles();
   const theme = useTheme();
   const smallerXs = useMediaQuery(theme.breakpoints.down('xs'));
-  const [tabHeight, setTabHeight] = useState<number>(400);
   const containerRef = useRef<HTMLDivElement>(null);
   const overviewRef = useRef<HTMLDivElement>(null);
+  const tabsRef = useRef<HTMLDivElement>(null);
   const animationFrameId = useRef<number>(0);
 
   const animate = () => {
@@ -42,8 +42,8 @@ export const ManageGroupOverview: React.FC<ManageGroupOverviewProps> =
       const containerHeight = containerRef.current?.clientHeight;
       const overviewHeight = overviewRef.current?.clientHeight;
 
-      if (containerHeight && overviewHeight) {
-        setTabHeight(containerHeight - overviewHeight);
+      if (containerHeight && overviewHeight && tabsRef.current) {
+        tabsRef.current.style.height = containerHeight - overviewHeight + 'px';
       }
     });
   };
@@ -53,14 +53,22 @@ export const ManageGroupOverview: React.FC<ManageGroupOverviewProps> =
       animationFrameId.current = animate();
     };
 
-    handleResize();
-    window.addEventListener('resize', handleResize);
+    if (smallerXs) {
+      handleResize();
+      window.addEventListener('resize', handleResize);
+    } else {
+      window.removeEventListener('resize', handleResize);
+      window.cancelAnimationFrame(animationFrameId.current);
+      if (tabsRef.current) {
+        tabsRef.current.style.height = '400px';
+      }
+    }
 
     return () => {
       window.removeEventListener('resize', handleResize);
       window.cancelAnimationFrame(animationFrameId.current);
     };
-  }, []);
+  }, [smallerXs]);
 
   return (
     <div
@@ -75,7 +83,7 @@ export const ManageGroupOverview: React.FC<ManageGroupOverviewProps> =
       </div>
       <div
         className={smallerXs ? undefined : classes.tabsDesktop}
-        style={{height: smallerXs ? tabHeight : undefined}}
+        ref={tabsRef}
       >
         <ManageGroupTabs group={group}/>
       </div>
