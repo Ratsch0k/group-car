@@ -12,7 +12,7 @@ import {
 } from '@material-ui/core';
 import {createStyles, makeStyles} from '@material-ui/styles';
 import {InviteWithGroupAndInviteSender, useInvites} from 'lib';
-import React, {useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 
 /**
@@ -74,6 +74,8 @@ export const InvitesListItem: React.FC<InvitesListItemProps> =
   const classes = useStyles();
   const theme = useTheme();
   const smallerSm = useMediaQuery(theme.breakpoints.down('sm'));
+  const listItemRef = useRef<HTMLLIElement>(null);
+  const [listItemHeight, setListItemHeight] = useState<number>(4);
 
   const handleAccept = () => {
     setLoading(true);
@@ -85,13 +87,31 @@ export const InvitesListItem: React.FC<InvitesListItemProps> =
     });
   };
 
+  /**
+   * Keep height of loading container equal to size of list item.
+   */
+  useEffect(() => {
+    if (listItemRef.current &&
+        listItemRef.current.clientHeight !== listItemHeight) {
+      setListItemHeight(listItemRef.current.clientHeight);
+    }
+    // eslint-disable-next-line
+  }, [listItemRef.current?.clientHeight, listItemHeight]);
+
   return (
     <ListItem
       key={`invite-${invite.groupId}`}
+      ref={listItemRef}
     >
       {
         loading &&
-        <Box className={classes.loaderContainer}>
+        <Box
+          className={classes.loaderContainer}
+          style={smallerSm ? {
+            height: listItemHeight - 4,
+            top: 0,
+          } : undefined}
+        >
           <CircularProgress />
         </Box>
       }
