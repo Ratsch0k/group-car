@@ -67,6 +67,7 @@ const useStyles = makeStyles((theme: Theme) =>
 export const InvitesListItem: React.FC<InvitesListItemProps> =
 (props: InvitesListItemProps) => {
   const {t} = useTranslation();
+  // eslint-disable-next-line
   const {invite, delete: deleteSelf, accept} = props;
   const {refresh} = useInvites();
   const [loading, setLoading] = useState<boolean>(false);
@@ -79,7 +80,6 @@ export const InvitesListItem: React.FC<InvitesListItemProps> =
     accept().then(() => {
       setLoading(false);
       refresh();
-      deleteSelf();
     }).catch(() => {
       setLoading(false);
     });
@@ -118,12 +118,17 @@ export const InvitesListItem: React.FC<InvitesListItemProps> =
               variant='outlined'
               disabled={loading}
               onClick={handleAccept}
+              id={`invite-${invite.groupId}-accept-btn`}
             >
               {t('misc.accept')}
             </Button>
           </Grid>
           <Grid item>
-            <Button variant='outlined' disabled>
+            <Button
+              variant='outlined'
+              disabled
+              id={`invite-${invite.groupId}-delete-btn`}
+            >
               {t('misc.delete')}
             </Button>
           </Grid>
