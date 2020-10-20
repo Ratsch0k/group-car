@@ -30,6 +30,7 @@ exports[`get groupId from route params if not provided as property 1`] = `
       </div>
       <div
         class="makeStyles-tabsDesktop-134"
+        style="height: 400px;"
       >
         <div
           class="MuiPaper-root makeStyles-container-140 MuiPaper-outlined makeStyles-paperOutlined-138 MuiPaper-rounded"
@@ -273,6 +274,7 @@ exports[`renders group info if group exists 1`] = `
       </div>
       <div
         class="makeStyles-tabsDesktop-27"
+        style="height: 400px;"
       >
         <div
           class="MuiPaper-root makeStyles-container-33 MuiPaper-outlined makeStyles-paperOutlined-31 MuiPaper-rounded"
@@ -476,6 +478,7 @@ exports[`renders list of invites correctly 1`] = `
       </div>
       <div
         class="makeStyles-tabsDesktop-101"
+        style="height: 400px;"
       >
         <div
           class="MuiPaper-root makeStyles-container-107 MuiPaper-outlined makeStyles-paperOutlined-105 MuiPaper-rounded"
@@ -715,6 +718,7 @@ exports[`renders list of members correctly 1`] = `
       </div>
       <div
         class="makeStyles-tabsDesktop-60"
+        style="height: 400px;"
       >
         <div
           class="MuiPaper-root makeStyles-container-66 MuiPaper-outlined makeStyles-paperOutlined-64 MuiPaper-rounded"
