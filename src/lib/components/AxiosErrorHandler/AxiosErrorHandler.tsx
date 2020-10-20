@@ -43,7 +43,7 @@ export const AxiosErrorHandler: React.FC = () => {
     axios.then((axios) => axios.interceptors.response.use(
         (res) => res,
         (e: AxiosError<RestError>) => {
-          if (e.response) {
+          if (e.response && !e.response.config.url?.includes('/auth/token')) {
             setMessage(e.response?.data.message);
           }
 

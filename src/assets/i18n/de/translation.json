@@ -9,6 +9,9 @@
     },
     "isRequested": "Zurzeit ist es nicht möglich ein Benutzerkonto direkt anzulegen. Ihre Anfrage wird überprüft und falls sie genehmigt wird, erhalten Sie eine Email."
   },
+  "user": {
+    "invites": "Einladungen"
+  },
   "form": {
     "login": "Anmelden",
     "sign-up": "Erstellen",
@@ -65,11 +68,12 @@
           "cars": {
             "title": "Autos"
           }
-        },
-        "members": {
-          "invitedBy": "Eingeladen von {{by}}"
         }
       }
+    },
+    "invites": {
+      "title": "Einladungen",
+      "empty": "Du hast keine Einladungen"
     }
   },
   "misc": {
@@ -77,7 +81,10 @@
     "loading": "Lade",
     "admin": "Admin",
     "owner": "Besitzer",
-    "you": "Du"
+    "you": "Du",
+    "invitedBy": "Eingeladen von {{by}}",
+    "accept": "Akzeptieren",
+    "delete": "Löschen"
   },
   "imprint": {
     "title": "Impressum"

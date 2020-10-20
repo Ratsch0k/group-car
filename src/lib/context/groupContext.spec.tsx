@@ -3,7 +3,6 @@ import {render, waitFor} from '@testing-library/react';
 import GroupProvider, { GroupContext } from './groupContext';
 import { AuthContext } from './authContext';
 import { Api, ApiContext } from './apiContext';
-import { group } from 'console';
 
 describe('GroupProvider', () => {
   let fakeApi: jest.Mocked<Api>;

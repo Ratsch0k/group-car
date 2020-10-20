@@ -1,6 +1,6 @@
 import Axios from 'axios';
 import {AxiosType, Request} from 'lib';
-import {Invite} from '.';
+import {Invite} from '..';
 
 export type InviteUserResponse = Invite;
 /**
@@ -11,7 +11,7 @@ export type InviteUserRequest = Request<InviteUserResponse>
 /**
  * Type of the `inviteUser` method.
  */
-export type InviteUser = (
+export type SendInviteUser = (
   groupId: number,
   usernameOrIdId: number | string,
 ) => InviteUserRequest;
@@ -25,7 +25,7 @@ export type InviteUser = (
  * @param axios     Optional axios instance,
  *                  if not provided the AxiosStatic will be used.
  */
-export const inviteUser: InviteUser = (
+export const inviteUser: SendInviteUser = (
     groupId,
     usernameOrId,
     axios: AxiosType = Axios,

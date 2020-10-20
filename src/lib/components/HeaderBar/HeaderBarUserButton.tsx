@@ -1,15 +1,16 @@
 import React, {useContext, useState, useEffect} from 'react';
 import {
   ClickAwayListener,
-  Box,
   IconButton,
   Popper,
   Fade,
   Paper,
+  Badge,
+  Box,
 } from '@material-ui/core';
 import UserAvatar from '../UserAvatar';
 import UserOverview from '../UserOverview/UserOverview';
-import {AuthContext} from 'lib';
+import {AuthContext, InvitesContext} from 'lib';
 
 export const HeaderBarUserButton: React.FC = () => {
   const auth = useContext(AuthContext);
@@ -60,9 +61,22 @@ export const HeaderBarUserButton: React.FC = () => {
     >
       <Box>
         <IconButton color='inherit' onClick={handleClick}>
-          <UserAvatar
-            userId={userId}
-          />
+          <InvitesContext.Consumer>
+            {
+              ({invites}) =>
+                <Badge
+                  badgeContent={invites.length}
+                  max={9}
+                  color='secondary'
+                  overlap='circle'
+                >
+                  <UserAvatar
+                    userId={userId}
+                  />
+                </Badge>
+            }
+
+          </InvitesContext.Consumer>
         </IconButton>
 
         <Popper

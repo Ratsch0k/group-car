@@ -63,7 +63,7 @@ it('renders error message if group doesn\'t exist', async () => {
     getGroup: jest.fn().mockRejectedValue(undefined),
   }
   const fakeApi = {
-    getInvites: jest.fn().mockRejectedValue(undefined),
+    getInvitesOfGroup: jest.fn().mockRejectedValue(undefined),
     getMembers: jest.fn().mockRejectedValue(undefined),
   }
 
@@ -80,10 +80,10 @@ it('renders error message if group doesn\'t exist', async () => {
   );
 
   await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-  await waitFor(() => expect(fakeApi.getInvites).toHaveBeenCalledTimes(1));
+  await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
   await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
   expect(fakeGroupContext.getGroup).toHaveBeenCalledWith(1);
-  expect(fakeApi.getInvites).toHaveBeenLastCalledWith(1);
+  expect(fakeApi.getInvitesOfGroup).toHaveBeenLastCalledWith(1);
   expect(fakeApi.getMembers).toHaveBeenLastCalledWith(1);
 
   expect(screen.queryByText('modals.group.manage.loadingFailed')).not.toBeNull();
@@ -96,7 +96,7 @@ it('renders group info if group exists', async () => {
     getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
   }
   const fakeApi = {
-    getInvites: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
+    getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
     getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
   }
 
@@ -115,10 +115,10 @@ it('renders group info if group exists', async () => {
   );
 
   await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-  await waitFor(() => expect(fakeApi.getInvites).toHaveBeenCalledTimes(1));
+  await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
   await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
   expect(fakeGroupContext.getGroup).toHaveBeenCalledWith(fakeGroup.id);
-  expect(fakeApi.getInvites).toHaveBeenLastCalledWith(fakeGroup.id);
+  expect(fakeApi.getInvitesOfGroup).toHaveBeenLastCalledWith(fakeGroup.id);
   expect(fakeApi.getMembers).toHaveBeenLastCalledWith(fakeGroup.id);
 
   // Check if name and description exist
@@ -136,7 +136,7 @@ it('renders list of members correctly', async () => {
     getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
   };
   const fakeApi = {
-    getInvites: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
+    getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
     getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
   }
 
@@ -156,10 +156,10 @@ it('renders list of members correctly', async () => {
 
 
   await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-  await waitFor(() => expect(fakeApi.getInvites).toHaveBeenCalledTimes(1));
+  await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
   await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
   expect(fakeGroupContext.getGroup).toHaveBeenCalledWith(fakeGroup.id);
-  expect(fakeApi.getInvites).toHaveBeenLastCalledWith(fakeGroup.id);
+  expect(fakeApi.getInvitesOfGroup).toHaveBeenLastCalledWith(fakeGroup.id);
   expect(fakeApi.getMembers).toHaveBeenLastCalledWith(fakeGroup.id);
 
   expect(screen.baseElement).toMatchSnapshot();
@@ -201,7 +201,7 @@ it('renders list of invites correctly', async () => {
       getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
     };
     const fakeApi = {
-      getInvites: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
+      getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
       getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
     }
   
@@ -221,12 +221,12 @@ it('renders list of invites correctly', async () => {
   
   
     await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-    await waitFor(() => expect(fakeApi.getInvites).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
     await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
     expect(fakeGroupContext.getGroup).toHaveBeenCalledWith(fakeGroup.id);
-    expect(fakeApi.getInvites).toHaveBeenLastCalledWith(fakeGroup.id);
+    expect(fakeApi.getInvitesOfGroup).toHaveBeenLastCalledWith(fakeGroup.id);
     expect(fakeApi.getMembers).toHaveBeenLastCalledWith(fakeGroup.id);
-    expect(screen.queryAllByText('modals.group.manage.members.invitedBy')).toHaveLength(2);
+    expect(screen.queryAllByText('misc.invitedBy')).toHaveLength(2);
     fakeGroup.invites.forEach((invite) => {
       expect(screen.queryAllByText(invite.User.username)).not.toBeUndefined;
     });
@@ -239,7 +239,7 @@ it('get groupId from route params if not provided as property', async () => {
     getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
   }
   const fakeApi = {
-    getInvites: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
+    getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
     getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
   }
 
@@ -258,10 +258,10 @@ it('get groupId from route params if not provided as property', async () => {
   );
 
   await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-  await waitFor(() => expect(fakeApi.getInvites).toHaveBeenCalledTimes(1));
+  await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
   await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
   expect(fakeGroupContext.getGroup).toHaveBeenCalledWith(fakeGroup.id);
-  expect(fakeApi.getInvites).toHaveBeenLastCalledWith(fakeGroup.id);
+  expect(fakeApi.getInvitesOfGroup).toHaveBeenLastCalledWith(fakeGroup.id);
   expect(fakeApi.getMembers).toHaveBeenLastCalledWith(fakeGroup.id);
 
 

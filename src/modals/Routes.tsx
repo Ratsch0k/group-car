@@ -6,6 +6,7 @@ import PrivacyPolicyDialog from
 import AuthenticationDialog from 'modals/auth/AuthenticationDialog';
 import {useModalRouter} from 'lib/hooks';
 import Group from 'modals/group/Group';
+import {Invites} from './invites';
 
 export const Routes: React.FC = () => {
   const {modalLocation, close} = useModalRouter();
@@ -26,6 +27,9 @@ export const Routes: React.FC = () => {
       </Route>
       <Route path='/group'>
         <Group />
+      </Route>
+      <Route path='/invites'>
+        <Invites />
       </Route>
     </Switch>
   );
