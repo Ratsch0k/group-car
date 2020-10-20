@@ -6,7 +6,7 @@ export interface InvitesContext {
   /**
    * List of invites.
    */
-  invites: (InviteWithGroupAndInviteSender)[];
+  invites: InviteWithGroupAndInviteSender[];
   /**
    * Reload all invites.
    */
@@ -52,6 +52,7 @@ export const InvitesProvider: React.FC<InvitesProviderProps> = (props) => {
   const {isLoggedIn} = useAuth();
   const interval = props.interval || 1000 * 10; // 10 seconds
   const {update: updateGroups} = useGroups();
+  const [intervalId, setIntervalId] = useState<NodeJS.Timeout>();
 
   const refresh = () => {
     return getInvitesOfUser().then((res) => {
@@ -75,19 +76,26 @@ export const InvitesProvider: React.FC<InvitesProviderProps> = (props) => {
   };
 
   useEffect(() => {
-    let id: NodeJS.Timeout;
     if (isLoggedIn) {
       refresh();
-      id = setInterval(() => {
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+
+      setIntervalId(setInterval(() => {
         refresh();
-      }, interval);
+      }, interval));
     } else {
+      if (intervalId) {
+        clearInterval(intervalId);
+        setIntervalId(undefined);
+      }
       setInvites([]);
     }
 
     return () => {
-      if (id) {
-        clearInterval(id);
+      if (intervalId) {
+        clearInterval(intervalId);
       }
     };
     // eslint-disable-next-line
