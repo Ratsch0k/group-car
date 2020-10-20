@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {GroupWithOwnerAndMembersAndInvites} from 'lib';
-import {Paper, Tab, Tabs, Theme} from '@material-ui/core';
+import {GroupWithOwnerAndMembersAndInvites, TabPanel} from 'lib';
+import {Paper, Tab, Tabs, Theme, Typography} from '@material-ui/core';
 import {useTranslation} from 'react-i18next';
 import SwipeableView from 'react-swipeable-views';
 import {createStyles, makeStyles} from '@material-ui/styles';
@@ -22,7 +22,10 @@ const useStyles = makeStyles((theme: Theme) =>
       borderColor: theme.palette.secondary.main,
     },
     tabContent: {
-      height: '400px',
+      height: `calc(100% - ${theme.spacing(6)}px)`,
+    },
+    container: {
+      height: '100%',
     },
   }),
 );
@@ -43,6 +46,7 @@ export const ManageGroupTabs: React.FC<ManageGroupsTabsProps> =
       classes={{
         outlined: classes.paperOutlined,
       }}
+      className={classes.container}
     >
       <Tabs
         value={selectedTab}
@@ -65,6 +69,7 @@ export const ManageGroupTabs: React.FC<ManageGroupsTabsProps> =
         index={selectedTab}
         onChangeIndex={(index: number) => setSelectedTab(index)}
         className={classes.tabContent}
+        containerStyle={{height: '100%'}}
       >
         <ManageGroupMembersTab
           className={classes.tabContent}
@@ -72,15 +77,13 @@ export const ManageGroupTabs: React.FC<ManageGroupsTabsProps> =
           group={props.group}
         />
         {
-          /*
-                  <TabPanel
-          visible={selectedTab === 1}
-          id='group-tabpanel-cars'
-          aria-labelledby='group-tab-cars'
-        >
-          <Typography>CARS</Typography>
-        </TabPanel>
-          */
+          <TabPanel
+            visible={selectedTab === 1}
+            id='group-tabpanel-cars'
+            aria-labelledby='group-tab-cars'
+          >
+            <Typography>CARS</Typography>
+          </TabPanel>
         }
       </SwipeableView>
     </Paper>
