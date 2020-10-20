@@ -27,6 +27,9 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
+/**
+ * Invites modal for managing invites of user.
+ */
 export const Invites: React.FC = () => {
   const {invites, refresh, deleteInvite, acceptInvite} = useInvites();
   const {t} = useTranslation();
