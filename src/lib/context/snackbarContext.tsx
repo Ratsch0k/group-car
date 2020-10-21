@@ -8,6 +8,9 @@ import {Alert} from '@material-ui/lab';
 import React, {useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 
+/**
+ * Types of snackbars.
+ */
 export type SnackbarType = 'success' | 'warning' | 'error' | 'info';
 export interface ShowOptions {
   type: SnackbarType;
@@ -25,11 +28,18 @@ export interface SnackbarContext {
   show: Show;
 }
 
+/**
+ * Default SnackbarContext.
+ */
 export const SnackbarContext = React.createContext<SnackbarContext>({
   show: () => undefined,
 });
 SnackbarContext.displayName = 'SnackbarContext';
 
+/**
+ * Provider for the SnackbarContext.
+ * @param props Props
+ */
 export const SnackbarProvider: React.FC = (props) => {
   const [queue, setQueue] = useState<ShowOptions[]>([]);
   const [open, setOpen] = useState<boolean>(false);
