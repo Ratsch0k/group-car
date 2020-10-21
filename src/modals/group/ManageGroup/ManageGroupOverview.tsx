@@ -2,26 +2,33 @@ import React, {useEffect, useRef} from 'react';
 import {GroupWithOwnerAndMembersAndInvites} from 'lib';
 import ManageGroupOverviewInfo from './ManageGroupGroupInfo';
 import ManageGroupTabs from './ManageGroupTabs';
-import {makeStyles, useMediaQuery, useTheme} from '@material-ui/core';
+import {
+  createStyles,
+  makeStyles,
+  Theme,
+  useMediaQuery,
+  useTheme,
+} from '@material-ui/core';
+import ManageGroupActions from './ManageGroupActions';
 
 export interface ManageGroupOverviewProps {
   group: GroupWithOwnerAndMembersAndInvites;
 }
 
-const useStyles = makeStyles({
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100%',
-    minHeight: '400px',
-  },
-  overview: {
-    flex: 'none',
-  },
-  tabsDesktop: {
-    height: '400px',
-  },
-});
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    container: {
+      height: '100%',
+      minHeight: '400px',
+    },
+    tabsDesktop: {
+      height: '400px',
+    },
+    footer: {
+      marginTop: theme.spacing(1),
+    },
+  }),
+);
 
 /**
  * Overview over the specified group.
@@ -35,15 +42,21 @@ export const ManageGroupOverview: React.FC<ManageGroupOverviewProps> =
   const containerRef = useRef<HTMLDivElement>(null);
   const overviewRef = useRef<HTMLDivElement>(null);
   const tabsRef = useRef<HTMLDivElement>(null);
+  const actionsRef = useRef<HTMLDivElement>(null);
   const animationFrameId = useRef<number>(0);
 
   const animate = () => {
     return window.requestAnimationFrame(() => {
-      const containerHeight = containerRef.current?.clientHeight;
-      const overviewHeight = overviewRef.current?.clientHeight;
+      const containerHeight = containerRef.current?.clientHeight || 400;
+      const overviewHeight = overviewRef.current?.clientHeight || 0;
+      const actionsHeight = actionsRef.current?.clientHeight || 0;
 
-      if (containerHeight && overviewHeight && tabsRef.current) {
-        tabsRef.current.style.height = containerHeight - overviewHeight + 'px';
+      if (tabsRef.current) {
+        tabsRef.current.style.height = containerHeight -
+            overviewHeight -
+            actionsHeight -
+            13 +
+            'px';
       }
     });
   };
@@ -76,7 +89,6 @@ export const ManageGroupOverview: React.FC<ManageGroupOverviewProps> =
       ref={containerRef}
     >
       <div
-        className={classes.overview}
         ref={overviewRef}
       >
         <ManageGroupOverviewInfo group={group}/>
@@ -86,6 +98,12 @@ export const ManageGroupOverview: React.FC<ManageGroupOverviewProps> =
         ref={tabsRef}
       >
         <ManageGroupTabs group={group}/>
+      </div>
+      <div
+        ref={actionsRef}
+        className={classes.footer}
+      >
+        <ManageGroupActions group={group} />
       </div>
     </div>
   );

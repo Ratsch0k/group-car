@@ -1,7 +1,7 @@
 import React from 'react';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import {makeStyles} from '@material-ui/styles';
-import {Avatar} from '@material-ui/core';
+import {Avatar, useMediaQuery, useTheme} from '@material-ui/core';
 
 interface AvatarProps {
   userId?: number;
@@ -25,6 +25,8 @@ const avatarDims: UserAvatarDim = {
 
 export const UserAvatar: React.FC<AvatarProps> = (props: AvatarProps) => {
   const {userId, size} = props;
+  const theme = useTheme();
+  const smallerXs = useMediaQuery(theme.breakpoints.down('sm'));
 
   // Depending on size in props change width and height
   let dim;
@@ -61,7 +63,10 @@ export const UserAvatar: React.FC<AvatarProps> = (props: AvatarProps) => {
     );
   } else {
     return (
-      <AccountCircleIcon className={classes.icon} />
+      <AccountCircleIcon
+        className={classes.icon}
+        fontSize={smallerXs ? 'small' : 'large'}
+      />
     );
   }
 };

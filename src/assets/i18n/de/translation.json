@@ -68,7 +68,8 @@
           "cars": {
             "title": "Autos"
           }
-        }
+        },
+        "leaveGroup": "Verlasse die Gruppe"
       }
     },
     "invites": {

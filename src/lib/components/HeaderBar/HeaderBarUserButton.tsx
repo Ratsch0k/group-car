@@ -7,15 +7,33 @@ import {
   Paper,
   Badge,
   Box,
+  useTheme,
+  useMediaQuery,
+  Theme,
 } from '@material-ui/core';
 import UserAvatar from '../UserAvatar';
 import UserOverview from '../UserOverview/UserOverview';
 import {AuthContext, InvitesContext} from 'lib';
+import {createStyles, makeStyles} from '@material-ui/styles';
+import clsx from 'clsx';
+
+/**
+ * Styles.
+ */
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    smallIconButton: {
+      padding: theme.spacing(1),
+    },
+  }),
+);
 
 export const HeaderBarUserButton: React.FC = () => {
   const auth = useContext(AuthContext);
   const {openAuthDialog} = useContext(AuthContext);
-
+  const theme = useTheme();
+  const smallerXs = useMediaQuery(theme.breakpoints.down('xs'));
+  const classes = useStyles();
   const [userId, setUserId] = useState<number>();
   const [anchor, setAnchor] =
       useState<HTMLElement | null>(null);
@@ -60,7 +78,11 @@ export const HeaderBarUserButton: React.FC = () => {
       onClickAway={handleClose}
     >
       <Box>
-        <IconButton color='inherit' onClick={handleClick}>
+        <IconButton
+          color='inherit'
+          onClick={handleClick}
+          className={clsx({[classes.smallIconButton]: smallerXs})}
+        >
           <InvitesContext.Consumer>
             {
               ({invites}) =>
@@ -72,6 +94,7 @@ export const HeaderBarUserButton: React.FC = () => {
                 >
                   <UserAvatar
                     userId={userId}
+                    size={smallerXs ? 'small' : 'medium'}
                   />
                 </Badge>
             }
