@@ -18,7 +18,7 @@ exports[`renders without userId 1`] = `
 <div>
   <svg
     aria-hidden="true"
-    class="MuiSvgIcon-root makeStyles-icon-2"
+    class="MuiSvgIcon-root makeStyles-icon-2 MuiSvgIcon-fontSizeLarge"
     focusable="false"
     viewBox="0 0 24 24"
   >
