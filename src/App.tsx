@@ -8,33 +8,34 @@ import {
   ModalRouter,
   AxiosProvider,
   ApiProvider,
-  AxiosErrorHandler,
   InvitesProvider,
 } from 'lib';
 import ModalRoutes from 'modals';
 import GroupProvider from 'lib/context/groupContext';
+import SnackbarProvider from 'lib/context/snackbarContext';
 
 const App: React.FC = () => {
   return (
-    <AxiosProvider>
-      <ApiProvider>
-        <ThemeProvider theme={theme}>
-          <BrowserRouter>
-            <ModalRouter>
-              <AuthProvider>
-                <GroupProvider>
-                  <InvitesProvider>
-                    <GroupCar />
-                    <ModalRoutes />
-                    <AxiosErrorHandler />
-                  </InvitesProvider>
-                </GroupProvider>
-              </AuthProvider>
-            </ModalRouter>
-          </BrowserRouter>
-        </ThemeProvider>
-      </ApiProvider>
-    </AxiosProvider>
+    <ThemeProvider theme={theme}>
+      <SnackbarProvider>
+        <AxiosProvider>
+          <ApiProvider>
+            <BrowserRouter>
+              <ModalRouter>
+                <AuthProvider>
+                  <GroupProvider>
+                    <InvitesProvider>
+                      <GroupCar />
+                      <ModalRoutes />
+                    </InvitesProvider>
+                  </GroupProvider>
+                </AuthProvider>
+              </ModalRouter>
+            </BrowserRouter>
+          </ApiProvider>
+        </AxiosProvider>
+      </SnackbarProvider>
+    </ThemeProvider>
   );
 };
 

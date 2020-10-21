@@ -69,7 +69,8 @@
             "title": "Autos"
           }
         },
-        "leaveGroup": "Verlasse die Gruppe"
+        "leaveGroup": "Verlasse die Gruppe",
+        "leaveGroupSuccess": "Erfolgreich die Gruppe verlassen"
       }
     },
     "invites": {
@@ -85,7 +86,8 @@
     "you": "Du",
     "invitedBy": "Eingeladen von {{by}}",
     "accept": "Akzeptieren",
-    "delete": "Löschen"
+    "delete": "Löschen",
+    "close": "Schließen"
   },
   "imprint": {
     "title": "Impressum"

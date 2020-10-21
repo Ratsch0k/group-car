@@ -68,7 +68,8 @@
           }
         }
       },
-      "leaveGroup": "Leave the group"
+      "leaveGroup": "Leave the group",
+      "leaveGroupSuccess": "Successfully left the group"
     },
     "invites": {
       "title": "Invites",
@@ -83,7 +84,8 @@
     "you": "You",
     "invitedBy": "Invited by {{by}}",
     "accept": "Accept",
-    "delete": "Delete"
+    "delete": "Delete",
+    "close": "Close"
   },
   "imprint": {
     "title": "Imprint"

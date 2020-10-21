@@ -1,6 +1,6 @@
 import {red} from '@material-ui/core/colors';
 import {makeStyles} from '@material-ui/styles';
-import {ProgressButton, useGroups, useModalRouter} from 'lib';
+import {ProgressButton, useGroups, useModalRouter, useSnackBar} from 'lib';
 import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
 
@@ -33,12 +33,14 @@ export const ManageGroupLeaveAction: React.FC<ManageGroupLeaveActionProps> =
   const [loading, setLoading] = useState<boolean>(false);
   const {groupId} = props;
   const {close} = useModalRouter();
+  const {show} = useSnackBar();
 
   const handleClick = async () => {
     setLoading(true);
     try {
       await leaveGroup(groupId);
       setLoading(false);
+      show('success', t('modals.group.manage.leaveGroupSuccess'));
       close();
     } catch {
       setLoading(false);
