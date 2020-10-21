@@ -69,8 +69,14 @@
             "title": "Autos"
           }
         },
-        "leaveGroup": "Verlasse die Gruppe",
-        "leaveGroupSuccess": "Erfolgreich die Gruppe verlassen"
+        "leaveGroup": {
+          "button": "Gruppe verlassen",
+          "success": "Erfolgreich verlassen",
+          "dialog": {
+            "title": "Austreten",
+            "content": "Bist du sicher dass du die Gruppe verlassen willst?"
+          }
+        }
       }
     },
     "invites": {
@@ -87,7 +93,9 @@
     "invitedBy": "Eingeladen von {{by}}",
     "accept": "Akzeptieren",
     "delete": "Löschen",
-    "close": "Schließen"
+    "close": "Schließen",
+    "yes": "Ja",
+    "no": "Nein"
   },
   "imprint": {
     "title": "Impressum"

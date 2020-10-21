@@ -68,8 +68,14 @@
           }
         }
       },
-      "leaveGroup": "Leave the group",
-      "leaveGroupSuccess": "Successfully left the group"
+      "leaveGroup": {
+        "button": "Leave the group",
+        "success": "Successfully left the group",
+        "dialog": {
+          "title": "Leave",
+          "content": "Are you sure you want to leave the group?"
+        }
+      }
     },
     "invites": {
       "title": "Invites",
@@ -85,7 +91,9 @@
     "invitedBy": "Invited by {{by}}",
     "accept": "Accept",
     "delete": "Delete",
-    "close": "Close"
+    "close": "Close",
+    "yes": "Yes",
+    "no": "No"
   },
   "imprint": {
     "title": "Imprint"
