@@ -11,10 +11,19 @@ import {
 } from '@material-ui/core';
 import ManageGroupActions from './ManageGroupActions';
 
+/**
+ * Props for the ManageGroupOverview.
+ */
 export interface ManageGroupOverviewProps {
+  /**
+   * The displayed group.
+   */
   group: GroupWithOwnerAndMembersAndInvites;
 }
 
+/**
+ * Styles.
+ */
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     container: {
@@ -32,6 +41,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 /**
  * Overview over the specified group.
+ * @props Props
  */
 export const ManageGroupOverview: React.FC<ManageGroupOverviewProps> =
 (props: ManageGroupOverviewProps) => {

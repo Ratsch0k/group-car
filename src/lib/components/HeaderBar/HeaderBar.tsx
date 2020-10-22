@@ -11,6 +11,9 @@ import HeaderBarUserButton from './HeaderBarUserButton';
 import {GroupCarTheme} from 'lib';
 import clsx from 'clsx';
 
+/**
+ * Styles.
+ */
 const useStyles = makeStyles((theme: GroupCarTheme) =>
   createStyles({
     root: {
@@ -29,11 +32,24 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
   }),
 );
 
+/**
+ * Props for the header bar.
+ */
 interface HeaderBarProps {
+  /**
+   * Callback to open the drawer.
+   */
   openDrawer(): void;
+  /**
+   * Whether or not to show a button to open the drawer.
+   */
   noMenuButton: boolean;
 }
 
+/**
+ * HeaderBar component.
+ * @param props Props.
+ */
 export const HeaderBar: React.FC<HeaderBarProps> = (props: HeaderBarProps) => {
   const classes = useStyles();
   const theme = useTheme();

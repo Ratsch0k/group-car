@@ -28,6 +28,11 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
+/**
+ * UserButton for the HeaderBar.
+ * If the user is not logged in it opens the authentication dialog.
+ * If the user is logged in it opens the UserOverview.
+ */
 export const HeaderBarUserButton: React.FC = () => {
   const auth = useContext(AuthContext);
   const {openAuthDialog} = useContext(AuthContext);

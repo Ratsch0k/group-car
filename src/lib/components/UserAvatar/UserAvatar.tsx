@@ -3,8 +3,17 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import {makeStyles} from '@material-ui/styles';
 import {Avatar, useMediaQuery, useTheme} from '@material-ui/core';
 
+/**
+ * Props for the UserAvatar.
+ */
 interface AvatarProps {
+  /**
+   * Id of the user.
+   */
   userId?: number;
+  /**
+   * Size of the icon.
+   */
   size?: 'small' | 'medium' | 'large' | number;
 }
 
@@ -23,6 +32,12 @@ const avatarDims: UserAvatarDim = {
   large: 50,
 };
 
+/**
+ * UserAvatar component.
+ * If the user is logged in it will display the avatar
+ * if the user, if not an icon will be displayed.
+ * @param props Props
+ */
 export const UserAvatar: React.FC<AvatarProps> = (props: AvatarProps) => {
   const {userId, size} = props;
   const theme = useTheme();
