@@ -5,3 +5,4 @@ export * from './getGroup';
 export * from './inviteUser';
 export * from './getInvites';
 export * from './getMembers';
+export * from './leaveGroup';

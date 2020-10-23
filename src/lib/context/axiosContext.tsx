@@ -1,4 +1,5 @@
-import axios, {AxiosInstance} from 'axios';
+import axios, {AxiosError, AxiosInstance} from 'axios';
+import {RestError, useSnackBar} from 'lib';
 import React from 'react';
 
 /**
@@ -25,6 +26,7 @@ AxiosContext.displayName = 'AxiosContext';
  */
 export const AxiosProvider: React.FC = (props) => {
   const csrfSource = axios.CancelToken.source();
+  const {show} = useSnackBar();
 
   const axiosPromise = axios.head('/auth', {
     cancelToken: csrfSource.token,
@@ -40,6 +42,20 @@ export const AxiosProvider: React.FC = (props) => {
         'xsrf-token': csrf,
       },
     });
+
+    axiosInstance.interceptors.response.use(
+        (res) => res,
+        (e: AxiosError<RestError>) => {
+          if (e.response && !e.response.config.url?.includes('/auth/token')) {
+            show({
+              type: 'error',
+              content: e.response?.data.message,
+              withClose: true,
+            });
+          }
+
+          return Promise.reject(e);
+        });
 
     return axiosInstance;
   });

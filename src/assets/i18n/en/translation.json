@@ -67,6 +67,14 @@
             "title": "Cars"
           }
         }
+      },
+      "leaveGroup": {
+        "button": "Leave the group",
+        "success": "Successfully left the group",
+        "dialog": {
+          "title": "Leave",
+          "content": "Are you sure you want to leave the group?"
+        }
       }
     },
     "invites": {
@@ -82,7 +90,10 @@
     "you": "You",
     "invitedBy": "Invited by {{by}}",
     "accept": "Accept",
-    "delete": "Delete"
+    "delete": "Delete",
+    "close": "Close",
+    "yes": "Yes",
+    "no": "No"
   },
   "imprint": {
     "title": "Imprint"

@@ -1,4 +1,4 @@
-import { acceptInvite, InvitesContext, InviteWithGroupAndInviteSender, ModalContext, theme } from "../../lib";
+import { InvitesContext, InviteWithGroupAndInviteSender, ModalContext, theme } from "../../lib";
 import {fireEvent, render, screen, waitFor} from '@testing-library/react';
 import { ThemeProvider } from "@material-ui/core";
 import React from "react";

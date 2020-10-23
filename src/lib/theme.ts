@@ -1,4 +1,5 @@
 import {createMuiTheme} from '@material-ui/core';
+import {green, orange} from '@material-ui/core/colors';
 
 type Theme = import('@material-ui/core').Theme;
 type ThemeOptions = import('@material-ui/core').ThemeOptions;
@@ -29,6 +30,18 @@ export const theme = createMuiTheme({
       main: '#AD00D8',
       light: '#ECA1FF',
       dark: '#8900AB',
+      contrastText: '#FFFFFF',
+    },
+    success: {
+      main: green['500'],
+      light: green['300'],
+      dark: green['800'],
+      contrastText: '#FFFFFF',
+    },
+    warning: {
+      main: orange['500'],
+      light: orange['300'],
+      dark: orange['800'],
       contrastText: '#FFFFFF',
     },
   },

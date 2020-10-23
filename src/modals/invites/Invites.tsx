@@ -66,7 +66,7 @@ export const Invites: React.FC = () => {
   } else {
     content = (
       <Box className={classes.emptyContainer}>
-        <Typography color='textSecondary'>
+        <Typography color='textSecondary' align='center'>
           {t('modals.invites.empty')}
         </Typography>
       </Box>

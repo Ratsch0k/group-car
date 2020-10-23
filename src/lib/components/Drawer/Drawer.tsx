@@ -21,7 +21,8 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
       flexShrink: 0,
     },
     drawerPaper: {
-      width: theme.shape.drawerWidth,
+      maxWidth: theme.shape.drawerWidth,
+      width: '100%',
     },
     drawerPermanent: {
       zIndex: theme.zIndex.appBar - 1,
@@ -47,6 +48,7 @@ export const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
   const {open, onClose, permanent} = props;
   const classes = useStyles();
   const {isLoggedIn} = useContext(AuthContext);
+
 
   return (
     <MatDrawer

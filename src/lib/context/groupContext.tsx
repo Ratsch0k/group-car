@@ -62,6 +62,11 @@ export interface GroupContext {
    * Invites the specified user to the specified group.
    */
   inviteUser: Api['inviteUser'];
+
+  /**
+   * Leave the specified group.
+   */
+  leaveGroup: Api['leaveGroup'];
 }
 
 /**
@@ -77,6 +82,7 @@ export const GroupContext = React.createContext<GroupContext>({
   createGroup: () => Promise.reject(new Error('Not defined yet')),
   getGroup: () => Promise.reject(new Error('Not defined yet')),
   inviteUser: () => Promise.reject(new Error('Not defined yet')),
+  leaveGroup: () => Promise.reject(new Error('Not defined yet')),
 });
 GroupContext.displayName = 'GroupContext';
 
@@ -100,6 +106,7 @@ export const GroupProvider: React.FC = (props) => {
     createGroup: createGroupApi,
     getGroup: getGroupApi,
     inviteUser,
+    leaveGroup: leaveGroupApi,
   } = useApi();
   const [groups, setGroups] = useStateIfMounted<GroupContext['groups']>([]);
   const [selectedGroup, setSelectedGroup] =
@@ -182,6 +189,16 @@ export const GroupProvider: React.FC = (props) => {
     return getGroupResponse;
   };
 
+  const leaveGroup: GroupContext['leaveGroup'] = async (id) => {
+    const res = await leaveGroupApi(id);
+    if (id === selectedGroup?.id) {
+      setSelectedGroup(null);
+      setGroups((prev) => prev.filter((group) => group.id !== id));
+    }
+
+    return res;
+  };
+
   return (
     <GroupContext.Provider value={{
       groups,
@@ -191,6 +208,7 @@ export const GroupProvider: React.FC = (props) => {
       createGroup,
       getGroup,
       inviteUser,
+      leaveGroup,
     }}>
       {props.children}
     </GroupContext.Provider>

@@ -68,6 +68,14 @@
           "cars": {
             "title": "Autos"
           }
+        },
+        "leaveGroup": {
+          "button": "Gruppe verlassen",
+          "success": "Erfolgreich verlassen",
+          "dialog": {
+            "title": "Austreten",
+            "content": "Bist du sicher dass du die Gruppe verlassen willst?"
+          }
         }
       }
     },
@@ -84,7 +92,10 @@
     "you": "Du",
     "invitedBy": "Eingeladen von {{by}}",
     "accept": "Akzeptieren",
-    "delete": "Löschen"
+    "delete": "Löschen",
+    "close": "Schließen",
+    "yes": "Ja",
+    "no": "Nein"
   },
   "imprint": {
     "title": "Impressum"
