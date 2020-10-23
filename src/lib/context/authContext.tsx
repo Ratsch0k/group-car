@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {
   LoginRequest,
   LogOutRequest,
+  NotDefinedError,
   SignUpRequest,
   User,
 } from 'lib';
@@ -34,9 +35,9 @@ export interface AuthContext {
 }
 
 export const AuthContext = React.createContext<AuthContext>({
-  login: () => Promise.reject(new Error('Not yet defined')),
-  logout: () => Promise.reject(new Error('Not yet defined')),
-  signUp: () => Promise.reject(new Error('Not yet defined')),
+  login: () => Promise.reject(new NotDefinedError()),
+  logout: () => Promise.reject(new NotDefinedError()),
+  signUp: () => Promise.reject(new NotDefinedError()),
   user: undefined,
   isLoggedIn: false,
   openAuthDialog: () => undefined,

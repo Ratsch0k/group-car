@@ -6,3 +6,4 @@ export * from '../pages/Routes';
 export * from './context';
 export * from './hooks';
 export * from './formik.d';
+export * from './errors';

@@ -5,6 +5,7 @@ import {
   Api,
   AuthContext,
   GroupWithOwner,
+  NotDefinedError,
 } from 'lib';
 
 /**
@@ -67,6 +68,11 @@ export interface GroupContext {
    * Leave the specified group.
    */
   leaveGroup: Api['leaveGroup'];
+
+  /**
+   * Deletes the specified group.
+   */
+  deleteGroup: Api['deleteGroup'];
 }
 
 /**
@@ -78,11 +84,12 @@ export const GroupContext = React.createContext<GroupContext>({
   selectedGroup: null,
   groups: [],
   selectGroup: () => undefined,
-  update: () => Promise.reject(new Error('Not defined yet')),
-  createGroup: () => Promise.reject(new Error('Not defined yet')),
-  getGroup: () => Promise.reject(new Error('Not defined yet')),
-  inviteUser: () => Promise.reject(new Error('Not defined yet')),
-  leaveGroup: () => Promise.reject(new Error('Not defined yet')),
+  update: () => Promise.reject(new NotDefinedError()),
+  createGroup: () => Promise.reject(new NotDefinedError()),
+  getGroup: () => Promise.reject(new NotDefinedError()),
+  inviteUser: () => Promise.reject(new NotDefinedError()),
+  leaveGroup: () => Promise.reject(new NotDefinedError()),
+  deleteGroup: () => Promise.reject(new NotDefinedError()),
 });
 GroupContext.displayName = 'GroupContext';
 
@@ -107,6 +114,7 @@ export const GroupProvider: React.FC = (props) => {
     getGroup: getGroupApi,
     inviteUser,
     leaveGroup: leaveGroupApi,
+    deleteGroup: deleteGroupApi,
   } = useApi();
   const [groups, setGroups] = useStateIfMounted<GroupContext['groups']>([]);
   const [selectedGroup, setSelectedGroup] =
@@ -193,9 +201,18 @@ export const GroupProvider: React.FC = (props) => {
     const res = await leaveGroupApi(id);
     if (id === selectedGroup?.id) {
       setSelectedGroup(null);
-      setGroups((prev) => prev.filter((group) => group.id !== id));
     }
+    setGroups((prev) => prev.filter((group) => group.id !== id));
 
+    return res;
+  };
+
+  const deleteGroup: GroupContext['deleteGroup'] = async (id) => {
+    const res = await deleteGroupApi(id);
+    if (id === selectedGroup?.id) {
+      setSelectedGroup(null);
+    }
+    setGroups((prev) => prev.filter((group) => group.id !== id));
     return res;
   };
 
@@ -209,6 +226,7 @@ export const GroupProvider: React.FC = (props) => {
       getGroup,
       inviteUser,
       leaveGroup,
+      deleteGroup,
     }}>
       {props.children}
     </GroupContext.Provider>

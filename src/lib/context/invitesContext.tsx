@@ -1,5 +1,10 @@
-import {useApi, InviteWithGroupAndInviteSender, useAuth} from 'lib';
-import {useGroups} from 'lib/hooks';
+import {
+  useApi,
+  InviteWithGroupAndInviteSender,
+  useAuth,
+  NotDefinedError,
+  useGroups,
+} from 'lib';
 import React, {useEffect, useState} from 'react';
 
 export interface InvitesContext {
@@ -25,9 +30,9 @@ export interface InvitesContext {
 
 export const InvitesContext = React.createContext<InvitesContext>({
   invites: [],
-  refresh: () => Promise.reject(new Error('Not yet defined')),
-  deleteInvite: () => Promise.reject(new Error('Not yet defined')),
-  acceptInvite: () => Promise.reject(new Error('Not yet defined')),
+  refresh: () => Promise.reject(new NotDefinedError()),
+  deleteInvite: () => Promise.reject(new NotDefinedError()),
+  acceptInvite: () => Promise.reject(new NotDefinedError()),
 });
 InvitesContext.displayName = 'InvitesContext';
 
