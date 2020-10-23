@@ -1,6 +1,7 @@
 import {Box} from '@material-ui/core';
 import {GroupWithOwnerAndMembersAndInvites, useAuth} from 'lib';
 import React from 'react';
+import ManageGroupDeleteAction from './ManageGroupDeleteAction';
 import ManageGroupLeaveAction from './ManageGroupLeaveAction';
 
 /**
@@ -26,7 +27,7 @@ export const ManageGroupActions: React.FC<ManageGroupActionsProps> =
 
   let content: JSX.Element;
   if (user?.id === group.ownerId) {
-    content = <div></div>;
+    content = <ManageGroupDeleteAction groupId={group.id} />;
   } else {
     content = <ManageGroupLeaveAction groupId={group.id} />;
   }
