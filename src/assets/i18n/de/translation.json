@@ -76,6 +76,14 @@
             "title": "Austreten",
             "content": "Bist du sicher dass du die Gruppe verlassen willst?"
           }
+        },
+        "deleteGroup": {
+          "button": "Gruppe löschen",
+          "success": "Die Gruppe wurde erfolgreich gelöscht",
+          "dialog": {
+            "title": "Gruppe löschen",
+            "content": "Bist du dir sicher dass du diese Gruppe löschen willst?\nFalls du die Gruppe nur verlassen willst, dann kannst du deinen Besitz an ein Mitglied übertragen und dann die Gruppe verlassen."
+          }
         }
       }
     },

@@ -27,6 +27,9 @@ const useStyles = makeStyles({
     color: red['700'],
     borderColor: red['700'],
   },
+  contentText: {
+    whiteSpace: 'pre-line',
+  },
 });
 
 /**
@@ -44,6 +47,7 @@ export const ManageGroupDeleteAction: React.FC<ManageGroupDeleteActionProps> =
   const [open, setOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
 
+
   const handleClick = () => {
     setOpen(true);
   };
@@ -53,10 +57,14 @@ export const ManageGroupDeleteAction: React.FC<ManageGroupDeleteActionProps> =
     console.log(typeof groupId);
     await deleteGroup(groupId);
     show({
-      content: t('modals.manage.deleteGroup.success'),
+      content: t('modals.group.manage.deleteGroup.success'),
       type: 'success',
     });
     close();
+  };
+
+  const handleNo = () => {
+    setOpen(false);
   };
 
   return (
@@ -74,13 +82,13 @@ export const ManageGroupDeleteAction: React.FC<ManageGroupDeleteActionProps> =
           {t('modals.group.manage.deleteGroup.dialog.title')}
         </DialogTitle>
         <DialogContent>
-          <DialogContentText>
+          <DialogContentText className={classes.contentText}>
             {t('modals.group.manage.deleteGroup.dialog.content')}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button
-            onClick={() => setOpen(false)}
+            onClick={handleNo}
             disabled={loading}
           >
             {t('misc.no')}
