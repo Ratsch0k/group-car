@@ -6,7 +6,9 @@ import {
   makeStyles,
   TextField,
   Theme,
+  useMediaQuery,
   withStyles,
+  useTheme,
 } from '@material-ui/core';
 import {Autocomplete} from '@material-ui/lab';
 import clsx from 'clsx';
@@ -98,6 +100,7 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
       flexShrink: 1,
       paddingLeft: theme.spacing(2),
+      paddingRight: theme.spacing(1),
     },
     invitingUserButton: {
       flexGrow: 0,
@@ -131,6 +134,8 @@ export const ManageGroupMemberTabSearchUser: React.FC<
   const [possibleUsers, setPossibleUsers] = useState<UserSimple[]>([]);
   const [userToInvite, setUserToInvite] = useState<string>('');
   const [open, setOpen] = useState<boolean>(false);
+  const theme = useTheme();
+  const smallerXs = useMediaQuery(theme.breakpoints.down('xs'));
   const {user} = useAuth();
   const {t} = useTranslation();
 
@@ -264,6 +269,7 @@ export const ManageGroupMemberTabSearchUser: React.FC<
                       disabled={userToInvite.length <= 0}
                       color='inherit'
                       onClick={handleInvite}
+                      size={smallerXs ? 'small' : 'medium'}
                     >
                       <SendIcon />
                     </IconButton>
@@ -272,6 +278,7 @@ export const ManageGroupMemberTabSearchUser: React.FC<
                     <IconButton
                       color='inherit'
                       onClick={() => isInvitingUser && setIsInvitingUser(false)}
+                      size={smallerXs ? 'small' : 'medium'}
                     >
                       <ClearIcon />
                     </IconButton>

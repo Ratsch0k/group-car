@@ -75,6 +75,14 @@
           "title": "Leave",
           "content": "Are you sure you want to leave the group?"
         }
+      },
+      "deleteGroup": {
+        "button": "Delete group",
+        "success": "Successfully delete group",
+        "dialog": {
+          "title": "Delete group",
+          "content": "Are you sure you want to delete this group?\nIf you only want to leave the group, then you could transfer your ownership to another member and then leave the group."
+        }
       }
     },
     "invites": {
