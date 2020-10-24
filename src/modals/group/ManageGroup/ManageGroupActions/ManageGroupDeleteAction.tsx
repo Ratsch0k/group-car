@@ -22,6 +22,9 @@ export interface ManageGroupDeleteActionProps {
   groupId: number;
 }
 
+/**
+ * Styles.
+ */
 const useStyles = makeStyles({
   button: {
     color: red['700'],
@@ -47,14 +50,12 @@ export const ManageGroupDeleteAction: React.FC<ManageGroupDeleteActionProps> =
   const [open, setOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
 
-
   const handleClick = () => {
     setOpen(true);
   };
 
   const handleDelete = async () => {
     setLoading(true);
-    console.log(typeof groupId);
     await deleteGroup(groupId);
     show({
       content: t('modals.group.manage.deleteGroup.success'),
