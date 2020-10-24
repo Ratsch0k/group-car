@@ -32,6 +32,7 @@ describe('GroupProvider', () => {
       getGroups: jest.fn(),
       createGroup: jest.fn(),
       getGroup: jest.fn(),
+      deleteGroup: jest.fn(),
     } as unknown as jest.Mocked<Api>;
   });
 
@@ -381,6 +382,86 @@ it('gets list of groups on first render', async () => {
       expect(fakeApi.getGroup).toHaveBeenCalledWith(changedGroup.id);
       expect(groupContext.groups[0]).toEqual(changedGroup);
       expect(groupContext.selectedGroup).toEqual(changedGroup);
+    });
+  });
+
+  describe('deleteGroup', () => {
+    it('sends request, deletes group und unsets selectedGroup', async () => {
+      fakeApi.getGroups.mockResolvedValue({data: {groups}});
+      fakeApi.deleteGroup.mockResolvedValue({data: undefined});
+
+      let groupContext: GroupContext;
+  
+      render(
+        <ApiContext.Provider value={fakeApi as unknown as Api}>
+          <AuthContext.Provider value={{user: fakeUser} as unknown as AuthContext}>
+            <GroupProvider>
+              <GroupContext.Consumer>
+                {(context) => {
+                  groupContext = context;
+                  return (
+                    <div>
+                      {JSON.stringify(context)}
+                    </div>
+                  );
+                }}
+              </GroupContext.Consumer>
+            </GroupProvider>
+          </AuthContext.Provider>
+        </ApiContext.Provider>
+      );
+
+      await waitFor(() => expect(fakeApi.getGroups).toHaveBeenCalledTimes(1));
+
+      const groupToDelete = groups[0];
+      // Select group which will be unset
+      groupContext.selectGroup(groupToDelete.id);
+
+      // Get that group and check if selected group is updated
+      await groupContext.deleteGroup(groupToDelete.id);
+      expect(fakeApi.deleteGroup).toBeCalledTimes(1);
+      expect(fakeApi.deleteGroup).toBeCalledWith(groupToDelete.id);
+      expect(groupContext.selectedGroup).toBeNull();
+      expect(groupContext.groups).toHaveLength(groups.length - 1);
+      expect(groupContext.groups).not.toContain(groups[0]);
+    });
+
+    it('doesn\'t unset selected group if it\'s not the deleted one', async () => {
+      fakeApi.getGroups.mockResolvedValue({data: {groups}});
+      fakeApi.deleteGroup.mockResolvedValue({data: undefined});
+
+      let groupContext: GroupContext;
+  
+      render(
+        <ApiContext.Provider value={fakeApi as unknown as Api}>
+          <AuthContext.Provider value={{user: fakeUser} as unknown as AuthContext}>
+            <GroupProvider>
+              <GroupContext.Consumer>
+                {(context) => {
+                  groupContext = context;
+                  return (
+                    <div>
+                      {JSON.stringify(context)}
+                    </div>
+                  );
+                }}
+              </GroupContext.Consumer>
+            </GroupProvider>
+          </AuthContext.Provider>
+        </ApiContext.Provider>
+      );
+
+      await waitFor(() => expect(fakeApi.getGroups).toHaveBeenCalledTimes(1));
+
+      const groupToDelete = groups[0];
+      // Select group which will be unset
+      groupContext.selectGroup(groups[1].id);
+
+      // Get that group and check if selected group is updated
+      await groupContext.deleteGroup(groupToDelete.id);
+      expect(fakeApi.deleteGroup).toBeCalledTimes(1);
+      expect(fakeApi.deleteGroup).toBeCalledWith(groupToDelete.id);
+      expect(groupContext.selectedGroup).toBe(groups[1]);
     });
   });
 });
