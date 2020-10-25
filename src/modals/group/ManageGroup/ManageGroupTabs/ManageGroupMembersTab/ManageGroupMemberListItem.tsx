@@ -61,14 +61,29 @@ export const ManageGroupMemberListItem: React.FC<
 ManageGroupMemberListItemProps
 > = (props: ManageGroupMemberListItemProps) => {
   const {t} = useTranslation();
-  const {memberData, isOwner, last, isCurrentUser, group, ...rest} = props;
+  const {
+    memberData: memberDataProps,
+    isOwner,
+    last,
+    isCurrentUser,
+    group,
+    ...rest
+  } = props;
   const {user} = useAuth();
-  const [isAdmin, setIsAdmin] = useState<boolean>(memberData.isAdmin);
+  const [memberData, setMemberData] = useState<Member>(memberDataProps);
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    setIsAdmin(memberData.isAdmin);
-  }, [memberData.isAdmin]);
+    setMemberData(memberDataProps);
+  }, [memberDataProps]);
+
+  /**
+   * Callback to set isAdmin of member data.
+   * @param value Value of to set isAdmin to
+   */
+  const setIsAdmin = (value: boolean) => {
+    setMemberData((prev) => ({...prev, isAdmin: value}));
+  };
 
   return (
     <ListItem
@@ -101,7 +116,7 @@ ManageGroupMemberListItemProps
                 label={t('misc.owner')}/>
             }
             {
-              isAdmin &&
+              memberData.isAdmin &&
               <RoleChip
                 variant='outlined'
                 size='small'

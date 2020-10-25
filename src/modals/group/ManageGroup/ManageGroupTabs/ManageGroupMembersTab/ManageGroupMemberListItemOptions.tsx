@@ -95,6 +95,8 @@ React.FC<ManageGroupMemberListItemOptionsProps> =
         keepMounted
         anchorEl={anchorRef}
         onClose={handleClose}
+        anchorOrigin={{horizontal: 'center', vertical: 'top'}}
+        transformOrigin={{horizontal: 'center', vertical: 'top'}}
       >
         {
           !memberData.isAdmin ?
