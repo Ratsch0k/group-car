@@ -6,7 +6,7 @@ import {
 } from 'lib';
 import React, {useEffect, useState} from 'react';
 import ManageGroupMemberList from './ManageGroupMemberList';
-import {isAdmin as isAdminCheck} from '../../../util';
+import {isAdmin as isAdminCheck} from 'lib/util';
 import ManageGroupMemberTabSearchUser from './ManageGroupMemberTabSearchUser';
 
 /**

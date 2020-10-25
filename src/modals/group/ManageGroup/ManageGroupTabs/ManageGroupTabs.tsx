@@ -4,7 +4,7 @@ import {Paper, Tab, Tabs, Theme, Typography} from '@material-ui/core';
 import {useTranslation} from 'react-i18next';
 import SwipeableView from 'react-swipeable-views';
 import {createStyles, makeStyles} from '@material-ui/styles';
-import ManageGroupMembersTab from './ManageGroupMemberTab';
+import ManageGroupMembersTab from './ManageGroupMembersTab';
 
 /**
  * Props for the group management tabs.

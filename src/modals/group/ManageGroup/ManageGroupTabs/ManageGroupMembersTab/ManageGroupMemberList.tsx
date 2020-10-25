@@ -47,6 +47,7 @@ export const ManageGroupMemberList: React.FC<ManageGroupMemberListProps> =
           last={group.members.length + invites.length === 1}
           isCurrentUser={true}
           isOwner={group.ownerId === user.id}
+          group={group}
         />
       }
       {group.members
@@ -57,6 +58,7 @@ export const ManageGroupMemberList: React.FC<ManageGroupMemberListProps> =
               memberData={member}
               isOwner={group.ownerId === member.User.id}
               last={index === group.members.length + invites.length - 1}
+              group={group}
             />,
           )}
       {invites.map((invite, index) =>

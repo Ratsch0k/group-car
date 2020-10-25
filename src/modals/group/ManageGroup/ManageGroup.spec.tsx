@@ -128,6 +128,41 @@ it('renders group info if group exists', async () => {
   expect(screen.baseElement).toMatchSnapshot();
 });
 
+it('get groupId from route params if not provided as property', async () => {
+  const fakeGroupContext = {
+    getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
+  }
+  const fakeApi = {
+    getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
+    getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+  }
+
+  const screen = render (
+    <ThemeProvider theme={theme}>
+      <MemoryRouter initialEntries={[`/group/manage/${fakeGroup.id}`]}>
+      <ApiContext.Provider value={fakeApi as unknown as Api}>
+          <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
+            <Route path='/group/manage/:groupId'>
+              <ManageGroup />
+            </Route>
+          </GroupContext.Provider>
+        </ApiContext.Provider>
+      </MemoryRouter>
+    </ThemeProvider>
+  );
+
+  await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
+  await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
+  await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
+  expect(fakeGroupContext.getGroup).toHaveBeenCalledWith(fakeGroup.id);
+  expect(fakeApi.getInvitesOfGroup).toHaveBeenLastCalledWith(fakeGroup.id);
+  expect(fakeApi.getMembers).toHaveBeenLastCalledWith(fakeGroup.id);
+
+
+  expect(screen.baseElement).toMatchSnapshot();
+});
+
+
 describe('MemberTab', () => {
   it('renders list of members correctly', async () => {
     // Add more members to fake group data
@@ -234,42 +269,218 @@ describe('MemberTab', () => {
     
     expect(screen.baseElement).toMatchSnapshot();
   });
+
+  describe('options button', () => {
+    describe('will', () => {
+      it('never appear if current user is not an admin', async () => {
+          const member = {id: 13, username: 'MEMBER'};
+
+          // Add more members to fake group data
+          fakeGroup.members.push({User: {id: 12, username: 'ADMIN'}, isAdmin: true});
+          fakeGroup.members.push({User: member, isAdmin: false});
+          const fakeGroupContext = {
+            getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
+          };
+          const fakeApi = {
+            getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
+            getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+          }
+        
+          const screen = render (
+            <ThemeProvider theme={theme}>
+              <MemoryRouter>
+                <AuthContext.Provider value={{user: member as IUser} as AuthContext}>
+                  <ApiContext.Provider value={fakeApi as unknown as Api}>
+                    <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
+                        <ManageGroup groupId={2}/>
+                    </GroupContext.Provider>
+                  </ApiContext.Provider>
+                </AuthContext.Provider>
+              </MemoryRouter>
+            </ThemeProvider>
+          );
+        
+        
+          await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
+          await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
+          await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
+          expect(fakeGroupContext.getGroup).toHaveBeenCalledWith(fakeGroup.id);
+          expect(fakeApi.getInvitesOfGroup).toHaveBeenLastCalledWith(fakeGroup.id);
+          expect(fakeApi.getMembers).toHaveBeenLastCalledWith(fakeGroup.id);
+        
+          expect(screen.baseElement).toMatchSnapshot();
+          expect(screen.baseElement.querySelector(`#member-${fakeGroup.id}-${member.id}-options-button`)).toBeFalsy();
+          expect(screen.baseElement.querySelector(`#member-${fakeGroup.id}-12-options-button`)).toBeFalsy();
+      });
+
+      it('not appear if current user and member is admin', async () => {
+        const admin = {id: 13, username: 'OTHER ADMIN'};
+
+        // Add more members to fake group data
+        fakeGroup.members.push({User: {id: 12, username: 'ADMIN'}, isAdmin: true});
+        fakeGroup.members.push({User: admin, isAdmin: true});
+        const fakeGroupContext = {
+          getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
+        };
+        const fakeApi = {
+          getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
+          getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+        }
+      
+        const screen = render (
+          <ThemeProvider theme={theme}>
+            <MemoryRouter>
+              <AuthContext.Provider value={{user: admin as IUser} as AuthContext}>
+                <ApiContext.Provider value={fakeApi as unknown as Api}>
+                  <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
+                      <ManageGroup groupId={2}/>
+                  </GroupContext.Provider>
+                </ApiContext.Provider>
+              </AuthContext.Provider>
+            </MemoryRouter>
+          </ThemeProvider>
+        );
+      
+      
+        await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
+        await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
+        await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
+        expect(fakeGroupContext.getGroup).toHaveBeenCalledWith(fakeGroup.id);
+        expect(fakeApi.getInvitesOfGroup).toHaveBeenLastCalledWith(fakeGroup.id);
+        expect(fakeApi.getMembers).toHaveBeenLastCalledWith(fakeGroup.id);
+      
+        expect(screen.baseElement).toMatchSnapshot();
+        expect(screen.baseElement.querySelector(`#member-${fakeGroup.id}-${admin.id}-options-button`)).toBeFalsy();
+        expect(screen.baseElement.querySelector(`#member-${fakeGroup.id}-12-options-button`)).toBeFalsy();
+      });
+
+      it('appear if current user is admin and member is not an admin', async () => {
+        const admin = {id: 13, username: 'OTHER ADMIN'};
+
+        // Add more members to fake group data
+        fakeGroup.members.push({User: {id: 12, username: 'MEMBER'}, isAdmin: false});
+        fakeGroup.members.push({User: admin, isAdmin: true});
+        const fakeGroupContext = {
+          getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
+        };
+        const fakeApi = {
+          getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
+          getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+        }
+      
+        const screen = render (
+          <ThemeProvider theme={theme}>
+            <MemoryRouter>
+              <AuthContext.Provider value={{user: admin as IUser} as AuthContext}>
+                <ApiContext.Provider value={fakeApi as unknown as Api}>
+                  <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
+                      <ManageGroup groupId={2}/>
+                  </GroupContext.Provider>
+                </ApiContext.Provider>
+              </AuthContext.Provider>
+            </MemoryRouter>
+          </ThemeProvider>
+        );
+      
+      
+        await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
+        await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
+        await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
+        expect(fakeGroupContext.getGroup).toHaveBeenCalledWith(fakeGroup.id);
+        expect(fakeApi.getInvitesOfGroup).toHaveBeenLastCalledWith(fakeGroup.id);
+        expect(fakeApi.getMembers).toHaveBeenLastCalledWith(fakeGroup.id);
+      
+        expect(screen.baseElement).toMatchSnapshot();
+        expect(screen.baseElement.querySelector(`#member-${fakeGroup.id}-${admin.id}-options-button`)).toBeFalsy();
+        expect(screen.baseElement.querySelector(`#member-${fakeGroup.id}-12-options-button`)).toBeDefined();
+      });
+
+      it('appear if current user is the owner and member is admin or not an admin', async () => {
+        // Add more members to fake group data
+        fakeGroup.members.push({User: {id: 12, username: 'MEMBER'}, isAdmin: false});
+        fakeGroup.members.push({User: {id: 13, username: 'ADMIN'}, isAdmin: true});
+        const fakeGroupContext = {
+          getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
+        };
+        const fakeApi = {
+          getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
+          getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+        }
+      
+        const screen = render (
+          <ThemeProvider theme={theme}>
+            <MemoryRouter>
+              <AuthContext.Provider value={{user: fakeGroup.Owner as IUser} as AuthContext}>
+                <ApiContext.Provider value={fakeApi as unknown as Api}>
+                  <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
+                      <ManageGroup groupId={2}/>
+                  </GroupContext.Provider>
+                </ApiContext.Provider>
+              </AuthContext.Provider>
+            </MemoryRouter>
+          </ThemeProvider>
+        );
+      
+      
+        await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
+        await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
+        await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
+        expect(fakeGroupContext.getGroup).toHaveBeenCalledWith(fakeGroup.id);
+        expect(fakeApi.getInvitesOfGroup).toHaveBeenLastCalledWith(fakeGroup.id);
+        expect(fakeApi.getMembers).toHaveBeenLastCalledWith(fakeGroup.id);
+      
+        expect(screen.baseElement).toMatchSnapshot();
+        expect(screen.baseElement.querySelector(`#member-${fakeGroup.id}-3-options-button`)).toBeDefined();
+        expect(screen.baseElement.querySelector(`#member-${fakeGroup.id}-12-options-button`)).toBeDefined();
+      });
+    });
+    it('click on grant admin sends grant admin request and adds admin badge to member', async () => {
+      // Add more members to fake group data
+      fakeGroup.members.push({User: {id: 13, username: 'MEMBER'}, isAdmin: false});
+      const fakeGroupContext = {
+        getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
+        update: jest.fn().mockResolvedValue(undefined),
+      };
+      const fakeApi = {
+        getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
+        getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+        grantAdmin: jest.fn().mockResolvedValue(undefined),
+      }
+    
+      const screen = render (
+        <ThemeProvider theme={theme}>
+          <MemoryRouter>
+            <AuthContext.Provider value={{user: fakeGroup.Owner as IUser} as AuthContext}>
+              <ApiContext.Provider value={fakeApi as unknown as Api}>
+                <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
+                    <ManageGroup groupId={2}/>
+                </GroupContext.Provider>
+              </ApiContext.Provider>
+            </AuthContext.Provider>
+          </MemoryRouter>
+        </ThemeProvider>
+      );
+    
+    
+      await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
+      await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
+      await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
+      expect(fakeGroupContext.getGroup).toHaveBeenCalledWith(fakeGroup.id);
+      expect(fakeApi.getInvitesOfGroup).toHaveBeenLastCalledWith(fakeGroup.id);
+      expect(fakeApi.getMembers).toHaveBeenLastCalledWith(fakeGroup.id);
+    
+      expect(screen.baseElement).toMatchSnapshot();
+      fireEvent.click(screen.baseElement.querySelector(`#member-${fakeGroup.id}-${fakeGroup.members[1].User.id}-options-button`));
+      expect(screen.baseElement).toMatchSnapshot();
+      fireEvent.click(screen.queryByText('modals.group.manage.tabs.members.options.grantAdmin'));
+      
+      await waitFor(() => expect(fakeApi.grantAdmin).toBeCalledTimes(1));
+      expect(fakeApi.grantAdmin).toBeCalledWith(fakeGroup.id, fakeGroup.members[1].User.id);
+      expect(screen.baseElement).toMatchSnapshot();
+    });
+  });
 });
 
-
-it('get groupId from route params if not provided as property', async () => {
-  const fakeGroupContext = {
-    getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-  }
-  const fakeApi = {
-    getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
-    getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-  }
-
-  const screen = render (
-    <ThemeProvider theme={theme}>
-      <MemoryRouter initialEntries={[`/group/manage/${fakeGroup.id}`]}>
-      <ApiContext.Provider value={fakeApi as unknown as Api}>
-          <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-            <Route path='/group/manage/:groupId'>
-              <ManageGroup />
-            </Route>
-          </GroupContext.Provider>
-        </ApiContext.Provider>
-      </MemoryRouter>
-    </ThemeProvider>
-  );
-
-  await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-  await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-  await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
-  expect(fakeGroupContext.getGroup).toHaveBeenCalledWith(fakeGroup.id);
-  expect(fakeApi.getInvitesOfGroup).toHaveBeenLastCalledWith(fakeGroup.id);
-  expect(fakeApi.getMembers).toHaveBeenLastCalledWith(fakeGroup.id);
-
-
-  expect(screen.baseElement).toMatchSnapshot();
-});
 
 describe('Footer', () => {
   describe('Leave button', () => {
@@ -596,4 +807,4 @@ describe('Footer', () => {
       expect(baseElement).toMatchSnapshot();
     });
   });
-})
+});

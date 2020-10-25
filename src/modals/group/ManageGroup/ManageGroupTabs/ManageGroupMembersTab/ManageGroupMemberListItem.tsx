@@ -3,14 +3,18 @@ import {
   ListItem,
   ListItemAvatar,
   ListItemProps,
+  ListItemSecondaryAction,
   ListItemText,
   Typography,
 } from '@material-ui/core';
 import {withStyles} from '@material-ui/styles';
-import {Member} from 'lib';
+import {GroupWithOwnerAndMembersAndInvites, Member, useAuth} from 'lib';
 import UserAvatar from 'lib/components/UserAvatar';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
+import {isAdmin as checkIfAdmin} from 'lib/util';
+import ManageGroupMemberListItemOptions from
+  './ManageGroupMemberListItemOptions';
 
 /**
  * Props for a member list tile.
@@ -33,6 +37,10 @@ export interface ManageGroupMemberListItemProps extends ListItemProps {
    * The username is replaced by the translation for `you`.
    */
   isCurrentUser?: boolean;
+  /**
+   * The shown group.
+   */
+  group: GroupWithOwnerAndMembersAndInvites;
 }
 
 /**
@@ -53,10 +61,21 @@ export const ManageGroupMemberListItem: React.FC<
 ManageGroupMemberListItemProps
 > = (props: ManageGroupMemberListItemProps) => {
   const {t} = useTranslation();
-  const {memberData, isOwner, last, isCurrentUser, ...rest} = props;
+  const {memberData, isOwner, last, isCurrentUser, group, ...rest} = props;
+  const {user} = useAuth();
+  const [isAdmin, setIsAdmin] = useState<boolean>(memberData.isAdmin);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsAdmin(memberData.isAdmin);
+  }, [memberData.isAdmin]);
 
   return (
-    <ListItem divider={!last} {...rest as unknown}>
+    <ListItem
+      divider={!last}
+      disabled={loading}
+      {...rest as unknown}
+    >
       <ListItemAvatar>
         <UserAvatar userId={memberData.User.id}/>
       </ListItemAvatar>
@@ -82,7 +101,7 @@ ManageGroupMemberListItemProps
                 label={t('misc.owner')}/>
             }
             {
-              memberData.isAdmin &&
+              isAdmin &&
               <RoleChip
                 variant='outlined'
                 size='small'
@@ -92,6 +111,25 @@ ManageGroupMemberListItemProps
           </span>}
         disableTypography
       />
+      {
+        !isOwner &&
+        !isCurrentUser &&
+        (
+          (
+            checkIfAdmin(group, user?.id) &&
+            !memberData.isAdmin
+          ) ||
+          group.ownerId === user?.id
+        ) &&
+        <ListItemSecondaryAction>
+          <ManageGroupMemberListItemOptions
+            group={group}
+            memberData={memberData}
+            setIsAdmin={setIsAdmin}
+            setLoading={setLoading}
+          />
+        </ListItemSecondaryAction>
+      }
     </ListItem>
   );
 };

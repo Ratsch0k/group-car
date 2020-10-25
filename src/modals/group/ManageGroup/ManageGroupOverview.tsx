@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import {GroupWithOwnerAndMembersAndInvites} from 'lib';
 import ManageGroupOverviewInfo from './ManageGroupGroupInfo';
-import ManageGroupTabs from './ManageGroupTabs';
+import ManageGroupTabs from './ManageGroupTabs/ManageGroupTabs';
 import {
   createStyles,
   makeStyles,
