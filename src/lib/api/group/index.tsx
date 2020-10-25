@@ -7,3 +7,4 @@ export * from './getInvites';
 export * from './getMembers';
 export * from './leaveGroup';
 export * from './deleteGroup';
+export * from './grantAdmin';
