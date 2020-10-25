@@ -61,7 +61,8 @@
         "loadingFailed": "The group couldn't be found",
         "tabs": {
           "members": {
-            "title": "Members"
+            "title": "Members",
+            "grantAdmin": "Grant admin"
           },
           "cars": {
             "title": "Cars"

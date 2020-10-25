@@ -63,7 +63,8 @@
         "loadingFailed": "Die Gruppe konnte nicht gefunden werden",
         "tabs": {
           "members": {
-            "title": "Mitglieder"
+            "title": "Mitglieder",
+            "grantAdmin": "Admin Rechte geben"
           },
           "cars": {
             "title": "Autos"

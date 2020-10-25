@@ -150,7 +150,11 @@ export const ManageGroupMemberTabSearchUser: React.FC<
       if (userToInvite.length > 0) {
         const users = await searchForUser(userToInvite);
         if (isActive) {
-          setPossibleUsers(users.data.users);
+          // Filter out all members of group
+          const possibleUsers = users.data.users.filter((user) =>
+            !props.group.members.concat(props.group.invites).some((member) =>
+              user.id === member.User.id));
+          setPossibleUsers(possibleUsers);
         }
       }
     };
@@ -160,7 +164,7 @@ export const ManageGroupMemberTabSearchUser: React.FC<
     return () => {
       isActive = false;
     };
-  }, [userToInvite, searchForUser]);
+  }, [userToInvite, searchForUser, props.group.invites, props.group.members]);
 
   /**
    * Reset user search if user closes fab
@@ -184,6 +188,7 @@ export const ManageGroupMemberTabSearchUser: React.FC<
     try {
       const inviteResponse = await inviteUser(props.group.id, userToInvite);
       setInviting(false);
+      setUserToInvite('');
       props.addInvite({
         ...inviteResponse.data,
         User: {

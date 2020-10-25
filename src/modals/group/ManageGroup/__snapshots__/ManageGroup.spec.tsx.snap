@@ -2197,67 +2197,129 @@ exports[`MemberTab renders list of members correctly 1`] = `
                       </div>
                     </li>
                     <li
-                      class="MuiListItem-root MuiListItem-gutters MuiListItem-divider"
+                      class="MuiListItem-container"
                     >
                       <div
-                        class="MuiListItemAvatar-root"
+                        class="MuiListItem-root MuiListItem-gutters MuiListItem-divider MuiListItem-secondaryAction"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-96"
+                          class="MuiListItemAvatar-root"
                         >
-                          <img
-                            alt="user-12"
-                            class="MuiAvatar-img"
-                            src="/api/user/12/profile-pic"
-                          />
+                          <div
+                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-96"
+                          >
+                            <img
+                              alt="user-12"
+                              class="MuiAvatar-img"
+                              src="/api/user/12/profile-pic"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="MuiListItemText-root MuiListItemText-multiline"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-body1"
+                          >
+                            ADMIN
+                          </p>
+                          <span>
+                            <div
+                              class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-76"
+                            >
+                              <span
+                                class="MuiChip-label MuiChip-labelSmall"
+                              >
+                                misc.admin
+                              </span>
+                            </div>
+                          </span>
                         </div>
                       </div>
                       <div
-                        class="MuiListItemText-root MuiListItemText-multiline"
+                        class="MuiListItemSecondaryAction-root"
                       >
-                        <p
-                          class="MuiTypography-root MuiTypography-body1"
+                        <button
+                          class="MuiButtonBase-root MuiIconButton-root"
+                          tabindex="0"
+                          type="button"
                         >
-                          ADMIN
-                        </p>
-                        <span>
-                          <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-76"
+                          <span
+                            class="MuiIconButton-label"
                           >
-                            <span
-                              class="MuiChip-label MuiChip-labelSmall"
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root"
+                              focusable="false"
+                              viewBox="0 0 24 24"
                             >
-                              misc.admin
-                            </span>
-                          </div>
-                        </span>
+                              <path
+                                d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+                              />
+                            </svg>
+                          </span>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </button>
                       </div>
                     </li>
                     <li
-                      class="MuiListItem-root MuiListItem-gutters MuiListItem-divider"
+                      class="MuiListItem-container"
                     >
                       <div
-                        class="MuiListItemAvatar-root"
+                        class="MuiListItem-root MuiListItem-gutters MuiListItem-divider MuiListItem-secondaryAction"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-98"
+                          class="MuiListItemAvatar-root"
                         >
-                          <img
-                            alt="user-13"
-                            class="MuiAvatar-img"
-                            src="/api/user/13/profile-pic"
-                          />
+                          <div
+                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-98"
+                          >
+                            <img
+                              alt="user-13"
+                              class="MuiAvatar-img"
+                              src="/api/user/13/profile-pic"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="MuiListItemText-root MuiListItemText-multiline"
+                        >
+                          <p
+                            class="MuiTypography-root MuiTypography-body1"
+                          >
+                            MEMBER
+                          </p>
+                          <span />
                         </div>
                       </div>
                       <div
-                        class="MuiListItemText-root MuiListItemText-multiline"
+                        class="MuiListItemSecondaryAction-root"
                       >
-                        <p
-                          class="MuiTypography-root MuiTypography-body1"
+                        <button
+                          class="MuiButtonBase-root MuiIconButton-root"
+                          tabindex="0"
+                          type="button"
                         >
-                          MEMBER
-                        </p>
-                        <span />
+                          <span
+                            class="MuiIconButton-label"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class="MuiSvgIcon-root"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+                              />
+                            </svg>
+                          </span>
+                          <span
+                            class="MuiTouchRipple-root"
+                          />
+                        </button>
                       </div>
                     </li>
                   </ul>
@@ -2326,6 +2388,70 @@ exports[`MemberTab renders list of members correctly 1`] = `
         </div>
       </div>
     </div>
+  </div>
+  <div
+    aria-hidden="true"
+    class="MuiPopover-root"
+    role="presentation"
+    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px; visibility: hidden;"
+  >
+    <div
+      data-test="sentinelStart"
+      tabindex="0"
+    />
+    <div
+      class="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"
+      style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
+      tabindex="-1"
+    >
+      <ul
+        class="MuiList-root MuiMenu-list MuiList-padding"
+        role="menu"
+        tabindex="0"
+      />
+    </div>
+    <div
+      data-test="sentinelEnd"
+      tabindex="0"
+    />
+  </div>
+  <div
+    aria-hidden="true"
+    class="MuiPopover-root"
+    role="presentation"
+    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px; visibility: hidden;"
+  >
+    <div
+      data-test="sentinelStart"
+      tabindex="0"
+    />
+    <div
+      class="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"
+      style="opacity: 0; transform: scale(0.75, 0.5625); visibility: hidden;"
+      tabindex="-1"
+    >
+      <ul
+        class="MuiList-root MuiMenu-list MuiList-padding"
+        role="menu"
+        tabindex="-1"
+      >
+        <li
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          role="menuitem"
+          tabindex="0"
+        >
+          modals.group.manage.tabs.members.options.grantAdmin
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+      </ul>
+    </div>
+    <div
+      data-test="sentinelEnd"
+      tabindex="0"
+    />
   </div>
 </body>
 `;
