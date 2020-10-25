@@ -42,7 +42,7 @@ React.FC<ManageGroupMemberListItemOptionsProps> =
 (props: ManageGroupMemberListItemOptionsProps) => {
   const [anchorRef, setAnchorRef] = useState<HTMLElement>();
   const {memberData, group, setLoading: parentSetLoading, setIsAdmin} = props;
-  const {grantAdmin} = useApi();
+  const {grantAdmin, revokeAdmin} = useApi();
   const {t} = useTranslation();
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -68,6 +68,19 @@ React.FC<ManageGroupMemberListItemOptionsProps> =
     }
   };
 
+  const handleRevokeAdmin = async () => {
+    try {
+      parentSetLoading(true);
+      setLoading(true);
+      await revokeAdmin(group.id, memberData.User.id);
+      setIsAdmin(false);
+      setAnchorRef(undefined);
+    } finally {
+      parentSetLoading(false);
+      setLoading(false);
+    }
+  };
+
 
   return (
     <>
@@ -84,12 +97,18 @@ React.FC<ManageGroupMemberListItemOptionsProps> =
         onClose={handleClose}
       >
         {
-          !memberData.isAdmin &&
+          !memberData.isAdmin ?
           <MenuItem
             onClick={handleGrantAdmin}
             disabled={loading}
           >
             {t('modals.group.manage.tabs.members.options.grantAdmin')}
+          </MenuItem>:
+          <MenuItem
+            onClick={handleRevokeAdmin}
+            disabled={loading}
+          >
+            {t('modals.group.manage.tabs.members.options.revokeAdmin')}
           </MenuItem>
         }
       </Menu>
