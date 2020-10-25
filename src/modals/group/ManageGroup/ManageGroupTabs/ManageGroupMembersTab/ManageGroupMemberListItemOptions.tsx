@@ -4,7 +4,6 @@ import {
   GroupWithOwnerAndMembersAndInvites,
   Member,
   useApi,
-  useGroups,
 } from 'lib';
 import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
@@ -43,7 +42,6 @@ React.FC<ManageGroupMemberListItemOptionsProps> =
 (props: ManageGroupMemberListItemOptionsProps) => {
   const [anchorRef, setAnchorRef] = useState<HTMLElement>();
   const {memberData, group, setLoading: parentSetLoading, setIsAdmin} = props;
-  const {update} = useGroups();
   const {grantAdmin} = useApi();
   const {t} = useTranslation();
   const [loading, setLoading] = useState<boolean>(false);
@@ -62,7 +60,6 @@ React.FC<ManageGroupMemberListItemOptionsProps> =
       parentSetLoading(true);
       setLoading(true);
       await grantAdmin(group.id, memberData.User.id);
-      await update();
       setIsAdmin(true);
       setAnchorRef(undefined);
     } finally {
@@ -74,7 +71,10 @@ React.FC<ManageGroupMemberListItemOptionsProps> =
 
   return (
     <>
-      <IconButton onClick={handleClick}>
+      <IconButton
+        onClick={handleClick}
+        id={`member-${group.id}-${memberData.User.id}-options-button`}
+      >
         <MoreVertIcon />
       </IconButton>
       <Menu
