@@ -64,7 +64,10 @@
         "tabs": {
           "members": {
             "title": "Mitglieder",
-            "grantAdmin": "Admin Rechte geben"
+            "options": {
+              "grantAdmin": "Admin Rechte geben",
+              "revokeAdmin": "Admin Rechte wegnehmen"
+            }
           },
           "cars": {
             "title": "Autos"

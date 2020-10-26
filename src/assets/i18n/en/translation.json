@@ -62,7 +62,10 @@
         "tabs": {
           "members": {
             "title": "Members",
-            "grantAdmin": "Grant admin"
+            "options": {
+              "grantAdmin": "Grant admin",
+              "revokeAdmin": "Revoke admin"
+            }
           },
           "cars": {
             "title": "Cars"

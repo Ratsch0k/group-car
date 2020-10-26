@@ -478,6 +478,126 @@ describe('MemberTab', () => {
       expect(fakeApi.grantAdmin).toBeCalledWith(fakeGroup.id, fakeGroup.members[1].User.id);
       expect(screen.baseElement).toMatchSnapshot();
     });
+
+    it('if member is not an admin grant admin option is shown', async () => {
+      fakeGroup.members.push({User: {id: 13, username: 'MEMBER'}, isAdmin: false});
+      const fakeGroupContext = {
+        getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
+        update: jest.fn().mockResolvedValue(undefined),
+      };
+      const fakeApi = {
+        getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
+        getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+        grantAdmin: jest.fn().mockResolvedValue(undefined),
+      }
+    
+      const screen = render (
+        <ThemeProvider theme={theme}>
+          <MemoryRouter>
+            <AuthContext.Provider value={{user: fakeGroup.Owner as IUser} as AuthContext}>
+              <ApiContext.Provider value={fakeApi as unknown as Api}>
+                <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
+                    <ManageGroup groupId={2}/>
+                </GroupContext.Provider>
+              </ApiContext.Provider>
+            </AuthContext.Provider>
+          </MemoryRouter>
+        </ThemeProvider>
+      );
+    
+    
+      await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
+      await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
+      await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
+      expect(fakeGroupContext.getGroup).toHaveBeenCalledWith(fakeGroup.id);
+      expect(fakeApi.getInvitesOfGroup).toHaveBeenLastCalledWith(fakeGroup.id);
+      expect(fakeApi.getMembers).toHaveBeenLastCalledWith(fakeGroup.id);
+
+      expect(screen.baseElement).toMatchSnapshot();
+      expect(screen.queryByText('modals.group.manage.tabs.members.options.grantAdmin')).toBeTruthy();
+      expect(screen.queryByText('modals.group.manage.tabs.members.options.revokeAdmin')).toBeFalsy();
+    });
+
+    it('if member is admin the revoke admin option is shown', async () => {
+      fakeGroup.members.push({User: {id: 13, username: 'MEMBER'}, isAdmin: true});
+      const fakeGroupContext = {
+        getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
+        update: jest.fn().mockResolvedValue(undefined),
+      };
+      const fakeApi = {
+        getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
+        getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+        grantAdmin: jest.fn().mockResolvedValue(undefined),
+      }
+    
+      const screen = render (
+        <ThemeProvider theme={theme}>
+          <MemoryRouter>
+            <AuthContext.Provider value={{user: fakeGroup.Owner as IUser} as AuthContext}>
+              <ApiContext.Provider value={fakeApi as unknown as Api}>
+                <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
+                    <ManageGroup groupId={2}/>
+                </GroupContext.Provider>
+              </ApiContext.Provider>
+            </AuthContext.Provider>
+          </MemoryRouter>
+        </ThemeProvider>
+      );
+    
+    
+      await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
+      await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
+      await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
+      expect(fakeGroupContext.getGroup).toHaveBeenCalledWith(fakeGroup.id);
+      expect(fakeApi.getInvitesOfGroup).toHaveBeenLastCalledWith(fakeGroup.id);
+      expect(fakeApi.getMembers).toHaveBeenLastCalledWith(fakeGroup.id);
+
+      expect(screen.baseElement).toMatchSnapshot();
+      expect(screen.queryByText('modals.group.manage.tabs.members.options.revokeAdmin')).toBeTruthy();
+      expect(screen.queryByText('modals.group.manage.tabs.members.options.grantAdmin')).toBeFalsy();
+    });
+
+    it('click on revoke admin will send revoke admin request and remove admin badge', async () => {
+      fakeGroup.members.push({User: {id: 13, username: 'MEMBER'}, isAdmin: true});
+      const fakeGroupContext = {
+        getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
+        update: jest.fn().mockResolvedValue(undefined),
+      };
+      const fakeApi = {
+        getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
+        getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+        grantAdmin: jest.fn().mockResolvedValue(undefined),
+        revokeAdmin: jest.fn().mockResolvedValue(undefined),
+      }
+    
+      const screen = render (
+        <ThemeProvider theme={theme}>
+          <MemoryRouter>
+            <AuthContext.Provider value={{user: fakeGroup.Owner as IUser} as AuthContext}>
+              <ApiContext.Provider value={fakeApi as unknown as Api}>
+                <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
+                    <ManageGroup groupId={2}/>
+                </GroupContext.Provider>
+              </ApiContext.Provider>
+            </AuthContext.Provider>
+          </MemoryRouter>
+        </ThemeProvider>
+      );
+    
+    
+      await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
+      await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
+      await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
+      expect(fakeGroupContext.getGroup).toHaveBeenCalledWith(fakeGroup.id);
+      expect(fakeApi.getInvitesOfGroup).toHaveBeenLastCalledWith(fakeGroup.id);
+      expect(fakeApi.getMembers).toHaveBeenLastCalledWith(fakeGroup.id);
+
+      expect(screen.baseElement).toMatchSnapshot();
+      fireEvent.click(screen.queryByText('modals.group.manage.tabs.members.options.revokeAdmin'));
+      await waitFor(() => expect(fakeApi.revokeAdmin).toBeCalledTimes(1));
+      expect(fakeApi.revokeAdmin).toBeCalledWith(fakeGroup.id, fakeGroup.members[1].User.id);
+      expect(screen.baseElement).toMatchSnapshot();
+    });
   });
 });
 

@@ -8,3 +8,4 @@ export * from './getMembers';
 export * from './leaveGroup';
 export * from './deleteGroup';
 export * from './grantAdmin';
+export * from './revokeAdmin';
