@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto'), url(./fonts/Roboto-Regular.ttf) format('truetype');
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Roboto';
+  margin: 0;
+}
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+}
