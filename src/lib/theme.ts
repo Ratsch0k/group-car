@@ -1,4 +1,5 @@
 import {createMuiTheme} from '@material-ui/core';
+import {green, orange} from '@material-ui/core/colors';
 
 type Theme = import('@material-ui/core').Theme;
 type ThemeOptions = import('@material-ui/core').ThemeOptions;
@@ -6,6 +7,7 @@ type Shape = import('@material-ui/core/styles/shape').Shape;
 
 interface IShape extends Shape {
   headerHeight: number;
+  drawerWidth: number;
 }
 
 interface IThemeOptions extends ThemeOptions {
@@ -16,7 +18,7 @@ export interface GroupCarTheme extends Theme {
   shape: IShape;
 }
 
-const theme = createMuiTheme({
+export const theme = createMuiTheme({
   palette: {
     primary: {
       main: '#00C68A',
@@ -30,10 +32,21 @@ const theme = createMuiTheme({
       dark: '#8900AB',
       contrastText: '#FFFFFF',
     },
+    success: {
+      main: green['500'],
+      light: green['300'],
+      dark: green['800'],
+      contrastText: '#FFFFFF',
+    },
+    warning: {
+      main: orange['500'],
+      light: orange['300'],
+      dark: orange['800'],
+      contrastText: '#FFFFFF',
+    },
   },
   shape: {
     headerHeight: 64,
+    drawerWidth: 350,
   },
 } as IThemeOptions);
-
-export default theme;

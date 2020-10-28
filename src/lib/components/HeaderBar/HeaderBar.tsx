@@ -1,107 +1,83 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {
-  makeStyles,
-  Popper,
-  ClickAwayListener,
-  Box,
-  Paper,
-  Fade,
-} from '@material-ui/core';
-import Typography from '@material-ui/core/Typography';
-import UserAvatar from '../UserAvatar';
+import {createStyles, makeStyles, useMediaQuery} from '@material-ui/core';
+import AppBar from '@material-ui/core/AppBar/AppBar';
 import IconButton from '@material-ui/core/IconButton';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 import EmojiTransportationIcon from '@material-ui/icons/EmojiTransportation';
 import MenuIcon from '@material-ui/icons/Menu';
-import AppBar from '@material-ui/core/AppBar/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import AuthContext from 'lib/context/auth/authContext';
-import UserOverview from '../UserOverview/UserOverview';
+import {useTheme} from '@material-ui/core';
+import React from 'react';
+import HeaderBarUserButton from './HeaderBarUserButton';
+import {GroupCarTheme} from 'lib';
+import clsx from 'clsx';
 
-const useStyles = makeStyles({
-  root: {
-    flexGrow: 1,
-    textAlign: 'left',
-  },
-  title: {
-    flexGrow: 1,
-  },
-});
+/**
+ * Styles.
+ */
+const useStyles = makeStyles((theme: GroupCarTheme) =>
+  createStyles({
+    root: {
+      flexGrow: 1,
+      textAlign: 'left',
+    },
+    title: {
+      flexGrow: 1,
+    },
+    appBar: {
+      height: theme.shape.headerHeight,
+    },
+    smallIconButton: {
+      padding: theme.spacing(1),
+    },
+  }),
+);
 
-const HeaderBar: React.FC = () => {
+/**
+ * Props for the header bar.
+ */
+interface HeaderBarProps {
+  /**
+   * Callback to open the drawer.
+   */
+  openDrawer(): void;
+  /**
+   * Whether or not to show a button to open the drawer.
+   */
+  noMenuButton: boolean;
+}
+
+/**
+ * HeaderBar component.
+ * @param props Props.
+ */
+export const HeaderBar: React.FC<HeaderBarProps> = (props: HeaderBarProps) => {
   const classes = useStyles();
-  const auth = useContext(AuthContext);
-  const [userId, setUserId] = useState<number>();
-  const [userOverviewAnchor, setUserOverviewAnchor] =
-      useState<HTMLElement | null>(null);
-
-  const handleAvatarClick = (event: React.MouseEvent<HTMLElement>) => {
-    if (auth.user && auth.user.username) {
-      if (userOverviewAnchor) {
-        setUserOverviewAnchor(null);
-      } else {
-        setUserOverviewAnchor(event.currentTarget);
-      }
-    } else {
-      auth.openAuthDialog();
-    }
-  };
-
-  const handleUserOverviewClose = () => {
-    setUserOverviewAnchor(null);
-  };
-
-  useEffect(() => {
-    if (auth.user && auth.user.id !== undefined) {
-      setUserId(auth.user.id);
-    } else {
-      setUserId(undefined);
-    }
-  }, [auth.user]);
+  const theme = useTheme();
+  const smallerXs = useMediaQuery(theme.breakpoints.down('xs'));
 
   return (
-    <AppBar>
+    <AppBar className={classes.appBar}>
       <Toolbar className={classes.root}>
-        <Typography className={classes.title} variant="h4">
+        <Typography className={classes.title} variant={smallerXs ? 'h5' : 'h4'}>
           Group Car
         </Typography>
-        <ClickAwayListener
-          onClickAway={handleUserOverviewClose}
+        <HeaderBarUserButton />
+        <IconButton
+          color='inherit'
+          className={clsx({[classes.smallIconButton]: smallerXs})}
         >
-          <Box>
-            <IconButton color='inherit' onClick={handleAvatarClick}>
-              <UserAvatar
-                userId={userId}
-              />
-            </IconButton>
-
-            <Popper
-              open={Boolean(userOverviewAnchor)}
-              anchorEl={userOverviewAnchor}
-              placement='bottom'
-              disablePortal={true}
-              transition
-            >
-              {({TransitionProps}) => (
-                <Fade {...TransitionProps} timeout={200}>
-                  <Paper
-                    elevation={6}
-                  >
-                    <UserOverview
-                      onClose={handleUserOverviewClose}
-                    />
-                  </Paper>
-                </Fade>
-              )}
-
-            </Popper>
-          </Box>
-        </ClickAwayListener>
-        <IconButton color='inherit'>
-          <EmojiTransportationIcon fontSize='large'/>
+          <EmojiTransportationIcon fontSize={smallerXs ? 'default' : 'large'}/>
         </IconButton>
-        <IconButton color='inherit'>
-          <MenuIcon fontSize='large'/>
-        </IconButton>
+        {
+          !props.noMenuButton &&
+          <IconButton
+            color='inherit'
+            onClick={props.openDrawer}
+            className={clsx({[classes.smallIconButton]: smallerXs})}
+          >
+            <MenuIcon fontSize={smallerXs ? 'default' : 'large'}/>
+          </IconButton>
+        }
       </Toolbar>
     </AppBar>
   );

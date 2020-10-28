@@ -1,0 +1,164 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders and matches snapshot with not open and not permanent without crashing 1`] = `
+<body
+  style=""
+>
+  <div />
+</body>
+`;
+
+exports[`renders and matches snapshot with not open and permanent without crashing 1`] = `
+<div>
+  <div
+    class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-28 makeStyles-drawerPermanent-30"
+  >
+    <div
+      class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-29 makeStyles-drawerPaperPermanent-31 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+    >
+      <div
+        class="MuiBox-root MuiBox-root-35 makeStyles-container-34"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-38 makeStyles-fullHeight-37 makeStyles-center-36"
+        >
+          <div
+            class="MuiBox-root MuiBox-root-39 makeStyles-center-36"
+          >
+            <h5
+              class="MuiTypography-root MuiTypography-h5 MuiTypography-alignCenter"
+            >
+              drawer.notLoggedIn.title
+            </h5>
+            <p
+              class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
+            >
+              drawer.notLoggedIn.message
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders and matches snapshot with open and not permanent without crashing 1`] = `
+<body
+  style="padding-right: 0px; overflow: hidden;"
+>
+  <div
+    aria-hidden="true"
+  />
+  <div
+    class="MuiDrawer-root MuiDrawer-modal makeStyles-drawer-1"
+    role="presentation"
+    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
+  >
+    <div
+      aria-hidden="true"
+      class="MuiBackdrop-root"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+    />
+    <div
+      data-test="sentinelStart"
+      tabindex="0"
+    />
+    <div
+      class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-2 MuiDrawer-paperAnchorRight MuiPaper-elevation16"
+      tabindex="-1"
+    >
+      <div
+        class="MuiBox-root MuiBox-root-8 makeStyles-container-7"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-11 makeStyles-root-10"
+        >
+          <button
+            class="MuiButtonBase-root MuiIconButton-root makeStyles-closeButton-9"
+            data-testid="close"
+            id="drawer-close"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+        <div
+          class="MuiBox-root MuiBox-root-14 makeStyles-fullHeight-13 makeStyles-center-12"
+        >
+          <div
+            class="MuiBox-root MuiBox-root-15 makeStyles-center-12"
+          >
+            <h5
+              class="MuiTypography-root MuiTypography-h5 MuiTypography-alignCenter"
+            >
+              drawer.notLoggedIn.title
+            </h5>
+            <p
+              class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
+            >
+              drawer.notLoggedIn.message
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      data-test="sentinelEnd"
+      tabindex="0"
+    />
+  </div>
+</body>
+`;
+
+exports[`renders and matches snapshot with open and permanent without crashing 1`] = `
+<div>
+  <div
+    class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-16 makeStyles-drawerPermanent-18"
+  >
+    <div
+      class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-17 makeStyles-drawerPaperPermanent-19 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+    >
+      <div
+        class="MuiBox-root MuiBox-root-23 makeStyles-container-22"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-26 makeStyles-fullHeight-25 makeStyles-center-24"
+        >
+          <div
+            class="MuiBox-root MuiBox-root-27 makeStyles-center-24"
+          >
+            <h5
+              class="MuiTypography-root MuiTypography-h5 MuiTypography-alignCenter"
+            >
+              drawer.notLoggedIn.title
+            </h5>
+            <p
+              class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
+            >
+              drawer.notLoggedIn.message
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

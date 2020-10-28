@@ -10,7 +10,7 @@ import {
 
 type Theme = import('@material-ui/core').Theme;
 
-const LoginDialog: React.FC = () => {
+export const LoginDialog: React.FC = () => {
   const useStyle = makeStyles((theme: Theme) =>
     createStyles({
       formContainer: {

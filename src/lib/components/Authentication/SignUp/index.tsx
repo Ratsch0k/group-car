@@ -1,2 +1,5 @@
-export {default as SignUpForm} from './SignUpForm';
-export {default as SignUpDialog} from './SignUpDialog';
+export * from './SignUpBody';
+export * from './SignUpDialog';
+export * from './SignUpForm';
+export * from './SignUpThroughRequest';
+

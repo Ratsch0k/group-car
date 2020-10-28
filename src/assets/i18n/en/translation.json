@@ -3,10 +3,14 @@
     "dialog": {
       "title": {
         "authenticate": "Authentication",
-        "login": "Log in",
-        "sign-up": "Sign up"
+        "/auth/login": "Log in",
+        "/auth/sign-up": "Sign up"
       }
-    }
+    },
+    "isRequested": "It's currently not possible to sign up directly. Your request was successfully received and will be processed shortly. If your request is granted you will receive an email."
+  },
+  "user": {
+    "invites": "Invites"
   },
   "form": {
     "login": "Login",
@@ -29,8 +33,84 @@
       "noPic": "No profile picture"
     }
   },
+  "drawer": {
+    "createGroup": "Create a group",
+    "notLoggedIn": {
+      "title": "Not logged in",
+      "message": "To access these features you have to be logged in"
+    },
+    "groupMenu": {
+      "noSelection": "Select a group",
+      "item": {
+        "manage": "Manage this group",
+        "select": "Select a group",
+        "create": "Create a new group"
+      }
+    }
+  },
+  "modals": {
+    "group": {
+      "create": {
+        "title": "New group",
+        "name": "Name *",
+        "description": "Description",
+        "create": "Create"
+      },
+      "manage": {
+        "title": "Group management",
+        "loadingFailed": "The group couldn't be found",
+        "tabs": {
+          "members": {
+            "title": "Members",
+            "options": {
+              "grantAdmin": "Grant admin",
+              "revokeAdmin": "Revoke admin"
+            }
+          },
+          "cars": {
+            "title": "Cars"
+          }
+        }
+      },
+      "leaveGroup": {
+        "button": "Leave the group",
+        "success": "Successfully left the group",
+        "dialog": {
+          "title": "Leave",
+          "content": "Are you sure you want to leave the group?"
+        }
+      },
+      "deleteGroup": {
+        "button": "Delete group",
+        "success": "Successfully delete group",
+        "dialog": {
+          "title": "Delete group",
+          "content": "Are you sure you want to delete this group?\nIf you only want to leave the group, then you could transfer your ownership to another member and then leave the group."
+        }
+      }
+    },
+    "invites": {
+      "title": "Invites",
+      "empty": "You have no invites"
+    }
+  },
   "misc": {
     "or": "or",
-    "loading": "Loading"
+    "loading": "Loading",
+    "admin": "Admin",
+    "owner": "Owner",
+    "you": "You",
+    "invitedBy": "Invited by {{by}}",
+    "accept": "Accept",
+    "delete": "Delete",
+    "close": "Close",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "imprint": {
+    "title": "Imprint"
+  },
+  "privacyPolicy": {
+    "title": "Privacy policy"
   }
 }

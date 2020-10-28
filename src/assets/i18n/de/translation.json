@@ -3,10 +3,14 @@
     "dialog": {
       "title": {
         "authenticate": "Anmeldung",
-        "login": "Anmelden",
-        "sign-up": "Account erstellen"
+        "/auth/login": "Anmelden",
+        "/auth/sign-up": "Account erstellen"
       }
-    }
+    },
+    "isRequested": "Zurzeit ist es nicht möglich ein Benutzerkonto direkt anzulegen. Ihre Anfrage wird überprüft und falls sie genehmigt wird, erhalten Sie eine Email."
+  },
+  "user": {
+    "invites": "Einladungen"
   },
   "form": {
     "login": "Anmelden",
@@ -17,10 +21,12 @@
     "password": "Passwort",
     "error": {
       "required": "Benötigt",
-      "atLeast6": "Muss mindestends 6 Zeichen haben",
+      "atLeast6": "Muss mindestens 6 Zeichen haben",
       "invalidEmail": "Ungültige Email Adresse",
       "usernameWhitespace": "Leerzeichen sind nicht erlaubt",
-      "usernameToShort": "Benutzername muss mindestens ${min} zeichen enthalten"
+      "usernameToShort": "Benutzername muss mindestens ${min} zeichen enthalten",
+      "tooLong": "Darf nur maximal {{max}} Zeichen enthalten",
+      "tooShort": "Muss mindestens {{min}} Zeichen enthalten"
     },
     "profilePicture": {
       "alt": "Profil Bild",
@@ -29,8 +35,500 @@
       "noPic": "Kein Profil Bild"
     }
   },
+  "drawer": {
+    "createGroup": "Erstelle eine Gruppe",
+    "notLoggedIn": {
+      "title": "Nicht angemeldet",
+      "message": "Du musst dich anmelden um auf diese Funktionalität zuzugreifen"
+    },
+    "groupMenu": {
+      "noSelection": "Wähle eine Gruppe",
+      "item": {
+        "manage": "Verwalte diese Gruppe",
+        "select": "Wähle eine Gruppe",
+        "create": "Neue Gruppe erstellen"
+      }
+    }
+  },
+  "modals": {
+    "group": {
+      "create": {
+        "title": "Neue Gruppe",
+        "name": "Name *",
+        "description": "Beschreibung",
+        "create": "Erstelle"
+      },
+      "manage": {
+        "title": "Gruppenverwaltung",
+        "loadingFailed": "Die Gruppe konnte nicht gefunden werden",
+        "tabs": {
+          "members": {
+            "title": "Mitglieder",
+            "options": {
+              "grantAdmin": "Admin Rechte geben",
+              "revokeAdmin": "Admin Rechte wegnehmen"
+            }
+          },
+          "cars": {
+            "title": "Autos"
+          }
+        },
+        "leaveGroup": {
+          "button": "Gruppe verlassen",
+          "success": "Erfolgreich verlassen",
+          "dialog": {
+            "title": "Austreten",
+            "content": "Bist du sicher dass du die Gruppe verlassen willst?"
+          }
+        },
+        "deleteGroup": {
+          "button": "Gruppe löschen",
+          "success": "Die Gruppe wurde erfolgreich gelöscht",
+          "dialog": {
+            "title": "Gruppe löschen",
+            "content": "Bist du dir sicher dass du diese Gruppe löschen willst?\nFalls du die Gruppe nur verlassen willst, dann kannst du deinen Besitz an ein Mitglied übertragen und dann die Gruppe verlassen."
+          }
+        }
+      }
+    },
+    "invites": {
+      "title": "Einladungen",
+      "empty": "Du hast keine Einladungen"
+    }
+  },
   "misc": {
     "or": "oder",
-    "loading": "Lade"
+    "loading": "Lade",
+    "admin": "Admin",
+    "owner": "Besitzer",
+    "you": "Du",
+    "invitedBy": "Eingeladen von {{by}}",
+    "accept": "Akzeptieren",
+    "delete": "Löschen",
+    "close": "Schließen",
+    "yes": "Ja",
+    "no": "Nein"
+  },
+  "imprint": {
+    "title": "Impressum"
+  },
+  "privacyPolicy": {
+    "title": "Datenschutzerklärung",
+    "content": [
+      {
+        "tag": "h2",
+        "content": "1. Datenschutz auf einen Blick"
+      },
+      {
+        "tag": "h3",
+        "content": "Allgemeine Hinweise"
+      },
+      {
+        "tag": "p",
+        "content": "Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Ausführliche Informationen zum Thema Datenschutz entnehmen Sie unserer unter diesem Text aufgeführten Datenschutzerklärung."
+      },
+      {
+        "tag": "h3",
+        "content": "Datenerfassung auf dieser Website"
+      },
+      {
+        "tag": "p",
+        "content": {
+          "tag": "strong",
+          "content": "Wer ist verantwortlich für die Datenerfassung auf dieser Website?"
+        }
+      },
+      {
+        "tag": "p",
+        "content": "Die Datenverarbeitung auf dieser Websiteerfolgt durch den Websitebetreiber. Dessen Kontaktdaten k&ouml;nnen Sie dem Impressum dieser Website entnehmen."
+      },
+      {
+        "tag": "p",
+        "content": {
+          "tag": "strong",
+          "content": "Wie erfassen wir Ihre Daten?"
+        }
+      },
+      {
+        "tag": "p",
+        "content": "Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z.&nbsp;B. um Daten handeln, die Sie in ein Kontaktformular eingeben."
+      },
+      {
+        "tag": "p",
+        "content": "Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z.&nbsp;B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt automatisch, sobald Sie diese Website betreten."
+      },
+      {
+        "tag": "p",
+        "content": {
+          "tag": "strong",
+          "content": "Wof&uuml;r nutzen wir Ihre Daten?"
+        }
+      },
+      {
+        "tag": "p",
+        "content": "Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gew&auml;hrleisten. Andere Daten k&ouml;nnen zur Analyse Ihres Nutzerverhaltens verwendet werden."
+      },
+      {
+        "tag": "p",
+        "content": {
+          "tag": "strong",
+          "content": "Welche Rechte haben Sie bez&uuml;glich Ihrer Daten?"
+        }
+      },
+      {
+        "tag": "p",
+        "content": "Sie haben jederzeit das Recht, unentgeltlich Auskunft &uuml;ber Herkunft, Empf&auml;nger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben au&szlig;erdem ein Recht, die Berichtigung oder L&ouml;schung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, k&ouml;nnen Sie diese Einwilligung jederzeit f&uuml;r die Zukunft widerrufen. Au&szlig;erdem haben Sie das Recht, unter bestimmten Umst&auml;nden die Einschr&auml;nkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Des Weiteren steht Ihnen ein Beschwerderecht bei der zust&auml;ndigen Aufsichtsbeh&ouml;rde zu.</p> <p>Hierzu sowie zu weiteren Fragen zum Thema Datenschutz k&ouml;nnen Sie sich jederzeit unter der im Impressum angegebenen Adresse an uns wenden."
+      },
+      {
+        "tag": "p",
+        "content": "Hierzu sowie zu weiteren Fragen zum Thema Datenschutz k&ouml;nnen Sie sich jederzeit unter der im Impressum angegebenen Adresse an uns wenden."
+      },
+      {
+        "tag": "h2",
+        "content": "2. Allgemeine Hinweise und Pflichtinformationen"
+      },
+      {
+        "tag": "h3",
+        "content": "Datenschutz"
+      },
+      {
+        "tag": "p",
+        "content": "Die Betreiber dieser Seiten nehmen den Schutz Ihrer pers&ouml;nlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerkl&auml;rung."
+      },
+      {
+        "tag": "p",
+        "content": "Wenn Sie diese Website benutzen, werden verschiedene personenbezogene Daten erhoben. Personenbezogene Daten sind Daten, mit denen Sie pers&ouml;nlich identifiziert werden k&ouml;nnen. Die vorliegende Datenschutzerkl&auml;rung erl&auml;utert, welche Daten wir erheben und wof&uuml;r wir sie nutzen. Sie erl&auml;utert auch, wie und zu welchem Zweck das geschieht."
+      },
+      {
+        "tag": "p",
+        "content": "Wir weisen darauf hin, dass die Daten&uuml;bertragung im Internet (z.&nbsp;B. bei der Kommunikation per E-Mail) Sicherheitsl&uuml;cken aufweisen kann. Ein l&uuml;ckenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht m&ouml;glich."
+      },
+      {
+        "tag": "h3",
+        "content": "Hinweis zur verantwortlichen Stelle"
+      },
+      {
+        "tag": "p",
+        "content": [
+          "Simon Kurz",
+          {
+            "tag": "br"
+          },
+          "Am Damsberg 17a",
+          {
+            "tag": "br"
+          },
+          "55130 Mainz"
+        ]
+      },
+      {
+        "tag": "p",
+        "content": [
+          "Telefon: +49 06131 870926",
+          {
+            "tag": "br"
+          },
+          "E-Mail: mygroupcar@gmail.com"
+        ]
+      },
+      {
+        "tag": "p",
+        "content": "Verantwortliche Stelle ist die nat&uuml;rliche oder juristische Person, die allein oder gemeinsam mit anderen &uuml;ber die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z.&nbsp;B. Namen, E-Mail-Adressen o. &Auml;.) entscheidet."
+      },
+      {
+        "tag": "h3",
+        "content": "Widerruf Ihrer Einwilligung zur Datenverarbeitung"
+      },
+      {
+        "tag": "p",
+        "content": "Viele Datenverarbeitungsvorg&auml;nge sind nur mit Ihrer ausdr&uuml;cklichen Einwilligung m&ouml;glich. Sie k&ouml;nnen eine bereits erteilte Einwilligung jederzeit widerrufen. Dazu reicht eine formlose Mitteilung per E-Mail an uns. Die Rechtm&auml;&szlig;igkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unber&uuml;hrt."
+      },
+      {
+        "tag": "h3",
+        "content": "Widerspruchsrecht gegen die Datenerhebung in besonderen F&auml;llen sowie gegen Direktwerbung (Art. 21 DSGVO)"
+      },
+      {
+        "tag": "p",
+        "content": "WENN DIE DATENVERARBEITUNG AUF GRUNDLAGE VON ART. 6 ABS. 1 LIT. E ODER F DSGVO ERFOLGT, HABEN SIE JEDERZEIT DAS RECHT, AUS GR&Uuml;NDEN, DIE SICH AUS IHRER BESONDEREN SITUATION ERGEBEN, GEGEN DIE VERARBEITUNG IHRER PERSONENBEZOGENEN DATEN WIDERSPRUCH EINZULEGEN; DIES GILT AUCH F&Uuml;R EIN AUF DIESE BESTIMMUNGEN GEST&Uuml;TZTES PROFILING. DIE JEWEILIGE RECHTSGRUNDLAGE, AUF DENEN EINE VERARBEITUNG BERUHT, ENTNEHMEN SIE DIESER DATENSCHUTZERKL&Auml;RUNG. WENN SIE WIDERSPRUCH EINLEGEN, WERDEN WIR IHRE BETROFFENEN PERSONENBEZOGENEN DATEN NICHT MEHR VERARBEITEN, ES SEI DENN, WIR K&Ouml;NNEN ZWINGENDE SCHUTZW&Uuml;RDIGE GR&Uuml;NDE F&Uuml;R DIE VERARBEITUNG NACHWEISEN, DIE IHRE INTERESSEN, RECHTE UND FREIHEITEN &Uuml;BERWIEGEN ODER DIE VERARBEITUNG DIENT DER GELTENDMACHUNG, AUS&Uuml;BUNG ODER VERTEIDIGUNG VON RECHTSANSPR&Uuml;CHEN (WIDERSPRUCH NACH ART. 21 ABS. 1 DSGVO)."
+      },
+      {
+        "tag": "p",
+        "content": "WERDEN IHRE PERSONENBEZOGENEN DATEN VERARBEITET, UM DIREKTWERBUNG ZU BETREIBEN, SO HABEN SIE DAS RECHT, JEDERZEIT WIDERSPRUCH GEGEN DIE VERARBEITUNG SIE BETREFFENDER PERSONENBEZOGENER DATEN ZUM ZWECKE DERARTIGER WERBUNG EINZULEGEN; DIES GILT AUCH F&Uuml;R DAS PROFILING, SOWEIT ES MIT SOLCHER DIREKTWERBUNG IN VERBINDUNG STEHT. WENN SIE WIDERSPRECHEN, WERDEN IHRE PERSONENBEZOGENEN DATEN ANSCHLIESSEND NICHT MEHR ZUM ZWECKE DER DIREKTWERBUNG VERWENDET (WIDERSPRUCH NACH ART. 21 ABS. 2 DSGVO)."
+      },
+      {
+        "tag": "h3",
+        "content": "Beschwerderecht bei der zust&auml;ndigen Aufsichtsbeh&ouml;rde"
+      },
+      {
+        "tag": "p",
+        "content": "Im Falle von Verst&ouml;&szlig;en gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer Aufsichtsbeh&ouml;rde, insbesondere in dem Mitgliedstaat ihres gew&ouml;hnlichen Aufenthalts, ihres Arbeitsplatzes oder des Orts des mutma&szlig;lichen Versto&szlig;es zu. Das Beschwerderecht besteht unbeschadet anderweitiger verwaltungsrechtlicher oder gerichtlicher Rechtsbehelfe."
+      },
+      {
+        "tag": "h3",
+        "content": "Recht auf Daten&uuml;bertragbarkeit"
+      },
+      {
+        "tag": "p",
+        "content": "Sie haben das Recht, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erf&uuml;llung eines Vertrags automatisiert verarbeiten, an sich oder an einen Dritten in einem g&auml;ngigen, maschinenlesbaren Format aush&auml;ndigen zu lassen. Sofern Sie die direkte &Uuml;bertragung der Daten an einen anderen Verantwortlichen verlangen, erfolgt dies nur, soweit es technisch machbar ist."
+      },
+      {
+        "tag": "h3",
+        "content": "SSL- bzw. TLS-Verschl&uuml;sselung"
+      },
+      {
+        "tag": "p",
+        "content": "Diese Seite nutzt aus Sicherheitsgr&uuml;nden und zum Schutz der &Uuml;bertragung vertraulicher Inhalte, wie zum Beispiel Bestellungen oder Anfragen, die Sie an uns als Seitenbetreiber senden, eine SSL- bzw. TLS-Verschl&uuml;sselung. Eine verschl&uuml;sselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von &bdquo;http://&ldquo; auf &bdquo;https://&ldquo; wechselt und an dem Schloss-Symbol in Ihrer Browserzeile."
+      },
+      {
+        "tag": "p",
+        "content": "Wenn die SSL- bzw. TLS-Verschl&uuml;sselung aktiviert ist, k&ouml;nnen die Daten, die Sie an uns &uuml;bermitteln, nicht von Dritten mitgelesen werden."
+      },
+      {
+        "tag": "h3",
+        "content": "Auskunft, L&ouml;schung und Berichtigung"
+      },
+      {
+        "tag": "p",
+        "content": "Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft &uuml;ber Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empf&auml;nger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung oder L&ouml;schung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten k&ouml;nnen Sie sich jederzeit unter der im Impressum angegebenen Adresse an uns wenden."
+      },
+      {
+        "tag": "h3",
+        "content": "Recht auf Einschr&auml;nkung der Verarbeitung"
+      },
+      {
+        "tag": "p",
+        "content": "Sie haben das Recht, die Einschr&auml;nkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Hierzu k&ouml;nnen Sie sich jederzeit unter der im Impressum angegebenen Adresse an uns wenden. Das Recht auf Einschr&auml;nkung der Verarbeitung besteht in folgenden F&auml;llen:"
+      },
+      {
+        "tag": "ul",
+        "content": [
+          {
+            "tag": "li",
+            "content": "Wenn Sie die Richtigkeit Ihrer bei uns gespeicherten personenbezogenen Daten bestreiten, ben&ouml;tigen wir in der Regel Zeit, um dies zu &uuml;berpr&uuml;fen. F&uuml;r die Dauer der Pr&uuml;fung haben Sie das Recht, die Einschr&auml;nkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen."
+          },
+          {
+            "tag": "li",
+            "content": "Wenn die Verarbeitung Ihrer personenbezogenen Daten unrechtm&auml;&szlig;ig geschah/geschieht, k&ouml;nnen Sie statt der L&ouml;schung die Einschr&auml;nkung der Datenverarbeitung verlangen."
+          },
+          {
+            "tag": "li",
+            "content": "Wenn wir Ihre personenbezogenen Daten nicht mehr ben&ouml;tigen, Sie sie jedoch zur Aus&uuml;bung, Verteidigung oder Geltendmachung von Rechtsanspr&uuml;chen ben&ouml;tigen, haben Sie das Recht, statt der L&ouml;schung die Einschr&auml;nkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.</li> <li>Wenn Sie einen Widerspruch nach Art. 21 Abs. 1 DSGVO eingelegt haben, muss eine Abw&auml;gung zwischen Ihren und unseren Interessen vorgenommen werden. Solange noch nicht feststeht, wessen Interessen &uuml;berwiegen, haben Sie das Recht, die Einschr&auml;nkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen."
+          }
+        ]
+      },
+      {
+        "tag": "p",
+        "content": "Wenn Sie die Verarbeitung Ihrer personenbezogenen Daten eingeschr&auml;nkt haben, d&uuml;rfen diese Daten &ndash; von ihrer Speicherung abgesehen &ndash; nur mit Ihrer Einwilligung oder zur Geltendmachung, Aus&uuml;bung oder Verteidigung von Rechtsanspr&uuml;chen oder zum Schutz der Rechte einer anderen nat&uuml;rlichen oder juristischen Person oder aus Gr&uuml;nden eines wichtigen &ouml;ffentlichen Interesses der Europ&auml;ischen Union oder eines Mitgliedstaats verarbeitet werden."
+      },
+      {
+        "tag": "h2",
+        "content": "3. Datenerfassung auf dieser Website"
+      },
+      {
+        "tag": "h3",
+        "content": "Cookies"
+      },
+      {
+        "tag": "p",
+        "content": "Unsere Internetseiten verwenden so genannte &bdquo;Cookies&ldquo;. Cookies sind kleine Textdateien und richten auf Ihrem Endger&auml;t keinen Schaden an. Sie werden entweder vor&uuml;bergehend f&uuml;r die Dauer einer Sitzung (Session-Cookies) oder dauerhaft (permanente Cookies) auf Ihrem Endger&auml;t gespeichert. Session-Cookies werden nach Ende Ihres Besuchs automatisch gel&ouml;scht. Permanente Cookies bleiben auf Ihrem Endger&auml;t gespeichert, bis Sie diese selbst l&ouml;schen&nbsp;oder eine automatische L&ouml;schung durch Ihren Webbrowser erfolgt."
+      },
+      {
+        "tag": "p",
+        "content": "Teilweise k&ouml;nnen auch Cookies von Drittunternehmen auf Ihrem Endger&auml;t gespeichert werden, wenn Sie unsere Seite betreten (Third-Party-Cookies). Diese erm&ouml;glichen uns oder Ihnen die Nutzung bestimmter Dienstleistungen des Drittunternehmens (z.B. Cookies zur Abwicklung von Zahlungsdienstleistungen)."
+      },
+      {
+        "tag": "p",
+        "content": "Cookies haben verschiedene Funktionen. Zahlreiche Cookies sind technisch notwendig, da bestimmte Webseitenfunktionen ohne diese nicht funktionieren w&uuml;rden (z.B. die Warenkorbfunktion oder die Anzeige von Videos). Andere Cookies dienen dazu, das Nutzerverhalten auszuwerten&nbsp;oder Werbung anzuzeigen."
+      },
+      {
+        "tag": "p",
+        "content": "Cookies, die zur Durchf&uuml;hrung des elektronischen Kommunikationsvorgangs (notwendige Cookies) oder zur Bereitstellung bestimmter, von Ihnen erw&uuml;nschter Funktionen (funktionale Cookies, z. B. f&uuml;r die Warenkorbfunktion) oder zur Optimierung der Webseite (z.B. Cookies zur Messung des Webpublikums) erforderlich sind, werden auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO gespeichert, sofern keine andere Rechtsgrundlage angegeben wird. Der Websitebetreiber hat ein berechtigtes Interesse an der Speicherung von Cookies zur technisch fehlerfreien und optimierten Bereitstellung seiner Dienste. Sofern eine Einwilligung zur Speicherung von Cookies abgefragt wurde, erfolgt die Speicherung der betreffenden Cookies ausschlie&szlig;lich auf Grundlage dieser Einwilligung (Art. 6 Abs. 1 lit. a DSGVO); die Einwilligung ist jederzeit widerrufbar."
+      },
+      {
+        "tag": "p",
+        "content": "Sie k&ouml;nnen Ihren Browser so einstellen, dass Sie &uuml;ber das Setzen von Cookies informiert werden und Cookies nur im Einzelfall erlauben, die Annahme von Cookies f&uuml;r bestimmte F&auml;lle oder generell ausschlie&szlig;en sowie das automatische L&ouml;schen der Cookies beim Schlie&szlig;en des Browsers aktivieren. Bei der Deaktivierung von Cookies kann die Funktionalit&auml;t dieser Website eingeschr&auml;nkt sein."
+      },
+      {
+        "tag": "p",
+        "content": "Soweit Cookies von Drittunternehmen oder zu Analysezwecken eingesetzt werden, werden wir Sie hier&uuml;ber im Rahmen dieser Datenschutzerkl&auml;rung gesondert informieren und ggf. eine Einwilligung abfragen."
+      },
+      {
+        "tag": "h3",
+        "content": "Server-Log-Dateien"
+      },
+      {
+        "tag": "p",
+        "content": "Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns &uuml;bermittelt. Dies sind:"
+      },
+      {
+        "tag": "ul",
+        "content": [
+          {
+            "tag": "li",
+            "content": "Browsertyp und Browserversion" 
+          },
+          {
+            "tag": "li",
+            "content": "verwendetes Betriebssystem" 
+          },
+          {
+            "tag": "li",
+            "content": "Referrer URL" 
+          },
+          {
+            "tag": "li",
+            "content": "Hostname des zugreifenden Rechners" 
+          },
+          {
+            "tag": "li",
+            "content": "Uhrzeit der Serveranfrage" 
+          },
+          {
+            "tag": "li",
+            "content": "IP-Adresse" 
+          }
+        ]
+      },
+      {
+        "tag": "p",
+        "content": "Eine Zusammenf&uuml;hrung dieser Daten mit anderen Datenquellen wird nicht vorgenommen."
+      },
+      {
+        "tag": "p",
+        "content": "Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der technisch fehlerfreien Darstellung und der Optimierung seiner Website &ndash; hierzu m&uuml;ssen die Server-Log-Files erfasst werden."
+      },
+      {
+        "tag": "h3",
+        "content": "Anfrage per E-Mail, Telefon oder Telefax"
+      },
+      {
+        "tag": "p",
+        "content": "Wenn Sie uns per E-Mail, Telefon oder Telefax kontaktieren, wird Ihre Anfrage inklusive aller daraus hervorgehenden personenbezogenen Daten (Name, Anfrage) zum Zwecke der Bearbeitung Ihres Anliegens bei uns gespeichert und verarbeitet. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter."
+      },
+      {
+        "tag": "p",
+        "content": "Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erf&uuml;llung eines Vertrags zusammenh&auml;ngt oder zur Durchf&uuml;hrung vorvertraglicher Ma&szlig;nahmen erforderlich ist. In allen &uuml;brigen F&auml;llen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO) oder auf Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) sofern diese abgefragt wurde."
+      },
+      {
+        "tag": "p",
+        "content": "Die von Ihnen an uns per Kontaktanfragen &uuml;bersandten Daten verbleiben bei uns, bis Sie uns zur L&ouml;schung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck f&uuml;r die Datenspeicherung entf&auml;llt (z.&nbsp;B. nach abgeschlossener Bearbeitung Ihres Anliegens). Zwingende gesetzliche Bestimmungen &ndash; insbesondere gesetzliche Aufbewahrungsfristen &ndash; bleiben unber&uuml;hrt."
+      },
+      {
+        "tag": "h3",
+        "content": "Benutzerdaten"
+      },
+      {
+        "tag": "p",
+        "content": "Benutzerdaten"
+      },
+      {
+        "tag": "ul",
+        "content": [
+          {
+            "tag": "li",
+            "content": "Benutzername"
+          },
+          {
+            "tag": "li",
+            "content": "Email"
+          },
+          {
+            "tag": "li",
+            "content": "Passwort"
+          }
+        ]
+      },
+      {
+        "tag": "p",
+        "content": "Der Betreiber übernimmt keine Haftung für Passwortmissbrauch, sofern dieser nicht von dem Betreiber selbst verursacht wurde."
+      },
+      {
+        "tag": "h2",
+        "content": "4. Plugins und Tools"
+      },
+      {
+        "tag": "h3",
+        "content": "Google Web Fonts"
+      },
+      {
+        "tag": "p",
+        "content": "Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten so genannte Web Fonts, die von Google bereitgestellt werden. Die Google Fonts sind lokal installiert. Eine Verbindung zu Servern von Google findet dabei nicht statt."
+      },
+      {
+        "tag": "p",
+        "content": "Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten so genannte Web Fonts, die von Google bereitgestellt werden. Die Google Fonts sind lokal installiert. Eine Verbindung zu Servern von Google findet dabei nicht statt."
+      },
+      {
+        "tag": "p",
+        "content": [
+          "Weitere Informationen zu Google Web Fonts finden Sie unter ",
+          {
+            "tag": "a",
+            "linkProps": {
+              "href": "https://developers.google.com/fonts/faq",
+              "target": "_blank",
+              "rel": "noopener noreferrer"
+            },
+            "content": "https://developers.google.com/fonts/faq"
+          },
+          " und in der Datenschutzerkl&auml;rung von Google: ",
+          {
+            "tag": "a",
+            "linkProps": {
+              "href": "https://policies.google.com/privacy?hl=de",
+              "target": "_blank",
+              "rel": "noopener noreferrer"
+            },
+            "content": "https://policies.google.com/privacy?hl=de"
+          }
+        ]
+      },
+      {
+        "tag": "h3",
+        "content": "OpenStreetMap"
+      },
+      {
+        "tag": "p",
+        "content": "Wir nutzen den Kartendienst von OpenStreetMap (OSM). Anbieterin ist die Open-Street-Map Foundation (OSMF), 132 Maney Hill Road, Sutton Coldfield, West Midlands, B72 1JU, United Kingdom."
+      },
+      {
+        "tag": "p",
+        "content": "Wenn Sie eine Website besuchen, auf der OpenStreetMap eingebunden ist, werden u. a. Ihre IP-Adresse und weitere Informationen &uuml;ber Ihr Verhalten auf dieser Website an die OSMF weitergeleitet. OpenStreetMap speichert hierzu unter Umst&auml;nden Cookies in Ihrem Browser. Das sind Textdateien, die auf Ihrem Computer gespeichert werden und die eine Analyse der Benutzung der Website durch Sie erm&ouml;glichen. Sie k&ouml;nnen die Speicherung der Cookies durch eine entsprechende Einstellung Ihrer Browser-Software verhindern; wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht s&auml;mtliche Funktionen dieser Website vollumf&auml;nglich werden nutzen k&ouml;nnen."
+      },
+      {
+        "tag": "p",
+        "content": [
+          "Ferner kann Ihr Standort erfasst werden, wenn Sie dies in Ihren Ger&auml;teeinstellungen &ndash; z.&nbsp;B. auf Ihrem Handy &ndash; zugelassen haben. Der Anbieter dieser Seite hat keinen Einfluss auf diese Daten&uuml;bertragung. Details entnehmen Sie der Datenschutzerkl&auml;rung von OpenStreetMap unter folgendem Link: ",
+          {
+            "tag": "a",
+            "linkProps": {
+              "href": "https://wiki.osmfoundation.org/wiki/Privacy_Policy",
+              "target": "_blank",
+              "rel": "noopener noreferrer"
+            },
+            "content": "https://wiki.osmfoundation.org/wiki/Privacy_Policy"
+          }
+        ]
+      },
+      {
+        "tag": "p",
+        "content": "Die Nutzung von OpenStreetMap erfolgt im Interesse einer ansprechenden Darstellung unserer Online-Angebote und einer leichten Auffindbarkeit der von uns auf der Website angegebenen Orte. Dies stellt ein berechtigtes Interesse im Sinne von Art. 6 Abs. 1 lit. f DSGVO dar. Sofern eine entsprechende Einwilligung abgefragt wurde (z. B. eine Einwilligung zur Speicherung von Cookies), erfolgt die Verarbeitung ausschlie&szlig;lich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO; die Einwilligung ist jederzeit widerrufbar."
+      },
+      {
+        "tag": "p",
+        "content": [
+          "Quelle: ",
+          {
+            "tag": "a",
+            "linkProps": {
+              "href": "https://www.e-recht24.de",
+              "target": "_blank",
+              "rel": "noopener noreferrer"
+            },
+            "content": "https://www.e-recht24.de"
+          }
+        ]
+      }
+    ]
   }
 }

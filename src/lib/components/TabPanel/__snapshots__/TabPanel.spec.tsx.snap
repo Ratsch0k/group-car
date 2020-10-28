@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`doesn't render children if visible is false 1`] = `
+<body>
+  <div>
+    <div
+      aria-labelledby="test tab"
+      hidden=""
+      id="test tabpanel"
+      role="tabpanel"
+    />
+  </div>
+</body>
+`;
+
+exports[`renders children if visible is true 1`] = `
+<body>
+  <div>
+    <div
+      aria-labelledby="test tab"
+      id="test tabpanel"
+      role="tabpanel"
+    >
+      <span>
+        THIS IS JUST A TEST
+      </span>
+    </div>
+  </div>
+</body>
+`;

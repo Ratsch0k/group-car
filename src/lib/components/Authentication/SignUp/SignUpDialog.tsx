@@ -6,11 +6,11 @@ import {
   DialogTitle,
   DialogContent,
 } from '@material-ui/core';
-import SignUpForm from './SignUpForm';
+import {SignUpBody} from 'lib';
 
 type Theme = import('@material-ui/core').Theme;
 
-const SignUpDialog: React.FC = () => {
+export const SignUpDialog: React.FC = () => {
   const useStyle = makeStyles((theme: Theme) =>
     createStyles({
       formContainer: {
@@ -27,11 +27,10 @@ const SignUpDialog: React.FC = () => {
         Sign up
       </DialogTitle>
       <DialogContent className={classes.formContainer}>
-        <SignUpForm withSubmit/>
+        <SignUpBody withSubmit/>
       </DialogContent>
     </Dialog>
   );
 };
-
 
 export default SignUpDialog;

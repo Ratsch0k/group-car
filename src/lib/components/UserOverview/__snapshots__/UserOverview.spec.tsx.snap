@@ -3,16 +3,16 @@
 exports[`renders and matches snapshot when user is logged in 1`] = `
 <div>
   <div
-    class="MuiBox-root MuiBox-root-153 makeStyles-container-150"
+    class="MuiBox-root MuiBox-root-6 makeStyles-container-4"
   >
     <div
-      class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column"
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-direction-xs-column"
     >
       <div
-        class="MuiGrid-root makeStyles-userInfo-151 MuiGrid-item"
+        class="MuiGrid-root makeStyles-userInfo-5 MuiGrid-item"
       >
         <div
-          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-289"
+          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-7"
         >
           <img
             alt="user-12"
@@ -27,7 +27,36 @@ exports[`renders and matches snapshot when user is logged in 1`] = `
         </p>
         <span
           class="MuiTypography-root MuiTypography-caption MuiTypography-colorTextSecondary MuiTypography-alignCenter"
-        />
+        >
+          TEST@mail.com
+        </span>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-fullWidth"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            <span
+              class="MuiBadge-root"
+            >
+              user.invites
+              <span
+                class="MuiBadge-badge MuiBadge-anchorOriginTopRightRectangle MuiBadge-colorSecondary MuiBadge-invisible"
+              >
+                0
+              </span>
+            </span>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
       </div>
       <div
         class="MuiGrid-root MuiGrid-item"
@@ -56,14 +85,41 @@ exports[`renders and matches snapshot when user is logged in 1`] = `
 exports[`renders and matches snapshot when user is not logged in 1`] = `
 <div>
   <div
-    class="MuiBox-root MuiBox-root-4 makeStyles-container-1"
+    class="MuiBox-root MuiBox-root-3 makeStyles-container-1"
   >
     <div
-      class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column"
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-direction-xs-column"
     >
       <div
         class="MuiGrid-root makeStyles-userInfo-2 MuiGrid-item"
       />
+      <div
+        class="MuiGrid-root MuiGrid-item"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-fullWidth"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            <span
+              class="MuiBadge-root"
+            >
+              user.invites
+              <span
+                class="MuiBadge-badge MuiBadge-anchorOriginTopRightRectangle MuiBadge-colorSecondary MuiBadge-invisible"
+              >
+                0
+              </span>
+            </span>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
       <div
         class="MuiGrid-root MuiGrid-item"
       >

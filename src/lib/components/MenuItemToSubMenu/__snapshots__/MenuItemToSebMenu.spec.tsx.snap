@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<body>
+  <div>
+    <li
+      aria-disabled="false"
+      class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+      role="menuitem"
+      tabindex="-1"
+    >
+      TEST
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root makeStyles-arrowIcon-2"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M5.88 4.12L13.76 12l-7.88 7.88L8 22l10-10L8 2z"
+        />
+      </svg>
+      <span
+        class="MuiTouchRipple-root"
+      />
+    </li>
+  </div>
+</body>
+`;

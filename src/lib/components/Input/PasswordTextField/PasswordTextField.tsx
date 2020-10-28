@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
-import {TextField, InputAdornment, IconButton} from '@material-ui/core';
+import {InputAdornment, IconButton} from '@material-ui/core';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
+import FormTextField from '../FormTextField';
+import {Formik} from 'lib';
 
 type TextFieldProps = import('@material-ui/core').TextFieldProps;
 
@@ -16,14 +18,15 @@ export interface PasswordTextFieldProps {
   name?: string;
   helperText?: string;
   fullWidth?: boolean;
-  onBlur?(event: any): void;
+  onBlur?: TextFieldProps['onBlur'];
+  formik?: Formik;
 }
 
-const PasswordTextField: React.FC<PasswordTextFieldProps> =
+export const PasswordTextField: React.FC<PasswordTextFieldProps> =
   (props: PasswordTextFieldProps) => {
     const {
       label = 'Password *',
-      size = 'medium',
+      size = 'small',
       ...rest
     } = props;
 
@@ -35,8 +38,9 @@ const PasswordTextField: React.FC<PasswordTextFieldProps> =
       setShowPassword((prev: boolean) => !prev);
 
 
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     return (
-      <TextField
+      <FormTextField
         label={label}
         type={showPassword ? 'text' : 'password'}
         data-testid='textfield'
@@ -55,7 +59,6 @@ const PasswordTextField: React.FC<PasswordTextFieldProps> =
             </InputAdornment>
           ),
         }}
-        size={size}
         {...rest as any} />
     );
   };

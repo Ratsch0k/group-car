@@ -3,7 +3,7 @@
 exports[`renders with given userId 1`] = `
 <div>
   <div
-    class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-12"
+    class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-3"
   >
     <img
       alt="user-12"
@@ -18,7 +18,7 @@ exports[`renders without userId 1`] = `
 <div>
   <svg
     aria-hidden="true"
-    class="MuiSvgIcon-root makeStyles-icon-2"
+    class="MuiSvgIcon-root makeStyles-icon-2 MuiSvgIcon-fontSizeLarge"
     focusable="false"
     viewBox="0 0 24 24"
   >

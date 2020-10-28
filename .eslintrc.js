@@ -4,7 +4,9 @@ module.exports = {
     'es6': true,
   },
   'extends': [
+    'eslint:recommended',
     'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
     'google',
   ],
   'globals': {
@@ -21,12 +23,11 @@ module.exports = {
   },
   'plugins': [
     'react',
-    'react-hooks',
     '@typescript-eslint',
   ],
   'rules': {
     'react/prop-types': 'off',
-    'valid-jsdoc': 'off',
+    'valid-jsdoc': 'off'
   },
   'settings': {
     'react': {

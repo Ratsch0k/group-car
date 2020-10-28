@@ -1,12 +1,11 @@
-import {Button, Grid, Box, Typography} from '@material-ui/core';
+import {Button, Grid, Box, Typography, Badge} from '@material-ui/core';
 import {createStyles, makeStyles} from '@material-ui/styles';
-import AuthContext from 'lib/context/auth/authContext';
-import React, {useContext, useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import UserAvatar from '../UserAvatar/UserAvatar';
 import {useTranslation} from 'react-i18next';
 import {grey} from '@material-ui/core/colors';
-
-type GroupCarTheme = import('lib/theme').GroupCarTheme;
+import {GroupCarTheme, useAuth, useModalRouter} from 'lib';
+import {useInvites} from 'lib/hooks/useInvites';
 
 const useStyle = makeStyles((theme: GroupCarTheme) =>
   createStyles({
@@ -16,7 +15,7 @@ const useStyle = makeStyles((theme: GroupCarTheme) =>
     userInfo: {
       border: `1px solid ${grey[500]}`,
       borderRadius: theme.shape.borderRadius,
-      marginBottom: theme.spacing(4),
+      marginBottom: theme.spacing(2),
       padding: theme.spacing(1),
       minWidth: 180,
     },
@@ -27,9 +26,11 @@ interface UserOverviewProps {
   onClose?(): void;
 }
 
-const UserOverview: React.FC<UserOverviewProps> =
+export const UserOverview: React.FC<UserOverviewProps> =
 (props: UserOverviewProps) => {
-  const auth = useContext(AuthContext);
+  const auth = useAuth();
+  const {invites} = useInvites();
+  const {goTo} = useModalRouter();
 
   /**
    * Store user info in state so that it doesn't
@@ -65,7 +66,7 @@ const UserOverview: React.FC<UserOverviewProps> =
           </>,
       );
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
   }, [auth.user]);
 
   return (
@@ -75,12 +76,29 @@ const UserOverview: React.FC<UserOverviewProps> =
         direction='column'
         justify='flex-start'
         alignItems='stretch'
+        spacing={1}
       >
         <Grid
           item
           className={classes.userInfo}
         >
           {userInfo}
+        </Grid>
+        <Grid item>
+
+          <Button
+            fullWidth
+            color='primary'
+            onClick={() => goTo('/invites')}
+          >
+            <Badge
+              color='secondary'
+              badgeContent={invites.length}
+              max={9}
+            >
+              {t('user.invites')}
+            </Badge>
+          </Button>
         </Grid>
         <Grid item>
           <Button
