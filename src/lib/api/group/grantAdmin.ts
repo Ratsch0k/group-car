@@ -16,5 +16,5 @@ export const grantAdmin: GrantAdmin = (
     userId,
     axios: AxiosInstance = Axios,
 ) => {
-  return axios.put(`/api/group/${groupId}/${userId}/admin/grant`);
+  return axios.put(`/api/group/${groupId}/member/${userId}/admin/grant`);
 };

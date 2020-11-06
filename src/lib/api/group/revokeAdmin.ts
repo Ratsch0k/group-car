@@ -19,5 +19,5 @@ export const revokeAdmin: RevokeAdmin = (
     userId,
     axios: AxiosInstance = Axios,
 ) => {
-  return axios.put(`/api/group/${groupId}/${userId}/admin/revoke`);
+  return axios.put(`/api/group/${groupId}/member/${userId}/admin/revoke`);
 };
