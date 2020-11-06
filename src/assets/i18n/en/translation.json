@@ -105,7 +105,8 @@
     "delete": "Delete",
     "close": "Close",
     "yes": "Yes",
-    "no": "No"
+    "no": "No",
+    "clear": "Clear"
   },
   "imprint": {
     "title": "Imprint"

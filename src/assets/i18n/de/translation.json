@@ -107,7 +107,8 @@
     "delete": "Löschen",
     "close": "Schließen",
     "yes": "Ja",
-    "no": "Nein"
+    "no": "Nein",
+    "clear": "Löschen"
   },
   "imprint": {
     "title": "Impressum"
