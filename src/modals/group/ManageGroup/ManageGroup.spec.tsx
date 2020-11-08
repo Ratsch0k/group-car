@@ -618,17 +618,22 @@ describe('Footer', () => {
       const fakeUser = {
         id: 13,
       };
+      const fakeModal = {
+        route: '',
+      };
     
       const screen = render (
         <ThemeProvider theme={theme}>
           <MemoryRouter>
-            <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
-              <ApiContext.Provider value={fakeApi as unknown as Api}>
-                <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                    <ManageGroup groupId={2}/>
-                </GroupContext.Provider>
-              </ApiContext.Provider>
-            </AuthContext.Provider>
+            <ModalContext.Provider value={fakeModal as ModalContext}>
+              <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
+                <ApiContext.Provider value={fakeApi as unknown as Api}>
+                  <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
+                      <ManageGroup groupId={2}/>
+                  </GroupContext.Provider>
+                </ApiContext.Provider>
+              </AuthContext.Provider>
+            </ModalContext.Provider>
           </MemoryRouter>
         </ThemeProvider>
       );
@@ -655,17 +660,22 @@ describe('Footer', () => {
       const fakeUser = {
         id: 13,
       };
+      const fakeModal = {
+        route: '',
+      };
     
       const screen = render (
         <ThemeProvider theme={theme}>
           <MemoryRouter>
-            <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
-              <ApiContext.Provider value={fakeApi as unknown as Api}>
-                <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                    <ManageGroup groupId={2}/>
-                </GroupContext.Provider>
-              </ApiContext.Provider>
-            </AuthContext.Provider>
+            <ModalContext.Provider value={fakeModal as ModalContext}>
+              <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
+                <ApiContext.Provider value={fakeApi as unknown as Api}>
+                  <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
+                      <ManageGroup groupId={2}/>
+                  </GroupContext.Provider>
+                </ApiContext.Provider>
+              </AuthContext.Provider>
+            </ModalContext.Provider>
           </MemoryRouter>
         </ThemeProvider>
       );
@@ -695,6 +705,7 @@ describe('Footer', () => {
       };
       const modalContext = {
         close: jest.fn(),
+        route: '',
       };
       const snackbarContext = {
         show: jest.fn(),
@@ -746,6 +757,7 @@ describe('Footer', () => {
       };
       const modalContext = {
         close: jest.fn(),
+        route: '',
       };
       const snackbarContext = {
         show: jest.fn(),
@@ -791,6 +803,7 @@ describe('Footer', () => {
       };
       const modalContext = {
         close: jest.fn(),
+        route: '',
       };
       const snackbarContext = {
         show: jest.fn(),
@@ -837,6 +850,7 @@ describe('Footer', () => {
       };
       const modalContext = {
         close: jest.fn(),
+        route: '',
       };
       const snackbarContext = {
         show: jest.fn(),
@@ -892,6 +906,7 @@ describe('Footer', () => {
       };
       const modalContext = {
         close: jest.fn(),
+        route: '',
       };
       const snackbarContext = {
         show: jest.fn(),
