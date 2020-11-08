@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
-import {GroupWithOwnerAndMembersAndInvites, TabPanel} from 'lib';
-import {Paper, Tab, Tabs, Theme, Typography} from '@material-ui/core';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
+import {GroupWithOwnerAndMembersAndInvitesAndCars, useModalRouter} from 'lib';
+import {Paper, Tab, Tabs, Theme} from '@material-ui/core';
 import {useTranslation} from 'react-i18next';
 import SwipeableView from 'react-swipeable-views';
 import {createStyles, makeStyles} from '@material-ui/styles';
 import ManageGroupMembersTab from './ManageGroupMembersTab';
+import ManageGroupCarsTab from './ManageGroupCarsTab';
 
 /**
  * Props for the group management tabs.
@@ -13,9 +14,12 @@ export interface ManageGroupsTabsProps {
   /**
    * The group data.
    */
-  group: GroupWithOwnerAndMembersAndInvites;
+  group: GroupWithOwnerAndMembersAndInvitesAndCars;
 }
 
+/**
+ * Styles.
+ */
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     paperOutlined: {
@@ -27,8 +31,12 @@ const useStyles = makeStyles((theme: Theme) =>
     container: {
       height: '100%',
     },
+    fabContainer: {
+      position: 'relative',
+    },
   }),
 );
+
 
 /**
  * Component for displaying the group management tabs.
@@ -38,7 +46,30 @@ export const ManageGroupTabs: React.FC<ManageGroupsTabsProps> =
 (props: ManageGroupsTabsProps) => {
   const {t} = useTranslation();
   const classes = useStyles();
-  const [selectedTab, setSelectedTab] = useState<number>(0);
+  const {goTo, route} = useModalRouter();
+  const getTabFromRoute = useCallback(() => {
+    return route.endsWith('cars') ? 1 : 0;
+  }, [route]);
+  const [selectedTab, setSelectedTab] = useState<number>(getTabFromRoute());
+  const memberFabPortal = useRef<HTMLDivElement>(null);
+  const carFabPortal = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setSelectedTab(getTabFromRoute());
+  }, [route, getTabFromRoute]);
+
+  /**
+   * Handles select tab action.
+   * @param index The selected tab.
+   */
+  const handleSelectTab = (index: number) => {
+    if (index === 0) {
+      goTo(`/group/manage/${props.group.id}/members`);
+    } else {
+      goTo(`/group/manage/${props.group.id}/cars`);
+    }
+    setSelectedTab(index);
+  };
 
   return (
     <Paper
@@ -50,7 +81,7 @@ export const ManageGroupTabs: React.FC<ManageGroupsTabsProps> =
     >
       <Tabs
         value={selectedTab}
-        onChange={(_event, index: number) => setSelectedTab(index)}
+        onChange={(_event, index: number) => handleSelectTab(index)}
         variant='fullWidth'
       >
         <Tab
@@ -62,30 +93,34 @@ export const ManageGroupTabs: React.FC<ManageGroupsTabsProps> =
           label={t('modals.group.manage.tabs.cars.title')}
           id='group-tab-cars'
           aria-controls='group-tabpanel-cars'
-          disabled
         />
       </Tabs>
       <SwipeableView
         index={selectedTab}
-        onChangeIndex={(index: number) => setSelectedTab(index)}
+        onChangeIndex={(index: number) => handleSelectTab(index)}
         className={classes.tabContent}
         containerStyle={{height: '100%'}}
+        disableLazyLoading={true}
       >
         <ManageGroupMembersTab
           className={classes.tabContent}
           visible={selectedTab === 0}
           group={props.group}
+          fabPortal={memberFabPortal}
         />
-        {
-          <TabPanel
-            visible={selectedTab === 1}
-            id='group-tabpanel-cars'
-            aria-labelledby='group-tab-cars'
-          >
-            <Typography>CARS</Typography>
-          </TabPanel>
-        }
+        <ManageGroupCarsTab
+          className={classes.tabContent}
+          group={props.group}
+          visible={selectedTab === 1}
+          fabPortal={carFabPortal}
+        />
       </SwipeableView>
+      <div className={classes.fabContainer}>
+        <div ref={memberFabPortal} />
+      </div>
+      <div className={classes.fabContainer}>
+        <div ref={carFabPortal} />
+      </div>
     </Paper>
   );
 };

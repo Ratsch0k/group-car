@@ -15,15 +15,15 @@ exports[`matches snapshot 1`] = `
             formik="[object Object]"
           >
             <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-marginDense MuiInputLabel-outlined"
-              data-shrink="false"
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-marginDense MuiInputLabel-outlined Mui-focused Mui-focused"
+              data-shrink="true"
               for="create-group-name"
               id="create-group-name-label"
             >
               modals.group.create.name
             </label>
             <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-marginDense MuiOutlinedInput-marginDense"
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth Mui-focused Mui-focused MuiInputBase-formControl MuiInputBase-marginDense MuiOutlinedInput-marginDense"
             >
               <input
                 aria-describedby="create-group-name-helper-text"
@@ -39,7 +39,7 @@ exports[`matches snapshot 1`] = `
                 class="PrivateNotchedOutline-root-8 MuiOutlinedInput-notchedOutline"
               >
                 <legend
-                  class="PrivateNotchedOutline-legendLabelled-10"
+                  class="PrivateNotchedOutline-legendLabelled-10 PrivateNotchedOutline-legendNotched-11"
                 >
                   <span>
                     modals.group.create.name
@@ -48,7 +48,7 @@ exports[`matches snapshot 1`] = `
               </fieldset>
             </div>
             <p
-              class="MuiFormHelperText-root MuiFormHelperText-contained MuiFormHelperText-marginDense"
+              class="MuiFormHelperText-root MuiFormHelperText-contained Mui-focused MuiFormHelperText-marginDense"
               id="create-group-name-helper-text"
             >
               <span>

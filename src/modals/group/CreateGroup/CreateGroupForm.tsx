@@ -81,6 +81,7 @@ export const CreateGroupForm: React.FC<CreateGroupFormProps> =
             label={t('modals.group.create.name')}
             name='name'
             formik={formik}
+            autoFocus
           />
         </Grid>
         <Grid item>

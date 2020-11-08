@@ -1,9 +1,10 @@
 import { fireEvent, render, waitFor, screen } from "@testing-library/react";
 import ManageGroup from "./ManageGroup";
 import React from "react";
-import { theme, GroupContext, AuthContext, IUser, ApiContext, GroupWithOwnerAndMembersAndInvites, Api, ModalContext, SnackbarContext} from '../../../lib';
+import { theme, GroupContext, AuthContext, IUser, ApiContext, GroupWithOwnerAndMembersAndInvites, Api, ModalContext, SnackbarContext, CarColor} from '../../../lib';
 import { MemoryRouter, Route } from "react-router-dom";
 import { ThemeProvider } from "@material-ui/core";
+import userEvent from '@testing-library/user-event';
 
 let fakeGroup: GroupWithOwnerAndMembersAndInvites;
 
@@ -601,6 +602,303 @@ describe('MemberTab', () => {
   });
 });
 
+describe('CarTab', () => {
+  it('cars tab is rendered correctly', async () => {
+    const fakeGroupContext = {
+      getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
+      leaveGroup: jest.fn().mockResolvedValue(undefined),
+    };
+    const fakeApi = {
+      getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
+      getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+    }
+    const fakeUser = {
+      id: fakeGroup.ownerId,
+    };
+    const modalContext = {
+      close: jest.fn(),
+      route: '',
+      goTo: jest.fn(),
+    };
+    const snackbarContext = {
+      show: jest.fn(),
+    };
+  
+    const {baseElement} = render (
+      <ThemeProvider theme={theme}>
+        <MemoryRouter>
+          <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
+            <ModalContext.Provider value={modalContext as unknown as ModalContext}>
+              <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
+                <ApiContext.Provider value={fakeApi as unknown as Api}>
+                  <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
+                      <ManageGroup groupId={2}/>
+                  </GroupContext.Provider>
+                </ApiContext.Provider>
+              </AuthContext.Provider>
+            </ModalContext.Provider>
+          </SnackbarContext.Provider>
+        </MemoryRouter>
+      </ThemeProvider>
+    );
+    await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
+
+    expect(baseElement.querySelector('#create-car-fab')).toBeFalsy();
+
+    fireEvent.click(baseElement.querySelector('#group-tab-cars'));
+
+    await waitFor(() => expect(baseElement.querySelector('#create-car-fab')).toBeTruthy());
+    expect(modalContext.goTo).toHaveBeenCalledWith(`/group/manage/${fakeGroup.id}/cars`);
+
+    expect(baseElement).toMatchSnapshot();
+  });
+
+  it('clicking add fab opens create car dialog', async () => {
+    const fakeGroupContext = {
+      getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
+      leaveGroup: jest.fn().mockResolvedValue(undefined),
+    };
+    const fakeApi = {
+      getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
+      getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+    }
+    const fakeUser = {
+      id: fakeGroup.ownerId,
+    };
+    const modalContext = {
+      close: jest.fn(),
+      route: '',
+      goTo: jest.fn(),
+    };
+    const snackbarContext = {
+      show: jest.fn(),
+    };
+  
+    const {baseElement} = render (
+      <ThemeProvider theme={theme}>
+        <MemoryRouter>
+          <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
+            <ModalContext.Provider value={modalContext as unknown as ModalContext}>
+              <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
+                <ApiContext.Provider value={fakeApi as unknown as Api}>
+                  <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
+                      <ManageGroup groupId={2}/>
+                  </GroupContext.Provider>
+                </ApiContext.Provider>
+              </AuthContext.Provider>
+            </ModalContext.Provider>
+          </SnackbarContext.Provider>
+        </MemoryRouter>
+      </ThemeProvider>
+    );
+    await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
+
+    fireEvent.click(baseElement.querySelector('#group-tab-cars'));
+
+    await waitFor(() => expect(baseElement.querySelector('#create-car-fab')).toBeTruthy());
+    expect(modalContext.goTo).toHaveBeenCalledWith(`/group/manage/${fakeGroup.id}/cars`);
+    fireEvent.click(baseElement.querySelector('#create-car-fab'));
+
+    expect(baseElement).toMatchSnapshot();
+  });
+
+  it('entering a name and clicking create sends request to create a car', async () => {
+    const fakeGroupContext = {
+      getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
+      leaveGroup: jest.fn().mockResolvedValue(undefined),
+    };
+    const fakeCar = {
+      name: 'test car',
+      groupId: fakeGroup.id,
+      carId: 1,
+      color: CarColor.Red,
+      driverId: null,
+    };
+    const fakeApi = {
+      getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
+      getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+      createCar: jest.fn().mockResolvedValue({data: fakeCar}),
+    }
+    const fakeUser = {
+      id: fakeGroup.ownerId,
+    };
+    const modalContext = {
+      close: jest.fn(),
+      route: '',
+      goTo: jest.fn(),
+    };
+    const snackbarContext = {
+      show: jest.fn(),
+    };
+  
+    const {baseElement} = render (
+      <ThemeProvider theme={theme}>
+        <MemoryRouter>
+          <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
+            <ModalContext.Provider value={modalContext as unknown as ModalContext}>
+              <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
+                <ApiContext.Provider value={fakeApi as unknown as Api}>
+                  <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
+                      <ManageGroup groupId={2}/>
+                  </GroupContext.Provider>
+                </ApiContext.Provider>
+              </AuthContext.Provider>
+            </ModalContext.Provider>
+          </SnackbarContext.Provider>
+        </MemoryRouter>
+      </ThemeProvider>
+    );
+    await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
+
+    userEvent.click(baseElement.querySelector('#group-tab-cars'));
+
+    await waitFor(() => expect(baseElement.querySelector('#create-car-fab')).toBeTruthy());
+    expect(modalContext.goTo).toHaveBeenCalledWith(`/group/manage/${fakeGroup.id}/cars`);
+    userEvent.click(baseElement.querySelector('#create-car-fab'));
+
+    userEvent.type(baseElement.querySelector('#create-car-name'), fakeCar.name);
+
+    userEvent.click(screen.getByText('misc.create'));
+
+    await waitFor(() => expect(fakeApi.createCar).toHaveBeenCalledTimes(1));
+    expect(fakeApi.createCar).toHaveBeenCalledWith(fakeCar.groupId, fakeCar.name, fakeCar.color);
+
+    expect(baseElement).toMatchSnapshot();
+  });
+
+  it('when new car is created used color is removed from ' +
+  'car color selection', async () => {
+    const fakeGroupContext = {
+      getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
+      leaveGroup: jest.fn().mockResolvedValue(undefined),
+    };
+    const fakeCar = {
+      name: 'test car',
+      groupId: fakeGroup.id,
+      carId: 1,
+      color: CarColor.Red,
+      driverId: null,
+    };
+    const fakeApi = {
+      getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
+      getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+      createCar: jest.fn().mockResolvedValue({data: fakeCar}),
+    }
+    const fakeUser = {
+      id: fakeGroup.ownerId,
+    };
+    const modalContext = {
+      close: jest.fn(),
+      route: '',
+      goTo: jest.fn(),
+    };
+    const snackbarContext = {
+      show: jest.fn(),
+    };
+  
+    const {baseElement} = render (
+      <ThemeProvider theme={theme}>
+        <MemoryRouter>
+          <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
+            <ModalContext.Provider value={modalContext as unknown as ModalContext}>
+              <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
+                <ApiContext.Provider value={fakeApi as unknown as Api}>
+                  <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
+                      <ManageGroup groupId={2}/>
+                  </GroupContext.Provider>
+                </ApiContext.Provider>
+              </AuthContext.Provider>
+            </ModalContext.Provider>
+          </SnackbarContext.Provider>
+        </MemoryRouter>
+      </ThemeProvider>
+    );
+    await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
+
+    userEvent.click(baseElement.querySelector('#group-tab-cars'));
+
+    await waitFor(() => expect(baseElement.querySelector('#create-car-fab')).toBeTruthy());
+    expect(modalContext.goTo).toHaveBeenCalledWith(`/group/manage/${fakeGroup.id}/cars`);
+    userEvent.click(baseElement.querySelector('#create-car-fab'));
+
+    userEvent.type(baseElement.querySelector('#create-car-name'), fakeCar.name);
+
+    userEvent.click(screen.getByText('misc.create'));
+
+    await waitFor(() => expect(fakeApi.createCar).toHaveBeenCalledTimes(1));
+    expect(fakeApi.createCar).toHaveBeenCalledWith(fakeCar.groupId, fakeCar.name, fakeCar.color);
+
+    userEvent.click(baseElement.querySelector('#create-car-fab'));
+    userEvent.click(baseElement.querySelector('#create-car-color'));
+    expect(screen.queryByText('misc.Red')).toBeNull();
+
+    expect(baseElement).toMatchSnapshot();
+  });
+
+  it('is automatically selected if modal route ' +
+  'is /group/manage/:groupId/cars', async () => {
+    const fakeGroupContext = {
+      getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
+      leaveGroup: jest.fn().mockResolvedValue(undefined),
+    };
+    const fakeCar = {
+      name: 'test car',
+      groupId: fakeGroup.id,
+      carId: 1,
+      color: CarColor.Red,
+      driverId: null,
+    };
+    const fakeApi = {
+      getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
+      getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+      createCar: jest.fn().mockResolvedValue({data: fakeCar}),
+    }
+    const fakeUser = {
+      id: fakeGroup.ownerId,
+    };
+    const modalContext = {
+      close: jest.fn(),
+      route: `/group/manage/${fakeGroup.id}/cars`,
+      goTo: jest.fn(),
+    };
+    const snackbarContext = {
+      show: jest.fn(),
+    };
+  
+    const {baseElement} = render (
+      <ThemeProvider theme={theme}>
+        <MemoryRouter>
+          <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
+            <ModalContext.Provider value={modalContext as unknown as ModalContext}>
+              <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
+                <ApiContext.Provider value={fakeApi as unknown as Api}>
+                  <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
+                      <ManageGroup groupId={2}/>
+                  </GroupContext.Provider>
+                </ApiContext.Provider>
+              </AuthContext.Provider>
+            </ModalContext.Provider>
+          </SnackbarContext.Provider>
+        </MemoryRouter>
+      </ThemeProvider>
+    );
+    await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
+
+    await waitFor(() => expect(baseElement.querySelector('#create-car-fab')).toBeTruthy());
+    expect(baseElement).toMatchSnapshot();
+  });
+});
+
 
 describe('Footer', () => {
   describe('Leave button', () => {
@@ -618,17 +916,22 @@ describe('Footer', () => {
       const fakeUser = {
         id: 13,
       };
+      const fakeModal = {
+        route: '',
+      };
     
       const screen = render (
         <ThemeProvider theme={theme}>
           <MemoryRouter>
-            <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
-              <ApiContext.Provider value={fakeApi as unknown as Api}>
-                <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                    <ManageGroup groupId={2}/>
-                </GroupContext.Provider>
-              </ApiContext.Provider>
-            </AuthContext.Provider>
+            <ModalContext.Provider value={fakeModal as ModalContext}>
+              <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
+                <ApiContext.Provider value={fakeApi as unknown as Api}>
+                  <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
+                      <ManageGroup groupId={2}/>
+                  </GroupContext.Provider>
+                </ApiContext.Provider>
+              </AuthContext.Provider>
+            </ModalContext.Provider>
           </MemoryRouter>
         </ThemeProvider>
       );
@@ -655,17 +958,22 @@ describe('Footer', () => {
       const fakeUser = {
         id: 13,
       };
+      const fakeModal = {
+        route: '',
+      };
     
       const screen = render (
         <ThemeProvider theme={theme}>
           <MemoryRouter>
-            <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
-              <ApiContext.Provider value={fakeApi as unknown as Api}>
-                <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                    <ManageGroup groupId={2}/>
-                </GroupContext.Provider>
-              </ApiContext.Provider>
-            </AuthContext.Provider>
+            <ModalContext.Provider value={fakeModal as ModalContext}>
+              <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
+                <ApiContext.Provider value={fakeApi as unknown as Api}>
+                  <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
+                      <ManageGroup groupId={2}/>
+                  </GroupContext.Provider>
+                </ApiContext.Provider>
+              </AuthContext.Provider>
+            </ModalContext.Provider>
           </MemoryRouter>
         </ThemeProvider>
       );
@@ -695,6 +1003,7 @@ describe('Footer', () => {
       };
       const modalContext = {
         close: jest.fn(),
+        route: '',
       };
       const snackbarContext = {
         show: jest.fn(),
@@ -746,6 +1055,7 @@ describe('Footer', () => {
       };
       const modalContext = {
         close: jest.fn(),
+        route: '',
       };
       const snackbarContext = {
         show: jest.fn(),
@@ -791,6 +1101,7 @@ describe('Footer', () => {
       };
       const modalContext = {
         close: jest.fn(),
+        route: '',
       };
       const snackbarContext = {
         show: jest.fn(),
@@ -837,6 +1148,7 @@ describe('Footer', () => {
       };
       const modalContext = {
         close: jest.fn(),
+        route: '',
       };
       const snackbarContext = {
         show: jest.fn(),
@@ -892,6 +1204,7 @@ describe('Footer', () => {
       };
       const modalContext = {
         close: jest.fn(),
+        route: '',
       };
       const snackbarContext = {
         show: jest.fn(),

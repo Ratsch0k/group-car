@@ -4,10 +4,11 @@ import {
   TabPanel,
   useAuth,
 } from 'lib';
-import React, {useEffect, useState} from 'react';
+import React, {RefObject, useEffect, useState} from 'react';
 import ManageGroupMemberList from './ManageGroupMemberList';
 import {isAdmin as isAdminCheck} from 'lib/util';
 import ManageGroupMemberTabSearchUser from './ManageGroupMemberTabSearchUser';
+import {Portal} from '@material-ui/core';
 
 /**
  * Props.
@@ -25,6 +26,8 @@ export interface ManageGroupMembersTabProps {
    * Whether this component should be visible.
    */
   visible: boolean;
+
+  fabPortal: RefObject<HTMLDivElement>;
 }
 
 /**
@@ -38,6 +41,11 @@ export const ManageGroupMembersTab: React.FC<ManageGroupMembersTabProps> =
       isAdminCheck(props.group, user?.id));
   const [additionalInvites, setAdditionalInvites] =
     useState<InviteWithUserAndInviteSender[]>([]);
+  const [portal, setPortal] = useState(props.fabPortal.current);
+
+  useEffect(() => {
+    setPortal(props.fabPortal.current);
+  }, [props.fabPortal]);
 
   // Update isAdmin state if either the group or the user changes
   useEffect(() => {
@@ -57,10 +65,13 @@ export const ManageGroupMembersTab: React.FC<ManageGroupMembersTabProps> =
       />
       {
         isAdmin &&
-        <ManageGroupMemberTabSearchUser group={props.group}
-          addInvite={(invite: InviteWithUserAndInviteSender) => {
-            setAdditionalInvites((prev) => [...prev, invite]);
-          }}/>
+        <Portal container={portal}>
+          <ManageGroupMemberTabSearchUser group={props.group}
+            addInvite={(invite: InviteWithUserAndInviteSender) => {
+              setAdditionalInvites((prev) => [...prev, invite]);
+            }}/>
+        </Portal>
+
       }
     </TabPanel>
   );

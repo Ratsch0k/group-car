@@ -50,10 +50,10 @@ const InvitingUserTextField = withStyles((theme: Theme) =>
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     fab: {
+      'borderRadius': 28,
       'position': 'absolute',
       'bottom': theme.spacing(1),
       'right': theme.spacing(1),
-      'borderRadius': 28,
       'transition': 'width 500ms, position 500ms',
       '&$fabDisabled': {
         boxShadow: 'none',
@@ -152,8 +152,10 @@ export const ManageGroupMemberTabSearchUser: React.FC<
         if (isActive) {
           // Filter out all members of group
           const possibleUsers = users.data.users.filter((user) =>
-            !props.group.members.concat(props.group.invites).some((member) =>
-              user.id === member.User.id));
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            !props.group.members.concat(props.group.invites as any)
+                .some((member) =>
+                  user.id === member.User.id));
           setPossibleUsers(possibleUsers);
         }
       }
@@ -217,6 +219,7 @@ export const ManageGroupMemberTabSearchUser: React.FC<
       className={clsx({[classes.fabExpanded]: isInvitingUser})}
       onClick={() => !isInvitingUser && setIsInvitingUser(true)}
       component='div'
+      id='member-fab'
     >
       <SwitchTransition>
         <CSSTransition
