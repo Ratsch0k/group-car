@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import AddIcon from '@material-ui/icons/Add';
 import ManageGroupCarsCreateDialog from './ManageGroupCarsCreateDialog';
 import {CarWithDriver, GroupWithOwnerAndMembersAndInvitesAndCars} from 'lib';
+import config from 'config';
 
 /**
  * Styles.
@@ -57,6 +58,9 @@ export const ManageGroupCarsTabAddFab: React.FC<ManageGroupCarsTabAddFabProps> =
         className={classes.fab}
         id='create-car-fab'
         onClick={() => setOpen(true)}
+        disabled={
+          additionalCars.length + group.cars.length === config.group.maxCars
+        }
       >
         <AddIcon />
       </Fab>

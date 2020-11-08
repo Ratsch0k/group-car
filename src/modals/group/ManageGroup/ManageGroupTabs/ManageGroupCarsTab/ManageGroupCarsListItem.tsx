@@ -1,5 +1,10 @@
-import {ListItem, ListItemAvatar, ListItemText} from '@material-ui/core';
-import {CarWithDriver} from 'lib';
+import {
+  ListItem,
+  ListItemAvatar,
+  ListItemText,
+  makeStyles,
+} from '@material-ui/core';
+import {CarWithDriver, RoleChip} from 'lib';
 import React from 'react';
 import RoomIcon from '@material-ui/icons/Room';
 import {useTranslation} from 'react-i18next';
@@ -14,15 +19,20 @@ export interface ManageGroupCarsListItemProps {
   car: CarWithDriver;
 
   /**
-   * Key of this item.
-   */
-  key?: string;
-
-  /**
    * Whether or not a divider should be placed under this item.
    */
   divider?: boolean;
 }
+
+/**
+ * Styles.
+ */
+const useStyles = makeStyles({
+  primaryText: {
+    textOverflow: 'ellipsis',
+    overflow: 'hidden',
+  },
+});
 
 /**
  * List item for the car list.
@@ -30,14 +40,22 @@ export interface ManageGroupCarsListItemProps {
  */
 export const ManageGroupCarsListItem: React.FC<ManageGroupCarsListItemProps> =
 (props: ManageGroupCarsListItemProps) => {
-  const {car, key, divider} = props;
+  const classes = useStyles();
+  const {car, divider} = props;
   const {t} = useTranslation();
   const secondaryText = car.driverId === null ?
-    t('misc.available') :
+    (
+      <RoleChip
+        variant='outlined'
+        label={t('misc.available')}
+        color='primary'
+        size='small'
+      />
+    ) :
     t('modals.group.manage.tabs.cars.drivenBy', {driver: car.Driver?.username});
 
   return (
-    <ListItem key={key} divider={divider}>
+    <ListItem divider={divider}>
       <ListItemAvatar>
         <RoomIcon
           htmlColor={car.color}
@@ -45,7 +63,9 @@ export const ManageGroupCarsListItem: React.FC<ManageGroupCarsListItemProps> =
         />
       </ListItemAvatar>
       <ListItemText
+        primaryTypographyProps={{className: classes.primaryText}}
         primary={car.name}
+        secondaryTypographyProps={{component: 'div'}}
         secondary={secondaryText}
       />
     </ListItem>
