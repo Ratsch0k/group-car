@@ -20,14 +20,43 @@ import React, {useMemo, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import * as yup from 'yup';
 
+/**
+ * Props for the create car dialog.
+ */
 export interface ManageGroupCarsCreateDialogProps {
+  /**
+   * Whether or not this dialog should be open.
+   */
   open: boolean;
+
+  /**
+   * Callback to close the dialog.
+   */
   close: () => void;
+
+  /**
+   * Data of the displayed group.
+   */
   group: GroupWithOwnerAndMembersAndInvitesAndCars;
+
+  /**
+   * List of additional cars which the user has added
+   * in this session.
+   */
   additionalCars: CarWithDriver[];
+
+  /**
+   * Callback to add a new car to the list of
+   * additional cars.
+   * @param car The car
+   */
   addCar(car: CarWithDriver): void;
 }
 
+/**
+ * Dialog for creating a new car for the specified group.
+ * @param props Props
+ */
 export const ManageGroupCarsCreateDialog: React.FC<
   ManageGroupCarsCreateDialogProps
 > = (props: ManageGroupCarsCreateDialogProps) => {

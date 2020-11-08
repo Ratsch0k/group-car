@@ -17,6 +17,9 @@ export interface ManageGroupsTabsProps {
   group: GroupWithOwnerAndMembersAndInvitesAndCars;
 }
 
+/**
+ * Styles.
+ */
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     paperOutlined: {
@@ -55,6 +58,10 @@ export const ManageGroupTabs: React.FC<ManageGroupsTabsProps> =
     setSelectedTab(getTabFromRoute());
   }, [route, getTabFromRoute]);
 
+  /**
+   * Handles select tab action.
+   * @param index The selected tab.
+   */
   const handleSelectTab = (index: number) => {
     if (index === 0) {
       goTo(`/group/manage/${props.group.id}/members`);

@@ -4,6 +4,9 @@ import AddIcon from '@material-ui/icons/Add';
 import ManageGroupCarsCreateDialog from './ManageGroupCarsCreateDialog';
 import {CarWithDriver, GroupWithOwnerAndMembersAndInvitesAndCars} from 'lib';
 
+/**
+ * Styles.
+ */
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     fab: {
@@ -14,12 +17,33 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
+/**
+ * Props for the fab.
+ */
 export interface ManageGroupCarsTabAddFabProps {
+  /**
+   * Data of the displayed group.
+   */
   group: GroupWithOwnerAndMembersAndInvitesAndCars;
+
+  /**
+   * A list of additional cars.
+   * Additional cars are cars which the user
+   * has added.
+   */
   additionalCars: CarWithDriver[];
+
+  /**
+   * Callback to add a new car.
+   * @param car The car
+   */
   addCar(car: CarWithDriver): void;
 }
 
+/**
+ * Fab to add a new car to a group.
+ * @param props Props
+ */
 export const ManageGroupCarsTabAddFab: React.FC<ManageGroupCarsTabAddFabProps> =
 (props: ManageGroupCarsTabAddFabProps) => {
   const classes = useStyles();

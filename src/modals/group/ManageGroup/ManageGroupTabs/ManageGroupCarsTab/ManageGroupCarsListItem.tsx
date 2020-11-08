@@ -4,13 +4,30 @@ import React from 'react';
 import RoomIcon from '@material-ui/icons/Room';
 import {useTranslation} from 'react-i18next';
 
-
+/**
+ * Props for the car list item.
+ */
 export interface ManageGroupCarsListItemProps {
+  /**
+   * Data of the car.
+   */
   car: CarWithDriver;
+
+  /**
+   * Key of this item.
+   */
   key?: string;
+
+  /**
+   * Whether or not a divider should be placed under this item.
+   */
   divider?: boolean;
 }
 
+/**
+ * List item for the car list.
+ * @param props Props
+ */
 export const ManageGroupCarsListItem: React.FC<ManageGroupCarsListItemProps> =
 (props: ManageGroupCarsListItemProps) => {
   const {car, key, divider} = props;

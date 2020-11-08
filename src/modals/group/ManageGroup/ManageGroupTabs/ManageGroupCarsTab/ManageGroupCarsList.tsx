@@ -18,6 +18,10 @@ export interface ManageGroupCarsListProps {
   additionalCars: CarWithDriver[];
 }
 
+/**
+ * List of all cars.
+ * @param props Props
+ */
 export const ManageGroupCarsList: React.FC<ManageGroupCarsListProps> =
 (props: ManageGroupCarsListProps) => {
   const {group, additionalCars} = props;
