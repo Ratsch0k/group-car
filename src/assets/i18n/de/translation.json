@@ -72,6 +72,7 @@
           },
           "cars": {
             "title": "Autos",
+            "drivenBy": "Wird gerade von {{driver}} benutzt",
             "create": {
               "title": "Neues Auto erstellen"
             }
@@ -114,6 +115,7 @@
     "no": "Nein",
     "clear": "Löschen",
     "create": "Erstelle",
+    "available": "Verfügbar",
     "color": {
       "Red": "Rot",
       "Black": "Schwarz",

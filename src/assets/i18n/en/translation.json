@@ -70,6 +70,7 @@
           },
           "cars": {
             "title": "Cars",
+            "drivenBy": "Currently used by {{driver}}",
             "create": {
               "title": "Create a new car"
             }
@@ -112,6 +113,7 @@
     "no": "No",
     "clear": "Clear",
     "create": "Create",
+    "available": "Available",
     "color": {
       "Red": "Red",
       "Black": "Black",
