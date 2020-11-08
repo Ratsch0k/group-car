@@ -1,28 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Footer Delete button clicking no on delete group dialog closes delete group dialog 1`] = `
+exports[`CarTab cars tab is rendered correctly 1`] = `
 <body
-  style="padding-right: 0px; overflow: hidden;"
+  style=""
 >
-  <div
-    aria-hidden="true"
-  >
+  <div>
     <div
-      class="makeStyles-container-744"
+      class="makeStyles-container-513"
     >
       <div>
         <div
-          class="MuiBox-root MuiBox-root-749"
+          class="MuiBox-root MuiBox-root-518"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-747 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-516 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-747 makeStyles-description-748 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-516 makeStyles-description-517 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -31,11 +29,1982 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
         </div>
       </div>
       <div
-        class="makeStyles-tabsDesktop-745"
+        class="makeStyles-tabsDesktop-514"
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container-752 MuiPaper-outlined makeStyles-paperOutlined-750 MuiPaper-rounded"
+          class="MuiPaper-root makeStyles-container-521 MuiPaper-outlined makeStyles-paperOutlined-519 MuiPaper-rounded"
+        >
+          <div
+            class="MuiTabs-root"
+          >
+            <div
+              class="MuiTabs-scroller MuiTabs-fixed"
+              style="overflow: hidden;"
+            >
+              <div
+                class="MuiTabs-flexContainer"
+                role="tablist"
+              >
+                <button
+                  aria-controls="group-tabpanel-members"
+                  aria-selected="false"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-fullWidth"
+                  id="group-tab-members"
+                  role="tab"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="MuiTab-wrapper"
+                  >
+                    modals.group.manage.tabs.members.title
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+                <button
+                  aria-controls="group-tabpanel-cars"
+                  aria-selected="true"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-selected MuiTab-fullWidth"
+                  id="group-tab-cars"
+                  role="tab"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiTab-wrapper"
+                  >
+                    modals.group.manage.tabs.cars.title
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </div>
+              <span
+                class="PrivateTabIndicator-root-523 PrivateTabIndicator-colorSecondary-525 MuiTabs-indicator"
+                style="left: 0px; width: 0px;"
+              />
+            </div>
+          </div>
+          <div
+            class="makeStyles-tabContent-520"
+            style="overflow-x: hidden;"
+          >
+            <div
+              class="react-swipeable-view-container"
+              style="height: 100%; flex-direction: row; transition: transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1) 0s; transform: translate(-100%, 0); direction: ltr; display: flex; will-change: transform;"
+            >
+              <div
+                aria-hidden="true"
+                data-swipeable="true"
+                style="width: 100%; flex-shrink: 0; overflow: auto;"
+              >
+                <div
+                  aria-labelledby="group-tab-members"
+                  class="makeStyles-tabContent-520"
+                  hidden=""
+                  id="group-tabpanel-members"
+                  role="tabpanel"
+                />
+              </div>
+              <div
+                aria-hidden="false"
+                data-swipeable="true"
+                style="width: 100%; flex-shrink: 0; overflow: auto;"
+              >
+                <div
+                  aria-labelledby="group-tab-cars"
+                  class="makeStyles-tabContent-520"
+                  id="group-tabpanel-cars"
+                  role="tabpanel"
+                >
+                  <ul
+                    class="MuiList-root MuiList-padding"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="makeStyles-fabContainer-522"
+          >
+            <div />
+          </div>
+          <div
+            class="makeStyles-fabContainer-522"
+          >
+            <div>
+              <button
+                class="MuiButtonBase-root MuiFab-root makeStyles-fab-545 MuiFab-secondary"
+                id="create-car-fab"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiFab-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="makeStyles-footer-515"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-530"
+        >
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-531 MuiButton-fullWidth"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              modals.group.manage.deleteGroup.button
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`CarTab clicking add fab opens create car dialog 1`] = `
+<body
+  style="padding-right: 0px; overflow: hidden;"
+>
+  <div
+    aria-hidden="true"
+  >
+    <div
+      class="makeStyles-container-551"
+    >
+      <div>
+        <div
+          class="MuiBox-root MuiBox-root-556"
+        >
+          <h5
+            class="MuiTypography-root makeStyles-text-554 MuiTypography-h5 MuiTypography-gutterBottom"
+          >
+            <span>
+              fake group name
+            </span>
+          </h5>
+          <p
+            class="MuiTypography-root makeStyles-text-554 makeStyles-description-555 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+          >
+            <span>
+              fake group description
+            </span>
+          </p>
+        </div>
+      </div>
+      <div
+        class="makeStyles-tabsDesktop-552"
+        style="height: 400px;"
+      >
+        <div
+          class="MuiPaper-root makeStyles-container-559 MuiPaper-outlined makeStyles-paperOutlined-557 MuiPaper-rounded"
+        >
+          <div
+            class="MuiTabs-root"
+          >
+            <div
+              class="MuiTabs-scroller MuiTabs-fixed"
+              style="overflow: hidden;"
+            >
+              <div
+                class="MuiTabs-flexContainer"
+                role="tablist"
+              >
+                <button
+                  aria-controls="group-tabpanel-members"
+                  aria-selected="false"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-fullWidth"
+                  id="group-tab-members"
+                  role="tab"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="MuiTab-wrapper"
+                  >
+                    modals.group.manage.tabs.members.title
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+                <button
+                  aria-controls="group-tabpanel-cars"
+                  aria-selected="true"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-selected MuiTab-fullWidth"
+                  id="group-tab-cars"
+                  role="tab"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiTab-wrapper"
+                  >
+                    modals.group.manage.tabs.cars.title
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </div>
+              <span
+                class="PrivateTabIndicator-root-561 PrivateTabIndicator-colorSecondary-563 MuiTabs-indicator"
+                style="left: 0px; width: 0px;"
+              />
+            </div>
+          </div>
+          <div
+            class="makeStyles-tabContent-558"
+            style="overflow-x: hidden;"
+          >
+            <div
+              class="react-swipeable-view-container"
+              style="height: 100%; flex-direction: row; transition: transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1) 0s; transform: translate(-100%, 0); direction: ltr; display: flex; will-change: transform;"
+            >
+              <div
+                aria-hidden="true"
+                data-swipeable="true"
+                style="width: 100%; flex-shrink: 0; overflow: auto;"
+              >
+                <div
+                  aria-labelledby="group-tab-members"
+                  class="makeStyles-tabContent-558"
+                  hidden=""
+                  id="group-tabpanel-members"
+                  role="tabpanel"
+                />
+              </div>
+              <div
+                aria-hidden="false"
+                data-swipeable="true"
+                style="width: 100%; flex-shrink: 0; overflow: auto;"
+              >
+                <div
+                  aria-labelledby="group-tab-cars"
+                  class="makeStyles-tabContent-558"
+                  id="group-tabpanel-cars"
+                  role="tabpanel"
+                >
+                  <ul
+                    class="MuiList-root MuiList-padding"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="makeStyles-fabContainer-560"
+          >
+            <div />
+          </div>
+          <div
+            class="makeStyles-fabContainer-560"
+          >
+            <div>
+              <button
+                class="MuiButtonBase-root MuiFab-root makeStyles-fab-583 MuiFab-secondary"
+                id="create-car-fab"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiFab-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="makeStyles-footer-553"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-568"
+        >
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-569 MuiButton-fullWidth"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              modals.group.manage.deleteGroup.button
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiDialog-root"
+    role="presentation"
+    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
+  >
+    <div
+      aria-hidden="true"
+      class="MuiBackdrop-root"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+    />
+    <div
+      data-test="sentinelStart"
+      tabindex="0"
+    />
+    <div
+      class="MuiDialog-container MuiDialog-scrollPaper"
+      role="none presentation"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+      tabindex="-1"
+    >
+      <div
+        class="MuiPaper-root MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiPaper-elevation24 MuiPaper-rounded"
+        role="dialog"
+      >
+        <div
+          class="MuiDialogTitle-root"
+        >
+          <h2
+            class="MuiTypography-root MuiTypography-h6"
+          >
+            modals.group.manage.tabs.cars.create.title
+          </h2>
+        </div>
+        <form>
+          <div
+            class="MuiDialogContent-root"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-column"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-item"
+              >
+                <div
+                  class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+                  formik="[object Object]"
+                >
+                  <label
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-marginDense MuiInputLabel-outlined Mui-focused Mui-focused"
+                    data-shrink="true"
+                    for="create-car-name"
+                    id="create-car-name-label"
+                  >
+                    form.name *
+                  </label>
+                  <div
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth Mui-focused Mui-focused MuiInputBase-formControl MuiInputBase-marginDense MuiOutlinedInput-marginDense"
+                  >
+                    <input
+                      aria-describedby="create-car-name-helper-text"
+                      aria-invalid="false"
+                      class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense"
+                      id="create-car-name"
+                      name="name"
+                      type="text"
+                      value=""
+                    />
+                    <fieldset
+                      aria-hidden="true"
+                      class="PrivateNotchedOutline-root-584 MuiOutlinedInput-notchedOutline"
+                    >
+                      <legend
+                        class="PrivateNotchedOutline-legendLabelled-586 PrivateNotchedOutline-legendNotched-587"
+                      >
+                        <span>
+                          form.name *
+                        </span>
+                      </legend>
+                    </fieldset>
+                  </div>
+                  <p
+                    class="MuiFormHelperText-root MuiFormHelperText-contained Mui-focused MuiFormHelperText-marginDense"
+                    id="create-car-name-helper-text"
+                  >
+                    <span>
+                      ​
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item"
+              >
+                <div
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth"
+                >
+                  <div
+                    aria-haspopup="listbox"
+                    aria-labelledby="create-car-color"
+                    class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined makeStyles-outlined-588 MuiInputBase-input MuiOutlinedInput-input"
+                    id="create-car-color"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+                    >
+                      <div
+                        class="MuiGrid-root MuiGrid-item"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          color="Red"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                          />
+                        </svg>
+                      </div>
+                      <div
+                        class="MuiGrid-root MuiGrid-item"
+                      >
+                        misc.color.Red
+                      </div>
+                    </div>
+                  </div>
+                  <input
+                    aria-hidden="true"
+                    class="MuiSelect-nativeInput"
+                    tabindex="-1"
+                    value="Red"
+                  />
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7 10l5 5 5-5z"
+                    />
+                  </svg>
+                  <fieldset
+                    aria-hidden="true"
+                    class="PrivateNotchedOutline-root-584 MuiOutlinedInput-notchedOutline"
+                    style="padding-left: 8px;"
+                  >
+                    <legend
+                      class="PrivateNotchedOutline-legend-585"
+                      style="width: 0.01px;"
+                    >
+                      <span>
+                        ​
+                      </span>
+                    </legend>
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="MuiDialogActions-root MuiDialogActions-spacing"
+          >
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                misc.close
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+            <div
+              class="MuiBox-root MuiBox-root-591 makeStyles-wrapper-589"
+            >
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
+                tabindex="0"
+                type="submit"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  misc.create
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      data-test="sentinelEnd"
+      tabindex="0"
+    />
+  </div>
+</body>
+`;
+
+exports[`CarTab entering a name and clicking create sends request to create a car 1`] = `
+<body
+  style="padding-right: 0px; overflow: hidden;"
+>
+  <div
+    aria-hidden="true"
+  >
+    <div
+      class="makeStyles-container-597"
+    >
+      <div>
+        <div
+          class="MuiBox-root MuiBox-root-602"
+        >
+          <h5
+            class="MuiTypography-root makeStyles-text-600 MuiTypography-h5 MuiTypography-gutterBottom"
+          >
+            <span>
+              fake group name
+            </span>
+          </h5>
+          <p
+            class="MuiTypography-root makeStyles-text-600 makeStyles-description-601 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+          >
+            <span>
+              fake group description
+            </span>
+          </p>
+        </div>
+      </div>
+      <div
+        class="makeStyles-tabsDesktop-598"
+        style="height: 400px;"
+      >
+        <div
+          class="MuiPaper-root makeStyles-container-605 MuiPaper-outlined makeStyles-paperOutlined-603 MuiPaper-rounded"
+        >
+          <div
+            class="MuiTabs-root"
+          >
+            <div
+              class="MuiTabs-scroller MuiTabs-fixed"
+              style="overflow: hidden;"
+            >
+              <div
+                class="MuiTabs-flexContainer"
+                role="tablist"
+              >
+                <button
+                  aria-controls="group-tabpanel-members"
+                  aria-selected="false"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-fullWidth"
+                  id="group-tab-members"
+                  role="tab"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="MuiTab-wrapper"
+                  >
+                    modals.group.manage.tabs.members.title
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+                <button
+                  aria-controls="group-tabpanel-cars"
+                  aria-selected="true"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-selected MuiTab-fullWidth"
+                  id="group-tab-cars"
+                  role="tab"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiTab-wrapper"
+                  >
+                    modals.group.manage.tabs.cars.title
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  >
+                    <span
+                      class="MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+                      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+                    >
+                      <span
+                        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+                      />
+                    </span>
+                  </span>
+                </button>
+              </div>
+              <span
+                class="PrivateTabIndicator-root-607 PrivateTabIndicator-colorSecondary-609 MuiTabs-indicator"
+                style="left: 0px; width: 0px;"
+              />
+            </div>
+          </div>
+          <div
+            class="makeStyles-tabContent-604"
+            style="overflow-x: hidden;"
+          >
+            <div
+              class="react-swipeable-view-container"
+              style="height: 100%; flex-direction: row; transition: transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1) 0s; transform: translate(-100%, 0); direction: ltr; display: flex; will-change: transform;"
+            >
+              <div
+                aria-hidden="true"
+                data-swipeable="true"
+                style="width: 100%; flex-shrink: 0; overflow: auto;"
+              >
+                <div
+                  aria-labelledby="group-tab-members"
+                  class="makeStyles-tabContent-604"
+                  hidden=""
+                  id="group-tabpanel-members"
+                  role="tabpanel"
+                />
+              </div>
+              <div
+                aria-hidden="false"
+                data-swipeable="true"
+                style="width: 100%; flex-shrink: 0; overflow: auto;"
+              >
+                <div
+                  aria-labelledby="group-tab-cars"
+                  class="makeStyles-tabContent-604"
+                  id="group-tabpanel-cars"
+                  role="tabpanel"
+                >
+                  <ul
+                    class="MuiList-root MuiList-padding"
+                  >
+                    <li
+                      class="MuiListItem-root MuiListItem-gutters"
+                    >
+                      <div
+                        class="MuiListItemAvatar-root"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge"
+                          color="Red"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                          />
+                        </svg>
+                      </div>
+                      <div
+                        class="MuiListItemText-root MuiListItemText-multiline"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                        >
+                          test car
+                        </span>
+                        <p
+                          class="MuiTypography-root MuiListItemText-secondary MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+                        >
+                          misc.available
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="makeStyles-fabContainer-606"
+          >
+            <div />
+          </div>
+          <div
+            class="makeStyles-fabContainer-606"
+          >
+            <div>
+              <button
+                class="MuiButtonBase-root MuiFab-root makeStyles-fab-629 MuiFab-secondary"
+                id="create-car-fab"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiFab-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                >
+                  <span
+                    class="MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+                    style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+                  >
+                    <span
+                      class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+                    />
+                  </span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="makeStyles-footer-599"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-614"
+        >
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-615 MuiButton-fullWidth"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              modals.group.manage.deleteGroup.button
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiDialog-root"
+    role="presentation"
+    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
+  >
+    <div
+      aria-hidden="true"
+      class="MuiBackdrop-root"
+      style="opacity: 0; webkit-transition: opacity 195ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 195ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+    />
+    <div
+      data-test="sentinelStart"
+      tabindex="0"
+    />
+    <div
+      class="MuiDialog-container MuiDialog-scrollPaper"
+      role="none presentation"
+      style="opacity: 0; webkit-transition: opacity 195ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 195ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+      tabindex="-1"
+    >
+      <div
+        class="MuiPaper-root MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiPaper-elevation24 MuiPaper-rounded"
+        role="dialog"
+      >
+        <div
+          class="MuiDialogTitle-root"
+        >
+          <h2
+            class="MuiTypography-root MuiTypography-h6"
+          >
+            modals.group.manage.tabs.cars.create.title
+          </h2>
+        </div>
+        <form>
+          <div
+            class="MuiDialogContent-root"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-column"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-item"
+              >
+                <div
+                  class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+                  formik="[object Object]"
+                >
+                  <label
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-marginDense MuiInputLabel-outlined"
+                    data-shrink="false"
+                    for="create-car-name"
+                    id="create-car-name-label"
+                  >
+                    form.name *
+                  </label>
+                  <div
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-marginDense MuiOutlinedInput-marginDense"
+                  >
+                    <input
+                      aria-describedby="create-car-name-helper-text"
+                      aria-invalid="false"
+                      class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense"
+                      id="create-car-name"
+                      name="name"
+                      type="text"
+                      value=""
+                    />
+                    <fieldset
+                      aria-hidden="true"
+                      class="PrivateNotchedOutline-root-630 MuiOutlinedInput-notchedOutline"
+                    >
+                      <legend
+                        class="PrivateNotchedOutline-legendLabelled-632"
+                      >
+                        <span>
+                          form.name *
+                        </span>
+                      </legend>
+                    </fieldset>
+                  </div>
+                  <p
+                    class="MuiFormHelperText-root MuiFormHelperText-contained MuiFormHelperText-marginDense"
+                    id="create-car-name-helper-text"
+                  >
+                    <span>
+                      ​
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item"
+              >
+                <div
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth"
+                >
+                  <div
+                    aria-haspopup="listbox"
+                    aria-labelledby="create-car-color"
+                    class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined makeStyles-outlined-634 MuiInputBase-input MuiOutlinedInput-input"
+                    id="create-car-color"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <span>
+                      ​
+                    </span>
+                  </div>
+                  <input
+                    aria-hidden="true"
+                    class="MuiSelect-nativeInput"
+                    tabindex="-1"
+                    value="Red"
+                  />
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7 10l5 5 5-5z"
+                    />
+                  </svg>
+                  <fieldset
+                    aria-hidden="true"
+                    class="PrivateNotchedOutline-root-630 MuiOutlinedInput-notchedOutline"
+                    style="padding-left: 8px;"
+                  >
+                    <legend
+                      class="PrivateNotchedOutline-legend-631"
+                      style="width: 0.01px;"
+                    >
+                      <span>
+                        ​
+                      </span>
+                    </legend>
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="MuiDialogActions-root MuiDialogActions-spacing"
+          >
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                misc.close
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+            <div
+              class="MuiBox-root MuiBox-root-637 makeStyles-wrapper-674"
+            >
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
+                tabindex="0"
+                type="submit"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  misc.create
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      data-test="sentinelEnd"
+      tabindex="0"
+    />
+  </div>
+</body>
+`;
+
+exports[`CarTab is automatically selected if modal route is /group/manage/:groupId/cars 1`] = `
+<body
+  style=""
+>
+  <div>
+    <div
+      class="makeStyles-container-767"
+    >
+      <div>
+        <div
+          class="MuiBox-root MuiBox-root-772"
+        >
+          <h5
+            class="MuiTypography-root makeStyles-text-770 MuiTypography-h5 MuiTypography-gutterBottom"
+          >
+            <span>
+              fake group name
+            </span>
+          </h5>
+          <p
+            class="MuiTypography-root makeStyles-text-770 makeStyles-description-771 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+          >
+            <span>
+              fake group description
+            </span>
+          </p>
+        </div>
+      </div>
+      <div
+        class="makeStyles-tabsDesktop-768"
+        style="height: 400px;"
+      >
+        <div
+          class="MuiPaper-root makeStyles-container-775 MuiPaper-outlined makeStyles-paperOutlined-773 MuiPaper-rounded"
+        >
+          <div
+            class="MuiTabs-root"
+          >
+            <div
+              class="MuiTabs-scroller MuiTabs-fixed"
+              style="overflow: hidden;"
+            >
+              <div
+                class="MuiTabs-flexContainer"
+                role="tablist"
+              >
+                <button
+                  aria-controls="group-tabpanel-members"
+                  aria-selected="false"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-fullWidth"
+                  id="group-tab-members"
+                  role="tab"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="MuiTab-wrapper"
+                  >
+                    modals.group.manage.tabs.members.title
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+                <button
+                  aria-controls="group-tabpanel-cars"
+                  aria-selected="true"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-selected MuiTab-fullWidth"
+                  id="group-tab-cars"
+                  role="tab"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiTab-wrapper"
+                  >
+                    modals.group.manage.tabs.cars.title
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </div>
+              <span
+                class="PrivateTabIndicator-root-777 PrivateTabIndicator-colorSecondary-779 MuiTabs-indicator"
+                style="left: 0px; width: 0px;"
+              />
+            </div>
+          </div>
+          <div
+            class="makeStyles-tabContent-774"
+            style="overflow-x: hidden;"
+          >
+            <div
+              class="react-swipeable-view-container"
+              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; transform: translate(-100%, 0); direction: ltr; display: flex; will-change: transform;"
+            >
+              <div
+                aria-hidden="true"
+                data-swipeable="true"
+                style="width: 100%; flex-shrink: 0; overflow: auto;"
+              >
+                <div
+                  aria-labelledby="group-tab-members"
+                  class="makeStyles-tabContent-774"
+                  hidden=""
+                  id="group-tabpanel-members"
+                  role="tabpanel"
+                />
+              </div>
+              <div
+                aria-hidden="false"
+                data-swipeable="true"
+                style="width: 100%; flex-shrink: 0; overflow: auto;"
+              >
+                <div
+                  aria-labelledby="group-tab-cars"
+                  class="makeStyles-tabContent-774"
+                  id="group-tabpanel-cars"
+                  role="tabpanel"
+                >
+                  <ul
+                    class="MuiList-root MuiList-padding"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="makeStyles-fabContainer-776"
+          >
+            <div />
+          </div>
+          <div
+            class="makeStyles-fabContainer-776"
+          >
+            <div />
+          </div>
+        </div>
+      </div>
+      <div
+        class="makeStyles-footer-769"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-781"
+        >
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-782 MuiButton-fullWidth"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              modals.group.manage.deleteGroup.button
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+    class="MuiButtonBase-root MuiFab-root makeStyles-fab-784 MuiFab-secondary"
+    id="create-car-fab"
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="MuiFab-label"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+        />
+      </svg>
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
+</body>
+`;
+
+exports[`CarTab when new car is created used color is removed from car color selection 1`] = `
+<body
+  style="padding-right: 0px; overflow: hidden;"
+>
+  <div
+    aria-hidden="true"
+  >
+    <div
+      class="makeStyles-container-681"
+    >
+      <div>
+        <div
+          class="MuiBox-root MuiBox-root-686"
+        >
+          <h5
+            class="MuiTypography-root makeStyles-text-684 MuiTypography-h5 MuiTypography-gutterBottom"
+          >
+            <span>
+              fake group name
+            </span>
+          </h5>
+          <p
+            class="MuiTypography-root makeStyles-text-684 makeStyles-description-685 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+          >
+            <span>
+              fake group description
+            </span>
+          </p>
+        </div>
+      </div>
+      <div
+        class="makeStyles-tabsDesktop-682"
+        style="height: 400px;"
+      >
+        <div
+          class="MuiPaper-root makeStyles-container-689 MuiPaper-outlined makeStyles-paperOutlined-687 MuiPaper-rounded"
+        >
+          <div
+            class="MuiTabs-root"
+          >
+            <div
+              class="MuiTabs-scroller MuiTabs-fixed"
+              style="overflow: hidden;"
+            >
+              <div
+                class="MuiTabs-flexContainer"
+                role="tablist"
+              >
+                <button
+                  aria-controls="group-tabpanel-members"
+                  aria-selected="false"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-fullWidth"
+                  id="group-tab-members"
+                  role="tab"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="MuiTab-wrapper"
+                  >
+                    modals.group.manage.tabs.members.title
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+                <button
+                  aria-controls="group-tabpanel-cars"
+                  aria-selected="true"
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-selected MuiTab-fullWidth"
+                  id="group-tab-cars"
+                  role="tab"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiTab-wrapper"
+                  >
+                    modals.group.manage.tabs.cars.title
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  >
+                    <span
+                      class="MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+                      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+                    >
+                      <span
+                        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+                      />
+                    </span>
+                  </span>
+                </button>
+              </div>
+              <span
+                class="PrivateTabIndicator-root-691 PrivateTabIndicator-colorSecondary-693 MuiTabs-indicator"
+                style="left: 0px; width: 0px;"
+              />
+            </div>
+          </div>
+          <div
+            class="makeStyles-tabContent-688"
+            style="overflow-x: hidden;"
+          >
+            <div
+              class="react-swipeable-view-container"
+              style="height: 100%; flex-direction: row; transition: transform 0.35s cubic-bezier(0.15, 0.3, 0.25, 1) 0s; transform: translate(-100%, 0); direction: ltr; display: flex; will-change: transform;"
+            >
+              <div
+                aria-hidden="true"
+                data-swipeable="true"
+                style="width: 100%; flex-shrink: 0; overflow: auto;"
+              >
+                <div
+                  aria-labelledby="group-tab-members"
+                  class="makeStyles-tabContent-688"
+                  hidden=""
+                  id="group-tabpanel-members"
+                  role="tabpanel"
+                />
+              </div>
+              <div
+                aria-hidden="false"
+                data-swipeable="true"
+                style="width: 100%; flex-shrink: 0; overflow: auto;"
+              >
+                <div
+                  aria-labelledby="group-tab-cars"
+                  class="makeStyles-tabContent-688"
+                  id="group-tabpanel-cars"
+                  role="tabpanel"
+                >
+                  <ul
+                    class="MuiList-root MuiList-padding"
+                  >
+                    <li
+                      class="MuiListItem-root MuiListItem-gutters"
+                    >
+                      <div
+                        class="MuiListItemAvatar-root"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge"
+                          color="Red"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                          />
+                        </svg>
+                      </div>
+                      <div
+                        class="MuiListItemText-root MuiListItemText-multiline"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                        >
+                          test car
+                        </span>
+                        <p
+                          class="MuiTypography-root MuiListItemText-secondary MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+                        >
+                          misc.available
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="makeStyles-fabContainer-690"
+          >
+            <div />
+          </div>
+          <div
+            class="makeStyles-fabContainer-690"
+          >
+            <div>
+              <button
+                class="MuiButtonBase-root MuiFab-root makeStyles-fab-713 MuiFab-secondary"
+                id="create-car-fab"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiFab-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                >
+                  <span
+                    class="MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+                    style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+                  >
+                    <span
+                      class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+                    />
+                  </span>
+                  <span
+                    class="MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+                    style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+                  >
+                    <span
+                      class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+                    />
+                  </span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="makeStyles-footer-683"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-698"
+        >
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-699 MuiButton-fullWidth"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              modals.group.manage.deleteGroup.button
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-hidden="true"
+    class="MuiDialog-root"
+    role="presentation"
+    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
+  >
+    <div
+      aria-hidden="true"
+      class="MuiBackdrop-root"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+    />
+    <div
+      data-test="sentinelStart"
+      tabindex="0"
+    />
+    <div
+      class="MuiDialog-container MuiDialog-scrollPaper"
+      role="none presentation"
+      style="opacity: 1; webkit-transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+      tabindex="-1"
+    >
+      <div
+        class="MuiPaper-root MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiPaper-elevation24 MuiPaper-rounded"
+        role="dialog"
+      >
+        <div
+          class="MuiDialogTitle-root"
+        >
+          <h2
+            class="MuiTypography-root MuiTypography-h6"
+          >
+            modals.group.manage.tabs.cars.create.title
+          </h2>
+        </div>
+        <form>
+          <div
+            class="MuiDialogContent-root"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-column"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-item"
+              >
+                <div
+                  class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+                  formik="[object Object]"
+                >
+                  <label
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-marginDense MuiInputLabel-outlined"
+                    data-shrink="false"
+                    for="create-car-name"
+                    id="create-car-name-label"
+                  >
+                    form.name *
+                  </label>
+                  <div
+                    class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-marginDense MuiOutlinedInput-marginDense"
+                  >
+                    <input
+                      aria-describedby="create-car-name-helper-text"
+                      aria-invalid="false"
+                      class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense"
+                      id="create-car-name"
+                      name="name"
+                      type="text"
+                      value=""
+                    />
+                    <fieldset
+                      aria-hidden="true"
+                      class="PrivateNotchedOutline-root-714 MuiOutlinedInput-notchedOutline"
+                    >
+                      <legend
+                        class="PrivateNotchedOutline-legendLabelled-716"
+                      >
+                        <span>
+                          form.name *
+                        </span>
+                      </legend>
+                    </fieldset>
+                  </div>
+                  <p
+                    class="MuiFormHelperText-root MuiFormHelperText-contained MuiFormHelperText-marginDense"
+                    id="create-car-name-helper-text"
+                  >
+                    <span>
+                      ​
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item"
+              >
+                <div
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth Mui-focused Mui-focused"
+                >
+                  <div
+                    aria-expanded="true"
+                    aria-haspopup="listbox"
+                    aria-labelledby="create-car-color"
+                    class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined makeStyles-outlined-718 MuiInputBase-input MuiOutlinedInput-input"
+                    id="create-car-color"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <span>
+                      ​
+                    </span>
+                  </div>
+                  <input
+                    aria-hidden="true"
+                    class="MuiSelect-nativeInput"
+                    tabindex="-1"
+                    value="Red"
+                  />
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined MuiSelect-iconOpen"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7 10l5 5 5-5z"
+                    />
+                  </svg>
+                  <fieldset
+                    aria-hidden="true"
+                    class="PrivateNotchedOutline-root-714 MuiOutlinedInput-notchedOutline"
+                    style="padding-left: 8px;"
+                  >
+                    <legend
+                      class="PrivateNotchedOutline-legend-715"
+                      style="width: 0.01px;"
+                    >
+                      <span>
+                        ​
+                      </span>
+                    </legend>
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="MuiDialogActions-root MuiDialogActions-spacing"
+          >
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                misc.close
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+            <div
+              class="MuiBox-root MuiBox-root-721 makeStyles-wrapper-760"
+            >
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
+                tabindex="0"
+                type="submit"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  misc.create
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      data-test="sentinelEnd"
+      tabindex="0"
+    />
+  </div>
+  <div
+    class="MuiPopover-root"
+    id="menu-"
+    role="presentation"
+    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
+  >
+    <div
+      aria-hidden="true"
+      style="z-index: -1; position: fixed; right: 0px; bottom: 0px; top: 0px; left: 0px; background-color: transparent;"
+    />
+    <div
+      data-test="sentinelStart"
+      tabindex="0"
+    />
+    <div
+      class="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"
+      style="opacity: 1; transform: scale(1, 1); min-width: 0; transition: opacity 0ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 0ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; top: 16px; left: 16px; transform-origin: -16px -16px;"
+      tabindex="-1"
+    >
+      <ul
+        class="MuiList-root MuiMenu-list MuiList-padding"
+        role="listbox"
+        tabindex="-1"
+      >
+        <li
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          data-value="Green"
+          role="option"
+          tabindex="0"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                color="Green"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              misc.color.Green
+            </div>
+          </div>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+        <li
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          data-value="Blue"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                color="Blue"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              misc.color.Blue
+            </div>
+          </div>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+        <li
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          data-value="Black"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                color="Black"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              misc.color.Black
+            </div>
+          </div>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+        <li
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          data-value="Yellow"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                color="Yellow"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              misc.color.Yellow
+            </div>
+          </div>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+        <li
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          data-value="White"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                color="White"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              misc.color.White
+            </div>
+          </div>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+        <li
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          data-value="Purple"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                color="Purple"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              misc.color.Purple
+            </div>
+          </div>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+        <li
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          data-value="Brown"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                color="Brown"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              misc.color.Brown
+            </div>
+          </div>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+        <li
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          data-value="Orange"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                color="Orange"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              misc.color.Orange
+            </div>
+          </div>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+      </ul>
+    </div>
+    <div
+      data-test="sentinelEnd"
+      tabindex="0"
+    />
+  </div>
+</body>
+`;
+
+exports[`Footer Delete button clicking no on delete group dialog closes delete group dialog 1`] = `
+<body
+  style="padding-right: 0px; overflow: hidden;"
+>
+  <div
+    aria-hidden="true"
+  >
+    <div
+      class="makeStyles-container-1021"
+    >
+      <div>
+        <div
+          class="MuiBox-root MuiBox-root-1026"
+        >
+          <h5
+            class="MuiTypography-root makeStyles-text-1024 MuiTypography-h5 MuiTypography-gutterBottom"
+          >
+            <span>
+              fake group name
+            </span>
+          </h5>
+          <p
+            class="MuiTypography-root makeStyles-text-1024 makeStyles-description-1025 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+          >
+            <span>
+              fake group description
+            </span>
+          </p>
+        </div>
+      </div>
+      <div
+        class="makeStyles-tabsDesktop-1022"
+        style="height: 400px;"
+      >
+        <div
+          class="MuiPaper-root makeStyles-container-1029 MuiPaper-outlined makeStyles-paperOutlined-1027 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -86,13 +2055,13 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-754 PrivateTabIndicator-colorSecondary-756 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-1031 PrivateTabIndicator-colorSecondary-1033 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-751"
+            class="makeStyles-tabContent-1028"
             style="overflow-x: hidden;"
           >
             <div
@@ -106,7 +2075,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-751"
+                  class="makeStyles-tabContent-1028"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -120,7 +2089,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-764"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-1041"
                         >
                           <img
                             alt="user-2"
@@ -139,7 +2108,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-760"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-1037"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -149,7 +2118,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-760"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-1037"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -170,7 +2139,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
               >
                 <div
                   aria-labelledby="group-tab-cars"
-                  class="makeStyles-tabContent-751"
+                  class="makeStyles-tabContent-1028"
                   hidden=""
                   id="group-tabpanel-cars"
                   role="tabpanel"
@@ -179,12 +2148,12 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
             </div>
           </div>
           <div
-            class="makeStyles-fabContainer-753"
+            class="makeStyles-fabContainer-1030"
           >
             <div>
               <div
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiFab-root makeStyles-fab-766 MuiFab-secondary"
+                class="MuiButtonBase-root MuiFab-root makeStyles-fab-1043 MuiFab-secondary"
                 id="member-fab"
                 role="button"
                 tabindex="0"
@@ -210,20 +2179,20 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
             </div>
           </div>
           <div
-            class="makeStyles-fabContainer-753"
+            class="makeStyles-fabContainer-1030"
           >
             <div />
           </div>
         </div>
       </div>
       <div
-        class="makeStyles-footer-746"
+        class="makeStyles-footer-1023"
       >
         <div
-          class="MuiBox-root MuiBox-root-761"
+          class="MuiBox-root MuiBox-root-1038"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-762 MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-1039 MuiButton-fullWidth"
             tabindex="0"
             type="button"
           >
@@ -277,7 +2246,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
           class="MuiDialogContent-root"
         >
           <p
-            class="MuiTypography-root MuiDialogContentText-root makeStyles-contentText-763 MuiTypography-body1 MuiTypography-colorTextSecondary"
+            class="MuiTypography-root MuiDialogContentText-root makeStyles-contentText-1040 MuiTypography-body1 MuiTypography-colorTextSecondary"
           >
             modals.group.manage.deleteGroup.dialog.content
           </p>
@@ -300,7 +2269,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
             />
           </button>
           <div
-            class="MuiBox-root MuiBox-root-778 makeStyles-wrapper-776"
+            class="MuiBox-root MuiBox-root-1055 makeStyles-wrapper-1053"
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -336,21 +2305,21 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
     aria-hidden="true"
   >
     <div
-      class="makeStyles-container-744"
+      class="makeStyles-container-1021"
     >
       <div>
         <div
-          class="MuiBox-root MuiBox-root-749"
+          class="MuiBox-root MuiBox-root-1026"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-747 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-1024 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-747 makeStyles-description-748 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-1024 makeStyles-description-1025 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -359,11 +2328,11 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
         </div>
       </div>
       <div
-        class="makeStyles-tabsDesktop-745"
+        class="makeStyles-tabsDesktop-1022"
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container-752 MuiPaper-outlined makeStyles-paperOutlined-750 MuiPaper-rounded"
+          class="MuiPaper-root makeStyles-container-1029 MuiPaper-outlined makeStyles-paperOutlined-1027 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -414,13 +2383,13 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-754 PrivateTabIndicator-colorSecondary-756 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-1031 PrivateTabIndicator-colorSecondary-1033 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-751"
+            class="makeStyles-tabContent-1028"
             style="overflow-x: hidden;"
           >
             <div
@@ -434,7 +2403,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-751"
+                  class="makeStyles-tabContent-1028"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -448,7 +2417,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-764"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-1041"
                         >
                           <img
                             alt="user-2"
@@ -467,7 +2436,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-760"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-1037"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -477,7 +2446,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-760"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-1037"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -498,7 +2467,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
               >
                 <div
                   aria-labelledby="group-tab-cars"
-                  class="makeStyles-tabContent-751"
+                  class="makeStyles-tabContent-1028"
                   hidden=""
                   id="group-tabpanel-cars"
                   role="tabpanel"
@@ -507,12 +2476,12 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
             </div>
           </div>
           <div
-            class="makeStyles-fabContainer-753"
+            class="makeStyles-fabContainer-1030"
           >
             <div>
               <div
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiFab-root makeStyles-fab-766 MuiFab-secondary"
+                class="MuiButtonBase-root MuiFab-root makeStyles-fab-1043 MuiFab-secondary"
                 id="member-fab"
                 role="button"
                 tabindex="0"
@@ -538,20 +2507,20 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
             </div>
           </div>
           <div
-            class="makeStyles-fabContainer-753"
+            class="makeStyles-fabContainer-1030"
           >
             <div />
           </div>
         </div>
       </div>
       <div
-        class="makeStyles-footer-746"
+        class="makeStyles-footer-1023"
       >
         <div
-          class="MuiBox-root MuiBox-root-761"
+          class="MuiBox-root MuiBox-root-1038"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-762 MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-1039 MuiButton-fullWidth"
             tabindex="0"
             type="button"
           >
@@ -605,7 +2574,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
           class="MuiDialogContent-root"
         >
           <p
-            class="MuiTypography-root MuiDialogContentText-root makeStyles-contentText-763 MuiTypography-body1 MuiTypography-colorTextSecondary"
+            class="MuiTypography-root MuiDialogContentText-root makeStyles-contentText-1040 MuiTypography-body1 MuiTypography-colorTextSecondary"
           >
             modals.group.manage.deleteGroup.dialog.content
           </p>
@@ -628,7 +2597,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
             />
           </button>
           <div
-            class="MuiBox-root MuiBox-root-778 makeStyles-wrapper-779"
+            class="MuiBox-root MuiBox-root-1055 makeStyles-wrapper-1056"
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -664,21 +2633,21 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
     aria-hidden="true"
   >
     <div
-      class="makeStyles-container-662"
+      class="makeStyles-container-939"
     >
       <div>
         <div
-          class="MuiBox-root MuiBox-root-667"
+          class="MuiBox-root MuiBox-root-944"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-665 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-942 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-665 makeStyles-description-666 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-942 makeStyles-description-943 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -687,11 +2656,11 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
         </div>
       </div>
       <div
-        class="makeStyles-tabsDesktop-663"
+        class="makeStyles-tabsDesktop-940"
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container-670 MuiPaper-outlined makeStyles-paperOutlined-668 MuiPaper-rounded"
+          class="MuiPaper-root makeStyles-container-947 MuiPaper-outlined makeStyles-paperOutlined-945 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -742,13 +2711,13 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-672 PrivateTabIndicator-colorSecondary-674 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-949 PrivateTabIndicator-colorSecondary-951 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-669"
+            class="makeStyles-tabContent-946"
             style="overflow-x: hidden;"
           >
             <div
@@ -762,7 +2731,7 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-669"
+                  class="makeStyles-tabContent-946"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -776,7 +2745,7 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-682"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-959"
                         >
                           <img
                             alt="user-2"
@@ -795,7 +2764,7 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-678"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-955"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -805,7 +2774,7 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-678"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-955"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -826,7 +2795,7 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
               >
                 <div
                   aria-labelledby="group-tab-cars"
-                  class="makeStyles-tabContent-669"
+                  class="makeStyles-tabContent-946"
                   hidden=""
                   id="group-tabpanel-cars"
                   role="tabpanel"
@@ -835,12 +2804,12 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
             </div>
           </div>
           <div
-            class="makeStyles-fabContainer-671"
+            class="makeStyles-fabContainer-948"
           >
             <div>
               <div
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiFab-root makeStyles-fab-684 MuiFab-secondary"
+                class="MuiButtonBase-root MuiFab-root makeStyles-fab-961 MuiFab-secondary"
                 id="member-fab"
                 role="button"
                 tabindex="0"
@@ -866,20 +2835,20 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
             </div>
           </div>
           <div
-            class="makeStyles-fabContainer-671"
+            class="makeStyles-fabContainer-948"
           >
             <div />
           </div>
         </div>
       </div>
       <div
-        class="makeStyles-footer-664"
+        class="makeStyles-footer-941"
       >
         <div
-          class="MuiBox-root MuiBox-root-679"
+          class="MuiBox-root MuiBox-root-956"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-680 MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-957 MuiButton-fullWidth"
             tabindex="0"
             type="button"
           >
@@ -933,7 +2902,7 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
           class="MuiDialogContent-root"
         >
           <p
-            class="MuiTypography-root MuiDialogContentText-root makeStyles-contentText-681 MuiTypography-body1 MuiTypography-colorTextSecondary"
+            class="MuiTypography-root MuiDialogContentText-root makeStyles-contentText-958 MuiTypography-body1 MuiTypography-colorTextSecondary"
           >
             modals.group.manage.deleteGroup.dialog.content
           </p>
@@ -956,7 +2925,7 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
             />
           </button>
           <div
-            class="MuiBox-root MuiBox-root-696 makeStyles-wrapper-694"
+            class="MuiBox-root MuiBox-root-973 makeStyles-wrapper-971"
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -990,21 +2959,21 @@ exports[`Footer Delete button delete group button is visible if user is owner of
 >
   <div>
     <div
-      class="makeStyles-container-625"
+      class="makeStyles-container-902"
     >
       <div>
         <div
-          class="MuiBox-root MuiBox-root-630"
+          class="MuiBox-root MuiBox-root-907"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-628 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-905 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-628 makeStyles-description-629 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-905 makeStyles-description-906 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -1013,11 +2982,11 @@ exports[`Footer Delete button delete group button is visible if user is owner of
         </div>
       </div>
       <div
-        class="makeStyles-tabsDesktop-626"
+        class="makeStyles-tabsDesktop-903"
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container-633 MuiPaper-outlined makeStyles-paperOutlined-631 MuiPaper-rounded"
+          class="MuiPaper-root makeStyles-container-910 MuiPaper-outlined makeStyles-paperOutlined-908 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -1068,13 +3037,13 @@ exports[`Footer Delete button delete group button is visible if user is owner of
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-635 PrivateTabIndicator-colorSecondary-637 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-912 PrivateTabIndicator-colorSecondary-914 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-632"
+            class="makeStyles-tabContent-909"
             style="overflow-x: hidden;"
           >
             <div
@@ -1088,7 +3057,7 @@ exports[`Footer Delete button delete group button is visible if user is owner of
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-632"
+                  class="makeStyles-tabContent-909"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -1102,7 +3071,7 @@ exports[`Footer Delete button delete group button is visible if user is owner of
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-645"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-922"
                         >
                           <img
                             alt="user-2"
@@ -1121,7 +3090,7 @@ exports[`Footer Delete button delete group button is visible if user is owner of
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-641"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-918"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -1131,7 +3100,7 @@ exports[`Footer Delete button delete group button is visible if user is owner of
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-641"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-918"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -1152,7 +3121,7 @@ exports[`Footer Delete button delete group button is visible if user is owner of
               >
                 <div
                   aria-labelledby="group-tab-cars"
-                  class="makeStyles-tabContent-632"
+                  class="makeStyles-tabContent-909"
                   hidden=""
                   id="group-tabpanel-cars"
                   role="tabpanel"
@@ -1161,12 +3130,12 @@ exports[`Footer Delete button delete group button is visible if user is owner of
             </div>
           </div>
           <div
-            class="makeStyles-fabContainer-634"
+            class="makeStyles-fabContainer-911"
           >
             <div>
               <div
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiFab-root makeStyles-fab-647 MuiFab-secondary"
+                class="MuiButtonBase-root MuiFab-root makeStyles-fab-924 MuiFab-secondary"
                 id="member-fab"
                 role="button"
                 tabindex="0"
@@ -1192,20 +3161,20 @@ exports[`Footer Delete button delete group button is visible if user is owner of
             </div>
           </div>
           <div
-            class="makeStyles-fabContainer-634"
+            class="makeStyles-fabContainer-911"
           >
             <div />
           </div>
         </div>
       </div>
       <div
-        class="makeStyles-footer-627"
+        class="makeStyles-footer-904"
       >
         <div
-          class="MuiBox-root MuiBox-root-642"
+          class="MuiBox-root MuiBox-root-919"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-643 MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-920 MuiButton-fullWidth"
             tabindex="0"
             type="button"
           >
@@ -1233,21 +3202,21 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
     aria-hidden="true"
   >
     <div
-      class="makeStyles-container-547"
+      class="makeStyles-container-824"
     >
       <div>
         <div
-          class="MuiBox-root MuiBox-root-552"
+          class="MuiBox-root MuiBox-root-829"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-550 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-827 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-550 makeStyles-description-551 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-827 makeStyles-description-828 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -1256,11 +3225,11 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
         </div>
       </div>
       <div
-        class="makeStyles-tabsDesktop-548"
+        class="makeStyles-tabsDesktop-825"
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container-555 MuiPaper-outlined makeStyles-paperOutlined-553 MuiPaper-rounded"
+          class="MuiPaper-root makeStyles-container-832 MuiPaper-outlined makeStyles-paperOutlined-830 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -1311,13 +3280,13 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-557 PrivateTabIndicator-colorSecondary-559 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-834 PrivateTabIndicator-colorSecondary-836 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-554"
+            class="makeStyles-tabContent-831"
             style="overflow-x: hidden;"
           >
             <div
@@ -1331,7 +3300,7 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-554"
+                  class="makeStyles-tabContent-831"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -1345,7 +3314,7 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-570"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-847"
                         >
                           <img
                             alt="user-13"
@@ -1372,7 +3341,7 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-572"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-849"
                         >
                           <img
                             alt="user-2"
@@ -1391,7 +3360,7 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-565"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-842"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -1401,7 +3370,7 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-565"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-842"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -1419,7 +3388,7 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-574"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-851"
                         >
                           <img
                             alt="user-12"
@@ -1438,7 +3407,7 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-565"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-842"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -1459,7 +3428,7 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
               >
                 <div
                   aria-labelledby="group-tab-cars"
-                  class="makeStyles-tabContent-554"
+                  class="makeStyles-tabContent-831"
                   hidden=""
                   id="group-tabpanel-cars"
                   role="tabpanel"
@@ -1468,25 +3437,25 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
             </div>
           </div>
           <div
-            class="makeStyles-fabContainer-556"
+            class="makeStyles-fabContainer-833"
           >
             <div />
           </div>
           <div
-            class="makeStyles-fabContainer-556"
+            class="makeStyles-fabContainer-833"
           >
             <div />
           </div>
         </div>
       </div>
       <div
-        class="makeStyles-footer-549"
+        class="makeStyles-footer-826"
       >
         <div
-          class="MuiBox-root MuiBox-root-568"
+          class="MuiBox-root MuiBox-root-845"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-569 MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-846 MuiButton-fullWidth"
             tabindex="0"
             type="button"
           >
@@ -1563,7 +3532,7 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
             />
           </button>
           <div
-            class="MuiBox-root MuiBox-root-578 makeStyles-wrapper-576"
+            class="MuiBox-root MuiBox-root-855 makeStyles-wrapper-853"
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -1597,21 +3566,21 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
 >
   <div>
     <div
-      class="makeStyles-container-513"
+      class="makeStyles-container-790"
     >
       <div>
         <div
-          class="MuiBox-root MuiBox-root-518"
+          class="MuiBox-root MuiBox-root-795"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-516 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-793 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-516 makeStyles-description-517 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-793 makeStyles-description-794 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -1620,11 +3589,11 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
         </div>
       </div>
       <div
-        class="makeStyles-tabsDesktop-514"
+        class="makeStyles-tabsDesktop-791"
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container-521 MuiPaper-outlined makeStyles-paperOutlined-519 MuiPaper-rounded"
+          class="MuiPaper-root makeStyles-container-798 MuiPaper-outlined makeStyles-paperOutlined-796 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -1675,13 +3644,13 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-523 PrivateTabIndicator-colorSecondary-525 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-800 PrivateTabIndicator-colorSecondary-802 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-520"
+            class="makeStyles-tabContent-797"
             style="overflow-x: hidden;"
           >
             <div
@@ -1695,7 +3664,7 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-520"
+                  class="makeStyles-tabContent-797"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -1709,7 +3678,7 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-536"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-813"
                         >
                           <img
                             alt="user-13"
@@ -1736,7 +3705,7 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-538"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-815"
                         >
                           <img
                             alt="user-2"
@@ -1755,7 +3724,7 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-531"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-808"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -1765,7 +3734,7 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-531"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-808"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -1783,7 +3752,7 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-540"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-817"
                         >
                           <img
                             alt="user-12"
@@ -1802,7 +3771,7 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-531"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-808"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -1823,7 +3792,7 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
               >
                 <div
                   aria-labelledby="group-tab-cars"
-                  class="makeStyles-tabContent-520"
+                  class="makeStyles-tabContent-797"
                   hidden=""
                   id="group-tabpanel-cars"
                   role="tabpanel"
@@ -1832,25 +3801,25 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
             </div>
           </div>
           <div
-            class="makeStyles-fabContainer-522"
+            class="makeStyles-fabContainer-799"
           >
             <div />
           </div>
           <div
-            class="makeStyles-fabContainer-522"
+            class="makeStyles-fabContainer-799"
           >
             <div />
           </div>
         </div>
       </div>
       <div
-        class="makeStyles-footer-515"
+        class="makeStyles-footer-792"
       >
         <div
-          class="MuiBox-root MuiBox-root-534"
+          class="MuiBox-root MuiBox-root-811"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-535 MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-812 MuiButton-fullWidth"
             tabindex="0"
             type="button"
           >

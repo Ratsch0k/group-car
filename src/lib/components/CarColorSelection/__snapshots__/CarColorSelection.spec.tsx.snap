@@ -1,0 +1,924 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`clicking a color in the selection calls the setColor callback and closes selection 1`] = `
+<body
+  style=""
+>
+  <div>
+    <div
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth Mui-focused Mui-focused"
+    >
+      <div
+        aria-haspopup="listbox"
+        class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined makeStyles-outlined-11 MuiInputBase-input MuiOutlinedInput-input"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-item"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              color="Green"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+              />
+            </svg>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item"
+          >
+            misc.color.Green
+          </div>
+        </div>
+      </div>
+      <input
+        aria-hidden="true"
+        class="MuiSelect-nativeInput"
+        tabindex="-1"
+        value="Green"
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M7 10l5 5 5-5z"
+        />
+      </svg>
+      <fieldset
+        aria-hidden="true"
+        class="PrivateNotchedOutline-root-12 MuiOutlinedInput-notchedOutline"
+        style="padding-left: 8px;"
+      >
+        <legend
+          class="PrivateNotchedOutline-legend-13"
+          style="width: 0.01px;"
+        >
+          <span>
+            ​
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+  </div>
+  <div
+    aria-hidden="true"
+    class="MuiPopover-root"
+    id="menu-"
+    role="presentation"
+    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
+  >
+    <div
+      data-test="sentinelStart"
+      tabindex="0"
+    />
+    <div
+      class="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"
+      style="opacity: 0; transform: scale(0.75, 0.5625); min-width: 0; transition: opacity 0ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 0ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; top: 16px; left: 16px; transform-origin: -16px -16px;"
+      tabindex="-1"
+    >
+      <ul
+        class="MuiList-root MuiMenu-list MuiList-padding"
+        role="listbox"
+        tabindex="-1"
+      >
+        <li
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          data-value="Red"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                color="Red"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              misc.color.Red
+            </div>
+          </div>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+        <li
+          aria-disabled="false"
+          aria-selected="true"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root Mui-selected MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button Mui-selected"
+          data-value="Green"
+          role="option"
+          tabindex="0"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                color="Green"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              misc.color.Green
+            </div>
+          </div>
+          <span
+            class="MuiTouchRipple-root"
+          >
+            <span
+              class="MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+              style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+            >
+              <span
+                class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+              />
+            </span>
+          </span>
+        </li>
+        <li
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          data-value="Blue"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                color="Blue"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              misc.color.Blue
+            </div>
+          </div>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+        <li
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          data-value="Black"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                color="Black"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              misc.color.Black
+            </div>
+          </div>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+        <li
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          data-value="Yellow"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                color="Yellow"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              misc.color.Yellow
+            </div>
+          </div>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+        <li
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          data-value="White"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                color="White"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              misc.color.White
+            </div>
+          </div>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+        <li
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          data-value="Purple"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                color="Purple"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              misc.color.Purple
+            </div>
+          </div>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+        <li
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          data-value="Brown"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                color="Brown"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              misc.color.Brown
+            </div>
+          </div>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+        <li
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          data-value="Orange"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                color="Orange"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              misc.color.Orange
+            </div>
+          </div>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+      </ul>
+    </div>
+    <div
+      data-test="sentinelEnd"
+      tabindex="0"
+    />
+  </div>
+</body>
+`;
+
+exports[`clicking it opens selection of available colors 1`] = `
+<body
+  style="padding-right: 0px; overflow: hidden;"
+>
+  <div
+    aria-hidden="true"
+  >
+    <div
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth Mui-focused Mui-focused"
+    >
+      <div
+        aria-expanded="true"
+        aria-haspopup="listbox"
+        class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined makeStyles-outlined-6 MuiInputBase-input MuiOutlinedInput-input"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-item"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              color="Red"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+              />
+            </svg>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item"
+          >
+            misc.color.Red
+          </div>
+        </div>
+      </div>
+      <input
+        aria-hidden="true"
+        class="MuiSelect-nativeInput"
+        tabindex="-1"
+        value="Red"
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined MuiSelect-iconOpen"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M7 10l5 5 5-5z"
+        />
+      </svg>
+      <fieldset
+        aria-hidden="true"
+        class="PrivateNotchedOutline-root-7 MuiOutlinedInput-notchedOutline"
+        style="padding-left: 8px;"
+      >
+        <legend
+          class="PrivateNotchedOutline-legend-8"
+          style="width: 0.01px;"
+        >
+          <span>
+            ​
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+  </div>
+  <div
+    class="MuiPopover-root"
+    id="menu-"
+    role="presentation"
+    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px;"
+  >
+    <div
+      aria-hidden="true"
+      style="z-index: -1; position: fixed; right: 0px; bottom: 0px; top: 0px; left: 0px; background-color: transparent;"
+    />
+    <div
+      data-test="sentinelStart"
+      tabindex="0"
+    />
+    <div
+      class="MuiPaper-root MuiMenu-paper MuiPopover-paper MuiPaper-elevation8 MuiPaper-rounded"
+      style="opacity: 1; transform: scale(1, 1); min-width: 0; transition: opacity 0ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 0ms cubic-bezier(0.4, 0, 0.2, 1) 0ms; top: 16px; left: 16px; transform-origin: -16px -16px;"
+      tabindex="-1"
+    >
+      <ul
+        class="MuiList-root MuiMenu-list MuiList-padding"
+        role="listbox"
+        tabindex="-1"
+      >
+        <li
+          aria-disabled="false"
+          aria-selected="true"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root Mui-selected MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button Mui-selected Mui-focusVisible Mui-focusVisible"
+          data-value="Red"
+          role="option"
+          tabindex="0"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                color="Red"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              misc.color.Red
+            </div>
+          </div>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+        <li
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          data-value="Green"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                color="Green"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              misc.color.Green
+            </div>
+          </div>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+        <li
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          data-value="Blue"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                color="Blue"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              misc.color.Blue
+            </div>
+          </div>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+        <li
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          data-value="Black"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                color="Black"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              misc.color.Black
+            </div>
+          </div>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+        <li
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          data-value="Yellow"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                color="Yellow"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              misc.color.Yellow
+            </div>
+          </div>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+        <li
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          data-value="White"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                color="White"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              misc.color.White
+            </div>
+          </div>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+        <li
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          data-value="Purple"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                color="Purple"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              misc.color.Purple
+            </div>
+          </div>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+        <li
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          data-value="Brown"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                color="Brown"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              misc.color.Brown
+            </div>
+          </div>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+        <li
+          aria-disabled="false"
+          class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+          data-value="Orange"
+          role="option"
+          tabindex="-1"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                color="Orange"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
+              misc.color.Orange
+            </div>
+          </div>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </li>
+      </ul>
+    </div>
+    <div
+      data-test="sentinelEnd"
+      tabindex="0"
+    />
+  </div>
+</body>
+`;
+
+exports[`renders correctly 1`] = `
+<body>
+  <div>
+    <div
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth"
+    >
+      <div
+        aria-haspopup="listbox"
+        class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined makeStyles-outlined-1 MuiInputBase-input MuiOutlinedInput-input"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-item"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              color="Red"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+              />
+            </svg>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item"
+          >
+            misc.color.Red
+          </div>
+        </div>
+      </div>
+      <input
+        aria-hidden="true"
+        class="MuiSelect-nativeInput"
+        tabindex="-1"
+        value="Red"
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M7 10l5 5 5-5z"
+        />
+      </svg>
+      <fieldset
+        aria-hidden="true"
+        class="PrivateNotchedOutline-root-2 MuiOutlinedInput-notchedOutline"
+        style="padding-left: 8px;"
+      >
+        <legend
+          class="PrivateNotchedOutline-legend-3"
+          style="width: 0.01px;"
+        >
+          <span>
+            ​
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+  </div>
+</body>
+`;

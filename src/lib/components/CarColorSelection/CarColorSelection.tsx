@@ -8,6 +8,7 @@ import {makeStyles} from '@material-ui/styles';
 export interface CarColorSelectionProps {
   availableColors: CarColor[];
   setColor(color: CarColor): void;
+  id?: string;
 }
 
 const useStyles = makeStyles({
@@ -20,7 +21,7 @@ const useStyles = makeStyles({
 export const CarColorSelection: React.FC<CarColorSelectionProps> =
 (props: CarColorSelectionProps) => {
   const classes = useStyles();
-  const {setColor: setColorParent, availableColors} = props;
+  const {setColor: setColorParent, availableColors, id} = props;
   const [color, setColor] = useState<CarColor>(availableColors[0]);
   const {t} = useTranslation();
   const handleChange = (event: React.ChangeEvent<{
@@ -41,6 +42,7 @@ export const CarColorSelection: React.FC<CarColorSelectionProps> =
       classes={{
         outlined: classes.outlined,
       }}
+      id={id}
     >
       {availableColors.map((color) => (
         <MenuItem

@@ -99,6 +99,7 @@ export const ManageGroupCarsCreateDialog: React.FC<
               <CarColorSelection
                 setColor={setColor}
                 availableColors={availableColors}
+                id='create-car-color'
               />
             </Grid>
           </Grid>

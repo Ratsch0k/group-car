@@ -31,7 +31,7 @@ export const ManageGroupCarsTabAddFab: React.FC<ManageGroupCarsTabAddFabProps> =
       <Fab
         color='secondary'
         className={classes.fab}
-        id='car-fab'
+        id='create-car-fab'
         onClick={() => setOpen(true)}
       >
         <AddIcon />
