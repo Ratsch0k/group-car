@@ -943,225 +943,7 @@ exports[`Footer Delete button delete group button is visible if user is owner of
 <body
   style=""
 >
-  <div>
-    <div
-      class="makeStyles-container-610"
-    >
-      <div>
-        <div
-          class="MuiBox-root MuiBox-root-615"
-        >
-          <h5
-            class="MuiTypography-root makeStyles-text-613 MuiTypography-h5 MuiTypography-gutterBottom"
-          >
-            <span>
-              fake group name
-            </span>
-          </h5>
-          <p
-            class="MuiTypography-root makeStyles-text-613 makeStyles-description-614 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
-          >
-            <span>
-              fake group description
-            </span>
-          </p>
-        </div>
-      </div>
-      <div
-        class="makeStyles-tabsDesktop-611"
-        style="height: 400px;"
-      >
-        <div
-          class="MuiPaper-root makeStyles-container-618 MuiPaper-outlined makeStyles-paperOutlined-616 MuiPaper-rounded"
-        >
-          <div
-            class="MuiTabs-root"
-          >
-            <div
-              class="MuiTabs-scroller MuiTabs-fixed"
-              style="overflow: hidden;"
-            >
-              <div
-                class="MuiTabs-flexContainer"
-                role="tablist"
-              >
-                <button
-                  aria-controls="group-tabpanel-members"
-                  aria-selected="true"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-selected MuiTab-fullWidth"
-                  id="group-tab-members"
-                  role="tab"
-                  tabindex="0"
-                  type="button"
-                >
-                  <span
-                    class="MuiTab-wrapper"
-                  >
-                    modals.group.manage.tabs.members.title
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
-                </button>
-                <button
-                  aria-controls="group-tabpanel-cars"
-                  aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-disabled MuiTab-fullWidth Mui-disabled"
-                  disabled=""
-                  id="group-tab-cars"
-                  role="tab"
-                  tabindex="-1"
-                  type="button"
-                >
-                  <span
-                    class="MuiTab-wrapper"
-                  >
-                    modals.group.manage.tabs.cars.title
-                  </span>
-                </button>
-              </div>
-              <span
-                class="PrivateTabIndicator-root-619 PrivateTabIndicator-colorSecondary-621 MuiTabs-indicator"
-                style="left: 0px; width: 0px;"
-              />
-            </div>
-          </div>
-          <div
-            class="makeStyles-tabContent-617"
-            style="overflow-x: hidden;"
-          >
-            <div
-              class="react-swipeable-view-container"
-              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform; transform: translate(0%, 0);"
-            >
-              <div
-                aria-hidden="false"
-                data-swipeable="true"
-                style="width: 100%; flex-shrink: 0; overflow: auto;"
-              >
-                <div
-                  aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-617"
-                  id="group-tabpanel-members"
-                  role="tabpanel"
-                >
-                  <ul
-                    class="MuiList-root MuiList-padding"
-                  >
-                    <li
-                      class="MuiListItem-root MuiListItem-gutters"
-                    >
-                      <div
-                        class="MuiListItemAvatar-root"
-                      >
-                        <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-639"
-                        >
-                          <img
-                            alt="user-2"
-                            class="MuiAvatar-img"
-                            src="/api/user/2/profile-pic"
-                          />
-                        </div>
-                      </div>
-                      <div
-                        class="MuiListItemText-root MuiListItemText-multiline"
-                      >
-                        <p
-                          class="MuiTypography-root MuiTypography-body1"
-                        >
-                          misc.you
-                        </p>
-                        <span>
-                          <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-625"
-                            style="margin-right: 4px;"
-                          >
-                            <span
-                              class="MuiChip-label MuiChip-labelSmall"
-                            >
-                              misc.owner
-                            </span>
-                          </div>
-                          <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-625"
-                          >
-                            <span
-                              class="MuiChip-label MuiChip-labelSmall"
-                            >
-                              misc.admin
-                            </span>
-                          </div>
-                        </span>
-                      </div>
-                    </li>
-                  </ul>
-                  <div
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiFab-root makeStyles-fab-626 MuiFab-secondary"
-                    role="button"
-                    tabindex="0"
-                  >
-                    <span
-                      class="MuiFab-label"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div
-                aria-hidden="true"
-                data-swipeable="true"
-                style="width: 100%; flex-shrink: 0; overflow: auto;"
-              >
-                <div
-                  aria-labelledby="group-tab-cars"
-                  hidden=""
-                  id="group-tabpanel-cars"
-                  role="tabpanel"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="makeStyles-footer-612"
-      >
-        <div
-          class="MuiBox-root MuiBox-root-636"
-        >
-          <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-637 MuiButton-fullWidth"
-            tabindex="0"
-            type="button"
-          >
-            <span
-              class="MuiButton-label"
-            >
-              modals.group.manage.deleteGroup.button
-            </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div />
 </body>
 `;
 
@@ -1173,21 +955,21 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
     aria-hidden="true"
   >
     <div
-      class="makeStyles-container-534"
+      class="makeStyles-container-547"
     >
       <div>
         <div
-          class="MuiBox-root MuiBox-root-539"
+          class="MuiBox-root MuiBox-root-552"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-537 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-550 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-537 makeStyles-description-538 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-550 makeStyles-description-551 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -1196,11 +978,11 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
         </div>
       </div>
       <div
-        class="makeStyles-tabsDesktop-535"
+        class="makeStyles-tabsDesktop-548"
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container-542 MuiPaper-outlined makeStyles-paperOutlined-540 MuiPaper-rounded"
+          class="MuiPaper-root makeStyles-container-555 MuiPaper-outlined makeStyles-paperOutlined-553 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -1234,8 +1016,7 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
                 <button
                   aria-controls="group-tabpanel-cars"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-disabled MuiTab-fullWidth Mui-disabled"
-                  disabled=""
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-fullWidth"
                   id="group-tab-cars"
                   role="tab"
                   tabindex="-1"
@@ -1246,21 +1027,24 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
                   >
                     modals.group.manage.tabs.cars.title
                   </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-543 PrivateTabIndicator-colorSecondary-545 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-557 PrivateTabIndicator-colorSecondary-559 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-541"
+            class="makeStyles-tabContent-554"
             style="overflow-x: hidden;"
           >
             <div
               class="react-swipeable-view-container"
-              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform; transform: translate(0%, 0);"
+              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; transform: translate(0%, 0); direction: ltr; display: flex; will-change: transform;"
             >
               <div
                 aria-hidden="false"
@@ -1269,7 +1053,7 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-541"
+                  class="makeStyles-tabContent-554"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -1283,7 +1067,7 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-556"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-570"
                         >
                           <img
                             alt="user-13"
@@ -1310,7 +1094,7 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-558"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-572"
                         >
                           <img
                             alt="user-2"
@@ -1329,7 +1113,7 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-551"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-565"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -1339,7 +1123,7 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-551"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-565"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -1357,7 +1141,7 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-560"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-574"
                         >
                           <img
                             alt="user-12"
@@ -1376,7 +1160,7 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-551"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-565"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -1397,6 +1181,7 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
               >
                 <div
                   aria-labelledby="group-tab-cars"
+                  class="makeStyles-tabContent-554"
                   hidden=""
                   id="group-tabpanel-cars"
                   role="tabpanel"
@@ -1404,16 +1189,26 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
               </div>
             </div>
           </div>
+          <div
+            class="makeStyles-fabContainer-556"
+          >
+            <div />
+          </div>
+          <div
+            class="makeStyles-fabContainer-556"
+          >
+            <div />
+          </div>
         </div>
       </div>
       <div
-        class="makeStyles-footer-536"
+        class="makeStyles-footer-549"
       >
         <div
-          class="MuiBox-root MuiBox-root-554"
+          class="MuiBox-root MuiBox-root-568"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-555 MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-569 MuiButton-fullWidth"
             tabindex="0"
             type="button"
           >
@@ -1490,7 +1285,7 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
             />
           </button>
           <div
-            class="MuiBox-root MuiBox-root-564 makeStyles-wrapper-562"
+            class="MuiBox-root MuiBox-root-578 makeStyles-wrapper-576"
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -1524,21 +1319,21 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
 >
   <div>
     <div
-      class="makeStyles-container-501"
+      class="makeStyles-container-513"
     >
       <div>
         <div
-          class="MuiBox-root MuiBox-root-506"
+          class="MuiBox-root MuiBox-root-518"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-504 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-516 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-504 makeStyles-description-505 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-516 makeStyles-description-517 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -1547,11 +1342,11 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
         </div>
       </div>
       <div
-        class="makeStyles-tabsDesktop-502"
+        class="makeStyles-tabsDesktop-514"
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container-509 MuiPaper-outlined makeStyles-paperOutlined-507 MuiPaper-rounded"
+          class="MuiPaper-root makeStyles-container-521 MuiPaper-outlined makeStyles-paperOutlined-519 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -1585,8 +1380,7 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
                 <button
                   aria-controls="group-tabpanel-cars"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-disabled MuiTab-fullWidth Mui-disabled"
-                  disabled=""
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-fullWidth"
                   id="group-tab-cars"
                   role="tab"
                   tabindex="-1"
@@ -1597,21 +1391,24 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
                   >
                     modals.group.manage.tabs.cars.title
                   </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-510 PrivateTabIndicator-colorSecondary-512 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-523 PrivateTabIndicator-colorSecondary-525 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-508"
+            class="makeStyles-tabContent-520"
             style="overflow-x: hidden;"
           >
             <div
               class="react-swipeable-view-container"
-              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform; transform: translate(0%, 0);"
+              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; transform: translate(0%, 0); direction: ltr; display: flex; will-change: transform;"
             >
               <div
                 aria-hidden="false"
@@ -1620,7 +1417,7 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-508"
+                  class="makeStyles-tabContent-520"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -1634,7 +1431,7 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-523"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-536"
                         >
                           <img
                             alt="user-13"
@@ -1661,7 +1458,7 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-525"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-538"
                         >
                           <img
                             alt="user-2"
@@ -1680,7 +1477,7 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-518"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-531"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -1690,7 +1487,7 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-518"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-531"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -1708,7 +1505,7 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-527"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-540"
                         >
                           <img
                             alt="user-12"
@@ -1727,7 +1524,7 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-518"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-531"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -1748,6 +1545,7 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
               >
                 <div
                   aria-labelledby="group-tab-cars"
+                  class="makeStyles-tabContent-520"
                   hidden=""
                   id="group-tabpanel-cars"
                   role="tabpanel"
@@ -1755,16 +1553,26 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
               </div>
             </div>
           </div>
+          <div
+            class="makeStyles-fabContainer-522"
+          >
+            <div />
+          </div>
+          <div
+            class="makeStyles-fabContainer-522"
+          >
+            <div />
+          </div>
         </div>
       </div>
       <div
-        class="makeStyles-footer-503"
+        class="makeStyles-footer-515"
       >
         <div
-          class="MuiBox-root MuiBox-root-521"
+          class="MuiBox-root MuiBox-root-534"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-522 MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-535 MuiButton-fullWidth"
             tabindex="0"
             type="button"
           >
@@ -1788,21 +1596,21 @@ exports[`MemberTab options button click on grant admin sends grant admin request
 <body>
   <div>
     <div
-      class="makeStyles-container-329"
+      class="makeStyles-container-337"
     >
       <div>
         <div
-          class="MuiBox-root MuiBox-root-334"
+          class="MuiBox-root MuiBox-root-342"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-332 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-340 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-332 makeStyles-description-333 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-340 makeStyles-description-341 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -1811,11 +1619,11 @@ exports[`MemberTab options button click on grant admin sends grant admin request
         </div>
       </div>
       <div
-        class="makeStyles-tabsDesktop-330"
+        class="makeStyles-tabsDesktop-338"
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container-337 MuiPaper-outlined makeStyles-paperOutlined-335 MuiPaper-rounded"
+          class="MuiPaper-root makeStyles-container-345 MuiPaper-outlined makeStyles-paperOutlined-343 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -1849,8 +1657,7 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                 <button
                   aria-controls="group-tabpanel-cars"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-disabled MuiTab-fullWidth Mui-disabled"
-                  disabled=""
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-fullWidth"
                   id="group-tab-cars"
                   role="tab"
                   tabindex="-1"
@@ -1861,21 +1668,24 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                   >
                     modals.group.manage.tabs.cars.title
                   </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-338 PrivateTabIndicator-colorSecondary-340 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-347 PrivateTabIndicator-colorSecondary-349 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-336"
+            class="makeStyles-tabContent-344"
             style="overflow-x: hidden;"
           >
             <div
               class="react-swipeable-view-container"
-              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform; transform: translate(0%, 0);"
+              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; transform: translate(0%, 0); direction: ltr; display: flex; will-change: transform;"
             >
               <div
                 aria-hidden="false"
@@ -1884,7 +1694,7 @@ exports[`MemberTab options button click on grant admin sends grant admin request
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-336"
+                  class="makeStyles-tabContent-344"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -1898,7 +1708,7 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-360"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-359"
                         >
                           <img
                             alt="user-2"
@@ -1917,7 +1727,7 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-344"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-353"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -1927,7 +1737,7 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-344"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-353"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -1948,7 +1758,7 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                           class="MuiListItemAvatar-root"
                         >
                           <div
-                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-362"
+                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-361"
                           >
                             <img
                               alt="user-13"
@@ -1998,30 +1808,6 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                       </div>
                     </li>
                   </ul>
-                  <div
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiFab-root makeStyles-fab-347 MuiFab-secondary"
-                    role="button"
-                    tabindex="0"
-                  >
-                    <span
-                      class="MuiFab-label"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </div>
                 </div>
               </div>
               <div
@@ -2031,6 +1817,7 @@ exports[`MemberTab options button click on grant admin sends grant admin request
               >
                 <div
                   aria-labelledby="group-tab-cars"
+                  class="makeStyles-tabContent-344"
                   hidden=""
                   id="group-tabpanel-cars"
                   role="tabpanel"
@@ -2038,16 +1825,52 @@ exports[`MemberTab options button click on grant admin sends grant admin request
               </div>
             </div>
           </div>
+          <div
+            class="makeStyles-fabContainer-346"
+          >
+            <div>
+              <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiFab-root makeStyles-fab-363 MuiFab-secondary"
+                id="member-fab"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiFab-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="makeStyles-fabContainer-346"
+          >
+            <div />
+          </div>
         </div>
       </div>
       <div
-        class="makeStyles-footer-331"
+        class="makeStyles-footer-339"
       >
         <div
-          class="MuiBox-root MuiBox-root-357"
+          class="MuiBox-root MuiBox-root-356"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-358 MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-357 MuiButton-fullWidth"
             tabindex="0"
             type="button"
           >
@@ -2113,21 +1936,21 @@ exports[`MemberTab options button click on grant admin sends grant admin request
     aria-hidden="true"
   >
     <div
-      class="makeStyles-container-329"
+      class="makeStyles-container-337"
     >
       <div>
         <div
-          class="MuiBox-root MuiBox-root-334"
+          class="MuiBox-root MuiBox-root-342"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-332 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-340 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-332 makeStyles-description-333 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-340 makeStyles-description-341 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -2136,11 +1959,11 @@ exports[`MemberTab options button click on grant admin sends grant admin request
         </div>
       </div>
       <div
-        class="makeStyles-tabsDesktop-330"
+        class="makeStyles-tabsDesktop-338"
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container-337 MuiPaper-outlined makeStyles-paperOutlined-335 MuiPaper-rounded"
+          class="MuiPaper-root makeStyles-container-345 MuiPaper-outlined makeStyles-paperOutlined-343 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -2174,8 +1997,7 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                 <button
                   aria-controls="group-tabpanel-cars"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-disabled MuiTab-fullWidth Mui-disabled"
-                  disabled=""
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-fullWidth"
                   id="group-tab-cars"
                   role="tab"
                   tabindex="-1"
@@ -2186,21 +2008,24 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                   >
                     modals.group.manage.tabs.cars.title
                   </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-338 PrivateTabIndicator-colorSecondary-340 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-347 PrivateTabIndicator-colorSecondary-349 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-336"
+            class="makeStyles-tabContent-344"
             style="overflow-x: hidden;"
           >
             <div
               class="react-swipeable-view-container"
-              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform; transform: translate(0%, 0);"
+              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; transform: translate(0%, 0); direction: ltr; display: flex; will-change: transform;"
             >
               <div
                 aria-hidden="false"
@@ -2209,7 +2034,7 @@ exports[`MemberTab options button click on grant admin sends grant admin request
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-336"
+                  class="makeStyles-tabContent-344"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -2223,7 +2048,7 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-360"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-359"
                         >
                           <img
                             alt="user-2"
@@ -2242,7 +2067,7 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-344"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-353"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -2252,7 +2077,7 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-344"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-353"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -2273,7 +2098,7 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                           class="MuiListItemAvatar-root"
                         >
                           <div
-                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-362"
+                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-361"
                           >
                             <img
                               alt="user-13"
@@ -2323,30 +2148,6 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                       </div>
                     </li>
                   </ul>
-                  <div
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiFab-root makeStyles-fab-347 MuiFab-secondary"
-                    role="button"
-                    tabindex="0"
-                  >
-                    <span
-                      class="MuiFab-label"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </div>
                 </div>
               </div>
               <div
@@ -2356,6 +2157,7 @@ exports[`MemberTab options button click on grant admin sends grant admin request
               >
                 <div
                   aria-labelledby="group-tab-cars"
+                  class="makeStyles-tabContent-344"
                   hidden=""
                   id="group-tabpanel-cars"
                   role="tabpanel"
@@ -2363,16 +2165,52 @@ exports[`MemberTab options button click on grant admin sends grant admin request
               </div>
             </div>
           </div>
+          <div
+            class="makeStyles-fabContainer-346"
+          >
+            <div>
+              <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiFab-root makeStyles-fab-363 MuiFab-secondary"
+                id="member-fab"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiFab-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="makeStyles-fabContainer-346"
+          >
+            <div />
+          </div>
         </div>
       </div>
       <div
-        class="makeStyles-footer-331"
+        class="makeStyles-footer-339"
       >
         <div
-          class="MuiBox-root MuiBox-root-357"
+          class="MuiBox-root MuiBox-root-356"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-358 MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-357 MuiButton-fullWidth"
             tabindex="0"
             type="button"
           >
@@ -2439,21 +2277,21 @@ exports[`MemberTab options button click on grant admin sends grant admin request
 >
   <div>
     <div
-      class="makeStyles-container-329"
+      class="makeStyles-container-337"
     >
       <div>
         <div
-          class="MuiBox-root MuiBox-root-334"
+          class="MuiBox-root MuiBox-root-342"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-332 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-340 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-332 makeStyles-description-333 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-340 makeStyles-description-341 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -2462,11 +2300,11 @@ exports[`MemberTab options button click on grant admin sends grant admin request
         </div>
       </div>
       <div
-        class="makeStyles-tabsDesktop-330"
+        class="makeStyles-tabsDesktop-338"
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container-337 MuiPaper-outlined makeStyles-paperOutlined-335 MuiPaper-rounded"
+          class="MuiPaper-root makeStyles-container-345 MuiPaper-outlined makeStyles-paperOutlined-343 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -2500,8 +2338,7 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                 <button
                   aria-controls="group-tabpanel-cars"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-disabled MuiTab-fullWidth Mui-disabled"
-                  disabled=""
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-fullWidth"
                   id="group-tab-cars"
                   role="tab"
                   tabindex="-1"
@@ -2512,21 +2349,24 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                   >
                     modals.group.manage.tabs.cars.title
                   </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-338 PrivateTabIndicator-colorSecondary-340 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-347 PrivateTabIndicator-colorSecondary-349 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-336"
+            class="makeStyles-tabContent-344"
             style="overflow-x: hidden;"
           >
             <div
               class="react-swipeable-view-container"
-              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform; transform: translate(0%, 0);"
+              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; transform: translate(0%, 0); direction: ltr; display: flex; will-change: transform;"
             >
               <div
                 aria-hidden="false"
@@ -2535,7 +2375,7 @@ exports[`MemberTab options button click on grant admin sends grant admin request
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-336"
+                  class="makeStyles-tabContent-344"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -2549,7 +2389,7 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-360"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-359"
                         >
                           <img
                             alt="user-2"
@@ -2568,7 +2408,7 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-344"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-353"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -2578,7 +2418,7 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-344"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-353"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -2599,7 +2439,7 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                           class="MuiListItemAvatar-root"
                         >
                           <div
-                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-368"
+                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-377"
                           >
                             <img
                               alt="user-13"
@@ -2618,7 +2458,7 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                           </p>
                           <span>
                             <div
-                              class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-344"
+                              class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-353"
                             >
                               <span
                                 class="MuiChip-label MuiChip-labelSmall"
@@ -2659,30 +2499,6 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                       </div>
                     </li>
                   </ul>
-                  <div
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiFab-root makeStyles-fab-347 MuiFab-secondary"
-                    role="button"
-                    tabindex="0"
-                  >
-                    <span
-                      class="MuiFab-label"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </div>
                 </div>
               </div>
               <div
@@ -2692,6 +2508,7 @@ exports[`MemberTab options button click on grant admin sends grant admin request
               >
                 <div
                   aria-labelledby="group-tab-cars"
+                  class="makeStyles-tabContent-344"
                   hidden=""
                   id="group-tabpanel-cars"
                   role="tabpanel"
@@ -2699,16 +2516,52 @@ exports[`MemberTab options button click on grant admin sends grant admin request
               </div>
             </div>
           </div>
+          <div
+            class="makeStyles-fabContainer-346"
+          >
+            <div>
+              <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiFab-root makeStyles-fab-363 MuiFab-secondary"
+                id="member-fab"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiFab-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="makeStyles-fabContainer-346"
+          >
+            <div />
+          </div>
         </div>
       </div>
       <div
-        class="makeStyles-footer-331"
+        class="makeStyles-footer-339"
       >
         <div
-          class="MuiBox-root MuiBox-root-357"
+          class="MuiBox-root MuiBox-root-356"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-358 MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-357 MuiButton-fullWidth"
             tabindex="0"
             type="button"
           >
@@ -2772,21 +2625,21 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
 >
   <div>
     <div
-      class="makeStyles-container-455"
+      class="makeStyles-container-466"
     >
       <div>
         <div
-          class="MuiBox-root MuiBox-root-460"
+          class="MuiBox-root MuiBox-root-471"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-458 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-469 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-458 makeStyles-description-459 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-469 makeStyles-description-470 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -2795,11 +2648,11 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
         </div>
       </div>
       <div
-        class="makeStyles-tabsDesktop-456"
+        class="makeStyles-tabsDesktop-467"
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container-463 MuiPaper-outlined makeStyles-paperOutlined-461 MuiPaper-rounded"
+          class="MuiPaper-root makeStyles-container-474 MuiPaper-outlined makeStyles-paperOutlined-472 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -2833,8 +2686,7 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
                 <button
                   aria-controls="group-tabpanel-cars"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-disabled MuiTab-fullWidth Mui-disabled"
-                  disabled=""
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-fullWidth"
                   id="group-tab-cars"
                   role="tab"
                   tabindex="-1"
@@ -2845,21 +2697,24 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
                   >
                     modals.group.manage.tabs.cars.title
                   </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-464 PrivateTabIndicator-colorSecondary-466 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-476 PrivateTabIndicator-colorSecondary-478 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-462"
+            class="makeStyles-tabContent-473"
             style="overflow-x: hidden;"
           >
             <div
               class="react-swipeable-view-container"
-              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform; transform: translate(0%, 0);"
+              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; transform: translate(0%, 0); direction: ltr; display: flex; will-change: transform;"
             >
               <div
                 aria-hidden="false"
@@ -2868,7 +2723,7 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-462"
+                  class="makeStyles-tabContent-473"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -2882,7 +2737,7 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-486"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-488"
                         >
                           <img
                             alt="user-2"
@@ -2901,7 +2756,7 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-470"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-482"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -2911,7 +2766,7 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-470"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-482"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -2932,7 +2787,7 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
                           class="MuiListItemAvatar-root"
                         >
                           <div
-                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-488"
+                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-490"
                           >
                             <img
                               alt="user-13"
@@ -2951,7 +2806,7 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
                           </p>
                           <span>
                             <div
-                              class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-470"
+                              class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-482"
                             >
                               <span
                                 class="MuiChip-label MuiChip-labelSmall"
@@ -2992,30 +2847,6 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
                       </div>
                     </li>
                   </ul>
-                  <div
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiFab-root makeStyles-fab-473 MuiFab-secondary"
-                    role="button"
-                    tabindex="0"
-                  >
-                    <span
-                      class="MuiFab-label"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </div>
                 </div>
               </div>
               <div
@@ -3025,6 +2856,7 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
               >
                 <div
                   aria-labelledby="group-tab-cars"
+                  class="makeStyles-tabContent-473"
                   hidden=""
                   id="group-tabpanel-cars"
                   role="tabpanel"
@@ -3032,16 +2864,52 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
               </div>
             </div>
           </div>
+          <div
+            class="makeStyles-fabContainer-475"
+          >
+            <div>
+              <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiFab-root makeStyles-fab-492 MuiFab-secondary"
+                id="member-fab"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiFab-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="makeStyles-fabContainer-475"
+          >
+            <div />
+          </div>
         </div>
       </div>
       <div
-        class="makeStyles-footer-457"
+        class="makeStyles-footer-468"
       >
         <div
-          class="MuiBox-root MuiBox-root-483"
+          class="MuiBox-root MuiBox-root-485"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-484 MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-486 MuiButton-fullWidth"
             tabindex="0"
             type="button"
           >
@@ -3105,21 +2973,21 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
 >
   <div>
     <div
-      class="makeStyles-container-455"
+      class="makeStyles-container-466"
     >
       <div>
         <div
-          class="MuiBox-root MuiBox-root-460"
+          class="MuiBox-root MuiBox-root-471"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-458 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-469 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-458 makeStyles-description-459 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-469 makeStyles-description-470 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -3128,11 +2996,11 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
         </div>
       </div>
       <div
-        class="makeStyles-tabsDesktop-456"
+        class="makeStyles-tabsDesktop-467"
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container-463 MuiPaper-outlined makeStyles-paperOutlined-461 MuiPaper-rounded"
+          class="MuiPaper-root makeStyles-container-474 MuiPaper-outlined makeStyles-paperOutlined-472 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -3166,8 +3034,7 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
                 <button
                   aria-controls="group-tabpanel-cars"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-disabled MuiTab-fullWidth Mui-disabled"
-                  disabled=""
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-fullWidth"
                   id="group-tab-cars"
                   role="tab"
                   tabindex="-1"
@@ -3178,21 +3045,24 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
                   >
                     modals.group.manage.tabs.cars.title
                   </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-464 PrivateTabIndicator-colorSecondary-466 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-476 PrivateTabIndicator-colorSecondary-478 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-462"
+            class="makeStyles-tabContent-473"
             style="overflow-x: hidden;"
           >
             <div
               class="react-swipeable-view-container"
-              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform; transform: translate(0%, 0);"
+              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; transform: translate(0%, 0); direction: ltr; display: flex; will-change: transform;"
             >
               <div
                 aria-hidden="false"
@@ -3201,7 +3071,7 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-462"
+                  class="makeStyles-tabContent-473"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -3215,7 +3085,7 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-486"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-488"
                         >
                           <img
                             alt="user-2"
@@ -3234,7 +3104,7 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-470"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-482"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -3244,7 +3114,7 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-470"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-482"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -3265,7 +3135,7 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
                           class="MuiListItemAvatar-root"
                         >
                           <div
-                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-494"
+                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-506"
                           >
                             <img
                               alt="user-13"
@@ -3315,30 +3185,6 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
                       </div>
                     </li>
                   </ul>
-                  <div
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiFab-root makeStyles-fab-473 MuiFab-secondary"
-                    role="button"
-                    tabindex="0"
-                  >
-                    <span
-                      class="MuiFab-label"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </div>
                 </div>
               </div>
               <div
@@ -3348,6 +3194,7 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
               >
                 <div
                   aria-labelledby="group-tab-cars"
+                  class="makeStyles-tabContent-473"
                   hidden=""
                   id="group-tabpanel-cars"
                   role="tabpanel"
@@ -3355,16 +3202,52 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
               </div>
             </div>
           </div>
+          <div
+            class="makeStyles-fabContainer-475"
+          >
+            <div>
+              <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiFab-root makeStyles-fab-492 MuiFab-secondary"
+                id="member-fab"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiFab-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="makeStyles-fabContainer-475"
+          >
+            <div />
+          </div>
         </div>
       </div>
       <div
-        class="makeStyles-footer-457"
+        class="makeStyles-footer-468"
       >
         <div
-          class="MuiBox-root MuiBox-root-483"
+          class="MuiBox-root MuiBox-root-485"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-484 MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-486 MuiButton-fullWidth"
             tabindex="0"
             type="button"
           >
@@ -3428,21 +3311,21 @@ exports[`MemberTab options button if member is admin the revoke admin option is 
 >
   <div>
     <div
-      class="makeStyles-container-415"
+      class="makeStyles-container-425"
     >
       <div>
         <div
-          class="MuiBox-root MuiBox-root-420"
+          class="MuiBox-root MuiBox-root-430"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-418 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-428 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-418 makeStyles-description-419 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-428 makeStyles-description-429 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -3451,11 +3334,11 @@ exports[`MemberTab options button if member is admin the revoke admin option is 
         </div>
       </div>
       <div
-        class="makeStyles-tabsDesktop-416"
+        class="makeStyles-tabsDesktop-426"
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container-423 MuiPaper-outlined makeStyles-paperOutlined-421 MuiPaper-rounded"
+          class="MuiPaper-root makeStyles-container-433 MuiPaper-outlined makeStyles-paperOutlined-431 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -3489,8 +3372,7 @@ exports[`MemberTab options button if member is admin the revoke admin option is 
                 <button
                   aria-controls="group-tabpanel-cars"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-disabled MuiTab-fullWidth Mui-disabled"
-                  disabled=""
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-fullWidth"
                   id="group-tab-cars"
                   role="tab"
                   tabindex="-1"
@@ -3501,21 +3383,24 @@ exports[`MemberTab options button if member is admin the revoke admin option is 
                   >
                     modals.group.manage.tabs.cars.title
                   </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-424 PrivateTabIndicator-colorSecondary-426 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-435 PrivateTabIndicator-colorSecondary-437 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-422"
+            class="makeStyles-tabContent-432"
             style="overflow-x: hidden;"
           >
             <div
               class="react-swipeable-view-container"
-              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform; transform: translate(0%, 0);"
+              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; transform: translate(0%, 0); direction: ltr; display: flex; will-change: transform;"
             >
               <div
                 aria-hidden="false"
@@ -3524,7 +3409,7 @@ exports[`MemberTab options button if member is admin the revoke admin option is 
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-422"
+                  class="makeStyles-tabContent-432"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -3538,7 +3423,7 @@ exports[`MemberTab options button if member is admin the revoke admin option is 
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-446"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-447"
                         >
                           <img
                             alt="user-2"
@@ -3557,7 +3442,7 @@ exports[`MemberTab options button if member is admin the revoke admin option is 
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-430"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-441"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -3567,7 +3452,7 @@ exports[`MemberTab options button if member is admin the revoke admin option is 
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-430"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-441"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -3588,7 +3473,7 @@ exports[`MemberTab options button if member is admin the revoke admin option is 
                           class="MuiListItemAvatar-root"
                         >
                           <div
-                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-448"
+                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-449"
                           >
                             <img
                               alt="user-13"
@@ -3607,7 +3492,7 @@ exports[`MemberTab options button if member is admin the revoke admin option is 
                           </p>
                           <span>
                             <div
-                              class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-430"
+                              class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-441"
                             >
                               <span
                                 class="MuiChip-label MuiChip-labelSmall"
@@ -3648,30 +3533,6 @@ exports[`MemberTab options button if member is admin the revoke admin option is 
                       </div>
                     </li>
                   </ul>
-                  <div
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiFab-root makeStyles-fab-433 MuiFab-secondary"
-                    role="button"
-                    tabindex="0"
-                  >
-                    <span
-                      class="MuiFab-label"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </div>
                 </div>
               </div>
               <div
@@ -3681,6 +3542,7 @@ exports[`MemberTab options button if member is admin the revoke admin option is 
               >
                 <div
                   aria-labelledby="group-tab-cars"
+                  class="makeStyles-tabContent-432"
                   hidden=""
                   id="group-tabpanel-cars"
                   role="tabpanel"
@@ -3688,16 +3550,52 @@ exports[`MemberTab options button if member is admin the revoke admin option is 
               </div>
             </div>
           </div>
+          <div
+            class="makeStyles-fabContainer-434"
+          >
+            <div>
+              <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiFab-root makeStyles-fab-451 MuiFab-secondary"
+                id="member-fab"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiFab-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="makeStyles-fabContainer-434"
+          >
+            <div />
+          </div>
         </div>
       </div>
       <div
-        class="makeStyles-footer-417"
+        class="makeStyles-footer-427"
       >
         <div
-          class="MuiBox-root MuiBox-root-443"
+          class="MuiBox-root MuiBox-root-444"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-444 MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-445 MuiButton-fullWidth"
             tabindex="0"
             type="button"
           >
@@ -3761,21 +3659,21 @@ exports[`MemberTab options button if member is not an admin grant admin option i
 >
   <div>
     <div
-      class="makeStyles-container-375"
+      class="makeStyles-container-384"
     >
       <div>
         <div
-          class="MuiBox-root MuiBox-root-380"
+          class="MuiBox-root MuiBox-root-389"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-378 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-387 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-378 makeStyles-description-379 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-387 makeStyles-description-388 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -3784,11 +3682,11 @@ exports[`MemberTab options button if member is not an admin grant admin option i
         </div>
       </div>
       <div
-        class="makeStyles-tabsDesktop-376"
+        class="makeStyles-tabsDesktop-385"
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container-383 MuiPaper-outlined makeStyles-paperOutlined-381 MuiPaper-rounded"
+          class="MuiPaper-root makeStyles-container-392 MuiPaper-outlined makeStyles-paperOutlined-390 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -3822,8 +3720,7 @@ exports[`MemberTab options button if member is not an admin grant admin option i
                 <button
                   aria-controls="group-tabpanel-cars"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-disabled MuiTab-fullWidth Mui-disabled"
-                  disabled=""
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-fullWidth"
                   id="group-tab-cars"
                   role="tab"
                   tabindex="-1"
@@ -3834,21 +3731,24 @@ exports[`MemberTab options button if member is not an admin grant admin option i
                   >
                     modals.group.manage.tabs.cars.title
                   </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-384 PrivateTabIndicator-colorSecondary-386 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-394 PrivateTabIndicator-colorSecondary-396 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-382"
+            class="makeStyles-tabContent-391"
             style="overflow-x: hidden;"
           >
             <div
               class="react-swipeable-view-container"
-              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform; transform: translate(0%, 0);"
+              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; transform: translate(0%, 0); direction: ltr; display: flex; will-change: transform;"
             >
               <div
                 aria-hidden="false"
@@ -3857,7 +3757,7 @@ exports[`MemberTab options button if member is not an admin grant admin option i
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-382"
+                  class="makeStyles-tabContent-391"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -3890,7 +3790,7 @@ exports[`MemberTab options button if member is not an admin grant admin option i
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-390"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-400"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -3900,7 +3800,7 @@ exports[`MemberTab options button if member is not an admin grant admin option i
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-390"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-400"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -3971,30 +3871,6 @@ exports[`MemberTab options button if member is not an admin grant admin option i
                       </div>
                     </li>
                   </ul>
-                  <div
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiFab-root makeStyles-fab-393 MuiFab-secondary"
-                    role="button"
-                    tabindex="0"
-                  >
-                    <span
-                      class="MuiFab-label"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </div>
                 </div>
               </div>
               <div
@@ -4004,6 +3880,7 @@ exports[`MemberTab options button if member is not an admin grant admin option i
               >
                 <div
                   aria-labelledby="group-tab-cars"
+                  class="makeStyles-tabContent-391"
                   hidden=""
                   id="group-tabpanel-cars"
                   role="tabpanel"
@@ -4011,10 +3888,46 @@ exports[`MemberTab options button if member is not an admin grant admin option i
               </div>
             </div>
           </div>
+          <div
+            class="makeStyles-fabContainer-393"
+          >
+            <div>
+              <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiFab-root makeStyles-fab-410 MuiFab-secondary"
+                id="member-fab"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiFab-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="makeStyles-fabContainer-393"
+          >
+            <div />
+          </div>
         </div>
       </div>
       <div
-        class="makeStyles-footer-377"
+        class="makeStyles-footer-386"
       >
         <div
           class="MuiBox-root MuiBox-root-403"
@@ -4082,21 +3995,21 @@ exports[`MemberTab options button will appear if current user is admin and membe
 <body>
   <div>
     <div
-      class="makeStyles-container-242"
+      class="makeStyles-container-248"
     >
       <div>
         <div
-          class="MuiBox-root MuiBox-root-247"
+          class="MuiBox-root MuiBox-root-253"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-245 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-251 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-245 makeStyles-description-246 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-251 makeStyles-description-252 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -4105,11 +4018,11 @@ exports[`MemberTab options button will appear if current user is admin and membe
         </div>
       </div>
       <div
-        class="makeStyles-tabsDesktop-243"
+        class="makeStyles-tabsDesktop-249"
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container-250 MuiPaper-outlined makeStyles-paperOutlined-248 MuiPaper-rounded"
+          class="MuiPaper-root makeStyles-container-256 MuiPaper-outlined makeStyles-paperOutlined-254 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -4143,8 +4056,7 @@ exports[`MemberTab options button will appear if current user is admin and membe
                 <button
                   aria-controls="group-tabpanel-cars"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-disabled MuiTab-fullWidth Mui-disabled"
-                  disabled=""
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-fullWidth"
                   id="group-tab-cars"
                   role="tab"
                   tabindex="-1"
@@ -4155,21 +4067,24 @@ exports[`MemberTab options button will appear if current user is admin and membe
                   >
                     modals.group.manage.tabs.cars.title
                   </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-251 PrivateTabIndicator-colorSecondary-253 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-258 PrivateTabIndicator-colorSecondary-260 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-249"
+            class="makeStyles-tabContent-255"
             style="overflow-x: hidden;"
           >
             <div
               class="react-swipeable-view-container"
-              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform; transform: translate(0%, 0);"
+              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; transform: translate(0%, 0); direction: ltr; display: flex; will-change: transform;"
             >
               <div
                 aria-hidden="false"
@@ -4178,7 +4093,7 @@ exports[`MemberTab options button will appear if current user is admin and membe
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-249"
+                  class="makeStyles-tabContent-255"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -4192,7 +4107,7 @@ exports[`MemberTab options button will appear if current user is admin and membe
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-274"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-271"
                         >
                           <img
                             alt="user-13"
@@ -4211,7 +4126,7 @@ exports[`MemberTab options button will appear if current user is admin and membe
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-257"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-264"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -4229,7 +4144,7 @@ exports[`MemberTab options button will appear if current user is admin and membe
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-276"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-273"
                         >
                           <img
                             alt="user-2"
@@ -4248,7 +4163,7 @@ exports[`MemberTab options button will appear if current user is admin and membe
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-257"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-264"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -4258,7 +4173,7 @@ exports[`MemberTab options button will appear if current user is admin and membe
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-257"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-264"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -4279,7 +4194,7 @@ exports[`MemberTab options button will appear if current user is admin and membe
                           class="MuiListItemAvatar-root"
                         >
                           <div
-                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-278"
+                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-275"
                           >
                             <img
                               alt="user-12"
@@ -4329,30 +4244,6 @@ exports[`MemberTab options button will appear if current user is admin and membe
                       </div>
                     </li>
                   </ul>
-                  <div
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiFab-root makeStyles-fab-262 MuiFab-secondary"
-                    role="button"
-                    tabindex="0"
-                  >
-                    <span
-                      class="MuiFab-label"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </div>
                 </div>
               </div>
               <div
@@ -4362,6 +4253,7 @@ exports[`MemberTab options button will appear if current user is admin and membe
               >
                 <div
                   aria-labelledby="group-tab-cars"
+                  class="makeStyles-tabContent-255"
                   hidden=""
                   id="group-tabpanel-cars"
                   role="tabpanel"
@@ -4369,16 +4261,52 @@ exports[`MemberTab options button will appear if current user is admin and membe
               </div>
             </div>
           </div>
+          <div
+            class="makeStyles-fabContainer-257"
+          >
+            <div>
+              <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiFab-root makeStyles-fab-277 MuiFab-secondary"
+                id="member-fab"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiFab-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="makeStyles-fabContainer-257"
+          >
+            <div />
+          </div>
         </div>
       </div>
       <div
-        class="makeStyles-footer-244"
+        class="makeStyles-footer-250"
       >
         <div
-          class="MuiBox-root MuiBox-root-272"
+          class="MuiBox-root MuiBox-root-269"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-273 MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-270 MuiButton-fullWidth"
             tabindex="0"
             type="button"
           >
@@ -4440,21 +4368,21 @@ exports[`MemberTab options button will appear if current user is the owner and m
 <body>
   <div>
     <div
-      class="makeStyles-container-285"
+      class="makeStyles-container-292"
     >
       <div>
         <div
-          class="MuiBox-root MuiBox-root-290"
+          class="MuiBox-root MuiBox-root-297"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-288 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-295 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-288 makeStyles-description-289 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-295 makeStyles-description-296 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -4463,11 +4391,11 @@ exports[`MemberTab options button will appear if current user is the owner and m
         </div>
       </div>
       <div
-        class="makeStyles-tabsDesktop-286"
+        class="makeStyles-tabsDesktop-293"
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container-293 MuiPaper-outlined makeStyles-paperOutlined-291 MuiPaper-rounded"
+          class="MuiPaper-root makeStyles-container-300 MuiPaper-outlined makeStyles-paperOutlined-298 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -4501,8 +4429,7 @@ exports[`MemberTab options button will appear if current user is the owner and m
                 <button
                   aria-controls="group-tabpanel-cars"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-disabled MuiTab-fullWidth Mui-disabled"
-                  disabled=""
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-fullWidth"
                   id="group-tab-cars"
                   role="tab"
                   tabindex="-1"
@@ -4513,21 +4440,24 @@ exports[`MemberTab options button will appear if current user is the owner and m
                   >
                     modals.group.manage.tabs.cars.title
                   </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-294 PrivateTabIndicator-colorSecondary-296 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-302 PrivateTabIndicator-colorSecondary-304 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-292"
+            class="makeStyles-tabContent-299"
             style="overflow-x: hidden;"
           >
             <div
               class="react-swipeable-view-container"
-              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform; transform: translate(0%, 0);"
+              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; transform: translate(0%, 0); direction: ltr; display: flex; will-change: transform;"
             >
               <div
                 aria-hidden="false"
@@ -4536,7 +4466,7 @@ exports[`MemberTab options button will appear if current user is the owner and m
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-292"
+                  class="makeStyles-tabContent-299"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -4550,7 +4480,7 @@ exports[`MemberTab options button will appear if current user is the owner and m
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-318"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-316"
                         >
                           <img
                             alt="user-2"
@@ -4569,7 +4499,7 @@ exports[`MemberTab options button will appear if current user is the owner and m
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-300"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-308"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -4579,7 +4509,7 @@ exports[`MemberTab options button will appear if current user is the owner and m
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-300"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-308"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -4600,7 +4530,7 @@ exports[`MemberTab options button will appear if current user is the owner and m
                           class="MuiListItemAvatar-root"
                         >
                           <div
-                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-320"
+                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-318"
                           >
                             <img
                               alt="user-12"
@@ -4659,7 +4589,7 @@ exports[`MemberTab options button will appear if current user is the owner and m
                           class="MuiListItemAvatar-root"
                         >
                           <div
-                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-322"
+                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-320"
                           >
                             <img
                               alt="user-13"
@@ -4678,7 +4608,7 @@ exports[`MemberTab options button will appear if current user is the owner and m
                           </p>
                           <span>
                             <div
-                              class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-300"
+                              class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-308"
                             >
                               <span
                                 class="MuiChip-label MuiChip-labelSmall"
@@ -4719,30 +4649,6 @@ exports[`MemberTab options button will appear if current user is the owner and m
                       </div>
                     </li>
                   </ul>
-                  <div
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiFab-root makeStyles-fab-305 MuiFab-secondary"
-                    role="button"
-                    tabindex="0"
-                  >
-                    <span
-                      class="MuiFab-label"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </div>
                 </div>
               </div>
               <div
@@ -4752,6 +4658,7 @@ exports[`MemberTab options button will appear if current user is the owner and m
               >
                 <div
                   aria-labelledby="group-tab-cars"
+                  class="makeStyles-tabContent-299"
                   hidden=""
                   id="group-tabpanel-cars"
                   role="tabpanel"
@@ -4759,16 +4666,52 @@ exports[`MemberTab options button will appear if current user is the owner and m
               </div>
             </div>
           </div>
+          <div
+            class="makeStyles-fabContainer-301"
+          >
+            <div>
+              <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiFab-root makeStyles-fab-322 MuiFab-secondary"
+                id="member-fab"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiFab-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="makeStyles-fabContainer-301"
+          >
+            <div />
+          </div>
         </div>
       </div>
       <div
-        class="makeStyles-footer-287"
+        class="makeStyles-footer-294"
       >
         <div
-          class="MuiBox-root MuiBox-root-315"
+          class="MuiBox-root MuiBox-root-313"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-316 MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-314 MuiButton-fullWidth"
             tabindex="0"
             type="button"
           >
@@ -4868,21 +4811,21 @@ exports[`MemberTab options button will never appear if current user is not an ad
 <body>
   <div>
     <div
-      class="makeStyles-container-166"
+      class="makeStyles-container-170"
     >
       <div>
         <div
-          class="MuiBox-root MuiBox-root-171"
+          class="MuiBox-root MuiBox-root-175"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-169 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-173 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-169 makeStyles-description-170 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-173 makeStyles-description-174 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -4891,11 +4834,11 @@ exports[`MemberTab options button will never appear if current user is not an ad
         </div>
       </div>
       <div
-        class="makeStyles-tabsDesktop-167"
+        class="makeStyles-tabsDesktop-171"
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container-174 MuiPaper-outlined makeStyles-paperOutlined-172 MuiPaper-rounded"
+          class="MuiPaper-root makeStyles-container-178 MuiPaper-outlined makeStyles-paperOutlined-176 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -4929,8 +4872,7 @@ exports[`MemberTab options button will never appear if current user is not an ad
                 <button
                   aria-controls="group-tabpanel-cars"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-disabled MuiTab-fullWidth Mui-disabled"
-                  disabled=""
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-fullWidth"
                   id="group-tab-cars"
                   role="tab"
                   tabindex="-1"
@@ -4941,21 +4883,24 @@ exports[`MemberTab options button will never appear if current user is not an ad
                   >
                     modals.group.manage.tabs.cars.title
                   </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-175 PrivateTabIndicator-colorSecondary-177 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-180 PrivateTabIndicator-colorSecondary-182 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-173"
+            class="makeStyles-tabContent-177"
             style="overflow-x: hidden;"
           >
             <div
               class="react-swipeable-view-container"
-              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform; transform: translate(0%, 0);"
+              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; transform: translate(0%, 0); direction: ltr; display: flex; will-change: transform;"
             >
               <div
                 aria-hidden="false"
@@ -4964,7 +4909,7 @@ exports[`MemberTab options button will never appear if current user is not an ad
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-173"
+                  class="makeStyles-tabContent-177"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -4978,7 +4923,7 @@ exports[`MemberTab options button will never appear if current user is not an ad
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-188"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-193"
                         >
                           <img
                             alt="user-13"
@@ -5005,7 +4950,7 @@ exports[`MemberTab options button will never appear if current user is not an ad
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-190"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-195"
                         >
                           <img
                             alt="user-2"
@@ -5024,7 +4969,7 @@ exports[`MemberTab options button will never appear if current user is not an ad
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-183"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-188"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -5034,7 +4979,7 @@ exports[`MemberTab options button will never appear if current user is not an ad
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-183"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-188"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -5052,7 +4997,7 @@ exports[`MemberTab options button will never appear if current user is not an ad
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-192"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-197"
                         >
                           <img
                             alt="user-12"
@@ -5071,7 +5016,7 @@ exports[`MemberTab options button will never appear if current user is not an ad
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-183"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-188"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -5092,6 +5037,7 @@ exports[`MemberTab options button will never appear if current user is not an ad
               >
                 <div
                   aria-labelledby="group-tab-cars"
+                  class="makeStyles-tabContent-177"
                   hidden=""
                   id="group-tabpanel-cars"
                   role="tabpanel"
@@ -5099,16 +5045,26 @@ exports[`MemberTab options button will never appear if current user is not an ad
               </div>
             </div>
           </div>
+          <div
+            class="makeStyles-fabContainer-179"
+          >
+            <div />
+          </div>
+          <div
+            class="makeStyles-fabContainer-179"
+          >
+            <div />
+          </div>
         </div>
       </div>
       <div
-        class="makeStyles-footer-168"
+        class="makeStyles-footer-172"
       >
         <div
-          class="MuiBox-root MuiBox-root-186"
+          class="MuiBox-root MuiBox-root-191"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-187 MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-192 MuiButton-fullWidth"
             tabindex="0"
             type="button"
           >
@@ -5132,21 +5088,21 @@ exports[`MemberTab options button will not appear if current user and member is 
 <body>
   <div>
     <div
-      class="makeStyles-container-199"
+      class="makeStyles-container-204"
     >
       <div>
         <div
-          class="MuiBox-root MuiBox-root-204"
+          class="MuiBox-root MuiBox-root-209"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-202 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-207 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-202 makeStyles-description-203 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-207 makeStyles-description-208 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -5155,11 +5111,11 @@ exports[`MemberTab options button will not appear if current user and member is 
         </div>
       </div>
       <div
-        class="makeStyles-tabsDesktop-200"
+        class="makeStyles-tabsDesktop-205"
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container-207 MuiPaper-outlined makeStyles-paperOutlined-205 MuiPaper-rounded"
+          class="MuiPaper-root makeStyles-container-212 MuiPaper-outlined makeStyles-paperOutlined-210 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -5193,8 +5149,7 @@ exports[`MemberTab options button will not appear if current user and member is 
                 <button
                   aria-controls="group-tabpanel-cars"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-disabled MuiTab-fullWidth Mui-disabled"
-                  disabled=""
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-fullWidth"
                   id="group-tab-cars"
                   role="tab"
                   tabindex="-1"
@@ -5205,21 +5160,24 @@ exports[`MemberTab options button will not appear if current user and member is 
                   >
                     modals.group.manage.tabs.cars.title
                   </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-208 PrivateTabIndicator-colorSecondary-210 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-214 PrivateTabIndicator-colorSecondary-216 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-206"
+            class="makeStyles-tabContent-211"
             style="overflow-x: hidden;"
           >
             <div
               class="react-swipeable-view-container"
-              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform; transform: translate(0%, 0);"
+              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; transform: translate(0%, 0); direction: ltr; display: flex; will-change: transform;"
             >
               <div
                 aria-hidden="false"
@@ -5228,7 +5186,7 @@ exports[`MemberTab options button will not appear if current user and member is 
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-206"
+                  class="makeStyles-tabContent-211"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -5242,7 +5200,7 @@ exports[`MemberTab options button will not appear if current user and member is 
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-231"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-227"
                         >
                           <img
                             alt="user-13"
@@ -5261,7 +5219,7 @@ exports[`MemberTab options button will not appear if current user and member is 
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-214"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-220"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -5279,7 +5237,7 @@ exports[`MemberTab options button will not appear if current user and member is 
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-233"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-229"
                         >
                           <img
                             alt="user-2"
@@ -5298,7 +5256,7 @@ exports[`MemberTab options button will not appear if current user and member is 
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-214"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-220"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -5308,7 +5266,7 @@ exports[`MemberTab options button will not appear if current user and member is 
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-214"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-220"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -5326,7 +5284,7 @@ exports[`MemberTab options button will not appear if current user and member is 
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-235"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-231"
                         >
                           <img
                             alt="user-12"
@@ -5345,7 +5303,7 @@ exports[`MemberTab options button will not appear if current user and member is 
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-214"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-220"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -5357,30 +5315,6 @@ exports[`MemberTab options button will not appear if current user and member is 
                       </div>
                     </li>
                   </ul>
-                  <div
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiFab-root makeStyles-fab-219 MuiFab-secondary"
-                    role="button"
-                    tabindex="0"
-                  >
-                    <span
-                      class="MuiFab-label"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </div>
                 </div>
               </div>
               <div
@@ -5390,6 +5324,7 @@ exports[`MemberTab options button will not appear if current user and member is 
               >
                 <div
                   aria-labelledby="group-tab-cars"
+                  class="makeStyles-tabContent-211"
                   hidden=""
                   id="group-tabpanel-cars"
                   role="tabpanel"
@@ -5397,16 +5332,52 @@ exports[`MemberTab options button will not appear if current user and member is 
               </div>
             </div>
           </div>
+          <div
+            class="makeStyles-fabContainer-213"
+          >
+            <div>
+              <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiFab-root makeStyles-fab-233 MuiFab-secondary"
+                id="member-fab"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiFab-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="makeStyles-fabContainer-213"
+          >
+            <div />
+          </div>
         </div>
       </div>
       <div
-        class="makeStyles-footer-201"
+        class="makeStyles-footer-206"
       >
         <div
-          class="MuiBox-root MuiBox-root-229"
+          class="MuiBox-root MuiBox-root-225"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-230 MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-226 MuiButton-fullWidth"
             tabindex="0"
             type="button"
           >
@@ -5430,21 +5401,21 @@ exports[`MemberTab renders list of invites correctly 1`] = `
 <body>
   <div>
     <div
-      class="makeStyles-container-130"
+      class="makeStyles-container-133"
     >
       <div>
         <div
-          class="MuiBox-root MuiBox-root-135"
+          class="MuiBox-root MuiBox-root-138"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-133 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-136 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-133 makeStyles-description-134 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-136 makeStyles-description-137 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -5453,11 +5424,11 @@ exports[`MemberTab renders list of invites correctly 1`] = `
         </div>
       </div>
       <div
-        class="makeStyles-tabsDesktop-131"
+        class="makeStyles-tabsDesktop-134"
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container-138 MuiPaper-outlined makeStyles-paperOutlined-136 MuiPaper-rounded"
+          class="MuiPaper-root makeStyles-container-141 MuiPaper-outlined makeStyles-paperOutlined-139 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -5491,8 +5462,7 @@ exports[`MemberTab renders list of invites correctly 1`] = `
                 <button
                   aria-controls="group-tabpanel-cars"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-disabled MuiTab-fullWidth Mui-disabled"
-                  disabled=""
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-fullWidth"
                   id="group-tab-cars"
                   role="tab"
                   tabindex="-1"
@@ -5503,21 +5473,24 @@ exports[`MemberTab renders list of invites correctly 1`] = `
                   >
                     modals.group.manage.tabs.cars.title
                   </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-139 PrivateTabIndicator-colorSecondary-141 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-143 PrivateTabIndicator-colorSecondary-145 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-137"
+            class="makeStyles-tabContent-140"
             style="overflow-x: hidden;"
           >
             <div
               class="react-swipeable-view-container"
-              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform; transform: translate(0%, 0);"
+              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; transform: translate(0%, 0); direction: ltr; display: flex; will-change: transform;"
             >
               <div
                 aria-hidden="false"
@@ -5526,7 +5499,7 @@ exports[`MemberTab renders list of invites correctly 1`] = `
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-137"
+                  class="makeStyles-tabContent-140"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -5540,7 +5513,7 @@ exports[`MemberTab renders list of invites correctly 1`] = `
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-159"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-153"
                         >
                           <img
                             alt="user-2"
@@ -5559,7 +5532,7 @@ exports[`MemberTab renders list of invites correctly 1`] = `
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-145"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-149"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -5569,7 +5542,7 @@ exports[`MemberTab renders list of invites correctly 1`] = `
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-145"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-149"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -5617,30 +5590,6 @@ exports[`MemberTab renders list of invites correctly 1`] = `
                       </div>
                     </li>
                   </ul>
-                  <div
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiFab-root makeStyles-fab-146 MuiFab-secondary"
-                    role="button"
-                    tabindex="0"
-                  >
-                    <span
-                      class="MuiFab-label"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </div>
                 </div>
               </div>
               <div
@@ -5650,6 +5599,7 @@ exports[`MemberTab renders list of invites correctly 1`] = `
               >
                 <div
                   aria-labelledby="group-tab-cars"
+                  class="makeStyles-tabContent-140"
                   hidden=""
                   id="group-tabpanel-cars"
                   role="tabpanel"
@@ -5657,16 +5607,52 @@ exports[`MemberTab renders list of invites correctly 1`] = `
               </div>
             </div>
           </div>
+          <div
+            class="makeStyles-fabContainer-142"
+          >
+            <div>
+              <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiFab-root makeStyles-fab-155 MuiFab-secondary"
+                id="member-fab"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiFab-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="makeStyles-fabContainer-142"
+          >
+            <div />
+          </div>
         </div>
       </div>
       <div
-        class="makeStyles-footer-132"
+        class="makeStyles-footer-135"
       >
         <div
-          class="MuiBox-root MuiBox-root-156"
+          class="MuiBox-root MuiBox-root-150"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-157 MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-151 MuiButton-fullWidth"
             tabindex="0"
             type="button"
           >
@@ -5690,21 +5676,21 @@ exports[`MemberTab renders list of members correctly 1`] = `
 <body>
   <div>
     <div
-      class="makeStyles-container-86"
+      class="makeStyles-container-88"
     >
       <div>
         <div
-          class="MuiBox-root MuiBox-root-91"
+          class="MuiBox-root MuiBox-root-93"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-89 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-91 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-89 makeStyles-description-90 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-91 makeStyles-description-92 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -5713,11 +5699,11 @@ exports[`MemberTab renders list of members correctly 1`] = `
         </div>
       </div>
       <div
-        class="makeStyles-tabsDesktop-87"
+        class="makeStyles-tabsDesktop-89"
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container-94 MuiPaper-outlined makeStyles-paperOutlined-92 MuiPaper-rounded"
+          class="MuiPaper-root makeStyles-container-96 MuiPaper-outlined makeStyles-paperOutlined-94 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -5751,8 +5737,7 @@ exports[`MemberTab renders list of members correctly 1`] = `
                 <button
                   aria-controls="group-tabpanel-cars"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-disabled MuiTab-fullWidth Mui-disabled"
-                  disabled=""
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-fullWidth"
                   id="group-tab-cars"
                   role="tab"
                   tabindex="-1"
@@ -5763,21 +5748,24 @@ exports[`MemberTab renders list of members correctly 1`] = `
                   >
                     modals.group.manage.tabs.cars.title
                   </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-95 PrivateTabIndicator-colorSecondary-97 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-98 PrivateTabIndicator-colorSecondary-100 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-93"
+            class="makeStyles-tabContent-95"
             style="overflow-x: hidden;"
           >
             <div
               class="react-swipeable-view-container"
-              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform; transform: translate(0%, 0);"
+              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; transform: translate(0%, 0); direction: ltr; display: flex; will-change: transform;"
             >
               <div
                 aria-hidden="false"
@@ -5786,7 +5774,7 @@ exports[`MemberTab renders list of members correctly 1`] = `
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-93"
+                  class="makeStyles-tabContent-95"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -5800,7 +5788,7 @@ exports[`MemberTab renders list of members correctly 1`] = `
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-119"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-112"
                         >
                           <img
                             alt="user-2"
@@ -5819,7 +5807,7 @@ exports[`MemberTab renders list of members correctly 1`] = `
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-101"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-104"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -5829,7 +5817,7 @@ exports[`MemberTab renders list of members correctly 1`] = `
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-101"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-104"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -5850,7 +5838,7 @@ exports[`MemberTab renders list of members correctly 1`] = `
                           class="MuiListItemAvatar-root"
                         >
                           <div
-                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-121"
+                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-114"
                           >
                             <img
                               alt="user-12"
@@ -5869,7 +5857,7 @@ exports[`MemberTab renders list of members correctly 1`] = `
                           </p>
                           <span>
                             <div
-                              class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-101"
+                              class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-104"
                             >
                               <span
                                 class="MuiChip-label MuiChip-labelSmall"
@@ -5919,7 +5907,7 @@ exports[`MemberTab renders list of members correctly 1`] = `
                           class="MuiListItemAvatar-root"
                         >
                           <div
-                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-123"
+                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-116"
                           >
                             <img
                               alt="user-13"
@@ -5969,30 +5957,6 @@ exports[`MemberTab renders list of members correctly 1`] = `
                       </div>
                     </li>
                   </ul>
-                  <div
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiFab-root makeStyles-fab-106 MuiFab-secondary"
-                    role="button"
-                    tabindex="0"
-                  >
-                    <span
-                      class="MuiFab-label"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </div>
                 </div>
               </div>
               <div
@@ -6002,6 +5966,7 @@ exports[`MemberTab renders list of members correctly 1`] = `
               >
                 <div
                   aria-labelledby="group-tab-cars"
+                  class="makeStyles-tabContent-95"
                   hidden=""
                   id="group-tabpanel-cars"
                   role="tabpanel"
@@ -6009,16 +5974,52 @@ exports[`MemberTab renders list of members correctly 1`] = `
               </div>
             </div>
           </div>
+          <div
+            class="makeStyles-fabContainer-97"
+          >
+            <div>
+              <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiFab-root makeStyles-fab-118 MuiFab-secondary"
+                id="member-fab"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiFab-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="makeStyles-fabContainer-97"
+          >
+            <div />
+          </div>
         </div>
       </div>
       <div
-        class="makeStyles-footer-88"
+        class="makeStyles-footer-90"
       >
         <div
-          class="MuiBox-root MuiBox-root-116"
+          class="MuiBox-root MuiBox-root-109"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-117 MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-110 MuiButton-fullWidth"
             tabindex="0"
             type="button"
           >
@@ -6118,21 +6119,21 @@ exports[`get groupId from route params if not provided as property 1`] = `
 <body>
   <div>
     <div
-      class="makeStyles-container-61"
+      class="makeStyles-container-62"
     >
       <div>
         <div
-          class="MuiBox-root MuiBox-root-66"
+          class="MuiBox-root MuiBox-root-67"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-64 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-65 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-64 makeStyles-description-65 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-65 makeStyles-description-66 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -6141,11 +6142,11 @@ exports[`get groupId from route params if not provided as property 1`] = `
         </div>
       </div>
       <div
-        class="makeStyles-tabsDesktop-62"
+        class="makeStyles-tabsDesktop-63"
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container-69 MuiPaper-outlined makeStyles-paperOutlined-67 MuiPaper-rounded"
+          class="MuiPaper-root makeStyles-container-70 MuiPaper-outlined makeStyles-paperOutlined-68 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -6179,8 +6180,7 @@ exports[`get groupId from route params if not provided as property 1`] = `
                 <button
                   aria-controls="group-tabpanel-cars"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-disabled MuiTab-fullWidth Mui-disabled"
-                  disabled=""
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-fullWidth"
                   id="group-tab-cars"
                   role="tab"
                   tabindex="-1"
@@ -6191,21 +6191,24 @@ exports[`get groupId from route params if not provided as property 1`] = `
                   >
                     modals.group.manage.tabs.cars.title
                   </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-70 PrivateTabIndicator-colorSecondary-72 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-72 PrivateTabIndicator-colorSecondary-74 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-68"
+            class="makeStyles-tabContent-69"
             style="overflow-x: hidden;"
           >
             <div
               class="react-swipeable-view-container"
-              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform; transform: translate(0%, 0);"
+              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; transform: translate(0%, 0); direction: ltr; display: flex; will-change: transform;"
             >
               <div
                 aria-hidden="false"
@@ -6214,7 +6217,7 @@ exports[`get groupId from route params if not provided as property 1`] = `
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-68"
+                  class="makeStyles-tabContent-69"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -6228,7 +6231,7 @@ exports[`get groupId from route params if not provided as property 1`] = `
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-79"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-81"
                         >
                           <img
                             alt="user-2"
@@ -6247,7 +6250,7 @@ exports[`get groupId from route params if not provided as property 1`] = `
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-76"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-78"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -6257,7 +6260,7 @@ exports[`get groupId from route params if not provided as property 1`] = `
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-76"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-78"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -6278,6 +6281,7 @@ exports[`get groupId from route params if not provided as property 1`] = `
               >
                 <div
                   aria-labelledby="group-tab-cars"
+                  class="makeStyles-tabContent-69"
                   hidden=""
                   id="group-tabpanel-cars"
                   role="tabpanel"
@@ -6285,16 +6289,26 @@ exports[`get groupId from route params if not provided as property 1`] = `
               </div>
             </div>
           </div>
+          <div
+            class="makeStyles-fabContainer-71"
+          >
+            <div />
+          </div>
+          <div
+            class="makeStyles-fabContainer-71"
+          >
+            <div />
+          </div>
         </div>
       </div>
       <div
-        class="makeStyles-footer-63"
+        class="makeStyles-footer-64"
       >
         <div
-          class="MuiBox-root MuiBox-root-77"
+          class="MuiBox-root MuiBox-root-79"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-78 MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-80 MuiButton-fullWidth"
             tabindex="0"
             type="button"
           >
@@ -6443,8 +6457,7 @@ exports[`renders group info if group exists 1`] = `
                 <button
                   aria-controls="group-tabpanel-cars"
                   aria-selected="false"
-                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit Mui-disabled MuiTab-fullWidth Mui-disabled"
-                  disabled=""
+                  class="MuiButtonBase-root MuiTab-root MuiTab-textColorInherit MuiTab-fullWidth"
                   id="group-tab-cars"
                   role="tab"
                   tabindex="-1"
@@ -6455,10 +6468,13 @@ exports[`renders group info if group exists 1`] = `
                   >
                     modals.group.manage.tabs.cars.title
                   </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-34 PrivateTabIndicator-colorSecondary-36 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-35 PrivateTabIndicator-colorSecondary-37 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -6469,7 +6485,7 @@ exports[`renders group info if group exists 1`] = `
           >
             <div
               class="react-swipeable-view-container"
-              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; direction: ltr; display: flex; will-change: transform; transform: translate(0%, 0);"
+              style="height: 100%; flex-direction: row; transition: all 0s ease 0s; transform: translate(0%, 0); direction: ltr; display: flex; will-change: transform;"
             >
               <div
                 aria-hidden="false"
@@ -6492,7 +6508,7 @@ exports[`renders group info if group exists 1`] = `
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-54"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-45"
                         >
                           <img
                             alt="user-2"
@@ -6511,7 +6527,7 @@ exports[`renders group info if group exists 1`] = `
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-40"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-41"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -6521,7 +6537,7 @@ exports[`renders group info if group exists 1`] = `
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-40"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-41"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -6533,30 +6549,6 @@ exports[`renders group info if group exists 1`] = `
                       </div>
                     </li>
                   </ul>
-                  <div
-                    aria-disabled="false"
-                    class="MuiButtonBase-root MuiFab-root makeStyles-fab-41 MuiFab-secondary"
-                    role="button"
-                    tabindex="0"
-                  >
-                    <span
-                      class="MuiFab-label"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
-                  </div>
                 </div>
               </div>
               <div
@@ -6566,6 +6558,7 @@ exports[`renders group info if group exists 1`] = `
               >
                 <div
                   aria-labelledby="group-tab-cars"
+                  class="makeStyles-tabContent-32"
                   hidden=""
                   id="group-tabpanel-cars"
                   role="tabpanel"
@@ -6573,16 +6566,52 @@ exports[`renders group info if group exists 1`] = `
               </div>
             </div>
           </div>
+          <div
+            class="makeStyles-fabContainer-34"
+          >
+            <div>
+              <div
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiFab-root makeStyles-fab-47 MuiFab-secondary"
+                id="member-fab"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  class="MuiFab-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="makeStyles-fabContainer-34"
+          >
+            <div />
+          </div>
         </div>
       </div>
       <div
         class="makeStyles-footer-27"
       >
         <div
-          class="MuiBox-root MuiBox-root-51"
+          class="MuiBox-root MuiBox-root-42"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-52 MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-43 MuiButton-fullWidth"
             tabindex="0"
             type="button"
           >

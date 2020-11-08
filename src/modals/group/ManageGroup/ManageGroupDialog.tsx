@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     content: {
       paddingBottom: theme.spacing(3),
+      overflowX: 'hidden',
     },
   }),
 );

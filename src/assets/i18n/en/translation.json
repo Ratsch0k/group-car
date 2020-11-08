@@ -19,6 +19,7 @@
     "username": "Username",
     "email": "Email",
     "password": "Password",
+    "name": "Name",
     "error": {
       "required": "Required",
       "atLeast6": "At least 6 characters",
@@ -68,7 +69,10 @@
             }
           },
           "cars": {
-            "title": "Cars"
+            "title": "Cars",
+            "create": {
+              "title": "Create a new car"
+            }
           }
         }
       },
@@ -106,7 +110,19 @@
     "close": "Close",
     "yes": "Yes",
     "no": "No",
-    "clear": "Clear"
+    "clear": "Clear",
+    "create": "Create",
+    "color": {
+      "Red": "Red",
+      "Black": "Black",
+      "White": "White",
+      "Green": "Green",
+      "Blue": "Blue",
+      "Yellow": "Yellow",
+      "Purple": "Purple",
+      "Brown": "Brown",
+      "Orange": "Orange"
+    }
   },
   "imprint": {
     "title": "Imprint"

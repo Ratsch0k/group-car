@@ -19,6 +19,7 @@
     "logout": "Abmelden",
     "email": "Email",
     "password": "Passwort",
+    "name": "Name",
     "error": {
       "required": "Benötigt",
       "atLeast6": "Muss mindestens 6 Zeichen haben",
@@ -70,7 +71,10 @@
             }
           },
           "cars": {
-            "title": "Autos"
+            "title": "Autos",
+            "create": {
+              "title": "Neues Auto erstellen"
+            }
           }
         },
         "leaveGroup": {
@@ -108,7 +112,19 @@
     "close": "Schließen",
     "yes": "Ja",
     "no": "Nein",
-    "clear": "Löschen"
+    "clear": "Löschen",
+    "create": "Erstelle",
+    "color": {
+      "Red": "Rot",
+      "Black": "Schwarz",
+      "White": "Weiß",
+      "Green": "Grün",
+      "Blue": "Blau",
+      "Yellow": "Gelb",
+      "Purple": "Lila",
+      "Brown": "Braun",
+      "Orange": "Orange"
+    }
   },
   "imprint": {
     "title": "Impressum"

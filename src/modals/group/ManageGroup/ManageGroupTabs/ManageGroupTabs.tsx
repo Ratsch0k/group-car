@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
-import {GroupWithOwnerAndMembersAndInvites, useModalRouter} from 'lib';
+import {GroupWithOwnerAndMembersAndInvitesAndCars, useModalRouter} from 'lib';
 import {Paper, Tab, Tabs, Theme} from '@material-ui/core';
 import {useTranslation} from 'react-i18next';
 import SwipeableView from 'react-swipeable-views';
@@ -14,7 +14,7 @@ export interface ManageGroupsTabsProps {
   /**
    * The group data.
    */
-  group: GroupWithOwnerAndMembersAndInvites;
+  group: GroupWithOwnerAndMembersAndInvitesAndCars;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -48,7 +48,8 @@ export const ManageGroupTabs: React.FC<ManageGroupsTabsProps> =
     return route.endsWith('cars') ? 1 : 0;
   }, [route]);
   const [selectedTab, setSelectedTab] = useState<number>(getTabFromRoute());
-  const fabPortal = useRef<HTMLDivElement>(null);
+  const memberFabPortal = useRef<HTMLDivElement>(null);
+  const carFabPortal = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setSelectedTab(getTabFromRoute());
@@ -92,22 +93,26 @@ export const ManageGroupTabs: React.FC<ManageGroupsTabsProps> =
         onChangeIndex={(index: number) => handleSelectTab(index)}
         className={classes.tabContent}
         containerStyle={{height: '100%'}}
+        disableLazyLoading={true}
       >
         <ManageGroupMembersTab
           className={classes.tabContent}
           visible={selectedTab === 0}
           group={props.group}
-          fabPortal={fabPortal}
+          fabPortal={memberFabPortal}
         />
         <ManageGroupCarsTab
           className={classes.tabContent}
           group={props.group}
           visible={selectedTab === 1}
-          fabPortal={fabPortal}
+          fabPortal={carFabPortal}
         />
       </SwipeableView>
       <div className={classes.fabContainer}>
-        <div ref={fabPortal} />
+        <div ref={memberFabPortal} />
+      </div>
+      <div className={classes.fabContainer}>
+        <div ref={carFabPortal} />
       </div>
     </Paper>
   );

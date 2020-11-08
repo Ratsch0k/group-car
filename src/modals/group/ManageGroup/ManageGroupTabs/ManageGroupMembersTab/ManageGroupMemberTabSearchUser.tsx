@@ -152,8 +152,10 @@ export const ManageGroupMemberTabSearchUser: React.FC<
         if (isActive) {
           // Filter out all members of group
           const possibleUsers = users.data.users.filter((user) =>
-            !props.group.members.concat(props.group.invites).some((member) =>
-              user.id === member.User.id));
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            !props.group.members.concat(props.group.invites as any)
+                .some((member) =>
+                  user.id === member.User.id));
           setPossibleUsers(possibleUsers);
         }
       }

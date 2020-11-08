@@ -1,5 +1,5 @@
 import React, {useEffect, useRef} from 'react';
-import {GroupWithOwnerAndMembersAndInvites} from 'lib';
+import {GroupWithOwnerAndMembersAndInvitesAndCars} from 'lib';
 import ManageGroupOverviewInfo from './ManageGroupGroupInfo';
 import ManageGroupTabs from './ManageGroupTabs/ManageGroupTabs';
 import {
@@ -18,7 +18,7 @@ export interface ManageGroupOverviewProps {
   /**
    * The displayed group.
    */
-  group: GroupWithOwnerAndMembersAndInvites;
+  group: GroupWithOwnerAndMembersAndInvitesAndCars;
 }
 
 /**

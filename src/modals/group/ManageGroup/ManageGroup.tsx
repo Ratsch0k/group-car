@@ -4,8 +4,8 @@ import {
   useStateIfMounted,
   CenteredCircularProgress,
   useGroups,
-  GroupWithOwnerAndMembersAndInvites,
   useApi,
+  GroupWithOwnerAndMembersAndInvitesAndCars,
 } from 'lib';
 import ManageGroupErrorHandler from './ManageGroupNoGroupError';
 import {ManageGroupOverview} from './ManageGroupOverview';
@@ -34,7 +34,7 @@ export const ManageGroup: React.FC<ManageGroupProps> =
   const {getInvitesOfGroup, getMembers} = useApi();
   const {groupId: groupIdParam} = useParams<{groupId: string}>();
   const [groupData, setGroupData] =
-      useStateIfMounted<GroupWithOwnerAndMembersAndInvites | null>(null);
+      useStateIfMounted<GroupWithOwnerAndMembersAndInvitesAndCars | null>(null);
   const [error, setError] = useStateIfMounted<RestError | null | boolean>(null);
 
 
@@ -61,6 +61,7 @@ export const ManageGroup: React.FC<ManageGroupProps> =
           ...group.data,
           invites: invites.data.invites,
           members: members.data.members,
+          cars: [],
         });
       }).catch(() => {
         setError(true);
