@@ -1,11 +1,12 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {GroupWithOwnerAndMembersAndInvitesAndCars, useModalRouter} from 'lib';
-import {Paper, Tab, Tabs, Theme} from '@material-ui/core';
+import {Paper, Tab, Tabs, Theme, Typography} from '@material-ui/core';
 import {useTranslation} from 'react-i18next';
 import SwipeableView from 'react-swipeable-views';
 import {createStyles, makeStyles} from '@material-ui/styles';
 import ManageGroupMembersTab from './ManageGroupMembersTab';
 import ManageGroupCarsTab from './ManageGroupCarsTab';
+import config from 'config';
 
 /**
  * Props for the group management tabs.
@@ -26,7 +27,7 @@ const useStyles = makeStyles((theme: Theme) =>
       borderColor: theme.palette.secondary.main,
     },
     tabContent: {
-      height: `calc(100% - ${theme.spacing(6)}px)`,
+      height: 'calc(100% - 59px)',
     },
     container: {
       height: '100%',
@@ -85,12 +86,28 @@ export const ManageGroupTabs: React.FC<ManageGroupsTabsProps> =
         variant='fullWidth'
       >
         <Tab
-          label={t('modals.group.manage.tabs.members.title')}
+          label={
+            <>
+              <Typography display='inline'>
+                {t('modals.group.manage.tabs.members.title')}
+              </Typography>
+              <Typography color='textSecondary' display='inline'>
+                ({props.group.members.length}/{config.group.maxMembers})
+              </Typography>
+            </>
+          }
           id='group-tab-members'
           aria-controls='group-tabpanel-members'
         />
         <Tab
-          label={t('modals.group.manage.tabs.cars.title')}
+          label={<>
+            <Typography display='inline'>
+              {t('modals.group.manage.tabs.cars.title')}
+            </Typography>
+            <Typography color='textSecondary' display='inline'>
+              ({props.group.cars.length}/{config.group.maxCars})
+            </Typography>
+          </>}
           id='group-tab-cars'
           aria-controls='group-tabpanel-cars'
         />

@@ -66,6 +66,7 @@ it('renders error message if group doesn\'t exist', async () => {
   const fakeApi = {
     getInvitesOfGroup: jest.fn().mockRejectedValue(undefined),
     getMembers: jest.fn().mockRejectedValue(undefined),
+    getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
   }
 
   const screen = render (
@@ -99,6 +100,7 @@ it('renders group info if group exists', async () => {
   const fakeApi = {
     getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
     getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+    getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
   }
 
   const screen = render (
@@ -136,6 +138,7 @@ it('get groupId from route params if not provided as property', async () => {
   const fakeApi = {
     getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
     getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+    getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
   }
 
   const screen = render (
@@ -175,6 +178,7 @@ describe('MemberTab', () => {
     const fakeApi = {
       getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
       getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+      getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
     }
   
     const screen = render (
@@ -240,6 +244,7 @@ describe('MemberTab', () => {
     const fakeApi = {
       getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
       getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+      getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
     }
     
     const screen = render (
@@ -285,6 +290,7 @@ describe('MemberTab', () => {
           const fakeApi = {
             getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
             getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+            getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
           }
         
           const screen = render (
@@ -326,6 +332,7 @@ describe('MemberTab', () => {
         const fakeApi = {
           getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
           getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+          getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
         }
       
         const screen = render (
@@ -367,6 +374,7 @@ describe('MemberTab', () => {
         const fakeApi = {
           getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
           getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+          getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
         }
       
         const screen = render (
@@ -406,6 +414,7 @@ describe('MemberTab', () => {
         const fakeApi = {
           getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
           getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+          getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
         }
       
         const screen = render (
@@ -446,6 +455,7 @@ describe('MemberTab', () => {
         getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
         getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
         grantAdmin: jest.fn().mockResolvedValue(undefined),
+        getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
       }
     
       const screen = render (
@@ -490,6 +500,7 @@ describe('MemberTab', () => {
         getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
         getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
         grantAdmin: jest.fn().mockResolvedValue(undefined),
+        getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
       }
     
       const screen = render (
@@ -529,6 +540,7 @@ describe('MemberTab', () => {
         getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
         getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
         grantAdmin: jest.fn().mockResolvedValue(undefined),
+        getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
       }
     
       const screen = render (
@@ -569,6 +581,7 @@ describe('MemberTab', () => {
         getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
         grantAdmin: jest.fn().mockResolvedValue(undefined),
         revokeAdmin: jest.fn().mockResolvedValue(undefined),
+        getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
       }
     
       const screen = render (
@@ -608,10 +621,38 @@ describe('CarTab', () => {
       getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
       leaveGroup: jest.fn().mockResolvedValue(undefined),
     };
+    const carList = [
+      {
+        name: 'car-1',
+        groupId: fakeGroup.id,
+        color: CarColor.Red,
+        driverId: null,
+        carId: 1,
+      },
+      {
+        name: 'car-2',
+        groupId: fakeGroup.id,
+        color: CarColor.Black,
+        driverId: null,
+        carId: 2,
+      },
+      {
+        name: 'car-2',
+        groupId: fakeGroup.id,
+        color: CarColor.Green,
+        driverId: 2,
+        Driver: {
+          id: 2,
+          username: 'driver-1'
+        },
+        carId: 2,
+      }
+    ];
     const fakeApi = {
       getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
       getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-    }
+      getCars: jest.fn().mockResolvedValue({data: {cars: carList}}),
+    };
     const fakeUser = {
       id: fakeGroup.ownerId,
     };
@@ -644,6 +685,8 @@ describe('CarTab', () => {
     await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
     await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
     await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(fakeApi.getCars).toHaveBeenCalledTimes(1));
+    expect(fakeApi.getCars).toHaveBeenCalledWith(fakeGroup.id);
 
     expect(baseElement.querySelector('#create-car-fab')).toBeFalsy();
 
@@ -663,6 +706,7 @@ describe('CarTab', () => {
     const fakeApi = {
       getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
       getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+      getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
     }
     const fakeUser = {
       id: fakeGroup.ownerId,
@@ -722,6 +766,7 @@ describe('CarTab', () => {
       getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
       getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
       createCar: jest.fn().mockResolvedValue({data: fakeCar}),
+      getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
     }
     const fakeUser = {
       id: fakeGroup.ownerId,
@@ -789,6 +834,7 @@ describe('CarTab', () => {
       getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
       getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
       createCar: jest.fn().mockResolvedValue({data: fakeCar}),
+      getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
     }
     const fakeUser = {
       id: fakeGroup.ownerId,
@@ -860,6 +906,7 @@ describe('CarTab', () => {
       getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
       getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
       createCar: jest.fn().mockResolvedValue({data: fakeCar}),
+      getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
     }
     const fakeUser = {
       id: fakeGroup.ownerId,
@@ -912,6 +959,7 @@ describe('Footer', () => {
       const fakeApi = {
         getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
         getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+        getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
       }
       const fakeUser = {
         id: 13,
@@ -954,6 +1002,7 @@ describe('Footer', () => {
       const fakeApi = {
         getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
         getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+        getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
       }
       const fakeUser = {
         id: 13,
@@ -997,6 +1046,7 @@ describe('Footer', () => {
       const fakeApi = {
         getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
         getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+        getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
       }
       const fakeUser = {
         id: 13,
@@ -1049,6 +1099,7 @@ describe('Footer', () => {
       const fakeApi = {
         getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
         getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+        getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
       }
       const fakeUser = {
         id: fakeGroup.ownerId,
@@ -1095,6 +1146,7 @@ describe('Footer', () => {
       const fakeApi = {
         getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
         getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+        getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
       }
       const fakeUser = {
         id: fakeGroup.ownerId,
@@ -1142,6 +1194,7 @@ describe('Footer', () => {
       const fakeApi = {
         getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
         getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+        getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
       }
       const fakeUser = {
         id: fakeGroup.ownerId,
@@ -1198,6 +1251,7 @@ describe('Footer', () => {
       const fakeApi = {
         getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
         getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+        getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
       }
       const fakeUser = {
         id: fakeGroup.ownerId,

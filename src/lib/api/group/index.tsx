@@ -10,3 +10,4 @@ export * from './deleteGroup';
 export * from './grantAdmin';
 export * from './revokeAdmin';
 export * from './createCar';
+export * from './getCars';
