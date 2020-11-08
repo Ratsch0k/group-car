@@ -1,4 +1,4 @@
-import {UserSimple} from 'lib';
+import {UserSimple, InviteWithUserAndInviteSender} from 'lib';
 
 /**
  * Data of a group.
@@ -36,14 +36,19 @@ export interface Group {
 }
 
 /**
- * Extension of the group data which includes the user data of the owner.
+ * Group owner.
  */
-export interface GroupWithOwner extends Group {
+export interface GroupOwner {
   /**
    * The user data of the owner.
    */
   Owner: UserSimple;
 }
+
+/**
+ * Group data which also contains user data of the owner.
+ */
+export type GroupWithOwner = Group & GroupOwner;
 
 /**
  * Member of a group. Contains the data of the user and whether or not
@@ -61,16 +66,145 @@ export interface Member {
 }
 
 /**
- * Extension of the group which includes the list of members and
- * invites and data of the owner.
+ * The possible colors of a car.
  */
-export interface GroupWithOwnerAndMembersAndInvites extends GroupWithOwner {
+export enum CarColor {
+  Red = 'Red',
+  Green = 'Green',
+  Blue = 'Blue',
+  Black = 'Black',
+  Yellow = 'Yellow',
+  White = 'White',
+  Purple = 'Purple',
+  Brown = 'Brown',
+  Orange = 'Orange',
+}
+
+/**
+ * A car of a group.
+ */
+export interface Car {
   /**
-   * All members of the group.
+   * The id of the car within the group.
+   */
+  carId: number;
+
+  /**
+   * The id of the group to which this car belongs.
+   */
+  groupId: number;
+
+  /**
+   * The name.
+   */
+  name: string;
+
+  /**
+   * The assigned color.
+   */
+  color: CarColor;
+
+  /**
+   * When this car was created.
+   */
+  createdAt: Date;
+
+  /**
+   * When this car was last updated.
+   */
+  updatedAt: Date;
+
+  /**
+   * The id of the driver if this car has
+   * a driver.
+   *
+   * If this is a `number`, the attributes
+   * `latitude` and `longitude` should be `null`.
+   */
+  driverId: number | null;
+
+  /**
+   * Latitude of the parked location
+   * if this car is currently parked.
+   *
+   * If this is a `number`, the attribute `driverId`
+   * should be `null`.
+   * Only exception is when new and no user
+   * drove it yet.
+   */
+  latitude: number | null;
+
+  /**
+   * Longitude of the parked location
+   * if this car is currently parked.
+   *
+   * If this is a `number`, the attribute `driverId`
+   * should be `null`.
+   * Only exception is when new and no user
+   * drove it yet.
+   */
+  longitude: number | null;
+}
+
+/**
+ * Driver of a car.
+ */
+export interface CarDriver {
+  /**
+   * The user data of the driver if they exist.
+   */
+  Driver: UserSimple | null;
+}
+
+/**
+ * Car which also contains user data of the driver if one exists.
+ */
+export type CarWithDriver = Car & CarDriver;
+
+/**
+ * Group members.
+ */
+export interface GroupMembers {
+  /**
+   * List of members of a group.
    */
   members: Member[];
+}
+
+/**
+ * Group invites.
+ */
+export interface GroupInvites {
   /**
-   * All invites of the group.
+   * List of invites.
    */
   invites: InviteWithUserAndInviteSender[];
 }
+
+/**
+ * Group cars.
+ */
+export interface GroupCars {
+  /**
+   * List of cars of a group.
+   */
+  cars: CarWithDriver[];
+}
+
+/**
+ * Extension of the group which includes the list of members and
+ * invites and data of the owner.
+ */
+export type GroupWithOwnerAndMembersAndInvites = Group &
+  GroupOwner &
+  GroupMembers &
+  GroupInvites;
+
+/**
+ * Group with owner, list of member, list of invites and list of cars.
+ */
+export type GroupWithOwnerAndMembersAndInvitesAndCars = Group &
+  GroupOwner &
+  GroupMembers &
+  GroupInvites &
+  GroupCars;
