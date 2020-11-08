@@ -31,7 +31,7 @@ export interface ManageGroupProps {
 export const ManageGroup: React.FC<ManageGroupProps> =
 (props: ManageGroupProps) => {
   const {getGroup} = useGroups();
-  const {getInvitesOfGroup, getMembers} = useApi();
+  const {getInvitesOfGroup, getMembers, getCars} = useApi();
   const {groupId: groupIdParam} = useParams<{groupId: string}>();
   const [groupData, setGroupData] =
       useStateIfMounted<GroupWithOwnerAndMembersAndInvitesAndCars | null>(null);
@@ -56,12 +56,13 @@ export const ManageGroup: React.FC<ManageGroupProps> =
         getGroup(selectedGroupId),
         getMembers(selectedGroupId),
         getInvitesOfGroup(selectedGroupId),
-      ]).then(([group, members, invites]) => {
+        getCars(selectedGroupId),
+      ]).then(([group, members, invites, cars]) => {
         setGroupData({
           ...group.data,
           invites: invites.data.invites,
           members: members.data.members,
-          cars: [],
+          cars: cars.data.cars,
         });
       }).catch(() => {
         setError(true);
@@ -71,7 +72,7 @@ export const ManageGroup: React.FC<ManageGroupProps> =
     }
 
     // eslint-disable-next-line
-  }, [props, groupIdParam]);
+  }, [props.groupId, groupIdParam]);
 
   if (groupData === null && error === null) {
     return <CenteredCircularProgress />;

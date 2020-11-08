@@ -1,5 +1,4 @@
 import {
-  Chip,
   ListItem,
   ListItemAvatar,
   ListItemProps,
@@ -7,8 +6,12 @@ import {
   ListItemText,
   Typography,
 } from '@material-ui/core';
-import {withStyles} from '@material-ui/styles';
-import {GroupWithOwnerAndMembersAndInvites, Member, useAuth} from 'lib';
+import {
+  GroupWithOwnerAndMembersAndInvites,
+  Member,
+  RoleChip,
+  useAuth,
+} from 'lib';
 import UserAvatar from 'lib/components/UserAvatar';
 import React, {useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
@@ -42,16 +45,6 @@ export interface ManageGroupMemberListItemProps extends ListItemProps {
    */
   group: GroupWithOwnerAndMembersAndInvites;
 }
-
-/**
- * Variant of Chip.
- */
-const RoleChip = withStyles({
-  sizeSmall: {
-    height: 20,
-    fontSize: '0.75rem',
-  },
-})(Chip);
 
 /**
  * List item for the members list of a group.
