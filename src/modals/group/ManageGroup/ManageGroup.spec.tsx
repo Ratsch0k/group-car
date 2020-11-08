@@ -621,10 +621,37 @@ describe('CarTab', () => {
       getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
       leaveGroup: jest.fn().mockResolvedValue(undefined),
     };
+    const carList = [
+      {
+        name: 'car-1',
+        groupId: fakeGroup.id,
+        color: CarColor.Red,
+        driverId: null,
+        carId: 1,
+      },
+      {
+        name: 'car-2',
+        groupId: fakeGroup.id,
+        color: CarColor.Black,
+        driverId: null,
+        carId: 2,
+      },
+      {
+        name: 'car-2',
+        groupId: fakeGroup.id,
+        color: CarColor.Green,
+        driverId: 2,
+        Driver: {
+          id: 2,
+          username: 'driver-1'
+        },
+        carId: 2,
+      }
+    ];
     const fakeApi = {
       getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
       getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-      getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
+      getCars: jest.fn().mockResolvedValue({data: {cars: carList}}),
     };
     const fakeUser = {
       id: fakeGroup.ownerId,
@@ -658,6 +685,8 @@ describe('CarTab', () => {
     await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
     await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
     await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(fakeApi.getCars).toHaveBeenCalledTimes(1));
+    expect(fakeApi.getCars).toHaveBeenCalledWith(fakeGroup.id);
 
     expect(baseElement.querySelector('#create-car-fab')).toBeFalsy();
 
