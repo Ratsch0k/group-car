@@ -1,7 +1,9 @@
 import React from 'react';
 import {render} from '@testing-library/react';
 import {ThemeProvider} from '@material-ui/core';
-import {theme, Drawer, AuthContext, GroupContext} from 'lib';
+import {theme, Drawer, AuthContext, GroupContext} from '../../../lib';
+import { GroupWithOwnerAndCars } from '../../api';
+import { IUser } from '../../context';
 
 it('renders and matches snapshot with open and ' +
     'not permanent without crashing', () => {
@@ -51,7 +53,7 @@ it('renders and matches snapshot with not open and ' +
 it('renders NotLoggedIn component if user is not logged in', () => {
   const authContext = {
     isLoggedIn: false,
-  };
+  } as AuthContext;
 
   const {baseElement} = render(
     <ThemeProvider theme={theme}>
@@ -80,8 +82,45 @@ describe('if user is logged in', () => {
     );
   };
 
+  const user = {
+    id: 10,
+    username: 'USER',
+  } as IUser;
+
+  const groups = [
+    {
+      id: 1,
+      name: 'Group',
+      description: 'Test',
+      ownerId: user.id,
+      Owner: user,
+    },
+  ] as GroupWithOwnerAndCars[];
+
   it('renders create group button if user has no groups', () => {
-    const {baseElement} = customRender({isLoggedIn: true}, {groups: []});
+    const authContext = {
+      isLoggedIn: true,
+    } as AuthContext;
+    const groupContext = {
+      groups: [],
+    } as GroupContext;
+
+    const {baseElement} = customRender(authContext, groupContext);
+
+    expect(baseElement).toMatchSnapshot();
+  });
+
+  it('renders select group button if user has at least ' +
+  'one group and none is selected', () => {
+    const authContext = {
+      isLoggedIn: true,
+    } as AuthContext;
+    const groupContext = {
+      groups: [groups[0]],
+      selectedGroup: null,
+    } as GroupContext;
+
+    const {baseElement} = customRender(authContext, groupContext);
 
     expect(baseElement).toMatchSnapshot();
   });

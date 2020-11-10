@@ -88,6 +88,98 @@ exports[`if user is logged in renders create group button if user has no groups 
 </body>
 `;
 
+exports[`if user is logged in renders select group button if user has at least one group and none is selected 1`] = `
+<body
+  style=""
+>
+  <div>
+    <div
+      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-88 makeStyles-drawerPermanent-90"
+    >
+      <div
+        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-89 makeStyles-drawerPaperPermanent-91 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-96 makeStyles-container-94"
+        >
+          <div
+            class="MuiContainer-root makeStyles-body-93 MuiContainer-maxWidthLg"
+          >
+            <div
+              class="MuiBox-root MuiBox-root-100 makeStyles-root-97"
+            >
+              <div
+                class="MuiBox-root MuiBox-root-101 makeStyles-btn-98"
+              >
+                <div
+                  class="MuiBox-root MuiBox-root-103"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-disableElevation MuiButton-fullWidth"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label"
+                    >
+                      drawer.groupMenu.noSelection
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+              </div>
+              <div
+                class="MuiBox-root MuiBox-root-104 makeStyles-cars-99"
+              >
+                <div
+                  class="MuiGrid-root makeStyles-root-105 MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-direction-xs-column MuiGrid-wrap-xs-nowrap"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="MuiBox-root MuiBox-root-106 makeStyles-footer-92"
+          >
+            <div
+              class="MuiPaper-root makeStyles-footer-92 makeStyles-paper-107 MuiPaper-elevation6"
+            >
+              <div
+                class="MuiContainer-root makeStyles-container-108 MuiContainer-maxWidthLg"
+              >
+                <div
+                  class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
+                >
+                  <div
+                    class="MuiGrid-root MuiGrid-item"
+                  >
+                    <button
+                      class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
+                    >
+                      privacyPolicy.title
+                    </button>
+                  </div>
+                  <div
+                    class="MuiGrid-root MuiGrid-item"
+                  >
+                    <button
+                      class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
+                    >
+                      imprint.title
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
 exports[`renders NotLoggedIn component if user is not logged in 1`] = `
 <body
   style=""

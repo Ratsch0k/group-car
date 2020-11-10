@@ -54,13 +54,13 @@ export const DrawerBody: React.FC = () => {
           );
         }
       },
-      [groups, goTo],
+      [groups, goTo, t],
   );
   const [btn, setBtn] = useState<JSX.Element>(getOptionsButton());
 
   useEffect(() => {
     setBtn(getOptionsButton());
-  }, [groups, goTo]);
+  }, [groups, goTo, getOptionsButton]);
 
   return (
     <Box className={classes.root}>
