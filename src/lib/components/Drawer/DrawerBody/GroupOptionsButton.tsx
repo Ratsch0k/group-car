@@ -20,6 +20,7 @@ export const GroupOptionsButton: React.FC = () => {
   const {t} = useTranslation();
   const anchorRef = useRef<HTMLButtonElement>(null);
   const [open, setOpen] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const useStyles = makeStyles((theme: GroupCarTheme) =>
     createStyles({
@@ -31,8 +32,19 @@ export const GroupOptionsButton: React.FC = () => {
   );
   const classes = useStyles();
 
+  const handleClose = () => {
+    if (!loading) {
+      setOpen(false);
+    }
+  };
+  const handleOpenToggle = () => {
+    if (!loading) {
+      setOpen((prev: boolean) => !prev);
+    }
+  };
+
   return (
-    <ClickAwayListener onClickAway={() => setOpen(false)}>
+    <ClickAwayListener onClickAway={handleClose}>
       <Box>
         <Button
           fullWidth
@@ -40,7 +52,7 @@ export const GroupOptionsButton: React.FC = () => {
           disableElevation
           color='primary'
           variant='contained'
-          onClick={() => setOpen((prev: boolean) => !prev)}
+          onClick={handleOpenToggle}
         >
           {
             selectedGroup !== null ?
@@ -60,7 +72,11 @@ export const GroupOptionsButton: React.FC = () => {
               <Box
                 className={classes.menuContainer}
               >
-                <GroupOptionsMenu close={() => setOpen(false)}/>
+                <GroupOptionsMenu
+                  loading={loading}
+                  setLoading={setLoading}
+                  close={handleClose}
+                />
               </Box>
             </Grow>
           )}

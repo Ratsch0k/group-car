@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, Dispatch, SetStateAction} from 'react';
 import {
   MenuList,
   Paper,
@@ -22,6 +22,16 @@ export interface GroupOptionsMenuProps {
    * Callback to close the menu.
    */
   close(): void;
+
+  /**
+   * Whether or not this component should be in the loading state.
+   */
+  loading: boolean;
+
+  /**
+   * Set the loading state.
+   */
+  setLoading: Dispatch<SetStateAction<boolean>>;
 }
 
 /**
@@ -79,6 +89,8 @@ export const GroupOptionsMenu: React.FC<GroupOptionsMenuProps>=
         <GroupSelectionMenu
           goBack={() => setOpenSubMenu(false)}
           close={props.close}
+          loading={props.loading}
+          setLoading={props.setLoading}
         />
       </div>
       <div
@@ -89,6 +101,7 @@ export const GroupOptionsMenu: React.FC<GroupOptionsMenuProps>=
           <MenuIconItem
             onClick={() => goTo('/group/create')}
             icon={<AddIcon />}
+            disabled={props.loading}
             button
           >
             {t('drawer.groupMenu.item.create')}
@@ -98,6 +111,7 @@ export const GroupOptionsMenu: React.FC<GroupOptionsMenuProps>=
             <MenuIconItem
               onClick={() => goTo(`/group/manage/${selectedGroup.id}`)}
               icon={<EditIcon />}
+              disabled={props.loading}
               button
             >
               {t('drawer.groupMenu.item.manage')}
@@ -114,6 +128,7 @@ export const GroupOptionsMenu: React.FC<GroupOptionsMenuProps>=
               onClick={() => setOpenSubMenu(true)}
               opensSubMenu
               icon={<ListIcon />}
+              disabled={props.loading}
               button
             >
               {t('drawer.groupMenu.item.select')}
