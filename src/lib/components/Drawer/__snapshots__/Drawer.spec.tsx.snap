@@ -88,6 +88,193 @@ exports[`if user is logged in renders create group button if user has no groups 
 </body>
 `;
 
+exports[`if user is logged in renders list of cars correctly if a group is selected 1`] = `
+<body
+  style=""
+>
+  <div>
+    <div
+      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-110 makeStyles-drawerPermanent-112"
+    >
+      <div
+        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-111 makeStyles-drawerPaperPermanent-113 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-118 makeStyles-container-116"
+        >
+          <div
+            class="MuiContainer-root makeStyles-body-115 MuiContainer-maxWidthLg"
+          >
+            <div
+              class="MuiBox-root MuiBox-root-122 makeStyles-root-119"
+            >
+              <div
+                class="MuiBox-root MuiBox-root-123 makeStyles-btn-120"
+              >
+                <div
+                  class="MuiBox-root MuiBox-root-125"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-disableElevation MuiButton-fullWidth"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label"
+                    >
+                      Group
+                    </span>
+                    <span
+                      class="MuiTouchRipple-root"
+                    />
+                  </button>
+                </div>
+              </div>
+              <div
+                class="MuiBox-root MuiBox-root-126 makeStyles-cars-121"
+              >
+                <div
+                  class="MuiGrid-root makeStyles-root-127 MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-direction-xs-column MuiGrid-wrap-xs-nowrap"
+                >
+                  <div
+                    class="MuiGrid-root MuiGrid-item"
+                  >
+                    <div
+                      class="MuiPaper-root MuiCard-root MuiPaper-outlined MuiPaper-rounded"
+                    >
+                      <div
+                        class="MuiCardHeader-root"
+                      >
+                        <div
+                          class="MuiCardHeader-avatar"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge"
+                            color="Red"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                            />
+                          </svg>
+                        </div>
+                        <div
+                          class="MuiCardHeader-content"
+                        >
+                          <span
+                            class="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
+                          >
+                            <p
+                              class="MuiTypography-root MuiTypography-body1"
+                            >
+                              Car1
+                            </p>
+                            <div
+                              class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-128"
+                            >
+                              <span
+                                class="MuiChip-label MuiChip-labelSmall"
+                              >
+                                misc.available
+                              </span>
+                            </div>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="MuiGrid-root MuiGrid-item"
+                  >
+                    <div
+                      class="MuiPaper-root MuiCard-root MuiPaper-outlined MuiPaper-rounded"
+                    >
+                      <div
+                        class="MuiCardHeader-root"
+                      >
+                        <div
+                          class="MuiCardHeader-avatar"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge"
+                            color="Green"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                            />
+                          </svg>
+                        </div>
+                        <div
+                          class="MuiCardHeader-content"
+                        >
+                          <span
+                            class="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"
+                          >
+                            <p
+                              class="MuiTypography-root MuiTypography-body1"
+                            >
+                              Car2
+                            </p>
+                            <p
+                              class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary"
+                            >
+                              drawer.cars.drivenBy
+                            </p>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="MuiBox-root MuiBox-root-129 makeStyles-footer-114"
+          >
+            <div
+              class="MuiPaper-root makeStyles-footer-114 makeStyles-paper-130 MuiPaper-elevation6"
+            >
+              <div
+                class="MuiContainer-root makeStyles-container-131 MuiContainer-maxWidthLg"
+              >
+                <div
+                  class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
+                >
+                  <div
+                    class="MuiGrid-root MuiGrid-item"
+                  >
+                    <button
+                      class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
+                    >
+                      privacyPolicy.title
+                    </button>
+                  </div>
+                  <div
+                    class="MuiGrid-root MuiGrid-item"
+                  >
+                    <button
+                      class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
+                    >
+                      imprint.title
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
 exports[`if user is logged in renders select group button if user has at least one group and none is selected 1`] = `
 <body
   style=""

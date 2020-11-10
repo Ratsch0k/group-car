@@ -60,7 +60,8 @@ export const DrawerBody: React.FC = () => {
 
   useEffect(() => {
     setBtn(getOptionsButton());
-  }, [groups, goTo, getOptionsButton]);
+    // eslint-disable-next-line
+  }, [groups, goTo]);
 
   return (
     <Box className={classes.root}>

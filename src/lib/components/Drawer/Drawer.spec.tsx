@@ -1,9 +1,10 @@
 import React from 'react';
-import {render} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 import {ThemeProvider} from '@material-ui/core';
 import {theme, Drawer, AuthContext, GroupContext} from '../../../lib';
-import { GroupWithOwnerAndCars } from '../../api';
+import { CarColor, CarWithDriver, GroupWithOwnerAndCars } from '../../api';
 import { IUser } from '../../context';
+import { ModalContext } from '../../ModalRouter';
 
 it('renders and matches snapshot with open and ' +
     'not permanent without crashing', () => {
@@ -68,16 +69,19 @@ it('renders NotLoggedIn component if user is not logged in', () => {
 
 describe('if user is logged in', () => {
   const customRender = (
+    modalContext: ModalContext,
     authContext: AuthContext,
     groupContext: GroupContext,
   ) => {
     return render(
         <ThemeProvider theme={theme}>
-          <AuthContext.Provider value={authContext}>
-            <GroupContext.Provider value={groupContext}>
-              <Drawer open={false} onClose={jest.fn} permanent={true}/>
-            </GroupContext.Provider>
-          </AuthContext.Provider>
+          <ModalContext.Provider value={modalContext}>
+            <AuthContext.Provider value={authContext}>
+              <GroupContext.Provider value={groupContext}>
+                <Drawer open={false} onClose={jest.fn} permanent={true}/>
+              </GroupContext.Provider>
+            </AuthContext.Provider>
+          </ModalContext.Provider>
         </ThemeProvider>
     );
   };
@@ -95,7 +99,36 @@ describe('if user is logged in', () => {
       ownerId: user.id,
       Owner: user,
     },
+    {
+      id: 2,
+      name: 'Other group',
+      description: 'Another group',
+      ownerId: user.id,
+      Owner: user,
+    }
   ] as GroupWithOwnerAndCars[];
+
+  const cars = [
+    {
+      groupId: 1,
+      carId: 1,
+      name: 'Car1',
+      color: CarColor.Red,
+      driverId: null,
+      Driver: null,
+    },
+    {
+      groupId: 1,
+      carId: 2,
+      name: 'Car2',
+      color: CarColor.Green,
+      driverId: 4,
+      Driver: {
+        id: 4,
+        username: 'TEST DRIVER',
+      },
+    }
+  ] as CarWithDriver[];
 
   it('renders create group button if user has no groups', () => {
     const authContext = {
@@ -104,8 +137,9 @@ describe('if user is logged in', () => {
     const groupContext = {
       groups: [],
     } as GroupContext;
+    const modalContext = {} as ModalContext;
 
-    const {baseElement} = customRender(authContext, groupContext);
+    const {baseElement} = customRender(modalContext, authContext, groupContext);
 
     expect(baseElement).toMatchSnapshot();
   });
@@ -119,9 +153,32 @@ describe('if user is logged in', () => {
       groups: [groups[0]],
       selectedGroup: null,
     } as GroupContext;
+    const modalContext = {} as ModalContext;
 
-    const {baseElement} = customRender(authContext, groupContext);
+    const {baseElement} = customRender(modalContext, authContext, groupContext);
 
     expect(baseElement).toMatchSnapshot();
+  });
+
+  it('renders list of cars correctly if a group is selected', () => {
+    const authContext = {
+      isLoggedIn: true,
+    } as AuthContext;
+    const groupContext = {
+      groups: groups,
+      selectedGroup: groups[0],
+      groupCars: cars,
+    } as GroupContext;
+    const modalContext = {
+      goTo: jest.fn(),
+    } as unknown as ModalContext;
+
+    const {baseElement} = customRender(modalContext, authContext, groupContext);
+
+    expect(baseElement).toMatchSnapshot();
+    expect(screen.queryByText(cars[0].name)).toBeTruthy();
+    expect(screen.queryByText(cars[1].name)).toBeTruthy();
+    expect(screen.queryByText(groups[0].name)).toBeTruthy();
+    expect(screen.queryByText('drawer.cars.drivenBy')).toBeTruthy();
   });
 });

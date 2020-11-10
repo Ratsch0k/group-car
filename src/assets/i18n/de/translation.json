@@ -49,6 +49,9 @@
         "select": "Wähle eine Gruppe",
         "create": "Neue Gruppe erstellen"
       }
+    },
+    "cars": {
+      "drivenBy": "Wird gerade von {{driver}} benutzt"
     }
   },
   "modals": {
