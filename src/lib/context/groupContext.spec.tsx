@@ -3,6 +3,7 @@ import {render, waitFor} from '@testing-library/react';
 import GroupProvider, { GroupContext } from './groupContext';
 import { AuthContext } from './authContext';
 import { Api, ApiContext } from './apiContext';
+import { CarColor } from '../api';
 
 describe('GroupProvider', () => {
   let fakeApi: jest.Mocked<Api>;
@@ -20,6 +21,33 @@ describe('GroupProvider', () => {
     },
   ];
 
+  const cars = [
+    {
+      groupId: 1,
+      carId: 1,
+      name: 'car-1',
+      color: CarColor.Red,
+      driverId: null,
+      Driver: null,
+    },
+    {
+      groupId: 1,
+      carId: 2,
+      name: 'car-2',
+      color: CarColor.Black,
+      driverId: null,
+      Driver: null,
+    },
+    {
+      groupId: 1,
+      carId: 3,
+      name: 'car-3',
+      color: CarColor.Blue,
+      driverId: null,
+      Driver: null,
+    },
+  ];
+
   const fakeUser = {
     id: 5,
     username: 'test',
@@ -33,6 +61,7 @@ describe('GroupProvider', () => {
       createGroup: jest.fn(),
       getGroup: jest.fn(),
       deleteGroup: jest.fn(),
+      getCars: jest.fn(),
     } as unknown as jest.Mocked<Api>;
   });
 
@@ -70,6 +99,8 @@ it('gets list of groups on first render', async () => {
   describe('selectGroups', () => {
     it('sets the selected group to the correct group', async () => {
       fakeApi.getGroups.mockResolvedValue({data: {groups}});
+      fakeApi.getCars.mockResolvedValue({data: {cars}} as any);
+      fakeApi.getGroup.mockResolvedValue({data: groups[1]});
       let groupContext: GroupContext;
       let renderCounter = 0;
   
@@ -97,10 +128,10 @@ it('gets list of groups on first render', async () => {
       expect(groupContext.groups).toEqual(groups);       
       expect(groupContext.selectedGroup).toBe(null);
 
-      groupContext.selectGroup(1);
+      await groupContext.selectGroup(1);
 
       expect(groupContext.selectedGroup).toEqual(groups[1]);
-      expect(renderCounter).toBe(3);
+      expect(renderCounter).toBe(5);
     });
   });
 
@@ -148,6 +179,8 @@ it('gets list of groups on first render', async () => {
       fakeApi.getGroups
         .mockResolvedValueOnce({data: {groups}})
         .mockResolvedValueOnce({data: {groups: [groups[0]]}});
+      fakeApi.getCars.mockResolvedValue({data: {cars}} as any);
+      fakeApi.getGroup.mockResolvedValue({data: groups[1]});
       let groupContext: GroupContext;
   
       render(
@@ -174,7 +207,7 @@ it('gets list of groups on first render', async () => {
       expect(groupContext.selectedGroup).toBe(null);
 
       // Select group 1
-      groupContext.selectGroup(1);
+      await groupContext.selectGroup(1);
 
       expect(groupContext.selectedGroup).toEqual(groups[1]);
 
@@ -191,6 +224,8 @@ it('gets list of groups on first render', async () => {
       const changedGroups = groups;
       changedGroups[1].name = "New description";
       fakeApi.getGroups.mockResolvedValueOnce({data: {groups}});
+      fakeApi.getCars.mockResolvedValue({data: {cars}} as any);
+      fakeApi.getGroup.mockResolvedValue({data: groups[1]});
       let groupContext: GroupContext;
   
       render(
@@ -216,7 +251,7 @@ it('gets list of groups on first render', async () => {
       expect(groupContext.groups).toEqual(groups);       
       expect(groupContext.selectedGroup).toBe(null);
 
-      groupContext.selectGroup(1);
+      await groupContext.selectGroup(1);
 
       expect(groupContext.selectedGroup).toEqual(groups[1]);
 
@@ -345,7 +380,10 @@ it('gets list of groups on first render', async () => {
 
       const changedGroup = groups[0];
       changedGroup.name = "New name";
-      fakeApi.getGroup.mockResolvedValue({data: changedGroup});
+      fakeApi.getGroup
+        .mockResolvedValueOnce({data: groups[0]})
+        .mockResolvedValueOnce({data: changedGroup});
+      fakeApi.getCars.mockResolvedValue({data: {cars}} as any);
 
       let groupContext: GroupContext;
   
@@ -371,14 +409,14 @@ it('gets list of groups on first render', async () => {
       await waitFor(() => expect(fakeApi.getGroups).toHaveBeenCalledTimes(1));
 
       // Select group which will be updated
-      groupContext.selectGroup(0);
+      await groupContext.selectGroup(0);
       expect(groupContext.selectedGroup).toEqual(groups[0]);
 
       // Get that group and check if selected group is updated
 
       const response = await groupContext.getGroup(changedGroup.id);
       expect(response.data).toEqual(changedGroup);
-      expect(fakeApi.getGroup).toHaveBeenCalledTimes(1);
+      expect(fakeApi.getGroup).toHaveBeenCalledTimes(2);
       expect(fakeApi.getGroup).toHaveBeenCalledWith(changedGroup.id);
       expect(groupContext.groups[0]).toEqual(changedGroup);
       expect(groupContext.selectedGroup).toEqual(changedGroup);
@@ -389,6 +427,8 @@ it('gets list of groups on first render', async () => {
     it('sends request, deletes group und unsets selectedGroup', async () => {
       fakeApi.getGroups.mockResolvedValue({data: {groups}});
       fakeApi.deleteGroup.mockResolvedValue({data: undefined});
+      fakeApi.getCars.mockResolvedValue({data: {cars}} as any);
+      fakeApi.getGroup.mockResolvedValue({data: groups[0]})
 
       let groupContext: GroupContext;
   
@@ -415,7 +455,7 @@ it('gets list of groups on first render', async () => {
 
       const groupToDelete = groups[0];
       // Select group which will be unset
-      groupContext.selectGroup(groupToDelete.id);
+      await groupContext.selectGroup(groupToDelete.id);
 
       // Get that group and check if selected group is updated
       await groupContext.deleteGroup(groupToDelete.id);
@@ -429,6 +469,8 @@ it('gets list of groups on first render', async () => {
     it('doesn\'t unset selected group if it\'s not the deleted one', async () => {
       fakeApi.getGroups.mockResolvedValue({data: {groups}});
       fakeApi.deleteGroup.mockResolvedValue({data: undefined});
+      fakeApi.getCars.mockResolvedValue({data: {cars}} as any);
+      fakeApi.getGroup.mockResolvedValue({data: groups[1]})
 
       let groupContext: GroupContext;
   

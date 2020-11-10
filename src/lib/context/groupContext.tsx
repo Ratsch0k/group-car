@@ -6,6 +6,7 @@ import {
   AuthContext,
   GroupWithOwner,
   NotDefinedError,
+  CarWithDriver,
 } from 'lib';
 
 /**
@@ -20,6 +21,13 @@ export interface GroupContext {
   selectedGroup: GroupWithOwner | null;
 
   /**
+   * The cars of the selected group.
+   *
+   * If none is selected this is null.
+   */
+  groupCars: CarWithDriver[] | null;
+
+  /**
    * All groups of which the current user is a member of.
    */
   groups: GroupWithOwner[];
@@ -30,7 +38,7 @@ export interface GroupContext {
    * data of that group.
    * @param id  The id of the group which to select.
    */
-  selectGroup(id: number): void;
+  selectGroup(id: number): Promise<void>;
 
   /**
    * Creates a group with the specified data.
@@ -83,7 +91,8 @@ export interface GroupContext {
 export const GroupContext = React.createContext<GroupContext>({
   selectedGroup: null,
   groups: [],
-  selectGroup: () => undefined,
+  selectGroup: () => Promise.reject(new NotDefinedError()),
+  groupCars: null,
   update: () => Promise.reject(new NotDefinedError()),
   createGroup: () => Promise.reject(new NotDefinedError()),
   getGroup: () => Promise.reject(new NotDefinedError()),
@@ -115,17 +124,31 @@ export const GroupProvider: React.FC = (props) => {
     inviteUser,
     leaveGroup: leaveGroupApi,
     deleteGroup: deleteGroupApi,
+    getCars,
   } = useApi();
   const [groups, setGroups] = useStateIfMounted<GroupContext['groups']>([]);
   const [selectedGroup, setSelectedGroup] =
     useState<GroupContext['selectedGroup']>(null);
+  const [groupCars, setGroupCars] = useState<GroupContext['groupCars']>(null);
 
-  const selectGroup: GroupContext['selectGroup'] = (id: number) => {
+  const selectGroup: GroupContext['selectGroup'] = async (id: number) => {
     if (selectedGroup === null || selectedGroup.id !== id) {
       const group = groups.find((group) => group.id === id);
 
       if (group) {
-        setSelectedGroup(group);
+        const [carRequest, groupRequest] = await Promise.all([
+          getCars(id),
+          getGroupApi(id),
+        ]);
+        setGroupCars(carRequest.data.cars);
+        setSelectedGroup(groupRequest.data);
+        setGroups((prev) => prev.map((el) => {
+          if (el.id !== id) {
+            return el;
+          } else {
+            return groupRequest.data;
+          }
+        }));
       }
     }
   };
@@ -227,6 +250,7 @@ export const GroupProvider: React.FC = (props) => {
       inviteUser,
       leaveGroup,
       deleteGroup,
+      groupCars,
     }}>
       {props.children}
     </GroupContext.Provider>

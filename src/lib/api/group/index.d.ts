@@ -192,6 +192,11 @@ export interface GroupCars {
 }
 
 /**
+ * Group with data of the owner and the list of cars.
+ */
+export type GroupWithOwnerAndCars = Group & GroupOwner & GroupCars;
+
+/**
  * Extension of the group which includes the list of members and
  * invites and data of the owner.
  */
