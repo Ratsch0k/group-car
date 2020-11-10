@@ -59,8 +59,8 @@ export const GroupSelectionMenu: React.FC<GroupSelectionMenuProps> =
         <MenuItem
           key={`select-group-${group.id}`}
           button
-          onClick={() => {
-            selectGroup(group.id);
+          onClick={async () => {
+            await selectGroup(group.id);
             props.close();
           }}
         >
