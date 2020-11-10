@@ -3,10 +3,20 @@ import {CarWithDriver} from 'lib/api';
 import React from 'react';
 import RoomIcon from '@material-ui/icons/Room';
 
+/**
+ * Props for the car card.
+ */
 export interface CarCardProps {
+  /**
+   * The car to display.
+   */
   car: CarWithDriver;
 }
 
+/**
+ * Card to visualize a car.
+ * @param props Props
+ */
 export const CarCard: React.FC<CarCardProps> = (props: CarCardProps) => {
   const {car} = props;
 

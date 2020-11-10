@@ -4,12 +4,18 @@ import {useGroups} from 'lib/hooks';
 import React from 'react';
 import CarCard from './CarCard';
 
+/**
+ * Styles.
+ */
 const useStyles = makeStyles({
   root: {
     overflowY: 'auto',
   },
 });
 
+/**
+ * List of cars.
+ */
 export const CarCards: React.FC = () => {
   const {groupCars} = useGroups();
   const classes = useStyles();
