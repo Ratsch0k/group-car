@@ -28,6 +28,9 @@ export const GroupOptionsButton: React.FC = () => {
         width: anchorRef.current ? anchorRef.current.clientWidth : undefined,
         marginTop: theme.spacing(1),
       },
+      popper: {
+        zIndex: theme.zIndex.tooltip,
+      },
     }),
   );
   const classes = useStyles();
@@ -66,6 +69,7 @@ export const GroupOptionsButton: React.FC = () => {
           transition
           disablePortal
           placement='bottom-end'
+          className={classes.popper}
         >
           {({TransitionProps}) => (
             <Grow {...TransitionProps}>
