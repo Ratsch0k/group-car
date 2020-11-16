@@ -7,7 +7,7 @@ import {
   User,
 } from 'lib';
 import {AxiosResponse} from 'axios';
-import {useModalRouter} from 'lib/hooks';
+import {useAxios, useModalRouter} from 'lib/hooks';
 import {useApi} from 'lib/hooks/useApi';
 
 export interface IUser {
@@ -49,6 +49,24 @@ export const AuthProvider: React.FC = (props) => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const {goTo} = useModalRouter();
   const api = useApi();
+  const {axios} = useAxios();
+
+  /**
+   * Register response interceptor which
+   * reacts to the NotLoggedInError and
+   * logs the user out.
+   */
+  axios.then((axiosInstance) => {
+    axiosInstance.interceptors.response.use((response) => {
+      return response;
+    }, (error) => {
+      if (error.errorName === 'NotLoggedInError') {
+        setUser(undefined);
+        setIsLoggedIn(false);
+      }
+      return Promise.reject(error);
+    });
+  });
 
   // Send request which checks if client is logged in
   useEffect(() => {
