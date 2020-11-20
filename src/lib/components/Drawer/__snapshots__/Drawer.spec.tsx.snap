@@ -196,6 +196,7 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
                           >
                             <button
                               class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-fullWidth"
+                              id="drive-car-1"
                               tabindex="0"
                               type="button"
                             >
@@ -225,6 +226,7 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
                             <button
                               class="MuiButtonBase-root MuiButton-root MuiButton-text Mui-disabled MuiButton-fullWidth Mui-disabled"
                               disabled=""
+                              id="view-car-1"
                               tabindex="-1"
                               type="button"
                             >

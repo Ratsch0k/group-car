@@ -183,13 +183,18 @@ export const CarCard: React.FC<CarCardProps> = (props: CarCardProps) => {
                     fullWidth
                     onClick={handleAddDrivingCar}
                     disabled={disabled}
+                    id={`drive-car-${car.carId}`}
                   >
                     <DriveEtaIcon />
                     {t('drawer.cars.drive')}
                   </Button>
                 </Grid>
                 <Grid item xs={6}>
-                  <Button disabled fullWidth>
+                  <Button
+                    disabled
+                    fullWidth
+                    id={`view-car-${car.carId}`}
+                  >
                     <SearchIcon />
                     {t('drawer.cars.view')}
                   </Button>

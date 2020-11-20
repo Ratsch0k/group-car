@@ -869,7 +869,16 @@ exports[`CarTab entering a name and clicking create sends request to create a ca
                   </span>
                   <span
                     class="MuiTouchRipple-root"
-                  />
+                  >
+                    <span
+                      class="MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
+                      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
+                    >
+                      <span
+                        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
+                      />
+                    </span>
+                  </span>
                 </button>
               </div>
               <span
