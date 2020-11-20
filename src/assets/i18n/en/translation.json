@@ -49,7 +49,12 @@
       }
     },
     "cars": {
-      "drivenBy": "Currently used by {{driver}}"
+      "drivenBy": "Currently used by {{driver}}",
+      "drive": "Drive",
+      "view": "Location",
+      "parkCurrent": "Park here",
+      "parkMap": "Park on map",
+      "youAreDriving": "You are driving this car"
     }
   },
   "modals": {

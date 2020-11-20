@@ -81,6 +81,11 @@ export interface GroupContext {
    * Deletes the specified group.
    */
   deleteGroup: Api['deleteGroup'];
+
+  /**
+   * Drives the specified car.
+   */
+  driveCar: Api['driveCar'];
 }
 
 /**
@@ -99,6 +104,7 @@ export const GroupContext = React.createContext<GroupContext>({
   inviteUser: () => Promise.reject(new NotDefinedError()),
   leaveGroup: () => Promise.reject(new NotDefinedError()),
   deleteGroup: () => Promise.reject(new NotDefinedError()),
+  driveCar: () => Promise.reject(new NotDefinedError()),
 });
 GroupContext.displayName = 'GroupContext';
 
@@ -125,6 +131,7 @@ export const GroupProvider: React.FC = (props) => {
     leaveGroup: leaveGroupApi,
     deleteGroup: deleteGroupApi,
     getCars,
+    driveCar: driveCarApi,
   } = useApi();
   const [groups, setGroups] = useStateIfMounted<GroupContext['groups']>([]);
   const [selectedGroup, setSelectedGroup] =
@@ -239,6 +246,30 @@ export const GroupProvider: React.FC = (props) => {
     return res;
   };
 
+  const driveCar: GroupContext['driveCar'] = async (groupId, carId) => {
+    if (user !== undefined &&
+        selectedGroup !== null && selectedGroup.id === groupId &&
+        groupCars !== null && groupCars.some((car) => car.carId === carId)) {
+      const res = await driveCarApi(groupId, carId);
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      setGroupCars((prev) => prev!.map((car) => {
+        if (car.carId === carId) {
+          car.driverId = user.id;
+          car.Driver = {
+            username: user.username,
+            id: user.id,
+          };
+          return car;
+        } else {
+          return car;
+        }
+      }));
+      return res;
+    } else {
+      throw new Error('Either not member of group or car doesn\'t exist');
+    }
+  };
+
   return (
     <GroupContext.Provider value={{
       groups,
@@ -251,6 +282,7 @@ export const GroupProvider: React.FC = (props) => {
       leaveGroup,
       deleteGroup,
       groupCars,
+      driveCar,
     }}>
       {props.children}
     </GroupContext.Provider>

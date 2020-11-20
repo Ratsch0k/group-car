@@ -1,10 +1,11 @@
 import React from 'react';
-import {render, screen} from '@testing-library/react';
+import {render, screen, waitFor} from '@testing-library/react';
 import {ThemeProvider} from '@material-ui/core';
 import {theme, Drawer, AuthContext, GroupContext} from '../../../lib';
 import { CarColor, CarWithDriver, GroupWithOwnerAndCars } from '../../api';
 import { IUser } from '../../context';
 import { ModalContext } from '../../ModalRouter';
+import userEvent from '@testing-library/user-event';
 
 it('renders and matches snapshot with open and ' +
     'not permanent without crashing', () => {
@@ -180,5 +181,29 @@ describe('if user is logged in', () => {
     expect(screen.queryByText(cars[1].name)).toBeTruthy();
     expect(screen.queryByText(groups[0].name)).toBeTruthy();
     expect(screen.queryByText('drawer.cars.drivenBy')).toBeTruthy();
+  });
+
+  it('clicking on drive button will send drive request', async () => {
+    const authContext = {
+      isLoggedIn: true,
+    } as AuthContext;
+
+    const groupContext = {
+      groups: groups,
+      selectedGroup: groups[0],
+      groupCars: cars,
+      driveCar: jest.fn().mockResolvedValue(undefined),
+    } as GroupContext;
+
+    const modalContext = {
+      goTo: jest.fn(),
+    } as unknown as ModalContext;
+
+    const {baseElement} = customRender(modalContext, authContext, groupContext);
+
+    userEvent.click(baseElement.querySelector(`#drive-car-${cars[0].carId}`));
+    
+    await waitFor(() => expect(groupContext.driveCar).toBeCalledTimes(1));
+    expect(groupContext.driveCar).toBeCalledWith(groups[0].id, cars[0].carId);
   });
 });

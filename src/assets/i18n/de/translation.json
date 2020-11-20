@@ -51,7 +51,12 @@
       }
     },
     "cars": {
-      "drivenBy": "Wird gerade von {{driver}} benutzt"
+      "drivenBy": "Wird gerade von {{driver}} benutzt",
+      "drive": "Fahre",
+      "view": "Standort",
+      "parkCurrent": "Parke hier",
+      "parkMap": "Parke auf Karte",
+      "youAreDriving": "Fährst du gerade"
     }
   },
   "modals": {
