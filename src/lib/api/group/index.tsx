@@ -12,3 +12,4 @@ export * from './revokeAdmin';
 export * from './createCar';
 export * from './getCars';
 export * from './driveCar';
+export * from './parkCar';
