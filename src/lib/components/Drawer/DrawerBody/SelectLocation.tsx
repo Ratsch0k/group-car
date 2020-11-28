@@ -44,7 +44,7 @@ export const SelectLocation: React.FC<SelectLocationProps> =
      * Listener for click events on the map.
      * If the component is not currently loading,
      * the click will changed the stored location.
-     * @param event 
+     * @param event Click event
      */
     const listener = (event: LeafletMouseEvent) => {
       if (!loading.current) {
