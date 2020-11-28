@@ -54,7 +54,8 @@
       "view": "Location",
       "parkCurrent": "Park here",
       "parkMap": "Park on map",
-      "youAreDriving": "You are driving this car"
+      "youAreDriving": "You are driving this car",
+      "gettingLocation": "Getting location"
     }
   },
   "modals": {
