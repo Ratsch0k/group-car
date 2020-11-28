@@ -4,7 +4,7 @@ import {PositionMarker, useMap} from 'lib';
 import {LatLng, LeafletMouseEvent} from 'leaflet';
 
 /**
- * Map component
+ * Map component.
  */
 export const Map: React.FC = () => {
   const [location, setLocation] = useState<LatLng>();
@@ -60,7 +60,11 @@ export const Map: React.FC = () => {
   }, [map, selectedCar, selectionDisabled]);
 
   return (
-    <MapContainer center={new LatLng(0, 0)} zoom={2} whenCreated={setMap}>
+    <MapContainer
+      center={new LatLng(50.815781, 10.055568)}
+      zoom={4}
+      whenCreated={setMap}
+    >
       <TileLayer
         attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
