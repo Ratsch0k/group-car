@@ -220,6 +220,7 @@ export const CarCard: React.FC<CarCardProps> = (props: CarCardProps) => {
                     disabled={disabled}
                     className={classes.textDriving}
                     onClick={() => parkAtCurrent(car.carId)}
+                    id={`park-current-car-${car.carId}`}
                   >
                     <GpsFixedIcon />
                     {t('drawer.cars.parkCurrent')}
@@ -231,6 +232,7 @@ export const CarCard: React.FC<CarCardProps> = (props: CarCardProps) => {
                     disabled={disabled}
                     className={classes.textDriving}
                     onClick={() => parkWithMap(car)}
+                    id={`park-map-car-${car.carId}`}
                   >
                     <MapIcon />
                     <Typography className={classes.parkOnMapText}>

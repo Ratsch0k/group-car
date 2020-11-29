@@ -111,6 +111,7 @@ export const SelectLocation: React.FC<SelectLocationProps> =
             onClick={handleConfirm}
             disabled={location === undefined}
             loading={loading.current}
+            id={`park-map-${car.carId}-confirm`}
           >
             {t('misc.confirm')}
           </ProgressButton>
@@ -122,6 +123,7 @@ export const SelectLocation: React.FC<SelectLocationProps> =
             onClick={handleCancel}
             fullWidth
             disabled={loading.current}
+            id={`park-map-${car.carId}-cancel`}
           >
             {t('misc.cancel')}
           </Button>
