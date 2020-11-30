@@ -56,6 +56,11 @@
       "parkMap": "Park on map",
       "youAreDriving": "You are driving this car",
       "gettingLocation": "Getting location"
+    },
+    "selectLocation": {
+      "title": "Select a location",
+      "showCar": "Selected car: {{name}}",
+      "description": "Click on the map to select a location. Then, click \"confirm\" to park the car at the selected location."
     }
   },
   "modals": {
@@ -123,6 +128,8 @@
     "clear": "Clear",
     "create": "Create",
     "available": "Available",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
     "color": {
       "Red": "Red",
       "Black": "Black",
