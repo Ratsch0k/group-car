@@ -63,6 +63,17 @@ export interface CarCardProps {
    * be true.
    */
   isInUse?: boolean;
+
+  /**
+   * Should park the car with the specified id at the
+   * current location of the device.
+   */
+  parkAtCurrent: (carId: number) => Promise<void>;
+
+  /**
+   * Should change to location selection.
+   */
+  parkWithMap: (car: CarWithDriver) => void;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -113,12 +124,11 @@ export const CarCard: React.FC<CarCardProps> = (props: CarCardProps) => {
     isDriving,
     isInUse,
     disabled,
+    parkAtCurrent,
+    parkWithMap,
   } = props;
   const {t} = useTranslation();
   const classes = useStyles();
-  const handleAddDrivingCar = () => {
-    addDrivingCar(car);
-  };
 
   return (
     <Card
@@ -181,7 +191,7 @@ export const CarCard: React.FC<CarCardProps> = (props: CarCardProps) => {
                 >
                   <Button
                     fullWidth
-                    onClick={handleAddDrivingCar}
+                    onClick={() => addDrivingCar(car)}
                     disabled={disabled}
                     id={`drive-car-${car.carId}`}
                   >
@@ -205,13 +215,25 @@ export const CarCard: React.FC<CarCardProps> = (props: CarCardProps) => {
               isDriving &&
               <>
                 <Grid item xs={6} className={classes.leftActionDriving}>
-                  <Button fullWidth disabled className={classes.textDriving}>
+                  <Button
+                    fullWidth
+                    disabled={disabled}
+                    className={classes.textDriving}
+                    onClick={() => parkAtCurrent(car.carId)}
+                    id={`park-current-car-${car.carId}`}
+                  >
                     <GpsFixedIcon />
                     {t('drawer.cars.parkCurrent')}
                   </Button>
                 </Grid>
                 <Grid item xs={6}>
-                  <Button fullWidth disabled className={classes.textDriving}>
+                  <Button
+                    fullWidth
+                    disabled={disabled}
+                    className={classes.textDriving}
+                    onClick={() => parkWithMap(car)}
+                    id={`park-map-car-${car.carId}`}
+                  >
                     <MapIcon />
                     <Typography className={classes.parkOnMapText}>
                       {t('drawer.cars.parkMap')}

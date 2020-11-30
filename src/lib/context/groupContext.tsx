@@ -86,6 +86,11 @@ export interface GroupContext {
    * Drives the specified car.
    */
   driveCar: Api['driveCar'];
+
+  /**
+   * Park the specified car at the specified location.
+   */
+  parkCar: Api['parkCar'];
 }
 
 /**
@@ -105,6 +110,7 @@ export const GroupContext = React.createContext<GroupContext>({
   leaveGroup: () => Promise.reject(new NotDefinedError()),
   deleteGroup: () => Promise.reject(new NotDefinedError()),
   driveCar: () => Promise.reject(new NotDefinedError()),
+  parkCar: () => Promise.reject(new NotDefinedError()),
 });
 GroupContext.displayName = 'GroupContext';
 
@@ -132,6 +138,7 @@ export const GroupProvider: React.FC = (props) => {
     deleteGroup: deleteGroupApi,
     getCars,
     driveCar: driveCarApi,
+    parkCar: parkCarApi,
   } = useApi();
   const [groups, setGroups] = useStateIfMounted<GroupContext['groups']>([]);
   const [selectedGroup, setSelectedGroup] =
@@ -270,6 +277,38 @@ export const GroupProvider: React.FC = (props) => {
     }
   };
 
+  const parkCar: GroupContext['parkCar'] = async (
+    groupId,
+    carId,
+    latitude,
+    longitude,
+  ) => {
+    if (user &&
+      selectedGroup !== null &&
+      selectedGroup.id === groupId &&
+      groupCars !== null
+    ) {
+      const res = await parkCarApi(groupId, carId, latitude, longitude);
+
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      setGroupCars((prev) => prev!.map((car) => {
+        if (car.carId === carId) {
+          car.Driver = null;
+          car.driverId = null;
+          car.latitude = latitude;
+          car.longitude = longitude;
+          return car;
+        } else {
+          return car;
+        }
+      }));
+
+      return res;
+    } else {
+      throw new Error('Can\'t park car');
+    }
+  };
+
   return (
     <GroupContext.Provider value={{
       groups,
@@ -283,6 +322,7 @@ export const GroupProvider: React.FC = (props) => {
       deleteGroup,
       groupCars,
       driveCar,
+      parkCar,
     }}>
       {props.children}
     </GroupContext.Provider>

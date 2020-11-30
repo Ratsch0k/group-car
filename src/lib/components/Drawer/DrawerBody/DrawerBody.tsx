@@ -1,11 +1,12 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {Box, Button, Theme} from '@material-ui/core';
 import {useTranslation} from 'react-i18next';
-import {useModalRouter} from 'lib';
+import {useMap, useModalRouter} from 'lib';
 import useGroups from 'lib/hooks/useGroups';
 import GroupOptionsButton from './GroupOptionsButton';
 import CarCards from './CarCards';
 import {createStyles, makeStyles} from '@material-ui/styles';
+import SelectLocation from './SelectLocation';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -34,6 +35,7 @@ export const DrawerBody: React.FC = () => {
   const {goTo} = useModalRouter();
   const {groups} = useGroups();
   const classes = useStyles();
+  const {selectedCar} = useMap();
   const getOptionsButton = useCallback(
       () => {
         if (groups.length <= 0) {
@@ -63,16 +65,22 @@ export const DrawerBody: React.FC = () => {
     // eslint-disable-next-line
   }, [groups, goTo]);
 
-  return (
-    <Box className={classes.root}>
-      <Box className={classes.btn}>
-        {btn}
+  if (selectedCar) {
+    return (
+      <SelectLocation />
+    );
+  } else {
+    return (
+      <Box className={classes.root}>
+        <Box className={classes.btn}>
+          {btn}
+        </Box>
+        <Box className={classes.cars}>
+          <CarCards />
+        </Box>
       </Box>
-      <Box className={classes.cars}>
-        <CarCards />
-      </Box>
-    </Box>
-  );
+    );
+  }
 };
 
 export default DrawerBody;

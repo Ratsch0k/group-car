@@ -16,3 +16,4 @@ export * from './MenuIconItem';
 export * from './TabPanel';
 export * from './CarColorSelection';
 export * from './RoleChip';
+export * from './MapIcons';

@@ -56,7 +56,13 @@
       "view": "Standort",
       "parkCurrent": "Parke hier",
       "parkMap": "Parke auf Karte",
-      "youAreDriving": "Fährst du gerade"
+      "youAreDriving": "Fährst du gerade",
+      "gettingLocation": "Standort wird ermittelt"
+    },
+    "selectLocation": {
+      "title": "Wähle den Standort",
+      "showCar": "Ausgewähltes Auto: {{name}}",
+      "description": "Klicke auf die Karte um einen Standort zu wählen. Klicke \"Bestätigen\" um das Auto am ausgewählten Standort zu parken."
     }
   },
   "modals": {
@@ -124,6 +130,8 @@
     "clear": "Löschen",
     "create": "Erstelle",
     "available": "Verfügbar",
+    "confirm": "Bestätigen",
+    "cancel": "Abbrechen",
     "color": {
       "Red": "Rot",
       "Black": "Schwarz",
