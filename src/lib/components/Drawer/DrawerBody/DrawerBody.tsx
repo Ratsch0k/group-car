@@ -35,7 +35,7 @@ export const DrawerBody: React.FC = () => {
   const {goTo} = useModalRouter();
   const {groups} = useGroups();
   const classes = useStyles();
-  const {selectedCar, setSelectedCar} = useMap();
+  const {selectedCar} = useMap();
   const getOptionsButton = useCallback(
       () => {
         if (groups.length <= 0) {
@@ -65,13 +65,9 @@ export const DrawerBody: React.FC = () => {
     // eslint-disable-next-line
   }, [groups, goTo]);
 
-  const handleSelectCancel = () => {
-    setSelectedCar(undefined);
-  };
-
   if (selectedCar) {
     return (
-      <SelectLocation car={selectedCar} cancel={handleSelectCancel}/>
+      <SelectLocation />
     );
   } else {
     return (

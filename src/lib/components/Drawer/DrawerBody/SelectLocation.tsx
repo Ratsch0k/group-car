@@ -1,40 +1,26 @@
 import {Button, Grid, Typography} from '@material-ui/core';
 import {LatLng, LeafletMouseEvent} from 'leaflet';
-import {useMap} from 'lib';
-import {CarWithDriver} from 'lib/api';
-import {ProgressButton} from 'lib/components/Input';
-import {useGroups} from 'lib/hooks';
+import {useMap, CarWithDriver, useGroups, ProgressButton} from 'lib';
 import React, {useEffect, useRef} from 'react';
 import {useState} from 'react';
 import {useTranslation} from 'react-i18next';
 
-/**
- * Props for the SelectLocation component.
- */
-export interface SelectLocationProps {
-  /**
-   * The car for which the location should be
-   * selected.
-   */
-  car: CarWithDriver;
-
-  /**
-   * Callback to cancel the selection.
-   */
-  cancel(): void;
-}
 
 /**
  * Component for selecting the location
  * of a selected car. Expects to have access to the
- * MapContext. Doesn't provide the map interface.
+ * MapContext and that a car is selected. Doesn't provide the map interface.
  * @param props Props
  */
-export const SelectLocation: React.FC<SelectLocationProps> =
-(props: SelectLocationProps) => {
-  const {car, cancel} = props;
+export const SelectLocation: React.FC = () => {
   const {t} = useTranslation();
-  const {map, setSelectionDisabled} = useMap();
+  const {
+    map,
+    setSelectionDisabled,
+    selectedCar,
+    setSelectedCar,
+  } = useMap();
+  const car = selectedCar as CarWithDriver;
   const {parkCar, selectedGroup} = useGroups();
   const [location, setLocation] = useState<LatLng>();
   const loading = useRef<boolean>(false);
@@ -62,9 +48,9 @@ export const SelectLocation: React.FC<SelectLocationProps> =
   /**
    * Handles click on the cancel button.
    */
-  const handleCancel = () => {
+  const handleClose = () => {
     setLocation(undefined);
-    cancel();
+    setSelectedCar(undefined);
   };
 
   /**
@@ -79,7 +65,7 @@ export const SelectLocation: React.FC<SelectLocationProps> =
         await parkCar(selectedGroup.id, car.carId, location.lat, location.lng);
         loading.current = false;
         setSelectionDisabled(false);
-        handleCancel();
+        handleClose();
       } catch {
         setSelectionDisabled(false);
         loading.current = false;
@@ -120,7 +106,7 @@ export const SelectLocation: React.FC<SelectLocationProps> =
           <Button
             variant='outlined'
             color='secondary'
-            onClick={handleCancel}
+            onClick={handleClose}
             fullWidth
             disabled={loading.current}
             id={`park-map-${car.carId}-cancel`}

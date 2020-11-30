@@ -531,6 +531,68 @@ describe('if user is logged in', () => {
 
         await waitFor(() => expect(baseElement.querySelector(`#park-map-${cars[2].carId}-confirm`).getAttribute('disabled')).toBeFalsy());
       });
+
+      it('clicking confirm will send park request for car for specified location and set selectedCar to undefined', async () => {
+        const authContext = {
+          isLoggedIn: true,
+          user,
+        } as AuthContext;
+    
+        const groupContext = {
+          groups,
+          selectedGroup: groups[0],
+          groupCars: cars,
+          parkCar: jest.fn().mockResolvedValue(undefined),
+        } as GroupContext;
+
+        let listener;
+        
+        const map = {
+          addEventListener: jest.fn().mockImplementation((type, fn) => {
+            listener = fn;
+          }),
+          removeEventListener: jest.fn(),
+        } as unknown as Map;
+
+        const mapContext = {
+          selectedCar: cars[2],
+          setSelectionDisabled: jest.fn(),
+          setSelectedCar: jest.fn(),
+          map,
+        } as unknown as MapContext;
+  
+        const {baseElement} = render(
+          <ThemeProvider theme={theme}>
+            <MapContext.Provider value={mapContext}>
+              <AuthContext.Provider value={authContext}>
+                <GroupContext.Provider value={groupContext}>
+                  <Drawer open={false} onClose={jest.fn} permanent={true}/>
+                </GroupContext.Provider>
+              </AuthContext.Provider>
+            </MapContext.Provider>
+          </ThemeProvider>
+        );
+    
+        await waitFor(() => expect(screen.queryByText('drawer.selectLocation.title')).toBeTruthy());
+
+        expect(listener).toEqual(expect.any(Function));
+
+        expect(baseElement.querySelector(`#park-map-${cars[2].carId}-confirm`).getAttribute('disabled')).toEqual('');
+
+        const latlng = new LatLng(50, 8);
+
+        listener({latlng});
+
+        userEvent.click(screen.queryByText('misc.confirm'));
+
+        await waitFor(() => expect(groupContext.parkCar).toHaveBeenCalledTimes(1));
+        expect(groupContext.parkCar).toHaveBeenCalledWith(groupContext.selectedGroup.id, cars[2].carId, latlng.lat, latlng.lng);
+        expect(mapContext.setSelectionDisabled).toHaveBeenCalledTimes(2);
+        expect(mapContext.setSelectionDisabled).toHaveBeenCalledWith(true);
+        expect(mapContext.setSelectionDisabled).toHaveBeenCalledWith(false);
+        expect(mapContext.setSelectedCar).toHaveBeenCalledTimes(1);
+        expect(mapContext.setSelectedCar).toHaveBeenCalledWith(undefined);
+      });
     });
   });
 });
