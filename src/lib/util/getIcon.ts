@@ -14,6 +14,9 @@ export type MarkerIcon = {
   [index in CarColor]: any;
 }
 
+/**
+ * Holds for each CarColor the corresponding icon.
+ */
 const icons: MarkerIcon = {
   [CarColor.Orange]: orangeMarker,
   [CarColor.Black]: blackMarker,

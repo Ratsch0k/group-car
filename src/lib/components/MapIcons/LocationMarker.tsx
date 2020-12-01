@@ -21,6 +21,9 @@ export type LocationMarker = {
   [index in CarColor]: Icon;
 };
 
+/**
+ * Holds for every CarColor the corresponding Leaflet Icon.
+ */
 export const LocationMarker: LocationMarker = {
   [CarColor.Orange]: createLocationMarker(CarColor.Orange),
   [CarColor.Black]: createLocationMarker(CarColor.Black),
