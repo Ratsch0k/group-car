@@ -1,14 +1,17 @@
 import { render, waitFor } from "@testing-library/react";
 import React from 'react';
 import { LatLng, latLng, Map } from "leaflet";
-import { MapContext } from "../../lib";
+import { CarColor, GroupContext, MapContext } from "../../lib";
 import MapComponent from './Map';
+import { group } from "console";
 
 describe('Map', () => {
-  const customRender = (mapContext: MapContext) => {
+  const customRender = (mapContext: MapContext, groupContext: GroupContext) => {
     return render(
       <MapContext.Provider value={mapContext}>
-        <MapComponent />
+        <GroupContext.Provider value={groupContext}>
+          <MapComponent />
+        </GroupContext.Provider>
       </MapContext.Provider>
     );
   };
@@ -30,7 +33,11 @@ describe('Map', () => {
     } as unknown as Geolocation;
     (navigator.geolocation as any) = geolocation;
 
-    customRender(mapContext);
+    const groupContext = {
+      groupCars: [],
+    } as GroupContext;
+
+    customRender(mapContext, groupContext);
 
     await waitFor(() => expect(geolocation.watchPosition).toHaveBeenCalledTimes(1));
     expect(geolocation.watchPosition).toHaveBeenCalledWith(expect.any(Function));
@@ -56,7 +63,11 @@ describe('Map', () => {
     } as unknown as Geolocation;
     (navigator.geolocation as any) = geolocation;
 
-    customRender(mapContext);
+    const groupContext = {
+      groupCars: [],
+    } as GroupContext;
+
+    customRender(mapContext, groupContext);
 
     await waitFor(() => expect(geolocation.watchPosition).toHaveBeenCalledTimes(1));
     expect(geolocation.watchPosition).toHaveBeenCalledWith(expect.any(Function));
@@ -106,7 +117,11 @@ describe('Map', () => {
       } as unknown as Geolocation;
       (navigator.geolocation as any) = geolocation;
 
-      customRender(mapContext);
+      const groupContext = {
+        groupCars: [],
+      } as GroupContext;
+
+      customRender(mapContext, groupContext);
 
       await waitFor(() => expect(map.addEventListener).toHaveBeenCalledTimes(1));
       expect(map.addEventListener).toHaveBeenCalledWith('click', expect.any(Function));
