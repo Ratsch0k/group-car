@@ -8,25 +8,25 @@ exports[`if user is logged in park at current location get current location, sen
     aria-hidden="true"
   >
     <div
-      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-180 makeStyles-drawerPermanent-182"
+      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-204 makeStyles-drawerPermanent-206"
     >
       <div
-        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-181 makeStyles-drawerPaperPermanent-183 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-205 makeStyles-drawerPaperPermanent-207 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
       >
         <div
-          class="MuiBox-root MuiBox-root-188 makeStyles-container-186"
+          class="MuiBox-root MuiBox-root-212 makeStyles-container-210"
         >
           <div
-            class="MuiContainer-root makeStyles-body-185 MuiContainer-maxWidthLg"
+            class="MuiContainer-root makeStyles-body-209 MuiContainer-maxWidthLg"
           >
             <div
-              class="MuiBox-root MuiBox-root-192 makeStyles-root-189"
+              class="MuiBox-root MuiBox-root-216 makeStyles-root-213"
             >
               <div
-                class="MuiBox-root MuiBox-root-193 makeStyles-btn-190"
+                class="MuiBox-root MuiBox-root-217 makeStyles-btn-214"
               >
                 <div
-                  class="MuiBox-root MuiBox-root-196"
+                  class="MuiBox-root MuiBox-root-220"
                 >
                   <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-disableElevation MuiButton-fullWidth"
@@ -45,16 +45,16 @@ exports[`if user is logged in park at current location get current location, sen
                 </div>
               </div>
               <div
-                class="MuiBox-root MuiBox-root-197 makeStyles-cars-191"
+                class="MuiBox-root MuiBox-root-221 makeStyles-cars-215"
               >
                 <div
-                  class="MuiGrid-root makeStyles-root-198 MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-direction-xs-column MuiGrid-wrap-xs-nowrap"
+                  class="MuiGrid-root makeStyles-root-222 MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-direction-xs-column MuiGrid-wrap-xs-nowrap"
                 >
                   <div
                     class="MuiGrid-root MuiGrid-item"
                   >
                     <div
-                      class="MuiPaper-root MuiCard-root makeStyles-carContainerDriving-205 MuiPaper-outlined MuiPaper-rounded"
+                      class="MuiPaper-root MuiCard-root makeStyles-carContainerDriving-229 MuiPaper-outlined MuiPaper-rounded"
                     >
                       <div
                         class="MuiCardHeader-root"
@@ -62,17 +62,12 @@ exports[`if user is logged in park at current location get current location, sen
                         <div
                           class="MuiCardHeader-avatar"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root makeStyles-avatarIcon-206 MuiSvgIcon-fontSizeLarge"
-                            color="Blue"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                            />
-                          </svg>
+                          <img
+                            alt="car-icon-Blue"
+                            height="35x"
+                            src="blue_location_marker.svg"
+                            width="35px"
+                          />
                         </div>
                         <div
                           class="MuiCardHeader-content"
@@ -85,23 +80,23 @@ exports[`if user is logged in park at current location get current location, sen
                             </b>
                           </span>
                           <h6
-                            class="MuiTypography-root makeStyles-textDriving-207 MuiTypography-subtitle2"
+                            class="MuiTypography-root makeStyles-textDriving-231 MuiTypography-subtitle2"
                           >
                             drawer.cars.youAreDriving
                           </h6>
                         </div>
                       </div>
                       <div
-                        class="MuiCardActions-root makeStyles-actionsRoot-199 makeStyles-actionsContainerDriving-201 MuiCardActions-spacing"
+                        class="MuiCardActions-root makeStyles-actionsRoot-223 makeStyles-actionsContainerDriving-225 MuiCardActions-spacing"
                       >
                         <div
                           class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-between"
                         >
                           <div
-                            class="MuiGrid-root makeStyles-leftActionDriving-203 MuiGrid-item MuiGrid-grid-xs-6"
+                            class="MuiGrid-root makeStyles-leftActionDriving-227 MuiGrid-item MuiGrid-grid-xs-6"
                           >
                             <button
-                              class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-textDriving-207 MuiButton-fullWidth"
+                              class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-textDriving-231 MuiButton-fullWidth"
                               id="park-current-car-2"
                               tabindex="0"
                               type="button"
@@ -130,7 +125,7 @@ exports[`if user is logged in park at current location get current location, sen
                             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
                           >
                             <button
-                              class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-textDriving-207 MuiButton-fullWidth"
+                              class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-textDriving-231 MuiButton-fullWidth"
                               id="park-map-car-2"
                               tabindex="0"
                               type="button"
@@ -149,7 +144,7 @@ exports[`if user is logged in park at current location get current location, sen
                                   />
                                 </svg>
                                 <p
-                                  class="MuiTypography-root makeStyles-parkOnMapText-204 MuiTypography-body1"
+                                  class="MuiTypography-root makeStyles-parkOnMapText-228 MuiTypography-body1"
                                 >
                                   drawer.cars.parkMap
                                 </p>
@@ -175,17 +170,12 @@ exports[`if user is logged in park at current location get current location, sen
                         <div
                           class="MuiCardHeader-avatar"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root makeStyles-avatarIcon-206 MuiSvgIcon-fontSizeLarge"
-                            color="Red"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                            />
-                          </svg>
+                          <img
+                            alt="car-icon-Red"
+                            height="35x"
+                            src="red_location_marker.svg"
+                            width="35px"
+                          />
                         </div>
                         <div
                           class="MuiCardHeader-content"
@@ -201,7 +191,7 @@ exports[`if user is logged in park at current location get current location, sen
                             class="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
                           >
                             <div
-                              class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-208"
+                              class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-232"
                             >
                               <span
                                 class="MuiChip-label MuiChip-labelSmall"
@@ -213,13 +203,13 @@ exports[`if user is logged in park at current location get current location, sen
                         </div>
                       </div>
                       <div
-                        class="MuiCardActions-root makeStyles-actionsRoot-199 makeStyles-actionsContainer-200 MuiCardActions-spacing"
+                        class="MuiCardActions-root makeStyles-actionsRoot-223 makeStyles-actionsContainer-224 MuiCardActions-spacing"
                       >
                         <div
                           class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-between"
                         >
                           <div
-                            class="MuiGrid-root makeStyles-leftAction-202 MuiGrid-item MuiGrid-grid-xs-6"
+                            class="MuiGrid-root makeStyles-leftAction-226 MuiGrid-item MuiGrid-grid-xs-6"
                           >
                             <button
                               class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-fullWidth"
@@ -290,17 +280,12 @@ exports[`if user is logged in park at current location get current location, sen
                         <div
                           class="MuiCardHeader-avatar"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root makeStyles-avatarIcon-206 MuiSvgIcon-fontSizeLarge"
-                            color="grey"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                            />
-                          </svg>
+                          <img
+                            alt="car-icon-Green"
+                            height="35x"
+                            src="green_location_marker.svg"
+                            width="35px"
+                          />
                         </div>
                         <div
                           class="MuiCardHeader-content"
@@ -326,13 +311,13 @@ exports[`if user is logged in park at current location get current location, sen
             </div>
           </div>
           <div
-            class="MuiBox-root MuiBox-root-209 makeStyles-footer-184"
+            class="MuiBox-root MuiBox-root-233 makeStyles-footer-208"
           >
             <div
-              class="MuiPaper-root makeStyles-footer-184 makeStyles-paper-210 MuiPaper-elevation6"
+              class="MuiPaper-root makeStyles-footer-208 makeStyles-paper-234 MuiPaper-elevation6"
             >
               <div
-                class="MuiContainer-root makeStyles-container-211 MuiContainer-maxWidthLg"
+                class="MuiContainer-root makeStyles-container-235 MuiContainer-maxWidthLg"
               >
                 <div
                   class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
@@ -400,10 +385,10 @@ exports[`if user is logged in park at current location get current location, sen
           class="MuiDialogContent-root"
         >
           <div
-            class="MuiBox-root MuiBox-root-217 makeStyles-centered-215 makeStyles-container-214"
+            class="MuiBox-root MuiBox-root-241 makeStyles-centered-239 makeStyles-container-238"
           >
             <div
-              class="MuiBox-root MuiBox-root-218 makeStyles-centered-215"
+              class="MuiBox-root MuiBox-root-242 makeStyles-centered-239"
             >
               <div
                 class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
@@ -445,25 +430,25 @@ exports[`if user is logged in park at current location shows snackbar if current
     aria-hidden="true"
   >
     <div
-      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-219 makeStyles-drawerPermanent-221"
+      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-243 makeStyles-drawerPermanent-245"
     >
       <div
-        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-220 makeStyles-drawerPaperPermanent-222 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-244 makeStyles-drawerPaperPermanent-246 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
       >
         <div
-          class="MuiBox-root MuiBox-root-227 makeStyles-container-225"
+          class="MuiBox-root MuiBox-root-251 makeStyles-container-249"
         >
           <div
-            class="MuiContainer-root makeStyles-body-224 MuiContainer-maxWidthLg"
+            class="MuiContainer-root makeStyles-body-248 MuiContainer-maxWidthLg"
           >
             <div
-              class="MuiBox-root MuiBox-root-231 makeStyles-root-228"
+              class="MuiBox-root MuiBox-root-255 makeStyles-root-252"
             >
               <div
-                class="MuiBox-root MuiBox-root-232 makeStyles-btn-229"
+                class="MuiBox-root MuiBox-root-256 makeStyles-btn-253"
               >
                 <div
-                  class="MuiBox-root MuiBox-root-235"
+                  class="MuiBox-root MuiBox-root-259"
                 >
                   <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-disableElevation MuiButton-fullWidth"
@@ -482,16 +467,16 @@ exports[`if user is logged in park at current location shows snackbar if current
                 </div>
               </div>
               <div
-                class="MuiBox-root MuiBox-root-236 makeStyles-cars-230"
+                class="MuiBox-root MuiBox-root-260 makeStyles-cars-254"
               >
                 <div
-                  class="MuiGrid-root makeStyles-root-237 MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-direction-xs-column MuiGrid-wrap-xs-nowrap"
+                  class="MuiGrid-root makeStyles-root-261 MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-direction-xs-column MuiGrid-wrap-xs-nowrap"
                 >
                   <div
                     class="MuiGrid-root MuiGrid-item"
                   >
                     <div
-                      class="MuiPaper-root MuiCard-root makeStyles-carContainerDriving-244 MuiPaper-outlined MuiPaper-rounded"
+                      class="MuiPaper-root MuiCard-root makeStyles-carContainerDriving-268 MuiPaper-outlined MuiPaper-rounded"
                     >
                       <div
                         class="MuiCardHeader-root"
@@ -499,17 +484,12 @@ exports[`if user is logged in park at current location shows snackbar if current
                         <div
                           class="MuiCardHeader-avatar"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root makeStyles-avatarIcon-245 MuiSvgIcon-fontSizeLarge"
-                            color="Blue"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                            />
-                          </svg>
+                          <img
+                            alt="car-icon-Blue"
+                            height="35x"
+                            src="blue_location_marker.svg"
+                            width="35px"
+                          />
                         </div>
                         <div
                           class="MuiCardHeader-content"
@@ -522,23 +502,23 @@ exports[`if user is logged in park at current location shows snackbar if current
                             </b>
                           </span>
                           <h6
-                            class="MuiTypography-root makeStyles-textDriving-246 MuiTypography-subtitle2"
+                            class="MuiTypography-root makeStyles-textDriving-270 MuiTypography-subtitle2"
                           >
                             drawer.cars.youAreDriving
                           </h6>
                         </div>
                       </div>
                       <div
-                        class="MuiCardActions-root makeStyles-actionsRoot-238 makeStyles-actionsContainerDriving-240 MuiCardActions-spacing"
+                        class="MuiCardActions-root makeStyles-actionsRoot-262 makeStyles-actionsContainerDriving-264 MuiCardActions-spacing"
                       >
                         <div
                           class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-between"
                         >
                           <div
-                            class="MuiGrid-root makeStyles-leftActionDriving-242 MuiGrid-item MuiGrid-grid-xs-6"
+                            class="MuiGrid-root makeStyles-leftActionDriving-266 MuiGrid-item MuiGrid-grid-xs-6"
                           >
                             <button
-                              class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-textDriving-246 MuiButton-fullWidth"
+                              class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-textDriving-270 MuiButton-fullWidth"
                               id="park-current-car-2"
                               tabindex="0"
                               type="button"
@@ -567,7 +547,7 @@ exports[`if user is logged in park at current location shows snackbar if current
                             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
                           >
                             <button
-                              class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-textDriving-246 MuiButton-fullWidth"
+                              class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-textDriving-270 MuiButton-fullWidth"
                               id="park-map-car-2"
                               tabindex="0"
                               type="button"
@@ -586,7 +566,7 @@ exports[`if user is logged in park at current location shows snackbar if current
                                   />
                                 </svg>
                                 <p
-                                  class="MuiTypography-root makeStyles-parkOnMapText-243 MuiTypography-body1"
+                                  class="MuiTypography-root makeStyles-parkOnMapText-267 MuiTypography-body1"
                                 >
                                   drawer.cars.parkMap
                                 </p>
@@ -612,17 +592,12 @@ exports[`if user is logged in park at current location shows snackbar if current
                         <div
                           class="MuiCardHeader-avatar"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root makeStyles-avatarIcon-245 MuiSvgIcon-fontSizeLarge"
-                            color="Red"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                            />
-                          </svg>
+                          <img
+                            alt="car-icon-Red"
+                            height="35x"
+                            src="red_location_marker.svg"
+                            width="35px"
+                          />
                         </div>
                         <div
                           class="MuiCardHeader-content"
@@ -638,7 +613,7 @@ exports[`if user is logged in park at current location shows snackbar if current
                             class="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
                           >
                             <div
-                              class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-247"
+                              class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-271"
                             >
                               <span
                                 class="MuiChip-label MuiChip-labelSmall"
@@ -650,13 +625,13 @@ exports[`if user is logged in park at current location shows snackbar if current
                         </div>
                       </div>
                       <div
-                        class="MuiCardActions-root makeStyles-actionsRoot-238 makeStyles-actionsContainer-239 MuiCardActions-spacing"
+                        class="MuiCardActions-root makeStyles-actionsRoot-262 makeStyles-actionsContainer-263 MuiCardActions-spacing"
                       >
                         <div
                           class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-between"
                         >
                           <div
-                            class="MuiGrid-root makeStyles-leftAction-241 MuiGrid-item MuiGrid-grid-xs-6"
+                            class="MuiGrid-root makeStyles-leftAction-265 MuiGrid-item MuiGrid-grid-xs-6"
                           >
                             <button
                               class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-fullWidth"
@@ -727,17 +702,12 @@ exports[`if user is logged in park at current location shows snackbar if current
                         <div
                           class="MuiCardHeader-avatar"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root makeStyles-avatarIcon-245 MuiSvgIcon-fontSizeLarge"
-                            color="grey"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                            />
-                          </svg>
+                          <img
+                            alt="car-icon-Green"
+                            height="35x"
+                            src="green_location_marker.svg"
+                            width="35px"
+                          />
                         </div>
                         <div
                           class="MuiCardHeader-content"
@@ -763,13 +733,13 @@ exports[`if user is logged in park at current location shows snackbar if current
             </div>
           </div>
           <div
-            class="MuiBox-root MuiBox-root-248 makeStyles-footer-223"
+            class="MuiBox-root MuiBox-root-272 makeStyles-footer-247"
           >
             <div
-              class="MuiPaper-root makeStyles-footer-223 makeStyles-paper-249 MuiPaper-elevation6"
+              class="MuiPaper-root makeStyles-footer-247 makeStyles-paper-273 MuiPaper-elevation6"
             >
               <div
-                class="MuiContainer-root makeStyles-container-250 MuiContainer-maxWidthLg"
+                class="MuiContainer-root makeStyles-container-274 MuiContainer-maxWidthLg"
               >
                 <div
                   class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
@@ -837,10 +807,10 @@ exports[`if user is logged in park at current location shows snackbar if current
           class="MuiDialogContent-root"
         >
           <div
-            class="MuiBox-root MuiBox-root-256 makeStyles-centered-254 makeStyles-container-253"
+            class="MuiBox-root MuiBox-root-280 makeStyles-centered-278 makeStyles-container-277"
           >
             <div
-              class="MuiBox-root MuiBox-root-257 makeStyles-centered-254"
+              class="MuiBox-root MuiBox-root-281 makeStyles-centered-278"
             >
               <div
                 class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
@@ -880,16 +850,16 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
 >
   <div>
     <div
-      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-315 makeStyles-drawerPermanent-317"
+      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-339 makeStyles-drawerPermanent-341"
     >
       <div
-        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-316 makeStyles-drawerPaperPermanent-318 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-340 makeStyles-drawerPaperPermanent-342 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
       >
         <div
-          class="MuiBox-root MuiBox-root-323 makeStyles-container-321"
+          class="MuiBox-root MuiBox-root-347 makeStyles-container-345"
         >
           <div
-            class="MuiContainer-root makeStyles-body-320 MuiContainer-maxWidthLg"
+            class="MuiContainer-root makeStyles-body-344 MuiContainer-maxWidthLg"
           >
             <div
               class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-column"
@@ -924,7 +894,7 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
                 >
                   <div
-                    class="MuiBox-root MuiBox-root-351 makeStyles-wrapper-349"
+                    class="MuiBox-root MuiBox-root-375 makeStyles-wrapper-373"
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary Mui-disabled MuiButton-fullWidth Mui-disabled"
@@ -964,13 +934,13 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
             </div>
           </div>
           <div
-            class="MuiBox-root MuiBox-root-344 makeStyles-footer-319"
+            class="MuiBox-root MuiBox-root-368 makeStyles-footer-343"
           >
             <div
-              class="MuiPaper-root makeStyles-footer-319 makeStyles-paper-345 MuiPaper-elevation6"
+              class="MuiPaper-root makeStyles-footer-343 makeStyles-paper-369 MuiPaper-elevation6"
             >
               <div
-                class="MuiContainer-root makeStyles-container-346 MuiContainer-maxWidthLg"
+                class="MuiContainer-root makeStyles-container-370 MuiContainer-maxWidthLg"
               >
                 <div
                   class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
@@ -1010,25 +980,25 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
 >
   <div>
     <div
-      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-315 makeStyles-drawerPermanent-317"
+      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-339 makeStyles-drawerPermanent-341"
     >
       <div
-        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-316 makeStyles-drawerPaperPermanent-318 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-340 makeStyles-drawerPaperPermanent-342 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
       >
         <div
-          class="MuiBox-root MuiBox-root-323 makeStyles-container-321"
+          class="MuiBox-root MuiBox-root-347 makeStyles-container-345"
         >
           <div
-            class="MuiContainer-root makeStyles-body-320 MuiContainer-maxWidthLg"
+            class="MuiContainer-root makeStyles-body-344 MuiContainer-maxWidthLg"
           >
             <div
-              class="MuiBox-root MuiBox-root-352 makeStyles-root-324"
+              class="MuiBox-root MuiBox-root-376 makeStyles-root-348"
             >
               <div
-                class="MuiBox-root MuiBox-root-353 makeStyles-btn-325"
+                class="MuiBox-root MuiBox-root-377 makeStyles-btn-349"
               >
                 <div
-                  class="MuiBox-root MuiBox-root-356"
+                  class="MuiBox-root MuiBox-root-380"
                 >
                   <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-disableElevation MuiButton-fullWidth"
@@ -1047,16 +1017,16 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                 </div>
               </div>
               <div
-                class="MuiBox-root MuiBox-root-357 makeStyles-cars-326"
+                class="MuiBox-root MuiBox-root-381 makeStyles-cars-350"
               >
                 <div
-                  class="MuiGrid-root makeStyles-root-358 MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-direction-xs-column MuiGrid-wrap-xs-nowrap"
+                  class="MuiGrid-root makeStyles-root-382 MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-direction-xs-column MuiGrid-wrap-xs-nowrap"
                 >
                   <div
                     class="MuiGrid-root MuiGrid-item"
                   >
                     <div
-                      class="MuiPaper-root MuiCard-root makeStyles-carContainerDriving-365 MuiPaper-outlined MuiPaper-rounded"
+                      class="MuiPaper-root MuiCard-root makeStyles-carContainerDriving-389 MuiPaper-outlined MuiPaper-rounded"
                     >
                       <div
                         class="MuiCardHeader-root"
@@ -1064,17 +1034,12 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                         <div
                           class="MuiCardHeader-avatar"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root makeStyles-avatarIcon-366 MuiSvgIcon-fontSizeLarge"
-                            color="Blue"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                            />
-                          </svg>
+                          <img
+                            alt="car-icon-Blue"
+                            height="35x"
+                            src="blue_location_marker.svg"
+                            width="35px"
+                          />
                         </div>
                         <div
                           class="MuiCardHeader-content"
@@ -1087,23 +1052,23 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                             </b>
                           </span>
                           <h6
-                            class="MuiTypography-root makeStyles-textDriving-367 MuiTypography-subtitle2"
+                            class="MuiTypography-root makeStyles-textDriving-391 MuiTypography-subtitle2"
                           >
                             drawer.cars.youAreDriving
                           </h6>
                         </div>
                       </div>
                       <div
-                        class="MuiCardActions-root makeStyles-actionsRoot-359 makeStyles-actionsContainerDriving-361 MuiCardActions-spacing"
+                        class="MuiCardActions-root makeStyles-actionsRoot-383 makeStyles-actionsContainerDriving-385 MuiCardActions-spacing"
                       >
                         <div
                           class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-between"
                         >
                           <div
-                            class="MuiGrid-root makeStyles-leftActionDriving-363 MuiGrid-item MuiGrid-grid-xs-6"
+                            class="MuiGrid-root makeStyles-leftActionDriving-387 MuiGrid-item MuiGrid-grid-xs-6"
                           >
                             <button
-                              class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-textDriving-367 MuiButton-fullWidth"
+                              class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-textDriving-391 MuiButton-fullWidth"
                               id="park-current-car-2"
                               tabindex="0"
                               type="button"
@@ -1132,7 +1097,7 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
                           >
                             <button
-                              class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-textDriving-367 MuiButton-fullWidth"
+                              class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-textDriving-391 MuiButton-fullWidth"
                               id="park-map-car-2"
                               tabindex="0"
                               type="button"
@@ -1151,7 +1116,7 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                                   />
                                 </svg>
                                 <p
-                                  class="MuiTypography-root makeStyles-parkOnMapText-364 MuiTypography-body1"
+                                  class="MuiTypography-root makeStyles-parkOnMapText-388 MuiTypography-body1"
                                 >
                                   drawer.cars.parkMap
                                 </p>
@@ -1177,17 +1142,12 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                         <div
                           class="MuiCardHeader-avatar"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root makeStyles-avatarIcon-366 MuiSvgIcon-fontSizeLarge"
-                            color="Red"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                            />
-                          </svg>
+                          <img
+                            alt="car-icon-Red"
+                            height="35x"
+                            src="red_location_marker.svg"
+                            width="35px"
+                          />
                         </div>
                         <div
                           class="MuiCardHeader-content"
@@ -1203,7 +1163,7 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                             class="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
                           >
                             <div
-                              class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-368"
+                              class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-392"
                             >
                               <span
                                 class="MuiChip-label MuiChip-labelSmall"
@@ -1215,13 +1175,13 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                         </div>
                       </div>
                       <div
-                        class="MuiCardActions-root makeStyles-actionsRoot-359 makeStyles-actionsContainer-360 MuiCardActions-spacing"
+                        class="MuiCardActions-root makeStyles-actionsRoot-383 makeStyles-actionsContainer-384 MuiCardActions-spacing"
                       >
                         <div
                           class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-between"
                         >
                           <div
-                            class="MuiGrid-root makeStyles-leftAction-362 MuiGrid-item MuiGrid-grid-xs-6"
+                            class="MuiGrid-root makeStyles-leftAction-386 MuiGrid-item MuiGrid-grid-xs-6"
                           >
                             <button
                               class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-fullWidth"
@@ -1292,17 +1252,12 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                         <div
                           class="MuiCardHeader-avatar"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root makeStyles-avatarIcon-366 MuiSvgIcon-fontSizeLarge"
-                            color="grey"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                            />
-                          </svg>
+                          <img
+                            alt="car-icon-Green"
+                            height="35x"
+                            src="green_location_marker.svg"
+                            width="35px"
+                          />
                         </div>
                         <div
                           class="MuiCardHeader-content"
@@ -1328,13 +1283,13 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
             </div>
           </div>
           <div
-            class="MuiBox-root MuiBox-root-344 makeStyles-footer-319"
+            class="MuiBox-root MuiBox-root-368 makeStyles-footer-343"
           >
             <div
-              class="MuiPaper-root makeStyles-footer-319 makeStyles-paper-345 MuiPaper-elevation6"
+              class="MuiPaper-root makeStyles-footer-343 makeStyles-paper-369 MuiPaper-elevation6"
             >
               <div
-                class="MuiContainer-root makeStyles-container-346 MuiContainer-maxWidthLg"
+                class="MuiContainer-root makeStyles-container-370 MuiContainer-maxWidthLg"
               >
                 <div
                   class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
@@ -1374,16 +1329,16 @@ exports[`if user is logged in park with map SelectLocation clicking on map will 
 >
   <div>
     <div
-      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-369 makeStyles-drawerPermanent-371"
+      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-393 makeStyles-drawerPermanent-395"
     >
       <div
-        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-370 makeStyles-drawerPaperPermanent-372 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-394 makeStyles-drawerPaperPermanent-396 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
       >
         <div
-          class="MuiBox-root MuiBox-root-377 makeStyles-container-375"
+          class="MuiBox-root MuiBox-root-401 makeStyles-container-399"
         >
           <div
-            class="MuiContainer-root makeStyles-body-374 MuiContainer-maxWidthLg"
+            class="MuiContainer-root makeStyles-body-398 MuiContainer-maxWidthLg"
           >
             <div
               class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-column"
@@ -1418,7 +1373,7 @@ exports[`if user is logged in park with map SelectLocation clicking on map will 
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
                 >
                   <div
-                    class="MuiBox-root MuiBox-root-383 makeStyles-wrapper-387"
+                    class="MuiBox-root MuiBox-root-407 makeStyles-wrapper-411"
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary Mui-disabled MuiButton-fullWidth Mui-disabled"
@@ -1458,13 +1413,13 @@ exports[`if user is logged in park with map SelectLocation clicking on map will 
             </div>
           </div>
           <div
-            class="MuiBox-root MuiBox-root-384 makeStyles-footer-373"
+            class="MuiBox-root MuiBox-root-408 makeStyles-footer-397"
           >
             <div
-              class="MuiPaper-root makeStyles-footer-373 makeStyles-paper-385 MuiPaper-elevation6"
+              class="MuiPaper-root makeStyles-footer-397 makeStyles-paper-409 MuiPaper-elevation6"
             >
               <div
-                class="MuiContainer-root makeStyles-container-386 MuiContainer-maxWidthLg"
+                class="MuiContainer-root makeStyles-container-410 MuiContainer-maxWidthLg"
               >
                 <div
                   class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
@@ -1504,16 +1459,16 @@ exports[`if user is logged in park with map clicking on park on map sets selecte
 >
   <div>
     <div
-      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-258 makeStyles-drawerPermanent-260"
+      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-282 makeStyles-drawerPermanent-284"
     >
       <div
-        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-259 makeStyles-drawerPaperPermanent-261 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-283 makeStyles-drawerPaperPermanent-285 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
       >
         <div
-          class="MuiBox-root MuiBox-root-266 makeStyles-container-264"
+          class="MuiBox-root MuiBox-root-290 makeStyles-container-288"
         >
           <div
-            class="MuiContainer-root makeStyles-body-263 MuiContainer-maxWidthLg"
+            class="MuiContainer-root makeStyles-body-287 MuiContainer-maxWidthLg"
           >
             <div
               class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-column"
@@ -1548,7 +1503,7 @@ exports[`if user is logged in park with map clicking on park on map sets selecte
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
                 >
                   <div
-                    class="MuiBox-root MuiBox-root-294 makeStyles-wrapper-292"
+                    class="MuiBox-root MuiBox-root-318 makeStyles-wrapper-316"
                   >
                     <button
                       class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary Mui-disabled MuiButton-fullWidth Mui-disabled"
@@ -1588,13 +1543,13 @@ exports[`if user is logged in park with map clicking on park on map sets selecte
             </div>
           </div>
           <div
-            class="MuiBox-root MuiBox-root-287 makeStyles-footer-262"
+            class="MuiBox-root MuiBox-root-311 makeStyles-footer-286"
           >
             <div
-              class="MuiPaper-root makeStyles-footer-262 makeStyles-paper-288 MuiPaper-elevation6"
+              class="MuiPaper-root makeStyles-footer-286 makeStyles-paper-312 MuiPaper-elevation6"
             >
               <div
-                class="MuiContainer-root makeStyles-container-289 MuiContainer-maxWidthLg"
+                class="MuiContainer-root makeStyles-container-313 MuiContainer-maxWidthLg"
               >
                 <div
                   class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
@@ -1637,22 +1592,22 @@ exports[`if user is logged in renders create group button if user has no groups 
 >
   <div>
     <div
-      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-69 makeStyles-drawerPermanent-71"
+      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-93 makeStyles-drawerPermanent-95"
     >
       <div
-        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-70 makeStyles-drawerPaperPermanent-72 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-94 makeStyles-drawerPaperPermanent-96 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
       >
         <div
-          class="MuiBox-root MuiBox-root-77 makeStyles-container-75"
+          class="MuiBox-root MuiBox-root-101 makeStyles-container-99"
         >
           <div
-            class="MuiContainer-root makeStyles-body-74 MuiContainer-maxWidthLg"
+            class="MuiContainer-root makeStyles-body-98 MuiContainer-maxWidthLg"
           >
             <div
-              class="MuiBox-root MuiBox-root-81 makeStyles-root-78"
+              class="MuiBox-root MuiBox-root-105 makeStyles-root-102"
             >
               <div
-                class="MuiBox-root MuiBox-root-82 makeStyles-btn-79"
+                class="MuiBox-root MuiBox-root-106 makeStyles-btn-103"
               >
                 <button
                   class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-disableElevation MuiButton-fullWidth"
@@ -1670,22 +1625,22 @@ exports[`if user is logged in renders create group button if user has no groups 
                 </button>
               </div>
               <div
-                class="MuiBox-root MuiBox-root-83 makeStyles-cars-80"
+                class="MuiBox-root MuiBox-root-107 makeStyles-cars-104"
               >
                 <div
-                  class="MuiGrid-root makeStyles-root-84 MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-direction-xs-column MuiGrid-wrap-xs-nowrap"
+                  class="MuiGrid-root makeStyles-root-108 MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-direction-xs-column MuiGrid-wrap-xs-nowrap"
                 />
               </div>
             </div>
           </div>
           <div
-            class="MuiBox-root MuiBox-root-85 makeStyles-footer-73"
+            class="MuiBox-root MuiBox-root-109 makeStyles-footer-97"
           >
             <div
-              class="MuiPaper-root makeStyles-footer-73 makeStyles-paper-86 MuiPaper-elevation6"
+              class="MuiPaper-root makeStyles-footer-97 makeStyles-paper-110 MuiPaper-elevation6"
             >
               <div
-                class="MuiContainer-root makeStyles-container-87 MuiContainer-maxWidthLg"
+                class="MuiContainer-root makeStyles-container-111 MuiContainer-maxWidthLg"
               >
                 <div
                   class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
@@ -1725,25 +1680,25 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
 >
   <div>
     <div
-      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-112 makeStyles-drawerPermanent-114"
+      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-136 makeStyles-drawerPermanent-138"
     >
       <div
-        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-113 makeStyles-drawerPaperPermanent-115 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-137 makeStyles-drawerPaperPermanent-139 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
       >
         <div
-          class="MuiBox-root MuiBox-root-120 makeStyles-container-118"
+          class="MuiBox-root MuiBox-root-144 makeStyles-container-142"
         >
           <div
-            class="MuiContainer-root makeStyles-body-117 MuiContainer-maxWidthLg"
+            class="MuiContainer-root makeStyles-body-141 MuiContainer-maxWidthLg"
           >
             <div
-              class="MuiBox-root MuiBox-root-124 makeStyles-root-121"
+              class="MuiBox-root MuiBox-root-148 makeStyles-root-145"
             >
               <div
-                class="MuiBox-root MuiBox-root-125 makeStyles-btn-122"
+                class="MuiBox-root MuiBox-root-149 makeStyles-btn-146"
               >
                 <div
-                  class="MuiBox-root MuiBox-root-128"
+                  class="MuiBox-root MuiBox-root-152"
                 >
                   <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-disableElevation MuiButton-fullWidth"
@@ -1762,16 +1717,16 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
                 </div>
               </div>
               <div
-                class="MuiBox-root MuiBox-root-129 makeStyles-cars-123"
+                class="MuiBox-root MuiBox-root-153 makeStyles-cars-147"
               >
                 <div
-                  class="MuiGrid-root makeStyles-root-130 MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-direction-xs-column MuiGrid-wrap-xs-nowrap"
+                  class="MuiGrid-root makeStyles-root-154 MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-direction-xs-column MuiGrid-wrap-xs-nowrap"
                 >
                   <div
                     class="MuiGrid-root MuiGrid-item"
                   >
                     <div
-                      class="MuiPaper-root MuiCard-root makeStyles-carContainerDriving-137 MuiPaper-outlined MuiPaper-rounded"
+                      class="MuiPaper-root MuiCard-root makeStyles-carContainerDriving-161 MuiPaper-outlined MuiPaper-rounded"
                     >
                       <div
                         class="MuiCardHeader-root"
@@ -1779,17 +1734,12 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
                         <div
                           class="MuiCardHeader-avatar"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root makeStyles-avatarIcon-138 MuiSvgIcon-fontSizeLarge"
-                            color="Blue"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                            />
-                          </svg>
+                          <img
+                            alt="car-icon-Blue"
+                            height="35x"
+                            src="blue_location_marker.svg"
+                            width="35px"
+                          />
                         </div>
                         <div
                           class="MuiCardHeader-content"
@@ -1802,23 +1752,23 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
                             </b>
                           </span>
                           <h6
-                            class="MuiTypography-root makeStyles-textDriving-139 MuiTypography-subtitle2"
+                            class="MuiTypography-root makeStyles-textDriving-163 MuiTypography-subtitle2"
                           >
                             drawer.cars.youAreDriving
                           </h6>
                         </div>
                       </div>
                       <div
-                        class="MuiCardActions-root makeStyles-actionsRoot-131 makeStyles-actionsContainerDriving-133 MuiCardActions-spacing"
+                        class="MuiCardActions-root makeStyles-actionsRoot-155 makeStyles-actionsContainerDriving-157 MuiCardActions-spacing"
                       >
                         <div
                           class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-between"
                         >
                           <div
-                            class="MuiGrid-root makeStyles-leftActionDriving-135 MuiGrid-item MuiGrid-grid-xs-6"
+                            class="MuiGrid-root makeStyles-leftActionDriving-159 MuiGrid-item MuiGrid-grid-xs-6"
                           >
                             <button
-                              class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-textDriving-139 MuiButton-fullWidth"
+                              class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-textDriving-163 MuiButton-fullWidth"
                               id="park-current-car-2"
                               tabindex="0"
                               type="button"
@@ -1847,7 +1797,7 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
                             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
                           >
                             <button
-                              class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-textDriving-139 MuiButton-fullWidth"
+                              class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-textDriving-163 MuiButton-fullWidth"
                               id="park-map-car-2"
                               tabindex="0"
                               type="button"
@@ -1866,7 +1816,7 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
                                   />
                                 </svg>
                                 <p
-                                  class="MuiTypography-root makeStyles-parkOnMapText-136 MuiTypography-body1"
+                                  class="MuiTypography-root makeStyles-parkOnMapText-160 MuiTypography-body1"
                                 >
                                   drawer.cars.parkMap
                                 </p>
@@ -1892,17 +1842,12 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
                         <div
                           class="MuiCardHeader-avatar"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root makeStyles-avatarIcon-138 MuiSvgIcon-fontSizeLarge"
-                            color="Red"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                            />
-                          </svg>
+                          <img
+                            alt="car-icon-Red"
+                            height="35x"
+                            src="red_location_marker.svg"
+                            width="35px"
+                          />
                         </div>
                         <div
                           class="MuiCardHeader-content"
@@ -1918,7 +1863,7 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
                             class="MuiTypography-root MuiCardHeader-subheader MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
                           >
                             <div
-                              class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-140"
+                              class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-164"
                             >
                               <span
                                 class="MuiChip-label MuiChip-labelSmall"
@@ -1930,13 +1875,13 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
                         </div>
                       </div>
                       <div
-                        class="MuiCardActions-root makeStyles-actionsRoot-131 makeStyles-actionsContainer-132 MuiCardActions-spacing"
+                        class="MuiCardActions-root makeStyles-actionsRoot-155 makeStyles-actionsContainer-156 MuiCardActions-spacing"
                       >
                         <div
                           class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-between"
                         >
                           <div
-                            class="MuiGrid-root makeStyles-leftAction-134 MuiGrid-item MuiGrid-grid-xs-6"
+                            class="MuiGrid-root makeStyles-leftAction-158 MuiGrid-item MuiGrid-grid-xs-6"
                           >
                             <button
                               class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-fullWidth"
@@ -2007,17 +1952,12 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
                         <div
                           class="MuiCardHeader-avatar"
                         >
-                          <svg
-                            aria-hidden="true"
-                            class="MuiSvgIcon-root makeStyles-avatarIcon-138 MuiSvgIcon-fontSizeLarge"
-                            color="grey"
-                            focusable="false"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                            />
-                          </svg>
+                          <img
+                            alt="car-icon-Green"
+                            height="35x"
+                            src="green_location_marker.svg"
+                            width="35px"
+                          />
                         </div>
                         <div
                           class="MuiCardHeader-content"
@@ -2043,13 +1983,13 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
             </div>
           </div>
           <div
-            class="MuiBox-root MuiBox-root-141 makeStyles-footer-116"
+            class="MuiBox-root MuiBox-root-165 makeStyles-footer-140"
           >
             <div
-              class="MuiPaper-root makeStyles-footer-116 makeStyles-paper-142 MuiPaper-elevation6"
+              class="MuiPaper-root makeStyles-footer-140 makeStyles-paper-166 MuiPaper-elevation6"
             >
               <div
-                class="MuiContainer-root makeStyles-container-143 MuiContainer-maxWidthLg"
+                class="MuiContainer-root makeStyles-container-167 MuiContainer-maxWidthLg"
               >
                 <div
                   class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
@@ -2089,25 +2029,25 @@ exports[`if user is logged in renders select group button if user has at least o
 >
   <div>
     <div
-      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-88 makeStyles-drawerPermanent-90"
+      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer-112 makeStyles-drawerPermanent-114"
     >
       <div
-        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-89 makeStyles-drawerPaperPermanent-91 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-113 makeStyles-drawerPaperPermanent-115 MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
       >
         <div
-          class="MuiBox-root MuiBox-root-96 makeStyles-container-94"
+          class="MuiBox-root MuiBox-root-120 makeStyles-container-118"
         >
           <div
-            class="MuiContainer-root makeStyles-body-93 MuiContainer-maxWidthLg"
+            class="MuiContainer-root makeStyles-body-117 MuiContainer-maxWidthLg"
           >
             <div
-              class="MuiBox-root MuiBox-root-100 makeStyles-root-97"
+              class="MuiBox-root MuiBox-root-124 makeStyles-root-121"
             >
               <div
-                class="MuiBox-root MuiBox-root-101 makeStyles-btn-98"
+                class="MuiBox-root MuiBox-root-125 makeStyles-btn-122"
               >
                 <div
-                  class="MuiBox-root MuiBox-root-104"
+                  class="MuiBox-root MuiBox-root-128"
                 >
                   <button
                     class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-disableElevation MuiButton-fullWidth"
@@ -2126,22 +2066,22 @@ exports[`if user is logged in renders select group button if user has at least o
                 </div>
               </div>
               <div
-                class="MuiBox-root MuiBox-root-105 makeStyles-cars-99"
+                class="MuiBox-root MuiBox-root-129 makeStyles-cars-123"
               >
                 <div
-                  class="MuiGrid-root makeStyles-root-106 MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-direction-xs-column MuiGrid-wrap-xs-nowrap"
+                  class="MuiGrid-root makeStyles-root-130 MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-direction-xs-column MuiGrid-wrap-xs-nowrap"
                 />
               </div>
             </div>
           </div>
           <div
-            class="MuiBox-root MuiBox-root-107 makeStyles-footer-92"
+            class="MuiBox-root MuiBox-root-131 makeStyles-footer-116"
           >
             <div
-              class="MuiPaper-root makeStyles-footer-92 makeStyles-paper-108 MuiPaper-elevation6"
+              class="MuiPaper-root makeStyles-footer-116 makeStyles-paper-132 MuiPaper-elevation6"
             >
               <div
-                class="MuiContainer-root makeStyles-container-109 MuiContainer-maxWidthLg"
+                class="MuiContainer-root makeStyles-container-133 MuiContainer-maxWidthLg"
               >
                 <div
                   class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
@@ -2180,6 +2120,121 @@ exports[`renders NotLoggedIn component if user is not logged in 1`] = `
   style=""
 >
   <div />
+  <div
+    aria-hidden="true"
+    class="MuiDrawer-root MuiDrawer-modal makeStyles-drawer-73"
+    role="presentation"
+    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px; visibility: hidden;"
+  >
+    <div
+      aria-hidden="true"
+      class="MuiBackdrop-root"
+      style="opacity: 0; visibility: hidden;"
+    />
+    <div
+      data-test="sentinelStart"
+      tabindex="0"
+    />
+    <div
+      class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-74 MuiDrawer-paperAnchorRight MuiPaper-elevation16"
+      style="visibility: hidden; webkit-transform: translateX(1024px) translateX(0px); transform: translateX(1024px) translateX(0px);"
+      tabindex="-1"
+    >
+      <div
+        class="MuiBox-root MuiBox-root-81 makeStyles-container-79"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-82 makeStyles-header-80"
+        >
+          <div
+            class="MuiBox-root MuiBox-root-85 makeStyles-root-84"
+          >
+            <button
+              class="MuiButtonBase-root MuiIconButton-root makeStyles-closeButton-83"
+              data-testid="close"
+              id="drawer-close"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+        </div>
+        <div
+          class="MuiBox-root MuiBox-root-88 makeStyles-fullHeight-87 makeStyles-center-86"
+        >
+          <div
+            class="MuiBox-root MuiBox-root-89 makeStyles-center-86"
+          >
+            <h5
+              class="MuiTypography-root MuiTypography-h5 MuiTypography-alignCenter"
+            >
+              drawer.notLoggedIn.title
+            </h5>
+            <p
+              class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
+            >
+              drawer.notLoggedIn.message
+            </p>
+          </div>
+        </div>
+        <div
+          class="MuiBox-root MuiBox-root-90 makeStyles-footer-77"
+        >
+          <div
+            class="MuiPaper-root makeStyles-footer-77 makeStyles-paper-91 MuiPaper-elevation6"
+          >
+            <div
+              class="MuiContainer-root makeStyles-container-92 MuiContainer-maxWidthLg"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
+              >
+                <div
+                  class="MuiGrid-root MuiGrid-item"
+                >
+                  <button
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
+                  >
+                    privacyPolicy.title
+                  </button>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item"
+                >
+                  <button
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
+                  >
+                    imprint.title
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      data-test="sentinelEnd"
+      tabindex="0"
+    />
+  </div>
 </body>
 `;
 
@@ -2188,6 +2243,121 @@ exports[`renders and matches snapshot with not open and not permanent without cr
   style=""
 >
   <div />
+  <div
+    aria-hidden="true"
+    class="MuiDrawer-root MuiDrawer-modal makeStyles-drawer-53"
+    role="presentation"
+    style="position: fixed; z-index: 1300; right: 0px; bottom: 0px; top: 0px; left: 0px; visibility: hidden;"
+  >
+    <div
+      aria-hidden="true"
+      class="MuiBackdrop-root"
+      style="opacity: 0; visibility: hidden;"
+    />
+    <div
+      data-test="sentinelStart"
+      tabindex="0"
+    />
+    <div
+      class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper-54 MuiDrawer-paperAnchorRight MuiPaper-elevation16"
+      style="visibility: hidden; webkit-transform: translateX(1024px) translateX(0px); transform: translateX(1024px) translateX(0px);"
+      tabindex="-1"
+    >
+      <div
+        class="MuiBox-root MuiBox-root-61 makeStyles-container-59"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-62 makeStyles-header-60"
+        >
+          <div
+            class="MuiBox-root MuiBox-root-65 makeStyles-root-64"
+          >
+            <button
+              class="MuiButtonBase-root MuiIconButton-root makeStyles-closeButton-63"
+              data-testid="close"
+              id="drawer-close"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiIconButton-label"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+        </div>
+        <div
+          class="MuiBox-root MuiBox-root-68 makeStyles-fullHeight-67 makeStyles-center-66"
+        >
+          <div
+            class="MuiBox-root MuiBox-root-69 makeStyles-center-66"
+          >
+            <h5
+              class="MuiTypography-root MuiTypography-h5 MuiTypography-alignCenter"
+            >
+              drawer.notLoggedIn.title
+            </h5>
+            <p
+              class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
+            >
+              drawer.notLoggedIn.message
+            </p>
+          </div>
+        </div>
+        <div
+          class="MuiBox-root MuiBox-root-70 makeStyles-footer-57"
+        >
+          <div
+            class="MuiPaper-root makeStyles-footer-57 makeStyles-paper-71 MuiPaper-elevation6"
+          >
+            <div
+              class="MuiContainer-root makeStyles-container-72 MuiContainer-maxWidthLg"
+            >
+              <div
+                class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
+              >
+                <div
+                  class="MuiGrid-root MuiGrid-item"
+                >
+                  <button
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
+                  >
+                    privacyPolicy.title
+                  </button>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item"
+                >
+                  <button
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
+                  >
+                    imprint.title
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      data-test="sentinelEnd"
+      tabindex="0"
+    />
+  </div>
 </body>
 `;
 

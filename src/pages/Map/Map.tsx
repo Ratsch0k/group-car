@@ -1,7 +1,8 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {MapContainer, TileLayer, Marker, Circle} from 'react-leaflet';
-import {PositionMarker, useMap} from 'lib';
+import {LocationMarker, PositionMarker, useGroups, useMap} from 'lib';
 import {LatLng, LeafletMouseEvent} from 'leaflet';
+import CarMarker from './CarMarker';
 
 /**
  * Map component.
@@ -11,8 +12,10 @@ export const Map: React.FC = () => {
   const [acc, setAcc] = useState<number>(0);
   const {map, setMap, selectedCar, selectionDisabled} = useMap();
   const [selectedLocation, setSelectedLocation] = useState<LatLng>();
+  const {groupCars} = useGroups();
   const id = useRef<number>();
   const flew = useRef<boolean>(false);
+  const timeoutId = useRef<NodeJS.Timeout>();
 
   useEffect(() => {
     if (map) {
@@ -23,18 +26,24 @@ export const Map: React.FC = () => {
         );
 
         if (!flew.current) {
-          map?.flyTo(latLng, 17);
+          map?.flyTo(latLng, 18, {duration: 1});
           flew.current = true;
+          timeoutId.current = setTimeout(() =>
+            setAcc(position.coords.accuracy), 1000);
+        } else {
+          setAcc(position.coords.accuracy);
         }
 
         setLocation(latLng);
-        setAcc(position.coords.accuracy);
       });
     }
 
     return () => {
       if (id.current) {
         navigator.geolocation.clearWatch(id.current);
+      }
+      if (timeoutId.current) {
+        clearTimeout(timeoutId.current);
       }
     };
   }, [map]);
@@ -62,7 +71,7 @@ export const Map: React.FC = () => {
   return (
     <MapContainer
       center={new LatLng(50.815781, 10.055568)}
-      zoom={4}
+      zoom={6}
       whenCreated={setMap}
     >
       <TileLayer
@@ -79,7 +88,17 @@ export const Map: React.FC = () => {
       }
       {
         selectedCar && selectedLocation &&
-        <Marker position={selectedLocation} />
+        <Marker
+          position={selectedLocation}
+          icon={LocationMarker[selectedCar.color]}
+        />
+      }
+      {
+        !selectedCar &&
+        groupCars &&
+        groupCars.filter((car) => car.driverId === null).map((car) => {
+          return <CarMarker key={`car-marker-${car.carId}`} car={car} />;
+        })
       }
     </MapContainer>
   );

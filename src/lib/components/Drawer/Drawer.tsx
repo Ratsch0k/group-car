@@ -64,6 +64,9 @@ export const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
       onClose={onClose}
       className={clsx(classes.drawer, {[classes.drawerPermanent]: permanent})}
       variant={permanent ? 'permanent': 'temporary'}
+      ModalProps={{
+        keepMounted: true,
+      }}
       classes={{
         paper: clsx(
             classes.drawerPaper,
