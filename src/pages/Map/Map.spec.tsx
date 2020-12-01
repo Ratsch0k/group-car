@@ -70,7 +70,12 @@ describe('Map', () => {
     listener(position);
 
     await waitFor(() => expect(map.flyTo).toHaveBeenCalledTimes(1));
-    expect(map.flyTo).toHaveBeenCalledWith(new LatLng(position.coords.latitude, position.coords.longitude), 17);
+    expect(map.flyTo)
+      .toHaveBeenCalledWith(
+        new LatLng(position.coords.latitude, position.coords.longitude),
+        18, 
+        {duration: 1},
+    );
   });
 
   describe('if a car is selected and selection is not disabled', () => {

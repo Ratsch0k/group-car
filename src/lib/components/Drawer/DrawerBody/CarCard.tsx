@@ -9,7 +9,6 @@ import {
 } from '@material-ui/core';
 import {CarWithDriver, RoleChip} from 'lib';
 import React from 'react';
-import RoomIcon from '@material-ui/icons/Room';
 import {useTranslation} from 'react-i18next';
 import {createStyles, makeStyles} from '@material-ui/styles';
 import DriveEtaIcon from '@material-ui/icons/DriveEta';
@@ -18,6 +17,7 @@ import GpsFixedIcon from '@material-ui/icons/GpsFixed';
 import SearchIcon from '@material-ui/icons/Search';
 import clsx from 'clsx';
 import {grey} from '@material-ui/core/colors';
+import getIcon from 'lib/util/getIcon';
 
 /**
  * Props for the car card.
@@ -141,14 +141,11 @@ export const CarCard: React.FC<CarCardProps> = (props: CarCardProps) => {
     >
       <CardHeader
         avatar={
-          <RoomIcon
-            className={classes.avatarIcon}
-            fontSize='large'
-            htmlColor={
-              isDriving || isAvailable ?
-              car.color :
-              'grey'
-            }
+          <img
+            src={getIcon(car.color)}
+            height='35x'
+            width='35px'
+            alt={`car-icon-${car.color}`}
           />
         }
         title={<b>{car.name}</b>}
