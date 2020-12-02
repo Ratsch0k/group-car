@@ -4,8 +4,23 @@ import GroupProvider, { GroupContext } from './groupContext';
 import { AuthContext } from './authContext';
 import { Api, ApiContext } from './apiContext';
 import { CarColor } from '../api';
+import { MemoryRouter } from 'react-router-dom';
 
 describe('GroupProvider', () => {
+  const customRender = (apiContext: Api, authContext: AuthContext, children: React.ReactNode) => {
+    return render(
+      <MemoryRouter>
+        <ApiContext.Provider value={apiContext}>
+          <AuthContext.Provider value={authContext}>
+            <GroupProvider>
+              {children}
+            </GroupProvider>
+          </AuthContext.Provider>
+        </ApiContext.Provider>
+      </MemoryRouter>
+    );
+  };
+
   let fakeApi: jest.Mocked<Api>;
 
   const groups = [
@@ -70,24 +85,20 @@ it('gets list of groups on first render', async () => {
     let groupContext: GroupContext;
     let renderCounter = 0;
 
-    render(
-      <ApiContext.Provider value={fakeApi as unknown as Api}>
-        <AuthContext.Provider value={{user: fakeUser} as unknown as AuthContext}>
-          <GroupProvider>
-            <GroupContext.Consumer>
-              {(context) => {
-                groupContext = context;
-                renderCounter++;
-                return (
-                  <div>
-                    {JSON.stringify(context)}
-                  </div>
-                );
-              }}
-            </GroupContext.Consumer>
-          </GroupProvider>
-        </AuthContext.Provider>
-      </ApiContext.Provider>
+    customRender(
+      fakeApi as unknown as Api,
+      {user: fakeUser} as unknown as AuthContext,
+      <GroupContext.Consumer>
+        {(context) => {
+          groupContext = context;
+          renderCounter++;
+          return (
+            <div>
+              {JSON.stringify(context)}
+            </div>
+          );
+        }}
+      </GroupContext.Consumer>
     );
 
     await waitFor(() => expect(fakeApi.getGroups).toHaveBeenCalledTimes(1));
@@ -104,24 +115,20 @@ it('gets list of groups on first render', async () => {
       let groupContext: GroupContext;
       let renderCounter = 0;
   
-      render(
-        <ApiContext.Provider value={fakeApi as unknown as Api}>
-          <AuthContext.Provider value={{user: fakeUser} as unknown as AuthContext}>
-            <GroupProvider>
-              <GroupContext.Consumer>
-                {(context) => {
-                  groupContext = context;
-                  renderCounter++;
-                  return (
-                    <div>
-                      {JSON.stringify(context)}
-                    </div>
-                  );
-                }}
-              </GroupContext.Consumer>
-            </GroupProvider>
-          </AuthContext.Provider>
-        </ApiContext.Provider>
+      customRender(
+        fakeApi as unknown as Api,
+        {user: fakeUser} as unknown as AuthContext,
+        <GroupContext.Consumer>
+          {(context) => {
+            groupContext = context;
+            renderCounter++;
+            return (
+              <div>
+                {JSON.stringify(context)}
+              </div>
+            );
+          }}
+        </GroupContext.Consumer>
       );
   
       await waitFor(() => expect(fakeApi.getGroups).toHaveBeenCalledTimes(1));
@@ -131,7 +138,7 @@ it('gets list of groups on first render', async () => {
       await groupContext.selectGroup(1);
 
       expect(groupContext.selectedGroup).toEqual(groups[1]);
-      expect(renderCounter).toBe(5);
+      expect(renderCounter).toBe(6);
     });
   });
 
@@ -143,24 +150,20 @@ it('gets list of groups on first render', async () => {
       let groupContext: GroupContext;
       let renderCounter = 0;
   
-      render(
-        <ApiContext.Provider value={fakeApi as unknown as Api}>
-          <AuthContext.Provider value={{user: fakeUser} as unknown as AuthContext}>
-            <GroupProvider>
-              <GroupContext.Consumer>
-                {(context) => {
-                  groupContext = context;
-                  renderCounter++;
-                  return (
-                    <div>
-                      {JSON.stringify(context)}
-                    </div>
-                  );
-                }}
-              </GroupContext.Consumer>
-            </GroupProvider>
-          </AuthContext.Provider>
-        </ApiContext.Provider>
+      customRender(
+        fakeApi as unknown as Api, 
+        {user: fakeUser} as unknown as AuthContext,
+        <GroupContext.Consumer>
+          {(context) => {
+            groupContext = context;
+            renderCounter++;
+            return (
+              <div>
+                {JSON.stringify(context)}
+              </div>
+            );
+          }}
+        </GroupContext.Consumer>
       );
   
       await waitFor(() => expect(fakeApi.getGroups).toHaveBeenCalledTimes(1));
@@ -183,23 +186,19 @@ it('gets list of groups on first render', async () => {
       fakeApi.getGroup.mockResolvedValue({data: groups[1]});
       let groupContext: GroupContext;
   
-      render(
-        <ApiContext.Provider value={fakeApi as unknown as Api}>
-          <AuthContext.Provider value={{user: fakeUser} as unknown as AuthContext}>
-            <GroupProvider>
-              <GroupContext.Consumer>
-                {(context) => {
-                  groupContext = context;
-                  return (
-                    <div>
-                      {JSON.stringify(context)}
-                    </div>
-                  );
-                }}
-              </GroupContext.Consumer>
-            </GroupProvider>
-          </AuthContext.Provider>
-        </ApiContext.Provider>
+      customRender(
+        fakeApi as unknown as Api, 
+        {user: fakeUser} as unknown as AuthContext,
+        <GroupContext.Consumer>
+          {(context) => {
+            groupContext = context;
+            return (
+              <div>
+                {JSON.stringify(context)}
+              </div>
+            );
+          }}
+        </GroupContext.Consumer>
       );
   
       await waitFor(() => expect(fakeApi.getGroups).toHaveBeenCalledTimes(1));
@@ -228,23 +227,19 @@ it('gets list of groups on first render', async () => {
       fakeApi.getGroup.mockResolvedValue({data: groups[1]});
       let groupContext: GroupContext;
   
-      render(
-        <ApiContext.Provider value={fakeApi as unknown as Api}>
-          <AuthContext.Provider value={{user: fakeUser} as unknown as AuthContext}>
-            <GroupProvider>
-              <GroupContext.Consumer>
-                {(context) => {
-                  groupContext = context;
-                  return (
-                    <div>
-                      {JSON.stringify(context)}
-                    </div>
-                  );
-                }}
-              </GroupContext.Consumer>
-            </GroupProvider>
-          </AuthContext.Provider>
-        </ApiContext.Provider>
+      customRender(
+        fakeApi as unknown as Api, 
+        {user: fakeUser} as unknown as AuthContext,
+        <GroupContext.Consumer>
+          {(context) => {
+            groupContext = context;
+            return (
+              <div>
+                {JSON.stringify(context)}
+              </div>
+            );
+          }}
+        </GroupContext.Consumer>
       );
   
       await waitFor(() => expect(fakeApi.getGroups).toHaveBeenCalledTimes(1));
@@ -270,23 +265,19 @@ it('gets list of groups on first render', async () => {
       fakeApi.getGroup.mockResolvedValue({data: groups[1]});
       let groupContext: GroupContext;
   
-      render(
-        <ApiContext.Provider value={fakeApi as unknown as Api}>
-          <AuthContext.Provider value={{user: fakeUser} as unknown as AuthContext}>
-            <GroupProvider>
-              <GroupContext.Consumer>
-                {(context) => {
-                  groupContext = context;
-                  return (
-                    <div>
-                      {JSON.stringify(context)}
-                    </div>
-                  );
-                }}
-              </GroupContext.Consumer>
-            </GroupProvider>
-          </AuthContext.Provider>
-        </ApiContext.Provider>
+      customRender(
+        fakeApi as unknown as Api, 
+        {user: fakeUser} as unknown as AuthContext,
+        <GroupContext.Consumer>
+          {(context) => {
+            groupContext = context;
+            return (
+              <div>
+                {JSON.stringify(context)}
+              </div>
+            );
+          }}
+        </GroupContext.Consumer>
       );
   
       await waitFor(() => expect(fakeApi.getGroups).toHaveBeenCalledTimes(1));
@@ -315,23 +306,19 @@ it('gets list of groups on first render', async () => {
 
       let groupContext: GroupContext;
   
-      render(
-        <ApiContext.Provider value={fakeApi as unknown as Api}>
-          <AuthContext.Provider value={{user: fakeUser} as unknown as AuthContext}>
-            <GroupProvider>
-              <GroupContext.Consumer>
-                {(context) => {
-                  groupContext = context;
-                  return (
-                    <div>
-                      {JSON.stringify(context)}
-                    </div>
-                  );
-                }}
-              </GroupContext.Consumer>
-            </GroupProvider>
-          </AuthContext.Provider>
-        </ApiContext.Provider>
+      customRender(
+        fakeApi as unknown as Api, 
+        {user: fakeUser} as unknown as AuthContext,
+        <GroupContext.Consumer>
+          {(context) => {
+            groupContext = context;
+            return (
+              <div>
+                {JSON.stringify(context)}
+              </div>
+            );
+          }}
+        </GroupContext.Consumer>
       );
 
       const response = await groupContext.getGroup(fakeGroup.id);
@@ -349,23 +336,19 @@ it('gets list of groups on first render', async () => {
 
       let groupContext: GroupContext;
   
-      render(
-        <ApiContext.Provider value={fakeApi as unknown as Api}>
-          <AuthContext.Provider value={{user: fakeUser} as unknown as AuthContext}>
-            <GroupProvider>
-              <GroupContext.Consumer>
-                {(context) => {
-                  groupContext = context;
-                  return (
-                    <div>
-                      {JSON.stringify(context)}
-                    </div>
-                  );
-                }}
-              </GroupContext.Consumer>
-            </GroupProvider>
-          </AuthContext.Provider>
-        </ApiContext.Provider>
+      customRender(
+        fakeApi as unknown as Api, 
+        {user: fakeUser} as unknown as AuthContext,
+        <GroupContext.Consumer>
+          {(context) => {
+            groupContext = context;
+            return (
+              <div>
+                {JSON.stringify(context)}
+              </div>
+            );
+          }}
+        </GroupContext.Consumer>
       );
 
       const response = await groupContext.getGroup(changedGroup.id);
@@ -387,23 +370,19 @@ it('gets list of groups on first render', async () => {
 
       let groupContext: GroupContext;
   
-      render(
-        <ApiContext.Provider value={fakeApi as unknown as Api}>
-          <AuthContext.Provider value={{user: fakeUser} as unknown as AuthContext}>
-            <GroupProvider>
-              <GroupContext.Consumer>
-                {(context) => {
-                  groupContext = context;
-                  return (
-                    <div>
-                      {JSON.stringify(context)}
-                    </div>
-                  );
-                }}
-              </GroupContext.Consumer>
-            </GroupProvider>
-          </AuthContext.Provider>
-        </ApiContext.Provider>
+      customRender(
+        fakeApi as unknown as Api, 
+        {user: fakeUser} as unknown as AuthContext,
+        <GroupContext.Consumer>
+          {(context) => {
+            groupContext = context;
+            return (
+              <div>
+                {JSON.stringify(context)}
+              </div>
+            );
+          }}
+        </GroupContext.Consumer>
       );
 
       await waitFor(() => expect(fakeApi.getGroups).toHaveBeenCalledTimes(1));
@@ -432,23 +411,19 @@ it('gets list of groups on first render', async () => {
 
       let groupContext: GroupContext;
   
-      render(
-        <ApiContext.Provider value={fakeApi as unknown as Api}>
-          <AuthContext.Provider value={{user: fakeUser} as unknown as AuthContext}>
-            <GroupProvider>
-              <GroupContext.Consumer>
-                {(context) => {
-                  groupContext = context;
-                  return (
-                    <div>
-                      {JSON.stringify(context)}
-                    </div>
-                  );
-                }}
-              </GroupContext.Consumer>
-            </GroupProvider>
-          </AuthContext.Provider>
-        </ApiContext.Provider>
+      customRender(
+        fakeApi as unknown as Api, 
+        {user: fakeUser} as unknown as AuthContext,
+        <GroupContext.Consumer>
+          {(context) => {
+            groupContext = context;
+            return (
+              <div>
+                {JSON.stringify(context)}
+              </div>
+            );
+          }}
+        </GroupContext.Consumer>
       );
 
       await waitFor(() => expect(fakeApi.getGroups).toHaveBeenCalledTimes(1));
@@ -474,23 +449,19 @@ it('gets list of groups on first render', async () => {
 
       let groupContext: GroupContext;
   
-      render(
-        <ApiContext.Provider value={fakeApi as unknown as Api}>
-          <AuthContext.Provider value={{user: fakeUser} as unknown as AuthContext}>
-            <GroupProvider>
-              <GroupContext.Consumer>
-                {(context) => {
-                  groupContext = context;
-                  return (
-                    <div>
-                      {JSON.stringify(context)}
-                    </div>
-                  );
-                }}
-              </GroupContext.Consumer>
-            </GroupProvider>
-          </AuthContext.Provider>
-        </ApiContext.Provider>
+      customRender(
+        fakeApi as unknown as Api, 
+        {user: fakeUser} as unknown as AuthContext,
+        <GroupContext.Consumer>
+          {(context) => {
+            groupContext = context;
+            return (
+              <div>
+                {JSON.stringify(context)}
+              </div>
+            );
+          }}
+        </GroupContext.Consumer>
       );
 
       await waitFor(() => expect(fakeApi.getGroups).toHaveBeenCalledTimes(1));

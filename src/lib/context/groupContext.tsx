@@ -8,6 +8,11 @@ import {
   NotDefinedError,
   CarWithDriver,
 } from 'lib';
+import io from 'socket.io-client';
+import {useSnackBar} from 'lib/hooks';
+import {useTranslation} from 'react-i18next';
+import {SocketGroupActionData} from 'typings/socket';
+import {useHistory, useRouteMatch} from 'react-router-dom';
 
 /**
  * Context for the group context.
@@ -140,10 +145,105 @@ export const GroupProvider: React.FC = (props) => {
     driveCar: driveCarApi,
     parkCar: parkCarApi,
   } = useApi();
+  const {show} = useSnackBar();
   const [groups, setGroups] = useStateIfMounted<GroupContext['groups']>([]);
   const [selectedGroup, setSelectedGroup] =
     useState<GroupContext['selectedGroup']>(null);
   const [groupCars, setGroupCars] = useState<GroupContext['groupCars']>(null);
+  const [socket, setSocket] = useState<SocketIOClient.Socket>();
+  const {t} = useTranslation();
+  const history = useHistory();
+  const match = useRouteMatch<{id: string}>('/group/:id');
+
+  const socketErrorHandler = useCallback(() => {
+    show('error', t('errors.socketConnection'));
+  }, [show, t]);
+
+  const socketActionHandler = useCallback((data: SocketGroupActionData) => {
+    if (selectedGroup && selectedGroup.id === data.car.groupId && groupCars) {
+      switch (data.action) {
+        case 'add': {
+          if (groupCars.every((car) => car.carId !== data.car.carId)) {
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            setGroupCars((cars) => cars!.concat(data.car));
+          }
+          break;
+        }
+        case 'drive': {
+          if (groupCars.some((car) =>
+            car.carId === data.car.carId &&
+            car.driverId !== data.car.driverId,
+          )) {
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            setGroupCars((cars) => cars!.map((car) => {
+              if (car.carId === data.car.carId) {
+                return data.car;
+              }
+
+              return car;
+            }));
+          }
+          break;
+        }
+        case 'park': {
+          if (groupCars.some((car) =>
+            car.carId === data.car.carId &&
+            car.latitude !== data.car.latitude &&
+            car.longitude !== data.car.longitude,
+          )) {
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            setGroupCars((cars) => cars!.map((car) => {
+              if (car.carId === data.car.carId) {
+                return data.car;
+              }
+
+              return car;
+            }));
+          }
+          break;
+        }
+      }
+    }
+  }, [groupCars, selectedGroup]);
+
+  /**
+   * Handle connection to websocket.
+   */
+  useEffect(() => {
+    if (socket) {
+      socket.disconnect();
+      setSocket(undefined);
+    }
+
+    if (selectedGroup) {
+      setSocket(io(`/group/${selectedGroup.id}`, {path: '/socket'}));
+    }
+
+    return () => {
+      if (socket) {
+        socket.disconnect();
+        setSocket(undefined);
+      }
+    };
+    /* eslint-disable-next-line  */
+  }, [selectedGroup]);
+
+  useEffect(() => {
+    if (socket) {
+      socket.off('connect_error', socketErrorHandler);
+      socket.off('error', socketErrorHandler);
+      socket.off('update', socketActionHandler);
+      socket.on('connect_error', socketErrorHandler);
+      socket.on('error', socketErrorHandler);
+      socket.on('update', socketActionHandler);
+    }
+
+    return () => {
+      socket?.off('connect_error', socketErrorHandler);
+      socket?.off('error', socketErrorHandler);
+      socket?.off('update', socketActionHandler);
+    };
+  }, [socket, socketActionHandler, socketErrorHandler]);
 
   const selectGroup: GroupContext['selectGroup'] = async (id: number) => {
     if (selectedGroup === null || selectedGroup.id !== id) {
@@ -163,9 +263,21 @@ export const GroupProvider: React.FC = (props) => {
             return groupRequest.data;
           }
         }));
+        history.push(
+            `/group/${id}${history.location.search ?
+            history.location.search :
+            ''}`,
+        );
       }
     }
   };
+
+  useEffect(() => {
+    if (match && !selectedGroup) {
+      selectGroup(parseInt(match.params.id, 10));
+    }
+    /* eslint-disable-next-line */
+  }, [match, selectedGroup]);
 
   const update = useCallback(async () => {
     const getGroupsResponse = await getGroups();
