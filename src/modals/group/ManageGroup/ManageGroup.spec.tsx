@@ -1,10 +1,11 @@
-import { fireEvent, render, waitFor, screen } from "@testing-library/react";
+import { fireEvent, render, waitFor, screen, waitForElementToBeRemoved } from "@testing-library/react";
 import ManageGroup from "./ManageGroup";
 import React from "react";
 import { theme, GroupContext, AuthContext, IUser, ApiContext, GroupWithOwnerAndMembersAndInvites, Api, ModalContext, SnackbarContext, CarColor} from '../../../lib';
 import { MemoryRouter, Route } from "react-router-dom";
 import { ThemeProvider } from "@material-ui/core";
 import userEvent from '@testing-library/user-event';
+import io from 'socket.io-client';
 
 let fakeGroup: GroupWithOwnerAndMembersAndInvites;
 jest.mock('socket.io-client');
@@ -32,7 +33,11 @@ beforeEach(() => {
     ],
     invites: [],
   };
-}); 
+});
+
+afterEach(() => {
+  jest.clearAllMocks();
+});
 
 it('renders without crashing', () => {
   render(
@@ -815,6 +820,16 @@ describe('CarTab', () => {
     await waitFor(() => expect(fakeApi.createCar).toHaveBeenCalledTimes(1));
     expect(fakeApi.createCar).toHaveBeenCalledWith(fakeCar.groupId, fakeCar.name, fakeCar.color);
 
+    /*
+     * This snapshot test is really briddle because one or two elements are not always
+     * removed. To avoid this, the test should always wait for them to be removed.
+     * The catch block is necessary because if the element was already removed,
+     * the method would throw an error.
+     */
+    await waitForElementToBeRemoved(
+      baseElement.querySelector('span.MuiTouchRipple-child MuiTouchRipple-childLeaving'))
+      .catch(() => undefined);
+
     expect(baseElement).toMatchSnapshot();
   });
 
@@ -944,6 +959,357 @@ describe('CarTab', () => {
 
     await waitFor(() => expect(baseElement.querySelector('#create-car-fab')).toBeTruthy());
     expect(baseElement).toMatchSnapshot();
+  });
+
+  describe('websocket', () => {
+    it('connects to namespace to group and listens to update event', async () => {
+      const fakeGroupContext = {
+        getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
+        leaveGroup: jest.fn().mockResolvedValue(undefined),
+      };
+      const fakeCar = {
+        name: 'test car',
+        groupId: fakeGroup.id,
+        carId: 1,
+        color: CarColor.Red,
+        driverId: null,
+      };
+      const fakeApi = {
+        getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
+        getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+        createCar: jest.fn().mockResolvedValue({data: fakeCar}),
+        getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
+      }
+      const fakeUser = {
+        id: fakeGroup.ownerId,
+      };
+      const modalContext = {
+        close: jest.fn(),
+        route: `/group/manage/${fakeGroup.id}/cars`,
+        goTo: jest.fn(),
+      };
+      const snackbarContext = {
+        show: jest.fn(),
+      };
+
+      const socket = {
+        off: jest.fn(),
+        on: jest.fn(),
+        disconnect: jest.fn(),
+      };
+
+      (io as unknown as jest.Mock).mockReturnValue(socket);
+    
+      render (
+        <ThemeProvider theme={theme}>
+          <MemoryRouter>
+            <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
+              <ModalContext.Provider value={modalContext as unknown as ModalContext}>
+                <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
+                  <ApiContext.Provider value={fakeApi as unknown as Api}>
+                    <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
+                        <ManageGroup groupId={2}/>
+                    </GroupContext.Provider>
+                  </ApiContext.Provider>
+                </AuthContext.Provider>
+              </ModalContext.Provider>
+            </SnackbarContext.Provider>
+          </MemoryRouter>
+        </ThemeProvider>
+      );
+      await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
+      await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
+      await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
+  
+      await waitFor(() => expect(io).toHaveBeenCalledTimes(1));
+      expect(io).toHaveBeenCalledWith('/group/2', {path: '/socket'});
+
+      await waitFor(() => expect(socket.on).toHaveBeenCalledWith('update', expect.any(Function)));
+    });
+
+    describe('add action', () => {
+      it('adds car to group if not already in list', async () => {
+        const fakeGroupContext = {
+          getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
+          leaveGroup: jest.fn().mockResolvedValue(undefined),
+        };
+        const fakeApi = {
+          getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
+          getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+          getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
+        }
+        const fakeUser = {
+          id: fakeGroup.ownerId,
+        };
+        const modalContext = {
+          close: jest.fn(),
+          route: `/group/manage/${fakeGroup.id}/cars`,
+          goTo: jest.fn(),
+        };
+        const snackbarContext = {
+          show: jest.fn(),
+        };
+
+        let updateListener;
+  
+        const socket = {
+          off: jest.fn(),
+          on: jest.fn().mockImplementation((type: string, fn: Function) => {
+            if (type === 'update') {
+              updateListener = fn;
+            }
+          }),
+          disconnect: jest.fn(),
+        };
+  
+        (io as unknown as jest.Mock).mockReturnValue(socket);
+      
+        render (
+          <ThemeProvider theme={theme}>
+            <MemoryRouter>
+              <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
+                <ModalContext.Provider value={modalContext as unknown as ModalContext}>
+                  <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
+                    <ApiContext.Provider value={fakeApi as unknown as Api}>
+                      <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
+                          <ManageGroup groupId={2}/>
+                      </GroupContext.Provider>
+                    </ApiContext.Provider>
+                  </AuthContext.Provider>
+                </ModalContext.Provider>
+              </SnackbarContext.Provider>
+            </MemoryRouter>
+          </ThemeProvider>
+        );
+        await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
+        await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
+        await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
+    
+        await waitFor(() => expect(io).toHaveBeenCalledTimes(1));
+        expect(io).toHaveBeenCalledWith('/group/2', {path: '/socket'});
+  
+        await waitFor(() => expect(socket.on).toHaveBeenCalledWith('update', expect.any(Function)));
+
+        const car = {
+          name: 'Test Car 1',
+          groupId: 2,
+          carId: 1,
+          driverId: null,
+          latitude: null,
+          longitude: null,
+          Driver: null,
+        };
+
+        const data = {
+          action: 'add',
+          car,
+        };
+
+        updateListener(data);
+
+        await waitFor(() => expect(screen.queryByText('Test Car 1')).toBeTruthy());
+      });
+    });
+
+    describe('drive action', () => {
+      it('updates car to drive state if car is in group', async () => {
+        const fakeGroupContext = {
+          getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
+          leaveGroup: jest.fn().mockResolvedValue(undefined),
+        };
+        const car = {
+          name: 'TEST CAR 1',
+          groupId: 2,
+          carId: 1,
+          driverId: null,
+          Driver: null,
+          latitude: 50,
+          longitude: 8,
+        };
+        const fakeApi = {
+          getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
+          getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+          getCars: jest.fn().mockResolvedValue({data: {cars: [car]}}),
+        }
+        const fakeUser = {
+          id: fakeGroup.ownerId,
+        };
+        const modalContext = {
+          close: jest.fn(),
+          route: `/group/manage/${fakeGroup.id}/cars`,
+          goTo: jest.fn(),
+        };
+        const snackbarContext = {
+          show: jest.fn(),
+        };
+
+        let updateListener;
+  
+        const socket = {
+          off: jest.fn(),
+          on: jest.fn().mockImplementation((type: string, fn: Function) => {
+            if (type === 'update') {
+              updateListener = fn;
+            }
+          }),
+          disconnect: jest.fn(),
+        };
+  
+        (io as unknown as jest.Mock).mockReturnValue(socket);
+      
+        render (
+          <ThemeProvider theme={theme}>
+            <MemoryRouter>
+              <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
+                <ModalContext.Provider value={modalContext as unknown as ModalContext}>
+                  <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
+                    <ApiContext.Provider value={fakeApi as unknown as Api}>
+                      <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
+                          <ManageGroup groupId={2}/>
+                      </GroupContext.Provider>
+                    </ApiContext.Provider>
+                  </AuthContext.Provider>
+                </ModalContext.Provider>
+              </SnackbarContext.Provider>
+            </MemoryRouter>
+          </ThemeProvider>
+        );
+        await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
+        await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
+        await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
+    
+        await waitFor(() => expect(screen.queryByText(car.name)).toBeTruthy());
+        expect(screen.queryByText('misc.available')).toBeTruthy();
+
+        await waitFor(() => expect(io).toHaveBeenCalledTimes(1));
+        expect(io).toHaveBeenCalledWith('/group/2', {path: '/socket'});
+  
+        await waitFor(() => expect(socket.on).toHaveBeenCalledWith('update', expect.any(Function)));
+
+        const updatedCar = {
+          name: 'TEST CAR 1 UPDATED',
+          groupId: 2,
+          carId: 1,
+          driverId: 5,
+          latitude: null,
+          longitude: null,
+          Driver: {
+            id: 5,
+            username: 'DRIVER',
+          },
+        };
+
+        const data = {
+          action: 'drive',
+          car: updatedCar,
+        };
+
+        updateListener(data);
+
+        await waitFor(() => expect(screen.queryByText(updatedCar.name)).toBeTruthy());
+        expect(screen.queryByText('modals.group.manage.tabs.cars.drivenBy')).toBeTruthy();
+      });
+    });
+
+    describe('park action', () => {
+      it('updates car to park state if car is in group', async () => {
+        const fakeGroupContext = {
+          getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
+          leaveGroup: jest.fn().mockResolvedValue(undefined),
+        };
+        const car = {
+          name: 'TEST CAR 1',
+          groupId: 2,
+          carId: 1,
+          driverId: 5,
+          Driver: {
+            id: 5,
+            username: 'DRIVER',
+          },
+          latitude: null,
+          longitude: null,
+        };
+        const fakeApi = {
+          getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
+          getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
+          getCars: jest.fn().mockResolvedValue({data: {cars: [car]}}),
+        }
+        const fakeUser = {
+          id: fakeGroup.ownerId,
+        };
+        const modalContext = {
+          close: jest.fn(),
+          route: `/group/manage/${fakeGroup.id}/cars`,
+          goTo: jest.fn(),
+        };
+        const snackbarContext = {
+          show: jest.fn(),
+        };
+
+        let updateListener;
+  
+        const socket = {
+          off: jest.fn(),
+          on: jest.fn().mockImplementation((type: string, fn: Function) => {
+            if (type === 'update') {
+              updateListener = fn;
+            }
+          }),
+          disconnect: jest.fn(),
+        };
+  
+        (io as unknown as jest.Mock).mockReturnValue(socket);
+      
+        render (
+          <ThemeProvider theme={theme}>
+            <MemoryRouter>
+              <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
+                <ModalContext.Provider value={modalContext as unknown as ModalContext}>
+                  <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
+                    <ApiContext.Provider value={fakeApi as unknown as Api}>
+                      <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
+                          <ManageGroup groupId={2}/>
+                      </GroupContext.Provider>
+                    </ApiContext.Provider>
+                  </AuthContext.Provider>
+                </ModalContext.Provider>
+              </SnackbarContext.Provider>
+            </MemoryRouter>
+          </ThemeProvider>
+        );
+        await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
+        await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
+        await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
+    
+        await waitFor(() => expect(screen.queryByText(car.name)).toBeTruthy());
+        expect(screen.queryByText('modals.group.manage.tabs.cars.drivenBy')).toBeTruthy();
+
+        await waitFor(() => expect(io).toHaveBeenCalledTimes(1));
+        expect(io).toHaveBeenCalledWith('/group/2', {path: '/socket'});
+  
+        await waitFor(() => expect(socket.on).toHaveBeenCalledWith('update', expect.any(Function)));
+
+        const updatedCar = {
+          name: 'TEST CAR 1 UPDATED',
+          groupId: 2,
+          carId: 1,
+          driverId: null,
+          latitude: 83,
+          longitude: 5,
+          Driver: null
+        };
+
+        const data = {
+          action: 'park',
+          car: updatedCar,
+        };
+
+        updateListener(data);
+
+        await waitFor(() => expect(screen.queryByText(updatedCar.name)).toBeTruthy());
+        expect(screen.queryByText('misc.available')).toBeTruthy();
+      })
+    });
   });
 });
 
@@ -1208,7 +1574,7 @@ describe('Footer', () => {
         show: jest.fn(),
       };
     
-      const {baseElement} = render (
+      render (
         <ThemeProvider theme={theme}>
           <MemoryRouter>
             <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>

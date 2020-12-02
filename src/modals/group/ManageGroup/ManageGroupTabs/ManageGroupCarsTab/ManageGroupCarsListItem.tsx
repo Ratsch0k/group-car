@@ -55,7 +55,7 @@ export const ManageGroupCarsListItem: React.FC<ManageGroupCarsListItemProps> =
     t('modals.group.manage.tabs.cars.drivenBy', {driver: car.Driver?.username});
 
   return (
-    <ListItem divider={divider}>
+    <ListItem divider={divider} id={`car-tab-${car.carId}`}>
       <ListItemAvatar>
         <img
           src={getIcon(car.color)}
