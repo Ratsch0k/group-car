@@ -198,8 +198,10 @@ export const GroupProvider: React.FC = (props) => {
         case 'park': {
           if (groupCars.some((car) =>
             car.carId === data.car.carId &&
-            car.latitude !== data.car.latitude &&
-            car.longitude !== data.car.longitude,
+            (
+              car.latitude !== data.car.latitude ||
+              car.longitude !== data.car.longitude
+            ),
           )) {
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             setGroupCars((cars) => cars!.map((car) => {
@@ -236,7 +238,7 @@ export const GroupProvider: React.FC = (props) => {
       }
     };
     /* eslint-disable-next-line  */
-  }, [selectedGroup]);
+  }, [selectedGroup?.id]);
 
   /**
    * Adds event listeners to the socket.
@@ -257,7 +259,8 @@ export const GroupProvider: React.FC = (props) => {
       socket?.off('error', socketErrorHandler);
       socket?.off('update', socketActionHandler);
     };
-  }, [socket, socketActionHandler, socketErrorHandler]);
+    /* eslint-disable-next-line */
+  }, [socket]);
 
   const selectGroup: GroupContext['selectGroup'] = async (id: number) => {
     if (selectedGroup === null || selectedGroup.id !== id) {

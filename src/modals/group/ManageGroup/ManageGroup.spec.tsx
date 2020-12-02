@@ -7,6 +7,7 @@ import { ThemeProvider } from "@material-ui/core";
 import userEvent from '@testing-library/user-event';
 
 let fakeGroup: GroupWithOwnerAndMembersAndInvites;
+jest.mock('socket.io-client');
 
 beforeEach(() => {
   fakeGroup = {

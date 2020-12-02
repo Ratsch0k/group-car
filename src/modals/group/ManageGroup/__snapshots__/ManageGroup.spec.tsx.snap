@@ -849,16 +849,7 @@ exports[`CarTab entering a name and clicking create sends request to create a ca
                   </span>
                   <span
                     class="MuiTouchRipple-root"
-                  >
-                    <span
-                      class="MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
-                      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
-                    >
-                      <span
-                        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
-                      />
-                    </span>
-                  </span>
+                  />
                 </button>
               </div>
               <span
@@ -1364,32 +1355,7 @@ exports[`CarTab is automatically selected if modal route is /group/manage/:group
           <div
             class="makeStyles-fabContainer-781"
           >
-            <div>
-              <button
-                class="MuiButtonBase-root MuiFab-root makeStyles-fab-789 MuiFab-secondary"
-                id="create-car-fab"
-                tabindex="0"
-                type="button"
-              >
-                <span
-                  class="MuiFab-label"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="MuiSvgIcon-root"
-                    focusable="false"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
-                    />
-                  </svg>
-                </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
-              </button>
-            </div>
+            <div />
           </div>
         </div>
       </div>
@@ -1417,6 +1383,30 @@ exports[`CarTab is automatically selected if modal route is /group/manage/:group
       </div>
     </div>
   </div>
+  <button
+    class="MuiButtonBase-root MuiFab-root makeStyles-fab-789 MuiFab-secondary"
+    id="create-car-fab"
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="MuiFab-label"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+        />
+      </svg>
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
 </body>
 `;
 

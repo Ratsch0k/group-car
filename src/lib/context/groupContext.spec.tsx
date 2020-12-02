@@ -1,27 +1,39 @@
 import React from 'react';
-import {render, waitFor} from '@testing-library/react';
+import {render, screen, waitFor} from '@testing-library/react';
 import GroupProvider, { GroupContext } from './groupContext';
 import { AuthContext } from './authContext';
 import { Api, ApiContext } from './apiContext';
 import { CarColor } from '../api';
 import { MemoryRouter } from 'react-router-dom';
+import {SnackbarContext} from './snackbarContext';
+import io from 'socket.io-client';
+
+jest.mock('socket.io-client');
 
 describe('GroupProvider', () => {
-  const customRender = (apiContext: Api, authContext: AuthContext, children: React.ReactNode) => {
+  const customRender = (
+    apiContext: Api,
+    authContext: AuthContext,
+    snackContext: SnackbarContext,
+    children: React.ReactNode
+  ) => {
     return render(
       <MemoryRouter>
-        <ApiContext.Provider value={apiContext}>
-          <AuthContext.Provider value={authContext}>
-            <GroupProvider>
-              {children}
-            </GroupProvider>
-          </AuthContext.Provider>
-        </ApiContext.Provider>
+        <SnackbarContext.Provider value={snackContext}>
+          <ApiContext.Provider value={apiContext}>
+            <AuthContext.Provider value={authContext}>
+                <GroupProvider>
+                  {children}
+                </GroupProvider>
+            </AuthContext.Provider>
+          </ApiContext.Provider>
+        </SnackbarContext.Provider>
       </MemoryRouter>
     );
   };
 
   let fakeApi: jest.Mocked<Api>;
+  let snackContext: SnackbarContext;
 
   const groups = [
     {
@@ -71,6 +83,10 @@ describe('GroupProvider', () => {
   }
 
   beforeEach(() => {
+    snackContext = {
+      show: jest.fn(),
+    };
+
     fakeApi = {
       getGroups: jest.fn(),
       createGroup: jest.fn(),
@@ -78,6 +94,10 @@ describe('GroupProvider', () => {
       deleteGroup: jest.fn(),
       getCars: jest.fn(),
     } as unknown as jest.Mocked<Api>;
+  });
+  
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
 it('gets list of groups on first render', async () => {
@@ -88,6 +108,7 @@ it('gets list of groups on first render', async () => {
     customRender(
       fakeApi as unknown as Api,
       {user: fakeUser} as unknown as AuthContext,
+      snackContext,
       <GroupContext.Consumer>
         {(context) => {
           groupContext = context;
@@ -107,6 +128,492 @@ it('gets list of groups on first render', async () => {
     expect(renderCounter).toBe(2);
   });
 
+  describe('websocket', () => {
+    it('tries to connect to namespace of group if one is selected', async () => {
+      fakeApi.getGroups.mockResolvedValue({data: {groups}});
+      fakeApi.getCars.mockResolvedValue({data: {cars}} as any);
+      fakeApi.getGroup.mockResolvedValue({data: groups[1]});
+      let groupContext: GroupContext;
+  
+      customRender(
+        fakeApi as unknown as Api,
+        {user: fakeUser} as unknown as AuthContext,
+        snackContext,
+        <GroupContext.Consumer>
+          {(context) => {
+            groupContext = context;
+            return (
+              <div>
+                {JSON.stringify(context)}
+              </div>
+            );
+          }}
+        </GroupContext.Consumer>
+      );
+  
+      await waitFor(() => expect(fakeApi.getGroups).toHaveBeenCalledTimes(1));
+      expect(groupContext.groups).toEqual(groups);       
+      expect(groupContext.selectedGroup).toBe(null);
+
+      await groupContext.selectGroup(1);
+
+      expect(groupContext.selectedGroup).toEqual(groups[1]);
+
+      await waitFor(() => expect(io).toHaveBeenCalledTimes(1));
+      expect(io).toHaveBeenCalledWith('/group/1', {path: '/socket'});
+    });
+
+    it('handles error event by showing snack', async () => {
+      fakeApi.getGroups.mockResolvedValue({data: {groups}});
+      fakeApi.getCars.mockResolvedValue({data: {cars}} as any);
+      fakeApi.getGroup.mockResolvedValue({data: groups[1]});
+      let groupContext: GroupContext;
+
+      let errorEventFn: Function;
+
+      const socketMock = {
+        on: jest.fn().mockImplementation((type: string, fn: Function) => {
+          if (type === 'error') {
+            errorEventFn = fn;
+          }
+        }),
+        off: jest.fn(),
+        disconnect: jest.fn(),
+      };
+
+      (io as unknown as jest.Mock).mockReturnValue(socketMock);
+  
+      customRender(
+        fakeApi as unknown as Api,
+        {user: fakeUser} as unknown as AuthContext,
+        snackContext,
+        <GroupContext.Consumer>
+          {(context) => {
+            groupContext = context;
+            return (
+              <div>
+                {JSON.stringify(context)}
+              </div>
+            );
+          }}
+        </GroupContext.Consumer>
+      );
+  
+      await waitFor(() => expect(fakeApi.getGroups).toHaveBeenCalledTimes(1));
+      expect(groupContext.groups).toEqual(groups);       
+      expect(groupContext.selectedGroup).toBe(null);
+
+      await groupContext.selectGroup(1);
+
+      expect(groupContext.selectedGroup).toEqual(groups[1]);
+
+      await waitFor(() => expect(io).toHaveBeenCalledTimes(1));
+      expect(io).toHaveBeenCalledWith('/group/1', {path: '/socket'});
+
+      await waitFor(() =>  expect(socketMock.on).toHaveBeenCalledTimes(3));
+      expect(socketMock.on).toHaveBeenCalledWith('error', expect.any(Function));
+
+      // Simulate error event
+      errorEventFn();
+
+      await waitFor(() => expect(snackContext.show).toHaveBeenCalledTimes(1));
+      expect(snackContext.show).toHaveBeenCalledWith('error', 'errors.socketConnection');
+    });
+
+    it('handles connect_error event by showing snack', async () => {
+      fakeApi.getGroups.mockResolvedValue({data: {groups}});
+      fakeApi.getCars.mockResolvedValue({data: {cars}} as any);
+      fakeApi.getGroup.mockResolvedValue({data: groups[1]});
+      let groupContext: GroupContext;
+
+      let errorEventFn: Function;
+
+      const socketMock = {
+        on: jest.fn().mockImplementation((type: string, fn: Function) => {
+          if (type === 'connect_error') {
+            errorEventFn = fn;
+          }
+        }),
+        off: jest.fn(),
+        disconnect: jest.fn(),
+      };
+
+      (io as unknown as jest.Mock).mockReturnValue(socketMock);
+  
+      customRender(
+        fakeApi as unknown as Api,
+        {user: fakeUser} as unknown as AuthContext,
+        snackContext,
+        <GroupContext.Consumer>
+          {(context) => {
+            groupContext = context;
+            return (
+              <div>
+                {JSON.stringify(context)}
+              </div>
+            );
+          }}
+        </GroupContext.Consumer>
+      );
+  
+      await waitFor(() => expect(fakeApi.getGroups).toHaveBeenCalledTimes(1));
+      expect(groupContext.groups).toEqual(groups);       
+      expect(groupContext.selectedGroup).toBe(null);
+
+      await groupContext.selectGroup(1);
+
+      expect(groupContext.selectedGroup).toEqual(groups[1]);
+
+      await waitFor(() => expect(io).toHaveBeenCalledTimes(1));
+      console.error((io as unknown as jest.Mock).mock.calls);
+      expect(io).toHaveBeenCalledWith('/group/1', {path: '/socket'});
+
+      await waitFor(() =>  expect(socketMock.on).toHaveBeenCalledTimes(3));
+      expect(socketMock.on).toHaveBeenCalledWith('connect_error', expect.any(Function));
+
+      // Simulate error event
+      errorEventFn();
+
+      await waitFor(() => expect(snackContext.show).toHaveBeenCalledTimes(1));
+      expect(snackContext.show).toHaveBeenCalledWith('error', 'errors.socketConnection');
+    });
+
+    describe('update event', () => {
+      describe('add action', () => {
+        it('adds the car to the groupCars if a group is ' +
+        'selected and the car is not yet in the list', async () => {
+          fakeApi.getGroups.mockResolvedValue({data: {groups}});
+          fakeApi.getCars.mockResolvedValue({data: {cars}} as any);
+          fakeApi.getGroup.mockResolvedValue({data: groups[1]});
+          let groupContext: GroupContext;
+    
+          let actionHandler: Function;
+    
+          const socketMock = {
+            on: jest.fn().mockImplementation((type: string, fn: Function) => {
+              if (type === 'update') {
+                actionHandler = fn;
+              }
+            }),
+            off: jest.fn(),
+            disconnect: jest.fn(),
+          };
+    
+          (io as unknown as jest.Mock).mockReturnValue(socketMock);
+      
+          customRender(
+            fakeApi as unknown as Api,
+            {user: fakeUser} as unknown as AuthContext,
+            snackContext,
+            <GroupContext.Consumer>
+              {(context) => {
+                groupContext = context;
+                return (
+                  <div>
+                    {JSON.stringify(context)}
+                  </div>
+                );
+              }}
+            </GroupContext.Consumer>
+          );
+      
+          await waitFor(() => expect(fakeApi.getGroups).toHaveBeenCalledTimes(1));
+          expect(groupContext.groups).toEqual(groups);       
+          expect(groupContext.selectedGroup).toBe(null);
+    
+          await groupContext.selectGroup(1);
+    
+          expect(groupContext.selectedGroup).toEqual(groups[1]);
+    
+          await waitFor(() => expect(io).toHaveBeenCalledTimes(1));
+          console.error((io as unknown as jest.Mock).mock.calls);
+          expect(io).toHaveBeenCalledWith('/group/1', {path: '/socket'});
+    
+          await waitFor(() =>  expect(socketMock.on).toHaveBeenCalledTimes(3));
+          expect(socketMock.on).toHaveBeenCalledWith('connect_error', expect.any(Function));
+    
+          const car = {
+            groupId: 1,
+            carId: 4,
+            driverId: null,
+            Driver: null,
+            latitude: null,
+            longitude: null,
+          };
+
+          // Simulate error event
+          actionHandler({
+            action: 'add',
+            car,
+          });
+    
+          await waitFor(() => expect(groupContext.groupCars.length).toEqual(cars.length + 1));
+          expect(groupContext.groupCars).toContain(car);
+        });
+
+        it('won\'t add car to list if it\'s not in the list', async () => {
+          fakeApi.getGroups.mockResolvedValue({data: {groups}});
+          fakeApi.getCars.mockResolvedValue({data: {cars}} as any);
+          fakeApi.getGroup.mockResolvedValue({data: groups[1]});
+          let groupContext: GroupContext;
+    
+          let actionHandler: Function;
+    
+          const socketMock = {
+            on: jest.fn().mockImplementation((type: string, fn: Function) => {
+              if (type === 'update') {
+                actionHandler = fn;
+              }
+            }),
+            off: jest.fn(),
+            disconnect: jest.fn(),
+          };
+    
+          (io as unknown as jest.Mock).mockReturnValue(socketMock);
+      
+          customRender(
+            fakeApi as unknown as Api,
+            {user: fakeUser} as unknown as AuthContext,
+            snackContext,
+            <GroupContext.Consumer>
+              {(context) => {
+                groupContext = context;
+                return (
+                  <div>
+                    {JSON.stringify(context)}
+                  </div>
+                );
+              }}
+            </GroupContext.Consumer>
+          );
+      
+          await waitFor(() => expect(fakeApi.getGroups).toHaveBeenCalledTimes(1));
+          expect(groupContext.groups).toEqual(groups);       
+          expect(groupContext.selectedGroup).toBe(null);
+    
+          await groupContext.selectGroup(1);
+    
+          expect(groupContext.selectedGroup).toEqual(groups[1]);
+    
+          await waitFor(() => expect(io).toHaveBeenCalledTimes(1));
+          console.error((io as unknown as jest.Mock).mock.calls);
+          expect(io).toHaveBeenCalledWith('/group/1', {path: '/socket'});
+    
+          await waitFor(() =>  expect(socketMock.on).toHaveBeenCalledTimes(3));
+          expect(socketMock.on).toHaveBeenCalledWith('connect_error', expect.any(Function));
+    
+          const car = {
+            groupId: 1,
+            carId: 1,
+            driverId: null,
+            Driver: null,
+            latitude: null,
+            longitude: null,
+          };
+
+          // Simulate error event
+          actionHandler({
+            action: 'add',
+            car,
+          });
+    
+          expect(groupContext.groupCars.length).toEqual(cars.length);
+          expect(groupContext.groupCars).not.toContain(car);
+        });
+      });
+      
+      describe('drive action', () => {
+        it('update car if a group is selected and the car is in the list', async () => {
+          fakeApi.getGroups.mockResolvedValue({data: {groups}});
+          fakeApi.getCars.mockResolvedValue({data: {cars}} as any);
+          fakeApi.getGroup.mockResolvedValue({data: groups[1]});
+          let groupContext: GroupContext;
+    
+          let actionHandler: Function;
+    
+          const socketMock = {
+            on: jest.fn().mockImplementation((type: string, fn: Function) => {
+              if (type === 'update') {
+                actionHandler = fn;
+              }
+            }),
+            off: jest.fn(),
+            disconnect: jest.fn(),
+          };
+    
+          (io as unknown as jest.Mock).mockReturnValue(socketMock);
+      
+          customRender(
+            fakeApi as unknown as Api,
+            {user: fakeUser} as unknown as AuthContext,
+            snackContext,
+            <GroupContext.Consumer>
+              {(context) => {
+                groupContext = context;
+                return (
+                  <div>
+                    {JSON.stringify(context)}
+                  </div>
+                );
+              }}
+            </GroupContext.Consumer>
+          );
+      
+          await waitFor(() => expect(fakeApi.getGroups).toHaveBeenCalledTimes(1));
+          expect(groupContext.groups).toEqual(groups);       
+          expect(groupContext.selectedGroup).toBe(null);
+    
+          await groupContext.selectGroup(1);
+    
+          expect(groupContext.selectedGroup).toEqual(groups[1]);
+    
+          await waitFor(() => expect(io).toHaveBeenCalledTimes(1));
+          console.error((io as unknown as jest.Mock).mock.calls);
+          expect(io).toHaveBeenCalledWith('/group/1', {path: '/socket'});
+    
+          await waitFor(() =>  expect(socketMock.on).toHaveBeenCalledTimes(3));
+          expect(socketMock.on).toHaveBeenCalledWith('connect_error', expect.any(Function));
+    
+          const car = {
+            groupId: 1,
+            carId: 1,
+            driverId: 4,
+            Driver: {
+              username: 'driver',
+              id: 4,
+            },
+            latitude: null,
+            longitude: null,
+            name: 'car-1',
+          };
+
+          // Simulate error event
+          actionHandler({
+            action: 'drive',
+            car,
+          });
+    
+          await waitFor(() =>
+            expect(groupContext.groupCars.find((groupCar) =>
+              groupCar.carId === car.carId)).toEqual(car));
+        });
+      });
+
+      describe('park action', () => {
+        it('update car if a group is selected and the car is in the list', async () => {
+          fakeApi.getGroups.mockResolvedValue({data: {groups}});
+          fakeApi.getCars.mockResolvedValue({data: {cars}} as any);
+          fakeApi.getGroup.mockResolvedValue({data: groups[1]});
+          let groupContext: GroupContext;
+    
+          let actionHandler: Function;
+    
+          const socketMock = {
+            on: jest.fn().mockImplementation((type: string, fn: Function) => {
+              if (type === 'update') {
+                actionHandler = fn;
+              }
+            }),
+            off: jest.fn(),
+            disconnect: jest.fn(),
+          };
+    
+          (io as unknown as jest.Mock).mockReturnValue(socketMock);
+      
+          customRender(
+            fakeApi as unknown as Api,
+            {user: fakeUser} as unknown as AuthContext,
+            snackContext,
+            <GroupContext.Consumer>
+              {(context) => {
+                groupContext = context;
+                return (
+                  <div>
+                    {JSON.stringify(context)}
+                  </div>
+                );
+              }}
+            </GroupContext.Consumer>
+          );
+      
+          await waitFor(() => expect(fakeApi.getGroups).toHaveBeenCalledTimes(1));
+          expect(groupContext.groups).toEqual(groups);       
+          expect(groupContext.selectedGroup).toBe(null);
+    
+          await groupContext.selectGroup(1);
+    
+          expect(groupContext.selectedGroup).toEqual(groups[1]);
+    
+          await waitFor(() => expect(io).toHaveBeenCalledTimes(1));
+          expect(io).toHaveBeenCalledWith('/group/1', {path: '/socket'});
+    
+          await waitFor(() =>  expect(socketMock.on).toHaveBeenCalledTimes(3));
+          expect(socketMock.on).toHaveBeenCalledWith('connect_error', expect.any(Function));
+    
+          const car = {
+            groupId: 1,
+            carId: 1,
+            driverId: null,
+            Driver: null,
+            latitude: 50,
+            longitude: 8,
+            name: 'car-1',
+          };
+
+          // Simulate error event
+          actionHandler({
+            action: 'park',
+            car,
+          });
+    
+          await waitFor(() =>
+            expect(groupContext.groupCars.find((groupCar) =>
+              groupCar.carId === car.carId)).toEqual(car));
+        });
+      });
+    });
+  });
+
+  describe('routing', () => {
+    it('selects correct group if route is /group/:id', async () => {
+      fakeApi.getGroups.mockResolvedValue({data: {groups}});
+      fakeApi.getCars.mockResolvedValue({data: {cars}} as any);
+      fakeApi.getGroup.mockResolvedValue({data: groups[1]});
+      let groupContext: GroupContext;
+  
+      render(
+        <MemoryRouter initialEntries={['/group/1']}>
+          <SnackbarContext.Provider value={snackContext}>
+            <ApiContext.Provider value={fakeApi as Api}>
+              <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
+                <GroupProvider>
+                  <GroupContext.Consumer>
+                    {(context) => {
+                      groupContext = context;
+                      return (
+                        <div>
+                          {JSON.stringify(context)}
+                        </div>
+                      );
+                    }}
+                  </GroupContext.Consumer>
+                </GroupProvider>
+              </AuthContext.Provider>
+            </ApiContext.Provider>
+          </SnackbarContext.Provider>
+        </MemoryRouter>
+      );
+  
+      await waitFor(() => expect(fakeApi.getGroups).toHaveBeenCalledTimes(1));
+      expect(groupContext.groups).toEqual(groups);    
+      
+      await waitFor(() => expect(fakeApi.getGroup).toHaveBeenCalledTimes(2));
+      console.error(fakeApi.getGroup.mock.calls);
+      expect(fakeApi.getGroup).toHaveBeenCalledWith(1);
+      expect(groupContext.selectedGroup).toEqual(groups[1]);
+    });
+  });
+
   describe('selectGroups', () => {
     it('sets the selected group to the correct group', async () => {
       fakeApi.getGroups.mockResolvedValue({data: {groups}});
@@ -118,6 +625,7 @@ it('gets list of groups on first render', async () => {
       customRender(
         fakeApi as unknown as Api,
         {user: fakeUser} as unknown as AuthContext,
+        snackContext,
         <GroupContext.Consumer>
           {(context) => {
             groupContext = context;
@@ -153,6 +661,7 @@ it('gets list of groups on first render', async () => {
       customRender(
         fakeApi as unknown as Api, 
         {user: fakeUser} as unknown as AuthContext,
+        snackContext,
         <GroupContext.Consumer>
           {(context) => {
             groupContext = context;
@@ -189,6 +698,7 @@ it('gets list of groups on first render', async () => {
       customRender(
         fakeApi as unknown as Api, 
         {user: fakeUser} as unknown as AuthContext,
+        snackContext,
         <GroupContext.Consumer>
           {(context) => {
             groupContext = context;
@@ -230,6 +740,7 @@ it('gets list of groups on first render', async () => {
       customRender(
         fakeApi as unknown as Api, 
         {user: fakeUser} as unknown as AuthContext,
+        snackContext,
         <GroupContext.Consumer>
           {(context) => {
             groupContext = context;
@@ -268,6 +779,7 @@ it('gets list of groups on first render', async () => {
       customRender(
         fakeApi as unknown as Api, 
         {user: fakeUser} as unknown as AuthContext,
+        snackContext,
         <GroupContext.Consumer>
           {(context) => {
             groupContext = context;
@@ -309,6 +821,7 @@ it('gets list of groups on first render', async () => {
       customRender(
         fakeApi as unknown as Api, 
         {user: fakeUser} as unknown as AuthContext,
+        snackContext,
         <GroupContext.Consumer>
           {(context) => {
             groupContext = context;
@@ -339,6 +852,7 @@ it('gets list of groups on first render', async () => {
       customRender(
         fakeApi as unknown as Api, 
         {user: fakeUser} as unknown as AuthContext,
+        snackContext,
         <GroupContext.Consumer>
           {(context) => {
             groupContext = context;
@@ -373,6 +887,7 @@ it('gets list of groups on first render', async () => {
       customRender(
         fakeApi as unknown as Api, 
         {user: fakeUser} as unknown as AuthContext,
+        snackContext,
         <GroupContext.Consumer>
           {(context) => {
             groupContext = context;
@@ -414,6 +929,7 @@ it('gets list of groups on first render', async () => {
       customRender(
         fakeApi as unknown as Api, 
         {user: fakeUser} as unknown as AuthContext,
+        snackContext,
         <GroupContext.Consumer>
           {(context) => {
             groupContext = context;
@@ -452,6 +968,7 @@ it('gets list of groups on first render', async () => {
       customRender(
         fakeApi as unknown as Api, 
         {user: fakeUser} as unknown as AuthContext,
+        snackContext,
         <GroupContext.Consumer>
           {(context) => {
             groupContext = context;
