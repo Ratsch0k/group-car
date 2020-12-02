@@ -3,6 +3,7 @@ import {render, waitFor} from '@testing-library/react';
 import { ApiContext, Api } from './apiContext';
 import AuthProvider, { AuthContext } from './authContext';
 import {ModalContext} from '../ModalRouter/ModalRouteContext';
+import { MemoryRouter } from 'react-router-dom';
 
 
 
@@ -155,20 +156,22 @@ describe('AuthProvider', () => {
     
       let authContext: AuthContext;
       render(
-        <ApiContext.Provider value={fakeApi as unknown as Api}>
-          <AuthProvider>
-            <AuthContext.Consumer>
-              {(context) => {
-                authContext = context;
-                return (
-                  <div>
-                    {authContext.isLoggedIn}
-                  </div>
-                );
-              }}
-            </AuthContext.Consumer>
-          </AuthProvider>
-        </ApiContext.Provider>
+        <MemoryRouter>
+          <ApiContext.Provider value={fakeApi as unknown as Api}>
+            <AuthProvider>
+              <AuthContext.Consumer>
+                {(context) => {
+                  authContext = context;
+                  return (
+                    <div>
+                      {authContext.isLoggedIn}
+                    </div>
+                  );
+                }}
+              </AuthContext.Consumer>
+            </AuthProvider>
+          </ApiContext.Provider>
+        </MemoryRouter>
       );
 
       await waitFor(() => expect(fakeApi.checkLoggedIn).toHaveBeenCalledTimes(1));

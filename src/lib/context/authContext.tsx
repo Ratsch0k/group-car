@@ -9,6 +9,7 @@ import {
 import {AxiosResponse} from 'axios';
 import {useAxios, useModalRouter} from 'lib/hooks';
 import {useApi} from 'lib/hooks/useApi';
+import {useHistory} from 'react-router-dom';
 
 export interface IUser {
   username: string;
@@ -50,6 +51,7 @@ export const AuthProvider: React.FC = (props) => {
   const {goTo} = useModalRouter();
   const api = useApi();
   const {axios} = useAxios();
+  const history = useHistory();
 
   /**
    * Register response interceptor which
@@ -124,6 +126,7 @@ export const AuthProvider: React.FC = (props) => {
     request.then(() => {
       setUser(undefined);
       setIsLoggedIn(false);
+      history.push('/');
     });
 
     return request;
