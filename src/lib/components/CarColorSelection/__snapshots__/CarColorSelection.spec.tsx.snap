@@ -20,17 +20,12 @@ exports[`clicking a color in the selection calls the setColor callback and close
           <div
             class="MuiGrid-root MuiGrid-item"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              color="Green"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-              />
-            </svg>
+            <img
+              alt="select-car-color-icon-Green"
+              height="24x"
+              src="green_location_marker.svg"
+              width="24px"
+            />
           </div>
           <div
             class="MuiGrid-root MuiGrid-item"
@@ -105,17 +100,12 @@ exports[`clicking a color in the selection calls the setColor callback and close
             <div
               class="MuiGrid-root MuiGrid-item"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                color="Red"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                />
-              </svg>
+              <img
+                alt="select-car-color-icon-Red"
+                height="24x"
+                src="red_location_marker.svg"
+                width="24px"
+              />
             </div>
             <div
               class="MuiGrid-root MuiGrid-item"
@@ -141,17 +131,12 @@ exports[`clicking a color in the selection calls the setColor callback and close
             <div
               class="MuiGrid-root MuiGrid-item"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                color="Green"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                />
-              </svg>
+              <img
+                alt="select-car-color-icon-Green"
+                height="24x"
+                src="green_location_marker.svg"
+                width="24px"
+              />
             </div>
             <div
               class="MuiGrid-root MuiGrid-item"
@@ -185,17 +170,12 @@ exports[`clicking a color in the selection calls the setColor callback and close
             <div
               class="MuiGrid-root MuiGrid-item"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                color="Blue"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                />
-              </svg>
+              <img
+                alt="select-car-color-icon-Blue"
+                height="24x"
+                src="blue_location_marker.svg"
+                width="24px"
+              />
             </div>
             <div
               class="MuiGrid-root MuiGrid-item"
@@ -220,17 +200,12 @@ exports[`clicking a color in the selection calls the setColor callback and close
             <div
               class="MuiGrid-root MuiGrid-item"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                color="Black"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                />
-              </svg>
+              <img
+                alt="select-car-color-icon-Black"
+                height="24x"
+                src="black_location_marker.svg"
+                width="24px"
+              />
             </div>
             <div
               class="MuiGrid-root MuiGrid-item"
@@ -255,17 +230,12 @@ exports[`clicking a color in the selection calls the setColor callback and close
             <div
               class="MuiGrid-root MuiGrid-item"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                color="Yellow"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                />
-              </svg>
+              <img
+                alt="select-car-color-icon-Yellow"
+                height="24x"
+                src="yellow_location_marker.svg"
+                width="24px"
+              />
             </div>
             <div
               class="MuiGrid-root MuiGrid-item"
@@ -290,17 +260,12 @@ exports[`clicking a color in the selection calls the setColor callback and close
             <div
               class="MuiGrid-root MuiGrid-item"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                color="White"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                />
-              </svg>
+              <img
+                alt="select-car-color-icon-White"
+                height="24x"
+                src="white_location_marker.svg"
+                width="24px"
+              />
             </div>
             <div
               class="MuiGrid-root MuiGrid-item"
@@ -325,17 +290,12 @@ exports[`clicking a color in the selection calls the setColor callback and close
             <div
               class="MuiGrid-root MuiGrid-item"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                color="Purple"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                />
-              </svg>
+              <img
+                alt="select-car-color-icon-Purple"
+                height="24x"
+                src="purple_location_marker.svg"
+                width="24px"
+              />
             </div>
             <div
               class="MuiGrid-root MuiGrid-item"
@@ -360,17 +320,12 @@ exports[`clicking a color in the selection calls the setColor callback and close
             <div
               class="MuiGrid-root MuiGrid-item"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                color="Brown"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                />
-              </svg>
+              <img
+                alt="select-car-color-icon-Brown"
+                height="24x"
+                src="brown_location_marker.svg"
+                width="24px"
+              />
             </div>
             <div
               class="MuiGrid-root MuiGrid-item"
@@ -395,17 +350,12 @@ exports[`clicking a color in the selection calls the setColor callback and close
             <div
               class="MuiGrid-root MuiGrid-item"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                color="Orange"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                />
-              </svg>
+              <img
+                alt="select-car-color-icon-Orange"
+                height="24x"
+                src="orange_location_marker.svg"
+                width="24px"
+              />
             </div>
             <div
               class="MuiGrid-root MuiGrid-item"
@@ -450,17 +400,12 @@ exports[`clicking it opens selection of available colors 1`] = `
           <div
             class="MuiGrid-root MuiGrid-item"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              color="Red"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-              />
-            </svg>
+            <img
+              alt="select-car-color-icon-Red"
+              height="24x"
+              src="red_location_marker.svg"
+              width="24px"
+            />
           </div>
           <div
             class="MuiGrid-root MuiGrid-item"
@@ -539,17 +484,12 @@ exports[`clicking it opens selection of available colors 1`] = `
             <div
               class="MuiGrid-root MuiGrid-item"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                color="Red"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                />
-              </svg>
+              <img
+                alt="select-car-color-icon-Red"
+                height="24x"
+                src="red_location_marker.svg"
+                width="24px"
+              />
             </div>
             <div
               class="MuiGrid-root MuiGrid-item"
@@ -574,17 +514,12 @@ exports[`clicking it opens selection of available colors 1`] = `
             <div
               class="MuiGrid-root MuiGrid-item"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                color="Green"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                />
-              </svg>
+              <img
+                alt="select-car-color-icon-Green"
+                height="24x"
+                src="green_location_marker.svg"
+                width="24px"
+              />
             </div>
             <div
               class="MuiGrid-root MuiGrid-item"
@@ -609,17 +544,12 @@ exports[`clicking it opens selection of available colors 1`] = `
             <div
               class="MuiGrid-root MuiGrid-item"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                color="Blue"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                />
-              </svg>
+              <img
+                alt="select-car-color-icon-Blue"
+                height="24x"
+                src="blue_location_marker.svg"
+                width="24px"
+              />
             </div>
             <div
               class="MuiGrid-root MuiGrid-item"
@@ -644,17 +574,12 @@ exports[`clicking it opens selection of available colors 1`] = `
             <div
               class="MuiGrid-root MuiGrid-item"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                color="Black"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                />
-              </svg>
+              <img
+                alt="select-car-color-icon-Black"
+                height="24x"
+                src="black_location_marker.svg"
+                width="24px"
+              />
             </div>
             <div
               class="MuiGrid-root MuiGrid-item"
@@ -679,17 +604,12 @@ exports[`clicking it opens selection of available colors 1`] = `
             <div
               class="MuiGrid-root MuiGrid-item"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                color="Yellow"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                />
-              </svg>
+              <img
+                alt="select-car-color-icon-Yellow"
+                height="24x"
+                src="yellow_location_marker.svg"
+                width="24px"
+              />
             </div>
             <div
               class="MuiGrid-root MuiGrid-item"
@@ -714,17 +634,12 @@ exports[`clicking it opens selection of available colors 1`] = `
             <div
               class="MuiGrid-root MuiGrid-item"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                color="White"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                />
-              </svg>
+              <img
+                alt="select-car-color-icon-White"
+                height="24x"
+                src="white_location_marker.svg"
+                width="24px"
+              />
             </div>
             <div
               class="MuiGrid-root MuiGrid-item"
@@ -749,17 +664,12 @@ exports[`clicking it opens selection of available colors 1`] = `
             <div
               class="MuiGrid-root MuiGrid-item"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                color="Purple"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                />
-              </svg>
+              <img
+                alt="select-car-color-icon-Purple"
+                height="24x"
+                src="purple_location_marker.svg"
+                width="24px"
+              />
             </div>
             <div
               class="MuiGrid-root MuiGrid-item"
@@ -784,17 +694,12 @@ exports[`clicking it opens selection of available colors 1`] = `
             <div
               class="MuiGrid-root MuiGrid-item"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                color="Brown"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                />
-              </svg>
+              <img
+                alt="select-car-color-icon-Brown"
+                height="24x"
+                src="brown_location_marker.svg"
+                width="24px"
+              />
             </div>
             <div
               class="MuiGrid-root MuiGrid-item"
@@ -819,17 +724,12 @@ exports[`clicking it opens selection of available colors 1`] = `
             <div
               class="MuiGrid-root MuiGrid-item"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                color="Orange"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                />
-              </svg>
+              <img
+                alt="select-car-color-icon-Orange"
+                height="24x"
+                src="orange_location_marker.svg"
+                width="24px"
+              />
             </div>
             <div
               class="MuiGrid-root MuiGrid-item"
@@ -869,17 +769,12 @@ exports[`renders correctly 1`] = `
           <div
             class="MuiGrid-root MuiGrid-item"
           >
-            <svg
-              aria-hidden="true"
-              class="MuiSvgIcon-root"
-              color="Red"
-              focusable="false"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-              />
-            </svg>
+            <img
+              alt="select-car-color-icon-Red"
+              height="24x"
+              src="red_location_marker.svg"
+              width="24px"
+            />
           </div>
           <div
             class="MuiGrid-root MuiGrid-item"
