@@ -781,7 +781,7 @@ describe('CarTab', () => {
       show: jest.fn(),
     };
   
-    const {baseElement} = render (
+    const {baseElement} = render(
       <ThemeProvider theme={theme}>
         <MemoryRouter>
           <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
