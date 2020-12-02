@@ -265,7 +265,6 @@ it('gets list of groups on first render', async () => {
       expect(groupContext.selectedGroup).toEqual(groups[1]);
 
       await waitFor(() => expect(io).toHaveBeenCalledTimes(1));
-      console.error((io as unknown as jest.Mock).mock.calls);
       expect(io).toHaveBeenCalledWith('/group/1', {path: '/socket'});
 
       await waitFor(() =>  expect(socketMock.on).toHaveBeenCalledTimes(3));
@@ -326,7 +325,6 @@ it('gets list of groups on first render', async () => {
           expect(groupContext.selectedGroup).toEqual(groups[1]);
     
           await waitFor(() => expect(io).toHaveBeenCalledTimes(1));
-          console.error((io as unknown as jest.Mock).mock.calls);
           expect(io).toHaveBeenCalledWith('/group/1', {path: '/socket'});
     
           await waitFor(() =>  expect(socketMock.on).toHaveBeenCalledTimes(3));
@@ -396,7 +394,6 @@ it('gets list of groups on first render', async () => {
           expect(groupContext.selectedGroup).toEqual(groups[1]);
     
           await waitFor(() => expect(io).toHaveBeenCalledTimes(1));
-          console.error((io as unknown as jest.Mock).mock.calls);
           expect(io).toHaveBeenCalledWith('/group/1', {path: '/socket'});
     
           await waitFor(() =>  expect(socketMock.on).toHaveBeenCalledTimes(3));
@@ -468,7 +465,6 @@ it('gets list of groups on first render', async () => {
           expect(groupContext.selectedGroup).toEqual(groups[1]);
     
           await waitFor(() => expect(io).toHaveBeenCalledTimes(1));
-          console.error((io as unknown as jest.Mock).mock.calls);
           expect(io).toHaveBeenCalledWith('/group/1', {path: '/socket'});
     
           await waitFor(() =>  expect(socketMock.on).toHaveBeenCalledTimes(3));
@@ -608,7 +604,6 @@ it('gets list of groups on first render', async () => {
       expect(groupContext.groups).toEqual(groups);    
       
       await waitFor(() => expect(fakeApi.getGroup).toHaveBeenCalledTimes(2));
-      console.error(fakeApi.getGroup.mock.calls);
       expect(fakeApi.getGroup).toHaveBeenCalledWith(1);
       expect(groupContext.selectedGroup).toEqual(groups[1]);
     });
