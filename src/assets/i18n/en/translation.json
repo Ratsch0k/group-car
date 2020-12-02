@@ -113,6 +113,9 @@
       "empty": "You have no invites"
     }
   },
+  "errors": {
+    "socketConnection": "Could not initialize realtime update. To receive update about the selected group, you'll have to reload the page." 
+  },
   "misc": {
     "or": "or",
     "loading": "Loading",
