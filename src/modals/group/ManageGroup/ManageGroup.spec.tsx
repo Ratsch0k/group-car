@@ -827,7 +827,7 @@ describe('CarTab', () => {
      * the method would throw an error.
      */
     await waitForElementToBeRemoved(
-      baseElement.querySelector('span.MuiTouchRipple-child MuiTouchRipple-childLeaving'))
+      baseElement.querySelector('span.MuiTouchRipple-child.MuiTouchRipple-childLeaving'))
       .catch(() => undefined);
 
     expect(baseElement).toMatchSnapshot();

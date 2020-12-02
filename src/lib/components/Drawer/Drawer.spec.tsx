@@ -595,4 +595,160 @@ describe('if user is logged in', () => {
       });
     });
   });
+  
+  describe('view location', () => {
+    it('location button is disabled if latitude or longitude is null', async () => {
+      const authContext = {
+        isLoggedIn: true,
+        user,
+      } as AuthContext;
+
+      const cars = [
+        {
+          carId: 1,
+          groupId: 1,
+          name: 'Car 1',
+          latitude: 60,
+          longitude: null,
+          driverId: null,
+          color: CarColor.Red,
+        },
+        {
+          carId: 2,
+          groupId: 1,
+          name: 'Car 1',
+          latitude: null,
+          longitude: 9,
+          driverId: null,
+          color: CarColor.Black,
+        },
+        {
+          carId: 3,
+          groupId: 1,
+          name: 'Car 1',
+          latitude: 60,
+          longitude: 23,
+          driverId: null,
+          color: CarColor.Blue,
+        },
+      ];
+  
+      const groupContext = {
+        groups,
+        selectedGroup: groups[0],
+        groupCars: cars,
+        parkCar: jest.fn().mockResolvedValue(undefined),
+      } as GroupContext;
+
+      const position = {
+        coords: {
+          latitude: 50,
+          longitude: 8,
+        },
+      } as Position;
+
+      const modalContext = {
+        goTo: jest.fn(),
+      } as unknown as ModalContext;
+
+      const geolocation = {
+        getCurrentPosition: jest.fn().mockImplementation((result, error) => {
+          result(position);
+        }),
+      } as unknown as Geolocation;
+      
+      const snackContext = {} as SnackbarContext;
+  
+      (navigator.geolocation as any) = geolocation;
+
+      const {baseElement} = customRender(
+        modalContext, 
+        authContext, 
+        groupContext, 
+        snackContext,
+      );
+
+      await waitFor(() => expect(baseElement.querySelector(`#view-car-${cars[0].carId}`)).toBeTruthy());
+      expect(baseElement.querySelector(`#view-car-${cars[0].carId}`).getAttribute('disabled')).toEqual('');
+      expect(baseElement.querySelector(`#view-car-${cars[1].carId}`).getAttribute('disabled')).toEqual('');
+      expect(baseElement.querySelector(`#view-car-${cars[2].carId}`).getAttribute('disabled')).toBeFalsy();
+    });
+
+    it('clicking on location button will call fly on map', async () => {
+      const authContext = {
+        isLoggedIn: true,
+        user,
+      } as AuthContext;
+
+      const cars = [
+        {
+          carId: 1,
+          groupId: 1,
+          name: 'Car 1',
+          latitude: 60,
+          longitude: 23,
+          driverId: null,
+          color: CarColor.White,
+        },
+      ];
+  
+      const groupContext = {
+        groups,
+        selectedGroup: groups[0],
+        groupCars: cars,
+        parkCar: jest.fn().mockResolvedValue(undefined),
+      } as GroupContext;
+
+      const position = {
+        coords: {
+          latitude: 50,
+          longitude: 8,
+        },
+      } as Position;
+
+      const modalContext = {
+        goTo: jest.fn(),
+      } as unknown as ModalContext;
+
+      const geolocation = {
+        getCurrentPosition: jest.fn().mockImplementation((result, error) => {
+          result(position);
+        }),
+      } as unknown as Geolocation;
+      
+      const snackContext = {} as SnackbarContext;
+
+      const map = {
+        flyTo: jest.fn(),
+      };
+
+      const mapContext = {
+        map,
+      } as unknown as MapContext;
+  
+      (navigator.geolocation as any) = geolocation;
+
+      const {baseElement} = render(
+        <ThemeProvider theme={theme}>
+          <MapContext.Provider value={mapContext}>
+            <SnackbarContext.Provider value={snackContext}>
+              <ModalContext.Provider value={modalContext}>
+                <AuthContext.Provider value={authContext}>
+                  <GroupContext.Provider value={groupContext}>
+                    <Drawer open={false} onClose={jest.fn} permanent={true}/>
+                  </GroupContext.Provider>
+                </AuthContext.Provider>
+              </ModalContext.Provider>
+            </SnackbarContext.Provider>
+          </MapContext.Provider>
+        </ThemeProvider>
+      );
+
+      await waitFor(() => expect(baseElement.querySelector(`#view-car-${cars[0].carId}`)).toBeTruthy());
+      userEvent.click(baseElement.querySelector(`#view-car-${cars[0].carId}`));
+
+      await waitFor(() => expect(map.flyTo).toHaveBeenCalledTimes(1));
+      expect(map.flyTo).toHaveBeenCalledWith(new LatLng(cars[0].latitude, cars[0].longitude), 18, {duration: 1});
+    });
+  });
 });
