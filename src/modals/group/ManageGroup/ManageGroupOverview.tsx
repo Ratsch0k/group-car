@@ -19,6 +19,15 @@ export interface ManageGroupOverviewProps {
    * The displayed group.
    */
   group: GroupWithOwnerAndMembersAndInvitesAndCars;
+
+  /**
+   * Set state action for the group state.
+   */
+  setGroup: React.Dispatch<
+    React.SetStateAction<
+      GroupWithOwnerAndMembersAndInvitesAndCars | null
+    >
+  >;
 }
 
 /**
@@ -45,7 +54,7 @@ const useStyles = makeStyles((theme: Theme) =>
  */
 export const ManageGroupOverview: React.FC<ManageGroupOverviewProps> =
 (props: ManageGroupOverviewProps) => {
-  const {group} = props;
+  const {group, setGroup} = props;
   const classes = useStyles();
   const theme = useTheme();
   const smallerXs = useMediaQuery(theme.breakpoints.down('xs'));
@@ -107,7 +116,7 @@ export const ManageGroupOverview: React.FC<ManageGroupOverviewProps> =
         className={smallerXs ? undefined : classes.tabsDesktop}
         ref={tabsRef}
       >
-        <ManageGroupTabs group={group}/>
+        <ManageGroupTabs group={group} setGroup={setGroup}/>
       </div>
       <div
         ref={actionsRef}

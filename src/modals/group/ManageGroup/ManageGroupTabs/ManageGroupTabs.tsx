@@ -16,6 +16,15 @@ export interface ManageGroupsTabsProps {
    * The group data.
    */
   group: GroupWithOwnerAndMembersAndInvitesAndCars;
+
+  /**
+   * Set state action for the group state.
+   */
+  setGroup: React.Dispatch<
+    React.SetStateAction<
+      GroupWithOwnerAndMembersAndInvitesAndCars | null
+    >
+  >;
 }
 
 /**
@@ -130,6 +139,7 @@ export const ManageGroupTabs: React.FC<ManageGroupsTabsProps> =
           group={props.group}
           visible={selectedTab === 1}
           fabPortal={carFabPortal}
+          setGroup={props.setGroup}
         />
       </SwipeableView>
       <div className={classes.fabContainer}>

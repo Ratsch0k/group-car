@@ -6,8 +6,8 @@ import {
 } from '@material-ui/core';
 import {CarWithDriver, RoleChip} from 'lib';
 import React from 'react';
-import RoomIcon from '@material-ui/icons/Room';
 import {useTranslation} from 'react-i18next';
+import getIcon from 'lib/util/getIcon';
 
 /**
  * Props for the car list item.
@@ -57,9 +57,11 @@ export const ManageGroupCarsListItem: React.FC<ManageGroupCarsListItemProps> =
   return (
     <ListItem divider={divider}>
       <ListItemAvatar>
-        <RoomIcon
-          htmlColor={car.color}
-          fontSize='large'
+        <img
+          src={getIcon(car.color)}
+          height='35x'
+          width='35px'
+          alt={`car-icon-${car.color}`}
         />
       </ListItemAvatar>
       <ListItemText

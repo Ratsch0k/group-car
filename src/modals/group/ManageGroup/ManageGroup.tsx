@@ -77,7 +77,7 @@ export const ManageGroup: React.FC<ManageGroupProps> =
   if (groupData === null && error === null) {
     return <CenteredCircularProgress />;
   } else if (error === null && groupData !== null) {
-    return <ManageGroupOverview group={groupData}/>;
+    return <ManageGroupOverview group={groupData} setGroup={setGroupData}/>;
   } else {
     return <ManageGroupErrorHandler/>;
   }

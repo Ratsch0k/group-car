@@ -156,17 +156,12 @@ exports[`CarTab cars tab is rendered correctly 1`] = `
                       <div
                         class="MuiListItemAvatar-root"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge"
-                          color="Red"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                          />
-                        </svg>
+                        <img
+                          alt="car-icon-Red"
+                          height="35x"
+                          src="red_location_marker.svg"
+                          width="35px"
+                        />
                       </div>
                       <div
                         class="MuiListItemText-root MuiListItemText-multiline"
@@ -197,17 +192,12 @@ exports[`CarTab cars tab is rendered correctly 1`] = `
                       <div
                         class="MuiListItemAvatar-root"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge"
-                          color="Black"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                          />
-                        </svg>
+                        <img
+                          alt="car-icon-Black"
+                          height="35x"
+                          src="black_location_marker.svg"
+                          width="35px"
+                        />
                       </div>
                       <div
                         class="MuiListItemText-root MuiListItemText-multiline"
@@ -238,17 +228,12 @@ exports[`CarTab cars tab is rendered correctly 1`] = `
                       <div
                         class="MuiListItemAvatar-root"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge"
-                          color="Green"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                          />
-                        </svg>
+                        <img
+                          alt="car-icon-Green"
+                          height="35x"
+                          src="green_location_marker.svg"
+                          width="35px"
+                        />
                       </div>
                       <div
                         class="MuiListItemText-root MuiListItemText-multiline"
@@ -661,17 +646,12 @@ exports[`CarTab clicking add fab opens create car dialog 1`] = `
                       <div
                         class="MuiGrid-root MuiGrid-item"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root"
-                          color="Red"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                          />
-                        </svg>
+                        <img
+                          alt="select-car-color-icon-Red"
+                          height="24x"
+                          src="red_location_marker.svg"
+                          width="24px"
+                        />
                       </div>
                       <div
                         class="MuiGrid-root MuiGrid-item"
@@ -861,7 +841,7 @@ exports[`CarTab entering a name and clicking create sends request to create a ca
                       class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-displayInline"
                     >
                       (
-                      0
+                      1
                       /
                       8
                       )
@@ -928,17 +908,12 @@ exports[`CarTab entering a name and clicking create sends request to create a ca
                       <div
                         class="MuiListItemAvatar-root"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge"
-                          color="Red"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                          />
-                        </svg>
+                        <img
+                          alt="car-icon-Red"
+                          height="35x"
+                          src="red_location_marker.svg"
+                          width="35px"
+                        />
                       </div>
                       <div
                         class="MuiListItemText-root MuiListItemText-multiline"
@@ -1389,7 +1364,32 @@ exports[`CarTab is automatically selected if modal route is /group/manage/:group
           <div
             class="makeStyles-fabContainer-781"
           >
-            <div />
+            <div>
+              <button
+                class="MuiButtonBase-root MuiFab-root makeStyles-fab-789 MuiFab-secondary"
+                id="create-car-fab"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiFab-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -1417,30 +1417,6 @@ exports[`CarTab is automatically selected if modal route is /group/manage/:group
       </div>
     </div>
   </div>
-  <button
-    class="MuiButtonBase-root MuiFab-root makeStyles-fab-789 MuiFab-secondary"
-    id="create-car-fab"
-    tabindex="0"
-    type="button"
-  >
-    <span
-      class="MuiFab-label"
-    >
-      <svg
-        aria-hidden="true"
-        class="MuiSvgIcon-root"
-        focusable="false"
-        viewBox="0 0 24 24"
-      >
-        <path
-          d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
-        />
-      </svg>
-    </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
-  </button>
 </body>
 `;
 
@@ -1544,7 +1520,7 @@ exports[`CarTab when new car is created used color is removed from car color sel
                       class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-displayInline"
                     >
                       (
-                      0
+                      1
                       /
                       8
                       )
@@ -1611,17 +1587,12 @@ exports[`CarTab when new car is created used color is removed from car color sel
                       <div
                         class="MuiListItemAvatar-root"
                       >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge"
-                          color="Red"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                          />
-                        </svg>
+                        <img
+                          alt="car-icon-Red"
+                          height="35x"
+                          src="red_location_marker.svg"
+                          width="35px"
+                        />
                       </div>
                       <div
                         class="MuiListItemText-root MuiListItemText-multiline"
@@ -1954,17 +1925,12 @@ exports[`CarTab when new car is created used color is removed from car color sel
             <div
               class="MuiGrid-root MuiGrid-item"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                color="Green"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                />
-              </svg>
+              <img
+                alt="select-car-color-icon-Green"
+                height="24x"
+                src="green_location_marker.svg"
+                width="24px"
+              />
             </div>
             <div
               class="MuiGrid-root MuiGrid-item"
@@ -1989,17 +1955,12 @@ exports[`CarTab when new car is created used color is removed from car color sel
             <div
               class="MuiGrid-root MuiGrid-item"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                color="Blue"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                />
-              </svg>
+              <img
+                alt="select-car-color-icon-Blue"
+                height="24x"
+                src="blue_location_marker.svg"
+                width="24px"
+              />
             </div>
             <div
               class="MuiGrid-root MuiGrid-item"
@@ -2024,17 +1985,12 @@ exports[`CarTab when new car is created used color is removed from car color sel
             <div
               class="MuiGrid-root MuiGrid-item"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                color="Black"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                />
-              </svg>
+              <img
+                alt="select-car-color-icon-Black"
+                height="24x"
+                src="black_location_marker.svg"
+                width="24px"
+              />
             </div>
             <div
               class="MuiGrid-root MuiGrid-item"
@@ -2059,17 +2015,12 @@ exports[`CarTab when new car is created used color is removed from car color sel
             <div
               class="MuiGrid-root MuiGrid-item"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                color="Yellow"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                />
-              </svg>
+              <img
+                alt="select-car-color-icon-Yellow"
+                height="24x"
+                src="yellow_location_marker.svg"
+                width="24px"
+              />
             </div>
             <div
               class="MuiGrid-root MuiGrid-item"
@@ -2094,17 +2045,12 @@ exports[`CarTab when new car is created used color is removed from car color sel
             <div
               class="MuiGrid-root MuiGrid-item"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                color="White"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                />
-              </svg>
+              <img
+                alt="select-car-color-icon-White"
+                height="24x"
+                src="white_location_marker.svg"
+                width="24px"
+              />
             </div>
             <div
               class="MuiGrid-root MuiGrid-item"
@@ -2129,17 +2075,12 @@ exports[`CarTab when new car is created used color is removed from car color sel
             <div
               class="MuiGrid-root MuiGrid-item"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                color="Purple"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                />
-              </svg>
+              <img
+                alt="select-car-color-icon-Purple"
+                height="24x"
+                src="purple_location_marker.svg"
+                width="24px"
+              />
             </div>
             <div
               class="MuiGrid-root MuiGrid-item"
@@ -2164,17 +2105,12 @@ exports[`CarTab when new car is created used color is removed from car color sel
             <div
               class="MuiGrid-root MuiGrid-item"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                color="Brown"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                />
-              </svg>
+              <img
+                alt="select-car-color-icon-Brown"
+                height="24x"
+                src="brown_location_marker.svg"
+                width="24px"
+              />
             </div>
             <div
               class="MuiGrid-root MuiGrid-item"
@@ -2199,17 +2135,12 @@ exports[`CarTab when new car is created used color is removed from car color sel
             <div
               class="MuiGrid-root MuiGrid-item"
             >
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root"
-                color="Orange"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                />
-              </svg>
+              <img
+                alt="select-car-color-icon-Orange"
+                height="24x"
+                src="orange_location_marker.svg"
+                width="24px"
+              />
             </div>
             <div
               class="MuiGrid-root MuiGrid-item"
