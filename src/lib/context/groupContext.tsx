@@ -154,11 +154,21 @@ export const GroupProvider: React.FC = (props) => {
   const {t} = useTranslation();
   const history = useHistory();
   const match = useRouteMatch<{id: string}>('/group/:id');
+  const [errorNotified, setErrorNotified] = useState<boolean>(false);
 
+  /**
+   * Handles socket errors.
+   */
   const socketErrorHandler = useCallback(() => {
-    show('error', t('errors.socketConnection'));
-  }, [show, t]);
+    if (!errorNotified) {
+      show('error', t('errors.socketConnection'));
+      setErrorNotified(true);
+    }
+  }, [show, t, errorNotified, setErrorNotified]);
 
+  /**
+   * Handles update events.
+   */
   const socketActionHandler = useCallback((data: SocketGroupActionData) => {
     if (selectedGroup && selectedGroup.id === data.car.groupId && groupCars) {
       switch (data.action) {
@@ -228,11 +238,15 @@ export const GroupProvider: React.FC = (props) => {
     /* eslint-disable-next-line  */
   }, [selectedGroup]);
 
+  /**
+   * Adds event listeners to the socket.
+   */
   useEffect(() => {
     if (socket) {
       socket.off('connect_error', socketErrorHandler);
       socket.off('error', socketErrorHandler);
       socket.off('update', socketActionHandler);
+      setErrorNotified(false);
       socket.on('connect_error', socketErrorHandler);
       socket.on('error', socketErrorHandler);
       socket.on('update', socketActionHandler);
