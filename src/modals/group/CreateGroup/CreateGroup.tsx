@@ -8,7 +8,7 @@ import {useTranslation} from 'react-i18next';
 import {DialogContent, Dialog} from '@material-ui/core';
 import CreateGroupForm from './CreateGroupForm';
 import {makeStyles, createStyles} from '@material-ui/styles';
-import { useHistory } from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 
 /**
  * Styles.
