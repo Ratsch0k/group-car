@@ -769,6 +769,7 @@ it('gets list of groups on first render', async () => {
         .mockResolvedValue({data: {groups: [groups[0]]}});
       fakeApi.createGroup.mockResolvedValue({data: groups[1]});
       fakeApi.getGroup.mockResolvedValue({data: groups[1]});
+      fakeApi.getCars.mockResolvedValue({data: {cars: []}} as any);
       let groupContext: GroupContext;
   
       customRender(
@@ -798,7 +799,7 @@ it('gets list of groups on first render', async () => {
       expect(fakeApi.getGroups).toHaveBeenCalledTimes(1);
       expect(fakeApi.createGroup).toHaveBeenCalledTimes(1);
       expect(fakeApi.createGroup).toHaveBeenCalledWith(groups[1].name, groups[1].description);
-      expect(fakeApi.getGroup).toHaveBeenCalledTimes(1);
+      expect(fakeApi.getGroup).toHaveBeenCalledTimes(2);
       expect(fakeApi.getGroup).toHaveBeenCalledWith(groups[1].id);
       expect(groupContext.groups).toEqual(groups);
       expect(groupContext.selectedGroup).toEqual(groups[1]);

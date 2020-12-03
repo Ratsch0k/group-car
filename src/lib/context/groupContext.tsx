@@ -42,8 +42,9 @@ export interface GroupContext {
    * attribute `selectedGroup` will then have the
    * data of that group.
    * @param id  The id of the group which to select.
+   * @param force Disables check if group exists in list of groups
    */
-  selectGroup(id: number): Promise<void>;
+  selectGroup(id: number, force?: boolean): Promise<void>;
 
   /**
    * Creates a group with the specified data.
@@ -262,11 +263,14 @@ export const GroupProvider: React.FC = (props) => {
     /* eslint-disable-next-line */
   }, [socket]);
 
-  const selectGroup: GroupContext['selectGroup'] = async (id: number) => {
+  const selectGroup: GroupContext['selectGroup'] = async (
+    id: number,
+    force?: boolean,
+  ) => {
     if (selectedGroup === null || selectedGroup.id !== id) {
       const group = groups.find((group) => group.id === id);
 
-      if (group) {
+      if (force || group) {
         const [carRequest, groupRequest] = await Promise.all([
           getCars(id),
           getGroupApi(id),
@@ -335,8 +339,8 @@ export const GroupProvider: React.FC = (props) => {
      * set the selected group to it and update list of groups
     */
     const newGroup = (await getGroup(createGroupResponse.data.id)).data;
-    setSelectedGroup(newGroup);
     setGroups((prev) => [...prev, newGroup]);
+    await selectGroup(createGroupResponse.data.id, true);
 
     return createGroupResponse;
   };
