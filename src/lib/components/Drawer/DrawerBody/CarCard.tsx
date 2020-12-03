@@ -7,7 +7,7 @@ import {
   Theme,
   Typography,
 } from '@material-ui/core';
-import {CarWithDriver, RoleChip} from 'lib';
+import {CarWithDriver, RoleChip, useMap} from 'lib';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {createStyles, makeStyles} from '@material-ui/styles';
@@ -18,6 +18,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import clsx from 'clsx';
 import {grey} from '@material-ui/core/colors';
 import getIcon from 'lib/util/getIcon';
+import {LatLng} from 'leaflet';
 
 /**
  * Props for the car card.
@@ -129,6 +130,7 @@ export const CarCard: React.FC<CarCardProps> = (props: CarCardProps) => {
   } = props;
   const {t} = useTranslation();
   const classes = useStyles();
+  const {map} = useMap();
 
   return (
     <Card
@@ -198,9 +200,13 @@ export const CarCard: React.FC<CarCardProps> = (props: CarCardProps) => {
                 </Grid>
                 <Grid item xs={6}>
                   <Button
-                    disabled
+                    disabled={!car.latitude || !car.longitude}
                     fullWidth
                     id={`view-car-${car.carId}`}
+                    onClick={() => {
+                      // eslint-disable-next-line
+                      map?.flyTo(new LatLng(car.latitude!, car.longitude!), 18, {duration: 1});
+                    }}
                   >
                     <SearchIcon />
                     {t('drawer.cars.view')}

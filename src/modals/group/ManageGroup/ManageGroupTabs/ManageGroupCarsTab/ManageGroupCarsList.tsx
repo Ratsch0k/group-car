@@ -1,5 +1,5 @@
 import {List} from '@material-ui/core';
-import {CarWithDriver, GroupWithOwnerAndMembersAndInvitesAndCars} from 'lib';
+import {GroupWithOwnerAndMembersAndInvitesAndCars} from 'lib';
 import React from 'react';
 import ManageGroupCarsListItem from './ManageGroupCarsListItem';
 
@@ -11,11 +11,6 @@ export interface ManageGroupCarsListProps {
    * Data of the group.
    */
   group: GroupWithOwnerAndMembersAndInvitesAndCars;
-
-  /**
-   * Additional cars which the user has created.
-   */
-  additionalCars: CarWithDriver[];
 }
 
 /**
@@ -24,7 +19,7 @@ export interface ManageGroupCarsListProps {
  */
 export const ManageGroupCarsList: React.FC<ManageGroupCarsListProps> =
 (props: ManageGroupCarsListProps) => {
-  const {group, additionalCars} = props;
+  const {group} = props;
 
   return (
     <List>
@@ -32,15 +27,7 @@ export const ManageGroupCarsList: React.FC<ManageGroupCarsListProps> =
         <ManageGroupCarsListItem
           car={car}
           key={`car-${car.carId}`}
-          divider={!(additionalCars.length === 0 &&
-            index === group.cars.length - 1)}
-        />
-      ))}
-      {additionalCars.map((car, index) => (
-        <ManageGroupCarsListItem
-          car={car}
-          key={`car-${car.carId}`}
-          divider={index !== additionalCars.length - 1}
+          divider={!(index === group.cars.length - 1)}
         />
       ))}
     </List>

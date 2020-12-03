@@ -40,12 +40,6 @@ export interface ManageGroupCarsCreateDialogProps {
   group: GroupWithOwnerAndMembersAndInvitesAndCars;
 
   /**
-   * List of additional cars which the user has added
-   * in this session.
-   */
-  additionalCars: CarWithDriver[];
-
-  /**
    * Callback to add a new car to the list of
    * additional cars.
    * @param car The car
@@ -60,15 +54,14 @@ export interface ManageGroupCarsCreateDialogProps {
 export const ManageGroupCarsCreateDialog: React.FC<
   ManageGroupCarsCreateDialogProps
 > = (props: ManageGroupCarsCreateDialogProps) => {
-  const {open, close, group, additionalCars, addCar} = props;
+  const {open, close, group, addCar} = props;
   const {t} = useTranslation();
   const {createCar} = useApi();
   const availableColors = useMemo(() => {
     return Object.values(CarColor)
         .filter((color) =>
-          additionalCars.every((car) => car.color !== color) &&
           group.cars.every((car) => car.color !== color));
-  }, [additionalCars, group.cars]);
+  }, [group.cars]);
   const [color, setColor] = useState<CarColor>(availableColors[0]);
 
 

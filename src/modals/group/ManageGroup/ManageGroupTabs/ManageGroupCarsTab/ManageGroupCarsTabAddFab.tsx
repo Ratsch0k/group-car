@@ -28,13 +28,6 @@ export interface ManageGroupCarsTabAddFabProps {
   group: GroupWithOwnerAndMembersAndInvitesAndCars;
 
   /**
-   * A list of additional cars.
-   * Additional cars are cars which the user
-   * has added.
-   */
-  additionalCars: CarWithDriver[];
-
-  /**
    * Callback to add a new car.
    * @param car The car
    */
@@ -49,7 +42,7 @@ export const ManageGroupCarsTabAddFab: React.FC<ManageGroupCarsTabAddFabProps> =
 (props: ManageGroupCarsTabAddFabProps) => {
   const classes = useStyles();
   const [open, setOpen] = useState<boolean>(false);
-  const {group, addCar, additionalCars} = props;
+  const {group, addCar} = props;
 
   return (
     <>
@@ -59,7 +52,7 @@ export const ManageGroupCarsTabAddFab: React.FC<ManageGroupCarsTabAddFabProps> =
         id='create-car-fab'
         onClick={() => setOpen(true)}
         disabled={
-          additionalCars.length + group.cars.length === config.group.maxCars
+          group.cars.length === config.group.maxCars
         }
       >
         <AddIcon />
@@ -69,7 +62,6 @@ export const ManageGroupCarsTabAddFab: React.FC<ManageGroupCarsTabAddFabProps> =
         close={() => setOpen(false)}
         group={group}
         addCar={addCar}
-        additionalCars={additionalCars}
       />
     </>
   );

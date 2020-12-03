@@ -2,8 +2,8 @@ import {Grid, MenuItem, Select} from '@material-ui/core';
 import {CarColor} from 'lib';
 import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
-import RoomIcon from '@material-ui/icons/Room';
 import {makeStyles} from '@material-ui/styles';
+import getIcon from 'lib/util/getIcon';
 
 /**
  * Props for car color selection.
@@ -79,7 +79,12 @@ export const CarColorSelection: React.FC<CarColorSelectionProps> =
         >
           <Grid container alignItems='center'>
             <Grid item>
-              <RoomIcon htmlColor={color}/>
+              <img
+                src={getIcon(color)}
+                height='24x'
+                width='24px'
+                alt={`select-car-color-icon-${color}`}
+              />
             </Grid>
             <Grid item>
               {t(`misc.color.${color}`)}

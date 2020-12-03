@@ -115,6 +115,9 @@
       "empty": "Du hast keine Einladungen"
     }
   },
+  "errors": {
+    "socketConnection": "Realtime Updates konnten nicht initialisiert werden. Um Updates über die Gruppe zu erhalten müssen sie die Seite neuladen" 
+  },
   "misc": {
     "or": "oder",
     "loading": "Lade",

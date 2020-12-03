@@ -3,7 +3,7 @@ import {render, screen, fireEvent} from '@testing-library/react';
 import AuthenticationDialog from './AuthenticationDialog';
 import {MemoryRouter, Route} from 'react-router-dom';
 import '@testing-library/jest-dom/extend-expect';
-import {ModalProvider, AuthContext} from 'lib';
+import {ModalProvider, AuthContext} from '../../lib';
 
 it('renders without crashing', () => {
   render(

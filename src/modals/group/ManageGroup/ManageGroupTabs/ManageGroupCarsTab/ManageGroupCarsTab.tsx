@@ -4,12 +4,14 @@ import {
   GroupWithOwnerAndMembersAndInvitesAndCars,
   CarWithDriver,
 } from 'lib';
-import {RefObject, useEffect, useState} from 'react';
+import {RefObject, useCallback, useEffect, useState} from 'react';
 import {isAdmin as isAdminCheck} from 'lib/util';
 import React from 'react';
 import ManageGroupCarsTabAddFab from './ManageGroupCarsTabAddFab';
 import {Portal} from '@material-ui/core';
 import ManageGroupCarsList from './ManageGroupCarsList';
+import io from 'socket.io-client';
+import {SocketGroupActionData} from 'typings/socket';
 
 /**
  * Props for the cars tab.
@@ -34,6 +36,15 @@ export interface ManageGRoupCarsTabProps {
    * Portal to display the fab.
    */
   fabPortal: RefObject<HTMLDivElement>;
+
+  /**
+   * Set state action for the group state.
+   */
+  setGroup: React.Dispatch<
+    React.SetStateAction<
+      GroupWithOwnerAndMembersAndInvitesAndCars | null
+    >
+  >;
 }
 
 /**
@@ -42,18 +53,127 @@ export interface ManageGRoupCarsTabProps {
  */
 export const ManageGroupCarsTab: React.FC<ManageGRoupCarsTabProps> =
 (props: ManageGRoupCarsTabProps) => {
-  const {group, visible, className, fabPortal} = props;
+  const {group, visible, className, fabPortal, setGroup} = props;
   const {user} = useAuth();
   const [isAdmin, setIsAdmin] = useState<boolean>(
       isAdminCheck(group, user?.id));
-  const [additionalCars, setAdditionalCars] = useState<CarWithDriver[]>([]);
+  const [socket, setSocket] = useState<SocketIOClient.Socket>();
+
+  const socketActionHandler = useCallback((data: SocketGroupActionData) => {
+    switch (data.action) {
+      case 'add': {
+        if (group.cars.every((car) => car.carId !== data.car.carId)) {
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+          setGroup((group) => {
+            if (group) {
+              return {
+                ...group,
+                cars: group.cars.concat(data.car),
+              };
+            } else {
+              return group;
+            }
+          });
+        }
+        break;
+      }
+      case 'drive': {
+        if (group.cars.some((car) =>
+          car.carId === data.car.carId &&
+          car.driverId !== data.car.driverId,
+        )) {
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+          setGroup((group) => {
+            if (group) {
+              return {
+                ...group,
+                cars: group.cars.map((car) => {
+                  if (car.carId === data.car.carId) {
+                    return data.car;
+                  }
+
+                  return car;
+                }),
+              };
+            } else {
+              return group;
+            }
+          });
+        }
+        break;
+      }
+      case 'park': {
+        if (group.cars.some((car) =>
+          car.carId === data.car.carId &&
+          car.latitude !== data.car.latitude &&
+          car.longitude !== data.car.longitude,
+        )) {
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+          setGroup((group) => {
+            if (group) {
+              return {
+                ...group,
+                cars: group.cars.map((car) => {
+                  if (car.carId === data.car.carId) {
+                    return data.car;
+                  }
+
+                  return car;
+                }),
+              };
+            } else {
+              return group;
+            }
+          });
+        }
+        break;
+      }
+    }
+  }, [group.cars, setGroup]);
+
+  useEffect(() => {
+    if (socket) {
+      socket.disconnect();
+      setSocket(undefined);
+    }
+
+    setSocket(io(`/group/${group.id}`, {path: '/socket'}));
+
+    return () => {
+      if (socket) {
+        socket?.disconnect();
+        setSocket(undefined);
+      }
+    };
+    /* eslint-disable-next-line */
+  }, [group.id]);
+
+  useEffect(() => {
+    if (socket) {
+      socket.off('update', socketActionHandler);
+      socket.on('update', socketActionHandler);
+    }
+
+    return () => {
+      socket?.off('update', socketActionHandler);
+    };
+  }, [socket, socketActionHandler]);
 
   useEffect(() => {
     setIsAdmin(isAdminCheck(group, user?.id));
   }, [user, group]);
 
   const addCar = (car: CarWithDriver) => {
-    setAdditionalCars((prev) => prev.concat(car));
+    setGroup((prev) => {
+      if (prev) {
+        return {
+          ...prev,
+          cars: prev.cars.concat(car),
+        };
+      } else {
+        return prev;
+      }
+    });
   };
 
   return (
@@ -63,14 +183,13 @@ export const ManageGroupCarsTab: React.FC<ManageGRoupCarsTabProps> =
       id='group-tabpanel-cars'
       aria-labelledby='group-tab-cars'
     >
-      <ManageGroupCarsList group={group} additionalCars={additionalCars}/>
+      <ManageGroupCarsList group={group}/>
       {
         isAdmin &&
         <Portal container={fabPortal.current} >
           <ManageGroupCarsTabAddFab
             group={group}
             addCar={addCar}
-            additionalCars={additionalCars}
           />
         </Portal>
       }
