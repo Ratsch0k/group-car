@@ -820,15 +820,8 @@ describe('CarTab', () => {
     await waitFor(() => expect(fakeApi.createCar).toHaveBeenCalledTimes(1));
     expect(fakeApi.createCar).toHaveBeenCalledWith(fakeCar.groupId, fakeCar.name, fakeCar.color);
 
-    /*
-     * This snapshot test is really briddle because one or two elements are not always
-     * removed. To avoid this, the test should always wait for them to be removed.
-     * The catch block is necessary because if the element was already removed,
-     * the method would throw an error.
-     */
-    await waitForElementToBeRemoved(
-      baseElement.querySelector('span.MuiTouchRipple-child.MuiTouchRipple-childLeaving'))
-      .catch(() => undefined);
+
+    await waitFor(() => expect(baseElement.querySelector(`#car-tab-${fakeCar.carId}`)).toBeTruthy());
 
     expect(baseElement).toMatchSnapshot();
   });
