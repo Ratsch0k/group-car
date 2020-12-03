@@ -8,9 +8,10 @@ import {
 } from '@material-ui/core';
 import {red} from '@material-ui/core/colors';
 import {makeStyles} from '@material-ui/styles';
-import {ProgressButton, useGroups, useModalRouter, useSnackBar} from 'lib';
+import {ProgressButton, useGroups, useSnackBar} from 'lib';
 import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
+import {useHistory} from 'react-router-dom';
 
 /**
  * Props.
@@ -40,9 +41,9 @@ export const ManageGroupLeaveAction: React.FC<ManageGroupLeaveActionProps> =
   const {leaveGroup} = useGroups();
   const [loading, setLoading] = useState<boolean>(false);
   const {groupId} = props;
-  const {close} = useModalRouter();
   const {show} = useSnackBar();
   const [open, setOpen] = useState<boolean>(false);
+  const history = useHistory();
 
   const handleLeave = async () => {
     setLoading(true);
@@ -50,7 +51,7 @@ export const ManageGroupLeaveAction: React.FC<ManageGroupLeaveActionProps> =
       await leaveGroup(groupId);
       setLoading(false);
       show('success', t('modals.group.manage.leaveGroup.success'));
-      close();
+      history.push('/');
     } catch {
       setLoading(false);
     }

@@ -8,9 +8,10 @@ import {
   makeStyles,
 } from '@material-ui/core';
 import {red} from '@material-ui/core/colors';
-import {ProgressButton, useGroups, useModalRouter, useSnackBar} from 'lib';
+import {ProgressButton, useGroups, useSnackBar} from 'lib';
 import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
+import {useHistory} from 'react-router-dom';
 
 /**
  * Props for the group delete action.
@@ -45,10 +46,10 @@ export const ManageGroupDeleteAction: React.FC<ManageGroupDeleteActionProps> =
   const classes = useStyles();
   const {t} = useTranslation();
   const {deleteGroup} = useGroups();
-  const {close} = useModalRouter();
   const {show} = useSnackBar();
   const [open, setOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
+  const history = useHistory();
 
   const handleClick = () => {
     setOpen(true);
@@ -61,7 +62,7 @@ export const ManageGroupDeleteAction: React.FC<ManageGroupDeleteActionProps> =
       content: t('modals.group.manage.deleteGroup.success'),
       type: 'success',
     });
-    close();
+    history.push('/');
   };
 
   const handleNo = () => {

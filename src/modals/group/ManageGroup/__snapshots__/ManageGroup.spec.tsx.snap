@@ -2174,21 +2174,21 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
     aria-hidden="true"
   >
     <div
-      class="makeStyles-container-1126"
+      class="makeStyles-container-1138"
     >
       <div>
         <div
-          class="MuiBox-root MuiBox-root-1131"
+          class="MuiBox-root MuiBox-root-1143"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-1129 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-1141 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-1129 makeStyles-description-1130 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-1141 makeStyles-description-1142 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -2197,11 +2197,11 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
         </div>
       </div>
       <div
-        class="makeStyles-tabsDesktop-1127"
+        class="makeStyles-tabsDesktop-1139"
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container-1134 MuiPaper-outlined makeStyles-paperOutlined-1132 MuiPaper-rounded"
+          class="MuiPaper-root makeStyles-container-1146 MuiPaper-outlined makeStyles-paperOutlined-1144 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -2278,13 +2278,13 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-1136 PrivateTabIndicator-colorSecondary-1138 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-1148 PrivateTabIndicator-colorSecondary-1150 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-1133"
+            class="makeStyles-tabContent-1145"
             style="overflow-x: hidden;"
           >
             <div
@@ -2298,7 +2298,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-1133"
+                  class="makeStyles-tabContent-1145"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -2312,7 +2312,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-1146"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-1158"
                         >
                           <img
                             alt="user-2"
@@ -2331,7 +2331,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-1142"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-1154"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -2341,7 +2341,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-1142"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-1154"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -2362,7 +2362,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
               >
                 <div
                   aria-labelledby="group-tab-cars"
-                  class="makeStyles-tabContent-1133"
+                  class="makeStyles-tabContent-1145"
                   hidden=""
                   id="group-tabpanel-cars"
                   role="tabpanel"
@@ -2371,12 +2371,12 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
             </div>
           </div>
           <div
-            class="makeStyles-fabContainer-1135"
+            class="makeStyles-fabContainer-1147"
           >
             <div>
               <div
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiFab-root makeStyles-fab-1148 MuiFab-secondary"
+                class="MuiButtonBase-root MuiFab-root makeStyles-fab-1160 MuiFab-secondary"
                 id="member-fab"
                 role="button"
                 tabindex="0"
@@ -2402,20 +2402,20 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
             </div>
           </div>
           <div
-            class="makeStyles-fabContainer-1135"
+            class="makeStyles-fabContainer-1147"
           >
             <div />
           </div>
         </div>
       </div>
       <div
-        class="makeStyles-footer-1128"
+        class="makeStyles-footer-1140"
       >
         <div
-          class="MuiBox-root MuiBox-root-1143"
+          class="MuiBox-root MuiBox-root-1155"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-1144 MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-1156 MuiButton-fullWidth"
             tabindex="0"
             type="button"
           >
@@ -2469,7 +2469,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
           class="MuiDialogContent-root"
         >
           <p
-            class="MuiTypography-root MuiDialogContentText-root makeStyles-contentText-1145 MuiTypography-body1 MuiTypography-colorTextSecondary"
+            class="MuiTypography-root MuiDialogContentText-root makeStyles-contentText-1157 MuiTypography-body1 MuiTypography-colorTextSecondary"
           >
             modals.group.manage.deleteGroup.dialog.content
           </p>
@@ -2492,7 +2492,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
             />
           </button>
           <div
-            class="MuiBox-root MuiBox-root-1160 makeStyles-wrapper-1158"
+            class="MuiBox-root MuiBox-root-1172 makeStyles-wrapper-1170"
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -2528,21 +2528,21 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
     aria-hidden="true"
   >
     <div
-      class="makeStyles-container-1126"
+      class="makeStyles-container-1138"
     >
       <div>
         <div
-          class="MuiBox-root MuiBox-root-1131"
+          class="MuiBox-root MuiBox-root-1143"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-1129 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-1141 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-1129 makeStyles-description-1130 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-1141 makeStyles-description-1142 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -2551,11 +2551,11 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
         </div>
       </div>
       <div
-        class="makeStyles-tabsDesktop-1127"
+        class="makeStyles-tabsDesktop-1139"
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container-1134 MuiPaper-outlined makeStyles-paperOutlined-1132 MuiPaper-rounded"
+          class="MuiPaper-root makeStyles-container-1146 MuiPaper-outlined makeStyles-paperOutlined-1144 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -2632,13 +2632,13 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-1136 PrivateTabIndicator-colorSecondary-1138 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-1148 PrivateTabIndicator-colorSecondary-1150 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-1133"
+            class="makeStyles-tabContent-1145"
             style="overflow-x: hidden;"
           >
             <div
@@ -2652,7 +2652,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-1133"
+                  class="makeStyles-tabContent-1145"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -2666,7 +2666,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-1146"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-1158"
                         >
                           <img
                             alt="user-2"
@@ -2685,7 +2685,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-1142"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-1154"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -2695,7 +2695,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-1142"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-1154"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -2716,7 +2716,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
               >
                 <div
                   aria-labelledby="group-tab-cars"
-                  class="makeStyles-tabContent-1133"
+                  class="makeStyles-tabContent-1145"
                   hidden=""
                   id="group-tabpanel-cars"
                   role="tabpanel"
@@ -2725,12 +2725,12 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
             </div>
           </div>
           <div
-            class="makeStyles-fabContainer-1135"
+            class="makeStyles-fabContainer-1147"
           >
             <div>
               <div
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiFab-root makeStyles-fab-1148 MuiFab-secondary"
+                class="MuiButtonBase-root MuiFab-root makeStyles-fab-1160 MuiFab-secondary"
                 id="member-fab"
                 role="button"
                 tabindex="0"
@@ -2756,20 +2756,20 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
             </div>
           </div>
           <div
-            class="makeStyles-fabContainer-1135"
+            class="makeStyles-fabContainer-1147"
           >
             <div />
           </div>
         </div>
       </div>
       <div
-        class="makeStyles-footer-1128"
+        class="makeStyles-footer-1140"
       >
         <div
-          class="MuiBox-root MuiBox-root-1143"
+          class="MuiBox-root MuiBox-root-1155"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-1144 MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-1156 MuiButton-fullWidth"
             tabindex="0"
             type="button"
           >
@@ -2823,7 +2823,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
           class="MuiDialogContent-root"
         >
           <p
-            class="MuiTypography-root MuiDialogContentText-root makeStyles-contentText-1145 MuiTypography-body1 MuiTypography-colorTextSecondary"
+            class="MuiTypography-root MuiDialogContentText-root makeStyles-contentText-1157 MuiTypography-body1 MuiTypography-colorTextSecondary"
           >
             modals.group.manage.deleteGroup.dialog.content
           </p>
@@ -2846,7 +2846,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
             />
           </button>
           <div
-            class="MuiBox-root MuiBox-root-1160 makeStyles-wrapper-1161"
+            class="MuiBox-root MuiBox-root-1172 makeStyles-wrapper-1173"
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -2882,21 +2882,21 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
     aria-hidden="true"
   >
     <div
-      class="makeStyles-container-1044"
+      class="makeStyles-container-1052"
     >
       <div>
         <div
-          class="MuiBox-root MuiBox-root-1049"
+          class="MuiBox-root MuiBox-root-1057"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-1047 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-1055 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-1047 makeStyles-description-1048 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-1055 makeStyles-description-1056 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -2905,11 +2905,11 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
         </div>
       </div>
       <div
-        class="makeStyles-tabsDesktop-1045"
+        class="makeStyles-tabsDesktop-1053"
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container-1052 MuiPaper-outlined makeStyles-paperOutlined-1050 MuiPaper-rounded"
+          class="MuiPaper-root makeStyles-container-1060 MuiPaper-outlined makeStyles-paperOutlined-1058 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -2986,13 +2986,13 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-1054 PrivateTabIndicator-colorSecondary-1056 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-1062 PrivateTabIndicator-colorSecondary-1064 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-1051"
+            class="makeStyles-tabContent-1059"
             style="overflow-x: hidden;"
           >
             <div
@@ -3006,7 +3006,7 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-1051"
+                  class="makeStyles-tabContent-1059"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -3020,7 +3020,7 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-1064"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-1072"
                         >
                           <img
                             alt="user-2"
@@ -3039,7 +3039,7 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-1060"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-1068"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -3049,7 +3049,7 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-1060"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-1068"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -3070,7 +3070,7 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
               >
                 <div
                   aria-labelledby="group-tab-cars"
-                  class="makeStyles-tabContent-1051"
+                  class="makeStyles-tabContent-1059"
                   hidden=""
                   id="group-tabpanel-cars"
                   role="tabpanel"
@@ -3079,12 +3079,12 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
             </div>
           </div>
           <div
-            class="makeStyles-fabContainer-1053"
+            class="makeStyles-fabContainer-1061"
           >
             <div>
               <div
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiFab-root makeStyles-fab-1066 MuiFab-secondary"
+                class="MuiButtonBase-root MuiFab-root makeStyles-fab-1074 MuiFab-secondary"
                 id="member-fab"
                 role="button"
                 tabindex="0"
@@ -3110,20 +3110,20 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
             </div>
           </div>
           <div
-            class="makeStyles-fabContainer-1053"
+            class="makeStyles-fabContainer-1061"
           >
             <div />
           </div>
         </div>
       </div>
       <div
-        class="makeStyles-footer-1046"
+        class="makeStyles-footer-1054"
       >
         <div
-          class="MuiBox-root MuiBox-root-1061"
+          class="MuiBox-root MuiBox-root-1069"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-1062 MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-1070 MuiButton-fullWidth"
             tabindex="0"
             type="button"
           >
@@ -3177,7 +3177,7 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
           class="MuiDialogContent-root"
         >
           <p
-            class="MuiTypography-root MuiDialogContentText-root makeStyles-contentText-1063 MuiTypography-body1 MuiTypography-colorTextSecondary"
+            class="MuiTypography-root MuiDialogContentText-root makeStyles-contentText-1071 MuiTypography-body1 MuiTypography-colorTextSecondary"
           >
             modals.group.manage.deleteGroup.dialog.content
           </p>
@@ -3200,7 +3200,7 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
             />
           </button>
           <div
-            class="MuiBox-root MuiBox-root-1078 makeStyles-wrapper-1076"
+            class="MuiBox-root MuiBox-root-1086 makeStyles-wrapper-1084"
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
@@ -3234,21 +3234,21 @@ exports[`Footer Delete button delete group button is visible if user is owner of
 >
   <div>
     <div
-      class="makeStyles-container-1007"
+      class="makeStyles-container-1015"
     >
       <div>
         <div
-          class="MuiBox-root MuiBox-root-1012"
+          class="MuiBox-root MuiBox-root-1020"
         >
           <h5
-            class="MuiTypography-root makeStyles-text-1010 MuiTypography-h5 MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-1018 MuiTypography-h5 MuiTypography-gutterBottom"
           >
             <span>
               fake group name
             </span>
           </h5>
           <p
-            class="MuiTypography-root makeStyles-text-1010 makeStyles-description-1011 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
+            class="MuiTypography-root makeStyles-text-1018 makeStyles-description-1019 MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-gutterBottom"
           >
             <span>
               fake group description
@@ -3257,11 +3257,11 @@ exports[`Footer Delete button delete group button is visible if user is owner of
         </div>
       </div>
       <div
-        class="makeStyles-tabsDesktop-1008"
+        class="makeStyles-tabsDesktop-1016"
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container-1015 MuiPaper-outlined makeStyles-paperOutlined-1013 MuiPaper-rounded"
+          class="MuiPaper-root makeStyles-container-1023 MuiPaper-outlined makeStyles-paperOutlined-1021 MuiPaper-rounded"
         >
           <div
             class="MuiTabs-root"
@@ -3338,13 +3338,13 @@ exports[`Footer Delete button delete group button is visible if user is owner of
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root-1017 PrivateTabIndicator-colorSecondary-1019 MuiTabs-indicator"
+                class="PrivateTabIndicator-root-1025 PrivateTabIndicator-colorSecondary-1027 MuiTabs-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
           </div>
           <div
-            class="makeStyles-tabContent-1014"
+            class="makeStyles-tabContent-1022"
             style="overflow-x: hidden;"
           >
             <div
@@ -3358,7 +3358,7 @@ exports[`Footer Delete button delete group button is visible if user is owner of
               >
                 <div
                   aria-labelledby="group-tab-members"
-                  class="makeStyles-tabContent-1014"
+                  class="makeStyles-tabContent-1022"
                   id="group-tabpanel-members"
                   role="tabpanel"
                 >
@@ -3372,7 +3372,7 @@ exports[`Footer Delete button delete group button is visible if user is owner of
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-1027"
+                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-1035"
                         >
                           <img
                             alt="user-2"
@@ -3391,7 +3391,7 @@ exports[`Footer Delete button delete group button is visible if user is owner of
                         </p>
                         <span>
                           <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-1023"
+                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-1031"
                             style="margin-right: 4px;"
                           >
                             <span
@@ -3401,7 +3401,7 @@ exports[`Footer Delete button delete group button is visible if user is owner of
                             </span>
                           </div>
                           <div
-                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-1023"
+                            class="MuiChip-root MuiChip-colorSecondary MuiChip-outlined MuiChip-outlinedSecondary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall-1031"
                           >
                             <span
                               class="MuiChip-label MuiChip-labelSmall"
@@ -3422,7 +3422,7 @@ exports[`Footer Delete button delete group button is visible if user is owner of
               >
                 <div
                   aria-labelledby="group-tab-cars"
-                  class="makeStyles-tabContent-1014"
+                  class="makeStyles-tabContent-1022"
                   hidden=""
                   id="group-tabpanel-cars"
                   role="tabpanel"
@@ -3431,12 +3431,12 @@ exports[`Footer Delete button delete group button is visible if user is owner of
             </div>
           </div>
           <div
-            class="makeStyles-fabContainer-1016"
+            class="makeStyles-fabContainer-1024"
           >
             <div>
               <div
                 aria-disabled="false"
-                class="MuiButtonBase-root MuiFab-root makeStyles-fab-1029 MuiFab-secondary"
+                class="MuiButtonBase-root MuiFab-root makeStyles-fab-1037 MuiFab-secondary"
                 id="member-fab"
                 role="button"
                 tabindex="0"
@@ -3462,20 +3462,20 @@ exports[`Footer Delete button delete group button is visible if user is owner of
             </div>
           </div>
           <div
-            class="makeStyles-fabContainer-1016"
+            class="makeStyles-fabContainer-1024"
           >
             <div />
           </div>
         </div>
       </div>
       <div
-        class="makeStyles-footer-1009"
+        class="makeStyles-footer-1017"
       >
         <div
-          class="MuiBox-root MuiBox-root-1024"
+          class="MuiBox-root MuiBox-root-1032"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-1025 MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button-1033 MuiButton-fullWidth"
             tabindex="0"
             type="button"
           >

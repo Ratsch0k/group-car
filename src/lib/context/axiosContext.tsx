@@ -1,6 +1,6 @@
 import axios, {AxiosError, AxiosInstance} from 'axios';
 import {RestError, useSnackBar} from 'lib';
-import React from 'react';
+import React, {useRef} from 'react';
 
 /**
  * Context for the axios context.
@@ -27,8 +27,7 @@ AxiosContext.displayName = 'AxiosContext';
 export const AxiosProvider: React.FC = (props) => {
   const csrfSource = axios.CancelToken.source();
   const {show} = useSnackBar();
-
-  const axiosPromise = axios.head('/auth', {
+  const axiosPromise = useRef<Promise<AxiosInstance>>(axios.head('/auth', {
     cancelToken: csrfSource.token,
   }).then((res) => {
     const csrf = res.headers['xsrf-token'];
@@ -58,11 +57,11 @@ export const AxiosProvider: React.FC = (props) => {
         });
 
     return axiosInstance;
-  });
+  }));
 
   return (
     <AxiosContext.Provider value={{
-      axios: axiosPromise,
+      axios: axiosPromise.current,
     }}>
       {props.children}
     </AxiosContext.Provider>

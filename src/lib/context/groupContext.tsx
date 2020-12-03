@@ -1,7 +1,6 @@
 import React, {useState, useEffect, useContext, useCallback} from 'react';
 import {
   useApi,
-  useStateIfMounted,
   Api,
   AuthContext,
   GroupWithOwner,
@@ -147,7 +146,7 @@ export const GroupProvider: React.FC = (props) => {
     parkCar: parkCarApi,
   } = useApi();
   const {show} = useSnackBar();
-  const [groups, setGroups] = useStateIfMounted<GroupContext['groups']>([]);
+  const [groups, setGroups] = useState<GroupContext['groups']>([]);
   const [selectedGroup, setSelectedGroup] =
     useState<GroupContext['selectedGroup']>(null);
   const [groupCars, setGroupCars] = useState<GroupContext['groupCars']>(null);
@@ -294,11 +293,13 @@ export const GroupProvider: React.FC = (props) => {
   };
 
   useEffect(() => {
-    if (match && !selectedGroup) {
+    if (match && (
+      !selectedGroup || selectedGroup.id !== parseInt(match.params.id, 10)
+    )) {
       selectGroup(parseInt(match.params.id, 10));
     }
     /* eslint-disable-next-line */
-  }, [match, selectedGroup]);
+  }, [match]);
 
   const update = useCallback(async () => {
     const getGroupsResponse = await getGroups();
@@ -369,20 +370,21 @@ export const GroupProvider: React.FC = (props) => {
 
   const leaveGroup: GroupContext['leaveGroup'] = async (id) => {
     const res = await leaveGroupApi(id);
+    setGroups((prev) => prev.filter((group) => group.id !== id));
     if (id === selectedGroup?.id) {
       setSelectedGroup(null);
+      setGroupCars(null);
     }
-    setGroups((prev) => prev.filter((group) => group.id !== id));
-
     return res;
   };
 
   const deleteGroup: GroupContext['deleteGroup'] = async (id) => {
     const res = await deleteGroupApi(id);
+    setGroups((prev) => prev.filter((group) => group.id !== id));
     if (id === selectedGroup?.id) {
       setSelectedGroup(null);
+      setGroupCars(null);
     }
-    setGroups((prev) => prev.filter((group) => group.id !== id));
     return res;
   };
 

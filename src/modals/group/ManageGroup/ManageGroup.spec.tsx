@@ -1442,10 +1442,9 @@ describe('Footer', () => {
     
       fireEvent.click(screen.queryByText('modals.group.manage.leaveGroup.button'));
       fireEvent.click(screen.queryByText('misc.yes'));
-      await waitFor(() => expect(modalContext.close).toHaveBeenCalledTimes(1));
       expect(fakeGroupContext.leaveGroup).toHaveBeenCalledTimes(1);
       expect(fakeGroupContext.leaveGroup).toHaveBeenCalledWith(fakeGroup.id);
-      expect(snackbarContext.show).toHaveBeenCalledTimes(1);
+      await waitFor(() => expect(snackbarContext.show).toHaveBeenCalledTimes(1));
       expect(snackbarContext.show).toHaveBeenCalledWith('success', 'modals.group.manage.leaveGroup.success');
     });
   });
@@ -1599,7 +1598,6 @@ describe('Footer', () => {
         type: 'success',
       });
       expect(snackbarContext.show).toBeCalledTimes(1);
-      expect(modalContext.close).toBeCalledTimes(1);
     });
 
     it('clicking no on delete group dialog closes delete group dialog', async () => {
