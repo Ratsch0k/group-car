@@ -294,7 +294,7 @@ export const GroupProvider: React.FC = (props) => {
 
   useEffect(() => {
     if (match && (
-      !selectedGroup || selectedGroup.id !== parseInt(match.params.id, 10)
+      !selectedGroup
     )) {
       selectGroup(parseInt(match.params.id, 10));
     }
