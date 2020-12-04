@@ -77,7 +77,7 @@ jobs:
   deploy-dev:
     name: Deploy a development version
     runs-on: ubuntu-latest
-    need: build
+    needs: build
     if: ${{github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') && contains(github.ref, '-alpha.')}}
     env:
       SERVER_HTML_PATH_DEV: '/var/www/dev.my-group-car.de/html'
