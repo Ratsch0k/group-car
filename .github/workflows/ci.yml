@@ -2,61 +2,88 @@ name: CI Pipeline
 
 on:
   push:
+    branches:
+    tags:
+      - 'v[0-9].[0-9]+.[0-9]+'
+      - 'v[0-9].[0-9]+.[0-9]+-alpha.[0-9]+'
+      - 'v[0-9].[0-9]+.[0-9]+-beta.[0-9]+'
   pull_request:
     branches:
       - develop
       - master
+  releases:
+    types:
+      - created
 
 jobs:
-  lint:
-    name: Lint code
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: '14.x'
-      - run: yarn install
-      - name: Linting
-        run: yarn eslint
-  audit:
-    name: Audit libraries
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: '14.x'
-      - run: yarn install
-      - name: Auditing
-        run: yarn audit
+  #lint:
+  #  name: Lint code
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    - uses: actions/checkout@v2
+  #    - name: Setup Node.js
+  #      uses: actions/setup-node@v1
+  #      with:
+  #        node-version: '14.x'
+  #    - run: yarn install
+  #    - name: Linting
+  #      run: yarn eslint
+  #audit:
+  #  name: Audit libraries
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    - uses: actions/checkout@v2
+  #    - name: Setup Node.js
+  #      uses: actions/setup-node@v1
+  #      with:
+  #        node-version: '14.x'
+  #    - run: yarn install
+  #    - name: Auditing
+  #      run: yarn audit
+  #
+  #build:
+  #  name: Test building
+  #  needs: [lint, audit]
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    - uses: actions/checkout@v2
+  #    - name: Setup Node.js
+  #      uses: actions/setup-node@v1
+  #      with:
+  #        node-version: '14.x'
+  #    - run: yarn install
+  #    - name: Building
+  #      run: yarn build
+#
+  #test:
+  #  name: Test code
+  #  runs-on: ubuntu-latest
+  #  needs: build
+  #  steps:
+  #    - uses: actions/checkout@v2
+  #    - name: Setup Node.js
+  #      uses: actions/setup-node@v1
+  #      with:
+  #        node-version: '14.x'
+  #    - run: yarn install
+  #    - name: Testing
+  #      run: yarn test
   
-  build:
-    name: Test building
-    needs: [lint, audit]
+  deploy-dev:
+    name: Deploy to development version
     runs-on: ubuntu-latest
+    #needs: test
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: '14.x'
-      - run: yarn install
-      - name: Building
-        run: yarn build
-
-  test:
-    name: Test code
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: '14.x'
-      - run: yarn install
-      - name: Testing
-        run: yarn test
+      - name: Dump event name
+        env:
+          EVENT_NAME: ${{github.event_name}}
+        run: echo "$EVENT_NAME"
+      - name: Dump event payload
+        env:
+          EVENT: ${{toJSON(github.event)}}
+        run: echo "$EVENT"
+      - name: Dump ref
+        env:
+          REF: ${{github.ref}}
+        run: echo "$REF"
