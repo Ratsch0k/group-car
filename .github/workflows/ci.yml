@@ -83,4 +83,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Dump env variables
-        runs: echo "$SERVER_HTML_PATH_DEV $SERVER_IP $SERVER_USER"
+        run: echo "$SERVER_HTML_PATH_DEV $SERVER_IP $SERVER_USER"
