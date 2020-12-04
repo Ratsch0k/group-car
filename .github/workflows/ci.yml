@@ -37,7 +37,7 @@ jobs:
   test:
     name: Test code
     runs-on: ubuntu-latest
-    needs: [linter, audit]
+    needs: [lint, audit]
 
     steps:
       - uses: actions/checkout@v2
