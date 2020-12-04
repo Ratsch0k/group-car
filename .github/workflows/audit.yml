@@ -3,7 +3,7 @@ name: Audit
 on: push
 
 jobs:
-  linter:
+  audit:
     name: Audit libraries
     runs-on: ubuntu-latest
 

@@ -3,9 +3,10 @@ name: Test
 on: push
 
 jobs:
-  linter:
+  test:
     name: Test code
     runs-on: ubuntu-latest
+    needs: [linter, audit]
 
     steps:
       - uses: actions/checkout@v2
