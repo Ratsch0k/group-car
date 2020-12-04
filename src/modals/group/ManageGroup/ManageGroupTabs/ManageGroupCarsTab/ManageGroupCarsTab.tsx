@@ -165,7 +165,7 @@ export const ManageGroupCarsTab: React.FC<ManageGRoupCarsTabProps> =
 
   const addCar = (car: CarWithDriver) => {
     setGroup((prev) => {
-      if (prev) {
+      if (prev && prev.cars.every((item) => item.carId !== car.carId)) {
         return {
           ...prev,
           cars: prev.cars.concat(car),
