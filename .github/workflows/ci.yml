@@ -72,6 +72,7 @@ jobs:
   deploy-dev:
     name: Deploy to development version
     runs-on: ubuntu-latest
+    if: ${{github.event_name == "push" && startsWith(github.ref, "refs/tags") && contains(github.ref, "-alpha.")}}
     #needs: test
     steps:
       - uses: actions/checkout@v2
