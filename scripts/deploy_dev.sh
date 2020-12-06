@@ -1,11 +1,9 @@
 #!/bin/bash
 set -e
 
-# encrypt key
-openssl aes-256-cbc -K $encrypted_e9ce4c9f2f9f_key -iv $encrypted_e9ce4c9f2f9f_iv -in deploy-key.enc -out deploy-key -d
-rm deploy-key.enc
-chmod 600 deploy-key
-mv deploy-key ~/.ssh/id_rsa
+# import ssh key
+echo "$SSH_KEY" > ~/.ssh/id_ed25519
+chmod 600 ~/.ssh/id_ed25519
 
 # change to build directory, initialize local repository and push to server
 cd build
