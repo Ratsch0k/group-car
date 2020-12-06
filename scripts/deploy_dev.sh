@@ -2,7 +2,7 @@
 set -e
 
 # import ssh key
-touch ~/.ssh/id_ed25519
+mkdir ~/.ssh
 echo "$SSH_KEY" > ~/.ssh/id_ed25519
 chmod 600 ~/.ssh/id_ed25519
 
