@@ -82,7 +82,7 @@ jobs:
     env:
       SERVER_HTML_PATH_DEV: '/var/www/dev.my-group-car.de/html'
       SSH_KEY: ${{secrets.SSH_KEY_DEV}}
-      SSH_KEY_PUBLIC: ${{secrets.SSH_KEY_PUBLIC_DEV}}
+      SSH_KNOWN_HOST: ${{secrets.SSH_KNOWN_HOST_DEV}}
       SERVER_USER: 'deploy-dev'
     steps:
       - uses: actions/checkout@v2
