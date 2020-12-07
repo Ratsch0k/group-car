@@ -2,7 +2,7 @@ name: CI Pipeline
 
 on:
   push:
-    branches: {}
+    branches:
     tags:
       - 'v[0-9].[0-9]+.[0-9]+'
       - 'v[0-9].[0-9]+.[0-9]+-alpha.[0-9]+'
