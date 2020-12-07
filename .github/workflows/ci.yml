@@ -81,6 +81,7 @@ jobs:
     env:
       SERVER_HTML_PATH_DEV: '/var/www/dev.my-group-car.de/html'
       SSH_KEY: ${{secrets.SSH_KEY_DEV}}
+      SSH_KEY_PUBLIC: ${{secrets.SSH_KEY_PUBLIC_DEV}}
       SERVER_USER: 'deploy-dev'
     steps:
       - uses: actions/checkout@v2
@@ -93,6 +94,8 @@ jobs:
         run: yarn doc
       - name: Build
         run: yarn build --prod
+      - name: Configure ssh
+        run: bash scripts/configure_ssh.sh
       - name: Deploy
         run: bash scripts/deploy_dev.sh
 
