@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropsWithChildren} from 'react';
 
 /**
  * Props for TabPanel
@@ -17,7 +17,12 @@ export interface TabPanelProps {
  * Tab panel for `Tabs`.
  * @param props Props
  */
-export const TabPanel: React.FC<TabPanelProps> = (props) => {
+export const TabPanel =
+// eslint-disable-next-line react/display-name
+React.forwardRef<
+  HTMLDivElement,
+  PropsWithChildren<TabPanelProps>
+>((props, ref) => {
   return (
     <div
       className={props.className}
@@ -25,10 +30,11 @@ export const TabPanel: React.FC<TabPanelProps> = (props) => {
       hidden={!props.visible}
       id={props.id}
       aria-labelledby={props['aria-labelledby']}
+      ref={ref}
     >
       {props.visible && props.children}
     </div>
   );
-};
+});
 
 export default TabPanel;

@@ -32,14 +32,21 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
       marginTop: theme.shape.headerHeight,
     },
     footer: {
-      bottom: 0,
-      position: 'absolute',
+      flex: '0 0 auto',
     },
     body: {
       paddingTop: theme.spacing(2),
+      paddingBottom: theme.spacing(2),
+      flex: '1 1 100%',
+      overflow: 'hidden',
     },
     container: {
-      height: `calc(100% - ${theme.shape.headerHeight}px)`,
+      display: 'flex',
+      flexDirection: 'column',
+      height: '100%',
+    },
+    header: {
+      flex: '0 0 auto',
     },
   }),
 );
@@ -57,6 +64,9 @@ export const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
       onClose={onClose}
       className={clsx(classes.drawer, {[classes.drawerPermanent]: permanent})}
       variant={permanent ? 'permanent': 'temporary'}
+      ModalProps={{
+        keepMounted: true,
+      }}
       classes={{
         paper: clsx(
             classes.drawerPaper,
@@ -69,18 +79,20 @@ export const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
       <Box className={classes.container}>
         {
           !permanent &&
-            <DrawerHeader close={onClose} noCloseButton={permanent}/>
+            <Box className={classes.header}>
+              <DrawerHeader close={onClose} noCloseButton={permanent}/>
+            </Box>
         }
         {
             isLoggedIn ?
-            <Box>
-              <Container className={classes.body}>
-                <DrawerBody />
-              </Container>
-              <DrawerFooter className={classes.footer}/>
-            </Box> :
+            <Container className={classes.body}>
+              <DrawerBody />
+            </Container> :
             <DrawerNotLoggedIn />
         }
+        <Box className={classes.footer}>
+          <DrawerFooter className={classes.footer}/>
+        </Box>
       </Box>
     </MatDrawer>
   );

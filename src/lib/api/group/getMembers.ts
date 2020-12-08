@@ -27,6 +27,6 @@ export const getMembers: GetMembers = (
   }
 
   return axios.get<GetMembersResponse>(
-      `/api/group/${id}/members`,
+      `/api/group/${id}/member`,
   );
 };

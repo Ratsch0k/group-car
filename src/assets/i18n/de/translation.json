@@ -19,6 +19,7 @@
     "logout": "Abmelden",
     "email": "Email",
     "password": "Passwort",
+    "name": "Name",
     "error": {
       "required": "Benötigt",
       "atLeast6": "Muss mindestens 6 Zeichen haben",
@@ -48,6 +49,20 @@
         "select": "Wähle eine Gruppe",
         "create": "Neue Gruppe erstellen"
       }
+    },
+    "cars": {
+      "drivenBy": "Wird gerade von {{driver}} benutzt",
+      "drive": "Fahre",
+      "view": "Standort",
+      "parkCurrent": "Parke hier",
+      "parkMap": "Parke auf Karte",
+      "youAreDriving": "Fährst du gerade",
+      "gettingLocation": "Standort wird ermittelt"
+    },
+    "selectLocation": {
+      "title": "Wähle den Standort",
+      "showCar": "Ausgewähltes Auto: {{name}}",
+      "description": "Klicke auf die Karte um einen Standort zu wählen. Klicke \"Bestätigen\" um das Auto am ausgewählten Standort zu parken."
     }
   },
   "modals": {
@@ -70,7 +85,11 @@
             }
           },
           "cars": {
-            "title": "Autos"
+            "title": "Autos",
+            "drivenBy": "Wird gerade von {{driver}} benutzt",
+            "create": {
+              "title": "Neues Auto erstellen"
+            }
           }
         },
         "leaveGroup": {
@@ -96,6 +115,9 @@
       "empty": "Du hast keine Einladungen"
     }
   },
+  "errors": {
+    "socketConnection": "Realtime Updates konnten nicht initialisiert werden. Um Updates über die Gruppe zu erhalten müssen sie die Seite neuladen" 
+  },
   "misc": {
     "or": "oder",
     "loading": "Lade",
@@ -107,7 +129,23 @@
     "delete": "Löschen",
     "close": "Schließen",
     "yes": "Ja",
-    "no": "Nein"
+    "no": "Nein",
+    "clear": "Löschen",
+    "create": "Erstelle",
+    "available": "Verfügbar",
+    "confirm": "Bestätigen",
+    "cancel": "Abbrechen",
+    "color": {
+      "Red": "Rot",
+      "Black": "Schwarz",
+      "White": "Weiß",
+      "Green": "Grün",
+      "Blue": "Blau",
+      "Yellow": "Gelb",
+      "Purple": "Lila",
+      "Brown": "Braun",
+      "Orange": "Orange"
+    }
   },
   "imprint": {
     "title": "Impressum"

@@ -8,6 +8,7 @@ import {useTranslation} from 'react-i18next';
 import {DialogContent, Dialog} from '@material-ui/core';
 import CreateGroupForm from './CreateGroupForm';
 import {makeStyles, createStyles} from '@material-ui/styles';
+import {useHistory} from 'react-router-dom';
 
 /**
  * Styles.
@@ -28,15 +29,15 @@ export const CreateGroup: React.FC = () => {
   const {t} = useTranslation();
   const classes = useStyles();
   const [loading, setLoading] = useState<boolean>(false);
-  const {goTo} = useModalRouter();
+  const history = useHistory();
 
   /**
    * Handles if the component should navigate to the
    * route for managing the group.
    * @param id id of the group
    */
-  const navToGroupManagement = (id: number) => {
-    goTo(`/group/manage/${id}`);
+  const navToGroupManagement = async (id: number) => {
+    history.push(`/group/${id}?modal=/group/manage/${id}`);
   };
 
   /**

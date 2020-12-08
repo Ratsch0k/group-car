@@ -7,3 +7,4 @@ export * from './useGroups';
 export * from './useAuth';
 export * from './useInvites';
 export * from './useSnackbar';
+export * from './useMap';

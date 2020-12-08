@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, Dispatch, SetStateAction} from 'react';
 import {useGroups} from 'lib/hooks';
 import {
   MenuList,
@@ -21,6 +21,16 @@ export interface GroupSelectionMenuProps {
    * Callback for closing the menu.
    */
   close(): void;
+
+  /**
+   * Whether or not this component should be in the loading state.
+   */
+  loading: boolean;
+
+  /**
+   * Set the loading state.
+   */
+  setLoading: Dispatch<SetStateAction<boolean>>;
 }
 
 /**
@@ -59,9 +69,16 @@ export const GroupSelectionMenu: React.FC<GroupSelectionMenuProps> =
         <MenuItem
           key={`select-group-${group.id}`}
           button
-          onClick={() => {
-            selectGroup(group.id);
-            props.close();
+          disabled={props.loading}
+          onClick={async () => {
+            props.setLoading(true);
+            try {
+              await selectGroup(group.id);
+              props.setLoading(false);
+              props.close();
+            } catch {
+              props.setLoading(false);
+            }
           }}
         >
           {group.name}
@@ -78,6 +95,7 @@ export const GroupSelectionMenu: React.FC<GroupSelectionMenuProps> =
       <IconButton
         onClick={props.goBack}
         color='inherit'
+        disabled={props.loading}
       >
         <ArrowBackIcon/>
       </IconButton>

@@ -9,10 +9,11 @@ import {
   AxiosProvider,
   ApiProvider,
   InvitesProvider,
+  MapProvider,
+  GroupProvider,
+  SnackbarProvider,
 } from 'lib';
 import ModalRoutes from 'modals';
-import GroupProvider from 'lib/context/groupContext';
-import SnackbarProvider from 'lib/context/snackbarContext';
 
 const App: React.FC = () => {
   return (
@@ -23,12 +24,14 @@ const App: React.FC = () => {
             <BrowserRouter>
               <ModalRouter>
                 <AuthProvider>
-                  <GroupProvider>
-                    <InvitesProvider>
-                      <GroupCar />
-                      <ModalRoutes />
-                    </InvitesProvider>
-                  </GroupProvider>
+                  <MapProvider>
+                    <GroupProvider>
+                      <InvitesProvider>
+                        <GroupCar />
+                        <ModalRoutes />
+                      </InvitesProvider>
+                    </GroupProvider>
+                  </MapProvider>
                 </AuthProvider>
               </ModalRouter>
             </BrowserRouter>

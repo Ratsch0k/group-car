@@ -4,8 +4,8 @@ import {
   useStateIfMounted,
   CenteredCircularProgress,
   useGroups,
-  GroupWithOwnerAndMembersAndInvites,
   useApi,
+  GroupWithOwnerAndMembersAndInvitesAndCars,
 } from 'lib';
 import ManageGroupErrorHandler from './ManageGroupNoGroupError';
 import {ManageGroupOverview} from './ManageGroupOverview';
@@ -31,10 +31,10 @@ export interface ManageGroupProps {
 export const ManageGroup: React.FC<ManageGroupProps> =
 (props: ManageGroupProps) => {
   const {getGroup} = useGroups();
-  const {getInvitesOfGroup, getMembers} = useApi();
+  const {getInvitesOfGroup, getMembers, getCars} = useApi();
   const {groupId: groupIdParam} = useParams<{groupId: string}>();
   const [groupData, setGroupData] =
-      useStateIfMounted<GroupWithOwnerAndMembersAndInvites | null>(null);
+      useStateIfMounted<GroupWithOwnerAndMembersAndInvitesAndCars | null>(null);
   const [error, setError] = useStateIfMounted<RestError | null | boolean>(null);
 
 
@@ -56,11 +56,13 @@ export const ManageGroup: React.FC<ManageGroupProps> =
         getGroup(selectedGroupId),
         getMembers(selectedGroupId),
         getInvitesOfGroup(selectedGroupId),
-      ]).then(([group, members, invites]) => {
+        getCars(selectedGroupId),
+      ]).then(([group, members, invites, cars]) => {
         setGroupData({
           ...group.data,
           invites: invites.data.invites,
           members: members.data.members,
+          cars: cars.data.cars,
         });
       }).catch(() => {
         setError(true);
@@ -70,12 +72,12 @@ export const ManageGroup: React.FC<ManageGroupProps> =
     }
 
     // eslint-disable-next-line
-  }, [props, groupIdParam]);
+  }, [props.groupId, groupIdParam]);
 
   if (groupData === null && error === null) {
     return <CenteredCircularProgress />;
   } else if (error === null && groupData !== null) {
-    return <ManageGroupOverview group={groupData}/>;
+    return <ManageGroupOverview group={groupData} setGroup={setGroupData}/>;
   } else {
     return <ManageGroupErrorHandler/>;
   }

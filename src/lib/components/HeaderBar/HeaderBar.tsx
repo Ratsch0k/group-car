@@ -65,6 +65,7 @@ export const HeaderBar: React.FC<HeaderBarProps> = (props: HeaderBarProps) => {
         <IconButton
           color='inherit'
           className={clsx({[classes.smallIconButton]: smallerXs})}
+          disabled
         >
           <EmojiTransportationIcon fontSize={smallerXs ? 'default' : 'large'}/>
         </IconButton>

@@ -19,6 +19,7 @@
     "username": "Username",
     "email": "Email",
     "password": "Password",
+    "name": "Name",
     "error": {
       "required": "Required",
       "atLeast6": "At least 6 characters",
@@ -46,6 +47,20 @@
         "select": "Select a group",
         "create": "Create a new group"
       }
+    },
+    "cars": {
+      "drivenBy": "Currently used by {{driver}}",
+      "drive": "Drive",
+      "view": "Location",
+      "parkCurrent": "Park here",
+      "parkMap": "Park on map",
+      "youAreDriving": "You are driving this car",
+      "gettingLocation": "Getting location"
+    },
+    "selectLocation": {
+      "title": "Select a location",
+      "showCar": "Selected car: {{name}}",
+      "description": "Click on the map to select a location. Then, click \"confirm\" to park the car at the selected location."
     }
   },
   "modals": {
@@ -68,7 +83,11 @@
             }
           },
           "cars": {
-            "title": "Cars"
+            "title": "Cars",
+            "drivenBy": "Currently used by {{driver}}",
+            "create": {
+              "title": "Create a new car"
+            }
           }
         }
       },
@@ -94,6 +113,9 @@
       "empty": "You have no invites"
     }
   },
+  "errors": {
+    "socketConnection": "Could not initialize realtime update. To receive update about the selected group, you'll have to reload the page." 
+  },
   "misc": {
     "or": "or",
     "loading": "Loading",
@@ -105,7 +127,23 @@
     "delete": "Delete",
     "close": "Close",
     "yes": "Yes",
-    "no": "No"
+    "no": "No",
+    "clear": "Clear",
+    "create": "Create",
+    "available": "Available",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "color": {
+      "Red": "Red",
+      "Black": "Black",
+      "White": "White",
+      "Green": "Green",
+      "Blue": "Blue",
+      "Yellow": "Yellow",
+      "Purple": "Purple",
+      "Brown": "Brown",
+      "Orange": "Orange"
+    }
   },
   "imprint": {
     "title": "Imprint"

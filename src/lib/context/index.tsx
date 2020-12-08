@@ -4,3 +4,4 @@ export * from './apiContext';
 export * from './groupContext';
 export * from './invitesContext';
 export * from './snackbarContext';
+export * from './mapContext';

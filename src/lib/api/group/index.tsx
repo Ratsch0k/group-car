@@ -9,3 +9,7 @@ export * from './leaveGroup';
 export * from './deleteGroup';
 export * from './grantAdmin';
 export * from './revokeAdmin';
+export * from './createCar';
+export * from './getCars';
+export * from './driveCar';
+export * from './parkCar';
