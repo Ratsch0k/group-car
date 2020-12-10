@@ -104,7 +104,7 @@ export const InvitesProvider: React.FC<InvitesProviderProps> = (props) => {
       }
     };
     // eslint-disable-next-line
-  }, [interval, getInvitesOfUser, isLoggedIn]);
+  }, [interval, isLoggedIn]);
 
   return (
     <InvitesContext.Provider value={{

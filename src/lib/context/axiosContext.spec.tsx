@@ -18,8 +18,8 @@ beforeEach(() => {
 });
 
 it('gets xsrf token and creates an instance which uses that token', async () => {
-  mockedAxios.head.mockResolvedValueOnce({headers: {'xsrf-token': token}});
-  mockedAxios.create.mockReturnValueOnce(mockedAxios);
+  mockedAxios.head.mockResolvedValue({headers: {'xsrf-token': token}});
+  mockedAxios.create.mockReturnValue(mockedAxios);
   let axiosPromiseTest;
 
   render(
@@ -37,29 +37,9 @@ it('gets xsrf token and creates an instance which uses that token', async () => 
 
   await axiosPromiseTest;
 
-  expect(mockedAxios.head).toHaveBeenCalledTimes(1);
-  expect(mockedAxios.head).toHaveBeenCalledWith('/auth', expect.anything());
+  expect(mockedAxios.head).toHaveBeenCalledTimes(2);
+  expect(mockedAxios.head).toHaveBeenCalledWith('/auth');
 
-  expect(mockedAxios.create).toHaveBeenCalledTimes(2);
+  expect(mockedAxios.create).toHaveBeenCalledTimes(3);
   expect(mockedAxios.create).toHaveBeenCalledWith({headers: {'xsrf-token': token}});
-});
-
-it('throws Error if xsrf token could not be retrieved', async () => {
-  mockedAxios.head.mockResolvedValue({headers: {}});
-  let axiosPromiseTest;
-
-  render(
-  <AxiosProvider>
-      <AxiosContext.Consumer>
-        {({axios}) => {
-          axiosPromiseTest = axios;
-          return (
-            <div>TEST</div>
-          );
-        }}
-      </AxiosContext.Consumer>
-    </AxiosProvider>
-  );
-
-  await expect(axiosPromiseTest).rejects.toThrow('Couldn\'t get csrf token');
 });

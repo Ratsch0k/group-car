@@ -5,7 +5,7 @@ import {
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import {Alert} from '@material-ui/lab';
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 
 /**
@@ -46,7 +46,7 @@ export const SnackbarProvider: React.FC = (props) => {
   const [activeSnack, setActiveSnack] = useState<ShowOptions>();
   const {t} = useTranslation();
 
-  const show: Show = (
+  const show: Show = useCallback((
       typeOrOptions,
       content,
   ) => {
@@ -68,7 +68,7 @@ export const SnackbarProvider: React.FC = (props) => {
 
     setOpen(false);
     setQueue((prev) => [...prev, options]);
-  };
+  }, []);
 
   useEffect(() => {
     if (!open && queue.length && !activeSnack) {
@@ -80,7 +80,7 @@ export const SnackbarProvider: React.FC = (props) => {
     }
   }, [open, queue, activeSnack]);
 
-  const handleClose = (
+  const handleClose = useCallback((
       event: React.SyntheticEvent<unknown, Event>,
       reason: SnackbarCloseReason,
   ) => {
@@ -88,11 +88,11 @@ export const SnackbarProvider: React.FC = (props) => {
       return;
     }
     setOpen(false);
-  };
+  }, []);
 
-  const handleOnExited = () => {
+  const handleOnExited = useCallback(() => {
     setActiveSnack(undefined);
-  };
+  }, []);
 
   return (
     <SnackbarContext.Provider value={{show}}>

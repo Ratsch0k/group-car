@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import {
   LoginRequest,
   LogOutRequest,
@@ -6,7 +6,7 @@ import {
   SignUpRequest,
   User,
 } from 'lib';
-import {AxiosResponse} from 'axios';
+import {AxiosError, AxiosResponse} from 'axios';
 import {useAxios, useModalRouter} from 'lib/hooks';
 import {useApi} from 'lib/hooks/useApi';
 import {useHistory} from 'react-router-dom';
@@ -52,23 +52,31 @@ export const AuthProvider: React.FC = (props) => {
   const api = useApi();
   const {axios} = useAxios();
   const history = useHistory();
+  const errorHandler = useCallback((error: AxiosError) => {
+    if (error.response &&
+      error.response.data.detail &&
+      error.response.data.detail.errorName === 'NotLoggedInError' &&
+      isLoggedIn &&
+      user !== undefined
+    ) {
+      setUser(undefined);
+      setIsLoggedIn(false);
+    }
+    return Promise.reject(error);
+  }, [user, isLoggedIn]);
 
   /**
    * Register response interceptor which
    * reacts to the NotLoggedInError and
    * logs the user out.
    */
-  axios.then((axiosInstance) => {
-    axiosInstance.interceptors.response.use((response) => {
-      return response;
-    }, (error) => {
-      if (error.errorName === 'NotLoggedInError') {
-        setUser(undefined);
-        setIsLoggedIn(false);
-      }
-      return Promise.reject(error);
+  useEffect(() => {
+    axios.then((axiosInstance) => {
+      axiosInstance.interceptors.response.use((response) => {
+        return response;
+      }, errorHandler);
     });
-  });
+  }, [axios, errorHandler]);
 
   // Send request which checks if client is logged in
   useEffect(() => {
