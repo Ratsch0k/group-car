@@ -3,7 +3,6 @@ import React from 'react';
 import { LatLng, latLng, Map } from "leaflet";
 import { CarColor, GroupContext, MapContext } from "../../lib";
 import MapComponent from './Map';
-import { group } from "console";
 
 describe('Map', () => {
   const customRender = (mapContext: MapContext, groupContext: GroupContext) => {
