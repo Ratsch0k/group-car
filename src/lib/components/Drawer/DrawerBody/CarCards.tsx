@@ -28,17 +28,17 @@ export const CarCards: React.FC = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [drivingCars, setDrivingCars] = useState<CarWithDriver[]>(
-    groupCars?.filter((car) => car.driverId === user?.id) || [],
+      groupCars?.filter((car) => car.driverId === user?.id) || [],
   );
   const [availableCars, setAvailableCars] = useState<CarWithDriver[]>(
-    groupCars?.filter((car) => car.driverId === null) || [],
+      groupCars?.filter((car) => car.driverId === null) || [],
   );
   const {show} = useSnackBar();
   const [usedCars, setUsedCars] = useState<CarWithDriver[]>(
-    groupCars?.filter((car) =>
-      car.driverId !== null &&
-      car.driverId !== user?.id
-    ) || [],
+      groupCars?.filter((car) =>
+        car.driverId !== null &&
+      car.driverId !== user?.id,
+      ) || [],
   );
 
   const handleAddDrivingCar = async (car: CarWithDriver) => {
@@ -56,7 +56,9 @@ export const CarCards: React.FC = () => {
     setOpen(true);
 
     try {
-      const position = await new Promise<Position>((resolve, reject) => {
+      const position = await new Promise<
+        GeolocationPosition
+      >((resolve, reject) => {
         navigator.geolocation.getCurrentPosition((position) => {
           resolve(position);
         }, (error) => {
@@ -65,7 +67,7 @@ export const CarCards: React.FC = () => {
       });
       await parkCar(carId, position.coords.latitude, position.coords.longitude);
     } catch (e) {
-      show('error', (e as PositionError).message);
+      show('error', (e as GeolocationPositionError).message);
     } finally {
       setOpen(false);
       setLoading(false);
@@ -73,10 +75,10 @@ export const CarCards: React.FC = () => {
   };
 
   const parkCar = async (
-    carId: number,
-    latitude:
+      carId: number,
+      latitude:
      number,
-    longitude: number,
+      longitude: number,
   ) => {
     setLoading(true);
 
@@ -92,10 +94,10 @@ export const CarCards: React.FC = () => {
     setDrivingCars(groupCars?.filter((car) => car.driverId === user?.id) || []);
     setAvailableCars(groupCars?.filter((car) => car.driverId === null) || []);
     setUsedCars(
-      groupCars?.filter((car) =>
-        car.driverId !== null &&
-        car.driverId !== user?.id
-      ) || []);
+        groupCars?.filter((car) =>
+          car.driverId !== null &&
+        car.driverId !== user?.id,
+        ) || []);
   }, [groupCars, user]);
 
   return (

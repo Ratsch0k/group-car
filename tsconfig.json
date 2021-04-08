@@ -17,9 +17,13 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "baseUrl": "src",
-    "typeRoots": ["./node_modules/@types", "./src/typings"]
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/typings"
+    ],
+    "noFallthroughCasesInSwitch": true
   },
   "include": [
     "src/**/*"

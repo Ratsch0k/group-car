@@ -5,10 +5,10 @@ import {
   IconButton,
   makeStyles,
   TextField,
-  Theme,
   useMediaQuery,
   withStyles,
   useTheme,
+  Theme,
 } from '@material-ui/core';
 import {Autocomplete} from '@material-ui/lab';
 import clsx from 'clsx';

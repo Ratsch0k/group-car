@@ -40,6 +40,6 @@ it('gets xsrf token and creates an instance which uses that token', async () => 
   expect(mockedAxios.head).toHaveBeenCalledTimes(2);
   expect(mockedAxios.head).toHaveBeenCalledWith('/auth');
 
-  expect(mockedAxios.create).toHaveBeenCalledTimes(3);
+  expect(mockedAxios.create).toHaveBeenCalledTimes(2);
   expect(mockedAxios.create).toHaveBeenCalledWith({headers: {'xsrf-token': token}});
 });

@@ -7,8 +7,6 @@ import {grey} from '@material-ui/core/colors';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 type AxiosResponse = import('axios').AxiosResponse;
-type AxiosError = import('axios').AxiosError;
-type TCancel = import('axios').Cancel;
 
 
 interface GenerateProfilePicProps {
