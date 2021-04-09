@@ -8,6 +8,7 @@
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
     "@material-ui/styles": "^4.11.2",
+    "@reduxjs/toolkit": "^1.5.1",
     "axios": "^0.21.1",
     "clsx": "^1.1.0",
     "formik": "^2.1.4",
@@ -20,9 +21,11 @@
     "react-dom": "^17.0.0",
     "react-i18next": "^11.3.5",
     "react-leaflet": "^3.0.2",
+    "react-redux": "^7.2.3",
     "react-router-dom": "^5.1.2",
     "react-swipeable-views": "^0.13.9",
     "react-transition-group": "^4.4.1",
+    "redux": "^4.0.5",
     "serialize-javascript": ">=3.1.0",
     "socket.io-client": "^2.3.0",
     "yup": "^0.28.4"
@@ -52,6 +55,7 @@
     ]
   },
   "devDependencies": {
+    "@redux-devtools/core": "^3.9.0",
     "@testing-library/dom": "^7.22.2",
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^10.0.3",
@@ -64,6 +68,7 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/react-i18next": "^8.1.0",
+    "@types/react-redux": "^7.1.16",
     "@types/react-router-dom": "^5.1.5",
     "@types/react-swipeable-views": "^0.13.0",
     "@types/react-transition-group": "^4.4.0",
