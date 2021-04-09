@@ -38,9 +38,6 @@ exports[`if user is logged in park at current location get current location, sen
                     >
                       Group
                     </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
                   </button>
                 </div>
               </div>
@@ -116,9 +113,6 @@ exports[`if user is logged in park at current location get current location, sen
                                 </svg>
                                 drawer.cars.parkCurrent
                               </span>
-                              <span
-                                class="MuiTouchRipple-root"
-                              />
                             </button>
                           </div>
                           <div
@@ -149,9 +143,6 @@ exports[`if user is logged in park at current location get current location, sen
                                   drawer.cars.parkMap
                                 </p>
                               </span>
-                              <span
-                                class="MuiTouchRipple-root"
-                              />
                             </button>
                           </div>
                         </div>
@@ -232,9 +223,6 @@ exports[`if user is logged in park at current location get current location, sen
                                 </svg>
                                 drawer.cars.drive
                               </span>
-                              <span
-                                class="MuiTouchRipple-root"
-                              />
                             </button>
                           </div>
                           <div
@@ -460,9 +448,6 @@ exports[`if user is logged in park at current location shows snackbar if current
                     >
                       Group
                     </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
                   </button>
                 </div>
               </div>
@@ -538,9 +523,6 @@ exports[`if user is logged in park at current location shows snackbar if current
                                 </svg>
                                 drawer.cars.parkCurrent
                               </span>
-                              <span
-                                class="MuiTouchRipple-root"
-                              />
                             </button>
                           </div>
                           <div
@@ -571,9 +553,6 @@ exports[`if user is logged in park at current location shows snackbar if current
                                   drawer.cars.parkMap
                                 </p>
                               </span>
-                              <span
-                                class="MuiTouchRipple-root"
-                              />
                             </button>
                           </div>
                         </div>
@@ -654,9 +633,6 @@ exports[`if user is logged in park at current location shows snackbar if current
                                 </svg>
                                 drawer.cars.drive
                               </span>
-                              <span
-                                class="MuiTouchRipple-root"
-                              />
                             </button>
                           </div>
                           <div
@@ -925,9 +901,6 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                     >
                       misc.cancel
                     </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
                   </button>
                 </div>
               </div>
@@ -1010,9 +983,6 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                     >
                       Group
                     </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
                   </button>
                 </div>
               </div>
@@ -1088,9 +1058,6 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                                 </svg>
                                 drawer.cars.parkCurrent
                               </span>
-                              <span
-                                class="MuiTouchRipple-root"
-                              />
                             </button>
                           </div>
                           <div
@@ -1121,9 +1088,6 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                                   drawer.cars.parkMap
                                 </p>
                               </span>
-                              <span
-                                class="MuiTouchRipple-root"
-                              />
                             </button>
                           </div>
                         </div>
@@ -1204,9 +1168,6 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                                 </svg>
                                 drawer.cars.drive
                               </span>
-                              <span
-                                class="MuiTouchRipple-root"
-                              />
                             </button>
                           </div>
                           <div
@@ -1404,9 +1365,6 @@ exports[`if user is logged in park with map SelectLocation clicking on map will 
                     >
                       misc.cancel
                     </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
                   </button>
                 </div>
               </div>
@@ -1534,9 +1492,6 @@ exports[`if user is logged in park with map clicking on park on map sets selecte
                     >
                       misc.cancel
                     </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
                   </button>
                 </div>
               </div>
@@ -1619,9 +1574,6 @@ exports[`if user is logged in renders create group button if user has no groups 
                   >
                     drawer.createGroup
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
               </div>
               <div
@@ -1710,9 +1662,6 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
                     >
                       Group
                     </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
                   </button>
                 </div>
               </div>
@@ -1788,9 +1737,6 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
                                 </svg>
                                 drawer.cars.parkCurrent
                               </span>
-                              <span
-                                class="MuiTouchRipple-root"
-                              />
                             </button>
                           </div>
                           <div
@@ -1821,9 +1767,6 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
                                   drawer.cars.parkMap
                                 </p>
                               </span>
-                              <span
-                                class="MuiTouchRipple-root"
-                              />
                             </button>
                           </div>
                         </div>
@@ -1904,9 +1847,6 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
                                 </svg>
                                 drawer.cars.drive
                               </span>
-                              <span
-                                class="MuiTouchRipple-root"
-                              />
                             </button>
                           </div>
                           <div
@@ -2059,9 +1999,6 @@ exports[`if user is logged in renders select group button if user has at least o
                     >
                       drawer.groupMenu.noSelection
                     </span>
-                    <span
-                      class="MuiTouchRipple-root"
-                    />
                   </button>
                 </div>
               </div>
@@ -2170,9 +2107,6 @@ exports[`renders NotLoggedIn component if user is not logged in 1`] = `
                   />
                 </svg>
               </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
             </button>
           </div>
         </div>
@@ -2293,9 +2227,6 @@ exports[`renders and matches snapshot with not open and not permanent without cr
                   />
                 </svg>
               </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
             </button>
           </div>
         </div>
@@ -2485,9 +2416,6 @@ exports[`renders and matches snapshot with open and not permanent without crashi
                   />
                 </svg>
               </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
             </button>
           </div>
         </div>

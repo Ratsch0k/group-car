@@ -1,12 +1,13 @@
 import React from 'react';
 import {render, screen, waitFor} from '@testing-library/react';
 import {ThemeProvider} from '@material-ui/core';
-import {theme, Drawer, AuthContext, GroupContext} from '../../../lib';
+import {Drawer, AuthContext, GroupContext} from '../../../lib';
 import { CarColor, CarWithDriver, GroupWithOwnerAndCars } from '../../api';
 import { IUser, MapContext, MapProvider, SnackbarContext } from '../../context';
 import { ModalContext } from '../../ModalRouter';
 import userEvent from '@testing-library/user-event';
 import { LatLng, Map } from 'leaflet';
+import theme from '../../../__test__/testTheme';
 
 it('renders and matches snapshot with open and ' +
     'not permanent without crashing', () => {

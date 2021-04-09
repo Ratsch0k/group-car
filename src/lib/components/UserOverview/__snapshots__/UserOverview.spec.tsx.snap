@@ -53,9 +53,6 @@ exports[`renders and matches snapshot when user is logged in 1`] = `
               </span>
             </span>
           </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
         </button>
       </div>
       <div
@@ -72,9 +69,6 @@ exports[`renders and matches snapshot when user is logged in 1`] = `
           >
             form.logout
           </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
         </button>
       </div>
     </div>
@@ -115,9 +109,6 @@ exports[`renders and matches snapshot when user is not logged in 1`] = `
               </span>
             </span>
           </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
         </button>
       </div>
       <div
@@ -134,9 +125,6 @@ exports[`renders and matches snapshot when user is not logged in 1`] = `
           >
             form.logout
           </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
         </button>
       </div>
     </div>

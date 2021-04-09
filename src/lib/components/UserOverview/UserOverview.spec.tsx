@@ -2,7 +2,8 @@ import React from 'react';
 import {render, fireEvent, screen} from '@testing-library/react';
 import UserOverview from './UserOverview';
 import {ThemeProvider} from '@material-ui/core';
-import {AuthContext, theme} from 'lib';
+import {AuthContext} from 'lib';
+import theme from '../../../__test__/testTheme';
 
 
 it('renders and matches snapshot when user is not logged in', () => {
