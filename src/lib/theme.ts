@@ -10,7 +10,7 @@ interface IShape extends Shape {
   drawerWidth: number;
 }
 
-interface IThemeOptions extends ThemeOptions {
+export interface IThemeOptions extends ThemeOptions {
   shape: Partial<IShape>;
 }
 
@@ -18,7 +18,7 @@ export interface GroupCarTheme extends Theme {
   shape: IShape;
 }
 
-export const theme = createMuiTheme({
+export const themeProperties: IThemeOptions = {
   palette: {
     primary: {
       main: '#00C68A',
@@ -49,4 +49,6 @@ export const theme = createMuiTheme({
     headerHeight: 64,
     drawerWidth: 350,
   },
-} as IThemeOptions);
+};
+
+export const theme = createMuiTheme(themeProperties);

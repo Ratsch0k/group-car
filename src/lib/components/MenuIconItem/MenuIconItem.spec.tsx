@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import MenuIconItem from "./MenuIconItem";
 import React from "react";
 import { ThemeProvider, MenuItem } from '@material-ui/core';
-import { theme } from 'lib/theme';
+import theme from '../../../__test__/testTheme';
 import AddIcon from '@material-ui/icons/Add'
 
 it('renders without crashing', () => {

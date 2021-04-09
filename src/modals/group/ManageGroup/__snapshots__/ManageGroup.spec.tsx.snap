@@ -73,9 +73,6 @@ exports[`CarTab cars tab is rendered correctly 1`] = `
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
                 <button
                   aria-controls="group-tabpanel-cars"
@@ -104,9 +101,6 @@ exports[`CarTab cars tab is rendered correctly 1`] = `
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
               </div>
               <span
@@ -287,9 +281,6 @@ exports[`CarTab cars tab is rendered correctly 1`] = `
                     />
                   </svg>
                 </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
               </button>
             </div>
           </div>
@@ -311,9 +302,6 @@ exports[`CarTab cars tab is rendered correctly 1`] = `
             >
               modals.group.manage.deleteGroup.button
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>
@@ -397,9 +385,6 @@ exports[`CarTab clicking add fab opens create car dialog 1`] = `
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
                 <button
                   aria-controls="group-tabpanel-cars"
@@ -428,9 +413,6 @@ exports[`CarTab clicking add fab opens create car dialog 1`] = `
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
               </div>
               <span
@@ -507,9 +489,6 @@ exports[`CarTab clicking add fab opens create car dialog 1`] = `
                     />
                   </svg>
                 </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
               </button>
             </div>
           </div>
@@ -531,9 +510,6 @@ exports[`CarTab clicking add fab opens create car dialog 1`] = `
             >
               modals.group.manage.deleteGroup.button
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>
@@ -710,9 +686,6 @@ exports[`CarTab clicking add fab opens create car dialog 1`] = `
               >
                 misc.close
               </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
             </button>
             <div
               class="MuiBox-root MuiBox-root-594 makeStyles-wrapper-592"
@@ -727,9 +700,6 @@ exports[`CarTab clicking add fab opens create car dialog 1`] = `
                 >
                   misc.create
                 </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
               </button>
             </div>
           </div>
@@ -819,9 +789,6 @@ exports[`CarTab entering a name and clicking create sends request to create a ca
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
                 <button
                   aria-controls="group-tabpanel-cars"
@@ -850,9 +817,6 @@ exports[`CarTab entering a name and clicking create sends request to create a ca
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
               </div>
               <span
@@ -967,18 +931,6 @@ exports[`CarTab entering a name and clicking create sends request to create a ca
                     />
                   </svg>
                 </span>
-                <span
-                  class="MuiTouchRipple-root"
-                >
-                  <span
-                    class="MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
-                    style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
-                  >
-                    <span
-                      class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
-                    />
-                  </span>
-                </span>
               </button>
             </div>
           </div>
@@ -1000,9 +952,6 @@ exports[`CarTab entering a name and clicking create sends request to create a ca
             >
               modals.group.manage.deleteGroup.button
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>
@@ -1163,9 +1112,6 @@ exports[`CarTab entering a name and clicking create sends request to create a ca
               >
                 misc.close
               </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
             </button>
             <div
               class="MuiBox-root MuiBox-root-640 makeStyles-wrapper-695"
@@ -1180,9 +1126,6 @@ exports[`CarTab entering a name and clicking create sends request to create a ca
                 >
                   misc.create
                 </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
               </button>
             </div>
           </div>
@@ -1270,9 +1213,6 @@ exports[`CarTab is automatically selected if modal route is /group/manage/:group
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
                 <button
                   aria-controls="group-tabpanel-cars"
@@ -1301,9 +1241,6 @@ exports[`CarTab is automatically selected if modal route is /group/manage/:group
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
               </div>
               <span
@@ -1379,9 +1316,6 @@ exports[`CarTab is automatically selected if modal route is /group/manage/:group
             >
               modals.group.manage.deleteGroup.button
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>
@@ -1407,9 +1341,6 @@ exports[`CarTab is automatically selected if modal route is /group/manage/:group
         />
       </svg>
     </span>
-    <span
-      class="MuiTouchRipple-root"
-    />
   </button>
 </body>
 `;
@@ -1489,9 +1420,6 @@ exports[`CarTab when new car is created used color is removed from car color sel
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
                 <button
                   aria-controls="group-tabpanel-cars"
@@ -1519,18 +1447,6 @@ exports[`CarTab when new car is created used color is removed from car color sel
                       8
                       )
                     </p>
-                  </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  >
-                    <span
-                      class="MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
-                      style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
-                    >
-                      <span
-                        class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
-                      />
-                    </span>
                   </span>
                 </button>
               </div>
@@ -1646,26 +1562,6 @@ exports[`CarTab when new car is created used color is removed from car color sel
                     />
                   </svg>
                 </span>
-                <span
-                  class="MuiTouchRipple-root"
-                >
-                  <span
-                    class="MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
-                    style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
-                  >
-                    <span
-                      class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
-                    />
-                  </span>
-                  <span
-                    class="MuiTouchRipple-ripple MuiTouchRipple-rippleVisible"
-                    style="width: 2.8284271247461903px; height: 2.8284271247461903px; top: -1.4142135623730951px; left: -1.4142135623730951px;"
-                  >
-                    <span
-                      class="MuiTouchRipple-child MuiTouchRipple-childLeaving"
-                    />
-                  </span>
-                </span>
               </button>
             </div>
           </div>
@@ -1687,9 +1583,6 @@ exports[`CarTab when new car is created used color is removed from car color sel
             >
               modals.group.manage.deleteGroup.button
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>
@@ -1852,9 +1745,6 @@ exports[`CarTab when new car is created used color is removed from car color sel
               >
                 misc.close
               </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
             </button>
             <div
               class="MuiBox-root MuiBox-root-742 makeStyles-wrapper-799"
@@ -1869,9 +1759,6 @@ exports[`CarTab when new car is created used color is removed from car color sel
                 >
                   misc.create
                 </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
               </button>
             </div>
           </div>
@@ -1933,9 +1820,6 @@ exports[`CarTab when new car is created used color is removed from car color sel
               misc.color.Green
             </div>
           </div>
-          <span
-            class="MuiTouchRipple-root"
-          />
         </li>
         <li
           aria-disabled="false"
@@ -1963,9 +1847,6 @@ exports[`CarTab when new car is created used color is removed from car color sel
               misc.color.Blue
             </div>
           </div>
-          <span
-            class="MuiTouchRipple-root"
-          />
         </li>
         <li
           aria-disabled="false"
@@ -1993,9 +1874,6 @@ exports[`CarTab when new car is created used color is removed from car color sel
               misc.color.Black
             </div>
           </div>
-          <span
-            class="MuiTouchRipple-root"
-          />
         </li>
         <li
           aria-disabled="false"
@@ -2023,9 +1901,6 @@ exports[`CarTab when new car is created used color is removed from car color sel
               misc.color.Yellow
             </div>
           </div>
-          <span
-            class="MuiTouchRipple-root"
-          />
         </li>
         <li
           aria-disabled="false"
@@ -2053,9 +1928,6 @@ exports[`CarTab when new car is created used color is removed from car color sel
               misc.color.White
             </div>
           </div>
-          <span
-            class="MuiTouchRipple-root"
-          />
         </li>
         <li
           aria-disabled="false"
@@ -2083,9 +1955,6 @@ exports[`CarTab when new car is created used color is removed from car color sel
               misc.color.Purple
             </div>
           </div>
-          <span
-            class="MuiTouchRipple-root"
-          />
         </li>
         <li
           aria-disabled="false"
@@ -2113,9 +1982,6 @@ exports[`CarTab when new car is created used color is removed from car color sel
               misc.color.Brown
             </div>
           </div>
-          <span
-            class="MuiTouchRipple-root"
-          />
         </li>
         <li
           aria-disabled="false"
@@ -2143,9 +2009,6 @@ exports[`CarTab when new car is created used color is removed from car color sel
               misc.color.Orange
             </div>
           </div>
-          <span
-            class="MuiTouchRipple-root"
-          />
         </li>
       </ul>
     </div>
@@ -2232,9 +2095,6 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
                 <button
                   aria-controls="group-tabpanel-cars"
@@ -2263,9 +2123,6 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
               </div>
               <span
@@ -2386,9 +2243,6 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
                     />
                   </svg>
                 </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
               </div>
             </div>
           </div>
@@ -2415,9 +2269,6 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
             >
               modals.group.manage.deleteGroup.button
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>
@@ -2478,9 +2329,6 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
             >
               misc.no
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
           <div
             class="MuiBox-root MuiBox-root-1204 makeStyles-wrapper-1202"
@@ -2495,9 +2343,6 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
               >
                 misc.yes
               </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
             </button>
           </div>
         </div>
@@ -2586,9 +2431,6 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
                 <button
                   aria-controls="group-tabpanel-cars"
@@ -2617,9 +2459,6 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
               </div>
               <span
@@ -2740,9 +2579,6 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
                     />
                   </svg>
                 </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
               </div>
             </div>
           </div>
@@ -2769,9 +2605,6 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
             >
               modals.group.manage.deleteGroup.button
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>
@@ -2832,9 +2665,6 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
             >
               misc.no
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
           <div
             class="MuiBox-root MuiBox-root-1204 makeStyles-wrapper-1205"
@@ -2849,9 +2679,6 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
               >
                 misc.yes
               </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
             </button>
           </div>
         </div>
@@ -2940,9 +2767,6 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
                 <button
                   aria-controls="group-tabpanel-cars"
@@ -2971,9 +2795,6 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
               </div>
               <span
@@ -3094,9 +2915,6 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
                     />
                   </svg>
                 </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
               </div>
             </div>
           </div>
@@ -3123,9 +2941,6 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
             >
               modals.group.manage.deleteGroup.button
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>
@@ -3186,9 +3001,6 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
             >
               misc.no
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
           <div
             class="MuiBox-root MuiBox-root-1118 makeStyles-wrapper-1116"
@@ -3203,9 +3015,6 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
               >
                 misc.yes
               </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
             </button>
           </div>
         </div>
@@ -3292,9 +3101,6 @@ exports[`Footer Delete button delete group button is visible if user is owner of
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
                 <button
                   aria-controls="group-tabpanel-cars"
@@ -3323,9 +3129,6 @@ exports[`Footer Delete button delete group button is visible if user is owner of
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
               </div>
               <span
@@ -3446,9 +3249,6 @@ exports[`Footer Delete button delete group button is visible if user is owner of
                     />
                   </svg>
                 </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
               </div>
             </div>
           </div>
@@ -3475,9 +3275,6 @@ exports[`Footer Delete button delete group button is visible if user is owner of
             >
               modals.group.manage.deleteGroup.button
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>
@@ -3561,9 +3358,6 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
                 <button
                   aria-controls="group-tabpanel-cars"
@@ -3592,9 +3386,6 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
               </div>
               <span
@@ -3782,9 +3573,6 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
             >
               modals.group.manage.leaveGroup.button
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>
@@ -3845,9 +3633,6 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
             >
               misc.no
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
           <div
             class="MuiBox-root MuiBox-root-992 makeStyles-wrapper-990"
@@ -3862,9 +3647,6 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
               >
                 misc.yes
               </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
             </button>
           </div>
         </div>
@@ -3951,9 +3733,6 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
                 <button
                   aria-controls="group-tabpanel-cars"
@@ -3982,9 +3761,6 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
               </div>
               <span
@@ -4172,9 +3948,6 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
             >
               modals.group.manage.leaveGroup.button
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>
@@ -4254,9 +4027,6 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
                 <button
                   aria-controls="group-tabpanel-cars"
@@ -4285,9 +4055,6 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
               </div>
               <span
@@ -4418,9 +4185,6 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                               />
                             </svg>
                           </span>
-                          <span
-                            class="MuiTouchRipple-root"
-                          />
                         </button>
                       </div>
                     </li>
@@ -4467,9 +4231,6 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                     />
                   </svg>
                 </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
               </div>
             </div>
           </div>
@@ -4496,9 +4257,6 @@ exports[`MemberTab options button click on grant admin sends grant admin request
             >
               modals.group.manage.deleteGroup.button
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>
@@ -4531,9 +4289,6 @@ exports[`MemberTab options button click on grant admin sends grant admin request
           tabindex="0"
         >
           modals.group.manage.tabs.members.options.grantAdmin
-          <span
-            class="MuiTouchRipple-root"
-          />
         </li>
       </ul>
     </div>
@@ -4620,9 +4375,6 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
                 <button
                   aria-controls="group-tabpanel-cars"
@@ -4651,9 +4403,6 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
               </div>
               <span
@@ -4784,9 +4533,6 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                               />
                             </svg>
                           </span>
-                          <span
-                            class="MuiTouchRipple-root"
-                          />
                         </button>
                       </div>
                     </li>
@@ -4833,9 +4579,6 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                     />
                   </svg>
                 </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
               </div>
             </div>
           </div>
@@ -4862,9 +4605,6 @@ exports[`MemberTab options button click on grant admin sends grant admin request
             >
               modals.group.manage.deleteGroup.button
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>
@@ -4900,9 +4640,6 @@ exports[`MemberTab options button click on grant admin sends grant admin request
           tabindex="0"
         >
           modals.group.manage.tabs.members.options.grantAdmin
-          <span
-            class="MuiTouchRipple-root"
-          />
         </li>
       </ul>
     </div>
@@ -4987,9 +4724,6 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
                 <button
                   aria-controls="group-tabpanel-cars"
@@ -5018,9 +4752,6 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
               </div>
               <span
@@ -5161,9 +4892,6 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                               />
                             </svg>
                           </span>
-                          <span
-                            class="MuiTouchRipple-root"
-                          />
                         </button>
                       </div>
                     </li>
@@ -5210,9 +4938,6 @@ exports[`MemberTab options button click on grant admin sends grant admin request
                     />
                   </svg>
                 </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
               </div>
             </div>
           </div>
@@ -5239,9 +4964,6 @@ exports[`MemberTab options button click on grant admin sends grant admin request
             >
               modals.group.manage.deleteGroup.button
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>
@@ -5274,9 +4996,6 @@ exports[`MemberTab options button click on grant admin sends grant admin request
           tabindex="0"
         >
           modals.group.manage.tabs.members.options.revokeAdmin
-          <span
-            class="MuiTouchRipple-root"
-          />
         </li>
       </ul>
     </div>
@@ -5361,9 +5080,6 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
                 <button
                   aria-controls="group-tabpanel-cars"
@@ -5392,9 +5108,6 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
               </div>
               <span
@@ -5535,9 +5248,6 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
                               />
                             </svg>
                           </span>
-                          <span
-                            class="MuiTouchRipple-root"
-                          />
                         </button>
                       </div>
                     </li>
@@ -5584,9 +5294,6 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
                     />
                   </svg>
                 </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
               </div>
             </div>
           </div>
@@ -5613,9 +5320,6 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
             >
               modals.group.manage.deleteGroup.button
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>
@@ -5648,9 +5352,6 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
           tabindex="0"
         >
           modals.group.manage.tabs.members.options.revokeAdmin
-          <span
-            class="MuiTouchRipple-root"
-          />
         </li>
       </ul>
     </div>
@@ -5735,9 +5436,6 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
                 <button
                   aria-controls="group-tabpanel-cars"
@@ -5766,9 +5464,6 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
               </div>
               <span
@@ -5899,9 +5594,6 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
                               />
                             </svg>
                           </span>
-                          <span
-                            class="MuiTouchRipple-root"
-                          />
                         </button>
                       </div>
                     </li>
@@ -5948,9 +5640,6 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
                     />
                   </svg>
                 </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
               </div>
             </div>
           </div>
@@ -5977,9 +5666,6 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
             >
               modals.group.manage.deleteGroup.button
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>
@@ -6012,9 +5698,6 @@ exports[`MemberTab options button click on revoke admin will send revoke admin r
           tabindex="0"
         >
           modals.group.manage.tabs.members.options.grantAdmin
-          <span
-            class="MuiTouchRipple-root"
-          />
         </li>
       </ul>
     </div>
@@ -6099,9 +5782,6 @@ exports[`MemberTab options button if member is admin the revoke admin option is 
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
                 <button
                   aria-controls="group-tabpanel-cars"
@@ -6130,9 +5810,6 @@ exports[`MemberTab options button if member is admin the revoke admin option is 
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
               </div>
               <span
@@ -6273,9 +5950,6 @@ exports[`MemberTab options button if member is admin the revoke admin option is 
                               />
                             </svg>
                           </span>
-                          <span
-                            class="MuiTouchRipple-root"
-                          />
                         </button>
                       </div>
                     </li>
@@ -6322,9 +5996,6 @@ exports[`MemberTab options button if member is admin the revoke admin option is 
                     />
                   </svg>
                 </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
               </div>
             </div>
           </div>
@@ -6351,9 +6022,6 @@ exports[`MemberTab options button if member is admin the revoke admin option is 
             >
               modals.group.manage.deleteGroup.button
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>
@@ -6386,9 +6054,6 @@ exports[`MemberTab options button if member is admin the revoke admin option is 
           tabindex="0"
         >
           modals.group.manage.tabs.members.options.revokeAdmin
-          <span
-            class="MuiTouchRipple-root"
-          />
         </li>
       </ul>
     </div>
@@ -6473,9 +6138,6 @@ exports[`MemberTab options button if member is not an admin grant admin option i
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
                 <button
                   aria-controls="group-tabpanel-cars"
@@ -6504,9 +6166,6 @@ exports[`MemberTab options button if member is not an admin grant admin option i
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
               </div>
               <span
@@ -6637,9 +6296,6 @@ exports[`MemberTab options button if member is not an admin grant admin option i
                               />
                             </svg>
                           </span>
-                          <span
-                            class="MuiTouchRipple-root"
-                          />
                         </button>
                       </div>
                     </li>
@@ -6686,9 +6342,6 @@ exports[`MemberTab options button if member is not an admin grant admin option i
                     />
                   </svg>
                 </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
               </div>
             </div>
           </div>
@@ -6715,9 +6368,6 @@ exports[`MemberTab options button if member is not an admin grant admin option i
             >
               modals.group.manage.deleteGroup.button
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>
@@ -6750,9 +6400,6 @@ exports[`MemberTab options button if member is not an admin grant admin option i
           tabindex="0"
         >
           modals.group.manage.tabs.members.options.grantAdmin
-          <span
-            class="MuiTouchRipple-root"
-          />
         </li>
       </ul>
     </div>
@@ -6835,9 +6482,6 @@ exports[`MemberTab options button will appear if current user is admin and membe
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
                 <button
                   aria-controls="group-tabpanel-cars"
@@ -6866,9 +6510,6 @@ exports[`MemberTab options button will appear if current user is admin and membe
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
               </div>
               <span
@@ -7036,9 +6677,6 @@ exports[`MemberTab options button will appear if current user is admin and membe
                               />
                             </svg>
                           </span>
-                          <span
-                            class="MuiTouchRipple-root"
-                          />
                         </button>
                       </div>
                     </li>
@@ -7085,9 +6723,6 @@ exports[`MemberTab options button will appear if current user is admin and membe
                     />
                   </svg>
                 </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
               </div>
             </div>
           </div>
@@ -7114,9 +6749,6 @@ exports[`MemberTab options button will appear if current user is admin and membe
             >
               modals.group.manage.leaveGroup.button
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>
@@ -7149,9 +6781,6 @@ exports[`MemberTab options button will appear if current user is admin and membe
           tabindex="0"
         >
           modals.group.manage.tabs.members.options.grantAdmin
-          <span
-            class="MuiTouchRipple-root"
-          />
         </li>
       </ul>
     </div>
@@ -7234,9 +6863,6 @@ exports[`MemberTab options button will appear if current user is the owner and m
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
                 <button
                   aria-controls="group-tabpanel-cars"
@@ -7265,9 +6891,6 @@ exports[`MemberTab options button will appear if current user is the owner and m
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
               </div>
               <span
@@ -7398,9 +7021,6 @@ exports[`MemberTab options button will appear if current user is the owner and m
                               />
                             </svg>
                           </span>
-                          <span
-                            class="MuiTouchRipple-root"
-                          />
                         </button>
                       </div>
                     </li>
@@ -7467,9 +7087,6 @@ exports[`MemberTab options button will appear if current user is the owner and m
                               />
                             </svg>
                           </span>
-                          <span
-                            class="MuiTouchRipple-root"
-                          />
                         </button>
                       </div>
                     </li>
@@ -7516,9 +7133,6 @@ exports[`MemberTab options button will appear if current user is the owner and m
                     />
                   </svg>
                 </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
               </div>
             </div>
           </div>
@@ -7545,9 +7159,6 @@ exports[`MemberTab options button will appear if current user is the owner and m
             >
               modals.group.manage.deleteGroup.button
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>
@@ -7580,9 +7191,6 @@ exports[`MemberTab options button will appear if current user is the owner and m
           tabindex="0"
         >
           modals.group.manage.tabs.members.options.grantAdmin
-          <span
-            class="MuiTouchRipple-root"
-          />
         </li>
       </ul>
     </div>
@@ -7618,9 +7226,6 @@ exports[`MemberTab options button will appear if current user is the owner and m
           tabindex="0"
         >
           modals.group.manage.tabs.members.options.revokeAdmin
-          <span
-            class="MuiTouchRipple-root"
-          />
         </li>
       </ul>
     </div>
@@ -7703,9 +7308,6 @@ exports[`MemberTab options button will never appear if current user is not an ad
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
                 <button
                   aria-controls="group-tabpanel-cars"
@@ -7734,9 +7336,6 @@ exports[`MemberTab options button will never appear if current user is not an ad
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
               </div>
               <span
@@ -7924,9 +7523,6 @@ exports[`MemberTab options button will never appear if current user is not an ad
             >
               modals.group.manage.leaveGroup.button
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>
@@ -8006,9 +7602,6 @@ exports[`MemberTab options button will not appear if current user and member is 
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
                 <button
                   aria-controls="group-tabpanel-cars"
@@ -8037,9 +7630,6 @@ exports[`MemberTab options button will not appear if current user and member is 
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
               </div>
               <span
@@ -8234,9 +7824,6 @@ exports[`MemberTab options button will not appear if current user and member is 
                     />
                   </svg>
                 </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
               </div>
             </div>
           </div>
@@ -8263,9 +7850,6 @@ exports[`MemberTab options button will not appear if current user and member is 
             >
               modals.group.manage.leaveGroup.button
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>
@@ -8345,9 +7929,6 @@ exports[`MemberTab renders list of invites correctly 1`] = `
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
                 <button
                   aria-controls="group-tabpanel-cars"
@@ -8376,9 +7957,6 @@ exports[`MemberTab renders list of invites correctly 1`] = `
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
               </div>
               <span
@@ -8535,9 +8113,6 @@ exports[`MemberTab renders list of invites correctly 1`] = `
                     />
                   </svg>
                 </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
               </div>
             </div>
           </div>
@@ -8564,9 +8139,6 @@ exports[`MemberTab renders list of invites correctly 1`] = `
             >
               modals.group.manage.deleteGroup.button
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>
@@ -8646,9 +8218,6 @@ exports[`MemberTab renders list of members correctly 1`] = `
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
                 <button
                   aria-controls="group-tabpanel-cars"
@@ -8677,9 +8246,6 @@ exports[`MemberTab renders list of members correctly 1`] = `
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
               </div>
               <span
@@ -8820,9 +8386,6 @@ exports[`MemberTab renders list of members correctly 1`] = `
                               />
                             </svg>
                           </span>
-                          <span
-                            class="MuiTouchRipple-root"
-                          />
                         </button>
                       </div>
                     </li>
@@ -8879,9 +8442,6 @@ exports[`MemberTab renders list of members correctly 1`] = `
                               />
                             </svg>
                           </span>
-                          <span
-                            class="MuiTouchRipple-root"
-                          />
                         </button>
                       </div>
                     </li>
@@ -8928,9 +8488,6 @@ exports[`MemberTab renders list of members correctly 1`] = `
                     />
                   </svg>
                 </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
               </div>
             </div>
           </div>
@@ -8957,9 +8514,6 @@ exports[`MemberTab renders list of members correctly 1`] = `
             >
               modals.group.manage.deleteGroup.button
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>
@@ -8992,9 +8546,6 @@ exports[`MemberTab renders list of members correctly 1`] = `
           tabindex="0"
         >
           modals.group.manage.tabs.members.options.revokeAdmin
-          <span
-            class="MuiTouchRipple-root"
-          />
         </li>
       </ul>
     </div>
@@ -9030,9 +8581,6 @@ exports[`MemberTab renders list of members correctly 1`] = `
           tabindex="0"
         >
           modals.group.manage.tabs.members.options.grantAdmin
-          <span
-            class="MuiTouchRipple-root"
-          />
         </li>
       </ul>
     </div>
@@ -9115,9 +8663,6 @@ exports[`get groupId from route params if not provided as property 1`] = `
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
                 <button
                   aria-controls="group-tabpanel-cars"
@@ -9146,9 +8691,6 @@ exports[`get groupId from route params if not provided as property 1`] = `
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
               </div>
               <span
@@ -9272,9 +8814,6 @@ exports[`get groupId from route params if not provided as property 1`] = `
             >
               modals.group.manage.leaveGroup.button
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>
@@ -9418,9 +8957,6 @@ exports[`renders group info if group exists 1`] = `
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
                 <button
                   aria-controls="group-tabpanel-cars"
@@ -9449,9 +8985,6 @@ exports[`renders group info if group exists 1`] = `
                       )
                     </p>
                   </span>
-                  <span
-                    class="MuiTouchRipple-root"
-                  />
                 </button>
               </div>
               <span
@@ -9572,9 +9105,6 @@ exports[`renders group info if group exists 1`] = `
                     />
                   </svg>
                 </span>
-                <span
-                  class="MuiTouchRipple-root"
-                />
               </div>
             </div>
           </div>
@@ -9601,9 +9131,6 @@ exports[`renders group info if group exists 1`] = `
             >
               modals.group.manage.deleteGroup.button
             </span>
-            <span
-              class="MuiTouchRipple-root"
-            />
           </button>
         </div>
       </div>

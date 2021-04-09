@@ -1,11 +1,12 @@
-import { fireEvent, render, waitFor, screen, waitForElementToBeRemoved } from "@testing-library/react";
+import { fireEvent, render, waitFor, screen } from "@testing-library/react";
 import ManageGroup from "./ManageGroup";
 import React from "react";
-import { theme, GroupContext, AuthContext, IUser, ApiContext, GroupWithOwnerAndMembersAndInvites, Api, ModalContext, SnackbarContext, CarColor} from '../../../lib';
+import { GroupContext, AuthContext, IUser, ApiContext, GroupWithOwnerAndMembersAndInvites, Api, ModalContext, SnackbarContext, CarColor} from '../../../lib';
 import { MemoryRouter, Route } from "react-router-dom";
 import { ThemeProvider } from "@material-ui/core";
 import userEvent from '@testing-library/user-event';
 import io from 'socket.io-client';
+import theme from '../../../__test__/testTheme';
 
 let fakeGroup: GroupWithOwnerAndMembersAndInvites;
 jest.mock('socket.io-client');

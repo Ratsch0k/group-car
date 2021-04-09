@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import GroupCar from './GroupCar';
 import {MemoryRouter} from 'react-router-dom';
 import {ThemeProvider} from '@material-ui/core';
-import {theme} from 'lib';
+import theme from './__test__/testTheme';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
