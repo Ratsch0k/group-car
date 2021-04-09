@@ -14,31 +14,35 @@ import {
   SnackbarProvider,
 } from 'lib';
 import ModalRoutes from 'modals';
+import {Provider} from 'react-redux';
+import store from './redux/store';
 
 const App: React.FC = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <SnackbarProvider>
-        <AxiosProvider>
-          <ApiProvider>
-            <BrowserRouter>
-              <ModalRouter>
-                <AuthProvider>
-                  <MapProvider>
-                    <GroupProvider>
-                      <InvitesProvider>
-                        <GroupCar />
-                        <ModalRoutes />
-                      </InvitesProvider>
-                    </GroupProvider>
-                  </MapProvider>
-                </AuthProvider>
-              </ModalRouter>
-            </BrowserRouter>
-          </ApiProvider>
-        </AxiosProvider>
-      </SnackbarProvider>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <SnackbarProvider>
+          <AxiosProvider>
+            <ApiProvider>
+              <BrowserRouter>
+                <ModalRouter>
+                  <AuthProvider>
+                    <MapProvider>
+                      <GroupProvider>
+                        <InvitesProvider>
+                          <GroupCar />
+                          <ModalRoutes />
+                        </InvitesProvider>
+                      </GroupProvider>
+                    </MapProvider>
+                  </AuthProvider>
+                </ModalRouter>
+              </BrowserRouter>
+            </ApiProvider>
+          </AxiosProvider>
+        </SnackbarProvider>
+      </ThemeProvider>
+    </Provider>
   );
 };
 
