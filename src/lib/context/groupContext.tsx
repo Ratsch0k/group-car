@@ -263,8 +263,8 @@ export const GroupProvider: React.FC = (props) => {
   }, [socket]);
 
   const selectGroup: GroupContext['selectGroup'] = async (
-    id: number,
-    force?: boolean,
+      id: number,
+      force?: boolean,
   ) => {
     if (selectedGroup === null || selectedGroup.id !== id) {
       const group = groups.find((group) => group.id === id);
@@ -413,10 +413,10 @@ export const GroupProvider: React.FC = (props) => {
   };
 
   const parkCar: GroupContext['parkCar'] = async (
-    groupId,
-    carId,
-    latitude,
-    longitude,
+      groupId,
+      carId,
+      latitude,
+      longitude,
   ) => {
     if (user &&
       selectedGroup !== null &&

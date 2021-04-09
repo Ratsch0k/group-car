@@ -1,7 +1,7 @@
 module.exports = {
   'env': {
     'browser': true,
-    'es6': true,
+    'es2021': true,
   },
   'extends': [
     'eslint:recommended',
@@ -9,16 +9,12 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'google',
   ],
-  'globals': {
-    'Atomics': 'readonly',
-    'SharedArrayBuffer': 'readonly',
-  },
   'parser': '@typescript-eslint/parser',
   'parserOptions': {
     'ecmaFeatures': {
       'jsx': true,
     },
-    'ecmaVersion': 2018,
+    'ecmaVersion': 12,
     'sourceType': 'module',
   },
   'plugins': [
@@ -26,8 +22,10 @@ module.exports = {
     '@typescript-eslint',
   ],
   'rules': {
+    'valid-jsdoc': 'off',
     'react/prop-types': 'off',
-    'valid-jsdoc': 'off'
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': 'error',
   },
   'settings': {
     'react': {
