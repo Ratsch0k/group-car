@@ -1,6 +1,7 @@
 import L, {Icon} from 'leaflet';
 import {CarColor} from 'lib/api';
 import getIcon from 'lib/util/getIcon';
+import shadowIcon from '../../../assets/icons/location_marker_shadow.png';
 
 /**
  * Creates an location marker for the specified icon name.
@@ -11,7 +12,7 @@ const createLocationMarker = (color: CarColor): Icon => {
     iconUrl: getIcon(color),
     iconSize: [42, 42],
     iconAnchor: [21, 42],
-    shadowUrl: require('../../../assets/icons/location_marker_shadow.png'),
+    shadowUrl: shadowIcon,
     shadowSize: [24, 24],
     shadowAnchor: [12, 12],
   });
