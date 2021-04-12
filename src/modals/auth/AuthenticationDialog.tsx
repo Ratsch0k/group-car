@@ -123,8 +123,8 @@ export const AuthenticationDialog: React.FC<AuthenticationDialogProps> =
         </IconButton>
         {
           isExact ?
-          t('auth.dialog.title.authenticate') :
-          t(`auth.dialog.title.${pathname}`)
+            t('auth.dialog.title.authenticate') :
+            t(`auth.dialog.title.${pathname}`)
         }
         <IconButton
           className={classes.closeButton}

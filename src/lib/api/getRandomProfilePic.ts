@@ -11,9 +11,9 @@ export type GetRandomProfilePicRequest = Request<any>;
  * @return          The http request and a method to cancel it
  */
 export const getRandomProfilePic = (
-    username: string,
-    offset?: number,
-    axios: AxiosType = axiosStatic,
+  username: string,
+  offset?: number,
+  axios: AxiosType = axiosStatic,
 ): GetRandomProfilePicRequest => {
   if (!username || username.length <= 0) {
     return Promise.reject(new TypeError('Invalid parameters'));

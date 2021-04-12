@@ -42,10 +42,10 @@ export const SignUpBody: React.FC<SignUpBodyProps> = (props) => {
    *  different profile pictures for the same username
    */
   const signUp = (
-      username: string,
-      email: string,
-      password: string,
-      offset: number,
+    username: string,
+    email: string,
+    password: string,
+    offset: number,
   ): SignUpRequest => {
     props.setLoading && props.setLoading(true);
     const request = auth.signUp(username, email, password, offset);

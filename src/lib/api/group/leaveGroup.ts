@@ -10,8 +10,8 @@ export type LeaveGroup = (id: number) => LeaveGroupRequest;
  * @param axios Optional axios instance
  */
 export const leaveGroup: LeaveGroup = (
-    id,
-    axios: AxiosInstance = Axios,
+  id,
+  axios: AxiosInstance = Axios,
 ) => {
   if (typeof id !== 'number') {
     return Promise.reject(new TypeError('id has to be a number'));

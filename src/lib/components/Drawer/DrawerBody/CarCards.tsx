@@ -28,17 +28,17 @@ export const CarCards: React.FC = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [drivingCars, setDrivingCars] = useState<CarWithDriver[]>(
-      groupCars?.filter((car) => car.driverId === user?.id) || [],
+    groupCars?.filter((car) => car.driverId === user?.id) || [],
   );
   const [availableCars, setAvailableCars] = useState<CarWithDriver[]>(
-      groupCars?.filter((car) => car.driverId === null) || [],
+    groupCars?.filter((car) => car.driverId === null) || [],
   );
   const {show} = useSnackBar();
   const [usedCars, setUsedCars] = useState<CarWithDriver[]>(
-      groupCars?.filter((car) =>
-        car.driverId !== null &&
+    groupCars?.filter((car) =>
+      car.driverId !== null &&
       car.driverId !== user?.id,
-      ) || [],
+    ) || [],
   );
 
   const handleAddDrivingCar = async (car: CarWithDriver) => {
@@ -57,7 +57,7 @@ export const CarCards: React.FC = () => {
 
     try {
       const position = await new Promise<
-        GeolocationPosition
+      GeolocationPosition
       >((resolve, reject) => {
         navigator.geolocation.getCurrentPosition((position) => {
           resolve(position);
@@ -75,10 +75,10 @@ export const CarCards: React.FC = () => {
   };
 
   const parkCar = async (
-      carId: number,
-      latitude:
-     number,
-      longitude: number,
+    carId: number,
+    latitude:
+    number,
+    longitude: number,
   ) => {
     setLoading(true);
 
@@ -94,10 +94,10 @@ export const CarCards: React.FC = () => {
     setDrivingCars(groupCars?.filter((car) => car.driverId === user?.id) || []);
     setAvailableCars(groupCars?.filter((car) => car.driverId === null) || []);
     setUsedCars(
-        groupCars?.filter((car) =>
-          car.driverId !== null &&
+      groupCars?.filter((car) =>
+        car.driverId !== null &&
         car.driverId !== user?.id,
-        ) || []);
+      ) || []);
   }, [groupCars, user]);
 
   return (

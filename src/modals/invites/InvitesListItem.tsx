@@ -128,7 +128,9 @@ export const InvitesListItem: React.FC<InvitesListItemProps> =
       />
       <ListItemSecondaryAction
         classes={{
-          root: smallerSm ? classes.twoLinesSecondaryAction : undefined,
+          root: smallerSm ?
+            classes.twoLinesSecondaryAction :
+            undefined,
         }}
       >
         <Grid container spacing={1}>

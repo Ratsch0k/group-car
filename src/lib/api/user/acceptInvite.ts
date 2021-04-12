@@ -10,8 +10,8 @@ export type AcceptInvite = (groupId: number) => AcceptInviteRequest;
  * @param axios   Optional axios instance
  */
 export const acceptInvite: AcceptInvite = (
-    groupId,
-    axios: AxiosInstance = Axios,
+  groupId,
+  axios: AxiosInstance = Axios,
 ) => {
   return axios.post(`/api/user/invite/${groupId}/join`);
 };

@@ -19,9 +19,9 @@ export type CreateGroup = (
  *    instead of the default one.
  */
 export const createGroup: CreateGroup = (
-    name,
-    description,
-    axios: AxiosType = Axios,
+  name,
+  description,
+  axios: AxiosType = Axios,
 ) => {
   if (typeof name !== 'string' &&
   (typeof description === 'undefined' || typeof description === 'string')) {

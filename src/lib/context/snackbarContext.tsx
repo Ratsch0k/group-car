@@ -47,8 +47,8 @@ export const SnackbarProvider: React.FC = (props) => {
   const {t} = useTranslation();
 
   const show: Show = useCallback((
-      typeOrOptions,
-      content,
+    typeOrOptions,
+    content,
   ) => {
     let options: ShowOptions;
 
@@ -81,8 +81,8 @@ export const SnackbarProvider: React.FC = (props) => {
   }, [open, queue, activeSnack]);
 
   const handleClose = useCallback((
-      event: React.SyntheticEvent<unknown, Event>,
-      reason: SnackbarCloseReason,
+    event: React.SyntheticEvent<unknown, Event>,
+    reason: SnackbarCloseReason,
   ) => {
     if (reason === 'clickaway') {
       return;

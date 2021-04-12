@@ -12,9 +12,9 @@ export type GrantAdmin = (groupId: number, userId: number) => GrantAdminRequest;
  * @param axios   Optional axios instance
  */
 export const grantAdmin: GrantAdmin = (
-    groupId,
-    userId,
-    axios: AxiosInstance = Axios,
+  groupId,
+  userId,
+  axios: AxiosInstance = Axios,
 ) => {
   return axios.put(`/api/group/${groupId}/member/${userId}/admin/grant`);
 };

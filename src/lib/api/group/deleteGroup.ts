@@ -14,8 +14,8 @@ export type DeleteGroup = (
  * @param axios Optional axios instance
  */
 export const deleteGroup: DeleteGroup = (
-    id,
-    axios: AxiosInstance = Axios,
+  id,
+  axios: AxiosInstance = Axios,
 ) => {
   if (typeof id !== 'number') {
     return Promise.reject(new TypeError('id has to be a number'));

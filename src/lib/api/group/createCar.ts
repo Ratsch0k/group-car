@@ -20,10 +20,10 @@ export type CreateCar = (
  * @param axios   Optional instance.
  */
 export const createCar: CreateCar = (
-    groupId,
-    name,
-    color,
-    axios: AxiosType = Axios,
+  groupId,
+  name,
+  color,
+  axios: AxiosType = Axios,
 ) => {
   return axios.post(`/api/group/${groupId}/car`, {
     name,

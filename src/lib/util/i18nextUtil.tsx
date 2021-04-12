@@ -55,10 +55,10 @@ export const translationArrayToJsx =
  */
 export const translationItemToJSX =
 (item:
-  TranslationItem |
-  Array<TranslationItem> |
-  string |
-  undefined): JSX.Element | string | undefined => {
+TranslationItem |
+Array<TranslationItem> |
+string |
+undefined): JSX.Element | string | undefined => {
   // If the given item is a string return the string
   if (typeof item === 'string') {
     return item;

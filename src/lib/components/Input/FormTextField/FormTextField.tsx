@@ -3,7 +3,7 @@ import {TextField, BaseTextFieldProps, TextFieldProps} from '@material-ui/core';
 import {Formik} from 'lib';
 
 interface FormTextFieldExtensionProps extends Exclude<
-  BaseTextFieldProps, 'onBlur' | 'onChange'
+BaseTextFieldProps, 'onBlur' | 'onChange'
 > {
   formik: Formik;
 }

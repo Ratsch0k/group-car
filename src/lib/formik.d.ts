@@ -12,24 +12,24 @@ export interface Formik<Values extends FormikValues = FormikValues> {
   resetForm: (nextState?: Partial<FormikState<Values>> | undefined) => void;
   setErrors: (errors: FormikErrors<Values>) => void;
   setFormikState: (stateOrCb: FormikState<Values> |
-    ((state: FormikState<Values>) => FormikState<Values>)) => void;
+  ((state: FormikState<Values>) => FormikState<Values>)) => void;
   setFieldTouched: (
     field: string,
-     touched?: boolean,
-     shouldValidate?: boolean | undefined
-     ) => any;
+    touched?: boolean,
+    shouldValidate?: boolean | undefined
+  ) => any;
   setFieldValue: (
     field: string,
     value: any,
     shouldValidate?: boolean | undefined
-    ) => any;
+  ) => any;
   setFieldError: (field: string, value: string | undefined) => void;
   setStatus: (status: any) => void;
   setSubmitting: (isSubmitting: boolean) => void;
   setTouched: (
     touched: FormikTouched<Values>,
     shouldValidate?: boolean | undefined
-    ) => any;
+  ) => any;
   setValues: (values: Values, shouldValidate?: boolean | undefined) => any;
   submitForm: () => Promise<void | undefined>;
   validateForm: (values?: Values) => Promise<FormikErrors<Values>>;

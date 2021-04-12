@@ -26,28 +26,28 @@ export const CreateGroupForm: React.FC<CreateGroupFormProps> =
 
   const validationSchema = yup.object({
     name: yup.string().required(t('form.error.required'))
-        .min(
-            minNameLength,
-            t(
-                'form.error.tooShort',
-                {min: minNameLength},
-            ),
-        )
-        .max(
-            maxNameLength,
-            t(
-                'form.error.tooLong',
-                {max: maxNameLength},
-            ),
+      .min(
+        minNameLength,
+        t(
+          'form.error.tooShort',
+          {min: minNameLength},
         ),
+      )
+      .max(
+        maxNameLength,
+        t(
+          'form.error.tooLong',
+          {max: maxNameLength},
+        ),
+      ),
     description: yup.string()
-        .max(
-            maxDescriptionLength,
-            t(
-                'form.error.tooLong',
-                {max: maxDescriptionLength},
-            ),
+      .max(
+        maxDescriptionLength,
+        t(
+          'form.error.tooLong',
+          {max: maxDescriptionLength},
         ),
+      ),
   });
 
   const formik = useFormik({

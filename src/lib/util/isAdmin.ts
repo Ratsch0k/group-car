@@ -6,15 +6,15 @@ import {GroupWithOwnerAndMembersAndInvites} from 'lib';
  * @param userId  The id of the user
  */
 export const isAdmin = (
-    group: GroupWithOwnerAndMembersAndInvites,
-    userId?: number,
+  group: GroupWithOwnerAndMembersAndInvites,
+  userId?: number,
 ): boolean => {
   if (userId === undefined) {
     return false;
   }
 
   const memberWithId = group.members.find(
-      (member) => member.User.id === userId);
+    (member) => member.User.id === userId);
 
   return memberWithId ? memberWithId.isAdmin : false;
 };

@@ -100,18 +100,18 @@ React.FC<ManageGroupMemberListItemOptionsProps> =
       >
         {
           !memberData.isAdmin ?
-          <MenuItem
-            onClick={handleGrantAdmin}
-            disabled={loading}
-          >
-            {t('modals.group.manage.tabs.members.options.grantAdmin')}
-          </MenuItem>:
-          <MenuItem
-            onClick={handleRevokeAdmin}
-            disabled={loading}
-          >
-            {t('modals.group.manage.tabs.members.options.revokeAdmin')}
-          </MenuItem>
+            <MenuItem
+              onClick={handleGrantAdmin}
+              disabled={loading}
+            >
+              {t('modals.group.manage.tabs.members.options.grantAdmin')}
+            </MenuItem>:
+            <MenuItem
+              onClick={handleRevokeAdmin}
+              disabled={loading}
+            >
+              {t('modals.group.manage.tabs.members.options.revokeAdmin')}
+            </MenuItem>
         }
       </Menu>
     </>

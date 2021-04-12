@@ -37,26 +37,26 @@ export const DrawerBody: React.FC = () => {
   const classes = useStyles();
   const {selectedCar} = useMap();
   const getOptionsButton = useCallback(
-      () => {
-        if (groups.length <= 0) {
-          return (
-            <Button
-              fullWidth
-              disableElevation
-              color='primary'
-              variant='contained'
-              onClick={() => goTo('/group/create')}
-            >
-              {t('drawer.createGroup')}
-            </Button>
-          );
-        } else {
-          return (
-            <GroupOptionsButton />
-          );
-        }
-      },
-      [groups, goTo, t],
+    () => {
+      if (groups.length <= 0) {
+        return (
+          <Button
+            fullWidth
+            disableElevation
+            color='primary'
+            variant='contained'
+            onClick={() => goTo('/group/create')}
+          >
+            {t('drawer.createGroup')}
+          </Button>
+        );
+      } else {
+        return (
+          <GroupOptionsButton />
+        );
+      }
+    },
+    [groups, goTo, t],
   );
   const [btn, setBtn] = useState<JSX.Element>(getOptionsButton());
 

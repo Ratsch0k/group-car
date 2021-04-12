@@ -38,7 +38,7 @@ export const ManageGroupMembersTab: React.FC<ManageGroupMembersTabProps> =
 (props: ManageGroupMembersTabProps) => {
   const {user} = useAuth();
   const [isAdmin, setIsAdmin] = useState<boolean>(
-      isAdminCheck(props.group, user?.id));
+    isAdminCheck(props.group, user?.id));
   const [additionalInvites, setAdditionalInvites] =
     useState<InviteWithUserAndInviteSender[]>([]);
   const [portal, setPortal] = useState(props.fabPortal.current);

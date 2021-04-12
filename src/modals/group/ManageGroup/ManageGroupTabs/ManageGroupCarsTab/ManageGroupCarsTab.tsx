@@ -41,9 +41,9 @@ export interface ManageGRoupCarsTabProps {
    * Set state action for the group state.
    */
   setGroup: React.Dispatch<
-    React.SetStateAction<
-      GroupWithOwnerAndMembersAndInvitesAndCars | null
-    >
+  React.SetStateAction<
+  GroupWithOwnerAndMembersAndInvitesAndCars | null
+  >
   >;
 }
 
@@ -56,7 +56,7 @@ export const ManageGroupCarsTab: React.FC<ManageGRoupCarsTabProps> =
   const {group, visible, className, fabPortal, setGroup} = props;
   const {user} = useAuth();
   const [isAdmin, setIsAdmin] = useState<boolean>(
-      isAdminCheck(group, user?.id));
+    isAdminCheck(group, user?.id));
   const [socket, setSocket] = useState<SocketIOClient.Socket>();
 
   const socketActionHandler = useCallback((data: SocketGroupActionData) => {

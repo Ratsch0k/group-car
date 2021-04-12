@@ -43,27 +43,27 @@ export const AxiosProvider: React.FC = (props) => {
     });
 
     axiosInstance.interceptors.response.use(
-        (res) => res,
-        (e: AxiosError<RestError>) => {
-          if (e.response &&
+      (res) => res,
+      (e: AxiosError<RestError>) => {
+        if (e.response &&
               !e.response.config.url?.includes('/auth/token')
-          ) {
-            show({
-              type: 'error',
-              content: e.response?.data.message,
-              withClose: true,
-            });
-          }
+        ) {
+          show({
+            type: 'error',
+            content: e.response?.data.message,
+            withClose: true,
+          });
+        }
 
-          if (e.response &&
+        if (e.response &&
             e.response.data.detail &&
             e.response.data.detail.errorName === 'NotLoggedInError'
-          ) {
-            setCsrf(null);
-          }
+        ) {
+          setCsrf(null);
+        }
 
-          return Promise.reject(e);
-        });
+        return Promise.reject(e);
+      });
 
     return axiosInstance;
   }, [show]);
@@ -73,7 +73,7 @@ export const AxiosProvider: React.FC = (props) => {
   }, [handleAuthResponse]);
 
   const [axiosPromise, setAxiosPromise] = useState<Promise<AxiosInstance>>(
-      axiosPromiseCallback,
+    axiosPromiseCallback,
   );
 
   useEffect(() => {

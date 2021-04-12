@@ -91,8 +91,8 @@ export const AuthProvider: React.FC = (props) => {
   }, []);
 
   const login = (
-      username: string,
-      password: string,
+    username: string,
+    password: string,
   ): LoginRequest => {
     const request = api.login(username, password);
     request.then((response) => {
@@ -105,16 +105,16 @@ export const AuthProvider: React.FC = (props) => {
   };
 
   const signUp = (
-      username: string,
-      email: string,
-      password: string,
-      offset: number,
+    username: string,
+    email: string,
+    password: string,
+    offset: number,
   ): SignUpRequest => {
     const request = api.signUp(
-        username,
-        email,
-        password,
-        offset,
+      username,
+      email,
+      password,
+      offset,
     );
 
     request.then((response) => {

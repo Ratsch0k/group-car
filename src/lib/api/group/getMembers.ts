@@ -19,14 +19,14 @@ export type GetMembers = (id: number) => GetMembersRequest;
  * @param axios Optional axios instance which will be used if provided
  */
 export const getMembers: GetMembers = (
-    id,
-    axios: AxiosType = Axios,
+  id,
+  axios: AxiosType = Axios,
 ) => {
   if (typeof id !== 'number') {
     return Promise.reject(new TypeError('id has to be a number'));
   }
 
   return axios.get<GetMembersResponse>(
-      `/api/group/${id}/member`,
+    `/api/group/${id}/member`,
   );
 };

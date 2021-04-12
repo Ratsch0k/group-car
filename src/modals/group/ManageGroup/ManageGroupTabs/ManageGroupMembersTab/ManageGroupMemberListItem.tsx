@@ -92,8 +92,8 @@ ManageGroupMemberListItemProps
           <Typography>
             {
               isCurrentUser ?
-              t('misc.you') :
-              memberData.User.username
+                t('misc.you') :
+                memberData.User.username
             }
           </Typography>
         }

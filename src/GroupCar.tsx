@@ -33,7 +33,10 @@ const GroupCar: React.FC = () => {
 
   return (
     <Box className={classes.body}>
-      <HeaderBar openDrawer={() => setOpen(true)} noMenuButton={largerLg}/>
+      <HeaderBar
+        openDrawer={() => setOpen(true)}
+        noMenuButton={largerLg}
+      />
       <Drawer
         open={open}
         onClose={() => setOpen(false)}

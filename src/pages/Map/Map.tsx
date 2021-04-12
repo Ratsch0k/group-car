@@ -21,8 +21,8 @@ export const Map: React.FC = () => {
     if (map) {
       id.current = navigator.geolocation.watchPosition((position) => {
         const latLng = new LatLng(
-            position.coords.latitude,
-            position.coords.longitude,
+          position.coords.latitude,
+          position.coords.longitude,
         );
 
         if (!flew.current) {

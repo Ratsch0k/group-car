@@ -21,9 +21,9 @@ export const ApiProvider: React.FC = (props) => {
 
   const wrapCall = useCallback(<T extends unknown>(call: T): T => {
     return ((...params: unknown[]) =>
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        axios!.then((axios) =>
-          (call as (...params: unknown[]) => T)(...params, axios)) as T) as T;
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      axios!.then((axios) =>
+        (call as (...params: unknown[]) => T)(...params, axios)) as T) as T;
     // eslint-disable-next-line
   }, [axios]);
 

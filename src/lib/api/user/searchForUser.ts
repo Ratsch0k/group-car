@@ -16,8 +16,8 @@ export type SearchForUser = (
  *    instead of the default one.
  */
 export const searchForUser: SearchForUser = (
-    usernameStart,
-    axios: AxiosType = Axios,
+  usernameStart,
+  axios: AxiosType = Axios,
 ) => {
   return axios.get(`/api/user/search?filter=${usernameStart}`);
 };

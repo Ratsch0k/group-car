@@ -21,17 +21,17 @@ export type ParkCar = (
  * @param axios     Optional axios instance
  */
 export const parkCar: ParkCar = (
-    groupId,
-    carId,
-    latitude,
-    longitude,
-    axios: AxiosType = Axios,
+  groupId,
+  carId,
+  latitude,
+  longitude,
+  axios: AxiosType = Axios,
 ) => {
   return axios.put(
-      `/api/group/${groupId}/car/${carId}/park`,
-      {
-        latitude,
-        longitude,
-      },
+    `/api/group/${groupId}/car/${carId}/park`,
+    {
+      latitude,
+      longitude,
+    },
   );
 };

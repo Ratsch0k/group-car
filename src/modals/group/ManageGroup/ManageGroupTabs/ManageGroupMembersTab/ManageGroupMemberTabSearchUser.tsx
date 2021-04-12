@@ -125,7 +125,7 @@ export interface ManageGroupMemberTabSearchUserProps {
  * Fab which transforms to a invite user bar.
  */
 export const ManageGroupMemberTabSearchUser: React.FC<
-  ManageGroupMemberTabSearchUserProps
+ManageGroupMemberTabSearchUserProps
 > = (props: ManageGroupMemberTabSearchUserProps) => {
   const classes = useStyles();
   const {searchForUser, inviteUser} = useApi();
@@ -152,10 +152,10 @@ export const ManageGroupMemberTabSearchUser: React.FC<
         if (isActive) {
           // Filter out all members of group
           const possibleUsers = users.data.users.filter((user) =>
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
             !props.group.members.concat(props.group.invites as any)
-                .some((member) =>
-                  user.id === member.User.id));
+              .some((member) =>
+                user.id === member.User.id));
           setPossibleUsers(possibleUsers);
         }
       }
@@ -236,9 +236,9 @@ export const ManageGroupMemberTabSearchUser: React.FC<
           }}
         >
           {
-                inviting ?
-                <CircularProgress />:
-                isInvitingUser ?
+            inviting ?
+              <CircularProgress />:
+              isInvitingUser ?
                 <div className={classes.invitingUserContainer}>
                   <div className={classes.invitingUserTextField}>
                     <Autocomplete

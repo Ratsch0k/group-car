@@ -24,9 +24,9 @@ export interface ManageGroupOverviewProps {
    * Set state action for the group state.
    */
   setGroup: React.Dispatch<
-    React.SetStateAction<
-      GroupWithOwnerAndMembersAndInvitesAndCars | null
-    >
+  React.SetStateAction<
+  GroupWithOwnerAndMembersAndInvitesAndCars | null
+  >
   >;
 }
 

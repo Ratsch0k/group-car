@@ -51,19 +51,19 @@ export const UserOverview: React.FC<UserOverviewProps> =
     // Only update the user info if the user changes
     if (auth.isLoggedIn && auth.user) {
       setUserInfo(
-          <>
-            <UserAvatar userId={auth.user && auth.user.id} size={100}/>
-            <Typography align='center'>
-              {auth.user && auth.user.username}
-            </Typography>
-            <Typography
-              align='center'
-              variant='caption'
-              color='textSecondary'
-            >
-              {auth.user && auth.user.email}
-            </Typography>
-          </>,
+        <>
+          <UserAvatar userId={auth.user && auth.user.id} size={100}/>
+          <Typography align='center'>
+            {auth.user && auth.user.username}
+          </Typography>
+          <Typography
+            align='center'
+            variant='caption'
+            color='textSecondary'
+          >
+            {auth.user && auth.user.email}
+          </Typography>
+        </>,
       );
     }
     // eslint-disable-next-line

@@ -13,8 +13,8 @@ export type GetGroup = (id: number) => GetGroupRequest;
  *                the method will use the static axios object.
  */
 export const getGroup: GetGroup = (
-    id,
-    axios: AxiosType = Axios,
+  id,
+  axios: AxiosType = Axios,
 ) => {
   // Check parameters
   if (typeof id !== 'number') {
@@ -22,6 +22,6 @@ export const getGroup: GetGroup = (
   }
 
   return axios.get<GetGroupResponse>(
-      `/api/group/${id}`,
+    `/api/group/${id}`,
   );
 };

@@ -17,7 +17,7 @@ export interface SignUpFormProps {
     email: string,
     password: string,
     offset: number
-    ): SignUpRequest;
+  ): SignUpRequest;
 }
 
 export const SignUpForm: React.FC<SignUpFormProps> =
@@ -28,12 +28,12 @@ export const SignUpForm: React.FC<SignUpFormProps> =
 
   const validationSchema = yup.object({
     username: yup.string().required(t('form.error.required'))
-        .min(3, t('form.error.usernameToShort'))
-        .matches(/^(\S)*$/, {message: t('form.error.usernameWhitespace')}),
+      .min(3, t('form.error.usernameToShort'))
+      .matches(/^(\S)*$/, {message: t('form.error.usernameWhitespace')}),
     email: yup.string().email(t('form.error.invalidEmail'))
-        .required(t('form.error.required')),
+      .required(t('form.error.required')),
     password: yup.string().min(6, t('form.error.atLeast6'))
-        .required(t('form.error.required')),
+      .required(t('form.error.required')),
   });
 
   const formik = useFormik({
@@ -46,10 +46,10 @@ export const SignUpForm: React.FC<SignUpFormProps> =
     onSubmit: (values) => {
       props.setLoading && props.setLoading(true);
       props.signUp(
-          values.username,
-          values.email,
-          values.password,
-          offset,
+        values.username,
+        values.email,
+        values.password,
+        offset,
       ).finally(() => {
         if (isMounted.current) {
           formik.setSubmitting(false);

@@ -31,7 +31,7 @@ export const AutoFullscreenDialog: React.FC<AutoFullscreenDialogProps> =
 
   // Check if screen width is smaller than the defined breakpoint
   const largerThanBreakpoint = useMediaQuery(
-      theme.breakpoints.up(breakpoint || 'lg'),
+    theme.breakpoints.up(breakpoint || 'lg'),
   );
 
   return (

@@ -52,23 +52,23 @@ export interface ManageGroupCarsCreateDialogProps {
  * @param props Props
  */
 export const ManageGroupCarsCreateDialog: React.FC<
-  ManageGroupCarsCreateDialogProps
+ManageGroupCarsCreateDialogProps
 > = (props: ManageGroupCarsCreateDialogProps) => {
   const {open, close, group, addCar} = props;
   const {t} = useTranslation();
   const {createCar} = useApi();
   const availableColors = useMemo(() => {
     return Object.values(CarColor)
-        .filter((color) =>
-          group.cars.every((car) => car.color !== color));
+      .filter((color) =>
+        group.cars.every((car) => car.color !== color));
   }, [group.cars]);
   const [color, setColor] = useState<CarColor>(availableColors[0]);
 
 
   const validationSchema = useMemo(() => yup.object({
     name: yup.string().required(t('form.error.required'))
-        .min(3, t('form.error.tooShort', {min: 3}))
-        .max(30, t('form.error.tooLong', {max: 30})),
+      .min(3, t('form.error.tooShort', {min: 3}))
+      .max(30, t('form.error.tooLong', {max: 30})),
   }), [t]);
 
   const formik = useFormik({

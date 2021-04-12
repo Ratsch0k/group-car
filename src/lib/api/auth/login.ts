@@ -18,9 +18,9 @@ export type Login = (username: string, password: string) => LoginRequest;
  * @return          The request and a method to cancel it
  */
 export const login: Login = (
-    username,
-    password,
-    axios: AxiosType = axiosStatic,
+  username,
+  password,
+  axios: AxiosType = axiosStatic,
 ): LoginRequest => {
   // Check if provided arguments are non empty strings
   if (!username || username.length <= 0 ||
@@ -29,10 +29,10 @@ export const login: Login = (
   }
 
   return axios.put(
-      '/auth/login',
-      {
-        username,
-        password,
-      },
+    '/auth/login',
+    {
+      username,
+      password,
+    },
   );
 };

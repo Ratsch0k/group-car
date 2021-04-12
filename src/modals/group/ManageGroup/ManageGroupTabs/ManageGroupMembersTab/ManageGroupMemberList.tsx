@@ -51,16 +51,16 @@ export const ManageGroupMemberList: React.FC<ManageGroupMemberListProps> =
         />
       }
       {group.members
-          .filter((member) => member.User.id !== user?.id)
-          .map((member, index) =>
-            <ManageGroupMemberListItem
-              key={`member-${member.User.id}`}
-              memberData={member}
-              isOwner={group.ownerId === member.User.id}
-              last={index === group.members.length + invites.length - 1}
-              group={group}
-            />,
-          )}
+        .filter((member) => member.User.id !== user?.id)
+        .map((member, index) =>
+          <ManageGroupMemberListItem
+            key={`member-${member.User.id}`}
+            memberData={member}
+            isOwner={group.ownerId === member.User.id}
+            last={index === group.members.length + invites.length - 1}
+            group={group}
+          />,
+        )}
       {invites.map((invite, index) =>
         <ManageGroupMemberListInvitedItem
           invitedData={invite}

@@ -8,9 +8,9 @@ export type DriveCar = (
 ) => DriveCarRequest;
 
 export const driveCar: DriveCar = (
-    groupId,
-    carId,
-    axios: AxiosType = Axios,
+  groupId,
+  carId,
+  axios: AxiosType = Axios,
 ) => {
   return axios.put(`/api/group/${groupId}/car/${carId}/drive`);
 };

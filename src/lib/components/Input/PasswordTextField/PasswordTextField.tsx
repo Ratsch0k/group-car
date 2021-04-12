@@ -51,9 +51,9 @@ export const PasswordTextField: React.FC<PasswordTextFieldProps> =
                 edge='end'
                 size={size}>
                 {
-              showPassword ?
-              <VisibilityIcon /> :
-              <VisibilityOffIcon />
+                  showPassword ?
+                    <VisibilityIcon /> :
+                    <VisibilityOffIcon />
                 }
               </IconButton>
             </InputAdornment>

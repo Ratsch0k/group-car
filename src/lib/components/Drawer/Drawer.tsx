@@ -69,10 +69,10 @@ export const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
       }}
       classes={{
         paper: clsx(
-            classes.drawerPaper,
-            {
-              [classes.drawerPaperPermanent]: permanent,
-            },
+          classes.drawerPaper,
+          {
+            [classes.drawerPaperPermanent]: permanent,
+          },
         ),
       }}
     >
@@ -84,7 +84,7 @@ export const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
             </Box>
         }
         {
-            isLoggedIn ?
+          isLoggedIn ?
             <Container className={classes.body}>
               <DrawerBody />
             </Container> :

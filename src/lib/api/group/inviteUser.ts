@@ -26,9 +26,9 @@ export type SendInviteUser = (
  *                  if not provided the AxiosStatic will be used.
  */
 export const inviteUser: SendInviteUser = (
-    groupId,
-    usernameOrId,
-    axios: AxiosType = Axios,
+  groupId,
+  usernameOrId,
+  axios: AxiosType = Axios,
 ) => {
   if (typeof groupId === 'number' && (
     typeof usernameOrId === 'number' || typeof usernameOrId === 'string')
@@ -40,7 +40,9 @@ export const inviteUser: SendInviteUser = (
       body.username = usernameOrId;
     }
 
-    return axios.post<InviteUserResponse>(`/api/group/${groupId}/invite`, body);
+    return axios.post<InviteUserResponse>(
+      `/api/group/${groupId}/invite`, body,
+    );
   } else {
     return Promise.reject(new TypeError('Parameter invalid'));
   }

@@ -59,8 +59,8 @@ export const GroupOptionsButton: React.FC = () => {
         >
           {
             selectedGroup !== null ?
-            selectedGroup.name :
-            t('drawer.groupMenu.noSelection')
+              selectedGroup.name :
+              t('drawer.groupMenu.noSelection')
           }
         </Button>
         <Popper
