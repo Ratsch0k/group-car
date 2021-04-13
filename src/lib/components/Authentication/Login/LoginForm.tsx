@@ -1,14 +1,15 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {Grid} from '@material-ui/core';
 import {useFormik} from 'formik';
 import * as yup from 'yup';
 import {useTranslation} from 'react-i18next';
 import {
-  AuthContext,
   ProgressButton,
   PasswordTextField,
   FormTextField,
 } from 'lib';
+import {login} from 'redux/slices/auth/authSlice';
+import {useAppDispatch} from 'redux/hooks';
 
 export interface LoginFormProps {
   withSubmit?: boolean;
@@ -18,7 +19,7 @@ export interface LoginFormProps {
 
 export const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps) => {
   const {t} = useTranslation();
-  const auth = useContext(AuthContext);
+  const dispatch = useAppDispatch();
 
   const validationSchema = yup.object({
     username: yup.string().required(t('form.error.required')),
@@ -33,7 +34,9 @@ export const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps) => {
     validationSchema,
     onSubmit: (values) => {
       props.setLoading && props.setLoading(true);
-      auth.login(values.username, values.password).then(() => {
+      dispatch(
+        login({username: values.username, password: values.password}),
+      ).then(() => {
         props.setLoading && props.setLoading(false);
         props.onFinished && props.onFinished();
       }).catch(() => {

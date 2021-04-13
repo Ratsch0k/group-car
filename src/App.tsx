@@ -6,8 +6,6 @@ import {
   theme,
   AuthProvider,
   ModalRouter,
-  AxiosProvider,
-  ApiProvider,
   InvitesProvider,
   MapProvider,
   GroupProvider,
@@ -22,24 +20,20 @@ const App: React.FC = () => {
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <SnackbarProvider>
-          <AxiosProvider>
-            <ApiProvider>
-              <BrowserRouter>
-                <ModalRouter>
-                  <AuthProvider>
-                    <MapProvider>
-                      <GroupProvider>
-                        <InvitesProvider>
-                          <GroupCar />
-                          <ModalRoutes />
-                        </InvitesProvider>
-                      </GroupProvider>
-                    </MapProvider>
-                  </AuthProvider>
-                </ModalRouter>
-              </BrowserRouter>
-            </ApiProvider>
-          </AxiosProvider>
+          <BrowserRouter>
+            <ModalRouter>
+              <AuthProvider>
+                <MapProvider>
+                  <GroupProvider>
+                    <InvitesProvider>
+                      <GroupCar />
+                      <ModalRoutes />
+                    </InvitesProvider>
+                  </GroupProvider>
+                </MapProvider>
+              </AuthProvider>
+            </ModalRouter>
+          </BrowserRouter>
         </SnackbarProvider>
       </ThemeProvider>
     </Provider>

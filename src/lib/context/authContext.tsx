@@ -1,22 +1,26 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useEffect, useCallback} from 'react';
 import {
   LoginRequest,
   LogOutRequest,
   NotDefinedError,
   SignUpRequest,
-  User,
 } from 'lib';
-import {AxiosError, AxiosResponse} from 'axios';
-import {useAxios, useModalRouter} from 'lib/hooks';
-import {useApi} from 'lib/hooks/useApi';
+import axios from 'lib/client';
+import {AxiosError} from 'axios';
+import {useModalRouter} from 'lib/hooks';
 import {useHistory} from 'react-router-dom';
-
-export interface IUser {
-  username: string;
-  email: string;
-  isBetaUser: boolean;
-  id: number;
-}
+import {User} from 'typings/auth';
+import {useAppDispatch, useAppSelector} from 'redux/hooks';
+import {
+  login as loginThunk,
+  logout as logoutThunk,
+  signUp as signUpThunk,
+  checkLoggedIn as checkLoggedInThunk,
+  getUser,
+  isLoggedIn as isLoggedInSelector,
+  setUser,
+} from 'redux/slices/auth/authSlice';
+import {unwrapResult} from '@reduxjs/toolkit';
 
 export interface AuthContext {
   login(
@@ -30,7 +34,7 @@ export interface AuthContext {
     password: string,
     offset: number,
   ): SignUpRequest;
-  user: IUser | undefined;
+  user: User | undefined;
   isLoggedIn: boolean;
   openAuthDialog(): void;
 }
@@ -46,11 +50,10 @@ export const AuthContext = React.createContext<AuthContext>({
 AuthContext.displayName = 'AuthContext';
 
 export const AuthProvider: React.FC = (props) => {
-  const [user, setUser] = useState<IUser | undefined>();
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const user = useAppSelector(getUser);
+  const isLoggedIn = useAppSelector(isLoggedInSelector);
+  const dispatch = useAppDispatch();
   const {goTo} = useModalRouter();
-  const api = useApi();
-  const {axios} = useAxios();
   const history = useHistory();
   const errorHandler = useCallback((error: AxiosError) => {
     if (error.response &&
@@ -60,7 +63,6 @@ export const AuthProvider: React.FC = (props) => {
       user !== undefined
     ) {
       setUser(undefined);
-      setIsLoggedIn(false);
     }
     return Promise.reject(error);
   }, [user, isLoggedIn]);
@@ -71,73 +73,48 @@ export const AuthProvider: React.FC = (props) => {
    * logs the user out.
    */
   useEffect(() => {
-    axios.then((axiosInstance) => {
-      axiosInstance.interceptors.response.use((response) => {
-        return response;
-      }, errorHandler);
-    });
-  }, [axios, errorHandler]);
+    axios.interceptors.response.use((response) => {
+      return response;
+    }, errorHandler);
+  }, [errorHandler]);
 
   // Send request which checks if client is logged in
   useEffect(() => {
-    api.checkLoggedIn().then((res: AxiosResponse) => {
-      setUser(res.data);
-      setIsLoggedIn(true);
-    }).catch(() => {
-      setUser(undefined);
-      setIsLoggedIn(false);
-    });
+    dispatch(checkLoggedInThunk());
     // eslint-disable-next-line
   }, []);
 
-  const login = (
+  const login = async (
     username: string,
     password: string,
   ): LoginRequest => {
-    const request = api.login(username, password);
-    request.then((response) => {
-      setUser(response.data);
-      setIsLoggedIn(true);
-      return response;
-    });
-
-    return request;
+    const res = await dispatch(loginThunk({username, password}));
+    return unwrapResult(res);
   };
 
-  const signUp = (
+  const signUp = async (
     username: string,
     email: string,
     password: string,
     offset: number,
   ): SignUpRequest => {
-    const request = api.signUp(
+    const res = await dispatch(signUpThunk({
       username,
       email,
       password,
       offset,
-    );
+    }));
 
-    request.then((response) => {
-      if ((response.data as User).id) {
-        setUser(response.data as User);
-        setIsLoggedIn(true);
-      }
-      return response;
-    });
-
-    return request;
+    return unwrapResult(res);
   };
 
-  const logout = (): LogOutRequest => {
-    const request = api.logout();
+  const logout = async (): LogOutRequest => {
+    const res = await dispatch(logoutThunk());
 
-    request.then(() => {
-      setUser(undefined);
-      setIsLoggedIn(false);
-      history.push('/');
-    });
+    const result = unwrapResult(res);
+    history.push('/');
 
-    return request;
+    return result;
   };
 
   const openAuthDialog = (): void => {

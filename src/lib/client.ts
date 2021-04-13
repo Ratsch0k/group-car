@@ -19,7 +19,7 @@ methodsToProxy.forEach((method) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (axios as any)[method] = (...args: any[]) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return csrfPromise.then(origMethod(...args));
+    return csrfPromise.then(() => origMethod(...args));
   };
 });
 
