@@ -1,6 +1,5 @@
 import React from 'react';
 import GroupCar from './GroupCar';
-import {BrowserRouter} from 'react-router-dom';
 import {ThemeProvider} from '@material-ui/core';
 import {
   theme,
@@ -13,14 +12,15 @@ import {
 } from 'lib';
 import ModalRoutes from 'modals';
 import {Provider} from 'react-redux';
-import store from './redux/store';
+import store, {history} from './redux/store';
+import {ConnectedRouter} from 'connected-react-router';
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <SnackbarProvider>
-          <BrowserRouter>
+          <ConnectedRouter history={history}>
             <ModalRouter>
               <AuthProvider>
                 <MapProvider>
@@ -33,7 +33,7 @@ const App: React.FC = () => {
                 </MapProvider>
               </AuthProvider>
             </ModalRouter>
-          </BrowserRouter>
+          </ConnectedRouter>
         </SnackbarProvider>
       </ThemeProvider>
     </Provider>

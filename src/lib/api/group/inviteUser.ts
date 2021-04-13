@@ -1,5 +1,5 @@
-import Axios from 'axios';
-import {AxiosType, Request} from 'lib';
+import {Request} from 'lib';
+import axios from 'lib/client';
 import {Invite} from '..';
 
 export type InviteUserResponse = Invite;
@@ -22,13 +22,10 @@ export type SendInviteUser = (
  * This only works if the client is loggedin in and is the admin of the group.
  * @param groupId   The id of the group to which the user should be invited
  * @param usernameOrId Either the id of a user or the username
- * @param axios     Optional axios instance,
- *                  if not provided the AxiosStatic will be used.
  */
 export const inviteUser: SendInviteUser = (
   groupId,
   usernameOrId,
-  axios: AxiosType = Axios,
 ) => {
   if (typeof groupId === 'number' && (
     typeof usernameOrId === 'number' || typeof usernameOrId === 'string')

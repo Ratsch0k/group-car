@@ -1,6 +1,5 @@
-import Axios from 'axios';
-import {Request, AxiosType,
-} from 'lib';
+import {Request} from 'lib';
+import axios from 'lib/client';
 
 export type ParkCarRequest = Request<void>;
 export type ParkCar = (
@@ -18,14 +17,12 @@ export type ParkCar = (
  * @param carId     Id of the car
  * @param latitude  Latitude of the location
  * @param longitude Longitude of the location
- * @param axios     Optional axios instance
  */
 export const parkCar: ParkCar = (
   groupId,
   carId,
   latitude,
   longitude,
-  axios: AxiosType = Axios,
 ) => {
   return axios.put(
     `/api/group/${groupId}/car/${carId}/park`,

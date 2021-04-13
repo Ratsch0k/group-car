@@ -1,5 +1,5 @@
-import {Group, Request, AxiosType} from 'lib';
-import Axios from 'axios';
+import {Group, Request} from 'lib';
+import axios from 'lib/client';
 
 export type CreateGroupResponse = Group;
 
@@ -15,13 +15,10 @@ export type CreateGroup = (
  * name and the optional description.
  * @param name        - The name of the group.
  * @param description - The description of the group (optional)
- * @param axios       - If provided the method will use this instance of axios
- *    instead of the default one.
  */
 export const createGroup: CreateGroup = (
   name,
   description,
-  axios: AxiosType = Axios,
 ) => {
   if (typeof name !== 'string' &&
   (typeof description === 'undefined' || typeof description === 'string')) {

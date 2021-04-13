@@ -1,5 +1,5 @@
-import Axios, {AxiosInstance} from 'axios';
 import {Request} from 'lib';
+import axios from 'lib/client';
 
 export type LeaveGroupRequest = Request<void>;
 export type LeaveGroup = (id: number) => LeaveGroupRequest;
@@ -11,7 +11,6 @@ export type LeaveGroup = (id: number) => LeaveGroupRequest;
  */
 export const leaveGroup: LeaveGroup = (
   id,
-  axios: AxiosInstance = Axios,
 ) => {
   if (typeof id !== 'number') {
     return Promise.reject(new TypeError('id has to be a number'));

@@ -1,5 +1,4 @@
 import {
-  AnyAction,
   createAsyncThunk,
   createSlice,
   PayloadAction,
@@ -12,6 +11,7 @@ import {
   checkLoggedIn as checkLoggedInApi,
 } from 'lib/api';
 import {RootState} from 'redux/store';
+import {isCompletedMatcher, isPendingMatcher} from 'redux/util';
 
 export interface AuthState {
   user: User | undefined;
@@ -23,15 +23,6 @@ const initialState: AuthState = {
   loading: false,
   user: undefined,
   signUpRequestSent: false,
-};
-
-const isPending = (action: AnyAction) => {
-  return (action.type as string).endsWith('/pending');
-};
-
-const isCompleted = (action: AnyAction) => {
-  return (action.type as string)
-    .match(/^.+(\/rejected|\/fulfilled)$/) !== null;
 };
 
 export const authSlice = createSlice({
@@ -46,9 +37,9 @@ export const authSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addMatcher(isPending, (state) => {
+    builder.addMatcher(isPendingMatcher, (state) => {
       state.loading = true;
-    }).addMatcher(isCompleted, (state) => {
+    }).addMatcher(isCompletedMatcher, (state) => {
       state.loading = false;
     });
   },
