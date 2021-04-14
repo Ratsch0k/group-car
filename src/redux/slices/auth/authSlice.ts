@@ -3,6 +3,7 @@ import {
   createSlice,
   PayloadAction,
 } from '@reduxjs/toolkit';
+import {push} from 'connected-react-router';
 import {User} from 'lib';
 import {
   login as loginApi,
@@ -69,6 +70,7 @@ export const logout = createAsyncThunk(
 
     dispatch(setUser(undefined));
 
+    dispatch(push('/'));
     return res;
   },
 );

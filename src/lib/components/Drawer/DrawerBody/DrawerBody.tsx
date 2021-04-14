@@ -1,12 +1,14 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {Box, Button, Theme} from '@material-ui/core';
 import {useTranslation} from 'react-i18next';
-import {useMap, useModalRouter} from 'lib';
+import {useMap} from 'lib';
 import useGroups from 'lib/hooks/useGroups';
 import GroupOptionsButton from './GroupOptionsButton';
 import CarCards from './CarCards';
 import {createStyles, makeStyles} from '@material-ui/styles';
 import SelectLocation from './SelectLocation';
+import {useAppDispatch} from 'redux/hooks';
+import {goTo} from 'redux/slices/modalRouter/modalRouterSlice';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -32,9 +34,9 @@ const useStyles = makeStyles((theme: Theme) =>
  */
 export const DrawerBody: React.FC = () => {
   const {t} = useTranslation();
-  const {goTo} = useModalRouter();
   const {groups} = useGroups();
   const classes = useStyles();
+  const dispatch = useAppDispatch();
   const {selectedCar} = useMap();
   const getOptionsButton = useCallback(
     () => {
@@ -45,7 +47,7 @@ export const DrawerBody: React.FC = () => {
             disableElevation
             color='primary'
             variant='contained'
-            onClick={() => goTo('/group/create')}
+            onClick={() => dispatch(goTo('/group/create'))}
           >
             {t('drawer.createGroup')}
           </Button>

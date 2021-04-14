@@ -1,9 +1,13 @@
 import {configureStore, getDefaultMiddleware} from '@reduxjs/toolkit';
 import rootReducer from './slices';
-import {connectRouter, routerMiddleware} from 'connected-react-router';
+import {
+  connectRouter,
+  routerMiddleware,
+} from 'connected-react-router';
 import {createBrowserHistory} from 'history';
 
 export const history = createBrowserHistory();
+
 
 /**
  * Create redux store.

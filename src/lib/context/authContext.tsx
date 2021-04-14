@@ -7,8 +7,6 @@ import {
 } from 'lib';
 import axios from 'lib/client';
 import {AxiosError} from 'axios';
-import {useModalRouter} from 'lib/hooks';
-import {useHistory} from 'react-router-dom';
 import {User} from 'typings/auth';
 import {useAppDispatch, useAppSelector} from 'redux/hooks';
 import {
@@ -21,6 +19,7 @@ import {
   setUser,
 } from 'redux/slices/auth/authSlice';
 import {unwrapResult} from '@reduxjs/toolkit';
+import {goTo} from 'redux/slices/modalRouter/modalRouterSlice';
 
 export interface AuthContext {
   login(
@@ -53,8 +52,6 @@ export const AuthProvider: React.FC = (props) => {
   const user = useAppSelector(getUser);
   const isLoggedIn = useAppSelector(isLoggedInSelector);
   const dispatch = useAppDispatch();
-  const {goTo} = useModalRouter();
-  const history = useHistory();
   const errorHandler = useCallback((error: AxiosError) => {
     if (error.response &&
       error.response.data.detail &&
@@ -109,16 +106,11 @@ export const AuthProvider: React.FC = (props) => {
   };
 
   const logout = async (): LogOutRequest => {
-    const res = await dispatch(logoutThunk());
-
-    const result = unwrapResult(res);
-    history.push('/');
-
-    return result;
+    return unwrapResult(await dispatch(logoutThunk()));
   };
 
   const openAuthDialog = (): void => {
-    goTo('/auth');
+    dispatch(goTo('/auth'));
   };
 
   return (

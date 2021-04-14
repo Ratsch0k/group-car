@@ -4,12 +4,17 @@ import ImprintDialog from 'modals/legal/ImprintDialog';
 import PrivacyPolicyDialog from
   'modals/legal/PrivacyPolicyDialog';
 import AuthenticationDialog from 'modals/auth/AuthenticationDialog';
-import {useModalRouter} from 'lib/hooks';
 import Group from 'modals/group/Group';
 import {Invites} from './invites';
+import {useAppDispatch, useAppSelector} from 'redux/hooks';
+import {
+  getModalLocation,
+  close,
+} from 'redux/slices/modalRouter/modalRouterSlice';
 
 export const Routes: React.FC = () => {
-  const {modalLocation, close} = useModalRouter();
+  const dispatch = useAppDispatch();
+  const modalLocation = useAppSelector(getModalLocation);
 
   return (
     <Switch location={modalLocation}>
@@ -22,7 +27,7 @@ export const Routes: React.FC = () => {
       <Route path='/auth'>
         <AuthenticationDialog
           open={true}
-          close={close}
+          close={() => dispatch(close())}
         />
       </Route>
       <Route path='/group'>

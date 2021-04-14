@@ -1,13 +1,14 @@
 import React from 'react';
 import {Grid, Link, Container} from '@material-ui/core';
 import {
-  useModalRouter,
   DrawerCard,
   GroupCarTheme,
 } from 'lib';
 import {useTranslation} from 'react-i18next';
 import {makeStyles, createStyles} from '@material-ui/styles';
 import clsx from 'clsx';
+import {useAppDispatch} from 'redux/hooks';
+import {goTo} from 'redux/slices/modalRouter/modalRouterSlice';
 
 
 type GridProps = import('@material-ui/core').GridProps;
@@ -25,8 +26,8 @@ interface DrawerFooterProps extends GridProps {
  */
 export const DrawerFooter: React.FC<DrawerFooterProps> =
 (props: DrawerFooterProps) => {
-  const {goTo} = useModalRouter();
   const {t} = useTranslation();
+  const dispatch = useAppDispatch();
 
   /**
  * Styles
@@ -50,12 +51,14 @@ export const DrawerFooter: React.FC<DrawerFooterProps> =
       <Container className={classes.container}>
         <Grid container justify='space-evenly'>
           <Grid item>
-            <Link component='button' onClick={() => goTo('/privacy-policy')}>
+            <Link component='button' onClick={
+              () => dispatch(goTo('/privacy-policy'))
+            }>
               {t('privacyPolicy.title')}
             </Link>
           </Grid>
           <Grid item>
-            <Link component='button' onClick={() => goTo('/imprint')}>
+            <Link component='button' onClick={() => dispatch(goTo('/imprint'))}>
               {t('imprint.title')}
             </Link>
           </Grid>

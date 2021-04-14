@@ -2,7 +2,6 @@ import React from 'react';
 import {
   AutoFullscreenDialog,
   CloseableDialogTitle,
-  useModalRouter,
 } from 'lib';
 import {useTranslation} from 'react-i18next';
 import {
@@ -12,6 +11,8 @@ import {
   Theme,
 } from '@material-ui/core';
 import ManageGroup from './ManageGroup';
+import {useAppDispatch} from 'redux/hooks';
+import {close} from 'redux/slices/modalRouter/modalRouterSlice';
 
 /**
  * Styles.
@@ -30,12 +31,12 @@ const useStyles = makeStyles((theme: Theme) =>
  */
 export const ManageGroupDialog: React.FC = () => {
   const {t} = useTranslation();
-  const {close} = useModalRouter();
+  const dispatch = useAppDispatch();
   const classes = useStyles();
 
   return (
     <AutoFullscreenDialog open={true} breakpoint='sm' maxWidth='sm' fullWidth>
-      <CloseableDialogTitle close={close}>
+      <CloseableDialogTitle close={() => dispatch(close())}>
         {t('modals.group.manage.title')}
       </CloseableDialogTitle>
       <DialogContent className={classes.content}>

@@ -18,10 +18,11 @@ import {Route, Switch, useRouteMatch, useLocation} from 'react-router-dom';
 import {
   AuthContext,
   LoginForm,
-  useModalRouter,
   SignUpBody,
   useStateIfMounted,
 } from 'lib';
+import {useAppDispatch} from 'redux/hooks';
+import {goTo} from 'redux/slices/modalRouter/modalRouterSlice';
 
 type Theme = import('@material-ui/core').Theme;
 
@@ -62,7 +63,7 @@ export const AuthenticationDialog: React.FC<AuthenticationDialogProps> =
   const classes = useStyle();
   const {t} = useTranslation();
   const auth = useContext(AuthContext);
-  const {goTo} = useModalRouter();
+  const dispatch = useAppDispatch();
   const {path, isExact} = useRouteMatch();
   const {pathname} = useLocation();
   const [loading, setLoading] = useStateIfMounted<boolean>(false);
@@ -71,21 +72,21 @@ export const AuthenticationDialog: React.FC<AuthenticationDialogProps> =
    * Handles navigation to sign up page
    */
   const handleSignUp = () => {
-    goTo(`${path}/sign-up`);
+    dispatch(goTo(`${path}/sign-up`));
   };
 
   /**
    * Handles navigation to login page
    */
   const handleLogin = () => {
-    goTo(`${path}/login`);
+    dispatch(goTo(`${path}/login`));
   };
 
   /**
    * Handles go back action
    */
   const handleBack = () => {
-    goTo(undefined);
+    dispatch(goTo(undefined));
   };
 
   /**

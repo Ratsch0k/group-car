@@ -4,8 +4,10 @@ import React, {useState, useEffect} from 'react';
 import UserAvatar from '../UserAvatar/UserAvatar';
 import {useTranslation} from 'react-i18next';
 import {grey} from '@material-ui/core/colors';
-import {GroupCarTheme, useAuth, useModalRouter} from 'lib';
+import {GroupCarTheme, useAuth} from 'lib';
 import {useInvites} from 'lib/hooks/useInvites';
+import {useAppDispatch} from 'redux/hooks';
+import {goTo} from 'redux/slices/modalRouter/modalRouterSlice';
 
 const useStyle = makeStyles((theme: GroupCarTheme) =>
   createStyles({
@@ -30,7 +32,7 @@ export const UserOverview: React.FC<UserOverviewProps> =
 (props: UserOverviewProps) => {
   const auth = useAuth();
   const {invites} = useInvites();
-  const {goTo} = useModalRouter();
+  const dispatch = useAppDispatch();
 
   /**
    * Store user info in state so that it doesn't
@@ -89,7 +91,7 @@ export const UserOverview: React.FC<UserOverviewProps> =
           <Button
             fullWidth
             color='primary'
-            onClick={() => goTo('/invites')}
+            onClick={() => dispatch(goTo('/invites'))}
           >
             <Badge
               color='secondary'

@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
-import {GroupWithOwnerAndMembersAndInvitesAndCars, useModalRouter} from 'lib';
+import {GroupWithOwnerAndMembersAndInvitesAndCars} from 'lib';
 import {Paper, Tab, Tabs, Theme, Typography} from '@material-ui/core';
 import {useTranslation} from 'react-i18next';
 import SwipeableView from 'react-swipeable-views';
@@ -7,6 +7,8 @@ import {createStyles, makeStyles} from '@material-ui/styles';
 import ManageGroupMembersTab from './ManageGroupMembersTab';
 import ManageGroupCarsTab from './ManageGroupCarsTab';
 import config from 'config';
+import {useAppDispatch, useAppSelector} from 'redux/hooks';
+import {getModalRoute, goTo} from 'redux/slices/modalRouter/modalRouterSlice';
 
 /**
  * Props for the group management tabs.
@@ -56,7 +58,8 @@ export const ManageGroupTabs: React.FC<ManageGroupsTabsProps> =
 (props: ManageGroupsTabsProps) => {
   const {t} = useTranslation();
   const classes = useStyles();
-  const {goTo, route} = useModalRouter();
+  const dispatch = useAppDispatch();
+  const route = useAppSelector(getModalRoute);
   const getTabFromRoute = useCallback(() => {
     return route.endsWith('cars') ? 1 : 0;
   }, [route]);
@@ -74,9 +77,9 @@ export const ManageGroupTabs: React.FC<ManageGroupsTabsProps> =
    */
   const handleSelectTab = (index: number) => {
     if (index === 0) {
-      goTo(`/group/manage/${props.group.id}/members`);
+      dispatch(goTo(`/group/manage/${props.group.id}/members`));
     } else {
-      goTo(`/group/manage/${props.group.id}/cars`);
+      dispatch(goTo(`/group/manage/${props.group.id}/cars`));
     }
     setSelectedTab(index);
   };
