@@ -1,12 +1,19 @@
 import {Dialog, DialogContent, DialogTitle, Grid} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
-import {CarWithDriver, CenteredCircularProgress, useGroups} from 'lib';
+import {CarWithDriver, CenteredCircularProgress} from 'lib';
 import {useMap, useSnackBar} from 'lib/hooks';
 import React, {useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
-import {useAppSelector} from 'lib/redux/hooks';
+import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
 import {getUser} from 'lib/redux/slices/auth';
 import CarCard from './CarCard';
+import {
+  driveCar,
+  getGroupCars,
+  getSelectedGroup,
+  parkCar as parkCarThunk,
+} from 'lib/redux/slices/group';
+import {unwrapResult} from '@reduxjs/toolkit';
 
 /**
  * Styles.
@@ -21,11 +28,12 @@ const useStyles = makeStyles({
  * List of cars.
  */
 export const CarCards: React.FC = () => {
-  const {groupCars, selectedGroup, parkCar: parkCarApi} = useGroups();
+  const groupCars = useAppSelector(getGroupCars);
+  const selectedGroup = useAppSelector(getSelectedGroup);
   const {setSelectedCar} = useMap();
   const user = useAppSelector(getUser);
   const classes = useStyles();
-  const {driveCar} = useGroups();
+  const dispatch = useAppDispatch();
   const {t} = useTranslation();
   const [open, setOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
@@ -46,8 +54,10 @@ export const CarCards: React.FC = () => {
   const handleAddDrivingCar = async (car: CarWithDriver) => {
     setLoading(true);
     try {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      await driveCar(selectedGroup!.id, car.carId);
+      unwrapResult(
+        await dispatch(
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+          driveCar({groupId: selectedGroup!.id, carId: car.carId})));
     } finally {
       setLoading(false);
     }
@@ -85,8 +95,13 @@ export const CarCards: React.FC = () => {
     setLoading(true);
 
     try {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      await parkCarApi(selectedGroup!.id, carId, latitude, longitude);
+      unwrapResult(await dispatch(parkCarThunk({
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        groupId: selectedGroup!.id,
+        carId,
+        latitude,
+        longitude,
+      })));
     } finally {
       setLoading(false);
     }

@@ -6,8 +6,12 @@ import {
   updateGroups,
   updateGroup,
   removeGroupWithId,
+  setDriverOfCar,
+  setLocationOfCar,
 } from './groupSlice';
 import * as api from 'lib/api';
+import {RestError} from 'lib/api';
+import {AxiosError} from 'axios';
 
 interface SelectGroupParams {
   id: number;
@@ -37,7 +41,7 @@ export const selectAndUpdateGroup = createAsyncThunk(
 
 interface CreateGroupParams {
   name: string;
-  description: string;
+  description?: string;
 }
 export const createGroup = createAsyncThunk(
   'group/createGroup',
@@ -72,19 +76,22 @@ export const getGroup = createAsyncThunk(
 
     dispatch(updateGroup(newGroup));
 
-    return newGroup;
+    return res;
   },
 );
 
-// interface InviteUserParams {
-//   groupId: number,
-//   usernameOrId: number | string;
-// }
-// export const inviteUser = createAsyncThunk(
-//   'group/inviteUser',
-//   (params: InviteUserParams) => {
-//   },
-// );
+interface InviteUserParams {
+  groupId: number,
+  usernameOrId: number | string;
+}
+export const inviteUser = createAsyncThunk(
+  'group/inviteUser',
+  async (params: InviteUserParams) => {
+    const res = await api.inviteUser(params.groupId, params.usernameOrId);
+
+    return res;
+  },
+);
 
 interface LeaveGroupParams {
   id: number;
@@ -114,26 +121,69 @@ export const deleteGroup = createAsyncThunk(
   },
 );
 
-// interface DriveCarParams {
-//   groupId: number;
-//   carId: number;
-// }
-// export const driveCar = createAsyncThunk(
-//   'group/driveCar',
-//   (params: DriveCarParams) => {
-//
-//   },
-// );
+interface DriveCarParams {
+  groupId: number;
+  carId: number;
+}
+export const driveCar = createAsyncThunk(
+  'group/driveCar',
+  async (
+    {groupId, carId}: DriveCarParams,
+    {getState, dispatch, rejectWithValue},
+  ) => {
+    const state = getState() as RootState;
+    const user = state.auth.user;
+    const selectedGroup = state.group.selectedGroup;
+    const groupCars = state.group.groupCars;
 
-// interface ParkCarParams {
-//   groupId: number;
-//   carId: number;
-//   latitude: number;
-//   longitude: number;
-// }
-// export const parkCar = createAsyncThunk(
-//   'group/parkCar',
-//   (params: ParkCarParams) => {
-//
-//   },
-// );
+    if (user !== undefined &&
+      selectedGroup !== null && selectedGroup.id === groupId &&
+      groupCars !== null && groupCars.some((car) => car.carId === carId)) {
+      const res = await api.driveCar(groupId, carId);
+      dispatch(setDriverOfCar({groupId, carId, driver: user}));
+      return res;
+    } else {
+      // TODO: Use custom error
+      rejectWithValue(
+        new Error('Either not member of group or car doesn\'t exist'),
+      );
+    }
+  },
+);
+
+interface ParkCarParams {
+  groupId: number;
+  carId: number;
+  latitude: number;
+  longitude: number;
+}
+export const parkCar = createAsyncThunk(
+  'group/parkCar',
+  async (
+    {groupId, carId, latitude, longitude}: ParkCarParams,
+    {getState, dispatch, rejectWithValue},
+  ) => {
+    const state = getState() as RootState;
+    const user = state.auth.user;
+    const {selectedGroup, groupCars} = state.group;
+
+    if (
+      user &&
+      selectedGroup !== null &&
+      selectedGroup.id === groupId &&
+      groupCars !== null
+    ) {
+      try {
+        const res = await api.parkCar(groupId, carId, latitude, longitude);
+
+        dispatch(setLocationOfCar({groupId, carId, latitude, longitude}));
+        return res;
+      } catch (e) {
+        rejectWithValue((e as AxiosError<RestError>).response);
+      }
+    } else {
+      // TODO: Replace with custom error
+      rejectWithValue(new Error('Can\'t park car'));
+    }
+  },
+);

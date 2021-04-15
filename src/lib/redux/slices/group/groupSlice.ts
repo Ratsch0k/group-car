@@ -4,8 +4,10 @@ import {
 } from '@reduxjs/toolkit';
 import {CarWithDriver, GroupWithOwner} from 'lib';
 import {isCompletedMatcher, isPendingMatcher} from 'lib/redux/util';
+import _ from 'lodash';
+import {User} from 'typings/auth';
 
-interface GroupState {
+export interface GroupState {
   /**
    * The selected group.
    *
@@ -86,6 +88,50 @@ const groupSlice = createSlice({
         state.selectedGroup = action.payload;
       }
     },
+    setDriverOfCar(
+      state,
+      action: PayloadAction<{groupId: number, carId: number, driver: User}>,
+    ) {
+      const {groupId, carId, driver} = action.payload;
+
+      if (state.groupCars) {
+        const index = state.groupCars.findIndex((g) =>
+          g.groupId === groupId && g.carId === carId);
+
+        if (index !== -1) {
+          state.groupCars[index].driverId = driver.id;
+          state.groupCars[index].Driver = {
+            username: driver.username,
+            id: driver.id,
+          };
+          state.groupCars[index].latitude = null;
+          state.groupCars[index].longitude = null;
+        }
+      }
+    },
+    setLocationOfCar(
+      state,
+      action: PayloadAction<{
+        groupId: number,
+        carId: number,
+        latitude: number,
+        longitude: number
+      }>,
+    ) {
+      const {groupId, carId, latitude, longitude} = action.payload;
+
+      if (state.groupCars) {
+        const index = state.groupCars.findIndex((g) =>
+          g.groupId === groupId && g.carId === carId);
+
+        if (index !== -1) {
+          state.groupCars[index].Driver = null;
+          state.groupCars[index].driverId = null;
+          state.groupCars[index].latitude = latitude;
+          state.groupCars[index].longitude = longitude;
+        }
+      }
+    },
     removeGroupWithId(state, {payload: id}: PayloadAction<number>) {
       state.groups = state.groups.filter((g) => g.id !== id);
 
@@ -93,6 +139,34 @@ const groupSlice = createSlice({
       if (selectedGroup && selectedGroup.id === id) {
         state.selectedGroup = null;
         state.groupCars = null;
+      }
+    },
+    addCar(state, action: PayloadAction<CarWithDriver>) {
+      const car = action.payload;
+
+      if (
+        state.selectedGroup &&
+        state.selectedGroup.id === car.groupId &&
+        state.groupCars &&
+        state.groupCars.every((c) => c.carId !== car.carId)
+      ) {
+        state.groupCars.push(car);
+      }
+    },
+    updateCar(state, action: PayloadAction<CarWithDriver>) {
+      const car = action.payload;
+
+      if (
+        state.selectedGroup &&
+        state.selectedGroup.id === car.groupId &&
+        state.groupCars
+      ) {
+        const index = state.groupCars.findIndex((c) =>
+          c.groupId === car.groupId && c.carId === car.carId);
+
+        if (index !== -1 && !_.isEqual(state.groupCars[index], car)) {
+          state.groupCars[index] = car;
+        }
       }
     },
   },
@@ -111,6 +185,10 @@ export const {
   updateGroups,
   updateGroup,
   removeGroupWithId,
+  setDriverOfCar,
+  setLocationOfCar,
+  addCar,
+  updateCar,
 } = groupSlice.actions;
 
 export default groupSlice.reducer;

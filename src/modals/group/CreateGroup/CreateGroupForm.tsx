@@ -4,7 +4,9 @@ import {FormTextField, ProgressButton} from 'lib';
 import {useTranslation} from 'react-i18next';
 import {useFormik} from 'formik';
 import * as yup from 'yup';
-import useGroups from 'lib/hooks/useGroups';
+import {useAppDispatch} from 'lib/redux/hooks';
+import {unwrapResult} from '@reduxjs/toolkit';
+import {createGroup} from 'lib/redux/slices/group';
 
 const minNameLength = 4;
 const maxNameLength = 30;
@@ -22,7 +24,7 @@ interface CreateGroupFormProps {
 export const CreateGroupForm: React.FC<CreateGroupFormProps> =
 (props: CreateGroupFormProps) => {
   const {t} = useTranslation();
-  const {createGroup} = useGroups();
+  const dispatch = useAppDispatch();
 
   const validationSchema = yup.object({
     name: yup.string().required(t('form.error.required'))
@@ -56,9 +58,11 @@ export const CreateGroupForm: React.FC<CreateGroupFormProps> =
       description: undefined,
     },
     validationSchema,
-    onSubmit: (values) => {
+    onSubmit: ({name, description}) => {
       props.setLoading && props.setLoading(true);
-      createGroup(values.name, values.description).then((res) => {
+      dispatch(
+        createGroup({name, description}),
+      ).then(unwrapResult).then((res) => {
         formik.setSubmitting(false);
         props.navigateToManagement && props.navigateToManagement(res.data.id);
       }).catch(() => {

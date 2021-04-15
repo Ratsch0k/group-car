@@ -1,8 +1,10 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {MapContainer, TileLayer, Marker, Circle} from 'react-leaflet';
-import {LocationMarker, PositionMarker, useGroups, useMap} from 'lib';
+import {LocationMarker, PositionMarker, useMap} from 'lib';
 import {LatLng, LeafletMouseEvent} from 'leaflet';
 import CarMarker from './CarMarker';
+import {useAppSelector} from 'lib/redux/hooks';
+import {getGroupCars} from 'lib/redux/slices/group';
 
 /**
  * Map component.
@@ -12,7 +14,7 @@ export const Map: React.FC = () => {
   const [acc, setAcc] = useState<number>(0);
   const {map, setMap, selectedCar, selectionDisabled} = useMap();
   const [selectedLocation, setSelectedLocation] = useState<LatLng>();
-  const {groupCars} = useGroups();
+  const groupCars = useAppSelector(getGroupCars);
   const id = useRef<number>();
   const flew = useRef<boolean>(false);
   const timeoutId = useRef<NodeJS.Timeout>();

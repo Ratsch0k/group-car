@@ -8,7 +8,10 @@ import {
 } from '@material-ui/core';
 import {red} from '@material-ui/core/colors';
 import {makeStyles} from '@material-ui/styles';
-import {ProgressButton, useGroups, useSnackBar} from 'lib';
+import {unwrapResult} from '@reduxjs/toolkit';
+import {ProgressButton, useSnackBar} from 'lib';
+import {useAppDispatch} from 'lib/redux/hooks';
+import {leaveGroup} from 'lib/redux/slices/group';
 import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {useHistory} from 'react-router-dom';
@@ -38,7 +41,7 @@ export const ManageGroupLeaveAction: React.FC<ManageGroupLeaveActionProps> =
 (props: ManageGroupLeaveActionProps) => {
   const {t} = useTranslation();
   const classes = useStyles();
-  const {leaveGroup} = useGroups();
+  const dispatch = useAppDispatch();
   const [loading, setLoading] = useState<boolean>(false);
   const {groupId} = props;
   const {show} = useSnackBar();
@@ -48,7 +51,7 @@ export const ManageGroupLeaveAction: React.FC<ManageGroupLeaveActionProps> =
   const handleLeave = async () => {
     setLoading(true);
     try {
-      await leaveGroup(groupId);
+      unwrapResult(await dispatch(leaveGroup({id: groupId})));
       setLoading(false);
       show('success', t('modals.group.manage.leaveGroup.success'));
       history.push('/');

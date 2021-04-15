@@ -7,14 +7,14 @@ import {
 } from '@material-ui/core';
 import {GroupCarTheme} from 'lib';
 import {useTranslation} from 'react-i18next';
-import {useGroups} from 'lib';
 import GroupSelectionMenu from './GroupSelectionMenu';
 import AddIcon from '@material-ui/icons/Add';
 import MenuIconItem from 'lib/components/MenuIconItem';
 import EditIcon from '@material-ui/icons/Edit';
 import ListIcon from '@material-ui/icons/List';
-import {useAppDispatch} from 'lib/redux/hooks';
+import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
 import {goToModal} from 'lib/redux/slices/modalRouter/modalRouterSlice';
+import {getGroups, getSelectedGroup} from 'lib/redux/slices/group';
 
 /**
  * Props for the group options menu.
@@ -44,7 +44,8 @@ export const GroupOptionsMenu: React.FC<GroupOptionsMenuProps>=
 (props: GroupOptionsMenuProps) => {
   const {t} = useTranslation();
   const dispatch = useAppDispatch();
-  const {selectedGroup, groups} = useGroups();
+  const selectedGroup = useAppSelector(getSelectedGroup);
+  const groups = useAppSelector(getGroups);
   const [openSubMenu, setOpenSubMenu] =
     useState<boolean>(false);
   const mainMenuRef = useRef<HTMLDivElement>(null);

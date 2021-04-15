@@ -3,13 +3,15 @@ import {
   RestError,
   useStateIfMounted,
   CenteredCircularProgress,
-  useGroups,
   useApi,
   GroupWithOwnerAndMembersAndInvitesAndCars,
 } from 'lib';
 import ManageGroupErrorHandler from './ManageGroupNoGroupError';
 import {ManageGroupOverview} from './ManageGroupOverview';
 import {useParams} from 'react-router-dom';
+import {useAppDispatch} from 'lib/redux/hooks';
+import {unwrapResult} from '@reduxjs/toolkit';
+import {getGroup} from 'lib/redux/slices/group';
 
 /**
  * Props for the manage group component.
@@ -30,7 +32,7 @@ export interface ManageGroupProps {
  */
 export const ManageGroup: React.FC<ManageGroupProps> =
 (props: ManageGroupProps) => {
-  const {getGroup} = useGroups();
+  const dispatch = useAppDispatch();
   const {getInvitesOfGroup, getMembers, getCars} = useApi();
   const {groupId: groupIdParam} = useParams<{groupId: string}>();
   const [groupData, setGroupData] =
@@ -53,7 +55,7 @@ export const ManageGroup: React.FC<ManageGroupProps> =
     if (typeof selectedGroupId !== 'undefined' && !isNaN(selectedGroupId)) {
       // Get group, members and invites
       Promise.all([
-        getGroup(selectedGroupId),
+        dispatch(getGroup({id: selectedGroupId})).then(unwrapResult),
         getMembers(selectedGroupId),
         getInvitesOfGroup(selectedGroupId),
         getCars(selectedGroupId),

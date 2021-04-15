@@ -7,7 +7,7 @@ import {
   ModalRouter,
   InvitesProvider,
   MapProvider,
-  GroupProvider,
+  GroupUpdater,
   SnackbarProvider,
 } from 'lib';
 import ModalRoutes from 'modals';
@@ -25,12 +25,12 @@ const App: React.FC = () => {
             <ModalRouter>
               <AuthChecker>
                 <MapProvider>
-                  <GroupProvider>
+                  <GroupUpdater>
                     <InvitesProvider>
                       <GroupCar />
                       <ModalRoutes />
                     </InvitesProvider>
-                  </GroupProvider>
+                  </GroupUpdater>
                 </MapProvider>
               </AuthChecker>
             </ModalRouter>

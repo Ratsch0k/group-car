@@ -1,5 +1,4 @@
 import React, {useState, useEffect, Dispatch, SetStateAction} from 'react';
-import {useGroups} from 'lib/hooks';
 import {
   MenuList,
   Box,
@@ -8,6 +7,14 @@ import {
   makeStyles,
 } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
+import {
+  getGroups,
+  getSelectedGroup,
+  selectAndUpdateGroup,
+  selectGroup,
+} from 'lib/redux/slices/group';
+import {unwrapResult} from '@reduxjs/toolkit';
 
 /**
  * Props for the group selection menu.
@@ -51,7 +58,9 @@ const useStyles = makeStyles({
  */
 export const GroupSelectionMenu: React.FC<GroupSelectionMenuProps> =
 (props: GroupSelectionMenuProps) => {
-  const {selectedGroup, groups, selectGroup} = useGroups();
+  const dispatch = useAppDispatch();
+  const groups = useAppSelector(getGroups);
+  const selectedGroup = useAppSelector(getSelectedGroup);
   const [groupItems, setGroupItems] = useState<JSX.Element[]>([]);
   const classes = useStyles();
 
@@ -73,7 +82,8 @@ export const GroupSelectionMenu: React.FC<GroupSelectionMenuProps> =
           onClick={async () => {
             props.setLoading(true);
             try {
-              await selectGroup(group.id);
+              unwrapResult(
+                await dispatch(selectAndUpdateGroup({id: group.id})));
               props.setLoading(false);
               props.close();
             } catch {
