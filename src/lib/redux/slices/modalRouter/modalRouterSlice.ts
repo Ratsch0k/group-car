@@ -1,6 +1,6 @@
 import {Location} from 'history';
-import store, {RootState} from 'redux/store';
-import {history as appHistory} from 'redux/store';
+import store, {RootState} from 'lib/redux/store';
+import appHistory from 'lib/redux/history';
 import queryString from 'query-string';
 import {
   goBack,
@@ -10,7 +10,7 @@ import {
 } from 'connected-react-router';
 
 
-export const goTo = (
+export const goToModal = (
   value: string | undefined | null,
   replace = false,
 ): CallHistoryMethodAction<unknown> => {
@@ -54,7 +54,7 @@ export const goTo = (
   }
 };
 
-export const close = (): CallHistoryMethodAction<unknown> => {
+export const closeModal = (): CallHistoryMethodAction<unknown> => {
   const state = store.getState();
 
   const search = queryString.parse(state.router.location.search);

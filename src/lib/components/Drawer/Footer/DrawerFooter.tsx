@@ -7,8 +7,8 @@ import {
 import {useTranslation} from 'react-i18next';
 import {makeStyles, createStyles} from '@material-ui/styles';
 import clsx from 'clsx';
-import {useAppDispatch} from 'redux/hooks';
-import {goTo} from 'redux/slices/modalRouter/modalRouterSlice';
+import {useAppDispatch} from 'lib/redux/hooks';
+import {goToModal} from 'lib/redux/slices/modalRouter/modalRouterSlice';
 
 
 type GridProps = import('@material-ui/core').GridProps;
@@ -52,13 +52,16 @@ export const DrawerFooter: React.FC<DrawerFooterProps> =
         <Grid container justify='space-evenly'>
           <Grid item>
             <Link component='button' onClick={
-              () => dispatch(goTo('/privacy-policy'))
+              () => dispatch(goToModal('/privacy-policy'))
             }>
               {t('privacyPolicy.title')}
             </Link>
           </Grid>
           <Grid item>
-            <Link component='button' onClick={() => dispatch(goTo('/imprint'))}>
+            <Link
+              component='button'
+              onClick={() => dispatch(goToModal('/imprint'))}
+            >
               {t('imprint.title')}
             </Link>
           </Grid>

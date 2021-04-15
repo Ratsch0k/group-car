@@ -11,8 +11,8 @@ import {
   Theme,
 } from '@material-ui/core';
 import ManageGroup from './ManageGroup';
-import {useAppDispatch} from 'redux/hooks';
-import {close} from 'redux/slices/modalRouter/modalRouterSlice';
+import {useAppDispatch} from 'lib/redux/hooks';
+import {closeModal} from 'lib/redux/slices/modalRouter/modalRouterSlice';
 
 /**
  * Styles.
@@ -36,7 +36,7 @@ export const ManageGroupDialog: React.FC = () => {
 
   return (
     <AutoFullscreenDialog open={true} breakpoint='sm' maxWidth='sm' fullWidth>
-      <CloseableDialogTitle close={() => dispatch(close())}>
+      <CloseableDialogTitle close={() => dispatch(closeModal())}>
         {t('modals.group.manage.title')}
       </CloseableDialogTitle>
       <DialogContent className={classes.content}>

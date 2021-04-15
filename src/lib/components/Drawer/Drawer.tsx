@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {Drawer as MatDrawer, Container, Box} from '@material-ui/core';
 import {makeStyles, createStyles} from '@material-ui/styles';
 import clsx from 'clsx';
@@ -6,8 +6,9 @@ import {GroupCarTheme} from 'lib';
 import DrawerHeader from './DrawerHeader';
 import DrawerFooter from './Footer';
 import DrawerBody from './DrawerBody';
-import {AuthContext} from 'lib/context';
 import DrawerNotLoggedIn from './DrawerNotLoggedIn';
+import {useAppSelector} from 'lib/redux/hooks';
+import {getIsLoggedIn} from 'lib/redux/slices/auth/authSelectors';
 
 interface DrawerProps {
   open: boolean;
@@ -54,7 +55,7 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
 export const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
   const {open, onClose, permanent} = props;
   const classes = useStyles();
-  const {isLoggedIn} = useContext(AuthContext);
+  const isLoggedIn = useAppSelector(getIsLoggedIn);
 
 
   return (

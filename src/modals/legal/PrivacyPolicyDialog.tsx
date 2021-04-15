@@ -6,8 +6,8 @@ import {
   PrivacyPolicy,
   AutoFullscreenDialog,
 } from 'lib';
-import {useAppDispatch} from 'redux/hooks';
-import {close} from 'redux/slices/modalRouter/modalRouterSlice';
+import {useAppDispatch} from 'lib/redux/hooks';
+import {closeModal} from 'lib/redux/slices/modalRouter/modalRouterSlice';
 
 export const PrivacyPolicyDialog: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -15,7 +15,7 @@ export const PrivacyPolicyDialog: React.FC = () => {
 
   return (
     <AutoFullscreenDialog open={true}>
-      <CloseableDialogTitle close={() => dispatch(close())}>
+      <CloseableDialogTitle close={() => dispatch(closeModal())}>
         {t('privacyPolicy.title')}
       </CloseableDialogTitle>
       <DialogContent>

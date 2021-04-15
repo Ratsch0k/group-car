@@ -12,8 +12,8 @@ import {CloseableDialogTitle} from 'lib';
 import {useInvites} from 'lib/hooks/useInvites';
 import React, {useEffect} from 'react';
 import {useTranslation} from 'react-i18next';
-import {useAppDispatch} from 'redux/hooks';
-import {close} from 'redux/slices/modalRouter/modalRouterSlice';
+import {useAppDispatch} from 'lib/redux/hooks';
+import {closeModal} from 'lib/redux/slices/modalRouter/modalRouterSlice';
 import InvitesListItem from './InvitesListItem';
 
 /**
@@ -35,8 +35,8 @@ const useStyles = makeStyles((theme: Theme) =>
 export const Invites: React.FC = () => {
   const {invites, refresh, deleteInvite, acceptInvite} = useInvites();
   const {t} = useTranslation();
-  const dispatch = useAppDispatch();
   const classes = useStyles();
+  const dispatch = useAppDispatch();
 
   // Refresh invites on first render
   useEffect(() => {
@@ -80,9 +80,9 @@ export const Invites: React.FC = () => {
       open={true}
       fullWidth
       maxWidth='sm'
-      onBackdropClick={() => dispatch(close())}
+      onBackdropClick={() => dispatch(closeModal())}
     >
-      <CloseableDialogTitle close={() => dispatch(close())}>
+      <CloseableDialogTitle close={() => dispatch(closeModal())}>
         {t('modals.invites.title')}
       </CloseableDialogTitle>
       <DialogContent>

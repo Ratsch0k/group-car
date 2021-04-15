@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import {
   Button,
   Dialog,
@@ -11,18 +12,18 @@ import {
   Typography,
 } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import React, {useEffect, useContext} from 'react';
+import React, {useEffect} from 'react';
 import {useTranslation} from 'react-i18next';
 import CloseIcon from '@material-ui/icons/Close';
 import {Route, Switch, useRouteMatch, useLocation} from 'react-router-dom';
 import {
-  AuthContext,
   LoginForm,
   SignUpBody,
   useStateIfMounted,
 } from 'lib';
-import {useAppDispatch} from 'redux/hooks';
-import {goTo} from 'redux/slices/modalRouter/modalRouterSlice';
+import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
+import {goToModal} from 'lib/redux/slices/modalRouter/modalRouterSlice';
+import {getIsLoggedIn} from 'lib/redux/slices/auth/authSelectors';
 
 type Theme = import('@material-ui/core').Theme;
 
@@ -62,8 +63,8 @@ export const AuthenticationDialog: React.FC<AuthenticationDialogProps> =
 (props: AuthenticationDialogProps) => {
   const classes = useStyle();
   const {t} = useTranslation();
-  const auth = useContext(AuthContext);
   const dispatch = useAppDispatch();
+  const isLoggedIn = useAppSelector(getIsLoggedIn);
   const {path, isExact} = useRouteMatch();
   const {pathname} = useLocation();
   const [loading, setLoading] = useStateIfMounted<boolean>(false);
@@ -72,21 +73,21 @@ export const AuthenticationDialog: React.FC<AuthenticationDialogProps> =
    * Handles navigation to sign up page
    */
   const handleSignUp = () => {
-    dispatch(goTo(`${path}/sign-up`));
+    dispatch(goToModal(`${path}/sign-up`));
   };
 
   /**
    * Handles navigation to login page
    */
   const handleLogin = () => {
-    dispatch(goTo(`${path}/login`));
+    dispatch(goToModal(`${path}/login`));
   };
 
   /**
    * Handles go back action
    */
   const handleBack = () => {
-    dispatch(goTo(undefined));
+    dispatch(goToModal(undefined));
   };
 
   /**
@@ -102,12 +103,12 @@ export const AuthenticationDialog: React.FC<AuthenticationDialogProps> =
    * if the client is authenticated. If it is go to the origin.
    */
   useEffect(() => {
-    if (auth.isLoggedIn) {
+    if (isLoggedIn) {
       onFinished();
     }
 
     // eslint-disable-next-line
-  }, [auth.isLoggedIn]);
+  }, [isLoggedIn]);
 
   return (
     <Dialog open={props.open} fullWidth maxWidth='xs'>

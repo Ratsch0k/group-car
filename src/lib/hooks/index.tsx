@@ -1,10 +1,8 @@
-export {default as useModalRouter} from './useModalRouter';
 export * from './useAxios';
 export * from './useApi';
 export * from './useComponentIsMounted';
 export * from './useStateIfMounted';
 export * from './useGroups';
-export * from './useAuth';
 export * from './useInvites';
 export * from './useSnackbar';
 export * from './useMap';

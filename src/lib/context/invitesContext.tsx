@@ -1,10 +1,11 @@
 import {
   useApi,
   InviteWithGroupAndInviteSender,
-  useAuth,
   NotDefinedError,
   useGroups,
 } from 'lib';
+import {useAppSelector} from 'lib/redux/hooks';
+import {getIsLoggedIn} from 'lib/redux/slices/auth/authSelectors';
 import React, {useEffect, useState} from 'react';
 
 export interface InvitesContext {
@@ -54,7 +55,7 @@ export interface InvitesProviderProps {
 export const InvitesProvider: React.FC<InvitesProviderProps> = (props) => {
   const [invites, setInvites] = useState<InvitesContext['invites']>([]);
   const {getInvitesOfUser, acceptInvite: acceptInviteApi} = useApi();
-  const {isLoggedIn} = useAuth();
+  const isLoggedIn = useAppSelector(getIsLoggedIn);
   const interval = props.interval || 1000 * 10; // 10 seconds
   const {update: updateGroups} = useGroups();
   const [intervalId, setIntervalId] = useState<NodeJS.Timeout>();

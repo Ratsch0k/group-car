@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   ClickAwayListener,
   IconButton,
@@ -13,9 +13,12 @@ import {
 } from '@material-ui/core';
 import UserAvatar from '../UserAvatar';
 import UserOverview from '../UserOverview/UserOverview';
-import {AuthContext, InvitesContext} from 'lib';
 import {createStyles, makeStyles} from '@material-ui/styles';
 import clsx from 'clsx';
+import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
+import {getUser} from 'lib/redux/slices/auth/authSelectors';
+import {openAuthDialog} from 'lib/redux/slices/auth/authThunks';
+import {InvitesContext} from 'lib';
 
 /**
  * Styles.
@@ -34,8 +37,8 @@ const useStyles = makeStyles((theme: Theme) =>
  * If the user is logged in it opens the UserOverview.
  */
 export const HeaderBarUserButton: React.FC = () => {
-  const auth = useContext(AuthContext);
-  const {openAuthDialog} = useContext(AuthContext);
+  const user = useAppSelector(getUser);
+  const dispatch = useAppDispatch();
   const theme = useTheme();
   const smallerXs = useMediaQuery(theme.breakpoints.down('xs'));
   const classes = useStyles();
@@ -51,14 +54,14 @@ export const HeaderBarUserButton: React.FC = () => {
    * @param event MouseEvent to handle
    */
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    if (auth.user && auth.user.username) {
+    if (user && user.username) {
       if (anchor) {
         setAnchor(null);
       } else {
         setAnchor(event.currentTarget);
       }
     } else {
-      openAuthDialog();
+      dispatch(openAuthDialog());
     }
   };
 
@@ -71,12 +74,12 @@ export const HeaderBarUserButton: React.FC = () => {
 
   // Update the user id if it changes.
   useEffect(() => {
-    if (auth.user && auth.user.id !== undefined) {
-      setUserId(auth.user.id);
+    if (user && user.id !== undefined) {
+      setUserId(user.id);
     } else {
       setUserId(undefined);
     }
-  }, [auth.user]);
+  }, [user]);
 
   return (
     <ClickAwayListener

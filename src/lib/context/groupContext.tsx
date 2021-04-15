@@ -1,8 +1,7 @@
-import React, {useState, useEffect, useContext, useCallback} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import {
   useApi,
   Api,
-  AuthContext,
   GroupWithOwner,
   NotDefinedError,
   CarWithDriver,
@@ -12,6 +11,8 @@ import {useSnackBar} from 'lib/hooks';
 import {useTranslation} from 'react-i18next';
 import {SocketGroupActionData} from 'typings/socket';
 import {useHistory, useRouteMatch} from 'react-router-dom';
+import {useAppSelector} from 'lib/redux/hooks';
+import {getUser} from 'lib/redux/slices/auth/authSelectors';
 
 /**
  * Context for the group context.
@@ -133,7 +134,7 @@ GroupContext.displayName = 'GroupContext';
  * @param props Children.
  */
 export const GroupProvider: React.FC = (props) => {
-  const {user} = useContext(AuthContext);
+  const user = useAppSelector(getUser);
   const {
     getGroups,
     createGroup: createGroupApi,

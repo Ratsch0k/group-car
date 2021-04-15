@@ -13,8 +13,8 @@ import AddIcon from '@material-ui/icons/Add';
 import MenuIconItem from 'lib/components/MenuIconItem';
 import EditIcon from '@material-ui/icons/Edit';
 import ListIcon from '@material-ui/icons/List';
-import {useAppDispatch} from 'redux/hooks';
-import {goTo} from 'redux/slices/modalRouter/modalRouterSlice';
+import {useAppDispatch} from 'lib/redux/hooks';
+import {goToModal} from 'lib/redux/slices/modalRouter/modalRouterSlice';
 
 /**
  * Props for the group options menu.
@@ -101,7 +101,7 @@ export const GroupOptionsMenu: React.FC<GroupOptionsMenuProps>=
       >
         <MenuList>
           <MenuIconItem
-            onClick={() => dispatch(goTo('/group/create'))}
+            onClick={() => dispatch(goToModal('/group/create'))}
             icon={<AddIcon />}
             disabled={props.loading}
             button
@@ -112,7 +112,7 @@ export const GroupOptionsMenu: React.FC<GroupOptionsMenuProps>=
             selectedGroup !== null &&
             <MenuIconItem
               onClick={
-                () => dispatch(goTo(`/group/manage/${selectedGroup.id}`))
+                () => dispatch(goToModal(`/group/manage/${selectedGroup.id}`))
               }
               icon={<EditIcon />}
               disabled={props.loading}

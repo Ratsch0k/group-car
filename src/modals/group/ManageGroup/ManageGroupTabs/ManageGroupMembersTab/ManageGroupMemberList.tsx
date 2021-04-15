@@ -1,10 +1,11 @@
 import {List} from '@material-ui/core';
 import {
-  AuthContext,
   GroupWithOwnerAndMembersAndInvites,
   InviteWithUserAndInviteSender,
 } from 'lib';
-import React, {useContext} from 'react';
+import {useAppSelector} from 'lib/redux/hooks';
+import {getUser} from 'lib/redux/slices/auth/authSelectors';
+import React from 'react';
 import {
   ManageGroupMemberListInvitedItem,
 } from './ManageGroupMemberListInvitedItem';
@@ -30,7 +31,7 @@ export interface ManageGroupMemberListProps {
  */
 export const ManageGroupMemberList: React.FC<ManageGroupMemberListProps> =
 (props: ManageGroupMemberListProps) => {
-  const {user} = useContext(AuthContext);
+  const user = useAppSelector(getUser);
   const {group, additionalInvites} = props;
   const invites = group.invites.concat(additionalInvites);
 

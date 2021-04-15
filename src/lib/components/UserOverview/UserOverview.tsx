@@ -4,10 +4,12 @@ import React, {useState, useEffect} from 'react';
 import UserAvatar from '../UserAvatar/UserAvatar';
 import {useTranslation} from 'react-i18next';
 import {grey} from '@material-ui/core/colors';
-import {GroupCarTheme, useAuth} from 'lib';
+import {GroupCarTheme} from 'lib';
 import {useInvites} from 'lib/hooks/useInvites';
-import {useAppDispatch} from 'redux/hooks';
-import {goTo} from 'redux/slices/modalRouter/modalRouterSlice';
+import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
+import {goToModal} from 'lib/redux/slices/modalRouter/modalRouterSlice';
+import {logout} from 'lib/redux/slices/auth/authThunks';
+import {getIsLoggedIn, getUser} from 'lib/redux/slices/auth/authSelectors';
 
 const useStyle = makeStyles((theme: GroupCarTheme) =>
   createStyles({
@@ -30,8 +32,9 @@ interface UserOverviewProps {
 
 export const UserOverview: React.FC<UserOverviewProps> =
 (props: UserOverviewProps) => {
-  const auth = useAuth();
   const {invites} = useInvites();
+  const isLoggedIn = useAppSelector(getIsLoggedIn);
+  const user = useAppSelector(getUser);
   const dispatch = useAppDispatch();
 
   /**
@@ -46,30 +49,30 @@ export const UserOverview: React.FC<UserOverviewProps> =
 
   const handleLogout = () => {
     props.onClose && props.onClose();
-    auth.logout();
+    dispatch(logout());
   };
 
   useEffect(() => {
     // Only update the user info if the user changes
-    if (auth.isLoggedIn && auth.user) {
+    if (isLoggedIn && user) {
       setUserInfo(
         <>
-          <UserAvatar userId={auth.user && auth.user.id} size={100}/>
+          <UserAvatar userId={user && user.id} size={100}/>
           <Typography align='center'>
-            {auth.user && auth.user.username}
+            {user && user.username}
           </Typography>
           <Typography
             align='center'
             variant='caption'
             color='textSecondary'
           >
-            {auth.user && auth.user.email}
+            {user && user.email}
           </Typography>
         </>,
       );
     }
     // eslint-disable-next-line
-  }, [auth.user]);
+  }, [user]);
 
   return (
     <Box className={classes.container}>
@@ -91,7 +94,7 @@ export const UserOverview: React.FC<UserOverviewProps> =
           <Button
             fullWidth
             color='primary'
-            onClick={() => dispatch(goTo('/invites'))}
+            onClick={() => dispatch(goToModal('/invites'))}
           >
             <Badge
               color='secondary'

@@ -1,5 +1,7 @@
 import {Box} from '@material-ui/core';
-import {GroupWithOwnerAndMembersAndInvites, useAuth} from 'lib';
+import {GroupWithOwnerAndMembersAndInvites} from 'lib';
+import {useAppSelector} from 'lib/redux/hooks';
+import {getUser} from 'lib/redux/slices/auth/authSelectors';
 import React from 'react';
 import ManageGroupDeleteAction from './ManageGroupDeleteAction';
 import ManageGroupLeaveAction from './ManageGroupLeaveAction';
@@ -22,7 +24,7 @@ export interface ManageGroupActionsProps {
  */
 export const ManageGroupActions: React.FC<ManageGroupActionsProps> =
 (props: ManageGroupActionsProps) => {
-  const {user} = useAuth();
+  const user = useAppSelector(getUser);
   const {group} = props;
 
   let content: JSX.Element;

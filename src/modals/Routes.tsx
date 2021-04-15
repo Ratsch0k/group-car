@@ -6,15 +6,15 @@ import PrivacyPolicyDialog from
 import AuthenticationDialog from 'modals/auth/AuthenticationDialog';
 import Group from 'modals/group/Group';
 import {Invites} from './invites';
-import {useAppDispatch, useAppSelector} from 'redux/hooks';
+import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
 import {
+  closeModal,
   getModalLocation,
-  close,
-} from 'redux/slices/modalRouter/modalRouterSlice';
+} from 'lib/redux/slices/modalRouter/modalRouterSlice';
 
 export const Routes: React.FC = () => {
-  const dispatch = useAppDispatch();
   const modalLocation = useAppSelector(getModalLocation);
+  const dispatch = useAppDispatch();
 
   return (
     <Switch location={modalLocation}>
@@ -27,7 +27,7 @@ export const Routes: React.FC = () => {
       <Route path='/auth'>
         <AuthenticationDialog
           open={true}
-          close={() => dispatch(close())}
+          close={() => dispatch(closeModal())}
         />
       </Route>
       <Route path='/group'>

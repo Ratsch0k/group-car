@@ -2,13 +2,14 @@ import {
   GroupWithOwnerAndMembersAndInvites,
   InviteWithUserAndInviteSender,
   TabPanel,
-  useAuth,
 } from 'lib';
 import React, {RefObject, useEffect, useState} from 'react';
 import ManageGroupMemberList from './ManageGroupMemberList';
 import {isAdmin as isAdminCheck} from 'lib/util';
 import ManageGroupMemberTabSearchUser from './ManageGroupMemberTabSearchUser';
 import {Portal} from '@material-ui/core';
+import {useAppSelector} from 'lib/redux/hooks';
+import {getUser} from 'lib/redux/slices/auth/authSelectors';
 
 /**
  * Props.
@@ -36,7 +37,7 @@ export interface ManageGroupMembersTabProps {
  */
 export const ManageGroupMembersTab: React.FC<ManageGroupMembersTabProps> =
 (props: ManageGroupMembersTabProps) => {
-  const {user} = useAuth();
+  const user = useAppSelector(getUser);
   const [isAdmin, setIsAdmin] = useState<boolean>(
     isAdminCheck(props.group, user?.id));
   const [additionalInvites, setAdditionalInvites] =

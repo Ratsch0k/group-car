@@ -7,8 +7,11 @@ import {createStyles, makeStyles} from '@material-ui/styles';
 import ManageGroupMembersTab from './ManageGroupMembersTab';
 import ManageGroupCarsTab from './ManageGroupCarsTab';
 import config from 'config';
-import {useAppDispatch, useAppSelector} from 'redux/hooks';
-import {getModalRoute, goTo} from 'redux/slices/modalRouter/modalRouterSlice';
+import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
+import {
+  getModalRoute,
+  goToModal,
+} from 'lib/redux/slices/modalRouter/modalRouterSlice';
 
 /**
  * Props for the group management tabs.
@@ -77,9 +80,9 @@ export const ManageGroupTabs: React.FC<ManageGroupsTabsProps> =
    */
   const handleSelectTab = (index: number) => {
     if (index === 0) {
-      dispatch(goTo(`/group/manage/${props.group.id}/members`));
+      dispatch(goToModal(`/group/manage/${props.group.id}/members`));
     } else {
-      dispatch(goTo(`/group/manage/${props.group.id}/cars`));
+      dispatch(goToModal(`/group/manage/${props.group.id}/cars`));
     }
     setSelectedTab(index);
   };

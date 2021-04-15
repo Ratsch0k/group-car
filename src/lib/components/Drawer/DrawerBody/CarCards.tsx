@@ -1,9 +1,11 @@
 import {Dialog, DialogContent, DialogTitle, Grid} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
-import {CarWithDriver, CenteredCircularProgress, useAuth, useGroups} from 'lib';
+import {CarWithDriver, CenteredCircularProgress, useGroups} from 'lib';
 import {useMap, useSnackBar} from 'lib/hooks';
 import React, {useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
+import {useAppSelector} from 'lib/redux/hooks';
+import {getUser} from 'lib/redux/slices/auth/authSelectors';
 import CarCard from './CarCard';
 
 /**
@@ -21,7 +23,7 @@ const useStyles = makeStyles({
 export const CarCards: React.FC = () => {
   const {groupCars, selectedGroup, parkCar: parkCarApi} = useGroups();
   const {setSelectedCar} = useMap();
-  const {user} = useAuth();
+  const user = useAppSelector(getUser);
   const classes = useStyles();
   const {driveCar} = useGroups();
   const {t} = useTranslation();

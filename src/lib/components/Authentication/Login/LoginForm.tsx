@@ -8,8 +8,9 @@ import {
   PasswordTextField,
   FormTextField,
 } from 'lib';
-import {login} from 'redux/slices/auth/authSlice';
-import {useAppDispatch} from 'redux/hooks';
+import {login} from 'lib/redux/slices/auth/authThunks';
+import {useAppDispatch} from 'lib/redux/hooks';
+import {unwrapResult} from '@reduxjs/toolkit';
 
 export interface LoginFormProps {
   withSubmit?: boolean;
@@ -36,10 +37,11 @@ export const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps) => {
       props.setLoading && props.setLoading(true);
       dispatch(
         login({username: values.username, password: values.password}),
-      ).then(() => {
+      ).then((unwrapResult)).then(() => {
         props.setLoading && props.setLoading(false);
         props.onFinished && props.onFinished();
-      }).catch(() => {
+      }).catch((e) => {
+        console.dir(e);
         props.setLoading && props.setLoading(false);
         formik.setSubmitting(false);
       });

@@ -3,10 +3,10 @@ import {
   createSlice,
   PayloadAction,
 } from '@reduxjs/toolkit';
-import {RootState} from 'redux/store';
+import {RootState} from 'lib/redux/store';
 import {CarWithDriver, GroupWithOwner} from 'lib';
 import * as api from 'lib/api';
-import {isCompletedMatcher, isPendingMatcher} from 'redux/util';
+import {isCompletedMatcher, isPendingMatcher} from 'lib/redux/util';
 
 interface GroupState {
   /**

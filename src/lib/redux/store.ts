@@ -1,12 +1,10 @@
 import {configureStore, getDefaultMiddleware} from '@reduxjs/toolkit';
-import rootReducer from './slices';
+import rootReducers from './slices';
 import {
   connectRouter,
   routerMiddleware,
 } from 'connected-react-router';
-import {createBrowserHistory} from 'history';
-
-export const history = createBrowserHistory();
+import history from 'lib/redux/history';
 
 
 /**
@@ -14,7 +12,7 @@ export const history = createBrowserHistory();
  */
 const store = configureStore({
   reducer: {
-    ...rootReducer,
+    ...rootReducers,
     router: connectRouter(history),
   },
   devTools: true,

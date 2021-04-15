@@ -7,8 +7,8 @@ import GroupOptionsButton from './GroupOptionsButton';
 import CarCards from './CarCards';
 import {createStyles, makeStyles} from '@material-ui/styles';
 import SelectLocation from './SelectLocation';
-import {useAppDispatch} from 'redux/hooks';
-import {goTo} from 'redux/slices/modalRouter/modalRouterSlice';
+import {useAppDispatch} from 'lib/redux/hooks';
+import {goToModal} from 'lib/redux/slices/modalRouter/modalRouterSlice';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -47,7 +47,7 @@ export const DrawerBody: React.FC = () => {
             disableElevation
             color='primary'
             variant='contained'
-            onClick={() => dispatch(goTo('/group/create'))}
+            onClick={() => dispatch(goToModal('/group/create'))}
           >
             {t('drawer.createGroup')}
           </Button>
@@ -58,14 +58,14 @@ export const DrawerBody: React.FC = () => {
         );
       }
     },
-    [groups, goTo, t],
+    [groups, goToModal, t],
   );
   const [btn, setBtn] = useState<JSX.Element>(getOptionsButton());
 
   useEffect(() => {
     setBtn(getOptionsButton());
     // eslint-disable-next-line
-  }, [groups, goTo]);
+  }, [groups, goToModal]);
 
   if (selectedCar) {
     return (

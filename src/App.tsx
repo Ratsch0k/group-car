@@ -3,7 +3,7 @@ import GroupCar from './GroupCar';
 import {ThemeProvider} from '@material-ui/core';
 import {
   theme,
-  AuthProvider,
+  AuthChecker,
   ModalRouter,
   InvitesProvider,
   MapProvider,
@@ -12,7 +12,8 @@ import {
 } from 'lib';
 import ModalRoutes from 'modals';
 import {Provider} from 'react-redux';
-import store, {history} from './redux/store';
+import store from './lib/redux/store';
+import history from 'lib/redux/history';
 import {ConnectedRouter} from 'connected-react-router';
 
 const App: React.FC = () => {
@@ -22,7 +23,7 @@ const App: React.FC = () => {
         <SnackbarProvider>
           <ConnectedRouter history={history}>
             <ModalRouter>
-              <AuthProvider>
+              <AuthChecker>
                 <MapProvider>
                   <GroupProvider>
                     <InvitesProvider>
@@ -31,7 +32,7 @@ const App: React.FC = () => {
                     </InvitesProvider>
                   </GroupProvider>
                 </MapProvider>
-              </AuthProvider>
+              </AuthChecker>
             </ModalRouter>
           </ConnectedRouter>
         </SnackbarProvider>

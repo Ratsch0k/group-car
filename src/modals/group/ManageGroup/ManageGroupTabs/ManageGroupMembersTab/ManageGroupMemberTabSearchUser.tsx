@@ -20,10 +20,11 @@ import {
   GroupWithOwnerAndMembersAndInvites,
   InviteWithUserAndInviteSender,
   useApi,
-  useAuth,
   UserSimple,
 } from 'lib';
 import {useTranslation} from 'react-i18next';
+import {useAppSelector} from 'lib/redux/hooks';
+import {getUser} from 'lib/redux/slices/auth/authSelectors';
 
 /**
  * Special variant of the TextField.
@@ -136,7 +137,7 @@ ManageGroupMemberTabSearchUserProps
   const [open, setOpen] = useState<boolean>(false);
   const theme = useTheme();
   const smallerXs = useMediaQuery(theme.breakpoints.down('xs'));
-  const {user} = useAuth();
+  const user = useAppSelector(getUser);
   const {t} = useTranslation();
 
   /**

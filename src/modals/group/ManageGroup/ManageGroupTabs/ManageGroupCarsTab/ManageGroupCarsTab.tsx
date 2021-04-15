@@ -1,5 +1,4 @@
 import {
-  useAuth,
   TabPanel,
   GroupWithOwnerAndMembersAndInvitesAndCars,
   CarWithDriver,
@@ -12,6 +11,8 @@ import {Portal} from '@material-ui/core';
 import ManageGroupCarsList from './ManageGroupCarsList';
 import io from 'socket.io-client';
 import {SocketGroupActionData} from 'typings/socket';
+import {useAppSelector} from 'lib/redux/hooks';
+import {getUser} from 'lib/redux/slices/auth/authSelectors';
 
 /**
  * Props for the cars tab.
@@ -54,7 +55,7 @@ export interface ManageGRoupCarsTabProps {
 export const ManageGroupCarsTab: React.FC<ManageGRoupCarsTabProps> =
 (props: ManageGRoupCarsTabProps) => {
   const {group, visible, className, fabPortal, setGroup} = props;
-  const {user} = useAuth();
+  const user = useAppSelector(getUser);
   const [isAdmin, setIsAdmin] = useState<boolean>(
     isAdminCheck(group, user?.id));
   const [socket, setSocket] = useState<SocketIOClient.Socket>();

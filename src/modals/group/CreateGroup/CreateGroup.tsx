@@ -7,9 +7,9 @@ import {useTranslation} from 'react-i18next';
 import {DialogContent, Dialog} from '@material-ui/core';
 import CreateGroupForm from './CreateGroupForm';
 import {makeStyles, createStyles} from '@material-ui/styles';
-import {useAppDispatch} from 'redux/hooks';
+import {useAppDispatch} from 'lib/redux/hooks';
 import {push} from 'connected-react-router';
-import {close} from 'redux/slices/modalRouter/modalRouterSlice';
+import {closeModal} from 'lib/redux/slices/modalRouter/modalRouterSlice';
 
 /**
  * Styles.
@@ -45,12 +45,15 @@ export const CreateGroup: React.FC = () => {
    */
   const closeDialog = () => {
     setLoading(false);
-    dispatch(close());
+    dispatch(closeModal());
   };
 
   return (
     <Dialog open={true} fullWidth>
-      <CloseableDialogTitle close={() => dispatch(close())} disabled={loading}>
+      <CloseableDialogTitle
+        close={() => dispatch(closeModal())}
+        disabled={loading}
+      >
         {t('modals.group.create.title')}
       </CloseableDialogTitle>
       <DialogContent className={classes.content}>
