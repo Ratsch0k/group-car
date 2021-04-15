@@ -8,8 +8,7 @@ import {GroupCarTheme} from 'lib';
 import {useInvites} from 'lib/hooks/useInvites';
 import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
 import {goToModal} from 'lib/redux/slices/modalRouter/modalRouterSlice';
-import {logout} from 'lib/redux/slices/auth/authThunks';
-import {getIsLoggedIn, getUser} from 'lib/redux/slices/auth/authSelectors';
+import {getIsLoggedIn, getUser, logout} from 'lib/redux/slices/auth';
 
 const useStyle = makeStyles((theme: GroupCarTheme) =>
   createStyles({

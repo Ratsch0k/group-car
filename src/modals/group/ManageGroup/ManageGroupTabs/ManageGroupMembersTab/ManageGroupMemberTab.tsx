@@ -9,7 +9,7 @@ import {isAdmin as isAdminCheck} from 'lib/util';
 import ManageGroupMemberTabSearchUser from './ManageGroupMemberTabSearchUser';
 import {Portal} from '@material-ui/core';
 import {useAppSelector} from 'lib/redux/hooks';
-import {getUser} from 'lib/redux/slices/auth/authSelectors';
+import {getUser} from 'lib/redux/slices/auth';
 
 /**
  * Props.

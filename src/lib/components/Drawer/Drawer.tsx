@@ -8,7 +8,7 @@ import DrawerFooter from './Footer';
 import DrawerBody from './DrawerBody';
 import DrawerNotLoggedIn from './DrawerNotLoggedIn';
 import {useAppSelector} from 'lib/redux/hooks';
-import {getIsLoggedIn} from 'lib/redux/slices/auth/authSelectors';
+import {getIsLoggedIn} from 'lib/redux/slices/auth';
 
 interface DrawerProps {
   open: boolean;

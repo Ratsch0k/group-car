@@ -4,7 +4,7 @@ import {
   InviteWithUserAndInviteSender,
 } from 'lib';
 import {useAppSelector} from 'lib/redux/hooks';
-import {getUser} from 'lib/redux/slices/auth/authSelectors';
+import {getUser} from 'lib/redux/slices/auth';
 import React from 'react';
 import {
   ManageGroupMemberListInvitedItem,

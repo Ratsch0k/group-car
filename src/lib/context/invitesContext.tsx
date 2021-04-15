@@ -5,7 +5,7 @@ import {
   useGroups,
 } from 'lib';
 import {useAppSelector} from 'lib/redux/hooks';
-import {getIsLoggedIn} from 'lib/redux/slices/auth/authSelectors';
+import {getIsLoggedIn} from 'lib/redux/slices/auth';
 import React, {useEffect, useState} from 'react';
 
 export interface InvitesContext {

@@ -12,7 +12,7 @@ import ManageGroupCarsList from './ManageGroupCarsList';
 import io from 'socket.io-client';
 import {SocketGroupActionData} from 'typings/socket';
 import {useAppSelector} from 'lib/redux/hooks';
-import {getUser} from 'lib/redux/slices/auth/authSelectors';
+import {getUser} from 'lib/redux/slices/auth';
 
 /**
  * Props for the cars tab.

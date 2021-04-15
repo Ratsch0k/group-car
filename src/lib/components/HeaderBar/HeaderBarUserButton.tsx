@@ -16,8 +16,7 @@ import UserOverview from '../UserOverview/UserOverview';
 import {createStyles, makeStyles} from '@material-ui/styles';
 import clsx from 'clsx';
 import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
-import {getUser} from 'lib/redux/slices/auth/authSelectors';
-import {openAuthDialog} from 'lib/redux/slices/auth/authThunks';
+import {getUser, openAuthDialog} from 'lib/redux/slices/auth';
 import {InvitesContext} from 'lib';
 
 /**

@@ -4,14 +4,10 @@ import {AxiosError} from 'axios';
 import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
 import {
   setUser,
-} from 'lib/redux/slices/auth/authSlice';
-import {
   checkLoggedIn as checkLoggedInThunk,
-} from 'lib/redux/slices/auth/authThunks';
-import {
   getUser,
   getIsLoggedIn,
-} from 'lib/redux/slices/auth/authSelectors';
+} from 'lib/redux/slices/auth';
 
 
 export const AuthChecker: React.FC = (props) => {

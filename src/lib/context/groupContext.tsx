@@ -12,7 +12,7 @@ import {useTranslation} from 'react-i18next';
 import {SocketGroupActionData} from 'typings/socket';
 import {useHistory, useRouteMatch} from 'react-router-dom';
 import {useAppSelector} from 'lib/redux/hooks';
-import {getUser} from 'lib/redux/slices/auth/authSelectors';
+import {getUser} from 'lib/redux/slices/auth';
 
 /**
  * Context for the group context.

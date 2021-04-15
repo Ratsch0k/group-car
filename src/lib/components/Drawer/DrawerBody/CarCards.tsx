@@ -5,7 +5,7 @@ import {useMap, useSnackBar} from 'lib/hooks';
 import React, {useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {useAppSelector} from 'lib/redux/hooks';
-import {getUser} from 'lib/redux/slices/auth/authSelectors';
+import {getUser} from 'lib/redux/slices/auth';
 import CarCard from './CarCard';
 
 /**

@@ -8,7 +8,7 @@ import {
   PasswordTextField,
   FormTextField,
 } from 'lib';
-import {login} from 'lib/redux/slices/auth/authThunks';
+import {login} from 'lib/redux/slices/auth';
 import {useAppDispatch} from 'lib/redux/hooks';
 import {unwrapResult} from '@reduxjs/toolkit';
 

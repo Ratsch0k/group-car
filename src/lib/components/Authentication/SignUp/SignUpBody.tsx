@@ -7,8 +7,8 @@ import {
 import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
 import {
   signUp as signUpThunk,
-} from 'lib/redux/slices/auth/authThunks';
-import {getSignUpRequestSent} from 'lib/redux/slices/auth/authSelectors';
+  getSignUpRequestSent,
+} from 'lib/redux/slices/auth';
 import {unwrapResult} from '@reduxjs/toolkit';
 
 export interface SignUpBodyProps {

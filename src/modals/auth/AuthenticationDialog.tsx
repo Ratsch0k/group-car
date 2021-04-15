@@ -23,7 +23,7 @@ import {
 } from 'lib';
 import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
 import {goToModal} from 'lib/redux/slices/modalRouter/modalRouterSlice';
-import {getIsLoggedIn} from 'lib/redux/slices/auth/authSelectors';
+import {getIsLoggedIn} from 'lib/redux/slices/auth';
 
 type Theme = import('@material-ui/core').Theme;
 
