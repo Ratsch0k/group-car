@@ -58,17 +58,20 @@ export const CreateGroupForm: React.FC<CreateGroupFormProps> =
       description: undefined,
     },
     validationSchema,
-    onSubmit: ({name, description}) => {
+    onSubmit: async ({name, description}) => {
       props.setLoading && props.setLoading(true);
-      dispatch(
-        createGroup({name, description}),
-      ).then(unwrapResult).then((res) => {
+
+      try {
+        const group = unwrapResult(await dispatch(
+          createGroup({name, description}),
+        ));
+
         formik.setSubmitting(false);
-        props.navigateToManagement && props.navigateToManagement(res.data.id);
-      }).catch(() => {
+        props.navigateToManagement && props.navigateToManagement(group.id);
+      } catch {
         formik.setSubmitting(false);
         props.setLoading && props.setLoading(false);
-      });
+      }
     },
   });
 

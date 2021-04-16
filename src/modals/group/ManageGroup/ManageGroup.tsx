@@ -61,7 +61,7 @@ export const ManageGroup: React.FC<ManageGroupProps> =
         getCars(selectedGroupId),
       ]).then(([group, members, invites, cars]) => {
         setGroupData({
-          ...group.data,
+          ...group,
           invites: invites.data.invites,
           members: members.data.members,
           cars: cars.data.cars,

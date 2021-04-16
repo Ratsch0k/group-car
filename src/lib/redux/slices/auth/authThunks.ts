@@ -22,23 +22,25 @@ export const login = createAsyncThunk(
       const res = await loginApi(data.username, data.password);
 
       thunkApi.dispatch(setUser(res.data));
-      return res;
+      return res.data;
     } catch (e) {
       const error = e as AxiosError<RestError>;
-      return thunkApi.rejectWithValue(error.response);
+      return thunkApi.rejectWithValue(error.response?.data);
     }
   },
 );
 
 export const logout = createAsyncThunk(
   'auth/logout',
-  async (_, {dispatch}) => {
-    const res = await logoutApi();
-
-    dispatch(setUser(undefined));
-
-    dispatch(push('/'));
-    return res;
+  async (_, {dispatch, rejectWithValue}) => {
+    try {
+      await logoutApi();
+      dispatch(setUser(undefined));
+      dispatch(push('/'));
+    } catch (e) {
+      const error = e as AxiosError<RestError>;
+      return rejectWithValue(error.response?.data);
+    }
   },
 );
 
@@ -50,35 +52,40 @@ interface SignUpParams {
 }
 export const signUp = createAsyncThunk(
   'auth/signUp',
-  async (data: SignUpParams, {dispatch}) => {
-    const res = await signUpApi(
-      data.username,
-      data.email,
-      data.password,
-      data.offset,
-    );
+  async (data: SignUpParams, {dispatch, rejectWithValue}) => {
+    try {
+      const res = await signUpApi(
+        data.username,
+        data.email,
+        data.password,
+        data.offset,
+      );
 
-    if ((res.data as User).id) {
-      dispatch(setUser(res.data as User));
-    } else {
-      dispatch(setSignUpRequestSent(true));
+      if ((res.data as User).id) {
+        dispatch(setUser(res.data as User));
+      } else {
+        dispatch(setSignUpRequestSent(true));
+      }
+
+      return res.data;
+    } catch (e) {
+      const error = (e as AxiosError<RestError>).response?.data;
+      return rejectWithValue(error);
     }
-
-    return res;
   },
 );
 
 export const checkLoggedIn = createAsyncThunk(
   'auth/checkLoggedIn',
-  async (_, {dispatch}) => {
+  async (_, {dispatch, rejectWithValue}) => {
     try {
       const res = await checkLoggedInApi();
       dispatch(setUser(res.data));
-      return res;
+      return res.data;
     } catch (e) {
-      console.dir(e);
       dispatch(setUser(undefined));
-      return e;
+      const error = (e as AxiosError<RestError>).response?.data;
+      return rejectWithValue(error);
     }
   },
 );

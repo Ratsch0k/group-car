@@ -1,7 +1,6 @@
 import React, {useRef} from 'react';
 import {
   SignUpForm,
-  SignUpRequest,
   SignUpThroughRequest,
 } from 'lib';
 import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
@@ -10,6 +9,7 @@ import {
   getSignUpRequestSent,
 } from 'lib/redux/slices/auth';
 import {unwrapResult} from '@reduxjs/toolkit';
+import {SignUpRequestResponse, SignUpResponse} from 'lib/api';
 
 export interface SignUpBodyProps {
   withSubmit?: boolean;
@@ -48,17 +48,17 @@ export const SignUpBody: React.FC<SignUpBodyProps> = (props) => {
     email: string,
     password: string,
     offset: number,
-  ): SignUpRequest => {
+  ): Promise<SignUpResponse> => {
     props.setLoading && props.setLoading(true);
     try {
       const response = unwrapResult(await dispatch(
         signUpThunk({username, email, password, offset})));
 
       /*
-           * If response status was 202 expect
-           * that backend is configured to not allow direct sign up
-          */
-      if (response.status === 202) {
+       * If response status was 202 expect
+       * that backend is configured to not allow direct sign up
+       */
+      if ((response as SignUpRequestResponse).message !== undefined) {
         props.setLoading && props.setLoading(false);
       } else {
         props.setLoading && props.setLoading(false);

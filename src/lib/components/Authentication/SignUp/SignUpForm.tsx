@@ -4,9 +4,10 @@ import {useFormik} from 'formik';
 import * as yup from 'yup';
 import {useTranslation} from 'react-i18next';
 import GenerateProfilePic from './GenerateProfilePic/GenProfilePic';
-import {SignUpRequest, ProgressButton, PasswordTextField} from 'lib';
+import {ProgressButton, PasswordTextField} from 'lib';
 import {FormTextField} from 'lib/components/Input';
 import {useComponentIsMounted} from 'lib/hooks';
+import {SignUpResponse} from 'lib/api';
 
 export interface SignUpFormProps {
   withSubmit?: boolean;
@@ -17,7 +18,7 @@ export interface SignUpFormProps {
     email: string,
     password: string,
     offset: number
-  ): SignUpRequest;
+  ): Promise<SignUpResponse>;
 }
 
 export const SignUpForm: React.FC<SignUpFormProps> =

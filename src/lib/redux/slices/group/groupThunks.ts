@@ -12,6 +12,7 @@ import {
 import * as api from 'lib/api';
 import {RestError} from 'lib/api';
 import {AxiosError} from 'axios';
+import {CouldNotDriveCarError, CouldNotParkCarError} from 'lib';
 
 interface SelectGroupParams {
   id: number;
@@ -19,21 +20,29 @@ interface SelectGroupParams {
 }
 export const selectAndUpdateGroup = createAsyncThunk(
   'group/selectGroup',
-  async ({id, force}: SelectGroupParams, {dispatch, getState}) => {
+  async (
+    {id, force}: SelectGroupParams,
+    {dispatch, getState, rejectWithValue},
+  ) => {
     const {group: {selectedGroup, groups}} = getState() as RootState;
 
     if (selectedGroup === null || selectedGroup.id !== id) {
       const groupIndex = groups.findIndex((g) => g.id === id);
 
       if (force || groupIndex !== -1) {
-        const [carRequest, groupRequest] = await Promise.all([
-          api.getCars(id),
-          api.getGroup(id),
-        ]);
-        const {cars} = carRequest.data;
-        const group = groupRequest.data;
+        try {
+          const [carRequest, groupRequest] = await Promise.all([
+            api.getCars(id),
+            api.getGroup(id),
+          ]);
+          const {cars} = carRequest.data;
+          const group = groupRequest.data;
 
-        dispatch(selectGroup({cars, group}));
+          dispatch(selectGroup({cars, group}));
+        } catch (e) {
+          const error = (e as AxiosError<RestError>).response?.data;
+          return rejectWithValue(error);
+        }
       }
     }
   },
@@ -45,23 +54,34 @@ interface CreateGroupParams {
 }
 export const createGroup = createAsyncThunk(
   'group/createGroup',
-  async ({name, description}: CreateGroupParams, {dispatch}) => {
-    const createGroupResponse = await api.createGroup(name, description);
-    const newGroup = (await api.getGroup(createGroupResponse.data.id)).data;
-    dispatch(addGroup(newGroup));
-    await dispatch(selectAndUpdateGroup({id: newGroup.id, force: true}));
-
-    return createGroupResponse;
+  async (
+    {name, description}: CreateGroupParams,
+    {dispatch, rejectWithValue},
+  ) => {
+    try {
+      const createGroupResponse = await api.createGroup(name, description);
+      const newGroup = (await api.getGroup(createGroupResponse.data.id)).data;
+      dispatch(addGroup(newGroup));
+      await dispatch(selectAndUpdateGroup({id: newGroup.id, force: true}));
+      return createGroupResponse.data;
+    } catch (e) {
+      const error = (e as AxiosError<RestError>).response?.data;
+      return rejectWithValue(error);
+    }
   },
 );
 
 export const update = createAsyncThunk(
   'group/update',
-  async (_, {dispatch}) => {
-    const groupsResponse = await api.getGroups();
-    const newGroups = groupsResponse.data.groups;
+  async (_, {dispatch, rejectWithValue}) => {
+    try {
+      const groupsResponse = await api.getGroups();
+      const newGroups = groupsResponse.data.groups;
 
-    dispatch(updateGroups(newGroups));
+      dispatch(updateGroups(newGroups));
+    } catch (e) {
+      return rejectWithValue((e as AxiosError<RestError>).response?.data);
+    }
   },
 );
 
@@ -70,13 +90,17 @@ interface GetGroupParams {
 }
 export const getGroup = createAsyncThunk(
   'group/getGroup',
-  async ({id}: GetGroupParams, {dispatch}) => {
-    const res = await api.getGroup(id);
-    const newGroup = res.data;
+  async ({id}: GetGroupParams, {dispatch, rejectWithValue}) => {
+    try {
+      const res = await api.getGroup(id);
+      const newGroup = res.data;
 
-    dispatch(updateGroup(newGroup));
+      dispatch(updateGroup(newGroup));
 
-    return res;
+      return res.data;
+    } catch (e) {
+      return rejectWithValue((e as AxiosError<RestError>).response?.data);
+    }
   },
 );
 
@@ -86,10 +110,14 @@ interface InviteUserParams {
 }
 export const inviteUser = createAsyncThunk(
   'group/inviteUser',
-  async (params: InviteUserParams) => {
-    const res = await api.inviteUser(params.groupId, params.usernameOrId);
+  async (params: InviteUserParams, {rejectWithValue}) => {
+    try {
+      const res = await api.inviteUser(params.groupId, params.usernameOrId);
 
-    return res;
+      return res.data;
+    } catch (e) {
+      return rejectWithValue((e as AxiosError<RestError>).response?.data);
+    }
   },
 );
 
@@ -98,12 +126,16 @@ interface LeaveGroupParams {
 }
 export const leaveGroup = createAsyncThunk(
   'group/leaveGroup',
-  async (params: LeaveGroupParams, {dispatch}) => {
-    const res = await api.leaveGroup(params.id);
+  async (params: LeaveGroupParams, {dispatch, rejectWithValue}) => {
+    try {
+      const res = await api.leaveGroup(params.id);
 
-    dispatch(removeGroupWithId(params.id));
+      dispatch(removeGroupWithId(params.id));
 
-    return res;
+      return res.data;
+    } catch (e) {
+      return rejectWithValue((e as AxiosError<RestError>).response?.data);
+    }
   },
 );
 
@@ -112,12 +144,16 @@ interface DeleteGroupParams {
 }
 export const deleteGroup = createAsyncThunk(
   'group/deleteGroup',
-  async (params: DeleteGroupParams, {dispatch}) => {
-    const res = await api.deleteGroup(params.id);
+  async (params: DeleteGroupParams, {dispatch, rejectWithValue}) => {
+    try {
+      const res = await api.deleteGroup(params.id);
 
-    dispatch(removeGroupWithId(params.id));
+      dispatch(removeGroupWithId(params.id));
 
-    return res;
+      return res.data;
+    } catch (e) {
+      return rejectWithValue((e as AxiosError<RestError>).response?.data);
+    }
   },
 );
 
@@ -139,14 +175,15 @@ export const driveCar = createAsyncThunk(
     if (user !== undefined &&
       selectedGroup !== null && selectedGroup.id === groupId &&
       groupCars !== null && groupCars.some((car) => car.carId === carId)) {
-      const res = await api.driveCar(groupId, carId);
-      dispatch(setDriverOfCar({groupId, carId, driver: user}));
-      return res;
+      try {
+        const res = await api.driveCar(groupId, carId);
+        dispatch(setDriverOfCar({groupId, carId, driver: user}));
+        return res.data;
+      } catch (e) {
+        return rejectWithValue((e as AxiosError<RestError>).response?.data);
+      }
     } else {
-      // TODO: Use custom error
-      rejectWithValue(
-        new Error('Either not member of group or car doesn\'t exist'),
-      );
+      rejectWithValue(new CouldNotDriveCarError());
     }
   },
 );
@@ -177,13 +214,12 @@ export const parkCar = createAsyncThunk(
         const res = await api.parkCar(groupId, carId, latitude, longitude);
 
         dispatch(setLocationOfCar({groupId, carId, latitude, longitude}));
-        return res;
+        return res.data;
       } catch (e) {
         rejectWithValue((e as AxiosError<RestError>).response);
       }
     } else {
-      // TODO: Replace with custom error
-      rejectWithValue(new Error('Can\'t park car'));
+      rejectWithValue(new CouldNotParkCarError());
     }
   },
 );
