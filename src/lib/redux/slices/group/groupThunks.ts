@@ -216,7 +216,7 @@ export const parkCar = createAsyncThunk(
         dispatch(setLocationOfCar({groupId, carId, latitude, longitude}));
         return res.data;
       } catch (e) {
-        rejectWithValue((e as AxiosError<RestError>).response);
+        rejectWithValue((e as AxiosError<RestError>).response?.data);
       }
     } else {
       rejectWithValue(new CouldNotParkCarError());
