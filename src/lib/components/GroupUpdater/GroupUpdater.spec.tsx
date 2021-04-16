@@ -1,11 +1,10 @@
 import React from 'react';
 import {render, screen, waitFor} from '@testing-library/react';
-import GroupProvider, { GroupContext } from './groupContext';
-import { AuthContext } from './authContext';
-import { Api, ApiContext } from './apiContext';
-import { CarColor } from '../api';
+import GroupProvider from './GroupUpdater';
+import { Api, ApiContext } from '../../context/apiContext';
+import { CarColor } from '../../api';
 import { MemoryRouter } from 'react-router-dom';
-import {SnackbarContext} from './snackbarContext';
+import {SnackbarContext} from '../../context/snackbarContext';
 import io from 'socket.io-client';
 
 jest.mock('socket.io-client');

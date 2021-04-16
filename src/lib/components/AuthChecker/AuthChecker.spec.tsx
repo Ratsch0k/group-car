@@ -1,8 +1,8 @@
 import React from 'react';
 import {render, waitFor} from '@testing-library/react';
-import { ApiContext, Api } from './apiContext';
+import { ApiContext, Api } from '../../context/apiContext';
 import AuthProvider, { AuthContext } from './authContext';
-import {ModalContext} from '../ModalRouter/ModalRouteContext';
+import {ModalContext} from '../../ModalRouter/ModalRouteContext';
 import { MemoryRouter } from 'react-router-dom';
 
 
