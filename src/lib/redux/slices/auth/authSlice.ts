@@ -18,8 +18,10 @@ const initialState: AuthState = {
   signUpRequestSent: false,
 };
 
+const name = 'auth';
+
 export const authSlice = createSlice({
-  name: 'auth',
+  name: name,
   initialState,
   reducers: {
     setUser(state, action: PayloadAction<User | undefined>) {
@@ -30,9 +32,9 @@ export const authSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addMatcher(isPendingMatcher, (state) => {
+    builder.addMatcher(isPendingMatcher(name), (state) => {
       state.loading = true;
-    }).addMatcher(isCompletedMatcher, (state) => {
+    }).addMatcher(isCompletedMatcher(name), (state) => {
       state.loading = false;
     });
   },

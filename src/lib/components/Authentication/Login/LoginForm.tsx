@@ -40,8 +40,7 @@ export const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps) => {
       ).then((unwrapResult)).then(() => {
         props.setLoading && props.setLoading(false);
         props.onFinished && props.onFinished();
-      }).catch((e) => {
-        console.dir(e);
+      }).catch(() => {
         props.setLoading && props.setLoading(false);
         formik.setSubmitting(false);
       });

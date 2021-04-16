@@ -5,6 +5,7 @@ import {
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import {Alert} from '@material-ui/lab';
+import axios from 'lib/client';
 import React, {useCallback, useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 
@@ -45,6 +46,7 @@ export const SnackbarProvider: React.FC = (props) => {
   const [open, setOpen] = useState<boolean>(false);
   const [activeSnack, setActiveSnack] = useState<ShowOptions>();
   const {t} = useTranslation();
+
 
   const show: Show = useCallback((
     typeOrOptions,
@@ -93,6 +95,22 @@ export const SnackbarProvider: React.FC = (props) => {
   const handleOnExited = useCallback(() => {
     setActiveSnack(undefined);
   }, []);
+
+
+  useEffect(() => {
+    axios.interceptors.response.use(
+      (res) => res,
+      (e) => {
+        show('error', e.message);
+      },
+    );
+    axios.interceptors.request.use(
+      (res) => res,
+      (e) => {
+        show('error', e.message);
+      },
+    );
+  }, [show]);
 
   return (
     <SnackbarContext.Provider value={{show}}>

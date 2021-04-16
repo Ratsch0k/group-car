@@ -1,3 +1,4 @@
+import {CarWithDriver} from 'lib';
 import {RootState} from 'lib/redux/store';
 
 export const getIsLoading = (state: RootState): boolean => state.group.loading;
@@ -13,5 +14,5 @@ export const getSelectedGroup =
   state.group.selectedGroup;
 
 export const getGroupCars =
-(state: RootState): typeof state.group.groupCars =>
-  state.group.groupCars;
+(state: RootState): CarWithDriver[] | undefined =>
+  state.group.selectedGroup?.cars;

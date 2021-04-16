@@ -2,8 +2,9 @@ import {createStyles, Fab, makeStyles, Theme} from '@material-ui/core';
 import React, {useState} from 'react';
 import AddIcon from '@material-ui/icons/Add';
 import ManageGroupCarsCreateDialog from './ManageGroupCarsCreateDialog';
-import {CarWithDriver, GroupWithOwnerAndMembersAndInvitesAndCars} from 'lib';
 import config from 'config';
+import {useAppSelector} from 'lib/redux/hooks';
+import {getSelectedGroup} from 'lib/redux/slices/group';
 
 /**
  * Styles.
@@ -19,30 +20,14 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 /**
- * Props for the fab.
- */
-export interface ManageGroupCarsTabAddFabProps {
-  /**
-   * Data of the displayed group.
-   */
-  group: GroupWithOwnerAndMembersAndInvitesAndCars;
-
-  /**
-   * Callback to add a new car.
-   * @param car The car
-   */
-  addCar(car: CarWithDriver): void;
-}
-
-/**
  * Fab to add a new car to a group.
  * @param props Props
  */
-export const ManageGroupCarsTabAddFab: React.FC<ManageGroupCarsTabAddFabProps> =
-(props: ManageGroupCarsTabAddFabProps) => {
+export const ManageGroupCarsTabAddFab: React.FC =() => {
   const classes = useStyles();
   const [open, setOpen] = useState<boolean>(false);
-  const {group, addCar} = props;
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const group = useAppSelector(getSelectedGroup)!;
 
   return (
     <>
@@ -60,8 +45,6 @@ export const ManageGroupCarsTabAddFab: React.FC<ManageGroupCarsTabAddFabProps> =
       <ManageGroupCarsCreateDialog
         open={open}
         close={() => setOpen(false)}
-        group={group}
-        addCar={addCar}
       />
     </>
   );

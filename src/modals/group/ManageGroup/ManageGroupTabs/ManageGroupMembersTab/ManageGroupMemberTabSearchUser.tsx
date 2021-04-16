@@ -17,14 +17,13 @@ import {CSSTransition, SwitchTransition} from 'react-transition-group';
 import SendIcon from '@material-ui/icons/Send';
 import ClearIcon from '@material-ui/icons/Clear';
 import {
-  GroupWithOwnerAndMembersAndInvites,
-  InviteWithUserAndInviteSender,
   useApi,
   UserSimple,
 } from 'lib';
 import {useTranslation} from 'react-i18next';
-import {useAppSelector} from 'lib/redux/hooks';
-import {getUser} from 'lib/redux/slices/auth';
+import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
+import {getSelectedGroup, inviteUser} from 'lib/redux/slices/group';
+import {unwrapResult} from '@reduxjs/toolkit';
 
 /**
  * Special variant of the TextField.
@@ -111,25 +110,11 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 /**
- * Props.
- */
-export interface ManageGroupMemberTabSearchUserProps {
-  /**
-   * Data of the group.
-   */
-  group: GroupWithOwnerAndMembersAndInvites;
-
-  addInvite(invite: InviteWithUserAndInviteSender): void;
-}
-
-/**
  * Fab which transforms to a invite user bar.
  */
-export const ManageGroupMemberTabSearchUser: React.FC<
-ManageGroupMemberTabSearchUserProps
-> = (props: ManageGroupMemberTabSearchUserProps) => {
+export const ManageGroupMemberTabSearchUser: React.FC = () => {
   const classes = useStyles();
-  const {searchForUser, inviteUser} = useApi();
+  const {searchForUser} = useApi();
   const [inviting, setInviting] = useState<boolean>(false);
   const [isInvitingUser, setIsInvitingUser] = useState<boolean>(false);
   const [possibleUsers, setPossibleUsers] = useState<UserSimple[]>([]);
@@ -137,8 +122,10 @@ ManageGroupMemberTabSearchUserProps
   const [open, setOpen] = useState<boolean>(false);
   const theme = useTheme();
   const smallerXs = useMediaQuery(theme.breakpoints.down('xs'));
-  const user = useAppSelector(getUser);
   const {t} = useTranslation();
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const group = useAppSelector(getSelectedGroup)!;
+  const dispatch = useAppDispatch();
 
   /**
    * Updates the list of possible users if the
@@ -154,7 +141,7 @@ ManageGroupMemberTabSearchUserProps
           // Filter out all members of group
           const possibleUsers = users.data.users.filter((user) =>
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            !props.group.members.concat(props.group.invites as any)
+            group.members.concat(group.invites as any)
               .some((member) =>
                 user.id === member.User.id));
           setPossibleUsers(possibleUsers);
@@ -167,7 +154,7 @@ ManageGroupMemberTabSearchUserProps
     return () => {
       isActive = false;
     };
-  }, [userToInvite, searchForUser, props.group.invites, props.group.members]);
+  }, [userToInvite, searchForUser, group.invites, group.members]);
 
   /**
    * Reset user search if user closes fab
@@ -189,21 +176,11 @@ ManageGroupMemberTabSearchUserProps
   const handleInvite = async () => {
     setInviting(true);
     try {
-      const inviteResponse = await inviteUser(props.group.id, userToInvite);
+      unwrapResult(
+        await dispatch(
+          inviteUser({groupId: group.id, usernameOrId: userToInvite})));
       setInviting(false);
       setUserToInvite('');
-      props.addInvite({
-        ...inviteResponse.data,
-        User: {
-          username: userToInvite,
-          id: inviteResponse.data.userId,
-        },
-        InviteSender: {
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-          username: user!.username,
-          id: inviteResponse.data.invitedBy,
-        },
-      });
     } catch (e) {
       setInviting(false);
     }

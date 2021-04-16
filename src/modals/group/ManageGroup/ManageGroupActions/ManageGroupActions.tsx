@@ -1,20 +1,10 @@
 import {Box} from '@material-ui/core';
-import {GroupWithOwnerAndMembersAndInvites} from 'lib';
 import {useAppSelector} from 'lib/redux/hooks';
 import {getUser} from 'lib/redux/slices/auth';
+import {getSelectedGroup} from 'lib/redux/slices/group';
 import React from 'react';
 import ManageGroupDeleteAction from './ManageGroupDeleteAction';
 import ManageGroupLeaveAction from './ManageGroupLeaveAction';
-
-/**
- * Props for the ManageGroupActions component.
- */
-export interface ManageGroupActionsProps {
-  /**
-   * The displayed group.
-   */
-  group: GroupWithOwnerAndMembersAndInvites;
-}
 
 /**
  * Actions for the ManageGroup component.
@@ -22,10 +12,10 @@ export interface ManageGroupActionsProps {
  * ManageGroup component.
  * @param props Props
  */
-export const ManageGroupActions: React.FC<ManageGroupActionsProps> =
-(props: ManageGroupActionsProps) => {
+export const ManageGroupActions: React.FC = () => {
   const user = useAppSelector(getUser);
-  const {group} = props;
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const group = useAppSelector(getSelectedGroup)!;
 
   let content: JSX.Element;
   if (user?.id === group.ownerId) {

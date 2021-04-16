@@ -6,16 +6,18 @@ import {
   DialogTitle,
   Grid,
 } from '@material-ui/core';
+import {unwrapResult} from '@reduxjs/toolkit';
 import {useFormik} from 'formik';
 import {
+  CarAlreadyExistsError,
   CarColor,
   CarColorSelection,
-  CarWithDriver,
   FormTextField,
-  GroupWithOwnerAndMembersAndInvitesAndCars,
   ProgressButton,
-  useApi,
+  useSnackBar,
 } from 'lib';
+import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
+import {createCar, getSelectedGroup} from 'lib/redux/slices/group';
 import React, {useMemo, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import * as yup from 'yup';
@@ -33,18 +35,6 @@ export interface ManageGroupCarsCreateDialogProps {
    * Callback to close the dialog.
    */
   close: () => void;
-
-  /**
-   * Data of the displayed group.
-   */
-  group: GroupWithOwnerAndMembersAndInvitesAndCars;
-
-  /**
-   * Callback to add a new car to the list of
-   * additional cars.
-   * @param car The car
-   */
-  addCar(car: CarWithDriver): void;
 }
 
 /**
@@ -54,15 +44,18 @@ export interface ManageGroupCarsCreateDialogProps {
 export const ManageGroupCarsCreateDialog: React.FC<
 ManageGroupCarsCreateDialogProps
 > = (props: ManageGroupCarsCreateDialogProps) => {
-  const {open, close, group, addCar} = props;
+  const {open, close} = props;
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const group = useAppSelector(getSelectedGroup)!;
+  const dispatch = useAppDispatch();
   const {t} = useTranslation();
-  const {createCar} = useApi();
   const availableColors = useMemo(() => {
     return Object.values(CarColor)
       .filter((color) =>
         group.cars.every((car) => car.color !== color));
   }, [group.cars]);
   const [color, setColor] = useState<CarColor>(availableColors[0]);
+  const {show} = useSnackBar();
 
 
   const validationSchema = useMemo(() => yup.object({
@@ -80,11 +73,14 @@ ManageGroupCarsCreateDialogProps
       formik.setSubmitting(true);
 
       try {
-        const res = await createCar(group.id, values.name, color);
-        addCar(res.data);
+        unwrapResult(await dispatch(
+          createCar({groupId: group.id, name: values.name, color})));
         formik.setSubmitting(false);
         handleClose();
       } catch (e) {
+        if (e instanceof CarAlreadyExistsError) {
+          show('error', t('errors.carAlreadyExists'));
+        }
         formik.setSubmitting(false);
       }
     },
