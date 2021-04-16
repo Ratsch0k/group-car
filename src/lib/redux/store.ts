@@ -1,7 +1,6 @@
 import {configureStore, getDefaultMiddleware} from '@reduxjs/toolkit';
 import rootReducers from './slices';
 import {
-  connectRouter,
   routerMiddleware,
 } from 'connected-react-router';
 import history from 'lib/redux/history';
@@ -11,10 +10,7 @@ import history from 'lib/redux/history';
  * Create redux store.
  */
 const store = configureStore({
-  reducer: {
-    ...rootReducers,
-    router: connectRouter(history),
-  },
+  reducer: rootReducers(history),
   devTools: true,
   middleware: getDefaultMiddleware().concat(routerMiddleware(history)),
 });

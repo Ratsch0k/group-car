@@ -156,7 +156,7 @@ export const inviteUser = createAsyncThunk(
       const res = await api.inviteUser(params.groupId, params.usernameOrId);
 
       /*
-       * TODO: invite is missing Invite and User
+       * //TODO: invite is missing Invite and User
        * field because api doesn't return them. Remove casting
        * when api returns them
        */

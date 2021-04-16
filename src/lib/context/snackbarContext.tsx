@@ -5,7 +5,9 @@ import {
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import {Alert} from '@material-ui/lab';
+import {AxiosError} from 'axios';
 import axios from 'lib/client';
+import isRestError from 'lib/util/isRestError';
 import React, {useCallback, useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 
@@ -100,14 +102,25 @@ export const SnackbarProvider: React.FC = (props) => {
   useEffect(() => {
     axios.interceptors.response.use(
       (res) => res,
-      (e) => {
-        show('error', e.message);
+      (e: AxiosError) => {
+        console.dir(e);
+        if (e.response && isRestError(e.response.data)) {
+          const {errorName, ...rest} = e.response.data.detail;
+          show('error', t('error.' + errorName, rest));
+        } else {
+          show('error', e.message);
+        }
       },
     );
     axios.interceptors.request.use(
       (res) => res,
-      (e) => {
-        show('error', e.message);
+      (e: AxiosError) => {
+        if (e.response && isRestError(e.response.data)) {
+          const {errorName, ...rest} = e.response.data.detail;
+          show('error', t('error.' + errorName, rest));
+        } else {
+          show('error', e.message);
+        }
       },
     );
   }, [show]);

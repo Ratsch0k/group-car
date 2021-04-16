@@ -6,5 +6,8 @@ export interface RestError<T = never> {
   status: string;
   message: string;
   timestamp: Date;
-  detail?: T;
+  detail: {
+    errorName: string;
+    [index: keyof T]: T[index];
+  };
 }
