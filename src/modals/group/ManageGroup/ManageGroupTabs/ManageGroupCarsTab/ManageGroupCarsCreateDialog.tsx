@@ -61,8 +61,14 @@ ManageGroupCarsCreateDialogProps
   const validationSchema = useMemo(() => yup.object({
     name: yup.string().required(t('form.error.required'))
       .min(3, t('form.error.tooShort', {min: 3}))
-      .max(30, t('form.error.tooLong', {max: 30})),
-  }), [t]);
+      .max(30, t('form.error.tooLong', {max: 30}))
+      .test(
+        'not-used',
+        t('form.error.alreadyInUse'),
+        (value) => {
+          return group.cars.every((c) => c.name !== value);
+        }),
+  }), [t, group.cars]);
 
   const formik = useFormik({
     initialValues: {
@@ -79,7 +85,7 @@ ManageGroupCarsCreateDialogProps
         handleClose();
       } catch (e) {
         if (e instanceof CarAlreadyExistsError) {
-          show('error', t('errors.carAlreadyExists'));
+          show('error', t('errors.CarAlreadyExists'));
         }
         formik.setSubmitting(false);
       }
@@ -132,6 +138,7 @@ ManageGroupCarsCreateDialogProps
           <ProgressButton
             color='primary'
             loading={formik.isSubmitting}
+            disabled={!formik.isValid}
             type='submit'
           >
             {t('misc.create')}

@@ -25,7 +25,8 @@
       "atLeast6": "At least 6 characters",
       "invalidEmail": "Invalid email",
       "usernameWhitespace": "Whitespace not allowed",
-      "usernameToShort": "Username has to be at least ${min} characters long"
+      "usernameToShort": "Username has to be at least ${min} characters long",
+      "alreadyInUse": "Already in use"
     },
     "profilePicture": {
       "alt": "profile picture",

@@ -50,12 +50,14 @@ const groupSlice = createSlice({
     },
     selectGroup(
       state,
-      {payload: group}:
-      PayloadAction<GroupWithOwnerAndMembersAndInvitesAndCars>,
+      {payload: {group, force}}:
+      PayloadAction<{
+        group: GroupWithOwnerAndMembersAndInvitesAndCars, force?: boolean
+      }>,
     ) {
       const index = state.groups.findIndex((g) => g.id === group.id);
 
-      if (index >= 0) {
+      if (force || index >= 0) {
         state.groups[index] = group;
         state.selectedGroup = group;
       }

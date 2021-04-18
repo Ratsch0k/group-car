@@ -1,6 +1,6 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import {AxiosError} from 'axios';
-import {push, CallHistoryMethodAction} from 'connected-react-router';
+import {CallHistoryMethodAction} from 'connected-react-router';
 import {RestError, User} from 'lib';
 import {goToModal} from '../modalRouter/modalRouterSlice';
 import {setUser, setSignUpRequestSent} from './authSlice';
@@ -11,32 +11,23 @@ import {
   checkLoggedIn as checkLoggedInApi,
 } from 'lib/api';
 
-interface LoginParams {
+export interface LoginParams {
   username: string;
   password: string;
 }
+/**
+ * Logs in with username and password.
+ * If successful the user will be set.
+ */
 export const login = createAsyncThunk(
   'auth/login',
-  async (data: LoginParams, thunkApi) => {
+  async (data: LoginParams, {dispatch, rejectWithValue}) => {
     try {
       const res = await loginApi(data.username, data.password);
 
-      thunkApi.dispatch(setUser(res.data));
+      dispatch(setUser(res.data));
+      dispatch(setSignUpRequestSent(false));
       return res.data;
-    } catch (e) {
-      const error = e as AxiosError<RestError>;
-      return thunkApi.rejectWithValue(error.response?.data);
-    }
-  },
-);
-
-export const logout = createAsyncThunk(
-  'auth/logout',
-  async (_, {dispatch, rejectWithValue}) => {
-    try {
-      await logoutApi();
-      dispatch(setUser(undefined));
-      dispatch(push('/'));
     } catch (e) {
       const error = e as AxiosError<RestError>;
       return rejectWithValue(error.response?.data);
@@ -44,12 +35,37 @@ export const logout = createAsyncThunk(
   },
 );
 
-interface SignUpParams {
+/**
+ * Logs out. If successful, the user will be set to undefined.
+ */
+export const logout = createAsyncThunk(
+  'auth/logout',
+  async (_, {dispatch, rejectWithValue}) => {
+    try {
+      await logoutApi();
+      dispatch(setUser(undefined));
+    } catch (e) {
+      const error = e as AxiosError<RestError>;
+      return rejectWithValue(error.response?.data);
+    }
+  },
+);
+
+export interface SignUpParams {
   username: string;
   email: string;
   password: string;
   offset: number;
 }
+/**
+ * Creates a new user account by signing in.
+ * The request can be successful in two different ways.
+ *  1. The backend allows direct sign up requests.
+ *      The user account will be created and the user will be set
+ *  2. The backend doesn't allow direct sign up requests.
+ *      The user will not be changed, but the `signUpRequestSent` field
+ *      in the state will be set to true.
+ */
 export const signUp = createAsyncThunk(
   'auth/signUp',
   async (data: SignUpParams, {dispatch, rejectWithValue}) => {
@@ -63,6 +79,7 @@ export const signUp = createAsyncThunk(
 
       if ((res.data as User).id) {
         dispatch(setUser(res.data as User));
+        dispatch(setSignUpRequestSent(false));
       } else {
         dispatch(setSignUpRequestSent(true));
       }
@@ -75,6 +92,9 @@ export const signUp = createAsyncThunk(
   },
 );
 
+/**
+ * Checks if the session is still valid and will log the user in if it is.
+ */
 export const checkLoggedIn = createAsyncThunk(
   'auth/checkLoggedIn',
   async (_, {dispatch, rejectWithValue}) => {
@@ -90,5 +110,9 @@ export const checkLoggedIn = createAsyncThunk(
   },
 );
 
+/**
+ * Opens the authentication dialog.
+ * @returns The action to open the auth dialog.
+ */
 export const openAuthDialog = (): CallHistoryMethodAction<unknown> =>
   goToModal('/auth');

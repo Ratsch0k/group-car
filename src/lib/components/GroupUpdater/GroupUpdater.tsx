@@ -4,7 +4,7 @@ import {useSnackBar} from 'lib/hooks';
 import {useTranslation} from 'react-i18next';
 import {SocketGroupActionData} from 'typings/socket';
 import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
-import {getUser} from 'lib/redux/slices/auth';
+import {getIsLoggedIn, getUser} from 'lib/redux/slices/auth';
 import {
   addCar,
   getGroupState,
@@ -12,7 +12,10 @@ import {
   update,
   updateCar,
 } from 'lib/redux/slices/group';
-import {createMatchSelector, RouterRootState} from 'connected-react-router';
+import {
+  getLocation,
+  push,
+} from 'connected-react-router';
 
 /**
  * Element for creating and providing the `GroupContext`.
@@ -34,10 +37,9 @@ export const GroupUpdater: React.FC = (props) => {
   const {show} = useSnackBar();
   const [socket, setSocket] = useState<SocketIOClient.Socket>();
   const {t} = useTranslation();
-  const match = useAppSelector(
-    createMatchSelector<RouterRootState, {id: string}>('/group/:id'),
-  );
+  const location = useAppSelector(getLocation);
   const [errorNotified, setErrorNotified] = useState<boolean>(false);
+  const isLoggedIn = useAppSelector(getIsLoggedIn);
 
   /**
    * Handles socket errors.
@@ -91,6 +93,7 @@ export const GroupUpdater: React.FC = (props) => {
     /* eslint-disable-next-line  */
   }, [selectedGroup?.id]);
 
+
   /**
    * Adds event listeners to the socket.
    */
@@ -113,12 +116,23 @@ export const GroupUpdater: React.FC = (props) => {
     /* eslint-disable-next-line */
   }, [socket]);
 
-  useEffect(() => {
-    if (match && !selectedGroup) {
-      dispatch(selectAndUpdateGroup({id: parseInt(match.params.id, 10)}));
+  const getGroupId = useCallback((path: string) => {
+    if (/^\/group\/\d+$/.test(path)) {
+      return path.split('/')[2];
+    } else {
+      undefined;
     }
-    /* eslint-disable-next-line */
-  }, [match]);
+  }, []);
+
+  useEffect(() => {
+    const groupId = parseInt(getGroupId(location.pathname) || '', 10);
+    if (groupId && !selectedGroup && isLoggedIn) {
+      dispatch(selectAndUpdateGroup({id: groupId, force: true}));
+    }
+    if (selectedGroup && (!groupId || groupId !== selectedGroup.id)) {
+      dispatch(push(`/group/${selectedGroup.id}`));
+    }
+  }, [location.pathname, getGroupId, selectedGroup, isLoggedIn]);
 
   useEffect(() => {
     if (user) {

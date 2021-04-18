@@ -27,7 +27,8 @@
       "usernameWhitespace": "Leerzeichen sind nicht erlaubt",
       "usernameToShort": "Benutzername muss mindestens ${min} zeichen enthalten",
       "tooLong": "Darf nur maximal {{max}} Zeichen enthalten",
-      "tooShort": "Muss mindestens {{min}} Zeichen enthalten"
+      "tooShort": "Muss mindestens {{min}} Zeichen enthalten",
+      "alreadyInUse": "Wird schon benutzt"
     },
     "profilePicture": {
       "alt": "Profil Bild",

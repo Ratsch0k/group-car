@@ -59,7 +59,9 @@ export const ManageGroup: React.FC<ManageGroupProps> =
           if (group && group.id === selectedGroupId) {
             await dispatch(updateSelectedGroup(selectedGroupId));
           } else {
-            await dispatch(selectAndUpdateGroup({id: selectedGroupId}));
+            await dispatch(selectAndUpdateGroup({
+              id: selectedGroupId, force: true,
+            }));
           }
         } catch {
           setError(true);
