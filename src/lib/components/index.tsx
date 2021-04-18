@@ -19,3 +19,4 @@ export * from './RoleChip';
 export * from './MapIcons';
 export * from './AuthChecker';
 export * from './GroupUpdater';
+export * from './InvitesUpdater';

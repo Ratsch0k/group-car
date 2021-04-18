@@ -45,6 +45,11 @@ const groupSlice = createSlice({
   name,
   initialState,
   reducers: {
+    reset(state) {
+      state.groups = initialState.groups;
+      state.loading = initialState.loading;
+      state.selectedGroup = initialState.selectedGroup;
+    },
     addGroup(state, action: PayloadAction<GroupWithOwner>) {
       state.groups.push(action.payload);
     },
@@ -67,9 +72,7 @@ const groupSlice = createSlice({
       {payload: group}:
       PayloadAction<GroupWithOwnerAndMembersAndInvitesAndCars>,
     ) {
-      if (state.selectedGroup && state.selectedGroup.id === group.id) {
-        state.selectedGroup = group;
-      }
+      state.selectedGroup = group;
     },
     updateGroups(state, action: PayloadAction<GroupWithOwner[]>) {
       state.groups = action.payload;
@@ -213,6 +216,7 @@ export const {
   updateCar,
   setSelectedGroup,
   addInvite,
+  reset,
 } = groupSlice.actions;
 
 export default groupSlice.reducer;

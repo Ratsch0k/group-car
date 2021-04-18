@@ -103,10 +103,15 @@ export const SnackbarProvider: React.FC = (props) => {
     axios.interceptors.response.use(
       (res) => res,
       (e: AxiosError) => {
-        console.dir(e);
         if (e.response && isRestError(e.response.data)) {
-          const {errorName, ...rest} = e.response.data.detail;
-          show('error', t('error.' + errorName, rest));
+          if (
+            e.response.config.url !== '/auth/token' ||
+            e.response.config.method !== 'put' ||
+            e.response.status !== 401
+          ) {
+            const {errorName, ...rest} = e.response.data.detail;
+            show('error', t('errors.' + errorName, rest));
+          }
         } else {
           show('error', e.message);
         }
@@ -116,8 +121,14 @@ export const SnackbarProvider: React.FC = (props) => {
       (res) => res,
       (e: AxiosError) => {
         if (e.response && isRestError(e.response.data)) {
-          const {errorName, ...rest} = e.response.data.detail;
-          show('error', t('error.' + errorName, rest));
+          if (
+            e.response.config.url !=='/auth/token' ||
+            e.response.config.method !== 'put' ||
+            e.response.status !== 401
+          ) {
+            const {errorName, ...rest} = e.response.data.detail;
+            show('error', t('errors.' + errorName, rest));
+          }
         } else {
           show('error', e.message);
         }

@@ -11,8 +11,13 @@ import {
   useTheme,
 } from '@material-ui/core';
 import {createStyles, makeStyles} from '@material-ui/styles';
-import {InviteWithGroupAndInviteSender, useInvites} from 'lib';
-import React, {useEffect, useRef, useState} from 'react';
+import {InviteWithGroupAndInviteSender, useStateIfMounted} from 'lib';
+import {useAppDispatch} from 'lib/redux/hooks';
+import {
+  acceptInvite,
+  rejectInvite,
+} from 'lib/redux/slices/invites';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 
 /**
@@ -23,14 +28,6 @@ export interface InvitesListItemProps {
    * The invite of this item.
    */
   invite: InviteWithGroupAndInviteSender;
-  /**
-   * Delete this invite from the list.
-   */
-  delete(): Promise<void>;
-  /**
-   * Accept this invite.
-   */
-  accept(): Promise<void>
 }
 
 /**
@@ -67,25 +64,32 @@ const useStyles = makeStyles((theme: Theme) =>
 export const InvitesListItem: React.FC<InvitesListItemProps> =
 (props: InvitesListItemProps) => {
   const {t} = useTranslation();
-  // eslint-disable-next-line
-  const {invite, delete: deleteSelf, accept} = props;
-  const {refresh} = useInvites();
-  const [loading, setLoading] = useState<boolean>(false);
+  const {invite} = props;
+  const dispatch = useAppDispatch();
+  const [loading, setLoading] = useStateIfMounted<boolean>(false);
   const classes = useStyles();
   const theme = useTheme();
   const smallerSm = useMediaQuery(theme.breakpoints.down('sm'));
   const listItemRef = useRef<HTMLLIElement>(null);
   const [listItemHeight, setListItemHeight] = useState<number>(4);
 
-  const handleAccept = () => {
+  const handleAccept = useCallback(async () => {
     setLoading(true);
-    accept().then(() => {
+    try {
+      await dispatch(acceptInvite(invite.groupId));
+    } finally {
       setLoading(false);
-      refresh();
-    }).catch(() => {
+    }
+  }, [invite]);
+
+  const handleReject = useCallback(async () => {
+    setLoading(true);
+    try {
+      await dispatch(rejectInvite(invite.groupId));
+    } finally {
       setLoading(false);
-    });
-  };
+    }
+  }, [invite]);
 
   /**
    * Keep height of loading container equal to size of list item.
@@ -148,7 +152,8 @@ export const InvitesListItem: React.FC<InvitesListItemProps> =
           <Grid item>
             <Button
               variant='outlined'
-              disabled
+              disabled={loading}
+              onClick={handleReject}
               id={`invite-${invite.groupId}-delete-btn`}
             >
               {t('misc.delete')}

@@ -1,6 +1,6 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import {AxiosError} from 'axios';
-import {CallHistoryMethodAction} from 'connected-react-router';
+import {CallHistoryMethodAction, replace} from 'connected-react-router';
 import {RestError, User} from 'lib';
 import {goToModal} from '../modalRouter/modalRouterSlice';
 import {setUser, setSignUpRequestSent} from './authSlice';
@@ -10,6 +10,8 @@ import {
   signUp as signUpApi,
   checkLoggedIn as checkLoggedInApi,
 } from 'lib/api';
+import {reset as resetGroup} from '../group';
+import {reset as resetInvites} from '../invites';
 
 export interface LoginParams {
   username: string;
@@ -44,6 +46,10 @@ export const logout = createAsyncThunk(
     try {
       await logoutApi();
       dispatch(setUser(undefined));
+      // Reset state of other reducers
+      dispatch(resetGroup());
+      dispatch(resetInvites());
+      dispatch(replace('/'));
     } catch (e) {
       const error = e as AxiosError<RestError>;
       return rejectWithValue(error.response?.data);

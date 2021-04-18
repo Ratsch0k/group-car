@@ -5,10 +5,10 @@ import {
   theme,
   AuthChecker,
   ModalRouter,
-  InvitesProvider,
   MapProvider,
   GroupUpdater,
   SnackbarProvider,
+  InvitesUpdater,
 } from 'lib';
 import ModalRoutes from 'modals';
 import {Provider} from 'react-redux';
@@ -26,10 +26,10 @@ const App: React.FC = () => {
               <AuthChecker>
                 <MapProvider>
                   <GroupUpdater>
-                    <InvitesProvider>
+                    <InvitesUpdater>
                       <GroupCar />
                       <ModalRoutes />
-                    </InvitesProvider>
+                    </InvitesUpdater>
                   </GroupUpdater>
                 </MapProvider>
               </AuthChecker>

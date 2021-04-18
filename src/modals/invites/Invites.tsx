@@ -9,12 +9,15 @@ import {
 } from '@material-ui/core';
 import {createStyles, makeStyles} from '@material-ui/styles';
 import {CloseableDialogTitle} from 'lib';
-import {useInvites} from 'lib/hooks/useInvites';
 import React, {useEffect} from 'react';
 import {useTranslation} from 'react-i18next';
-import {useAppDispatch} from 'lib/redux/hooks';
+import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
 import {closeModal} from 'lib/redux/slices/modalRouter/modalRouterSlice';
 import InvitesListItem from './InvitesListItem';
+import {
+  getAllInvites,
+  getInvites,
+} from 'lib/redux/slices/invites';
 
 /**
  * Styles.
@@ -33,14 +36,14 @@ const useStyles = makeStyles((theme: Theme) =>
  * Invites modal for managing invites of user.
  */
 export const Invites: React.FC = () => {
-  const {invites, refresh, deleteInvite, acceptInvite} = useInvites();
+  const invites = useAppSelector(getAllInvites);
   const {t} = useTranslation();
   const classes = useStyles();
   const dispatch = useAppDispatch();
 
   // Refresh invites on first render
   useEffect(() => {
-    refresh();
+    dispatch(getInvites());
     // eslint-disable-next-line
   }, []);
 
@@ -57,8 +60,6 @@ export const Invites: React.FC = () => {
               }
               <InvitesListItem
                 invite={invite}
-                delete={() => deleteInvite(invite.groupId)}
-                accept={() => acceptInvite(invite.groupId)}
               />
             </React.Fragment>,
           )

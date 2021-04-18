@@ -5,10 +5,10 @@ import UserAvatar from '../UserAvatar/UserAvatar';
 import {useTranslation} from 'react-i18next';
 import {grey} from '@material-ui/core/colors';
 import {GroupCarTheme} from 'lib';
-import {useInvites} from 'lib/hooks/useInvites';
 import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
 import {goToModal} from 'lib/redux/slices/modalRouter/modalRouterSlice';
 import {getIsLoggedIn, getUser, logout} from 'lib/redux/slices/auth';
+import {getAllInvites} from 'lib/redux/slices/invites';
 
 const useStyle = makeStyles((theme: GroupCarTheme) =>
   createStyles({
@@ -31,7 +31,7 @@ interface UserOverviewProps {
 
 export const UserOverview: React.FC<UserOverviewProps> =
 (props: UserOverviewProps) => {
-  const {invites} = useInvites();
+  const invites = useAppSelector(getAllInvites);
   const isLoggedIn = useAppSelector(getIsLoggedIn);
   const user = useAppSelector(getUser);
   const dispatch = useAppDispatch();

@@ -113,7 +113,7 @@ export const createGroup = createAsyncThunk(
   'group/createGroup',
   async (
     {name, description}: CreateGroupParams,
-    {dispatch, rejectWithValue},
+    {dispatch, rejectWithValue, getState},
   ) => {
     try {
       const createGroupResponse = await api.createGroup(name, description);
@@ -121,7 +121,13 @@ export const createGroup = createAsyncThunk(
       dispatch(addGroup(newGroup));
       const completeGroup = {
         ...newGroup,
-        members: [],
+        members: [
+          {
+            isAdmin: true,
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            User: (getState() as RootState).auth.user!,
+          },
+        ],
         cars: [],
         invites: [],
       };

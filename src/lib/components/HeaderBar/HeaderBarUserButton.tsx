@@ -17,7 +17,7 @@ import {createStyles, makeStyles} from '@material-ui/styles';
 import clsx from 'clsx';
 import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
 import {getUser, openAuthDialog} from 'lib/redux/slices/auth';
-import {InvitesContext} from 'lib';
+import {getAllInvites} from 'lib/redux/slices/invites';
 
 /**
  * Styles.
@@ -44,6 +44,7 @@ export const HeaderBarUserButton: React.FC = () => {
   const [userId, setUserId] = useState<number>();
   const [anchor, setAnchor] =
       useState<HTMLElement | null>(null);
+  const invites = useAppSelector(getAllInvites);
 
   /**
    * Handles a click on the button.
@@ -90,23 +91,17 @@ export const HeaderBarUserButton: React.FC = () => {
           onClick={handleClick}
           className={clsx({[classes.smallIconButton]: smallerXs})}
         >
-          <InvitesContext.Consumer>
-            {
-              ({invites}) =>
-                <Badge
-                  badgeContent={invites.length}
-                  max={9}
-                  color='secondary'
-                  overlap='circle'
-                >
-                  <UserAvatar
-                    userId={userId}
-                    size={smallerXs ? 'small' : 'medium'}
-                  />
-                </Badge>
-            }
-
-          </InvitesContext.Consumer>
+          <Badge
+            badgeContent={invites.length}
+            max={9}
+            color='secondary'
+            overlap='circle'
+          >
+            <UserAvatar
+              userId={userId}
+              size={smallerXs ? 'small' : 'medium'}
+            />
+          </Badge>
         </IconButton>
 
         <Popper
