@@ -7,7 +7,11 @@ import {
 import ManageGroupErrorHandler from './ManageGroupNoGroupError';
 import {ManageGroupOverview} from './ManageGroupOverview';
 import {useParams} from 'react-router-dom';
-import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
+import {
+  useAppDispatch,
+  useAppSelector,
+  useShallowAppSelector,
+} from 'lib/redux/hooks';
 import {
   getIsLoading,
   getSelectedGroup,
@@ -37,7 +41,7 @@ export const ManageGroup: React.FC<ManageGroupProps> =
   const dispatch = useAppDispatch();
   const {groupId: groupIdParam} = useParams<{groupId: string}>();
   const [error, setError] = useStateIfMounted<RestError | null | boolean>(null);
-  const group = useAppSelector(getSelectedGroup);
+  const group = useShallowAppSelector(getSelectedGroup);
   const isLoading = useAppSelector(getIsLoading);
 
 

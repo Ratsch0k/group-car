@@ -5,7 +5,11 @@ import UserAvatar from '../UserAvatar/UserAvatar';
 import {useTranslation} from 'react-i18next';
 import {grey} from '@material-ui/core/colors';
 import {GroupCarTheme} from 'lib';
-import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
+import {
+  useAppDispatch,
+  useAppSelector,
+  useShallowAppSelector,
+} from 'lib/redux/hooks';
 import {goToModal} from 'lib/redux/slices/modalRouter/modalRouterSlice';
 import {getIsLoggedIn, getUser, logout} from 'lib/redux/slices/auth';
 import {getAllInvites} from 'lib/redux/slices/invites';
@@ -31,9 +35,9 @@ interface UserOverviewProps {
 
 export const UserOverview: React.FC<UserOverviewProps> =
 (props: UserOverviewProps) => {
-  const invites = useAppSelector(getAllInvites);
+  const invites = useShallowAppSelector(getAllInvites);
   const isLoggedIn = useAppSelector(getIsLoggedIn);
-  const user = useAppSelector(getUser);
+  const user = useShallowAppSelector(getUser);
   const dispatch = useAppDispatch();
 
   /**

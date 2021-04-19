@@ -10,14 +10,14 @@ import {useTranslation} from 'react-i18next';
 import GroupOptionsMenu from './GroupOptionsMenu';
 import {makeStyles, createStyles} from '@material-ui/styles';
 import {GroupCarTheme} from 'lib/theme';
-import {useAppSelector} from 'lib/redux/hooks';
+import {useShallowAppSelector} from 'lib/redux/hooks';
 import {getSelectedGroup} from 'lib/redux/slices/group';
 
 /**
  * Button for opening group options.
  */
 export const GroupOptionsButton: React.FC = () => {
-  const selectedGroup = useAppSelector(getSelectedGroup);
+  const selectedGroup = useShallowAppSelector(getSelectedGroup);
   const {t} = useTranslation();
   const anchorRef = useRef<HTMLButtonElement>(null);
   const [open, setOpen] = useState<boolean>(false);

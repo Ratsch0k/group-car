@@ -2,7 +2,7 @@ import {Button, Grid, Typography} from '@material-ui/core';
 import {unwrapResult} from '@reduxjs/toolkit';
 import {LatLng, LeafletMouseEvent} from 'leaflet';
 import {useMap, CarWithDriver, ProgressButton} from 'lib';
-import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
+import {useAppDispatch, useShallowAppSelector} from 'lib/redux/hooks';
 import {getSelectedGroup, parkCar} from 'lib/redux/slices/group';
 import React, {useEffect, useRef} from 'react';
 import {useState} from 'react';
@@ -25,7 +25,7 @@ export const SelectLocation: React.FC = () => {
   } = useMap();
   const car = selectedCar as CarWithDriver;
   const dispatch = useAppDispatch();
-  const selectedGroup = useAppSelector(getSelectedGroup);
+  const selectedGroup = useShallowAppSelector(getSelectedGroup);
   const [location, setLocation] = useState<LatLng>();
   const loading = useRef<boolean>(false);
 

@@ -15,7 +15,7 @@ import UserAvatar from '../UserAvatar';
 import UserOverview from '../UserOverview/UserOverview';
 import {createStyles, makeStyles} from '@material-ui/styles';
 import clsx from 'clsx';
-import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
+import {useAppDispatch, useShallowAppSelector} from 'lib/redux/hooks';
 import {getUser, openAuthDialog} from 'lib/redux/slices/auth';
 import {getAllInvites} from 'lib/redux/slices/invites';
 
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme: Theme) =>
  * If the user is logged in it opens the UserOverview.
  */
 export const HeaderBarUserButton: React.FC = () => {
-  const user = useAppSelector(getUser);
+  const user = useShallowAppSelector(getUser);
   const dispatch = useAppDispatch();
   const theme = useTheme();
   const smallerXs = useMediaQuery(theme.breakpoints.down('xs'));
@@ -44,7 +44,7 @@ export const HeaderBarUserButton: React.FC = () => {
   const [userId, setUserId] = useState<number>();
   const [anchor, setAnchor] =
       useState<HTMLElement | null>(null);
-  const invites = useAppSelector(getAllInvites);
+  const invites = useShallowAppSelector(getAllInvites);
 
   /**
    * Handles a click on the button.

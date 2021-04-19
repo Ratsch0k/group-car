@@ -3,7 +3,7 @@ import {GroupCarTheme} from 'lib';
 import {Typography, Box} from '@material-ui/core';
 import {makeStyles, createStyles} from '@material-ui/styles';
 import clsx from 'clsx';
-import {useAppSelector} from 'lib/redux/hooks';
+import {useShallowAppSelector} from 'lib/redux/hooks';
 import {getSelectedGroup} from 'lib/redux/slices/group';
 
 /**
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
  */
 export const ManageGroupOverviewInfo: React.FC =() => {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  const group = useAppSelector(getSelectedGroup)!;
+  const group = useShallowAppSelector(getSelectedGroup)!;
   const classes = useStyles();
 
   return (

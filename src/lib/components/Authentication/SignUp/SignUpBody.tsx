@@ -9,7 +9,7 @@ import {
   getSignUpRequestSent,
 } from 'lib/redux/slices/auth';
 import {unwrapResult} from '@reduxjs/toolkit';
-import {SignUpRequestResponse, SignUpResponse} from 'lib/api';
+import {SignUpRequestResponse} from 'lib/api';
 
 export interface SignUpBodyProps {
   withSubmit?: boolean;
@@ -48,7 +48,7 @@ export const SignUpBody: React.FC<SignUpBodyProps> = (props) => {
     email: string,
     password: string,
     offset: number,
-  ): Promise<SignUpResponse> => {
+  ): Promise<void> => {
     props.setLoading && props.setLoading(true);
     try {
       const response = unwrapResult(await dispatch(
@@ -64,10 +64,8 @@ export const SignUpBody: React.FC<SignUpBodyProps> = (props) => {
         props.setLoading && props.setLoading(false);
         props.onFinished && props.onFinished();
       }
-      return response;
     } catch (e) {
       props.setLoading && props.setLoading(false);
-      throw e;
     }
   };
 

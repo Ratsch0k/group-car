@@ -24,6 +24,11 @@ export const authSlice = createSlice({
   name: name,
   initialState,
   reducers: {
+    reset(state) {
+      state.loading = initialState.loading;
+      state.user = initialState.user;
+      state.signUpRequestSent = initialState.signUpRequestSent;
+    },
     setUser(state, action: PayloadAction<User | undefined>) {
       state.user = action.payload;
     },
@@ -40,5 +45,5 @@ export const authSlice = createSlice({
   },
 });
 
-export const {setUser, setSignUpRequestSent} = authSlice.actions;
+export const {setUser, setSignUpRequestSent, reset} = authSlice.actions;
 export default authSlice.reducer;

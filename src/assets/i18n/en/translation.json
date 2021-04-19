@@ -116,7 +116,8 @@
   },
   "errors": {
     "socketConnection": "Could not initialize realtime update. To receive update about the selected group, you'll have to reload the page.",
-    "NotLoggedInError": "You have to be logged in"
+    "NotLoggedInError": "You have to be logged in",
+    "UsernameAlreadyExistsError": "Username exists already"
   },
   "misc": {
     "or": "or",

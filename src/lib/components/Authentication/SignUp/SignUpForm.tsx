@@ -7,7 +7,6 @@ import GenerateProfilePic from './GenerateProfilePic/GenProfilePic';
 import {ProgressButton, PasswordTextField} from 'lib';
 import {FormTextField} from 'lib/components/Input';
 import {useComponentIsMounted} from 'lib/hooks';
-import {SignUpResponse} from 'lib/api';
 
 export interface SignUpFormProps {
   withSubmit?: boolean;
@@ -18,7 +17,7 @@ export interface SignUpFormProps {
     email: string,
     password: string,
     offset: number
-  ): Promise<SignUpResponse>;
+  ): Promise<void>;
 }
 
 export const SignUpForm: React.FC<SignUpFormProps> =

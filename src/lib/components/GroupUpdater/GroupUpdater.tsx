@@ -3,7 +3,11 @@ import io from 'socket.io-client';
 import {useSnackBar} from 'lib/hooks';
 import {useTranslation} from 'react-i18next';
 import {SocketGroupActionData} from 'typings/socket';
-import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
+import {
+  useAppDispatch,
+  useAppSelector,
+  useShallowAppSelector,
+} from 'lib/redux/hooks';
 import {getIsLoggedIn, getUser} from 'lib/redux/slices/auth';
 import {
   addCar,
@@ -31,13 +35,13 @@ import {
  * @param props Children.
  */
 export const GroupUpdater: React.FC = (props) => {
-  const user = useAppSelector(getUser);
+  const user = useShallowAppSelector(getUser);
   const dispatch = useAppDispatch();
-  const {selectedGroup} = useAppSelector(getGroupState);
+  const {selectedGroup} = useShallowAppSelector(getGroupState);
   const {show} = useSnackBar();
   const [socket, setSocket] = useState<SocketIOClient.Socket>();
   const {t} = useTranslation();
-  const location = useAppSelector(getLocation);
+  const location = useShallowAppSelector(getLocation);
   const [errorNotified, setErrorNotified] = useState<boolean>(false);
   const isLoggedIn = useAppSelector(getIsLoggedIn);
 

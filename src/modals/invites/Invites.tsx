@@ -11,7 +11,7 @@ import {createStyles, makeStyles} from '@material-ui/styles';
 import {CloseableDialogTitle} from 'lib';
 import React, {useEffect} from 'react';
 import {useTranslation} from 'react-i18next';
-import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
+import {useAppDispatch, useShallowAppSelector} from 'lib/redux/hooks';
 import {closeModal} from 'lib/redux/slices/modalRouter/modalRouterSlice';
 import InvitesListItem from './InvitesListItem';
 import {
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme: Theme) =>
  * Invites modal for managing invites of user.
  */
 export const Invites: React.FC = () => {
-  const invites = useAppSelector(getAllInvites);
+  const invites = useShallowAppSelector(getAllInvites);
   const {t} = useTranslation();
   const classes = useStyles();
   const dispatch = useAppDispatch();

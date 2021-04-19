@@ -1,19 +1,34 @@
 import React, {useEffect, useCallback} from 'react';
 import axios from 'lib/client';
 import {AxiosError} from 'axios';
-import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
 import {
-  setUser,
+  useAppDispatch,
+  useAppSelector,
+  useShallowAppSelector,
+} from 'lib/redux/hooks';
+import {
   checkLoggedIn as checkLoggedInThunk,
   getUser,
   getIsLoggedIn,
+  reset,
 } from 'lib/redux/slices/auth';
 
-
+/**
+ * Component for handling initial session check and logging out if
+ * backend response with specified error.
+ * @param props Only children
+ * @returns Function component
+ */
 export const AuthChecker: React.FC = (props) => {
-  const user = useAppSelector(getUser);
+  const user = useShallowAppSelector(getUser);
   const isLoggedIn = useAppSelector(getIsLoggedIn);
   const dispatch = useAppDispatch();
+
+  /**
+   * Handles error messages.
+   * If the error message is a NotLoggedInError,
+   * it reset the authentication state.
+   */
   const errorHandler = useCallback((error: AxiosError) => {
     if (error.response &&
       error.response.data.detail &&
@@ -21,7 +36,7 @@ export const AuthChecker: React.FC = (props) => {
       isLoggedIn &&
       user !== undefined
     ) {
-      setUser(undefined);
+      dispatch(reset());
     }
     return Promise.reject(error);
   }, [user, isLoggedIn]);

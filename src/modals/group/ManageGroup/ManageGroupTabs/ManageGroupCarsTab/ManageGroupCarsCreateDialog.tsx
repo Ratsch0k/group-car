@@ -16,7 +16,7 @@ import {
   ProgressButton,
   useSnackBar,
 } from 'lib';
-import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
+import {useAppDispatch, useShallowAppSelector} from 'lib/redux/hooks';
 import {createCar, getSelectedGroup} from 'lib/redux/slices/group';
 import React, {useMemo, useState} from 'react';
 import {useTranslation} from 'react-i18next';
@@ -46,7 +46,7 @@ ManageGroupCarsCreateDialogProps
 > = (props: ManageGroupCarsCreateDialogProps) => {
   const {open, close} = props;
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  const group = useAppSelector(getSelectedGroup)!;
+  const group = useShallowAppSelector(getSelectedGroup)!;
   const dispatch = useAppDispatch();
   const {t} = useTranslation();
   const availableColors = useMemo(() => {

@@ -7,9 +7,14 @@ export interface GroupConfig {
   maxMembers: number;
 }
 
+export interface InvitesConfig {
+  checkInterval: number;
+}
+
 export interface Config {
   csrf: CsrfConfig;
   group: GroupConfig;
+  invites: InvitesConfig;
 }
 
 const config: Config = {
@@ -19,6 +24,9 @@ const config: Config = {
   group: {
     maxCars: 8,
     maxMembers: 25,
+  },
+  invites: {
+    checkInterval: 10000, // 10 seconds
   },
 };
 

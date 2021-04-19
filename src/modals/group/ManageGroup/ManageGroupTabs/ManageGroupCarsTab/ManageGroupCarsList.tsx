@@ -1,5 +1,5 @@
 import {List} from '@material-ui/core';
-import {useAppSelector} from 'lib/redux/hooks';
+import {useShallowAppSelector} from 'lib/redux/hooks';
 import {getSelectedGroup} from 'lib/redux/slices/group';
 import React from 'react';
 import ManageGroupCarsListItem from './ManageGroupCarsListItem';
@@ -11,7 +11,7 @@ import ManageGroupCarsListItem from './ManageGroupCarsListItem';
  */
 export const ManageGroupCarsList: React.FC = () => {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  const group = useAppSelector(getSelectedGroup)!;
+  const group = useShallowAppSelector(getSelectedGroup)!;
 
   return (
     <List>

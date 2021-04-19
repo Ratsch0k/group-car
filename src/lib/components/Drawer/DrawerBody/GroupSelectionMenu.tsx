@@ -7,7 +7,7 @@ import {
   makeStyles,
 } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
+import {useAppDispatch, useShallowAppSelector} from 'lib/redux/hooks';
 import {
   getGroups,
   getSelectedGroup,
@@ -59,8 +59,8 @@ const useStyles = makeStyles({
 export const GroupSelectionMenu: React.FC<GroupSelectionMenuProps> =
 (props: GroupSelectionMenuProps) => {
   const dispatch = useAppDispatch();
-  const groups = useAppSelector(getGroups);
-  const selectedGroup = useAppSelector(getSelectedGroup);
+  const groups = useShallowAppSelector(getGroups);
+  const selectedGroup = useShallowAppSelector(getSelectedGroup);
   const [groupItems, setGroupItems] = useState<JSX.Element[]>([]);
   const classes = useStyles();
 

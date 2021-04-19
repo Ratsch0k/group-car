@@ -1,5 +1,5 @@
 import {Box} from '@material-ui/core';
-import {useAppSelector} from 'lib/redux/hooks';
+import {useShallowAppSelector} from 'lib/redux/hooks';
 import {getUser} from 'lib/redux/slices/auth';
 import {getSelectedGroup} from 'lib/redux/slices/group';
 import React from 'react';
@@ -13,9 +13,9 @@ import ManageGroupLeaveAction from './ManageGroupLeaveAction';
  * @param props Props
  */
 export const ManageGroupActions: React.FC = () => {
-  const user = useAppSelector(getUser);
+  const user = useShallowAppSelector(getUser);
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  const group = useAppSelector(getSelectedGroup)!;
+  const group = useShallowAppSelector(getSelectedGroup)!;
 
   let content: JSX.Element;
   if (user?.id === group.ownerId) {

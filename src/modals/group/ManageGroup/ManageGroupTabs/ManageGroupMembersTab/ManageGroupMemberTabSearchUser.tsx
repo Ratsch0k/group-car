@@ -21,7 +21,7 @@ import {
   UserSimple,
 } from 'lib';
 import {useTranslation} from 'react-i18next';
-import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
+import {useAppDispatch, useShallowAppSelector} from 'lib/redux/hooks';
 import {getSelectedGroup, inviteUser} from 'lib/redux/slices/group';
 import {unwrapResult} from '@reduxjs/toolkit';
 
@@ -124,7 +124,7 @@ export const ManageGroupMemberTabSearchUser: React.FC = () => {
   const smallerXs = useMediaQuery(theme.breakpoints.down('xs'));
   const {t} = useTranslation();
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  const group = useAppSelector(getSelectedGroup)!;
+  const group = useShallowAppSelector(getSelectedGroup)!;
   const dispatch = useAppDispatch();
 
   /**
@@ -143,7 +143,7 @@ export const ManageGroupMemberTabSearchUser: React.FC = () => {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
             group.members.concat(group.invites as any)
               .some((member) =>
-                user.id === member.User.id));
+                user.id !== member.User.id));
           setPossibleUsers(possibleUsers);
         }
       }
@@ -224,7 +224,7 @@ export const ManageGroupMemberTabSearchUser: React.FC = () => {
                       onOpen={() => setOpen(true)}
                       onClose={() => setOpen(false)}
                       options={possibleUsers}
-                      getOptionLabel={(user) => user.username}
+                      getOptionLabel={(user) => user.username || ''}
                       getOptionSelected={(option, value) =>
                         option.username === value.username}
                       loadingText={t('misc.loading')}
@@ -246,6 +246,7 @@ export const ManageGroupMemberTabSearchUser: React.FC = () => {
                           id='user-invite-input'
                           variant='outlined'
                           size='small'
+                          autoFocus
                         />
                       )}
                     />

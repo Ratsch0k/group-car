@@ -4,7 +4,7 @@ import {CarWithDriver, CenteredCircularProgress} from 'lib';
 import {useMap, useSnackBar} from 'lib/hooks';
 import React, {useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
-import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
+import {useAppDispatch, useShallowAppSelector} from 'lib/redux/hooks';
 import {getUser} from 'lib/redux/slices/auth';
 import CarCard from './CarCard';
 import {
@@ -28,10 +28,10 @@ const useStyles = makeStyles({
  * List of cars.
  */
 export const CarCards: React.FC = () => {
-  const groupCars = useAppSelector(getGroupCars);
-  const selectedGroup = useAppSelector(getSelectedGroup);
+  const groupCars = useShallowAppSelector(getGroupCars);
+  const selectedGroup = useShallowAppSelector(getSelectedGroup);
   const {setSelectedCar} = useMap();
-  const user = useAppSelector(getUser);
+  const user = useShallowAppSelector(getUser);
   const classes = useStyles();
   const dispatch = useAppDispatch();
   const {t} = useTranslation();

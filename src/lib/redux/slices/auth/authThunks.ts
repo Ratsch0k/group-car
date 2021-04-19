@@ -3,7 +3,7 @@ import {AxiosError} from 'axios';
 import {CallHistoryMethodAction, replace} from 'connected-react-router';
 import {RestError, User} from 'lib';
 import {goToModal} from '../modalRouter/modalRouterSlice';
-import {setUser, setSignUpRequestSent} from './authSlice';
+import {setUser, setSignUpRequestSent, reset} from './authSlice';
 import {
   login as loginApi,
   logout as logoutApi,
@@ -45,8 +45,8 @@ export const logout = createAsyncThunk(
   async (_, {dispatch, rejectWithValue}) => {
     try {
       await logoutApi();
-      dispatch(setUser(undefined));
-      // Reset state of other reducers
+      // Reset state all reducers which required a logged in user
+      dispatch(reset());
       dispatch(resetGroup());
       dispatch(resetInvites());
       dispatch(replace('/'));

@@ -6,7 +6,11 @@ import {createStyles, makeStyles} from '@material-ui/styles';
 import ManageGroupMembersTab from './ManageGroupMembersTab';
 import ManageGroupCarsTab from './ManageGroupCarsTab';
 import config from 'config';
-import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
+import {
+  useAppDispatch,
+  useAppSelector,
+  useShallowAppSelector,
+} from 'lib/redux/hooks';
 import {
   getModalRoute,
   goToModal,
@@ -50,7 +54,7 @@ export const ManageGroupTabs: React.FC = () => {
   const memberFabPortal = useRef<HTMLDivElement>(null);
   const carFabPortal = useRef<HTMLDivElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  const group = useAppSelector(getSelectedGroup)!;
+  const group = useShallowAppSelector(getSelectedGroup)!;
 
   useEffect(() => {
     setSelectedTab(getTabFromRoute());

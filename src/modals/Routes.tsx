@@ -6,14 +6,14 @@ import PrivacyPolicyDialog from
 import AuthenticationDialog from 'modals/auth/AuthenticationDialog';
 import Group from 'modals/group/Group';
 import {Invites} from './invites';
-import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
+import {useAppDispatch, useShallowAppSelector} from 'lib/redux/hooks';
 import {
   closeModal,
   getModalLocation,
 } from 'lib/redux/slices/modalRouter/modalRouterSlice';
 
 export const Routes: React.FC = () => {
-  const modalLocation = useAppSelector(getModalLocation);
+  const modalLocation = useShallowAppSelector(getModalLocation);
   const dispatch = useAppDispatch();
 
   return (

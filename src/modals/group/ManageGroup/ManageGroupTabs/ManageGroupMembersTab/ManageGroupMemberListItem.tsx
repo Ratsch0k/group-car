@@ -17,7 +17,7 @@ import {useTranslation} from 'react-i18next';
 import {isAdmin as checkIfAdmin} from 'lib/util';
 import ManageGroupMemberListItemOptions from
   './ManageGroupMemberListItemOptions';
-import {useAppSelector} from 'lib/redux/hooks';
+import {useShallowAppSelector} from 'lib/redux/hooks';
 import {getUser} from 'lib/redux/slices/auth/authSelectors';
 
 /**
@@ -63,7 +63,7 @@ ManageGroupMemberListItemProps
     group,
     ...rest
   } = props;
-  const user = useAppSelector(getUser);
+  const user = useShallowAppSelector(getUser);
   const [memberData, setMemberData] = useState<Member>(memberDataProps);
   const [loading, setLoading] = useState<boolean>(false);
 

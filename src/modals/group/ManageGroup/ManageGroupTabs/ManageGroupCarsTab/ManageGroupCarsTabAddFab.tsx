@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import AddIcon from '@material-ui/icons/Add';
 import ManageGroupCarsCreateDialog from './ManageGroupCarsCreateDialog';
 import config from 'config';
-import {useAppSelector} from 'lib/redux/hooks';
+import {useShallowAppSelector} from 'lib/redux/hooks';
 import {getSelectedGroup} from 'lib/redux/slices/group';
 
 /**
@@ -27,7 +27,7 @@ export const ManageGroupCarsTabAddFab: React.FC =() => {
   const classes = useStyles();
   const [open, setOpen] = useState<boolean>(false);
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  const group = useAppSelector(getSelectedGroup)!;
+  const group = useShallowAppSelector(getSelectedGroup)!;
 
   return (
     <>

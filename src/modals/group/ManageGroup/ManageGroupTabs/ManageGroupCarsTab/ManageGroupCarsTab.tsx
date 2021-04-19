@@ -7,7 +7,7 @@ import React from 'react';
 import ManageGroupCarsTabAddFab from './ManageGroupCarsTabAddFab';
 import {Portal} from '@material-ui/core';
 import ManageGroupCarsList from './ManageGroupCarsList';
-import {useAppSelector} from 'lib/redux/hooks';
+import {useShallowAppSelector} from 'lib/redux/hooks';
 import {getUser} from 'lib/redux/slices/auth';
 import {getSelectedGroup} from 'lib/redux/slices/group';
 
@@ -39,8 +39,8 @@ export const ManageGroupCarsTab: React.FC<ManageGRoupCarsTabProps> =
 (props: ManageGRoupCarsTabProps) => {
   const {visible, className, fabPortal} = props;
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  const group = useAppSelector(getSelectedGroup)!;
-  const user = useAppSelector(getUser);
+  const group = useShallowAppSelector(getSelectedGroup)!;
+  const user = useShallowAppSelector(getUser);
   const [isAdmin, setIsAdmin] = useState<boolean>(
     isAdminCheck(group, user?.id));
 
