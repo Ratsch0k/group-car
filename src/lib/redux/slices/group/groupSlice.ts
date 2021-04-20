@@ -1,5 +1,7 @@
 import {
+  createEntityAdapter,
   createSlice,
+  EntityState,
   PayloadAction,
 } from '@reduxjs/toolkit';
 import {CarWithDriver, GroupWithOwner} from 'lib';
@@ -11,6 +13,11 @@ import {isCompletedMatcher, isPendingMatcher} from 'lib/redux/util';
 import _ from 'lodash';
 import {User} from 'typings/auth';
 
+/**
+ * Groups adapter.
+ */
+export const groupsAdapter = createEntityAdapter<GroupWithOwner>();
+
 export interface GroupState {
   /**
    * The selected group.
@@ -18,10 +25,6 @@ export interface GroupState {
    * If no group is selected this is null.
    */
   selectedGroup: GroupWithOwnerAndMembersAndInvitesAndCars | null;
-  /**
-      * All groups of which the current user is a member of.
-      */
-  groups: GroupWithOwner[];
 
   /**
    * Wether some request is currently loading.
@@ -30,10 +33,10 @@ export interface GroupState {
 }
 
 
-const initialState: GroupState = {
+const initialState: GroupState & EntityState<GroupWithOwner> = {
   selectedGroup: null,
-  groups: [],
   loading: false,
+  ...groupsAdapter.getInitialState(),
 };
 
 const name = 'group';
@@ -46,13 +49,12 @@ const groupSlice = createSlice({
   initialState,
   reducers: {
     reset(state) {
-      state.groups = initialState.groups;
+      state.entities = initialState.entities;
+      state.ids = initialState.ids;
       state.loading = initialState.loading;
       state.selectedGroup = initialState.selectedGroup;
     },
-    addGroup(state, action: PayloadAction<GroupWithOwner>) {
-      state.groups.push(action.payload);
-    },
+    addGroup: groupsAdapter.addOne,
     selectGroup(
       state,
       {payload: {group, force}}:
@@ -60,10 +62,10 @@ const groupSlice = createSlice({
         group: GroupWithOwnerAndMembersAndInvitesAndCars, force?: boolean
       }>,
     ) {
-      const index = state.groups.findIndex((g) => g.id === group.id);
+      const groupEntity = state.entities[group.id];
 
-      if (force || index >= 0) {
-        state.groups[index] = group;
+      if (force || groupEntity) {
+        state.entities[group.id] = group;
         state.selectedGroup = group;
       }
     },
@@ -75,8 +77,6 @@ const groupSlice = createSlice({
       state.selectedGroup = group;
     },
     updateGroups(state, action: PayloadAction<GroupWithOwner[]>) {
-      state.groups = action.payload;
-
       const selectedGroup = state.selectedGroup;
       if (selectedGroup !== null) {
         const selectedGroupFromData = action.payload
@@ -91,12 +91,13 @@ const groupSlice = createSlice({
           };
         }
       }
+      groupsAdapter.setAll(state, action.payload);
     },
     updateGroup(state, action: PayloadAction<GroupWithOwner>) {
-      const index = state.groups.findIndex((g) => g.id === action.payload.id);
+      const group = state.entities[action.payload.id];
 
-      if (index >= 0) {
-        state.groups[index] = action.payload;
+      if (group) {
+        state.entities[action.payload.id] = action.payload;
       }
       if (state.selectedGroup && state.selectedGroup.id === action.payload.id) {
         state.selectedGroup = {
@@ -150,7 +151,7 @@ const groupSlice = createSlice({
       }
     },
     removeGroupWithId(state, {payload: id}: PayloadAction<number>) {
-      state.groups = state.groups.filter((g) => g.id !== id);
+      groupsAdapter.removeOne(state, id);
 
       const selectedGroup = state.selectedGroup;
       if (selectedGroup && selectedGroup.id === id) {
@@ -194,6 +195,18 @@ const groupSlice = createSlice({
           .push(invite);
       }
     },
+    setAdminOfMember(state, action: PayloadAction<{
+      groupId: number, userId: number, isAdmin: boolean,
+    }>) {
+      const {groupId, userId, isAdmin} = action.payload;
+
+      if (state.selectedGroup && state.selectedGroup.id === groupId) {
+        const index = state.selectedGroup.members.findIndex((m) =>
+          m.User.id === userId);
+
+        state.selectedGroup.members[index].isAdmin = isAdmin;
+      }
+    },
   },
   extraReducers: (builder) => {
     builder.addMatcher(isPendingMatcher(name), (state) => {
@@ -217,6 +230,7 @@ export const {
   setSelectedGroup,
   addInvite,
   reset,
+  setAdminOfMember,
 } = groupSlice.actions;
 
 export default groupSlice.reducer;

@@ -1,10 +1,18 @@
 import {IconButton, Menu, MenuItem} from '@material-ui/core';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import {unwrapResult} from '@reduxjs/toolkit';
 import {
   GroupWithOwnerAndMembersAndInvites,
   Member,
-  useApi,
+  useSnackBar,
 } from 'lib';
+import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
+import {
+  getIsLoading,
+  grantAdminRights,
+  revokeAdminRights,
+} from 'lib/redux/slices/group';
+import isRestError from 'lib/util/isRestError';
 import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
 
@@ -20,18 +28,6 @@ export interface ManageGroupMemberListItemOptionsProps {
    * Data of the member.
    */
   memberData: Member;
-
-  /**
-   * Callback to set whether or not this member is shown as admin.
-   * @param value Value to set isAdmin to
-   */
-  setIsAdmin(value: boolean): void;
-
-  /**
-   * Callback to indicate that this list item is loading.
-   * @param value Value of loading
-   */
-  setLoading(value: boolean): void;
 }
 
 /**
@@ -41,10 +37,11 @@ export const ManageGroupMemberListItemOptions:
 React.FC<ManageGroupMemberListItemOptionsProps> =
 (props: ManageGroupMemberListItemOptionsProps) => {
   const [anchorRef, setAnchorRef] = useState<HTMLElement>();
-  const {memberData, group, setLoading: parentSetLoading, setIsAdmin} = props;
-  const {grantAdmin, revokeAdmin} = useApi();
+  const {memberData, group} = props;
   const {t} = useTranslation();
-  const [loading, setLoading] = useState<boolean>(false);
+  const loading = useAppSelector(getIsLoading);
+  const dispatch = useAppDispatch();
+  const {show} = useSnackBar();
 
   const handleClick =
   (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -57,27 +54,25 @@ React.FC<ManageGroupMemberListItemOptionsProps> =
 
   const handleGrantAdmin = async () => {
     try {
-      parentSetLoading(true);
-      setLoading(true);
-      await grantAdmin(group.id, memberData.User.id);
-      setIsAdmin(true);
+      unwrapResult(await dispatch(
+        grantAdminRights({groupId: group.id, userId: memberData.User.id})));
       setAnchorRef(undefined);
-    } finally {
-      parentSetLoading(false);
-      setLoading(false);
+    } catch (e) {
+      if (!isRestError(e)) {
+        show('error', (e as Error).message);
+      }
     }
   };
 
   const handleRevokeAdmin = async () => {
     try {
-      parentSetLoading(true);
-      setLoading(true);
-      await revokeAdmin(group.id, memberData.User.id);
-      setIsAdmin(false);
+      unwrapResult(await dispatch(
+        revokeAdminRights({groupId: group.id, userId: memberData.User.id})));
       setAnchorRef(undefined);
-    } finally {
-      parentSetLoading(false);
-      setLoading(false);
+    } catch (e) {
+      if (!isRestError(e)) {
+        show('error', (e as Error).message);
+      }
     }
   };
 

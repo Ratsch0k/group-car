@@ -8,7 +8,7 @@ import {createStyles, makeStyles} from '@material-ui/styles';
 import SelectLocation from './SelectLocation';
 import {useAppDispatch, useShallowAppSelector} from 'lib/redux/hooks';
 import {goToModal} from 'lib/redux/slices/modalRouter/modalRouterSlice';
-import {getGroups} from 'lib/redux/slices/group';
+import {getAllGroups} from 'lib/redux/slices/group';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme: Theme) =>
  */
 export const DrawerBody: React.FC = () => {
   const {t} = useTranslation();
-  const groups = useShallowAppSelector(getGroups);
+  const groups = useShallowAppSelector(getAllGroups);
   const classes = useStyles();
   const dispatch = useAppDispatch();
   const {selectedCar} = useMap();

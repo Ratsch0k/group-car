@@ -14,7 +14,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import ListIcon from '@material-ui/icons/List';
 import {useAppDispatch, useShallowAppSelector} from 'lib/redux/hooks';
 import {goToModal} from 'lib/redux/slices/modalRouter/modalRouterSlice';
-import {getGroups, getSelectedGroup} from 'lib/redux/slices/group';
+import {getAllGroups, getSelectedGroup} from 'lib/redux/slices/group';
 
 /**
  * Props for the group options menu.
@@ -45,7 +45,7 @@ export const GroupOptionsMenu: React.FC<GroupOptionsMenuProps>=
   const {t} = useTranslation();
   const dispatch = useAppDispatch();
   const selectedGroup = useShallowAppSelector(getSelectedGroup);
-  const groups = useShallowAppSelector(getGroups);
+  const groups = useShallowAppSelector(getAllGroups);
   const [openSubMenu, setOpenSubMenu] =
     useState<boolean>(false);
   const mainMenuRef = useRef<HTMLDivElement>(null);

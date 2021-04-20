@@ -17,8 +17,9 @@ import {useTranslation} from 'react-i18next';
 import {isAdmin as checkIfAdmin} from 'lib/util';
 import ManageGroupMemberListItemOptions from
   './ManageGroupMemberListItemOptions';
-import {useShallowAppSelector} from 'lib/redux/hooks';
+import {useAppSelector, useShallowAppSelector} from 'lib/redux/hooks';
 import {getUser} from 'lib/redux/slices/auth/authSelectors';
+import {getIsLoading} from 'lib/redux/slices/group';
 
 /**
  * Props for a member list tile.
@@ -65,19 +66,11 @@ ManageGroupMemberListItemProps
   } = props;
   const user = useShallowAppSelector(getUser);
   const [memberData, setMemberData] = useState<Member>(memberDataProps);
-  const [loading, setLoading] = useState<boolean>(false);
+  const loading = useAppSelector(getIsLoading);
 
   useEffect(() => {
     setMemberData(memberDataProps);
   }, [memberDataProps]);
-
-  /**
-   * Callback to set isAdmin of member data.
-   * @param value Value of to set isAdmin to
-   */
-  const setIsAdmin = (value: boolean) => {
-    setMemberData((prev) => ({...prev, isAdmin: value}));
-  };
 
   return (
     <ListItem
@@ -134,8 +127,6 @@ ManageGroupMemberListItemProps
           <ManageGroupMemberListItemOptions
             group={group}
             memberData={memberData}
-            setIsAdmin={setIsAdmin}
-            setLoading={setLoading}
           />
         </ListItemSecondaryAction>
       }

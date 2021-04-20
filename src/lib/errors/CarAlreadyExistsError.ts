@@ -1,12 +1,14 @@
+import ReduxError from './ReduxError';
+
 /**
  * Error thrown if user tries to create a car which already exists.
  */
-export class CarAlreadyExistsError extends Error {
+export class CarAlreadyExistsError extends ReduxError {
   /**
    * Creates instance.
    */
   constructor() {
-    super('Car already exists');
+    super('CarAlreadyExistsError', 'Car already exists');
   }
 }
 

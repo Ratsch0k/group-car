@@ -4,3 +4,6 @@ export * from './CouldNotParkCarError';
 export * from './CarAlreadyExistsError';
 export * from './NotLoggedInError';
 export * from './NoInviteForGroupError';
+export * from './NotAdminOfGroupError';
+export * from './CouldNotModifyMemberError';
+export * from './NoGroupSelectedError';

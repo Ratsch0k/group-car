@@ -9,10 +9,8 @@ import {
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import {useAppDispatch, useShallowAppSelector} from 'lib/redux/hooks';
 import {
-  getGroups,
-  getSelectedGroup,
+  getNotSelectedGroups,
   selectAndUpdateGroup,
-  selectGroup,
 } from 'lib/redux/slices/group';
 import {unwrapResult} from '@reduxjs/toolkit';
 
@@ -59,21 +57,12 @@ const useStyles = makeStyles({
 export const GroupSelectionMenu: React.FC<GroupSelectionMenuProps> =
 (props: GroupSelectionMenuProps) => {
   const dispatch = useAppDispatch();
-  const groups = useShallowAppSelector(getGroups);
-  const selectedGroup = useShallowAppSelector(getSelectedGroup);
+  const notSelectedGroups = useShallowAppSelector(getNotSelectedGroups);
   const [groupItems, setGroupItems] = useState<JSX.Element[]>([]);
   const classes = useStyles();
 
   useEffect(() => {
-    // Build menu items for all groups
-    let filteredGroups;
-    if (selectedGroup) {
-      filteredGroups = groups.filter((group) => group.id !== selectedGroup.id);
-    } else {
-      filteredGroups = groups;
-    }
-
-    const items = filteredGroups.map((group) => {
+    const items = notSelectedGroups.map((group) => {
       return (
         <MenuItem
           key={`select-group-${group.id}`}
@@ -97,7 +86,7 @@ export const GroupSelectionMenu: React.FC<GroupSelectionMenuProps> =
     });
 
     setGroupItems(items);
-  }, [groups, selectedGroup, props, selectGroup]);
+  }, [notSelectedGroups, props]);
 
 
   return (

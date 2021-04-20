@@ -11,6 +11,7 @@ import {
   setSelectedGroup,
   addCar,
   addInvite,
+  setAdminOfMember,
 } from './groupSlice';
 import * as api from 'lib/api';
 import {
@@ -20,7 +21,13 @@ import {
   RestError,
 } from 'lib/api';
 import {AxiosError} from 'axios';
-import {CarAlreadyExistsError} from 'lib/errors';
+import {
+  CarAlreadyExistsError,
+  CouldNotModifyMemberError,
+  NotAdminOfGroupError,
+  NotLoggedInError,
+} from 'lib/errors';
+import NoGroupSelectedError from 'lib/errors/NoGroupSelectedError';
 
 /**
  * Helper function which combines all
@@ -65,12 +72,13 @@ export const selectAndUpdateGroup = createAsyncThunk(
     {id, force}: SelectGroupParams,
     {dispatch, getState, rejectWithValue},
   ) => {
-    const {group: {selectedGroup, groups}} = getState() as RootState;
+    const state = getState() as RootState;
+    const selectedGroup = state.group.selectedGroup;
 
     if (selectedGroup === null || selectedGroup.id !== id) {
-      const groupIndex = groups.findIndex((g) => g.id === id);
+      const groupEntity = state.group.entities[id];
 
-      if (force || groupIndex !== -1) {
+      if (force || groupEntity) {
         try {
           const group = await getGroupFromApi(id);
 
@@ -384,5 +392,98 @@ export const createCar = createAsyncThunk(
       }
     }
     return res.data;
+  },
+);
+
+export interface GrantAdminRightsParams {
+  groupId: number;
+  userId: number;
+}
+
+export const grantAdminRights = createAsyncThunk(
+  'group/grandAdminRights',
+  async (
+    {groupId, userId}: GrantAdminRightsParams,
+    {dispatch, rejectWithValue, getState},
+  ) => {
+    const state = getState() as RootState;
+    const group = state.group.selectedGroup;
+    const user = state.auth.user;
+
+    // Check if current user is an admin or owner of the group
+    if (
+      user &&
+      group &&
+      (
+        group.Owner.id === user.id ||
+        group.members.find((m) => m.User.id === user.id && m.isAdmin)
+      ) &&
+      group.members.find((m) => m.User.id === userId && !m.isAdmin)
+    ) {
+      try {
+        await api.grantAdmin(groupId, userId);
+        dispatch(setAdminOfMember({groupId, userId, isAdmin: true}));
+      } catch (e) {
+        return rejectWithValue((e as AxiosError<RestError>).response?.data);
+      }
+    } else if (!user) {
+      return rejectWithValue(new NotLoggedInError());
+    } else if (!group) {
+      return rejectWithValue(new NoGroupSelectedError());
+    } else if (
+      group.Owner.id === user.id ||
+      group.members.find((m) => m.User.id === user.id && m.isAdmin)
+    ) {
+      return rejectWithValue(new NotAdminOfGroupError());
+    } else if (group.members.find((m) => m.User.id === userId && !m.isAdmin)) {
+      return rejectWithValue(new CouldNotModifyMemberError());
+    }
+  },
+);
+
+export interface RemoveAdminRightsParams {
+  groupId: number;
+  userId: number;
+}
+
+export const revokeAdminRights = createAsyncThunk(
+  'group/removeAdminRights',
+  async (
+    {groupId, userId}: RemoveAdminRightsParams,
+    {dispatch, rejectWithValue, getState},
+  ) => {
+    const state = getState() as RootState;
+    const group = state.group.selectedGroup;
+    const user = state.auth.user;
+
+    // Check if current user is an admin or owner of the group
+    if (
+      user &&
+      group &&
+      (
+        group.Owner.id === user.id ||
+        group.members.find((m) => m.User.id === user.id && m.isAdmin)
+      ) &&
+      group.Owner.id !== userId &&
+      group.members.find((m) => m.User.id === userId && m.isAdmin)
+    ) {
+      try {
+        await api.revokeAdmin(groupId, userId);
+        dispatch(setAdminOfMember({groupId, userId, isAdmin: false}));
+      } catch (e) {
+        return rejectWithValue((e as AxiosError<RestError>).response?.data);
+      }
+    } else if (!user) {
+      return rejectWithValue(new NotLoggedInError());
+    } else if (!group) {
+      return rejectWithValue(new NoGroupSelectedError());
+    } else if (
+      group.Owner.id === user.id ||
+      group.members.find((m) => m.User.id === user.id && m.isAdmin)
+    ) {
+      throw new NotAdminOfGroupError();
+    } else {
+      return rejectWithValue(new CouldNotModifyMemberError());
+    }
   },
 );
