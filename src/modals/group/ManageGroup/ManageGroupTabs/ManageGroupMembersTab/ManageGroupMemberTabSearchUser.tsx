@@ -17,7 +17,7 @@ import {CSSTransition, SwitchTransition} from 'react-transition-group';
 import SendIcon from '@material-ui/icons/Send';
 import ClearIcon from '@material-ui/icons/Clear';
 import {
-  useApi,
+  searchForUser,
   UserSimple,
 } from 'lib';
 import {useTranslation} from 'react-i18next';
@@ -114,7 +114,6 @@ const useStyles = makeStyles((theme: Theme) =>
  */
 export const ManageGroupMemberTabSearchUser: React.FC = () => {
   const classes = useStyles();
-  const {searchForUser} = useApi();
   const [inviting, setInviting] = useState<boolean>(false);
   const [isInvitingUser, setIsInvitingUser] = useState<boolean>(false);
   const [possibleUsers, setPossibleUsers] = useState<UserSimple[]>([]);

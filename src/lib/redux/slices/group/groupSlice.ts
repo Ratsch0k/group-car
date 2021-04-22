@@ -33,7 +33,7 @@ export interface GroupState {
 }
 
 
-const initialState: GroupState & EntityState<GroupWithOwner> = {
+export const initialState: GroupState & EntityState<GroupWithOwner> = {
   selectedGroup: null,
   loading: false,
   ...groupsAdapter.getInitialState(),

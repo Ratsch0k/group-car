@@ -8,7 +8,7 @@ import {
   useAppSelector,
   useShallowAppSelector,
 } from 'lib/redux/hooks';
-import {getIsLoggedIn, getUser} from 'lib/redux/slices/auth';
+import {getIsLoggedIn} from 'lib/redux/slices/auth';
 import {
   addCar,
   getGroupState,
@@ -35,7 +35,6 @@ import {
  * @param props Children.
  */
 export const GroupUpdater: React.FC = (props) => {
-  const user = useShallowAppSelector(getUser);
   const dispatch = useAppDispatch();
   const {selectedGroup} = useShallowAppSelector(getGroupState);
   const {show} = useSnackBar();
@@ -94,8 +93,7 @@ export const GroupUpdater: React.FC = (props) => {
         setSocket(undefined);
       }
     };
-    /* eslint-disable-next-line  */
-  }, [selectedGroup?.id]);
+  }, [selectedGroup]);
 
 
   /**
@@ -139,11 +137,10 @@ export const GroupUpdater: React.FC = (props) => {
   }, [location.pathname, getGroupId, selectedGroup, isLoggedIn]);
 
   useEffect(() => {
-    if (user) {
+    if (isLoggedIn) {
       dispatch(update());
     }
-    // eslint-disable-next-line
-  }, [user]);
+  }, [isLoggedIn, dispatch]);
 
   return (
     <React.Fragment>

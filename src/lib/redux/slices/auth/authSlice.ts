@@ -12,7 +12,7 @@ export interface AuthState {
   signUpRequestSent: boolean;
 }
 
-const initialState: AuthState = {
+export const initialState: AuthState = {
   loading: false,
   user: undefined,
   signUpRequestSent: false,

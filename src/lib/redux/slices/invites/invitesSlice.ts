@@ -9,16 +9,14 @@ InviteWithGroupAndInviteSender
 
 const name = 'invites';
 
-const initialState = {
+export const initialState = {
   loading: false,
+  ...invitesAdapter.getInitialState(),
 };
 
 const invitesSlice = createSlice({
   name,
-  initialState: {
-    ...invitesAdapter.getInitialState(),
-    ...initialState,
-  },
+  initialState,
   reducers: {
     addInvite: invitesAdapter.addOne,
     addInvites: invitesAdapter.addMany,
