@@ -29,6 +29,7 @@
     "react-swipeable-views": "^0.13.9",
     "react-transition-group": "^4.4.1",
     "redux": "^4.0.5",
+    "reselect": "^4.0.0",
     "serialize-javascript": ">=3.1.0",
     "socket.io-client": "^2.3.0",
     "yup": "^0.28.4"
@@ -75,6 +76,7 @@
     "@types/react-router-dom": "^5.1.5",
     "@types/react-swipeable-views": "^0.13.0",
     "@types/react-transition-group": "^4.4.0",
+    "@types/redux-mock-store": "^1.0.2",
     "@types/socket.io-client": "^1.4.34",
     "@types/yup": "^0.29.5",
     "@typescript-eslint/eslint-plugin": "^4.21.0",
@@ -91,6 +93,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "react-scripts": "^4.0.0",
+    "redux-mock-store": "^1.5.4",
     "typedoc": "^0.18.0",
     "typescript": "^4.2.0"
   },
