@@ -67,7 +67,7 @@ export interface SelectGroupParams {
  * Thunk to select and update a group.
  */
 export const selectAndUpdateGroup = createAsyncThunk(
-  'group/selectGroup',
+  'group/selectAndUpdateGroup',
   async (
     {id, force}: SelectGroupParams,
     {dispatch, getState, rejectWithValue},
