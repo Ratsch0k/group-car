@@ -1,15 +1,24 @@
-import { fireEvent, render, waitFor, screen } from "@testing-library/react";
+import mockedAxios from '../../../__test__/mockAxios';
+import { fireEvent, waitFor, screen } from "@testing-library/react";
 import ManageGroup from "./ManageGroup";
 import React from "react";
-import { GroupContext, AuthContext, IUser, ApiContext, GroupWithOwnerAndMembersAndInvites, Api, ModalContext, SnackbarContext, CarColor} from '../../../lib';
-import { MemoryRouter, Route } from "react-router-dom";
+import { ModalContext, SnackbarContext, CarColor, GroupWithOwnerAndMembersAndInvitesAndCars, User, Member, InviteWithUserAndInviteSender, CarWithDriver, Car} from '../../../lib';
+import { MemoryRouter, Route, Switch } from "react-router-dom";
 import { ThemeProvider } from "@material-ui/core";
 import userEvent from '@testing-library/user-event';
-import io from 'socket.io-client';
 import theme from '../../../__test__/testTheme';
+import testRender from "../../../__test__/testRender";
+import {RootState} from '../../../lib/redux/store';
+import history from "../../../lib/redux/history";
+import { CALL_HISTORY_METHOD } from "connected-react-router";
+import { endsWith } from 'lodash';
 
-let fakeGroup: GroupWithOwnerAndMembersAndInvites;
-jest.mock('socket.io-client');
+let fakeGroup: GroupWithOwnerAndMembersAndInvitesAndCars;
+let fakeUser: User;
+let state: Partial<RootState>;
+let members: Member[];
+let invites: InviteWithUserAndInviteSender[];
+let cars: CarWithDriver[];
 
 beforeEach(() => {
   fakeGroup = {
@@ -33,189 +42,51 @@ beforeEach(() => {
       }
     ],
     invites: [],
+    cars: [],
   };
-});
+  fakeUser = {
+    username: 'TEST',
+    id: 2,
+    isBetaUser: true,
+    email: 'test@mail.com',
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    deletedAt: undefined,
+  };
+  state = {
+    group: {
+      selectedGroup: fakeGroup,
+      ids: [fakeGroup.id],
+      entities: {
+        [fakeGroup.id]: fakeGroup,
+      },
+      loading: false,
+    },
+    auth: {
+      user: fakeUser,
+      loading: false,
+      signUpRequestSent: false,
+    },
+  };
 
-afterEach(() => {
-  jest.clearAllMocks();
-});
-
-it('renders without crashing', () => {
-  render(
-    <MemoryRouter>
-      <ManageGroup groupId={2} />
-    </MemoryRouter>
-  );
-});
-
-it('renders circular progress while loading group data',() => {
-  const fakeApi = {
-    getGroup: jest.fn().mockRejectedValue(undefined),
-  }
-
-  const screen = render (
-    <ThemeProvider theme={theme}>
-      <MemoryRouter>
-        <GroupContext.Provider value={fakeApi as unknown as GroupContext}>
-          <ManageGroup groupId={1}/>
-        </GroupContext.Provider>
-      </MemoryRouter>
-    </ThemeProvider>
-  );
-
-  expect(screen.baseElement).toMatchSnapshot();
-});
-
-it('renders error message if group doesn\'t exist', async () => {
-  const fakeGroupContext = {
-    getGroup: jest.fn().mockRejectedValue(undefined),
-  }
-  const fakeApi = {
-    getInvitesOfGroup: jest.fn().mockRejectedValue(undefined),
-    getMembers: jest.fn().mockRejectedValue(undefined),
-    getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
-  }
-
-  const screen = render (
-    <ThemeProvider theme={theme}>
-      <MemoryRouter>
-        <ApiContext.Provider value={fakeApi as unknown as Api}>
-          <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-            <ManageGroup groupId={1}/>
-          </GroupContext.Provider>
-        </ApiContext.Provider>
-      </MemoryRouter>
-    </ThemeProvider>
-  );
-
-  await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-  await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-  await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
-  expect(fakeGroupContext.getGroup).toHaveBeenCalledWith(1);
-  expect(fakeApi.getInvitesOfGroup).toHaveBeenLastCalledWith(1);
-  expect(fakeApi.getMembers).toHaveBeenLastCalledWith(1);
-
-  expect(screen.queryByText('modals.group.manage.loadingFailed')).not.toBeNull();
-
-  expect(screen.baseElement).toMatchSnapshot();  
-});
-
-it('renders group info if group exists', async () => {
-  const fakeGroupContext = {
-    getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-  }
-  const fakeApi = {
-    getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
-    getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-    getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
-  }
-
-  const screen = render (
-    <ThemeProvider theme={theme}>
-      <MemoryRouter>
-        <AuthContext.Provider value={{user: fakeGroup.Owner as IUser} as AuthContext}>
-          <ApiContext.Provider value={fakeApi as unknown as Api}>
-            <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                <ManageGroup groupId={2}/>
-            </GroupContext.Provider>
-          </ApiContext.Provider>
-        </AuthContext.Provider>
-      </MemoryRouter>
-    </ThemeProvider>
-  );
-
-  await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-  await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-  await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
-  expect(fakeGroupContext.getGroup).toHaveBeenCalledWith(fakeGroup.id);
-  expect(fakeApi.getInvitesOfGroup).toHaveBeenLastCalledWith(fakeGroup.id);
-  expect(fakeApi.getMembers).toHaveBeenLastCalledWith(fakeGroup.id);
-
-  // Check if name and description exist
-  await waitFor(() => expect(screen.queryByText(fakeGroup.name)).not.toBeNull());
-  await waitFor(() => expect(screen.queryByText(fakeGroup.description)).not.toBeNull());
-
-  expect(screen.baseElement).toMatchSnapshot();
-});
-
-it('get groupId from route params if not provided as property', async () => {
-  const fakeGroupContext = {
-    getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-  }
-  const fakeApi = {
-    getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
-    getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-    getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
-  }
-
-  const screen = render (
-    <ThemeProvider theme={theme}>
-      <MemoryRouter initialEntries={[`/group/manage/${fakeGroup.id}`]}>
-      <ApiContext.Provider value={fakeApi as unknown as Api}>
-          <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-            <Route path='/group/manage/:groupId'>
-              <ManageGroup />
-            </Route>
-          </GroupContext.Provider>
-        </ApiContext.Provider>
-      </MemoryRouter>
-    </ThemeProvider>
-  );
-
-  await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-  await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-  await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
-  expect(fakeGroupContext.getGroup).toHaveBeenCalledWith(fakeGroup.id);
-  expect(fakeApi.getInvitesOfGroup).toHaveBeenLastCalledWith(fakeGroup.id);
-  expect(fakeApi.getMembers).toHaveBeenLastCalledWith(fakeGroup.id);
-
-
-  expect(screen.baseElement).toMatchSnapshot();
-});
-
-
-describe('MemberTab', () => {
-  it('renders list of members correctly', async () => {
-    // Add more members to fake group data
-    fakeGroup.members.push({User: {id: 12, username: 'ADMIN'}, isAdmin: true});
-    fakeGroup.members.push({User: {id: 13, username: 'MEMBER'}, isAdmin: false});
-    const fakeGroupContext = {
-      getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-    };
-    const fakeApi = {
-      getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
-      getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-      getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
-    }
-  
-    const screen = render (
-      <ThemeProvider theme={theme}>
-        <MemoryRouter>
-          <AuthContext.Provider value={{user: fakeGroup.Owner as IUser} as AuthContext}>
-            <ApiContext.Provider value={fakeApi as unknown as Api}>
-              <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                  <ManageGroup groupId={2}/>
-              </GroupContext.Provider>
-            </ApiContext.Provider>
-          </AuthContext.Provider>
-        </MemoryRouter>
-      </ThemeProvider>
-    );
-  
-  
-    await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-    await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-    await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
-    expect(fakeGroupContext.getGroup).toHaveBeenCalledWith(fakeGroup.id);
-    expect(fakeApi.getInvitesOfGroup).toHaveBeenLastCalledWith(fakeGroup.id);
-    expect(fakeApi.getMembers).toHaveBeenLastCalledWith(fakeGroup.id);
-  
-    expect(screen.baseElement).toMatchSnapshot();
-  });
-  
-  it('renders list of invites correctly', async () => {
-    // Add more members to fake group data
-    fakeGroup.invites.push({
+  members = [
+    {
+      isAdmin: true,
+      User: {
+        username: 'ADMIN',
+        id: 3,
+      },
+    },
+    {
+      isAdmin: false,
+      User: {
+        username: 'MEMBER',
+        id: 4,
+      },
+    },
+  ];
+  invites = [
+    {
       User: {
         id: 12,
         username: 'ADMIN_1'
@@ -229,8 +100,8 @@ describe('MemberTab', () => {
       groupId: 31,
       createdAt: new Date(),
       updatedAt: new Date(),
-    });
-    fakeGroup.invites.push({
+    },
+    {
       User: {
         id: 13,
         username: 'ADMIN_2'
@@ -244,37 +115,351 @@ describe('MemberTab', () => {
       groupId: 31,
       createdAt: new Date(),
       updatedAt: new Date(),
-    });
-    const fakeGroupContext = {
-      getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-    };
-    const fakeApi = {
-      getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
-      getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-      getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
     }
+  ];
+  cars = [
+    {
+      name: 'car-1',
+      groupId: fakeGroup.id,
+      color: CarColor.Red,
+      driverId: null,
+      carId: 1,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      latitude: 40.0,
+      longitude: 61.0,
+      Driver: null,
+    },
+    {
+      name: 'car-2',
+      groupId: fakeGroup.id,
+      color: CarColor.Black,
+      driverId: null,
+      carId: 2,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      latitude: 30.0,
+      longitude: 20.0,
+      Driver: null,
+    },
+    {
+      name: 'car-2',
+      groupId: fakeGroup.id,
+      color: CarColor.Green,
+      driverId: 2,
+      Driver: {
+        id: 2,
+        username: 'driver-1'
+      },
+      carId: 2,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      latitude: null,
+      longitude: null,
+    }
+  ];
+});
+
+afterEach(() => {
+  jest.clearAllMocks();
+  history.location = {
+    pathname: '/',
+    state: undefined,
+    hash: '',
+    search: '',
+  };
+});
+
+it('renders without crashing', () => {
+  testRender(
+    state,
+    <MemoryRouter>
+      <ManageGroup groupId={2} />
+    </MemoryRouter>
+  );
+});
+
+it('renders circular progress while loading group data',() => {
+  state.group.loading = true;
+  state.group.selectedGroup = null;
+
+  const screen = testRender (
+    state,
+    <ManageGroup groupId={1}/>
+  );
+
+  expect(screen.baseElement).toMatchSnapshot();
+});
+
+it('renders error message if group doesn\'t exist', async () => {
+  state.group.selectedGroup = null;
+
+  const screen = testRender (
+    state,
+    <ManageGroup groupId={1}/>
+  );
+
+  await waitFor(() => expect(screen.queryByText('modals.group.manage.loadingFailed')).not.toBeNull());
+
+  expect(screen.baseElement).toMatchSnapshot();  
+});
+
+it('renders group info if group exists', async () => {
+  const screen = testRender (
+    state,
+    <ManageGroup groupId={2}/>,
+  );
+
+  expect(screen.baseElement).toMatchSnapshot();
+});
+
+
+describe('update group', () => {
+  beforeEach(() => {
+    // Mock axios calls
+    mockedAxios.get = jest.fn().mockImplementation((path: string) => {
+      const response = {
+        data: undefined,
+      };
+
+      if (path.endsWith('invites')) {
+        response.data = {invites}
+      } else if (path.endsWith('members')) {
+        response.data = {members};
+      } else if (path.endsWith('cars')) {
+        response.data = {cars};
+      } else {
+        response.data = fakeGroup;
+      }
+      return Promise.resolve(response);
+    });
+  });
+
+  describe('get groupId from props', () => {
+  it('dispatch updateSelectedGroup if same as selected', async () => {
+      const {store} = testRender (
+        state,
+        <ManageGroup groupId={2}/>,
+      );
+
+
+      const expectedPendingAction = {
+        type: 'group/updateSelectedGroup/pending',
+        payload: undefined,
+        meta: {
+          arg: 2,
+          requestStatus: expect.any(String),
+          requestId: expect.any(String),
+        },
+      };
+      const expectedFulfilledAction = {
+        type: 'group/updateSelectedGroup/fulfilled',
+        payload: undefined,
+        meta: {
+          arg: 2,
+          requestStatus: expect.any(String),
+          requestId: expect.any(String),
+        },
+      };
+      await waitFor(() => expect(store.getActions()).toContainEqual(expectedFulfilledAction));
+      const actions = store.getActions();
+      expect(actions).toContainEqual(expectedPendingAction);
+      expect(actions).toHaveLength(4);
+    });
+
+    it('dispatch selectAndUpdateGroup with groupId ' +
+    'and force if not same as selected', async () => {
+      const {store} = testRender (
+        state,
+        <ManageGroup groupId={1}/>,
+      );
+
+
+      const expectedPendingAction = {
+        type: 'group/selectAndUpdateGroup/pending',
+        payload: undefined,
+        meta: {
+          arg: {
+            id: 1,
+            force: true,
+          },
+          requestStatus: expect.any(String),
+          requestId: expect.any(String),
+        },
+      };
+      const expectedFulfilledAction = {
+        type: 'group/selectAndUpdateGroup/fulfilled',
+        payload: undefined,
+        meta: {
+          arg: {
+            id: 1,
+            force: true,
+          },
+          requestStatus: expect.any(String),
+          requestId: expect.any(String),
+        },
+      };
+      await waitFor(() => expect(store.getActions()).toContainEqual(expectedFulfilledAction));
+      const actions = store.getActions();
+      expect(actions).toContainEqual(expectedPendingAction);
+      expect(store.getActions()).toHaveLength(4);
+    });
+
+    it('groupId from props takes precedence', async () => {
+      state.router = {
+        location: {
+          pathname: '?modal=/group/manage/3',
+          query: {},
+          hash: '',
+          state: undefined,
+          search: '',
+        },
+        action: 'POP',
+      };
+
+      const {store} = testRender (
+        state,
+        <ManageGroup groupId={1}/>,
+      );
+
+
+      const expectedPendingAction = {
+        type: 'group/selectAndUpdateGroup/pending',
+        payload: undefined,
+        meta: {
+          arg: {
+            id: 1,
+            force: true,
+          },
+          requestStatus: expect.any(String),
+          requestId: expect.any(String),
+        },
+      };
+      const expectedFulfilledAction = {
+        type: 'group/selectAndUpdateGroup/fulfilled',
+        payload: undefined,
+        meta: {
+          arg: {
+            id: 1,
+            force: true,
+          },
+          requestStatus: expect.any(String),
+          requestId: expect.any(String),
+        },
+      };
+      await waitFor(() => expect(store.getActions()).toContainEqual(expectedFulfilledAction));
+      const actions = store.getActions();
+      expect(actions).toContainEqual(expectedPendingAction);
+      expect(actions).toHaveLength(4);
+    });
+  });
+
+  describe('get groupId from path params', () => {
+    it('dispatch updateSelectedGroup if same as selected', async () => {
+      history.location.pathname = '/group/manage/2';
+
+      const {store} = testRender(
+        state,
+        <Switch>
+          <Route path='/group/manage/:groupId'>
+            <ManageGroup />
+          </Route>
+        </Switch>,
+      );
+
+
+      const expectedPendingAction = {
+        type: 'group/updateSelectedGroup/pending',
+        payload: undefined,
+        meta: {
+          arg: 2,
+          requestStatus: expect.any(String),
+          requestId: expect.any(String),
+        },
+      };
+      const expectedFulfilledAction = {
+        type: 'group/updateSelectedGroup/fulfilled',
+        payload: undefined,
+        meta: {
+          arg: 2,
+          requestStatus: expect.any(String),
+          requestId: expect.any(String),
+        },
+      };
+      await waitFor(() => expect(store.getActions()).toContainEqual(expectedFulfilledAction));
+      const actions = store.getActions();
+      expect(actions).toContainEqual(expectedPendingAction)
+      expect(store.getActions()).toHaveLength(4);
+    });
+
+    it('dispatch selectAndUpdateGroup with groupId ' +
+    'and force if not same as selected', async () => {
+      history.location.pathname = '/group/manage/1';
+
+      const {store} = testRender (
+        state,
+        <Switch>
+          <Route path='/group/manage/:groupId'>
+            <ManageGroup />
+          </Route>
+        </Switch>,
+      );
+
+
+      const expectedPendingAction = {
+        type: 'group/selectAndUpdateGroup/pending',
+        payload: undefined,
+        meta: {
+          arg: {
+            id: 1,
+            force: true,
+          },
+          requestStatus: expect.any(String),
+          requestId: expect.any(String),
+        },
+      };
+      const expectedFulfilledAction = {
+        type: 'group/selectAndUpdateGroup/fulfilled',
+        payload: undefined,
+        meta: {
+          arg: {
+            id: 1,
+            force: true,
+          },
+          requestStatus: expect.any(String),
+          requestId: expect.any(String),
+        },
+      };
+      await waitFor(() => expect(store.getActions()).toContainEqual(expectedFulfilledAction));
+      const actions = store.getActions();
+      expect(actions).toContainEqual(expectedPendingAction);
+      expect(store.getActions()).toHaveLength(4);
+    });
+  });
+});
+
+describe('MemberTab', () => {
+  it('renders list of members correctly', async () => {
+    (state.group.selectedGroup.members as any[]).push(...members);
+
+    const screen = testRender (
+      state,
+      <ManageGroup groupId={2}/>
+    );
+  
+    expect(screen.baseElement).toMatchSnapshot();
+  });
+  
+  it('renders list of invites correctly', async () => {
+    // Add more members to fake group data
+    state.group.selectedGroup.invites.push(...invites);
     
-    const screen = render (
-      <ThemeProvider theme={theme}>
-        <MemoryRouter>
-          <AuthContext.Provider value={{user: fakeGroup.Owner as IUser} as AuthContext}>
-            <ApiContext.Provider value={fakeApi as unknown as Api}>
-              <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                  <ManageGroup groupId={2}/>
-              </GroupContext.Provider>
-            </ApiContext.Provider>
-          </AuthContext.Provider>
-        </MemoryRouter>
-      </ThemeProvider>
+    const screen = testRender (
+      state,
+      <ManageGroup groupId={2}/>
     );
     
-    
-    await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-    await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-    await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
-    expect(fakeGroupContext.getGroup).toHaveBeenCalledWith(fakeGroup.id);
-    expect(fakeApi.getInvitesOfGroup).toHaveBeenLastCalledWith(fakeGroup.id);
-    expect(fakeApi.getMembers).toHaveBeenLastCalledWith(fakeGroup.id);
+
     expect(screen.queryAllByText('misc.invitedBy')).toHaveLength(2);
     fakeGroup.invites.forEach((invite) => {
       expect(screen.queryAllByText(invite.User.username)).not.toBeUndefined;
@@ -286,251 +471,114 @@ describe('MemberTab', () => {
   describe('options button', () => {
     describe('will', () => {
       it('never appear if current user is not an admin', async () => {
-          const member = {id: 13, username: 'MEMBER'};
+        const owner = {username: 'OWNER', id: 10};
+        const member = {username: 'MEMBER', id: 11};
+        state.group.selectedGroup.Owner = owner;
+        state.group.selectedGroup.ownerId = owner.id;
+        state.group.selectedGroup.members[0].isAdmin = false;
+        state.group.selectedGroup.members.push({isAdmin: true, User: owner});
+        state.group.selectedGroup.members.push({isAdmin: false, User: member});
 
-          // Add more members to fake group data
-          fakeGroup.members.push({User: {id: 12, username: 'ADMIN'}, isAdmin: true});
-          fakeGroup.members.push({User: member, isAdmin: false});
-          const fakeGroupContext = {
-            getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-          };
-          const fakeApi = {
-            getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
-            getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-            getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
-          }
-        
-          const screen = render (
-            <ThemeProvider theme={theme}>
-              <MemoryRouter>
-                <AuthContext.Provider value={{user: member as IUser} as AuthContext}>
-                  <ApiContext.Provider value={fakeApi as unknown as Api}>
-                    <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                        <ManageGroup groupId={2}/>
-                    </GroupContext.Provider>
-                  </ApiContext.Provider>
-                </AuthContext.Provider>
-              </MemoryRouter>
-            </ThemeProvider>
-          );
-        
-        
-          await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-          await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-          await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
-          expect(fakeGroupContext.getGroup).toHaveBeenCalledWith(fakeGroup.id);
-          expect(fakeApi.getInvitesOfGroup).toHaveBeenLastCalledWith(fakeGroup.id);
-          expect(fakeApi.getMembers).toHaveBeenLastCalledWith(fakeGroup.id);
-        
-          expect(screen.baseElement).toMatchSnapshot();
-          expect(screen.baseElement.querySelector(`#member-${fakeGroup.id}-${member.id}-options-button`)).toBeFalsy();
-          expect(screen.baseElement.querySelector(`#member-${fakeGroup.id}-12-options-button`)).toBeFalsy();
+        const screen = testRender (
+          state,
+          <ManageGroup groupId={2}/>
+        );
+      
+        expect(screen.baseElement).toMatchSnapshot();
+        expect(screen.baseElement.querySelector(`#member-${fakeGroup.id}-${member.id}-options-button`)).toBeFalsy();
+        expect(screen.baseElement.querySelector(`#member-${fakeGroup.id}-12-options-button`)).toBeFalsy();
       });
 
       it('not appear if current user and member is admin', async () => {
-        const admin = {id: 13, username: 'OTHER ADMIN'};
+        const owner = {username: 'OWNER', id: 10};
+        const member = {username: 'MEMBER', id: 11};
+        state.group.selectedGroup.Owner = owner;
+        state.group.selectedGroup.ownerId = owner.id;
+        state.group.selectedGroup.members.push({isAdmin: true, User: owner});
+        state.group.selectedGroup.members.push({isAdmin: true, User: member});
 
-        // Add more members to fake group data
-        fakeGroup.members.push({User: {id: 12, username: 'ADMIN'}, isAdmin: true});
-        fakeGroup.members.push({User: admin, isAdmin: true});
-        const fakeGroupContext = {
-          getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-        };
-        const fakeApi = {
-          getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
-          getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-          getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
-        }
-      
-        const screen = render (
-          <ThemeProvider theme={theme}>
-            <MemoryRouter>
-              <AuthContext.Provider value={{user: admin as IUser} as AuthContext}>
-                <ApiContext.Provider value={fakeApi as unknown as Api}>
-                  <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                      <ManageGroup groupId={2}/>
-                  </GroupContext.Provider>
-                </ApiContext.Provider>
-              </AuthContext.Provider>
-            </MemoryRouter>
-          </ThemeProvider>
+        const screen = testRender (
+          state,
+          <ManageGroup groupId={2}/>
         );
       
-      
-        await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-        await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-        await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
-        expect(fakeGroupContext.getGroup).toHaveBeenCalledWith(fakeGroup.id);
-        expect(fakeApi.getInvitesOfGroup).toHaveBeenLastCalledWith(fakeGroup.id);
-        expect(fakeApi.getMembers).toHaveBeenLastCalledWith(fakeGroup.id);
-      
         expect(screen.baseElement).toMatchSnapshot();
-        expect(screen.baseElement.querySelector(`#member-${fakeGroup.id}-${admin.id}-options-button`)).toBeFalsy();
+        expect(screen.baseElement.querySelector(`#member-${fakeGroup.id}-${member.id}-options-button`)).toBeFalsy();
         expect(screen.baseElement.querySelector(`#member-${fakeGroup.id}-12-options-button`)).toBeFalsy();
       });
 
       it('appear if current user is admin and member is not an admin', async () => {
-        const admin = {id: 13, username: 'OTHER ADMIN'};
+        const owner = {username: 'OWNER', id: 10};
+        const member = {username: 'MEMBER', id: 11};
+        state.group.selectedGroup.Owner = owner;
+        state.group.selectedGroup.ownerId = owner.id;
+        state.group.selectedGroup.members.push({isAdmin: true, User: owner});
+        state.group.selectedGroup.members.push({isAdmin: false, User: member});
 
-        // Add more members to fake group data
-        fakeGroup.members.push({User: {id: 12, username: 'MEMBER'}, isAdmin: false});
-        fakeGroup.members.push({User: admin, isAdmin: true});
-        const fakeGroupContext = {
-          getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-        };
-        const fakeApi = {
-          getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
-          getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-          getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
-        }
-      
-        const screen = render (
-          <ThemeProvider theme={theme}>
-            <MemoryRouter>
-              <AuthContext.Provider value={{user: admin as IUser} as AuthContext}>
-                <ApiContext.Provider value={fakeApi as unknown as Api}>
-                  <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                      <ManageGroup groupId={2}/>
-                  </GroupContext.Provider>
-                </ApiContext.Provider>
-              </AuthContext.Provider>
-            </MemoryRouter>
-          </ThemeProvider>
+        const screen = testRender (
+          state,
+          <ManageGroup groupId={2}/>
         );
       
-      
-        await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-        await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-        await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
-        expect(fakeGroupContext.getGroup).toHaveBeenCalledWith(fakeGroup.id);
-        expect(fakeApi.getInvitesOfGroup).toHaveBeenLastCalledWith(fakeGroup.id);
-        expect(fakeApi.getMembers).toHaveBeenLastCalledWith(fakeGroup.id);
-      
         expect(screen.baseElement).toMatchSnapshot();
-        expect(screen.baseElement.querySelector(`#member-${fakeGroup.id}-${admin.id}-options-button`)).toBeFalsy();
-        expect(screen.baseElement.querySelector(`#member-${fakeGroup.id}-12-options-button`)).toBeDefined();
+        expect(screen.baseElement.querySelector(`#member-${fakeGroup.id}-${member.id}-options-button`)).toBeTruthy();
+        expect(screen.baseElement.querySelector(`#member-${fakeGroup.id}-${owner.id}-options-button`)).toBeFalsy();
       });
 
       it('appear if current user is the owner and member is admin or not an admin', async () => {
-        // Add more members to fake group data
-        fakeGroup.members.push({User: {id: 12, username: 'MEMBER'}, isAdmin: false});
-        fakeGroup.members.push({User: {id: 13, username: 'ADMIN'}, isAdmin: true});
-        const fakeGroupContext = {
-          getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-        };
-        const fakeApi = {
-          getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
-          getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-          getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
-        }
-      
-        const screen = render (
-          <ThemeProvider theme={theme}>
-            <MemoryRouter>
-              <AuthContext.Provider value={{user: fakeGroup.Owner as IUser} as AuthContext}>
-                <ApiContext.Provider value={fakeApi as unknown as Api}>
-                  <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                      <ManageGroup groupId={2}/>
-                  </GroupContext.Provider>
-                </ApiContext.Provider>
-              </AuthContext.Provider>
-            </MemoryRouter>
-          </ThemeProvider>
+        const admin = {username: 'ADMIN', id: 10};
+        const member = {username: 'MEMBER', id: 11};
+        state.group.selectedGroup.members.push({isAdmin: true, User: admin});
+        state.group.selectedGroup.members.push({isAdmin: false, User: member});
+
+        const screen = testRender (
+          state,
+          <ManageGroup groupId={2}/>
         );
       
-      
-        await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-        await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-        await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
-        expect(fakeGroupContext.getGroup).toHaveBeenCalledWith(fakeGroup.id);
-        expect(fakeApi.getInvitesOfGroup).toHaveBeenLastCalledWith(fakeGroup.id);
-        expect(fakeApi.getMembers).toHaveBeenLastCalledWith(fakeGroup.id);
-      
         expect(screen.baseElement).toMatchSnapshot();
-        expect(screen.baseElement.querySelector(`#member-${fakeGroup.id}-3-options-button`)).toBeDefined();
-        expect(screen.baseElement.querySelector(`#member-${fakeGroup.id}-12-options-button`)).toBeDefined();
+        expect(screen.baseElement.querySelector(`#member-${fakeGroup.id}-${admin.id}-options-button`)).toBeTruthy();
+        expect(screen.baseElement.querySelector(`#member-${fakeGroup.id}-${member.id}-options-button`)).toBeTruthy();
       });
     });
-    it('click on grant admin sends grant admin request and adds admin badge to member', async () => {
-      // Add more members to fake group data
-      fakeGroup.members.push({User: {id: 13, username: 'MEMBER'}, isAdmin: false});
-      const fakeGroupContext = {
-        getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-        update: jest.fn().mockResolvedValue(undefined),
-      };
-      const fakeApi = {
-        getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
-        getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-        grantAdmin: jest.fn().mockResolvedValue(undefined),
-        getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
-      }
-    
-      const screen = render (
-        <ThemeProvider theme={theme}>
-          <MemoryRouter>
-            <AuthContext.Provider value={{user: fakeGroup.Owner as IUser} as AuthContext}>
-              <ApiContext.Provider value={fakeApi as unknown as Api}>
-                <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                    <ManageGroup groupId={2}/>
-                </GroupContext.Provider>
-              </ApiContext.Provider>
-            </AuthContext.Provider>
-          </MemoryRouter>
-        </ThemeProvider>
+    it('click on grant admin dispatches grantAdminRights action', async () => {
+      const member = {username: 'MEMBER', id: 10};
+      state.group.selectedGroup.members.push({isAdmin: false, User: member});
+      const screen = testRender (
+        state,
+        <ManageGroup groupId={2}/>
       );
     
-    
-      await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-      await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-      await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
-      expect(fakeGroupContext.getGroup).toHaveBeenCalledWith(fakeGroup.id);
-      expect(fakeApi.getInvitesOfGroup).toHaveBeenLastCalledWith(fakeGroup.id);
-      expect(fakeApi.getMembers).toHaveBeenLastCalledWith(fakeGroup.id);
-    
       expect(screen.baseElement).toMatchSnapshot();
-      fireEvent.click(screen.baseElement.querySelector(`#member-${fakeGroup.id}-${fakeGroup.members[1].User.id}-options-button`));
+      fireEvent.click(screen.baseElement.querySelector(`#member-${fakeGroup.id}-${member.id}-options-button`));
       expect(screen.baseElement).toMatchSnapshot();
       fireEvent.click(screen.queryByText('modals.group.manage.tabs.members.options.grantAdmin'));
+
+      const expectedAction = {
+        type: 'group/grantAdminRights/pending',
+        meta: {
+          arg: {
+            groupId: fakeGroup.id,
+            userId: member.id,
+          },
+          requestStatus: expect.any(String),
+          requestId: expect.any(String),
+        },
+        payload: undefined,
+      };
       
-      await waitFor(() => expect(fakeApi.grantAdmin).toBeCalledTimes(1));
-      expect(fakeApi.grantAdmin).toBeCalledWith(fakeGroup.id, fakeGroup.members[1].User.id);
-      expect(screen.baseElement).toMatchSnapshot();
+      await waitFor(() => expect(screen.store.getActions()).toContainEqual(expectedAction));
     });
 
     it('if member is not an admin grant admin option is shown', async () => {
-      fakeGroup.members.push({User: {id: 13, username: 'MEMBER'}, isAdmin: false});
-      const fakeGroupContext = {
-        getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-        update: jest.fn().mockResolvedValue(undefined),
-      };
-      const fakeApi = {
-        getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
-        getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-        grantAdmin: jest.fn().mockResolvedValue(undefined),
-        getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
-      }
-    
-      const screen = render (
-        <ThemeProvider theme={theme}>
-          <MemoryRouter>
-            <AuthContext.Provider value={{user: fakeGroup.Owner as IUser} as AuthContext}>
-              <ApiContext.Provider value={fakeApi as unknown as Api}>
-                <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                    <ManageGroup groupId={2}/>
-                </GroupContext.Provider>
-              </ApiContext.Provider>
-            </AuthContext.Provider>
-          </MemoryRouter>
-        </ThemeProvider>
+      const member = {username: 'MEMBER', id: 10};
+      state.group.selectedGroup.members.push({isAdmin: false, User: member});
+      const screen = testRender (
+        state,
+        <ManageGroup groupId={2}/>
       );
     
-    
-      await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-      await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-      await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
-      expect(fakeGroupContext.getGroup).toHaveBeenCalledWith(fakeGroup.id);
-      expect(fakeApi.getInvitesOfGroup).toHaveBeenLastCalledWith(fakeGroup.id);
-      expect(fakeApi.getMembers).toHaveBeenLastCalledWith(fakeGroup.id);
+      fireEvent.click(screen.baseElement.querySelector(`#member-${fakeGroup.id}-${member.id}-options-button`))
 
       expect(screen.baseElement).toMatchSnapshot();
       expect(screen.queryByText('modals.group.manage.tabs.members.options.grantAdmin')).toBeTruthy();
@@ -538,772 +586,226 @@ describe('MemberTab', () => {
     });
 
     it('if member is admin the revoke admin option is shown', async () => {
-      fakeGroup.members.push({User: {id: 13, username: 'MEMBER'}, isAdmin: true});
-      const fakeGroupContext = {
-        getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-        update: jest.fn().mockResolvedValue(undefined),
-      };
-      const fakeApi = {
-        getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
-        getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-        grantAdmin: jest.fn().mockResolvedValue(undefined),
-        getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
-      }
-    
-      const screen = render (
-        <ThemeProvider theme={theme}>
-          <MemoryRouter>
-            <AuthContext.Provider value={{user: fakeGroup.Owner as IUser} as AuthContext}>
-              <ApiContext.Provider value={fakeApi as unknown as Api}>
-                <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                    <ManageGroup groupId={2}/>
-                </GroupContext.Provider>
-              </ApiContext.Provider>
-            </AuthContext.Provider>
-          </MemoryRouter>
-        </ThemeProvider>
+      const member = {username: 'MEMBER', id: 10};
+      state.group.selectedGroup.members.push({isAdmin: true, User: member});
+      const screen = testRender (
+        state,
+        <ManageGroup groupId={2}/>
       );
     
-    
-      await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-      await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-      await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
-      expect(fakeGroupContext.getGroup).toHaveBeenCalledWith(fakeGroup.id);
-      expect(fakeApi.getInvitesOfGroup).toHaveBeenLastCalledWith(fakeGroup.id);
-      expect(fakeApi.getMembers).toHaveBeenLastCalledWith(fakeGroup.id);
 
       expect(screen.baseElement).toMatchSnapshot();
-      expect(screen.queryByText('modals.group.manage.tabs.members.options.revokeAdmin')).toBeTruthy();
       expect(screen.queryByText('modals.group.manage.tabs.members.options.grantAdmin')).toBeFalsy();
+      expect(screen.queryByText('modals.group.manage.tabs.members.options.revokeAdmin')).toBeTruthy();
     });
 
-    it('click on revoke admin will send revoke admin request and remove admin badge', async () => {
-      fakeGroup.members.push({User: {id: 13, username: 'MEMBER'}, isAdmin: true});
-      const fakeGroupContext = {
-        getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-        update: jest.fn().mockResolvedValue(undefined),
-      };
-      const fakeApi = {
-        getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
-        getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-        grantAdmin: jest.fn().mockResolvedValue(undefined),
-        revokeAdmin: jest.fn().mockResolvedValue(undefined),
-        getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
-      }
-    
-      const screen = render (
-        <ThemeProvider theme={theme}>
-          <MemoryRouter>
-            <AuthContext.Provider value={{user: fakeGroup.Owner as IUser} as AuthContext}>
-              <ApiContext.Provider value={fakeApi as unknown as Api}>
-                <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                    <ManageGroup groupId={2}/>
-                </GroupContext.Provider>
-              </ApiContext.Provider>
-            </AuthContext.Provider>
-          </MemoryRouter>
-        </ThemeProvider>
+    it('click on revoke admin will dispatch revokeAdminRights actions', async () => {
+      const member = {username: 'MEMBER', id: 10};
+      state.group.selectedGroup.members.push({isAdmin: true, User: member});
+      const screen = testRender (
+        state,
+        <ManageGroup groupId={2}/>
       );
     
-    
-      await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-      await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-      await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
-      expect(fakeGroupContext.getGroup).toHaveBeenCalledWith(fakeGroup.id);
-      expect(fakeApi.getInvitesOfGroup).toHaveBeenLastCalledWith(fakeGroup.id);
-      expect(fakeApi.getMembers).toHaveBeenLastCalledWith(fakeGroup.id);
-
+      expect(screen.baseElement).toMatchSnapshot();
+      fireEvent.click(screen.baseElement.querySelector(`#member-${fakeGroup.id}-${member.id}-options-button`));
       expect(screen.baseElement).toMatchSnapshot();
       fireEvent.click(screen.queryByText('modals.group.manage.tabs.members.options.revokeAdmin'));
-      await waitFor(() => expect(fakeApi.revokeAdmin).toBeCalledTimes(1));
-      expect(fakeApi.revokeAdmin).toBeCalledWith(fakeGroup.id, fakeGroup.members[1].User.id);
-      expect(screen.baseElement).toMatchSnapshot();
+
+      const expectedAction = {
+        type: 'group/revokeAdminRights/pending',
+        meta: {
+          arg: {
+            groupId: fakeGroup.id,
+            userId: member.id,
+          },
+          requestStatus: expect.any(String),
+          requestId: expect.any(String),
+        },
+        payload: undefined,
+      };
+      
+      await waitFor(() => expect(screen.store.getActions()).toContainEqual(expectedAction));
     });
   });
 });
 
 describe('CarTab', () => {
   it('cars tab is rendered correctly', async () => {
-    const fakeGroupContext = {
-      getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-      leaveGroup: jest.fn().mockResolvedValue(undefined),
-    };
-    const carList = [
-      {
-        name: 'car-1',
-        groupId: fakeGroup.id,
-        color: CarColor.Red,
-        driverId: null,
-        carId: 1,
-      },
-      {
-        name: 'car-2',
-        groupId: fakeGroup.id,
-        color: CarColor.Black,
-        driverId: null,
-        carId: 2,
-      },
-      {
-        name: 'car-2',
-        groupId: fakeGroup.id,
-        color: CarColor.Green,
-        driverId: 2,
-        Driver: {
-          id: 2,
-          username: 'driver-1'
-        },
-        carId: 2,
-      }
-    ];
-    const fakeApi = {
-      getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
-      getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-      getCars: jest.fn().mockResolvedValue({data: {cars: carList}}),
-    };
-    const fakeUser = {
-      id: fakeGroup.ownerId,
-    };
-    const modalContext = {
-      close: jest.fn(),
-      route: '',
-      goTo: jest.fn(),
-    };
+    state.group.selectedGroup.cars.push(...cars);
+
     const snackbarContext = {
       show: jest.fn(),
     };
   
-    const {baseElement} = render (
-      <ThemeProvider theme={theme}>
-        <MemoryRouter>
-          <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
-            <ModalContext.Provider value={modalContext as unknown as ModalContext}>
-              <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
-                <ApiContext.Provider value={fakeApi as unknown as Api}>
-                  <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                      <ManageGroup groupId={2}/>
-                  </GroupContext.Provider>
-                </ApiContext.Provider>
-              </AuthContext.Provider>
-            </ModalContext.Provider>
-          </SnackbarContext.Provider>
-        </MemoryRouter>
-      </ThemeProvider>
+    const {baseElement, store} = testRender (
+      state,
+      <SnackbarContext.Provider value={snackbarContext}>
+        <ManageGroup groupId={2}/>
+      </SnackbarContext.Provider>
     );
-    await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-    await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-    await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
-    await waitFor(() => expect(fakeApi.getCars).toHaveBeenCalledTimes(1));
-    expect(fakeApi.getCars).toHaveBeenCalledWith(fakeGroup.id);
-
     expect(baseElement.querySelector('#create-car-fab')).toBeFalsy();
 
     fireEvent.click(baseElement.querySelector('#group-tab-cars'));
 
     await waitFor(() => expect(baseElement.querySelector('#create-car-fab')).toBeTruthy());
-    expect(modalContext.goTo).toHaveBeenCalledWith(`/group/manage/${fakeGroup.id}/cars`);
+
+    const expectedAction = {
+      type: CALL_HISTORY_METHOD,
+      payload: {
+        args: [{
+          search: `modal=/group/manage/${fakeGroup.id}/cars`,
+          state: {modal: `/group/manage/${fakeGroup.id}/cars`},
+        }],
+        method: 'push',
+      }
+    };
+    expect(store.getActions()).toContainEqual(expectedAction);
 
     expect(baseElement).toMatchSnapshot();
   });
 
   it('clicking add fab opens create car dialog', async () => {
-    const fakeGroupContext = {
-      getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-      leaveGroup: jest.fn().mockResolvedValue(undefined),
-    };
-    const fakeApi = {
-      getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
-      getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-      getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
-    }
-    const fakeUser = {
-      id: fakeGroup.ownerId,
-    };
-    const modalContext = {
-      close: jest.fn(),
-      route: '',
-      goTo: jest.fn(),
-    };
     const snackbarContext = {
       show: jest.fn(),
     };
   
-    const {baseElement} = render (
-      <ThemeProvider theme={theme}>
-        <MemoryRouter>
-          <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
-            <ModalContext.Provider value={modalContext as unknown as ModalContext}>
-              <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
-                <ApiContext.Provider value={fakeApi as unknown as Api}>
-                  <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                      <ManageGroup groupId={2}/>
-                  </GroupContext.Provider>
-                </ApiContext.Provider>
-              </AuthContext.Provider>
-            </ModalContext.Provider>
-          </SnackbarContext.Provider>
-        </MemoryRouter>
-      </ThemeProvider>
+    const {baseElement} = testRender (
+      state,
+      <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
+        <ManageGroup groupId={2}/>
+      </SnackbarContext.Provider>
     );
-    await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-    await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-    await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
 
     fireEvent.click(baseElement.querySelector('#group-tab-cars'));
 
     await waitFor(() => expect(baseElement.querySelector('#create-car-fab')).toBeTruthy());
-    expect(modalContext.goTo).toHaveBeenCalledWith(`/group/manage/${fakeGroup.id}/cars`);
     fireEvent.click(baseElement.querySelector('#create-car-fab'));
 
     expect(baseElement).toMatchSnapshot();
   });
 
-  it('entering a name and clicking create sends request to create a car', async () => {
-    const fakeGroupContext = {
-      getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-      leaveGroup: jest.fn().mockResolvedValue(undefined),
-    };
-    const fakeCar = {
-      name: 'test car',
-      groupId: fakeGroup.id,
-      carId: 1,
-      color: CarColor.Red,
-      driverId: null,
-    };
-    const fakeApi = {
-      getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
-      getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-      createCar: jest.fn().mockResolvedValue({data: fakeCar}),
-      getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
-    }
-    const fakeUser = {
-      id: fakeGroup.ownerId,
-    };
-    const modalContext = {
-      close: jest.fn(),
-      route: '',
-      goTo: jest.fn(),
-    };
+  it('entering a name and clicking create dispatches createCar action', async () => {
     const snackbarContext = {
       show: jest.fn(),
     };
+
+    
+    const fakeCar = {
+      name: 'NEW CAR',
+      groupId: fakeGroup.id,
+      color: CarColor.Red,
+    }
+    const fakeCarResponse: CarWithDriver = {
+      ...fakeCar,
+      carId: 41,
+      latitude: null,
+      longitude: null,
+      driverId: null,
+      Driver: null,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    }
+
+    mockedAxios.post = jest.fn().mockResolvedValueOnce({data: fakeCarResponse});
   
-    const {baseElement} = render(
-      <ThemeProvider theme={theme}>
-        <MemoryRouter>
-          <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
-            <ModalContext.Provider value={modalContext as unknown as ModalContext}>
-              <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
-                <ApiContext.Provider value={fakeApi as unknown as Api}>
-                  <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                      <ManageGroup groupId={2}/>
-                  </GroupContext.Provider>
-                </ApiContext.Provider>
-              </AuthContext.Provider>
-            </ModalContext.Provider>
-          </SnackbarContext.Provider>
-        </MemoryRouter>
-      </ThemeProvider>
+    const {baseElement, store, queryByText} = testRender(
+      state,
+      <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
+          <ManageGroup groupId={2}/>
+      </SnackbarContext.Provider>
     );
-    await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-    await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-    await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
+
 
     userEvent.click(baseElement.querySelector('#group-tab-cars'));
 
     await waitFor(() => expect(baseElement.querySelector('#create-car-fab')).toBeTruthy());
-    expect(modalContext.goTo).toHaveBeenCalledWith(`/group/manage/${fakeGroup.id}/cars`);
     userEvent.click(baseElement.querySelector('#create-car-fab'));
 
     userEvent.type(baseElement.querySelector('#create-car-name'), fakeCar.name);
 
     userEvent.click(screen.getByText('misc.create'));
 
-    await waitFor(() => expect(fakeApi.createCar).toHaveBeenCalledTimes(1));
-    expect(fakeApi.createCar).toHaveBeenCalledWith(fakeCar.groupId, fakeCar.name, fakeCar.color);
+    const expectedPendingAction = {
+      type: 'group/createCar/pending',
+      payload: undefined,
+      meta: {
+        requestId: expect.any(String),
+        requestStatus: expect.any(String),
+        arg: fakeCar,
+      },
+    };
+    const expectedFulfilledAction = {
+      type: 'group/createCar/fulfilled',
+      payload: fakeCarResponse,
+      meta: {
+        requestId: expect.any(String),
+        requestStatus: expect.any(String),
+        arg: fakeCar,
+      },
+    };
 
+    await waitFor(() => expect(store.getActions()).toContainEqual(expectedFulfilledAction));
+    expect(store.getActions()).toContainEqual(expectedPendingAction);
+    await waitFor(() => expect(mockedAxios.post).toHaveBeenCalledTimes(1));
+    expect(mockedAxios.post).toHaveBeenCalledWith(`/api/group/2/car`, {name: fakeCar.name, color: fakeCar.color});
 
-    await waitFor(() => expect(baseElement.querySelector(`#car-tab-${fakeCar.carId}`)).toBeTruthy());
-
+    await waitFor(() => expect(queryByText('misc.create')).toBeFalsy());
     expect(baseElement).toMatchSnapshot();
   });
 
-  it('when new car is created used color is removed from ' +
-  'car color selection', async () => {
-    const fakeGroupContext = {
-      getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-      leaveGroup: jest.fn().mockResolvedValue(undefined),
-    };
-    const fakeCar = {
-      name: 'test car',
-      groupId: fakeGroup.id,
-      carId: 1,
-      color: CarColor.Red,
-      driverId: null,
-    };
-    const fakeApi = {
-      getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
-      getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-      createCar: jest.fn().mockResolvedValue({data: fakeCar}),
-      getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
-    }
-    const fakeUser = {
-      id: fakeGroup.ownerId,
-    };
-    const modalContext = {
-      close: jest.fn(),
-      route: '',
-      goTo: jest.fn(),
-    };
-    const snackbarContext = {
-      show: jest.fn(),
-    };
-  
-    const {baseElement} = render (
-      <ThemeProvider theme={theme}>
-        <MemoryRouter>
-          <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
-            <ModalContext.Provider value={modalContext as unknown as ModalContext}>
-              <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
-                <ApiContext.Provider value={fakeApi as unknown as Api}>
-                  <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                      <ManageGroup groupId={2}/>
-                  </GroupContext.Provider>
-                </ApiContext.Provider>
-              </AuthContext.Provider>
-            </ModalContext.Provider>
-          </SnackbarContext.Provider>
-        </MemoryRouter>
-      </ThemeProvider>
-    );
-    await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-    await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-    await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
+  it('color selection only shows not used color', async () => {
+      state.group.selectedGroup.cars.push(...cars);
+      const snackbarContext = {
+        show: jest.fn(),
+      };
+    
+      const {baseElement} = testRender (
+        state,
+        <SnackbarContext.Provider value={snackbarContext}>
+          <ManageGroup groupId={2}/>
+        </SnackbarContext.Provider>,
+      );
 
-    userEvent.click(baseElement.querySelector('#group-tab-cars'));
+      userEvent.click(baseElement.querySelector('#group-tab-cars'));
 
-    await waitFor(() => expect(baseElement.querySelector('#create-car-fab')).toBeTruthy());
-    expect(modalContext.goTo).toHaveBeenCalledWith(`/group/manage/${fakeGroup.id}/cars`);
-    userEvent.click(baseElement.querySelector('#create-car-fab'));
+      await waitFor(() => expect(baseElement.querySelector('#create-car-fab')).toBeTruthy());
+      userEvent.click(baseElement.querySelector('#create-car-fab'));
 
-    userEvent.type(baseElement.querySelector('#create-car-name'), fakeCar.name);
+      userEvent.click(baseElement.querySelector('#create-car-color'));
 
-    userEvent.click(screen.getByText('misc.create'));
+      cars.forEach((car) => {
+        expect(screen.queryByText(`misc.${car.color.toString}`)).toBeNull();
+      });
 
-    await waitFor(() => expect(fakeApi.createCar).toHaveBeenCalledTimes(1));
-    expect(fakeApi.createCar).toHaveBeenCalledWith(fakeCar.groupId, fakeCar.name, fakeCar.color);
-
-    userEvent.click(baseElement.querySelector('#create-car-fab'));
-    userEvent.click(baseElement.querySelector('#create-car-color'));
-    expect(screen.queryByText('misc.Red')).toBeNull();
-
-    expect(baseElement).toMatchSnapshot();
+      expect(baseElement).toMatchSnapshot();
   });
 
   it('is automatically selected if modal route ' +
   'is /group/manage/:groupId/cars', async () => {
-    const fakeGroupContext = {
-      getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-      leaveGroup: jest.fn().mockResolvedValue(undefined),
-    };
-    const fakeCar = {
-      name: 'test car',
-      groupId: fakeGroup.id,
-      carId: 1,
-      color: CarColor.Red,
-      driverId: null,
-    };
-    const fakeApi = {
-      getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
-      getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-      createCar: jest.fn().mockResolvedValue({data: fakeCar}),
-      getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
-    }
-    const fakeUser = {
-      id: fakeGroup.ownerId,
-    };
-    const modalContext = {
-      close: jest.fn(),
-      route: `/group/manage/${fakeGroup.id}/cars`,
-      goTo: jest.fn(),
+    state.router = {
+      location: {
+        search: `modal=/group/manage/${fakeGroup.id}/cars`,
+        pathname: '/',
+        query:  {},
+        state: '',
+        hash: '',
+      },
+      action: 'PUSH',
     };
     const snackbarContext = {
       show: jest.fn(),
     };
   
-    const {baseElement} = render (
-      <ThemeProvider theme={theme}>
-        <MemoryRouter>
-          <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
-            <ModalContext.Provider value={modalContext as unknown as ModalContext}>
-              <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
-                <ApiContext.Provider value={fakeApi as unknown as Api}>
-                  <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                      <ManageGroup groupId={2}/>
-                  </GroupContext.Provider>
-                </ApiContext.Provider>
-              </AuthContext.Provider>
-            </ModalContext.Provider>
-          </SnackbarContext.Provider>
-        </MemoryRouter>
-      </ThemeProvider>
+    const {baseElement, store} = testRender (
+      state,
+      <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
+        <ManageGroup groupId={2}/>
+      </SnackbarContext.Provider>
     );
-    await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-    await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-    await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
 
     await waitFor(() => expect(baseElement.querySelector('#create-car-fab')).toBeTruthy());
     expect(baseElement).toMatchSnapshot();
-  });
-
-  describe('websocket', () => {
-    it('connects to namespace to group and listens to update event', async () => {
-      const fakeGroupContext = {
-        getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-        leaveGroup: jest.fn().mockResolvedValue(undefined),
-      };
-      const fakeCar = {
-        name: 'test car',
-        groupId: fakeGroup.id,
-        carId: 1,
-        color: CarColor.Red,
-        driverId: null,
-      };
-      const fakeApi = {
-        getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
-        getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-        createCar: jest.fn().mockResolvedValue({data: fakeCar}),
-        getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
-      }
-      const fakeUser = {
-        id: fakeGroup.ownerId,
-      };
-      const modalContext = {
-        close: jest.fn(),
-        route: `/group/manage/${fakeGroup.id}/cars`,
-        goTo: jest.fn(),
-      };
-      const snackbarContext = {
-        show: jest.fn(),
-      };
-
-      const socket = {
-        off: jest.fn(),
-        on: jest.fn(),
-        disconnect: jest.fn(),
-      };
-
-      (io as unknown as jest.Mock).mockReturnValue(socket);
-    
-      render (
-        <ThemeProvider theme={theme}>
-          <MemoryRouter>
-            <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
-              <ModalContext.Provider value={modalContext as unknown as ModalContext}>
-                <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
-                  <ApiContext.Provider value={fakeApi as unknown as Api}>
-                    <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                        <ManageGroup groupId={2}/>
-                    </GroupContext.Provider>
-                  </ApiContext.Provider>
-                </AuthContext.Provider>
-              </ModalContext.Provider>
-            </SnackbarContext.Provider>
-          </MemoryRouter>
-        </ThemeProvider>
-      );
-      await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-      await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-      await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
-  
-      await waitFor(() => expect(io).toHaveBeenCalledTimes(1));
-      expect(io).toHaveBeenCalledWith('/group/2', {path: '/socket'});
-
-      await waitFor(() => expect(socket.on).toHaveBeenCalledWith('update', expect.any(Function)));
-    });
-
-    describe('add action', () => {
-      it('adds car to group if not already in list', async () => {
-        const fakeGroupContext = {
-          getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-          leaveGroup: jest.fn().mockResolvedValue(undefined),
-        };
-        const fakeApi = {
-          getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
-          getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-          getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
-        }
-        const fakeUser = {
-          id: fakeGroup.ownerId,
-        };
-        const modalContext = {
-          close: jest.fn(),
-          route: `/group/manage/${fakeGroup.id}/cars`,
-          goTo: jest.fn(),
-        };
-        const snackbarContext = {
-          show: jest.fn(),
-        };
-
-        let updateListener;
-  
-        const socket = {
-          off: jest.fn(),
-          on: jest.fn().mockImplementation((type: string, fn: Function) => {
-            if (type === 'update') {
-              updateListener = fn;
-            }
-          }),
-          disconnect: jest.fn(),
-        };
-  
-        (io as unknown as jest.Mock).mockReturnValue(socket);
-      
-        render (
-          <ThemeProvider theme={theme}>
-            <MemoryRouter>
-              <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
-                <ModalContext.Provider value={modalContext as unknown as ModalContext}>
-                  <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
-                    <ApiContext.Provider value={fakeApi as unknown as Api}>
-                      <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                          <ManageGroup groupId={2}/>
-                      </GroupContext.Provider>
-                    </ApiContext.Provider>
-                  </AuthContext.Provider>
-                </ModalContext.Provider>
-              </SnackbarContext.Provider>
-            </MemoryRouter>
-          </ThemeProvider>
-        );
-        await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-        await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-        await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
-    
-        await waitFor(() => expect(io).toHaveBeenCalledTimes(1));
-        expect(io).toHaveBeenCalledWith('/group/2', {path: '/socket'});
-  
-        await waitFor(() => expect(socket.on).toHaveBeenCalledWith('update', expect.any(Function)));
-
-        const car = {
-          name: 'Test Car 1',
-          groupId: 2,
-          carId: 1,
-          driverId: null,
-          latitude: null,
-          longitude: null,
-          Driver: null,
-        };
-
-        const data = {
-          action: 'add',
-          car,
-        };
-
-        updateListener(data);
-
-        await waitFor(() => expect(screen.queryByText('Test Car 1')).toBeTruthy());
-      });
-    });
-
-    describe('drive action', () => {
-      it('updates car to drive state if car is in group', async () => {
-        const fakeGroupContext = {
-          getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-          leaveGroup: jest.fn().mockResolvedValue(undefined),
-        };
-        const car = {
-          name: 'TEST CAR 1',
-          groupId: 2,
-          carId: 1,
-          driverId: null,
-          Driver: null,
-          latitude: 50,
-          longitude: 8,
-        };
-        const fakeApi = {
-          getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
-          getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-          getCars: jest.fn().mockResolvedValue({data: {cars: [car]}}),
-        }
-        const fakeUser = {
-          id: fakeGroup.ownerId,
-        };
-        const modalContext = {
-          close: jest.fn(),
-          route: `/group/manage/${fakeGroup.id}/cars`,
-          goTo: jest.fn(),
-        };
-        const snackbarContext = {
-          show: jest.fn(),
-        };
-
-        let updateListener;
-  
-        const socket = {
-          off: jest.fn(),
-          on: jest.fn().mockImplementation((type: string, fn: Function) => {
-            if (type === 'update') {
-              updateListener = fn;
-            }
-          }),
-          disconnect: jest.fn(),
-        };
-  
-        (io as unknown as jest.Mock).mockReturnValue(socket);
-      
-        render (
-          <ThemeProvider theme={theme}>
-            <MemoryRouter>
-              <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
-                <ModalContext.Provider value={modalContext as unknown as ModalContext}>
-                  <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
-                    <ApiContext.Provider value={fakeApi as unknown as Api}>
-                      <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                          <ManageGroup groupId={2}/>
-                      </GroupContext.Provider>
-                    </ApiContext.Provider>
-                  </AuthContext.Provider>
-                </ModalContext.Provider>
-              </SnackbarContext.Provider>
-            </MemoryRouter>
-          </ThemeProvider>
-        );
-        await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-        await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-        await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
-    
-        await waitFor(() => expect(screen.queryByText(car.name)).toBeTruthy());
-        expect(screen.queryByText('misc.available')).toBeTruthy();
-
-        await waitFor(() => expect(io).toHaveBeenCalledTimes(1));
-        expect(io).toHaveBeenCalledWith('/group/2', {path: '/socket'});
-  
-        await waitFor(() => expect(socket.on).toHaveBeenCalledWith('update', expect.any(Function)));
-
-        const updatedCar = {
-          name: 'TEST CAR 1 UPDATED',
-          groupId: 2,
-          carId: 1,
-          driverId: 5,
-          latitude: null,
-          longitude: null,
-          Driver: {
-            id: 5,
-            username: 'DRIVER',
-          },
-        };
-
-        const data = {
-          action: 'drive',
-          car: updatedCar,
-        };
-
-        updateListener(data);
-
-        await waitFor(() => expect(screen.queryByText(updatedCar.name)).toBeTruthy());
-        expect(screen.queryByText('modals.group.manage.tabs.cars.drivenBy')).toBeTruthy();
-      });
-    });
-
-    describe('park action', () => {
-      it('updates car to park state if car is in group', async () => {
-        const fakeGroupContext = {
-          getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-          leaveGroup: jest.fn().mockResolvedValue(undefined),
-        };
-        const car = {
-          name: 'TEST CAR 1',
-          groupId: 2,
-          carId: 1,
-          driverId: 5,
-          Driver: {
-            id: 5,
-            username: 'DRIVER',
-          },
-          latitude: null,
-          longitude: null,
-        };
-        const fakeApi = {
-          getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
-          getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-          getCars: jest.fn().mockResolvedValue({data: {cars: [car]}}),
-        }
-        const fakeUser = {
-          id: fakeGroup.ownerId,
-        };
-        const modalContext = {
-          close: jest.fn(),
-          route: `/group/manage/${fakeGroup.id}/cars`,
-          goTo: jest.fn(),
-        };
-        const snackbarContext = {
-          show: jest.fn(),
-        };
-
-        let updateListener;
-  
-        const socket = {
-          off: jest.fn(),
-          on: jest.fn().mockImplementation((type: string, fn: Function) => {
-            if (type === 'update') {
-              updateListener = fn;
-            }
-          }),
-          disconnect: jest.fn(),
-        };
-  
-        (io as unknown as jest.Mock).mockReturnValue(socket);
-      
-        render (
-          <ThemeProvider theme={theme}>
-            <MemoryRouter>
-              <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
-                <ModalContext.Provider value={modalContext as unknown as ModalContext}>
-                  <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
-                    <ApiContext.Provider value={fakeApi as unknown as Api}>
-                      <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                          <ManageGroup groupId={2}/>
-                      </GroupContext.Provider>
-                    </ApiContext.Provider>
-                  </AuthContext.Provider>
-                </ModalContext.Provider>
-              </SnackbarContext.Provider>
-            </MemoryRouter>
-          </ThemeProvider>
-        );
-        await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-        await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-        await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
-    
-        await waitFor(() => expect(screen.queryByText(car.name)).toBeTruthy());
-        expect(screen.queryByText('modals.group.manage.tabs.cars.drivenBy')).toBeTruthy();
-
-        await waitFor(() => expect(io).toHaveBeenCalledTimes(1));
-        expect(io).toHaveBeenCalledWith('/group/2', {path: '/socket'});
-  
-        await waitFor(() => expect(socket.on).toHaveBeenCalledWith('update', expect.any(Function)));
-
-        const updatedCar = {
-          name: 'TEST CAR 1 UPDATED',
-          groupId: 2,
-          carId: 1,
-          driverId: null,
-          latitude: 83,
-          longitude: 5,
-          Driver: null
-        };
-
-        const data = {
-          action: 'park',
-          car: updatedCar,
-        };
-
-        updateListener(data);
-
-        await waitFor(() => expect(screen.queryByText(updatedCar.name)).toBeTruthy());
-        expect(screen.queryByText('misc.available')).toBeTruthy();
-      })
-    });
   });
 });
 
@@ -1311,42 +813,15 @@ describe('CarTab', () => {
 describe('Footer', () => {
   describe('Leave button', () => {
     it('leave group button is visible if user is not owner of group', async () => {
-      // Add more members to fake group data
-      fakeGroup.members.push({User: {id: 12, username: 'ADMIN'}, isAdmin: true});
-      fakeGroup.members.push({User: {id: 13, username: 'MEMBER'}, isAdmin: false});
-      const fakeGroupContext = {
-        getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-      };
-      const fakeApi = {
-        getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
-        getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-        getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
-      }
-      const fakeUser = {
-        id: 13,
-      };
-      const fakeModal = {
-        route: '',
-      };
-    
-      const screen = render (
-        <ThemeProvider theme={theme}>
-          <MemoryRouter>
-            <ModalContext.Provider value={fakeModal as ModalContext}>
-              <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
-                <ApiContext.Provider value={fakeApi as unknown as Api}>
-                  <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                      <ManageGroup groupId={2}/>
-                  </GroupContext.Provider>
-                </ApiContext.Provider>
-              </AuthContext.Provider>
-            </ModalContext.Provider>
-          </MemoryRouter>
-        </ThemeProvider>
+      const owner = {id: 12, username: 'ADMIN'};
+      state.group.selectedGroup.members.push({User: owner, isAdmin: true});
+      state.group.selectedGroup.Owner = owner;
+      state.group.selectedGroup.ownerId = owner.id;
+
+      const screen = testRender (
+        state,
+        <ManageGroup groupId={2}/>
       );
-      await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-      await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-      await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
     
       expect(screen.baseElement).toMatchSnapshot();
       expect(screen.queryByText('modals.group.manage.leaveGroup.button')).toBeDefined();
@@ -1354,97 +829,72 @@ describe('Footer', () => {
     });
     
     it('clicking leave group opens dialog', async () => {
-      // Add more members to fake group data
-      fakeGroup.members.push({User: {id: 12, username: 'ADMIN'}, isAdmin: true});
-      fakeGroup.members.push({User: {id: 13, username: 'MEMBER'}, isAdmin: false});
-      const fakeGroupContext = {
-        getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-      };
-      const fakeApi = {
-        getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
-        getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-        getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
-      }
-      const fakeUser = {
-        id: 13,
-      };
-      const fakeModal = {
-        route: '',
-      };
+      const owner = {id: 12, username: 'ADMIN'};
+      state.group.selectedGroup.members.push({User: owner, isAdmin: true});
+      state.group.selectedGroup.Owner = owner;
+      state.group.selectedGroup.ownerId = owner.id;
+
     
-      const screen = render (
-        <ThemeProvider theme={theme}>
-          <MemoryRouter>
-            <ModalContext.Provider value={fakeModal as ModalContext}>
-              <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
-                <ApiContext.Provider value={fakeApi as unknown as Api}>
-                  <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                      <ManageGroup groupId={2}/>
-                  </GroupContext.Provider>
-                </ApiContext.Provider>
-              </AuthContext.Provider>
-            </ModalContext.Provider>
-          </MemoryRouter>
-        </ThemeProvider>
+      const screen = testRender (
+        state,
+        <ManageGroup groupId={2}/>
       );
-      await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-      await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-      await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
-    
+
       fireEvent.click(screen.queryByText('modals.group.manage.leaveGroup.button'));
       expect(screen.baseElement).toMatchSnapshot();
       expect(screen.queryByText('modals.group.manage.leaveGroup.dialog.title')).toBeDefined();
     });
     
-    it('click yes on leave group dialog calls leave group call', async () => {
-      // Add more members to fake group data
-      fakeGroup.members.push({User: {id: 12, username: 'ADMIN'}, isAdmin: true});
-      fakeGroup.members.push({User: {id: 13, username: 'MEMBER'}, isAdmin: false});
-      const fakeGroupContext = {
-        getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-        leaveGroup: jest.fn().mockResolvedValue(undefined),
-      };
-      const fakeApi = {
-        getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
-        getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-        getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
-      }
-      const fakeUser = {
-        id: 13,
-      };
-      const modalContext = {
-        close: jest.fn(),
-        route: '',
-      };
+    it('click yes on leave group dialog dispatches leaveGroup action', async () => {
+      const owner = {id: 12, username: 'ADMIN'};
+      state.group.selectedGroup.members.push({User: owner, isAdmin: true});
+      state.group.selectedGroup.Owner = owner;
+      state.group.selectedGroup.ownerId = owner.id;
+    
       const snackbarContext = {
         show: jest.fn(),
       };
-    
-      const screen = render (
-        <ThemeProvider theme={theme}>
-          <MemoryRouter>
-            <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
-              <ModalContext.Provider value={modalContext as unknown as ModalContext}>
-                <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
-                  <ApiContext.Provider value={fakeApi as unknown as Api}>
-                    <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                        <ManageGroup groupId={2}/>
-                    </GroupContext.Provider>
-                  </ApiContext.Provider>
-                </AuthContext.Provider>
-              </ModalContext.Provider>
-            </SnackbarContext.Provider>
-          </MemoryRouter>
-        </ThemeProvider>
+
+      mockedAxios.post = jest.fn().mockResolvedValueOnce({data: undefined});
+
+      const screen = testRender (
+        state,
+        <SnackbarContext.Provider value={snackbarContext}>
+          <ManageGroup groupId={2}/>
+        </SnackbarContext.Provider>
       );
-      await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-      await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-      await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
     
       fireEvent.click(screen.queryByText('modals.group.manage.leaveGroup.button'));
       fireEvent.click(screen.queryByText('misc.yes'));
-      expect(fakeGroupContext.leaveGroup).toHaveBeenCalledTimes(1);
-      expect(fakeGroupContext.leaveGroup).toHaveBeenCalledWith(fakeGroup.id);
+
+      const expectedPendingAction = {
+        type: 'group/leaveGroup/pending',
+        payload: undefined,
+        meta: {
+          arg: {
+            id: fakeGroup.id,
+          },
+          requestStatus: expect.any(String),
+          requestId: expect.any(String),
+        },
+      };
+      const expectedFulfilledAction = {
+        type: 'group/leaveGroup/fulfilled',
+        payload: undefined,
+        meta: {
+          arg: {
+            id: fakeGroup.id,
+          },
+          requestStatus: expect.any(String),
+          requestId: expect.any(String),
+        },
+      };
+
+      const store = screen.store;
+      await waitFor(() => expect(store.getActions()).toContainEqual(expectedFulfilledAction));
+      expect(store.getActions()).toContainEqual(expectedPendingAction);
+      expect(mockedAxios.post).toHaveBeenCalledTimes(1);
+      expect(mockedAxios.post).toHaveBeenCalledWith(`/api/group/${fakeGroup.id}/leave`);
       await waitFor(() => expect(snackbarContext.show).toHaveBeenCalledTimes(1));
       expect(snackbarContext.show).toHaveBeenCalledWith('success', 'modals.group.manage.leaveGroup.success');
     });
@@ -1452,148 +902,66 @@ describe('Footer', () => {
 
   describe('Delete button', () => {
     it('delete group button is visible if user is owner of group', async () => {
-      const fakeGroupContext = {
-        getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-        leaveGroup: jest.fn().mockResolvedValue(undefined),
-      };
-      const fakeApi = {
-        getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
-        getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-        getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
-      }
-      const fakeUser = {
-        id: fakeGroup.ownerId,
-      };
-      const modalContext = {
-        close: jest.fn(),
-        route: '',
-      };
-      const snackbarContext = {
-        show: jest.fn(),
-      };
-    
-      const {baseElement} = render (
-        <ThemeProvider theme={theme}>
-          <MemoryRouter>
-            <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
-              <ModalContext.Provider value={modalContext as unknown as ModalContext}>
-                <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
-                  <ApiContext.Provider value={fakeApi as unknown as Api}>
-                    <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                        <ManageGroup groupId={2}/>
-                    </GroupContext.Provider>
-                  </ApiContext.Provider>
-                </AuthContext.Provider>
-              </ModalContext.Provider>
-            </SnackbarContext.Provider>
-          </MemoryRouter>
-        </ThemeProvider>
+      const screen = testRender (
+        state,
+        <ManageGroup groupId={2}/>
       );
-      await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-      await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-      await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
     
-      expect(baseElement).toMatchSnapshot();
-      expect(screen.queryByText('modals.group.manage.deleteGroup.button')).toBeDefined();
+      expect(screen.baseElement).toMatchSnapshot();
       expect(screen.queryByText('modals.group.manage.leaveGroup.button')).toBeNull();
+      expect(screen.queryByText('modals.group.manage.deleteGroup.button')).toBeDefined();
     });  
 
     it('clicking on delete group button opens delete dialog', async () => {
-      const fakeGroupContext = {
-        getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-        leaveGroup: jest.fn().mockResolvedValue(undefined),
-      };
-      const fakeApi = {
-        getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
-        getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-        getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
-      }
-      const fakeUser = {
-        id: fakeGroup.ownerId,
-      };
-      const modalContext = {
-        close: jest.fn(),
-        route: '',
-      };
-      const snackbarContext = {
-        show: jest.fn(),
-      };
-    
-      const {baseElement} = render (
-        <ThemeProvider theme={theme}>
-          <MemoryRouter>
-            <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
-              <ModalContext.Provider value={modalContext as unknown as ModalContext}>
-                <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
-                  <ApiContext.Provider value={fakeApi as unknown as Api}>
-                    <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                        <ManageGroup groupId={2}/>
-                    </GroupContext.Provider>
-                  </ApiContext.Provider>
-                </AuthContext.Provider>
-              </ModalContext.Provider>
-            </SnackbarContext.Provider>
-          </MemoryRouter>
-        </ThemeProvider>
+      const screen = testRender (
+        state,
+        <ManageGroup groupId={2}/>
       );
-      await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-      await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-      await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
-    
       fireEvent.click(screen.queryByText('modals.group.manage.deleteGroup.button'));
-
-      expect(baseElement).toMatchSnapshot();
+      expect(screen.baseElement).toMatchSnapshot();
     });
 
     it('clicking on yes on delete group dialog deletes group', async () => {
-      const fakeGroupContext = {
-        getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-        leaveGroup: jest.fn().mockResolvedValue(undefined),
-        deleteGroup: jest.fn().mockResolvedValue(undefined),
-      };
-      const fakeApi = {
-        getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
-        getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-        getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
-      }
-      const fakeUser = {
-        id: fakeGroup.ownerId,
-      };
-      const modalContext = {
-        close: jest.fn(),
-        route: '',
-      };
       const snackbarContext = {
         show: jest.fn(),
       };
+
+      mockedAxios.delete = jest.fn().mockResolvedValueOnce({data: undefined});
     
-      render (
-        <ThemeProvider theme={theme}>
-          <MemoryRouter>
-            <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
-              <ModalContext.Provider value={modalContext as unknown as ModalContext}>
-                <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
-                  <ApiContext.Provider value={fakeApi as unknown as Api}>
-                    <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                        <ManageGroup groupId={2}/>
-                    </GroupContext.Provider>
-                  </ApiContext.Provider>
-                </AuthContext.Provider>
-              </ModalContext.Provider>
-            </SnackbarContext.Provider>
-          </MemoryRouter>
-        </ThemeProvider>
+      const {store} = testRender (
+        state,
+        <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
+          <ManageGroup groupId={2}/>
+        </SnackbarContext.Provider>
       );
-      await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-      await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-      await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
     
       fireEvent.click(screen.queryByText('modals.group.manage.deleteGroup.button'));
 
       fireEvent.click(screen.queryByText('misc.yes'));
 
-      await waitFor(() => expect(fakeGroupContext.deleteGroup).toBeCalledTimes(1));
-      expect(fakeGroupContext.deleteGroup).toBeCalledWith(fakeGroup.id);
+      const expectedPendingAction = {
+        type: 'group/deleteGroup/pending',
+        payload: undefined,
+        meta: {
+          arg: {id: fakeGroup.id},
+          requestStatus: expect.any(String),
+          requestId: expect.any(String),
+        },
+      };
+      const expectedFulfilledAction = {
+        type: 'group/deleteGroup/fulfilled',
+        payload: undefined,
+        meta: {
+          arg: {id: fakeGroup.id},
+          requestStatus: expect.any(String),
+          requestId: expect.any(String),
+        },
+      };
+
+      await waitFor(() => expect(store.getActions()).toContainEqual(expectedFulfilledAction));
+      expect(store.getActions()).toContainEqual(expectedPendingAction)
+      expect(mockedAxios.delete).toHaveBeenCalledTimes(1);
+      expect(mockedAxios.delete).toHaveBeenCalledWith(`/api/group/${fakeGroup.id}`);
       expect(snackbarContext.show).toBeCalledWith({
         content: 'modals.group.manage.deleteGroup.success',
         type: 'success',
@@ -1602,47 +970,18 @@ describe('Footer', () => {
     });
 
     it('clicking no on delete group dialog closes delete group dialog', async () => {
-      const fakeGroupContext = {
-        getGroup: jest.fn().mockResolvedValue({data: fakeGroup}),
-        leaveGroup: jest.fn().mockResolvedValue(undefined),
-        deleteGroup: jest.fn().mockResolvedValue(undefined),
-      };
-      const fakeApi = {
-        getInvitesOfGroup: jest.fn().mockResolvedValue({data: {invites: fakeGroup.invites}}),
-        getMembers: jest.fn().mockResolvedValue({data: {members: fakeGroup.members}}),
-        getCars: jest.fn().mockResolvedValue({data: {cars: []}}),
-      }
-      const fakeUser = {
-        id: fakeGroup.ownerId,
-      };
-      const modalContext = {
-        close: jest.fn(),
-        route: '',
-      };
       const snackbarContext = {
         show: jest.fn(),
       };
+
+      mockedAxios.delete = jest.fn().mockResolvedValueOnce({data: undefined});
     
-      const {baseElement} = render (
-        <ThemeProvider theme={theme}>
-          <MemoryRouter>
-            <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
-              <ModalContext.Provider value={modalContext as unknown as ModalContext}>
-                <AuthContext.Provider value={{user: fakeUser} as AuthContext}>
-                  <ApiContext.Provider value={fakeApi as unknown as Api}>
-                    <GroupContext.Provider value={fakeGroupContext as unknown as GroupContext}>
-                        <ManageGroup groupId={2}/>
-                    </GroupContext.Provider>
-                  </ApiContext.Provider>
-                </AuthContext.Provider>
-              </ModalContext.Provider>
-            </SnackbarContext.Provider>
-          </MemoryRouter>
-        </ThemeProvider>
+      const {store, baseElement} = testRender (
+        state,
+        <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
+          <ManageGroup groupId={2}/>
+        </SnackbarContext.Provider>
       );
-      await waitFor(() => expect(fakeGroupContext.getGroup).toHaveBeenCalledTimes(1));
-      await waitFor(() => expect(fakeApi.getInvitesOfGroup).toHaveBeenCalledTimes(1));
-      await waitFor(() => expect(fakeApi.getMembers).toHaveBeenCalledTimes(1));
     
       fireEvent.click(screen.queryByText('modals.group.manage.deleteGroup.button'));
 
@@ -1651,6 +990,22 @@ describe('Footer', () => {
       fireEvent.click(screen.queryByText('misc.no'));
 
       expect(baseElement).toMatchSnapshot();
+
+      const notExpectedPendingAction = {
+        type: 'group/deleteGroup/pending',
+        payload: expect.anything(),
+        meta: expect.anything(),
+      };
+      const notExpectedFulfilledAction = {
+        type: 'group/deleteGroup/pending',
+        payload: expect.anything(),
+        meta: expect.anything(),
+      };
+
+      const actions = store.getActions();
+      expect(actions).toHaveLength(2);
+      expect(actions).not.toContainEqual(notExpectedPendingAction);
+      expect(actions).not.toContainEqual(notExpectedFulfilledAction);
     });
   });
 });

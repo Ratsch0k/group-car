@@ -43,7 +43,7 @@ export const goToModal = (
 
     newLocation.state = {
       ...(state.router.location.state as unknown as Record<string, unknown>),
-      model: value,
+      modal: value,
     };
 
     if (replace) {

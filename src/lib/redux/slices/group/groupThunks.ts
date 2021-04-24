@@ -401,7 +401,7 @@ export interface GrantAdminRightsParams {
 }
 
 export const grantAdminRights = createAsyncThunk(
-  'group/grandAdminRights',
+  'group/grantAdminRights',
   async (
     {groupId, userId}: GrantAdminRightsParams,
     {dispatch, rejectWithValue, getState},
@@ -447,7 +447,7 @@ export interface RemoveAdminRightsParams {
 }
 
 export const revokeAdminRights = createAsyncThunk(
-  'group/removeAdminRights',
+  'group/revokeAdminRights',
   async (
     {groupId, userId}: RemoveAdminRightsParams,
     {dispatch, rejectWithValue, getState},

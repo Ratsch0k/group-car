@@ -527,7 +527,6 @@ it('dispatch update action if user logged in', async () => {
       };
 
       await waitFor(() => expect(store.getActions()).toContainEqual(expectedAction));
-      console.dir(store.getActions());
       expect(store.getActions()).toHaveLength(3);
     });
 

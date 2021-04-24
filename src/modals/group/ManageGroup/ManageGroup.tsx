@@ -18,6 +18,7 @@ import {
   selectAndUpdateGroup,
   updateSelectedGroup,
 } from 'lib/redux/slices/group';
+import { createMatchSelector, RouterRootState } from 'connected-react-router';
 
 /**
  * Props for the manage group component.
@@ -43,7 +44,6 @@ export const ManageGroup: React.FC<ManageGroupProps> =
   const [error, setError] = useStateIfMounted<RestError | null | boolean>(null);
   const group = useShallowAppSelector(getSelectedGroup);
   const isLoading = useAppSelector(getIsLoading);
-
 
   // Get the group
   useEffect(() => {
