@@ -1,17 +1,19 @@
-import { render } from "@testing-library/react"
 import CreateGroupForm from "./CreateGroupForm";
 import React from "react";
+import testRender from "../../../__test__/testRender";
 
 it('renders without crashing', () => {
-  render(
+  testRender(
+    {},
     <CreateGroupForm />
   );
 })
 
 it('matches snapshot', () => {
-  const {baseElement} = render(
-    <CreateGroupForm />
+  const {baseElement} = testRender(
+    {},
+    <CreateGroupForm />,
   );
 
   expect(baseElement).toMatchSnapshot();
-})
+});
