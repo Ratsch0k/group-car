@@ -1,5 +1,5 @@
 import React from 'react';
-import mockedAxios from '../../../__test__/mockAxios.spec';
+import mockedAxios from '../../../__test__/mockAxios';
 import {render, screen, waitFor} from '@testing-library/react';
 import {ThemeProvider} from '@material-ui/core';
 import {Drawer} from '../../../lib';
@@ -8,8 +8,8 @@ import { MapContext, MapProvider, SnackbarContext } from '../../context';
 import { ModalContext } from '../../ModalRouter';
 import userEvent from '@testing-library/user-event';
 import { LatLng, Map } from 'leaflet';
-import theme from '../../../__test__/testTheme.spec';
-import testRender from '../../../__test__/testRender.spec';
+import theme from '../../../__test__/testTheme';
+import testRender from '../../../__test__/testRender';
 import { RootState } from '../../redux/store';
 
 afterEach(() => {

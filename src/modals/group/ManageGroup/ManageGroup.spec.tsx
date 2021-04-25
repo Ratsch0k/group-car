@@ -2,16 +2,13 @@ import mockedAxios from '../../../__test__/mockAxios';
 import { fireEvent, waitFor, screen } from "@testing-library/react";
 import ManageGroup from "./ManageGroup";
 import React from "react";
-import { ModalContext, SnackbarContext, CarColor, GroupWithOwnerAndMembersAndInvitesAndCars, User, Member, InviteWithUserAndInviteSender, CarWithDriver, Car} from '../../../lib';
+import { SnackbarContext, CarColor, GroupWithOwnerAndMembersAndInvitesAndCars, User, Member, InviteWithUserAndInviteSender, CarWithDriver, Car} from '../../../lib';
 import { MemoryRouter, Route, Switch } from "react-router-dom";
-import { ThemeProvider } from "@material-ui/core";
 import userEvent from '@testing-library/user-event';
-import theme from '../../../__test__/testTheme';
 import testRender from "../../../__test__/testRender";
 import {RootState} from '../../../lib/redux/store';
 import history from "../../../lib/redux/history";
 import { CALL_HISTORY_METHOD } from "connected-react-router";
-import { endsWith } from 'lodash';
 
 let fakeGroup: GroupWithOwnerAndMembersAndInvitesAndCars;
 let fakeUser: User;

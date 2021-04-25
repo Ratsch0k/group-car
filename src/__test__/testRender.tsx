@@ -4,7 +4,7 @@ import {ConnectedRouter} from 'connected-react-router';
 import {Provider} from 'react-redux';
 import history from '../lib/redux/history';
 import {StylesProvider, ThemeProvider} from '@material-ui/styles';
-import testTheme from './testTheme.spec';
+import testTheme from './testTheme';
 import configureMockStore, {
   MockStoreCreator,
   MockStoreEnhanced,
