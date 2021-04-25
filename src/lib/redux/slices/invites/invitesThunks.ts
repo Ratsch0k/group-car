@@ -46,10 +46,11 @@ export const acceptInvite = createAsyncThunk(
 
     if (state.auth.user && invite) {
       try {
-        await api.acceptInvite(groupId);
+        const res = await api.acceptInvite(groupId);
 
         dispatch(removeInvite(groupId));
-        dispatch(update());
+        await dispatch(update());
+        return res.data;
       } catch (e) {
         return rejectWithValue((e as AxiosError<RestError>).response?.data);
       }

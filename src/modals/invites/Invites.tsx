@@ -48,6 +48,7 @@ export const Invites: React.FC = () => {
   }, []);
 
   let content: JSX.Element;
+  console.dir(invites);
   if (invites.length > 0) {
     content = (
       <List>
