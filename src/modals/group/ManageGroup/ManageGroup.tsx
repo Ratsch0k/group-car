@@ -18,7 +18,6 @@ import {
   selectAndUpdateGroup,
   updateSelectedGroup,
 } from 'lib/redux/slices/group';
-import { createMatchSelector, RouterRootState } from 'connected-react-router';
 
 /**
  * Props for the manage group component.
