@@ -40,7 +40,7 @@ describe('redux utils', () => {
     it('returns false if action doesn\'t ' +
     'end with rejected or fulfilled', () => {
       const matcher = isCompletedMatcher('slice');
-      
+
       expect(matcher({type: 'slice/action/pending'})).toBe(false);
     });
   });

@@ -1,6 +1,6 @@
-import {User, Request} from 'lib';
-import {AxiosType} from '../request';
-import axiosStatic from 'axios';
+import {Request} from 'lib';
+import axios from 'lib/client';
+import {User} from 'typings';
 
 export type LoginRequest = Request<User>;
 /**
@@ -20,7 +20,6 @@ export type Login = (username: string, password: string) => LoginRequest;
 export const login: Login = (
   username,
   password,
-  axios: AxiosType = axiosStatic,
 ): LoginRequest => {
   // Check if provided arguments are non empty strings
   if (!username || username.length <= 0 ||

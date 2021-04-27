@@ -5,43 +5,16 @@ import {Provider} from 'react-redux';
 import history from '../lib/redux/history';
 import {StylesProvider, ThemeProvider} from '@material-ui/styles';
 import testTheme from './testTheme';
-import configureMockStore, {
-  MockStoreCreator,
+import {
   MockStoreEnhanced,
 } from 'redux-mock-store';
-import thunk from 'redux-thunk';
 import {RootState} from '../lib/redux/store';
-import {
-  initialState as authState,
-} from '../lib/redux/slices/auth/authSlice';
-import {
-  initialState as groupState,
-} from '../lib/redux/slices/group/groupSlice';
-import {
-  initialState as invitesState,
-} from '../lib/redux/slices/invites/invitesSlice';
+import mockStore from './mockStore';
 
 
-export interface TestRenderResult<T> {
-  mockStore: MockStoreCreator<T>;
+export interface TestRenderResult {
   store: MockStoreEnhanced<unknown>;
 }
-
-const defaultState: RootState = {
-  router: {
-    action: 'POP',
-    location: {
-      pathname: '/',
-      search: '',
-      hash: '',
-      query: {},
-      state: undefined,
-    },
-  },
-  auth: authState,
-  group: groupState,
-  invites: invitesState,
-};
 
 /**
  * Testing generateClassName function to
@@ -62,15 +35,9 @@ const generateClassName = (rule, stylesheet) => {
  * @param children The children to render
  * @returns The result of the render function.
  */
-function testRender<T>(state: T, children: React.ReactNode):
-RenderResult & TestRenderResult<T> {
-  const middleware = [thunk];
-  const mockStore = configureMockStore<T>(middleware);
-  const initialState = {
-    ...defaultState,
-    ...state,
-  };
-  const store = mockStore(initialState);
+function testRender(state: Partial<RootState>, children: React.ReactNode):
+RenderResult & TestRenderResult {
+  const store = mockStore(state);
 
   const renderResult = render(
     <Provider store={store}>
@@ -86,7 +53,6 @@ RenderResult & TestRenderResult<T> {
 
   return {
     ...renderResult,
-    mockStore,
     store,
   };
 }

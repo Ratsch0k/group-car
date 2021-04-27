@@ -1,7 +1,8 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import {AxiosError} from 'axios';
 import {CallHistoryMethodAction, replace} from 'connected-react-router';
-import {RestError, User} from 'lib';
+import {RestError} from 'lib';
+import {User} from 'typings';
 import {goToModal} from '../modalRouter/modalRouterSlice';
 import {setUser, setSignUpRequestSent, reset} from './authSlice';
 import {

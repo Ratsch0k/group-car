@@ -1,6 +1,6 @@
 import {Request, AxiosType} from '../request';
 import axiosStatic from 'axios';
-import {User} from '../userType';
+import {User} from 'typings';
 
 export type CheckLoggedInRequest = Request<User>;
 export type CheckLoggedIn = () => CheckLoggedInRequest;
