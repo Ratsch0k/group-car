@@ -1,7 +1,13 @@
 import mockStore from '../../../../__test__/mockStore';
 import mockAxios from '../../../../__test__/mockAxios';
 import {User} from '../../../../typings/auth';
-import {checkLoggedIn, login, logout, openAuthDialog, signUp} from './authThunks';
+import {
+  checkLoggedIn,
+  login,
+  logout,
+  openAuthDialog,
+  signUp,
+} from './authThunks';
 import {unwrapResult} from '@reduxjs/toolkit';
 import {CALL_HISTORY_METHOD} from 'connected-react-router';
 

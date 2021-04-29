@@ -336,6 +336,7 @@ export const parkCar = createAsyncThunk(
     const state = getState() as RootState;
     const user = state.auth.user;
     const {selectedGroup} = state.group;
+    const groupCars = state.group.selectedGroup?.cars;
 
     let res;
     try {
@@ -347,7 +348,8 @@ export const parkCar = createAsyncThunk(
     if (
       user &&
       selectedGroup !== null &&
-      selectedGroup.id === groupId
+      selectedGroup.id === groupId &&
+      groupCars && groupCars.some((car) => car.carId === carId)
     ) {
       dispatch(setLocationOfCar({groupId, carId, latitude, longitude}));
     }

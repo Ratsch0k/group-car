@@ -44,7 +44,7 @@ const name = 'group';
 /**
  * Create group slice.
  */
-const groupSlice = createSlice({
+export const groupSlice = createSlice({
   name,
   initialState,
   reducers: {
@@ -65,6 +65,10 @@ const groupSlice = createSlice({
       const groupEntity = state.entities[group.id];
 
       if (force || groupEntity) {
+        if (force && !groupEntity) {
+          state.ids.push(group.id);
+        }
+
         state.entities[group.id] = group;
         state.selectedGroup = group;
       }
