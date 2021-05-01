@@ -7,3 +7,4 @@ export * from './NoInviteForGroupError';
 export * from './NotAdminOfGroupError';
 export * from './CouldNotModifyMemberError';
 export * from './NoGroupSelectedError';
+export * from './NotOwnerOfGroupError';

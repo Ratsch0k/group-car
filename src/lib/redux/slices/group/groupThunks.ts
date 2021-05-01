@@ -28,6 +28,7 @@ import {
   NotLoggedInError,
 } from 'lib/errors';
 import NoGroupSelectedError from 'lib/errors/NoGroupSelectedError';
+import NotOwnerOfGroupError from 'lib/errors/NotOwnerOfGroupError';
 
 /**
  * Helper function which combines all
@@ -103,7 +104,7 @@ export const updateSelectedGroup = createAsyncThunk(
 
       dispatch(setSelectedGroup(group));
     } catch (e) {
-      rejectWithValue((e as AxiosError<RestError>).response?.data);
+      return rejectWithValue((e as AxiosError<RestError>).response?.data);
     }
   },
 );
@@ -209,6 +210,16 @@ export const inviteUser = createAsyncThunk(
     try {
       const res = await api.inviteUser(params.groupId, params.usernameOrId);
 
+      const invite = {
+        ...res.data,
+        User: {
+          username: params.usernameOrId,
+        },
+        InviteSender: {
+          id: state.auth.user?.id,
+          username: state.auth.user?.username,
+        },
+      };
       /*
        * //TODO: invite is missing Invite and User
        * field because api doesn't return them. Remove casting
@@ -218,18 +229,9 @@ export const inviteUser = createAsyncThunk(
         state.group.selectedGroup &&
         state.group.selectedGroup.id === params.groupId
       ) {
-        const invite = {
-          ...res.data,
-          User: {
-            username: params.usernameOrId,
-          },
-          InviteSender: {
-            username: state.auth.user?.username,
-          },
-        };
         dispatch(addInvite(invite as InviteWithUserAndInviteSender));
       }
-      return res.data;
+      return invite;
     } catch (e) {
       return rejectWithValue((e as AxiosError<RestError>).response?.data);
     }
@@ -433,11 +435,11 @@ export const grantAdminRights = createAsyncThunk(
     } else if (!group) {
       return rejectWithValue(new NoGroupSelectedError());
     } else if (
-      group.Owner.id === user.id ||
-      group.members.find((m) => m.User.id === user.id && m.isAdmin)
+      group.Owner.id !== user.id &&
+      group.members.find((m) => m.User.id === user.id && !m.isAdmin)
     ) {
       return rejectWithValue(new NotAdminOfGroupError());
-    } else if (group.members.find((m) => m.User.id === userId && !m.isAdmin)) {
+    } else {
       return rejectWithValue(new CouldNotModifyMemberError());
     }
   },
@@ -462,10 +464,7 @@ export const revokeAdminRights = createAsyncThunk(
     if (
       user &&
       group &&
-      (
-        group.Owner.id === user.id ||
-        group.members.find((m) => m.User.id === user.id && m.isAdmin)
-      ) &&
+      group.Owner.id === user.id &&
       group.Owner.id !== userId &&
       group.members.find((m) => m.User.id === userId && m.isAdmin)
     ) {
@@ -479,11 +478,8 @@ export const revokeAdminRights = createAsyncThunk(
       return rejectWithValue(new NotLoggedInError());
     } else if (!group) {
       return rejectWithValue(new NoGroupSelectedError());
-    } else if (
-      group.Owner.id === user.id ||
-      group.members.find((m) => m.User.id === user.id && m.isAdmin)
-    ) {
-      throw new NotAdminOfGroupError();
+    } else if (group.Owner.id !== user.id) {
+      return rejectWithValue(new NotOwnerOfGroupError());
     } else {
       return rejectWithValue(new CouldNotModifyMemberError());
     }
