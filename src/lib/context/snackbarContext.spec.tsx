@@ -1,4 +1,4 @@
-import '../../../__test__/mockAxios';
+import '../../__test__/mockAxios';
 import React from 'react';
 import { render, waitFor, screen, fireEvent } from "@testing-library/react";
 import SnackbarProvider, { SnackbarContext, SnackbarType } from "./snackbarContext";

@@ -1,5 +1,5 @@
 import testRender from '../../../__test__/testRender';
-import '../../../__test__/mockAxios;'
+import '../../../__test__/mockAxios';
 import MenuIconItem from "./MenuIconItem";
 import React from "react";
 import AddIcon from '@material-ui/icons/Add'
