@@ -1,3 +1,4 @@
+import '../../../__test__/mockAxios';
 import { render, screen } from "@testing-library/react";
 import { CarColor } from "../..";
 import CarColorSelection from "./CarColorSelection";
@@ -7,7 +8,7 @@ import userEvent from "@testing-library/user-event";
 it('renders correctly', () => {
   const setColor = jest.fn();
 
-  const {baseElement } = render(
+  const {baseElement} = render(
     <CarColorSelection
       availableColors={Object.values(CarColor)}
       setColor={setColor}

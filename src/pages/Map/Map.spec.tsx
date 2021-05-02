@@ -1,7 +1,8 @@
-import { render, waitFor } from "@testing-library/react";
+import '../../__test__/mockAxios';
+import { waitFor } from "@testing-library/react";
 import React from 'react';
-import { LatLng, latLng, Map } from "leaflet";
-import { CarColor, MapContext } from "../../lib";
+import { LatLng, Map } from "leaflet";
+import { MapContext } from "../../lib";
 import MapComponent from './Map';
 import testRender from '../../__test__/testRender';
 import { RootState } from "../../lib/redux/store";

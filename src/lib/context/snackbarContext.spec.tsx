@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import '../../../__test__/mockAxios';
+import React from 'react';
 import { render, waitFor, screen, fireEvent } from "@testing-library/react";
 import SnackbarProvider, { SnackbarContext, SnackbarType } from "./snackbarContext";
 import { Button } from '@material-ui/core';
