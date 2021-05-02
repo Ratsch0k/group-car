@@ -526,8 +526,8 @@ it('dispatch update action if user logged in', async () => {
         },
       };
 
-      await waitFor(() => expect(store.getActions()).toContainEqual(expectedAction));
-      expect(store.getActions()).toHaveLength(3);
+      await waitFor(() => expect(store.getActions()).toHaveLength(3));
+      waitFor(() => expect(store.getActions()).toContainEqual(expectedAction));
     });
 
     it('if group selected but path doesn\'t ' +
@@ -575,8 +575,8 @@ it('dispatch update action if user logged in', async () => {
         },
       };
 
-      await waitFor(() => expect(store.getActions()).toContainEqual(expectedAction));
-      expect(store.getActions()).toHaveLength(3);
+      await waitFor(() => expect(store.getActions()).toHaveLength(3));
+      expect(store.getActions()).toContainEqual(expectedAction);
     });
 
     it('if group selected but group id in path is another, ' +
@@ -624,8 +624,8 @@ it('dispatch update action if user logged in', async () => {
           },
         };
 
-        await waitFor(() => expect(store.getActions()).toContainEqual(expectedAction));
-        expect(store.getActions()).toHaveLength(3);        
+        await waitFor(() => expect(store.getActions()).toHaveLength(3));
+        expect(store.getActions()).toContainEqual(expectedAction);      
     });
     
     it('if group selected and path specifies group id, do nothing', async () => {
