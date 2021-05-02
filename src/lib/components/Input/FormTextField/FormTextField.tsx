@@ -1,6 +1,6 @@
 import React from 'react';
 import {TextField, BaseTextFieldProps, TextFieldProps} from '@material-ui/core';
-import {Formik} from 'lib';
+import {Formik} from 'typings';
 
 interface FormTextFieldExtensionProps extends Exclude<
 BaseTextFieldProps, 'onBlur' | 'onChange'

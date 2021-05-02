@@ -3,7 +3,7 @@ import {InputAdornment, IconButton} from '@material-ui/core';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import FormTextField from '../FormTextField';
-import {Formik} from 'lib';
+import {Formik} from 'typings';
 
 type TextFieldProps = import('@material-ui/core').TextFieldProps;
 
