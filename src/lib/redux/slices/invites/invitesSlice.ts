@@ -14,7 +14,9 @@ export const initialState = {
   ...invitesAdapter.getInitialState(),
 };
 
-const invitesSlice = createSlice({
+export type InvitesState = typeof initialState;
+
+export const invitesSlice = createSlice({
   name,
   initialState,
   reducers: {

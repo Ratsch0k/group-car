@@ -78,7 +78,7 @@ export const rejectInvite = createAsyncThunk(
       // TODO: Add api call if available
       dispatch(removeInvite(groupId));
       dispatch(update());
-    } else if (state.auth.user) {
+    } else if (!state.auth.user) {
       return rejectWithValue(new NotLoggedInError());
     } else {
       return rejectWithValue(new NoInviteForGroupError(groupId));
