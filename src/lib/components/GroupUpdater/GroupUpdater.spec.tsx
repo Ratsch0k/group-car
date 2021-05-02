@@ -526,7 +526,6 @@ it('dispatch update action if user logged in', async () => {
         },
       };
 
-      await waitFor(() => expect(store.getActions()).toHaveLength(3));
       waitFor(() => expect(store.getActions()).toContainEqual(expectedAction));
     });
 
@@ -575,7 +574,6 @@ it('dispatch update action if user logged in', async () => {
         },
       };
 
-      await waitFor(() => expect(store.getActions()).toHaveLength(3));
       expect(store.getActions()).toContainEqual(expectedAction);
     });
 
@@ -624,7 +622,6 @@ it('dispatch update action if user logged in', async () => {
           },
         };
 
-        await waitFor(() => expect(store.getActions()).toHaveLength(3));
         expect(store.getActions()).toContainEqual(expectedAction);      
     });
     
