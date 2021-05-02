@@ -47,6 +47,9 @@ interface SupportedEntities {
   [index: string]: string;
 }
 
+/**
+ * The list of html entities and the corresponding character which is supported.
+ */
 const supportedEntities: SupportedEntities = {
   '&ouml;': 'ö',
   '&Ouml;': 'Ö',
@@ -77,7 +80,10 @@ export function convertHTMLEntity(entity: string): string {
   }
 }
 
-const entityRegex = /&\w{4,5};/g;
+/**
+ * Regex to detect html entities
+ */
+const entityRegex = /&\w{2,6};/g;
 
 /**
  * Converts all supported html entities inside a string into their characters
