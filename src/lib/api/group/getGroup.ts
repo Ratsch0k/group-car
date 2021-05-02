@@ -1,6 +1,5 @@
 import {Request, GroupWithOwner} from 'lib';
-import {AxiosType} from '../request';
-import Axios from 'axios';
+import axios from 'lib/client';
 
 export type GetGroupResponse = GroupWithOwner;
 export type GetGroupRequest = Request<GetGroupResponse>;
@@ -9,12 +8,9 @@ export type GetGroup = (id: number) => GetGroupRequest;
 /**
  * Gets the group with the specified id from the backend.
  * @param id    - The id of the group
- * @param axios - The axios instance to use, if not provided
- *                the method will use the static axios object.
  */
 export const getGroup: GetGroup = (
-    id,
-    axios: AxiosType = Axios,
+  id,
 ) => {
   // Check parameters
   if (typeof id !== 'number') {
@@ -22,6 +18,6 @@ export const getGroup: GetGroup = (
   }
 
   return axios.get<GetGroupResponse>(
-      `/api/group/${id}`,
+    `/api/group/${id}`,
   );
 };

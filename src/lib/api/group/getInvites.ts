@@ -16,14 +16,14 @@ export type GetInvitesOfGroup = (id: number) => GetInvitesOfGroupRequest;
  * @param axios Optional axios instance which will be used if provided
  */
 export const getInvitesOfGroup: GetInvitesOfGroup = (
-    id: number,
-    axios: AxiosType = Axios,
+  id: number,
+  axios: AxiosType = Axios,
 ) => {
   if (typeof id !== 'number') {
     return Promise.reject(new TypeError('id has to be a number'));
   }
 
   return axios.get<GetInvitesOfGroupResponse>(
-      `/api/group/${id}/invites`,
+    `/api/group/${id}/invites`,
   );
 };

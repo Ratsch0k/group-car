@@ -4,8 +4,15 @@ import React, {useState, useEffect} from 'react';
 import UserAvatar from '../UserAvatar/UserAvatar';
 import {useTranslation} from 'react-i18next';
 import {grey} from '@material-ui/core/colors';
-import {GroupCarTheme, useAuth, useModalRouter} from 'lib';
-import {useInvites} from 'lib/hooks/useInvites';
+import {GroupCarTheme} from 'lib';
+import {
+  useAppDispatch,
+  useAppSelector,
+  useShallowAppSelector,
+} from 'lib/redux/hooks';
+import {goToModal} from 'lib/redux/slices/modalRouter/modalRouterSlice';
+import {getIsLoggedIn, getUser, logout} from 'lib/redux/slices/auth';
+import {getAllInvites} from 'lib/redux/slices/invites';
 
 const useStyle = makeStyles((theme: GroupCarTheme) =>
   createStyles({
@@ -28,9 +35,10 @@ interface UserOverviewProps {
 
 export const UserOverview: React.FC<UserOverviewProps> =
 (props: UserOverviewProps) => {
-  const auth = useAuth();
-  const {invites} = useInvites();
-  const {goTo} = useModalRouter();
+  const invites = useShallowAppSelector(getAllInvites);
+  const isLoggedIn = useAppSelector(getIsLoggedIn);
+  const user = useShallowAppSelector(getUser);
+  const dispatch = useAppDispatch();
 
   /**
    * Store user info in state so that it doesn't
@@ -44,30 +52,30 @@ export const UserOverview: React.FC<UserOverviewProps> =
 
   const handleLogout = () => {
     props.onClose && props.onClose();
-    auth.logout();
+    dispatch(logout());
   };
 
   useEffect(() => {
     // Only update the user info if the user changes
-    if (auth.isLoggedIn && auth.user) {
+    if (isLoggedIn && user) {
       setUserInfo(
-          <>
-            <UserAvatar userId={auth.user && auth.user.id} size={100}/>
-            <Typography align='center'>
-              {auth.user && auth.user.username}
-            </Typography>
-            <Typography
-              align='center'
-              variant='caption'
-              color='textSecondary'
-            >
-              {auth.user && auth.user.email}
-            </Typography>
-          </>,
+        <>
+          <UserAvatar userId={user && user.id} size={100}/>
+          <Typography align='center'>
+            {user && user.username}
+          </Typography>
+          <Typography
+            align='center'
+            variant='caption'
+            color='textSecondary'
+          >
+            {user && user.email}
+          </Typography>
+        </>,
       );
     }
     // eslint-disable-next-line
-  }, [auth.user]);
+  }, [user]);
 
   return (
     <Box className={classes.container}>
@@ -89,7 +97,7 @@ export const UserOverview: React.FC<UserOverviewProps> =
           <Button
             fullWidth
             color='primary'
-            onClick={() => goTo('/invites')}
+            onClick={() => dispatch(goToModal('/invites'))}
           >
             <Badge
               color='secondary'

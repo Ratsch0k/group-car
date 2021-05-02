@@ -1,5 +1,4 @@
 import React, {useState, useEffect, Dispatch, SetStateAction} from 'react';
-import {useGroups} from 'lib/hooks';
 import {
   MenuList,
   Box,
@@ -8,6 +7,12 @@ import {
   makeStyles,
 } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import {useAppDispatch, useShallowAppSelector} from 'lib/redux/hooks';
+import {
+  getNotSelectedGroups,
+  selectAndUpdateGroup,
+} from 'lib/redux/slices/group';
+import {unwrapResult} from '@reduxjs/toolkit';
 
 /**
  * Props for the group selection menu.
@@ -51,20 +56,13 @@ const useStyles = makeStyles({
  */
 export const GroupSelectionMenu: React.FC<GroupSelectionMenuProps> =
 (props: GroupSelectionMenuProps) => {
-  const {selectedGroup, groups, selectGroup} = useGroups();
+  const dispatch = useAppDispatch();
+  const notSelectedGroups = useShallowAppSelector(getNotSelectedGroups);
   const [groupItems, setGroupItems] = useState<JSX.Element[]>([]);
   const classes = useStyles();
 
   useEffect(() => {
-    // Build menu items for all groups
-    let filteredGroups;
-    if (selectedGroup) {
-      filteredGroups = groups.filter((group) => group.id !== selectedGroup.id);
-    } else {
-      filteredGroups = groups;
-    }
-
-    const items = filteredGroups.map((group) => {
+    const items = notSelectedGroups.map((group) => {
       return (
         <MenuItem
           key={`select-group-${group.id}`}
@@ -73,7 +71,8 @@ export const GroupSelectionMenu: React.FC<GroupSelectionMenuProps> =
           onClick={async () => {
             props.setLoading(true);
             try {
-              await selectGroup(group.id);
+              unwrapResult(
+                await dispatch(selectAndUpdateGroup({id: group.id})));
               props.setLoading(false);
               props.close();
             } catch {
@@ -87,7 +86,7 @@ export const GroupSelectionMenu: React.FC<GroupSelectionMenuProps> =
     });
 
     setGroupItems(items);
-  }, [groups, selectedGroup, props, selectGroup]);
+  }, [notSelectedGroups, props]);
 
 
   return (

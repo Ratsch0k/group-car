@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
 import {
   CloseableDialogTitle,
-  useModalRouter,
   GroupCarTheme,
 } from 'lib';
 import {useTranslation} from 'react-i18next';
 import {DialogContent, Dialog} from '@material-ui/core';
 import CreateGroupForm from './CreateGroupForm';
 import {makeStyles, createStyles} from '@material-ui/styles';
-import {useHistory} from 'react-router-dom';
+import {useAppDispatch} from 'lib/redux/hooks';
+import {push} from 'connected-react-router';
+import {closeModal} from 'lib/redux/slices/modalRouter/modalRouterSlice';
 
 /**
  * Styles.
@@ -25,11 +26,10 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
  * Create group dialog.
  */
 export const CreateGroup: React.FC = () => {
-  const {close} = useModalRouter();
   const {t} = useTranslation();
   const classes = useStyles();
   const [loading, setLoading] = useState<boolean>(false);
-  const history = useHistory();
+  const dispatch = useAppDispatch();
 
   /**
    * Handles if the component should navigate to the
@@ -37,7 +37,7 @@ export const CreateGroup: React.FC = () => {
    * @param id id of the group
    */
   const navToGroupManagement = async (id: number) => {
-    history.push(`/group/${id}?modal=/group/manage/${id}`);
+    dispatch(push(`/group/${id}?modal=/group/manage/${id}`));
   };
 
   /**
@@ -45,12 +45,15 @@ export const CreateGroup: React.FC = () => {
    */
   const closeDialog = () => {
     setLoading(false);
-    close();
+    dispatch(closeModal());
   };
 
   return (
     <Dialog open={true} fullWidth>
-      <CloseableDialogTitle close={close} disabled={loading}>
+      <CloseableDialogTitle
+        close={() => dispatch(closeModal())}
+        disabled={loading}
+      >
         {t('modals.group.create.title')}
       </CloseableDialogTitle>
       <DialogContent className={classes.content}>

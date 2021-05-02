@@ -3,10 +3,10 @@
 exports[`matches snapshot 1`] = `
 <div>
   <div
-    class="MuiPaper-root makeStyles-paper-3 MuiPaper-elevation6"
+    class="MuiPaper-root makeStyles-paper MuiPaper-elevation6"
   >
     <div
-      class="MuiContainer-root makeStyles-container-4 MuiContainer-maxWidthLg"
+      class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
     >
       <div
         class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"

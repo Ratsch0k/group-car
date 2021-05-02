@@ -39,7 +39,7 @@ exports[`Invites modal renders list of invites correctly 1`] = `
           >
             modals.invites.title
             <button
-              class="MuiButtonBase-root MuiIconButton-root makeStyles-closeButton-2"
+              class="MuiButtonBase-root MuiIconButton-root makeStyles-closeButton"
               tabindex="0"
               type="button"
             >
@@ -113,10 +113,9 @@ exports[`Invites modal renders list of invites correctly 1`] = `
                     class="MuiGrid-root MuiGrid-item"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-outlined Mui-disabled Mui-disabled"
-                      disabled=""
+                      class="MuiButtonBase-root MuiButton-root MuiButton-outlined"
                       id="invite-1-delete-btn"
-                      tabindex="-1"
+                      tabindex="0"
                       type="button"
                     >
                       <span
@@ -179,10 +178,9 @@ exports[`Invites modal renders list of invites correctly 1`] = `
                     class="MuiGrid-root MuiGrid-item"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-outlined Mui-disabled Mui-disabled"
-                      disabled=""
+                      class="MuiButtonBase-root MuiButton-root MuiButton-outlined"
                       id="invite-2-delete-btn"
-                      tabindex="-1"
+                      tabindex="0"
                       type="button"
                     >
                       <span

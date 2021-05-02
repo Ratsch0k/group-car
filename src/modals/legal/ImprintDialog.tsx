@@ -1,15 +1,17 @@
 import React from 'react';
 import {DialogContent, Dialog} from '@material-ui/core';
 import {useTranslation} from 'react-i18next';
-import {useModalRouter, CloseableDialogTitle, Imprint} from 'lib';
+import {CloseableDialogTitle, Imprint} from 'lib';
+import {useAppDispatch} from 'lib/redux/hooks';
+import {closeModal} from 'lib/redux/slices/modalRouter/modalRouterSlice';
 
 export const ImprintDialog: React.FC = () => {
   const {t} = useTranslation();
-  const {close} = useModalRouter();
+  const dispatch = useAppDispatch();
 
   return (
     <Dialog open={true}>
-      <CloseableDialogTitle close={close}>
+      <CloseableDialogTitle close={() => dispatch(closeModal())}>
         {t('imprint.title')}
       </CloseableDialogTitle>
       <DialogContent>

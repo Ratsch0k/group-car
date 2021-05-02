@@ -66,5 +66,5 @@ export type InviteWithUserAndInviteSender = Invite & InviteUser & InviteSender;
  * Invite which includes the group and the invite sender data.
  */
 export type InviteWithGroupAndInviteSender = Invite &
-  InviteGroup &
-  InviteSender;
+InviteGroup &
+InviteSender;

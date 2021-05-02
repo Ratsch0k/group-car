@@ -25,7 +25,9 @@ module.exports = {
     'valid-jsdoc': 'off',
     'react/prop-types': 'off',
     'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-unused-vars': ['error'],
+    'indent': 'off',
+    '@typescript-eslint/indent': ['error', 2]
   },
   'settings': {
     'react': {

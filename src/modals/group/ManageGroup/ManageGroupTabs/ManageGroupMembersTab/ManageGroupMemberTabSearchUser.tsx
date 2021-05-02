@@ -17,13 +17,13 @@ import {CSSTransition, SwitchTransition} from 'react-transition-group';
 import SendIcon from '@material-ui/icons/Send';
 import ClearIcon from '@material-ui/icons/Clear';
 import {
-  GroupWithOwnerAndMembersAndInvites,
-  InviteWithUserAndInviteSender,
-  useApi,
-  useAuth,
-  UserSimple,
+  searchForUser,
 } from 'lib';
 import {useTranslation} from 'react-i18next';
+import {useAppDispatch, useShallowAppSelector} from 'lib/redux/hooks';
+import {getSelectedGroup, inviteUser} from 'lib/redux/slices/group';
+import {unwrapResult} from '@reduxjs/toolkit';
+import {UserSimple} from 'typings';
 
 /**
  * Special variant of the TextField.
@@ -110,25 +110,10 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 /**
- * Props.
- */
-export interface ManageGroupMemberTabSearchUserProps {
-  /**
-   * Data of the group.
-   */
-  group: GroupWithOwnerAndMembersAndInvites;
-
-  addInvite(invite: InviteWithUserAndInviteSender): void;
-}
-
-/**
  * Fab which transforms to a invite user bar.
  */
-export const ManageGroupMemberTabSearchUser: React.FC<
-  ManageGroupMemberTabSearchUserProps
-> = (props: ManageGroupMemberTabSearchUserProps) => {
+export const ManageGroupMemberTabSearchUser: React.FC = () => {
   const classes = useStyles();
-  const {searchForUser, inviteUser} = useApi();
   const [inviting, setInviting] = useState<boolean>(false);
   const [isInvitingUser, setIsInvitingUser] = useState<boolean>(false);
   const [possibleUsers, setPossibleUsers] = useState<UserSimple[]>([]);
@@ -136,8 +121,10 @@ export const ManageGroupMemberTabSearchUser: React.FC<
   const [open, setOpen] = useState<boolean>(false);
   const theme = useTheme();
   const smallerXs = useMediaQuery(theme.breakpoints.down('xs'));
-  const {user} = useAuth();
   const {t} = useTranslation();
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const group = useShallowAppSelector(getSelectedGroup)!;
+  const dispatch = useAppDispatch();
 
   /**
    * Updates the list of possible users if the
@@ -152,10 +139,10 @@ export const ManageGroupMemberTabSearchUser: React.FC<
         if (isActive) {
           // Filter out all members of group
           const possibleUsers = users.data.users.filter((user) =>
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            !props.group.members.concat(props.group.invites as any)
-                .some((member) =>
-                  user.id === member.User.id));
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            group.members.concat(group.invites as any)
+              .some((member) =>
+                user.id !== member.User.id));
           setPossibleUsers(possibleUsers);
         }
       }
@@ -166,7 +153,7 @@ export const ManageGroupMemberTabSearchUser: React.FC<
     return () => {
       isActive = false;
     };
-  }, [userToInvite, searchForUser, props.group.invites, props.group.members]);
+  }, [userToInvite, searchForUser, group.invites, group.members]);
 
   /**
    * Reset user search if user closes fab
@@ -188,21 +175,11 @@ export const ManageGroupMemberTabSearchUser: React.FC<
   const handleInvite = async () => {
     setInviting(true);
     try {
-      const inviteResponse = await inviteUser(props.group.id, userToInvite);
+      unwrapResult(
+        await dispatch(
+          inviteUser({groupId: group.id, usernameOrId: userToInvite})));
       setInviting(false);
       setUserToInvite('');
-      props.addInvite({
-        ...inviteResponse.data,
-        User: {
-          username: userToInvite,
-          id: inviteResponse.data.userId,
-        },
-        InviteSender: {
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-          username: user!.username,
-          id: inviteResponse.data.invitedBy,
-        },
-      });
     } catch (e) {
       setInviting(false);
     }
@@ -236,9 +213,9 @@ export const ManageGroupMemberTabSearchUser: React.FC<
           }}
         >
           {
-                inviting ?
-                <CircularProgress />:
-                isInvitingUser ?
+            inviting ?
+              <CircularProgress />:
+              isInvitingUser ?
                 <div className={classes.invitingUserContainer}>
                   <div className={classes.invitingUserTextField}>
                     <Autocomplete
@@ -246,7 +223,7 @@ export const ManageGroupMemberTabSearchUser: React.FC<
                       onOpen={() => setOpen(true)}
                       onClose={() => setOpen(false)}
                       options={possibleUsers}
-                      getOptionLabel={(user) => user.username}
+                      getOptionLabel={(user) => user.username || ''}
                       getOptionSelected={(option, value) =>
                         option.username === value.username}
                       loadingText={t('misc.loading')}
@@ -268,6 +245,7 @@ export const ManageGroupMemberTabSearchUser: React.FC<
                           id='user-invite-input'
                           variant='outlined'
                           size='small'
+                          autoFocus
                         />
                       )}
                     />

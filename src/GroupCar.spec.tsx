@@ -1,12 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import GroupCar from './GroupCar';
-import {MemoryRouter} from 'react-router-dom';
-import {ThemeProvider} from '@material-ui/core';
-import theme from './__test__/testTheme';
+import testRender from './__test__/testRender';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
 
   const geolocation = {
     watchPosition: jest.fn().mockResolvedValue({
@@ -19,12 +15,8 @@ it('renders without crashing', () => {
 
   (global as any).navigator.geolocation = geolocation;
 
-  ReactDOM.render(
-      <MemoryRouter>
-        <ThemeProvider theme={theme}>
-          <GroupCar />
-        </ThemeProvider>
-      </MemoryRouter>,
-      div);
-  ReactDOM.unmountComponentAtNode(div);
+  testRender(
+    {},
+    <GroupCar />
+  );
 });

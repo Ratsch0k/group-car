@@ -18,7 +18,7 @@ exports[`displays icon on the left if icon is provided 1`] = `
       />
     </svg>
     <span
-      class="makeStyles-text-3"
+      class="makeStyles-text"
     >
       TEST
     </span>
@@ -52,7 +52,7 @@ exports[`shows arrow to the right if prop opensSubMenu is true 1`] = `
     </span>
     <svg
       aria-hidden="true"
-      class="MuiSvgIcon-root makeStyles-arrowIcon-5"
+      class="MuiSvgIcon-root makeStyles-arrowIcon"
       focusable="false"
       viewBox="0 0 24 24"
     >
@@ -82,13 +82,13 @@ exports[`shows arrow to the right if prop opensSubMenu is true and icon on the l
       />
     </svg>
     <span
-      class="makeStyles-text-6"
+      class="makeStyles-text"
     >
       TEST
     </span>
     <svg
       aria-hidden="true"
-      class="MuiSvgIcon-root makeStyles-arrowIcon-7"
+      class="MuiSvgIcon-root makeStyles-arrowIcon"
       focusable="false"
       viewBox="0 0 24 24"
     >

@@ -1,10 +1,19 @@
 import {Dialog, DialogContent, DialogTitle, Grid} from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
-import {CarWithDriver, CenteredCircularProgress, useAuth, useGroups} from 'lib';
+import {CarWithDriver, CenteredCircularProgress} from 'lib';
 import {useMap, useSnackBar} from 'lib/hooks';
 import React, {useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
+import {useAppDispatch, useShallowAppSelector} from 'lib/redux/hooks';
+import {getUser} from 'lib/redux/slices/auth';
 import CarCard from './CarCard';
+import {
+  driveCar,
+  getGroupCars,
+  getSelectedGroup,
+  parkCar as parkCarThunk,
+} from 'lib/redux/slices/group';
+import {unwrapResult} from '@reduxjs/toolkit';
 
 /**
  * Styles.
@@ -19,33 +28,36 @@ const useStyles = makeStyles({
  * List of cars.
  */
 export const CarCards: React.FC = () => {
-  const {groupCars, selectedGroup, parkCar: parkCarApi} = useGroups();
+  const groupCars = useShallowAppSelector(getGroupCars);
+  const selectedGroup = useShallowAppSelector(getSelectedGroup);
   const {setSelectedCar} = useMap();
-  const {user} = useAuth();
+  const user = useShallowAppSelector(getUser);
   const classes = useStyles();
-  const {driveCar} = useGroups();
+  const dispatch = useAppDispatch();
   const {t} = useTranslation();
   const [open, setOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [drivingCars, setDrivingCars] = useState<CarWithDriver[]>(
-      groupCars?.filter((car) => car.driverId === user?.id) || [],
+    groupCars?.filter((car) => car.driverId === user?.id) || [],
   );
   const [availableCars, setAvailableCars] = useState<CarWithDriver[]>(
-      groupCars?.filter((car) => car.driverId === null) || [],
+    groupCars?.filter((car) => car.driverId === null) || [],
   );
   const {show} = useSnackBar();
   const [usedCars, setUsedCars] = useState<CarWithDriver[]>(
-      groupCars?.filter((car) =>
-        car.driverId !== null &&
+    groupCars?.filter((car) =>
+      car.driverId !== null &&
       car.driverId !== user?.id,
-      ) || [],
+    ) || [],
   );
 
   const handleAddDrivingCar = async (car: CarWithDriver) => {
     setLoading(true);
     try {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      await driveCar(selectedGroup!.id, car.carId);
+      unwrapResult(
+        await dispatch(
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+          driveCar({groupId: selectedGroup!.id, carId: car.carId})));
     } finally {
       setLoading(false);
     }
@@ -57,7 +69,7 @@ export const CarCards: React.FC = () => {
 
     try {
       const position = await new Promise<
-        GeolocationPosition
+      GeolocationPosition
       >((resolve, reject) => {
         navigator.geolocation.getCurrentPosition((position) => {
           resolve(position);
@@ -75,16 +87,21 @@ export const CarCards: React.FC = () => {
   };
 
   const parkCar = async (
-      carId: number,
-      latitude:
-     number,
-      longitude: number,
+    carId: number,
+    latitude:
+    number,
+    longitude: number,
   ) => {
     setLoading(true);
 
     try {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      await parkCarApi(selectedGroup!.id, carId, latitude, longitude);
+      unwrapResult(await dispatch(parkCarThunk({
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        groupId: selectedGroup!.id,
+        carId,
+        latitude,
+        longitude,
+      })));
     } finally {
       setLoading(false);
     }
@@ -94,10 +111,10 @@ export const CarCards: React.FC = () => {
     setDrivingCars(groupCars?.filter((car) => car.driverId === user?.id) || []);
     setAvailableCars(groupCars?.filter((car) => car.driverId === null) || []);
     setUsedCars(
-        groupCars?.filter((car) =>
-          car.driverId !== null &&
+      groupCars?.filter((car) =>
+        car.driverId !== null &&
         car.driverId !== user?.id,
-        ) || []);
+      ) || []);
   }, [groupCars, user]);
 
   return (

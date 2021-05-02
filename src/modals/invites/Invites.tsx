@@ -8,11 +8,16 @@ import {
   Typography,
 } from '@material-ui/core';
 import {createStyles, makeStyles} from '@material-ui/styles';
-import {CloseableDialogTitle, useModalRouter} from 'lib';
-import {useInvites} from 'lib/hooks/useInvites';
+import {CloseableDialogTitle} from 'lib';
 import React, {useEffect} from 'react';
 import {useTranslation} from 'react-i18next';
+import {useAppDispatch, useShallowAppSelector} from 'lib/redux/hooks';
+import {closeModal} from 'lib/redux/slices/modalRouter/modalRouterSlice';
 import InvitesListItem from './InvitesListItem';
+import {
+  getAllInvites,
+  getInvites,
+} from 'lib/redux/slices/invites';
 
 /**
  * Styles.
@@ -31,14 +36,14 @@ const useStyles = makeStyles((theme: Theme) =>
  * Invites modal for managing invites of user.
  */
 export const Invites: React.FC = () => {
-  const {invites, refresh, deleteInvite, acceptInvite} = useInvites();
+  const invites = useShallowAppSelector(getAllInvites);
   const {t} = useTranslation();
-  const {close} = useModalRouter();
   const classes = useStyles();
+  const dispatch = useAppDispatch();
 
   // Refresh invites on first render
   useEffect(() => {
-    refresh();
+    dispatch(getInvites());
     // eslint-disable-next-line
   }, []);
 
@@ -55,8 +60,6 @@ export const Invites: React.FC = () => {
               }
               <InvitesListItem
                 invite={invite}
-                delete={() => deleteInvite(invite.groupId)}
-                accept={() => acceptInvite(invite.groupId)}
               />
             </React.Fragment>,
           )
@@ -74,8 +77,13 @@ export const Invites: React.FC = () => {
   }
 
   return (
-    <Dialog open={true} fullWidth maxWidth='sm' onBackdropClick={close}>
-      <CloseableDialogTitle close={close}>
+    <Dialog
+      open={true}
+      fullWidth
+      maxWidth='sm'
+      onBackdropClick={() => dispatch(closeModal())}
+    >
+      <CloseableDialogTitle close={() => dispatch(closeModal())}>
         {t('modals.invites.title')}
       </CloseableDialogTitle>
       <DialogContent>

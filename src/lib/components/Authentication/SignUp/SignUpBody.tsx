@@ -1,10 +1,15 @@
-import React, {useState, useContext, useRef} from 'react';
+import React, {useRef} from 'react';
 import {
-  AuthContext,
   SignUpForm,
-  SignUpRequest,
   SignUpThroughRequest,
 } from 'lib';
+import {useAppDispatch, useAppSelector} from 'lib/redux/hooks';
+import {
+  signUp as signUpThunk,
+  getSignUpRequestSent,
+} from 'lib/redux/slices/auth';
+import {unwrapResult} from '@reduxjs/toolkit';
+import {SignUpRequestResponse} from 'lib/api';
 
 export interface SignUpBodyProps {
   withSubmit?: boolean;
@@ -20,12 +25,9 @@ export interface SignUpBodyProps {
  */
 export const SignUpBody: React.FC<SignUpBodyProps> = (props) => {
   // Whether or not sign up is not directly possible.
-  const [
-    isSignUpThroughRequest,
-    setIsSignUpThroughRequest,
-  ] = useState<boolean>(false);
+  const isSignUpThroughRequest = useAppSelector(getSignUpRequestSent);
 
-  const auth = useContext(AuthContext);
+  const dispatch = useAppDispatch();
   /**
    * Ref of real sign up body. Used to set size for sign up request element.
    */
@@ -41,33 +43,30 @@ export const SignUpBody: React.FC<SignUpBodyProps> = (props) => {
    * @param offset    Offset which is used to generate
    *  different profile pictures for the same username
    */
-  const signUp = (
-      username: string,
-      email: string,
-      password: string,
-      offset: number,
-  ): SignUpRequest => {
+  const signUp = async (
+    username: string,
+    email: string,
+    password: string,
+    offset: number,
+  ): Promise<void> => {
     props.setLoading && props.setLoading(true);
-    const request = auth.signUp(username, email, password, offset);
-    request.then((response) => {
+    try {
+      const response = unwrapResult(await dispatch(
+        signUpThunk({username, email, password, offset})));
+
       /*
-           * If response status was 202 expect
-           * that backend is configured to not allow direct sign up
-          */
-      if (response.status === 202) {
+       * If response status was 202 expect
+       * that backend is configured to not allow direct sign up
+       */
+      if ((response as SignUpRequestResponse).message !== undefined) {
         props.setLoading && props.setLoading(false);
-        setIsSignUpThroughRequest(true);
       } else {
         props.setLoading && props.setLoading(false);
         props.onFinished && props.onFinished();
       }
-      return response;
-    }).catch((e) => {
+    } catch (e) {
       props.setLoading && props.setLoading(false);
-      throw e;
-    });
-
-    return request;
+    }
   };
 
   /*

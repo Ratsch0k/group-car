@@ -19,7 +19,7 @@ export type GetInvitesOfUser = () => GetInvitesOfUserRequest;
  * @param axios Optional axios instance
  */
 export const getInvitesOfUser: GetInvitesOfUser = (
-    axios: AxiosInstance = Axios,
+  axios: AxiosInstance = Axios,
 ) => {
   return axios.get<GetInvitesOfUserResponse>('/api/user/invite');
 };

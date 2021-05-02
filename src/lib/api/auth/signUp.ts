@@ -1,5 +1,6 @@
 import axiosStatic from 'axios';
-import {User, Request} from 'lib';
+import {Request} from 'lib';
+import {User} from 'typings';
 import {AxiosType} from '../request';
 
 
@@ -29,28 +30,28 @@ export type SignUp = (
  * @return          The request and a method to cancel it
  */
 export const signUp: SignUp = (
-    username: string,
-    email: string,
-    password: string,
-    offset: number,
-    axios: AxiosType = axiosStatic,
+  username: string,
+  email: string,
+  password: string,
+  offset: number,
+  axios: AxiosType = axiosStatic,
 ) => {
   // Check if provided arguments are non empty strings
   if (!username || username.length <= 0 ||
     !email || email.length <= 0 ||
     !password || password.length <= 0) {
     return Promise.reject(
-        new TypeError('All parameters have to be a non-empty string'),
+      new TypeError('All parameters have to be a non-empty string'),
     );
   }
 
   return axios.post<SignUpResponse>(
-      '/auth/sign-up',
-      {
-        username,
-        email,
-        password,
-        offset,
-      },
+    '/auth/sign-up',
+    {
+      username,
+      email,
+      password,
+      offset,
+    },
   );
 };

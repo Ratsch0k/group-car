@@ -1,25 +1,17 @@
 import {List} from '@material-ui/core';
-import {GroupWithOwnerAndMembersAndInvitesAndCars} from 'lib';
+import {useShallowAppSelector} from 'lib/redux/hooks';
+import {getSelectedGroup} from 'lib/redux/slices/group';
 import React from 'react';
 import ManageGroupCarsListItem from './ManageGroupCarsListItem';
 
-/**
- * Props for the manage group cars list.
- */
-export interface ManageGroupCarsListProps {
-  /**
-   * Data of the group.
-   */
-  group: GroupWithOwnerAndMembersAndInvitesAndCars;
-}
 
 /**
  * List of all cars.
  * @param props Props
  */
-export const ManageGroupCarsList: React.FC<ManageGroupCarsListProps> =
-(props: ManageGroupCarsListProps) => {
-  const {group} = props;
+export const ManageGroupCarsList: React.FC = () => {
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const group = useShallowAppSelector(getSelectedGroup)!;
 
   return (
     <List>

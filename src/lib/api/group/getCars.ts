@@ -15,8 +15,8 @@ export type GetCars = (
  * @param axios   Optional axios instance
  */
 export const getCars: GetCars = (
-    groupId,
-    axios: AxiosType = Axios,
+  groupId,
+  axios: AxiosType = Axios,
 ) => {
   return axios.get(`/api/group/${groupId}/car`);
 };

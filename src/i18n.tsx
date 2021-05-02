@@ -16,24 +16,24 @@ const resources = {
 };
 
 i18n
-    .use(initReactI18next) // passes i18n down to react-i18next
-    .use(LanguageDetector) // Use browser language detection
-    .init({
-      debug: true,
-      resources,
-      fallbackLng: 'de', // Fallback to german
+  .use(initReactI18next) // passes i18n down to react-i18next
+  .use(LanguageDetector) // Use browser language detection
+  .init({
+    debug: true,
+    resources,
+    fallbackLng: 'de', // Fallback to german
 
-      load: 'languageOnly',
+    load: 'languageOnly',
 
-      whitelist: ['de', 'en'], // Allowed languages are german and english
+    whitelist: ['de', 'en'], // Allowed languages are german and english
 
-      interpolation: {
-        escapeValue: false, // react already safes from xss
-      },
+    interpolation: {
+      escapeValue: false, // react already safes from xss
+    },
 
-      react: {
-        wait: true,
-      },
-    });
+    react: {
+      wait: true,
+    },
+  });
 
 export default i18n;

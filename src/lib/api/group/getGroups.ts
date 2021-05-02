@@ -25,9 +25,9 @@ export type GetGroupsRequest = Request<GetGroupsResponse>;
  * Get all groups of which the currently logged in user is a member.
  */
 export const getGroups = (
-    axios: AxiosType = axiosInstance,
+  axios: AxiosType = axiosInstance,
 ): GetGroupsRequest => {
   return axios.get<GetGroupsResponse>(
-      '/api/group',
+    '/api/group',
   );
 };

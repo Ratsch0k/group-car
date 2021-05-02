@@ -1,21 +1,18 @@
 import React from 'react';
-import {render} from '@testing-library/react';
 import DrawerFooter from './DrawerFooter';
-import { ThemeProvider } from '@material-ui/core';
-import theme from '../../../../__test__/testTheme';
+import testRender from '../../../../__test__/testRender';
 
 it('renders without crashing', () => {
-  render(
-    <ThemeProvider theme={theme}>
-      <DrawerFooter />
-    </ThemeProvider>);
+  testRender(
+    {},
+    <DrawerFooter />
+    );
 });
 
 it('matches snapshot', () => {
-  const {container} = render(
-    <ThemeProvider theme={theme}>
-      <DrawerFooter />
-    </ThemeProvider>
+  const {container} = testRender(
+    {},
+    <DrawerFooter />
   );
 
   expect(container).toMatchSnapshot();

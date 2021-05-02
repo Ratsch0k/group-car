@@ -1,16 +1,18 @@
-import { render, waitFor } from "@testing-library/react";
+import '../../__test__/mockAxios';
+import { waitFor } from "@testing-library/react";
 import React from 'react';
-import { LatLng, latLng, Map } from "leaflet";
-import { CarColor, GroupContext, MapContext } from "../../lib";
+import { LatLng, Map } from "leaflet";
+import { MapContext } from "../../lib";
 import MapComponent from './Map';
+import testRender from '../../__test__/testRender';
+import { RootState } from "../../lib/redux/store";
 
 describe('Map', () => {
-  const customRender = (mapContext: MapContext, groupContext: GroupContext) => {
-    return render(
+  const customRender = (state: Partial<RootState>, mapContext: MapContext) => {
+    return testRender(
+      state,
       <MapContext.Provider value={mapContext}>
-        <GroupContext.Provider value={groupContext}>
           <MapComponent />
-        </GroupContext.Provider>
       </MapContext.Provider>
     );
   };
@@ -32,11 +34,16 @@ describe('Map', () => {
     } as unknown as Geolocation;
     (navigator.geolocation as any) = geolocation;
 
-    const groupContext = {
-      groupCars: [],
-    } as GroupContext;
+    const state = {
+      group: {
+        selectedGroup: null,
+        ids: [],
+        entities: {},
+        loading: false,
+      },
+    };
 
-    customRender(mapContext, groupContext);
+    customRender(state, mapContext);
 
     await waitFor(() => expect(geolocation.watchPosition).toHaveBeenCalledTimes(1));
     expect(geolocation.watchPosition).toHaveBeenCalledWith(expect.any(Function));
@@ -62,11 +69,16 @@ describe('Map', () => {
     } as unknown as Geolocation;
     (navigator.geolocation as any) = geolocation;
 
-    const groupContext = {
-      groupCars: [],
-    } as GroupContext;
+    const state = {
+      group: {
+        selectedGroup: null,
+        ids: [],
+        entities: {},
+        loading: false,
+      },
+    };
 
-    customRender(mapContext, groupContext);
+    customRender(state, mapContext);
 
     await waitFor(() => expect(geolocation.watchPosition).toHaveBeenCalledTimes(1));
     expect(geolocation.watchPosition).toHaveBeenCalledWith(expect.any(Function));
@@ -76,7 +88,7 @@ describe('Map', () => {
         latitude: 50,
         longitude: 8,
       },
-    } as Position;
+    };
     listener(position);
 
     await waitFor(() => expect(map.flyTo).toHaveBeenCalledTimes(1));
@@ -116,11 +128,16 @@ describe('Map', () => {
       } as unknown as Geolocation;
       (navigator.geolocation as any) = geolocation;
 
-      const groupContext = {
-        groupCars: [],
-      } as GroupContext;
+      const state = {
+        group: {
+          selectedGroup: null,
+          ids: [],
+          entities: {},
+          loading: false,
+        },
+      };
 
-      customRender(mapContext, groupContext);
+      customRender(state, mapContext);
 
       await waitFor(() => expect(map.addEventListener).toHaveBeenCalledTimes(1));
       expect(map.addEventListener).toHaveBeenCalledWith('click', expect.any(Function));
