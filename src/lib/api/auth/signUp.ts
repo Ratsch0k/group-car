@@ -1,5 +1,6 @@
 import axiosStatic from 'axios';
-import {User, Request} from 'lib';
+import {Request} from 'lib';
+import {User} from 'typings';
 import {AxiosType} from '../request';
 
 

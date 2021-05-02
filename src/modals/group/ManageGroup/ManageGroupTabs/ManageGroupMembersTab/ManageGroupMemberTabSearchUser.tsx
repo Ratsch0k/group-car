@@ -18,12 +18,12 @@ import SendIcon from '@material-ui/icons/Send';
 import ClearIcon from '@material-ui/icons/Clear';
 import {
   searchForUser,
-  UserSimple,
 } from 'lib';
 import {useTranslation} from 'react-i18next';
 import {useAppDispatch, useShallowAppSelector} from 'lib/redux/hooks';
 import {getSelectedGroup, inviteUser} from 'lib/redux/slices/group';
 import {unwrapResult} from '@reduxjs/toolkit';
+import {UserSimple} from 'typings';
 
 /**
  * Special variant of the TextField.

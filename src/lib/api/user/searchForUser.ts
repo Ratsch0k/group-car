@@ -1,5 +1,6 @@
 import Axios from 'axios';
-import {UserSimple, Request, AxiosType} from 'lib';
+import {Request, AxiosType} from 'lib';
+import {UserSimple} from 'typings';
 
 export interface SearchForUserResponse {
   users: UserSimple[];

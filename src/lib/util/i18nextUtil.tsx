@@ -43,6 +43,51 @@ export const translationArrayToJsx =
   );
 };
 
+interface SupportedEntities {
+  [index: string]: string;
+}
+
+const supportedEntities: SupportedEntities = {
+  '&ouml;': 'ö',
+  '&Ouml;': 'Ö',
+  '&uuml;': 'ü',
+  '&Uuml;': 'Ü',
+  '&auml;': 'ä',
+  '&Auml;': 'Ä',
+  '&szlig;': 'ß',
+  '&nbsp;': ' ',
+  '&bdquo;': '"',
+  '&ldquo;': '"',
+  '&ndash;': '–',
+};
+
+/**
+ * Converts the given html entity to its character
+ * @param entity The html entity to convert
+ * @returns Either the converted entity, or
+ *          if its not supported the entity itself.
+ */
+export function convertHTMLEntity(entity: string): string {
+  const character = supportedEntities[entity];
+
+  if (character) {
+    return character;
+  } else {
+    return entity;
+  }
+}
+
+const entityRegex = /&\w{4,5};/g;
+
+/**
+ * Converts all supported html entities inside a string into their characters
+ * @param text The text to convert
+ * @returns The converted text
+ */
+export function convertHTMLEntities(text: string): string {
+  return text.replaceAll(entityRegex, convertHTMLEntity);
+}
+
 /**
  * Converts a translation item or string into it's jsx representation.
  * If the parameter is a string the string will just be returned.
@@ -61,7 +106,7 @@ string |
 undefined): JSX.Element | string | undefined => {
   // If the given item is a string return the string
   if (typeof item === 'string') {
-    return item;
+    return convertHTMLEntities(item);
   } else if (item === undefined) {
     return undefined;
   } else if (Array.isArray(item)) {
