@@ -126,7 +126,7 @@ jobs:
     needs: test
     if: ${{github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') && !contains(github.ref, '-beta.') && !contains(github.ref, '-dev.') && !contains(github.ref, '-')}}
     env:
-      SERVER_HTML_PATH: '/var/www/my-group-car.de/html'
+      SERVER_HTML_PATH: '/home/deploy/my-group-car.de/html'
       SSH_KEY: ${{secrets.SSH_KEY}}
       SSH_KNOWN_HOST: ${{secrets.SSH_KNOWN_HOST}}
       SERVER_USER: 'deploy'
