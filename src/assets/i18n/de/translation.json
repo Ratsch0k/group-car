@@ -119,7 +119,8 @@
   "errors": {
     "socketConnection": "Realtime Updates konnten nicht initialisiert werden. Um Updates über die Gruppe zu erhalten müssen sie die Seite neuladen",
     "NotLoggedInError": "Du bist nicht angemeldet",
-    "UsernameAlreadyExistsError": "Der Benutzername existiert bereits"
+    "UsernameAlreadyExistsError": "Der Benutzername existiert bereits",
+    "InvalidLoginError": "Benutzername oder Password ist falsch"
   },
   "misc": {
     "or": "oder",
