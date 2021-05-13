@@ -6,11 +6,13 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import * as Sentry from '@sentry/react';
 import {Integrations} from '@sentry/tracing';
+import config from 'config';
 
 Sentry.init({
-  dsn: 'https://46304bd186a44341a70545d48b23647b@o656739.ingest.sentry.io/5762871',
+  dsn: config.sentry.dsn,
   integrations: [new Integrations.BrowserTracing()],
-  tracesSampleRate: 1.0,
+  tracesSampleRate: config.sentry.tracesSampleRate,
+  normalizeDepth: config.sentry.normalizeDepth,
 });
 
 /**
