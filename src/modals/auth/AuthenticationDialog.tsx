@@ -80,7 +80,6 @@ export const AuthenticationDialog: React.FC<AuthenticationDialogProps> =
    * Handles navigation to login page
    */
   const handleLogin = () => {
-    throw new Error('TEST ERROR');
     dispatch(goToModal(`${path}/login`));
   };
 
