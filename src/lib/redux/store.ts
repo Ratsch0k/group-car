@@ -4,6 +4,16 @@ import {
   routerMiddleware,
 } from 'connected-react-router';
 import history from 'lib/redux/history';
+import * as Sentry from '@sentry/react';
+
+const sentryReduxEnhancer = Sentry.createReduxEnhancer({
+  actionTransformer: (action) => {
+    return action;
+  },
+  stateTransformer: (state) => {
+    return state;
+  },
+});
 
 
 /**
@@ -12,7 +22,8 @@ import history from 'lib/redux/history';
 const store = configureStore({
   reducer: rootReducers(history),
   devTools: true,
-  middleware: getDefaultMiddleware().concat(routerMiddleware(history)),
+  middleware: getDefaultMiddleware().concat(
+    routerMiddleware(history), sentryReduxEnhancer),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
