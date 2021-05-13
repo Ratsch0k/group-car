@@ -44,7 +44,8 @@ jobs:
   
   build:
     name: Test building
-    needs: [lint, audit]
+    #needs: [lint, audit]
+    needs: [lint]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
