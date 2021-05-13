@@ -22,8 +22,8 @@ const sentryReduxEnhancer = Sentry.createReduxEnhancer({
 const store = configureStore({
   reducer: rootReducers(history),
   devTools: true,
-  middleware: getDefaultMiddleware().concat(
-    routerMiddleware(history), sentryReduxEnhancer),
+  middleware: getDefaultMiddleware().concat(routerMiddleware(history)),
+  enhancers: [sentryReduxEnhancer],
 });
 
 export type RootState = ReturnType<typeof store.getState>;
