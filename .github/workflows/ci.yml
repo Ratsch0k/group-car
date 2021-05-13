@@ -17,64 +17,63 @@ env:
   SERVER_IP: 206.189.63.151
 
 jobs:
-  lint:
-    name: Lint code
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: '14.x'
-      - run: yarn install
-      - name: Linting
-        run: yarn eslint
-  #audit:
-  #  name: Audit libraries
-  #  runs-on: ubuntu-latest
-  #  steps:
-  #    - uses: actions/checkout@v2
-  #    - name: Setup Node.js
-  #      uses: actions/setup-node@v1
-  #      with:
-  #        node-version: '14.x'
-  #    - run: yarn install
-  #    - name: Auditing
-  #      run: yarn audit
-  
-  build:
-    name: Test building
-    #needs: [lint, audit]
-    needs: [lint]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: '14.x'
-      - run: yarn install
-      - name: Building
-        run: yarn build
-
-  test:
-    name: Test code
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: '14.x'
-      - run: yarn install
-      - name: Testing
-        run: yarn test
+#  lint:
+#    name: Lint code
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#      - name: Setup Node.js
+#        uses: actions/setup-node@v1
+#        with:
+#          node-version: '14.x'
+#      - run: yarn install
+#      - name: Linting
+#        run: yarn eslint
+#  audit:
+#    name: Audit libraries
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#      - name: Setup Node.js
+#        uses: actions/setup-node@v1
+#        with:
+#          node-version: '14.x'
+#      - run: yarn install
+#      - name: Auditing
+#        run: yarn audit
+#  
+#  build:
+#    name: Test building
+#    needs: [lint, audit]
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#      - name: Setup Node.js
+#        uses: actions/setup-node@v1
+#        with:
+#          node-version: '14.x'
+#      - run: yarn install
+#      - name: Building
+#        run: yarn build
+#
+#  test:
+#    name: Test code
+#    runs-on: ubuntu-latest
+#    needs: build
+#    steps:
+#      - uses: actions/checkout@v2
+#      - name: Setup Node.js
+#        uses: actions/setup-node@v1
+#        with:
+#          node-version: '14.x'
+#      - run: yarn install
+#      - name: Testing
+#        run: yarn test
   
   deploy-dev:
     name: Deploy a development version
     runs-on: ubuntu-latest
-    needs: test
+#    needs: test
     if: ${{github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') && contains(github.ref, '-alpha.')}}
     env:
       SERVER_HTML_PATH: '/home/deploy-dev/dev.my-group-car.de/html'
@@ -99,7 +98,7 @@ jobs:
   deploy-beta:
     name: Deploy a beta version
     runs-on: ubuntu-latest
-    needs: test
+#    needs: test
     if: ${{github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') && contains(github.ref, '-beta.')}}
     env:
       SERVER_HTML_PATH: '/home/deploy-beta/beta.my-group-car.de/html'
@@ -124,7 +123,7 @@ jobs:
   deploy-release:
     name: Deploy a release version
     runs-on: ubuntu-latest
-    needs: test
+#    needs: test
     if: ${{github.event_name == 'push' && startsWith(github.ref, 'refs/tags/') && !contains(github.ref, '-beta.') && !contains(github.ref, '-dev.') && !contains(github.ref, '-')}}
     env:
       SERVER_HTML_PATH: '/home/deploy/my-group-car.de/html'
