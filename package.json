@@ -9,6 +9,8 @@
     "@material-ui/lab": "^4.0.0-alpha.57",
     "@material-ui/styles": "^4.11.2",
     "@reduxjs/toolkit": "^1.5.1",
+    "@sentry/react": "^6.3.6",
+    "@sentry/tracing": "^6.3.6",
     "axios": "^0.21.1",
     "clsx": "^1.1.0",
     "connected-react-router": "^6.9.1",

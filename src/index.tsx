@@ -4,6 +4,14 @@ import App from './App';
 import './i18n';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import * as Sentry from '@sentry/react';
+import {Integrations} from '@sentry/tracing';
+
+Sentry.init({
+  dsn: 'https://46304bd186a44341a70545d48b23647b@o656739.ingest.sentry.io/5762871',
+  integrations: [new Integrations.BrowserTracing()],
+  tracesSampleRate: 1.0,
+});
 
 /**
  * Set up icons for leaflet
