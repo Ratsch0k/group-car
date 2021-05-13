@@ -103,7 +103,7 @@ jobs:
           SENTRY_PROJECT: ${{secrets.SENTRY_PROJECT_DEV}}
         with:
           environment: production
-          version: github.ref
+          version: ${{github.ref}}
   deploy-beta:
     name: Deploy a beta version
     runs-on: ubuntu-latest
