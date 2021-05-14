@@ -11,10 +11,17 @@ export interface InvitesConfig {
   checkInterval: number;
 }
 
+export interface SentryConfig {
+  normalizeDepth: number;
+  dsn: string;
+  tracesSampleRate: number;
+}
+
 export interface Config {
   csrf: CsrfConfig;
   group: GroupConfig;
   invites: InvitesConfig;
+  sentry: SentryConfig;
 }
 
 const config: Config = {
@@ -27,6 +34,11 @@ const config: Config = {
   },
   invites: {
     checkInterval: 10000, // 10 seconds
+  },
+  sentry: {
+    normalizeDepth: 10,
+    dsn: process.env.SENTRY_DSN || 'https://46304bd186a44341a70545d48b23647b@o656739.ingest.sentry.io/5762871',
+    tracesSampleRate: 1.0,
   },
 };
 
