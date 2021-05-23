@@ -1,6 +1,9 @@
 import {Button, Grid, Typography} from '@material-ui/core';
+import {unwrapResult} from '@reduxjs/toolkit';
 import {LatLng, LeafletMouseEvent} from 'leaflet';
-import {useMap, CarWithDriver, useGroups, ProgressButton} from 'lib';
+import {useMap, CarWithDriver, ProgressButton} from 'lib';
+import {useAppDispatch, useShallowAppSelector} from 'lib/redux/hooks';
+import {getSelectedGroup, parkCar} from 'lib/redux/slices/group';
 import React, {useEffect, useRef} from 'react';
 import {useState} from 'react';
 import {useTranslation} from 'react-i18next';
@@ -21,7 +24,8 @@ export const SelectLocation: React.FC = () => {
     setSelectedCar,
   } = useMap();
   const car = selectedCar as CarWithDriver;
-  const {parkCar, selectedGroup} = useGroups();
+  const dispatch = useAppDispatch();
+  const selectedGroup = useShallowAppSelector(getSelectedGroup);
   const [location, setLocation] = useState<LatLng>();
   const loading = useRef<boolean>(false);
 
@@ -62,7 +66,12 @@ export const SelectLocation: React.FC = () => {
       setSelectionDisabled(true);
 
       try {
-        await parkCar(selectedGroup.id, car.carId, location.lat, location.lng);
+        unwrapResult(await dispatch(parkCar({
+          groupId: selectedGroup.id,
+          carId: car.carId,
+          latitude: location.lat,
+          longitude: location.lng,
+        })));
         loading.current = false;
         setSelectionDisabled(false);
         handleClose();

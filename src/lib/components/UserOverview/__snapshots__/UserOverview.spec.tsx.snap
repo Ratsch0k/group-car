@@ -3,16 +3,16 @@
 exports[`renders and matches snapshot when user is logged in 1`] = `
 <div>
   <div
-    class="MuiBox-root MuiBox-root-6 makeStyles-container-4"
+    class="MuiBox-root MuiBox-root makeStyles-container"
   >
     <div
       class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-direction-xs-column"
     >
       <div
-        class="MuiGrid-root makeStyles-userInfo-5 MuiGrid-item"
+        class="MuiGrid-root makeStyles-userInfo MuiGrid-item"
       >
         <div
-          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-7"
+          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
         >
           <img
             alt="user-12"
@@ -53,9 +53,6 @@ exports[`renders and matches snapshot when user is logged in 1`] = `
               </span>
             </span>
           </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
         </button>
       </div>
       <div
@@ -72,9 +69,6 @@ exports[`renders and matches snapshot when user is logged in 1`] = `
           >
             form.logout
           </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
         </button>
       </div>
     </div>
@@ -85,13 +79,13 @@ exports[`renders and matches snapshot when user is logged in 1`] = `
 exports[`renders and matches snapshot when user is not logged in 1`] = `
 <div>
   <div
-    class="MuiBox-root MuiBox-root-3 makeStyles-container-1"
+    class="MuiBox-root MuiBox-root makeStyles-container"
   >
     <div
       class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-direction-xs-column"
     >
       <div
-        class="MuiGrid-root makeStyles-userInfo-2 MuiGrid-item"
+        class="MuiGrid-root makeStyles-userInfo MuiGrid-item"
       />
       <div
         class="MuiGrid-root MuiGrid-item"
@@ -115,9 +109,6 @@ exports[`renders and matches snapshot when user is not logged in 1`] = `
               </span>
             </span>
           </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
         </button>
       </div>
       <div
@@ -134,9 +125,6 @@ exports[`renders and matches snapshot when user is not logged in 1`] = `
           >
             form.logout
           </span>
-          <span
-            class="MuiTouchRipple-root"
-          />
         </button>
       </div>
     </div>

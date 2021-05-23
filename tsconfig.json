@@ -17,15 +17,25 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
+    "sourceMap": true,
+    "inlineSources": true,
+    "sourceRoot": "/",
     "baseUrl": "src",
-    "typeRoots": ["./node_modules/@types", "./src/typings"]
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/typings"
+    ],
+    "noFallthroughCasesInSwitch": true
   },
   "include": [
     "src/**/*"
   ],
   "exclude": [
     "src/**/*.spec.ts",
-    "src/**/*.spec.tsx"
+    "src/**/*.spec.tsx",
+    "src/**/*.util.ts",
+    "src/**/*.util.tsx",
+    "src/__test__"
   ]
 }

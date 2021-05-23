@@ -1,6 +1,6 @@
-import {User, Request} from 'lib';
-import {AxiosType} from '../request';
-import axiosStatic from 'axios';
+import {Request} from 'lib';
+import axios from 'lib/client';
+import {User} from 'typings';
 
 export type LoginRequest = Request<User>;
 /**
@@ -18,9 +18,8 @@ export type Login = (username: string, password: string) => LoginRequest;
  * @return          The request and a method to cancel it
  */
 export const login: Login = (
-    username,
-    password,
-    axios: AxiosType = axiosStatic,
+  username,
+  password,
 ): LoginRequest => {
   // Check if provided arguments are non empty strings
   if (!username || username.length <= 0 ||
@@ -29,10 +28,10 @@ export const login: Login = (
   }
 
   return axios.put(
-      '/auth/login',
-      {
-        username,
-        password,
-      },
+    '/auth/login',
+    {
+      username,
+      password,
+    },
   );
 };

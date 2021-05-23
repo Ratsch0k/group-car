@@ -24,20 +24,20 @@ export const ModalCheck: React.FC = (props) => {
     }
 
     const query = queryString.stringify(
-        {
-          ...search,
-        },
-        {
-          encode: false,
-        },
+      {
+        ...search,
+      },
+      {
+        encode: false,
+      },
     );
 
     history.push(location.pathname + '?' + query);
   };
 
   const goTo = (
-      value: string | undefined | null,
-      replace = false,
+    value: string | undefined | null,
+    replace = false,
   ) => {
     /*
      * In the case that the value if undefined but the current route
@@ -50,13 +50,13 @@ export const ModalCheck: React.FC = (props) => {
     }
 
     const query = queryString.stringify(
-        {
-          ...queryString.parse(location.search),
-          modal: value,
-        },
-        {
-          encode: false,
-        },
+      {
+        ...queryString.parse(location.search),
+        modal: value,
+      },
+      {
+        encode: false,
+      },
     );
 
     // If the new value is undefined go back, if handle location change

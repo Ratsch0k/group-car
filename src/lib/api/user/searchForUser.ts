@@ -1,5 +1,6 @@
 import Axios from 'axios';
-import {UserSimple, Request, AxiosType} from 'lib';
+import {Request, AxiosType} from 'lib';
+import {UserSimple} from 'typings';
 
 export interface SearchForUserResponse {
   users: UserSimple[];
@@ -16,8 +17,8 @@ export type SearchForUser = (
  *    instead of the default one.
  */
 export const searchForUser: SearchForUser = (
-    usernameStart,
-    axios: AxiosType = Axios,
+  usernameStart,
+  axios: AxiosType = Axios,
 ) => {
   return axios.get(`/api/user/search?filter=${usernameStart}`);
 };

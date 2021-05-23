@@ -1,5 +1,5 @@
-import Axios from 'axios';
-import {Request, AxiosType} from '../request';
+import axios from 'lib/client';
+import {Request} from '../request';
 
 export type DriveCarRequest = Request<void>;
 export type DriveCar = (
@@ -8,9 +8,8 @@ export type DriveCar = (
 ) => DriveCarRequest;
 
 export const driveCar: DriveCar = (
-    groupId,
-    carId,
-    axios: AxiosType = Axios,
+  groupId,
+  carId,
 ) => {
   return axios.put(`/api/group/${groupId}/car/${carId}/drive`);
 };

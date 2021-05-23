@@ -153,19 +153,19 @@ export const CarCard: React.FC<CarCardProps> = (props: CarCardProps) => {
         title={<b>{car.name}</b>}
         subheader={
           isAvailable ?
-          <RoleChip
-            color={'primary'}
-            label={t('misc.available')}
-            variant='outlined'
-            size='small'
-          /> :
-          isInUse ?
-          <Typography color='textSecondary' variant='subtitle2'>
-            {t('drawer.cars.drivenBy', {driver: car.Driver?.username})}
-          </Typography>:
-          <Typography className={classes.textDriving} variant='subtitle2'>
-            {t('drawer.cars.youAreDriving')}
-          </Typography>
+            <RoleChip
+              color={'primary'}
+              label={t('misc.available')}
+              variant='outlined'
+              size='small'
+            /> :
+            isInUse ?
+              <Typography color='textSecondary' variant='subtitle2'>
+                {t('drawer.cars.drivenBy', {driver: car.Driver?.username})}
+              </Typography>:
+              <Typography className={classes.textDriving} variant='subtitle2'>
+                {t('drawer.cars.youAreDriving')}
+              </Typography>
         }
       />
       {

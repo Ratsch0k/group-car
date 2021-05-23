@@ -24,7 +24,7 @@ export interface ManageGroupMemberListInvitedItemProps extends ListItemProps {
 }
 
 export const ManageGroupMemberListInvitedItem: React.FC<
-  ManageGroupMemberListInvitedItemProps
+ManageGroupMemberListInvitedItemProps
 > =
 (props: ManageGroupMemberListInvitedItemProps) => {
   const {t} = useTranslation();
@@ -45,8 +45,8 @@ export const ManageGroupMemberListInvitedItem: React.FC<
         }
         secondary={
           t(
-              'misc.invitedBy',
-              {by: invitedData.InviteSender.username},
+            'misc.invitedBy',
+            {by: invitedData.InviteSender.username},
           )
         }
       />

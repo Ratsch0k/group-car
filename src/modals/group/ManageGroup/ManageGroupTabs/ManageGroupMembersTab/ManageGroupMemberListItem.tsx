@@ -10,7 +10,6 @@ import {
   GroupWithOwnerAndMembersAndInvites,
   Member,
   RoleChip,
-  useAuth,
 } from 'lib';
 import UserAvatar from 'lib/components/UserAvatar';
 import React, {useEffect, useState} from 'react';
@@ -18,6 +17,9 @@ import {useTranslation} from 'react-i18next';
 import {isAdmin as checkIfAdmin} from 'lib/util';
 import ManageGroupMemberListItemOptions from
   './ManageGroupMemberListItemOptions';
+import {useAppSelector, useShallowAppSelector} from 'lib/redux/hooks';
+import {getUser} from 'lib/redux/slices/auth/authSelectors';
+import {getIsLoading} from 'lib/redux/slices/group';
 
 /**
  * Props for a member list tile.
@@ -62,21 +64,13 @@ ManageGroupMemberListItemProps
     group,
     ...rest
   } = props;
-  const {user} = useAuth();
+  const user = useShallowAppSelector(getUser);
   const [memberData, setMemberData] = useState<Member>(memberDataProps);
-  const [loading, setLoading] = useState<boolean>(false);
+  const loading = useAppSelector(getIsLoading);
 
   useEffect(() => {
     setMemberData(memberDataProps);
   }, [memberDataProps]);
-
-  /**
-   * Callback to set isAdmin of member data.
-   * @param value Value of to set isAdmin to
-   */
-  const setIsAdmin = (value: boolean) => {
-    setMemberData((prev) => ({...prev, isAdmin: value}));
-  };
 
   return (
     <ListItem
@@ -92,8 +86,8 @@ ManageGroupMemberListItemProps
           <Typography>
             {
               isCurrentUser ?
-              t('misc.you') :
-              memberData.User.username
+                t('misc.you') :
+                memberData.User.username
             }
           </Typography>
         }
@@ -133,8 +127,6 @@ ManageGroupMemberListItemProps
           <ManageGroupMemberListItemOptions
             group={group}
             memberData={memberData}
-            setIsAdmin={setIsAdmin}
-            setLoading={setLoading}
           />
         </ListItemSecondaryAction>
       }

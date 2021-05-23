@@ -3,13 +3,21 @@ import {
   RestError,
   useStateIfMounted,
   CenteredCircularProgress,
-  useGroups,
-  useApi,
-  GroupWithOwnerAndMembersAndInvitesAndCars,
 } from 'lib';
 import ManageGroupErrorHandler from './ManageGroupNoGroupError';
 import {ManageGroupOverview} from './ManageGroupOverview';
 import {useParams} from 'react-router-dom';
+import {
+  useAppDispatch,
+  useAppSelector,
+  useShallowAppSelector,
+} from 'lib/redux/hooks';
+import {
+  getIsLoading,
+  getSelectedGroup,
+  selectAndUpdateGroup,
+  updateSelectedGroup,
+} from 'lib/redux/slices/group';
 
 /**
  * Props for the manage group component.
@@ -30,54 +38,50 @@ export interface ManageGroupProps {
  */
 export const ManageGroup: React.FC<ManageGroupProps> =
 (props: ManageGroupProps) => {
-  const {getGroup} = useGroups();
-  const {getInvitesOfGroup, getMembers, getCars} = useApi();
+  const dispatch = useAppDispatch();
   const {groupId: groupIdParam} = useParams<{groupId: string}>();
-  const [groupData, setGroupData] =
-      useStateIfMounted<GroupWithOwnerAndMembersAndInvitesAndCars | null>(null);
   const [error, setError] = useStateIfMounted<RestError | null | boolean>(null);
-
+  const group = useShallowAppSelector(getSelectedGroup);
+  const isLoading = useAppSelector(getIsLoading);
 
   // Get the group
   useEffect(() => {
+    const f = async () => {
     // Get the group id
-    let selectedGroupId: number;
+      let selectedGroupId: number;
 
-    if (typeof props.groupId === 'number') {
-      selectedGroupId = props.groupId;
-    } else {
+      if (typeof props.groupId === 'number') {
+        selectedGroupId = props.groupId;
+      } else {
       // Try to get the groupId from the path
-      selectedGroupId = parseInt(groupIdParam);
-    }
+        selectedGroupId = parseInt(groupIdParam);
+      }
 
-    if (typeof selectedGroupId !== 'undefined' && !isNaN(selectedGroupId)) {
-      // Get group, members and invites
-      Promise.all([
-        getGroup(selectedGroupId),
-        getMembers(selectedGroupId),
-        getInvitesOfGroup(selectedGroupId),
-        getCars(selectedGroupId),
-      ]).then(([group, members, invites, cars]) => {
-        setGroupData({
-          ...group.data,
-          invites: invites.data.invites,
-          members: members.data.members,
-          cars: cars.data.cars,
-        });
-      }).catch(() => {
+      if (typeof selectedGroupId !== 'undefined' && !isNaN(selectedGroupId)) {
+        try {
+          if (group && group.id === selectedGroupId) {
+            await dispatch(updateSelectedGroup(selectedGroupId));
+          } else {
+            await dispatch(selectAndUpdateGroup({
+              id: selectedGroupId, force: true,
+            }));
+          }
+        } catch {
+          setError(true);
+        }
+      } else {
         setError(true);
-      });
-    } else {
-      setError(true);
-    }
+      }
+    };
 
+    f();
     // eslint-disable-next-line
   }, [props.groupId, groupIdParam]);
 
-  if (groupData === null && error === null) {
+  if (isLoading && group === null && error === null) {
     return <CenteredCircularProgress />;
-  } else if (error === null && groupData !== null) {
-    return <ManageGroupOverview group={groupData} setGroup={setGroupData}/>;
+  } else if (error === null && group !== null) {
+    return <ManageGroupOverview />;
   } else {
     return <ManageGroupErrorHandler/>;
   }

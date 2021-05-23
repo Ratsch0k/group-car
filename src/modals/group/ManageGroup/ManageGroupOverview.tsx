@@ -1,5 +1,4 @@
 import React, {useEffect, useRef} from 'react';
-import {GroupWithOwnerAndMembersAndInvitesAndCars} from 'lib';
 import ManageGroupOverviewInfo from './ManageGroupGroupInfo';
 import ManageGroupTabs from './ManageGroupTabs/ManageGroupTabs';
 import {
@@ -10,25 +9,6 @@ import {
   useTheme,
 } from '@material-ui/core';
 import ManageGroupActions from './ManageGroupActions';
-
-/**
- * Props for the ManageGroupOverview.
- */
-export interface ManageGroupOverviewProps {
-  /**
-   * The displayed group.
-   */
-  group: GroupWithOwnerAndMembersAndInvitesAndCars;
-
-  /**
-   * Set state action for the group state.
-   */
-  setGroup: React.Dispatch<
-    React.SetStateAction<
-      GroupWithOwnerAndMembersAndInvitesAndCars | null
-    >
-  >;
-}
 
 /**
  * Styles.
@@ -52,9 +32,7 @@ const useStyles = makeStyles((theme: Theme) =>
  * Overview over the specified group.
  * @props Props
  */
-export const ManageGroupOverview: React.FC<ManageGroupOverviewProps> =
-(props: ManageGroupOverviewProps) => {
-  const {group, setGroup} = props;
+export const ManageGroupOverview: React.FC = () => {
   const classes = useStyles();
   const theme = useTheme();
   const smallerXs = useMediaQuery(theme.breakpoints.down('xs'));
@@ -110,22 +88,22 @@ export const ManageGroupOverview: React.FC<ManageGroupOverviewProps> =
       <div
         ref={overviewRef}
       >
-        <ManageGroupOverviewInfo group={group}/>
+        <ManageGroupOverviewInfo />
       </div>
       <div
         className={smallerXs ? undefined : classes.tabsDesktop}
         ref={tabsRef}
       >
-        <ManageGroupTabs group={group} setGroup={setGroup}/>
+        <ManageGroupTabs/>
       </div>
       <div
         ref={actionsRef}
         className={classes.footer}
       >
-        <ManageGroupActions group={group} />
+        <ManageGroupActions />
       </div>
     </div>
   );
 };
 
-export default ManageGroupOverviewProps;
+export default ManageGroupOverview;

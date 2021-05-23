@@ -1,33 +1,25 @@
 import React from 'react';
-import {render, fireEvent, screen} from '@testing-library/react';
+import mockedAxios from '../../../__test__/mockAxios';
+import {fireEvent, screen, waitFor} from '@testing-library/react';
 import UserOverview from './UserOverview';
-import {ThemeProvider} from '@material-ui/core';
-import {AuthContext, theme} from 'lib';
+import testRender from '../../../__test__/testRender';
 
 
 it('renders and matches snapshot when user is not logged in', () => {
-  const fakeContext = {
-    login: jest.fn(),
-    signUp: jest.fn(),
-    logout: jest.fn(),
-    user: undefined,
-    isLoggedIn: false,
-    openAuthDialog: jest.fn(),
+  const state = {
+    auth: {
+      user: null,
+      loading: false,
+    },
   };
 
-  const {container} = render(
-      <ThemeProvider theme={theme}>
-        <AuthContext.Provider value={fakeContext}>
-          <UserOverview />
-        </AuthContext.Provider>
-      </ThemeProvider>,
+  const {container, store} = testRender(
+    state,
+    <UserOverview />
   );
 
   expect(container).toMatchSnapshot();
-  expect(fakeContext.login).not.toHaveBeenCalled();
-  expect(fakeContext.signUp).not.toHaveBeenCalled();
-  expect(fakeContext.logout).not.toHaveBeenCalled();
-  expect(fakeContext.openAuthDialog).not.toHaveBeenCalled();
+  expect(store.getActions()).toHaveLength(1);
 });
 
 it('renders and matches snapshot when user is logged in', () => {
@@ -38,31 +30,23 @@ it('renders and matches snapshot when user is logged in', () => {
     isBetaUser: false,
   };
 
-  const fakeContext = {
-    login: jest.fn(),
-    signUp: jest.fn(),
-    logout: jest.fn(),
-    user: fakeUser,
-    isLoggedIn: true,
-    openAuthDialog: jest.fn(),
+  const state = {
+    auth: {
+      user: fakeUser,
+      loading: false,
+    },
   };
 
-  const {container} = render(
-      <ThemeProvider theme={theme}>
-        <AuthContext.Provider value={fakeContext}>
-          <UserOverview />
-        </AuthContext.Provider>
-      </ThemeProvider>,
+  const {container, store} = testRender(
+    state,
+    <UserOverview />,
   );
 
   expect(container).toMatchSnapshot();
-  expect(fakeContext.login).not.toHaveBeenCalled();
-  expect(fakeContext.signUp).not.toHaveBeenCalled();
-  expect(fakeContext.logout).not.toHaveBeenCalled();
-  expect(fakeContext.openAuthDialog).not.toHaveBeenCalled();
+  expect(store.getActions()).toHaveLength(1);
 });
 
-it('logout calls props.onClose and auth.logout', () => {
+it('logout calls props.onClose and dispatches logout action', async () => {
   const fakeUser = {
     id: 12,
     username: 'TEST',
@@ -70,30 +54,47 @@ it('logout calls props.onClose and auth.logout', () => {
     isBetaUser: false,
   };
 
-  const fakeContext = {
-    login: jest.fn(),
-    signUp: jest.fn(),
-    logout: jest.fn(),
-    user: fakeUser,
-    isLoggedIn: true,
-    openAuthDialog: jest.fn(),
-  };
-
   const onClose = jest.fn();
 
-  render(
-      <ThemeProvider theme={theme}>
-        <AuthContext.Provider value={fakeContext}>
-          <UserOverview onClose={onClose}/>
-        </AuthContext.Provider>
-      </ThemeProvider>,
+  const state = {
+    auth: {
+      user: fakeUser,
+      loading: false,
+    },
+  };
+
+  mockedAxios.put = jest.fn().mockResolvedValue({data: undefined});
+
+  const {store} = testRender(
+    state,
+    <UserOverview onClose={onClose}/>
   );
 
   fireEvent.click(screen.getByTestId('logout-button'));
 
-  expect(fakeContext.login).not.toHaveBeenCalled();
-  expect(fakeContext.signUp).not.toHaveBeenCalled();
-  expect(fakeContext.logout).toHaveBeenCalledTimes(1);
-  expect(fakeContext.openAuthDialog).not.toHaveBeenCalled();
+  const pendingAction = {
+    type: 'auth/logout/pending',
+    payload: undefined,
+    meta: {
+      arg: undefined,
+      requestStatus: expect.any(String),
+      requestId: expect.any(String),
+    },
+  };
+  const fulfilledAction = {
+    type: 'auth/logout/fulfilled',
+    payload: undefined,
+    meta: {
+      arg: undefined,
+      requestStatus: expect.any(String),
+      requestId: expect.any(String),
+    },
+  };
+
+
+  await waitFor(() => expect(store.getActions()).toContainEqual(fulfilledAction));
+  expect(store.getActions()).toContainEqual(pendingAction);
+  expect(mockedAxios.put).toBeCalledTimes(1);
+  expect(mockedAxios.put).toBeCalledWith('/auth/logout');
   expect(onClose).toHaveBeenCalled();
 });

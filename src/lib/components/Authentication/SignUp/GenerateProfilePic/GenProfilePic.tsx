@@ -7,8 +7,6 @@ import {grey} from '@material-ui/core/colors';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 type AxiosResponse = import('axios').AxiosResponse;
-type AxiosError = import('axios').AxiosError;
-type TCancel = import('axios').Cancel;
 
 
 interface GenerateProfilePicProps {
@@ -108,18 +106,20 @@ export const GenerateProfilePic: React.FC<GenerateProfilePicProps> =
       >
         <Paper className={classes.imgContainer} elevation={5}>
           {data ?
-          <img
-            className={classes.img}
-            src={data && URL.createObjectURL(data)}
-            alt={t('form.profilePicture.alt')}
-          /> :
-          <Typography align='center' className={classes.imgText}>
-            {
-              loading ?
-              t('misc.loading') :
-              <AccountCircleIcon className={classes.imgIconAlt} />
-            }
-          </Typography>
+            <img
+              className={classes.img}
+              src={data && URL.createObjectURL(data)}
+              alt={t('form.profilePicture.alt')}
+            /> :
+            <Typography align='center' className={classes.imgText}>
+              {
+                loading ?
+                  t('misc.loading') :
+                  <AccountCircleIcon
+                    className={classes.imgIconAlt}
+                  />
+              }
+            </Typography>
 
           }
         </Paper>
@@ -132,8 +132,8 @@ export const GenerateProfilePic: React.FC<GenerateProfilePicProps> =
         >
           {
             !username || username.length <= 0 ?
-            t('form.profilePicture.noUsername') :
-            t('form.profilePicture.generateNew')
+              t('form.profilePicture.noUsername') :
+              t('form.profilePicture.generateNew')
           }
         </Button>
       </Grid>

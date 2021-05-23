@@ -1,6 +1,6 @@
 {
   "name": "group-car",
-  "version": "0.5.3",
+  "version": "0.7.0",
   "proxy": "http://localhost:8080",
   "private": true,
   "dependencies": {
@@ -8,22 +8,29 @@
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
     "@material-ui/styles": "^4.11.2",
+    "@reduxjs/toolkit": "^1.5.1",
+    "@sentry/react": "^6.3.6",
+    "@sentry/tracing": "^6.3.6",
     "axios": "^0.21.1",
     "clsx": "^1.1.0",
+    "connected-react-router": "^6.9.1",
     "formik": "^2.1.4",
     "formik-material-ui": "3.0.0",
     "i18next": "^19.4.3",
     "i18next-browser-languagedetector": "^4.1.1",
     "leaflet": "^1.7.1",
+    "lodash": "^4.17.21",
     "query-string": "^6.12.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-i18next": "^11.3.5",
     "react-leaflet": "^3.0.2",
+    "react-redux": "^7.2.3",
     "react-router-dom": "^5.1.2",
     "react-swipeable-views": "^0.13.9",
     "react-transition-group": "^4.4.1",
-    "serialize-javascript": ">=3.1.0",
+    "redux": "^4.0.5",
+    "reselect": "^4.0.0",
     "socket.io-client": "^2.3.0",
     "yup": "^0.28.4"
   },
@@ -34,7 +41,7 @@
     "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject",
     "eslint": "./node_modules/.bin/eslint . --ext .js,.jsx,.ts,.tsx",
-    "doc": "typedoc --exclude \"**/*.spec.*\" --mode modules --target ES6 --module commonjs --out public/doc/react --includeDeclarations --excludeExternals src"
+    "doc": "typedoc --exclude \"**/*.+(spec|d).*\" --out public/doc/react --entryPoints src"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -52,6 +59,7 @@
     ]
   },
   "devDependencies": {
+    "@redux-devtools/core": "^3.9.0",
     "@testing-library/dom": "^7.22.2",
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^10.0.3",
@@ -59,38 +67,44 @@
     "@types/i18next": "^13.0.0",
     "@types/jest": "^26.0.10",
     "@types/leaflet": "^1.5.17",
+    "@types/lodash": "^4.14.168",
     "@types/node": "^14.6.0",
     "@types/query-string": "^6.3.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/react-i18next": "^8.1.0",
+    "@types/react-redux": "^7.1.16",
     "@types/react-router-dom": "^5.1.5",
     "@types/react-swipeable-views": "^0.13.0",
     "@types/react-transition-group": "^4.4.0",
+    "@types/redux-mock-store": "^1.0.2",
     "@types/socket.io-client": "^1.4.34",
     "@types/yup": "^0.29.5",
-    "@typescript-eslint/eslint-plugin": "^3.9.0",
-    "@typescript-eslint/parser": "^3.9.0",
+    "@typescript-eslint/eslint-plugin": "^4.21.0",
+    "@typescript-eslint/parser": "^4.21.0",
     "cross-env": "^7.0.2",
-    "eslint": "^6.6.0",
+    "eslint": "^7.23.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.0.2",
     "eslint-plugin-standard": "^4.0.1",
     "jest-environment-jsdom-sixteen": "^1.0.3",
-    "react-scripts": "^3.4.1",
-    "typedoc": "^0.18.0",
-    "typescript": "^3.9.7"
+    "react-scripts": "^4.0.0",
+    "redux-mock-store": "^1.5.4",
+    "typedoc": "^0.20.0",
+    "typescript": "^4.2.0"
   },
   "resolutions": {
     "object-path": ">=0.11.5",
     "immer": ">=8.0.1",
     "marked": ">=2.0.0",
     "elliptic": ">=6.5.4",
-    "y18n": ">=5.0.5"
+    "y18n": ">=5.0.5",
+    "hosted-git-info": ">=3.0.8",
+    "xmlhttprequest-ssl": ">=1.6.2"
   }
 }

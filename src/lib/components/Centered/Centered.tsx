@@ -39,9 +39,9 @@ export const Centered: React.FC<CenteredProps> = (props) => {
   return (
     <Box className={
       clsx(
-          classes.centered,
-          {[classes.fill]: props.fillParent},
-          props.className,
+        classes.centered,
+        {[classes.fill]: props.fillParent},
+        props.className,
       )
     }>
       <Box className={classes.centered}>

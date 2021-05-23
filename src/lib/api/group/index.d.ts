@@ -201,15 +201,15 @@ export type GroupWithOwnerAndCars = Group & GroupOwner & GroupCars;
  * invites and data of the owner.
  */
 export type GroupWithOwnerAndMembersAndInvites = Group &
-  GroupOwner &
-  GroupMembers &
-  GroupInvites;
+GroupOwner &
+GroupMembers &
+GroupInvites;
 
 /**
  * Group with owner, list of member, list of invites and list of cars.
  */
 export type GroupWithOwnerAndMembersAndInvitesAndCars = Group &
-  GroupOwner &
-  GroupMembers &
-  GroupInvites &
-  GroupCars;
+GroupOwner &
+GroupMembers &
+GroupInvites &
+GroupCars;

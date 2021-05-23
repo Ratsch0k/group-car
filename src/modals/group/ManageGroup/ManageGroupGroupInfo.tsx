@@ -1,12 +1,10 @@
 import React from 'react';
-import {GroupWithOwner, GroupCarTheme} from 'lib';
+import {GroupCarTheme} from 'lib';
 import {Typography, Box} from '@material-ui/core';
 import {makeStyles, createStyles} from '@material-ui/styles';
 import clsx from 'clsx';
-
-export interface ManageGroupOverviewInfoProps {
-  group: GroupWithOwner;
-}
+import {useShallowAppSelector} from 'lib/redux/hooks';
+import {getSelectedGroup} from 'lib/redux/slices/group';
 
 /**
  * The maximum lines for the description.
@@ -34,9 +32,9 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
 /**
  * Shows name and description of the specified group.
  */
-export const ManageGroupOverviewInfo: React.FC<ManageGroupOverviewInfoProps> =
-(props: ManageGroupOverviewInfoProps) => {
-  const {group} = props;
+export const ManageGroupOverviewInfo: React.FC =() => {
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const group = useShallowAppSelector(getSelectedGroup)!;
   const classes = useStyles();
 
   return (

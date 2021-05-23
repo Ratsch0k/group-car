@@ -4,7 +4,9 @@ import {FormTextField, ProgressButton} from 'lib';
 import {useTranslation} from 'react-i18next';
 import {useFormik} from 'formik';
 import * as yup from 'yup';
-import useGroups from 'lib/hooks/useGroups';
+import {useAppDispatch} from 'lib/redux/hooks';
+import {unwrapResult} from '@reduxjs/toolkit';
+import {createGroup} from 'lib/redux/slices/group';
 
 const minNameLength = 4;
 const maxNameLength = 30;
@@ -22,32 +24,32 @@ interface CreateGroupFormProps {
 export const CreateGroupForm: React.FC<CreateGroupFormProps> =
 (props: CreateGroupFormProps) => {
   const {t} = useTranslation();
-  const {createGroup} = useGroups();
+  const dispatch = useAppDispatch();
 
   const validationSchema = yup.object({
     name: yup.string().required(t('form.error.required'))
-        .min(
-            minNameLength,
-            t(
-                'form.error.tooShort',
-                {min: minNameLength},
-            ),
-        )
-        .max(
-            maxNameLength,
-            t(
-                'form.error.tooLong',
-                {max: maxNameLength},
-            ),
+      .min(
+        minNameLength,
+        t(
+          'form.error.tooShort',
+          {min: minNameLength},
         ),
+      )
+      .max(
+        maxNameLength,
+        t(
+          'form.error.tooLong',
+          {max: maxNameLength},
+        ),
+      ),
     description: yup.string()
-        .max(
-            maxDescriptionLength,
-            t(
-                'form.error.tooLong',
-                {max: maxDescriptionLength},
-            ),
+      .max(
+        maxDescriptionLength,
+        t(
+          'form.error.tooLong',
+          {max: maxDescriptionLength},
         ),
+      ),
   });
 
   const formik = useFormik({
@@ -56,15 +58,20 @@ export const CreateGroupForm: React.FC<CreateGroupFormProps> =
       description: undefined,
     },
     validationSchema,
-    onSubmit: (values) => {
+    onSubmit: async ({name, description}) => {
       props.setLoading && props.setLoading(true);
-      createGroup(values.name, values.description).then((res) => {
+
+      try {
+        const group = unwrapResult(await dispatch(
+          createGroup({name, description}),
+        ));
+
         formik.setSubmitting(false);
-        props.navigateToManagement && props.navigateToManagement(res.data.id);
-      }).catch(() => {
+        props.navigateToManagement && props.navigateToManagement(group.id);
+      } catch {
         formik.setSubmitting(false);
         props.setLoading && props.setLoading(false);
-      });
+      }
     },
   });
 

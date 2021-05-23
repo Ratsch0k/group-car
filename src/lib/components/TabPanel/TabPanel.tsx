@@ -20,8 +20,8 @@ export interface TabPanelProps {
 export const TabPanel =
 // eslint-disable-next-line react/display-name
 React.forwardRef<
-  HTMLDivElement,
-  PropsWithChildren<TabPanelProps>
+HTMLDivElement,
+PropsWithChildren<TabPanelProps>
 >((props, ref) => {
   return (
     <div

@@ -1,23 +1,19 @@
 import {
-  GroupWithOwnerAndMembersAndInvites,
-  InviteWithUserAndInviteSender,
   TabPanel,
-  useAuth,
 } from 'lib';
 import React, {RefObject, useEffect, useState} from 'react';
 import ManageGroupMemberList from './ManageGroupMemberList';
 import {isAdmin as isAdminCheck} from 'lib/util';
 import ManageGroupMemberTabSearchUser from './ManageGroupMemberTabSearchUser';
 import {Portal} from '@material-ui/core';
+import {useShallowAppSelector} from 'lib/redux/hooks';
+import {getUser} from 'lib/redux/slices/auth';
+import {getSelectedGroup} from 'lib/redux/slices/group';
 
 /**
  * Props.
  */
 export interface ManageGroupMembersTabProps {
-  /**
-   * The group to show the members of.
-   */
-  group: GroupWithOwnerAndMembersAndInvites;
   /**
    * Will be forwarded to the top element.
    */
@@ -36,11 +32,11 @@ export interface ManageGroupMembersTabProps {
  */
 export const ManageGroupMembersTab: React.FC<ManageGroupMembersTabProps> =
 (props: ManageGroupMembersTabProps) => {
-  const {user} = useAuth();
+  const user = useShallowAppSelector(getUser);
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const group = useShallowAppSelector(getSelectedGroup)!;
   const [isAdmin, setIsAdmin] = useState<boolean>(
-      isAdminCheck(props.group, user?.id));
-  const [additionalInvites, setAdditionalInvites] =
-    useState<InviteWithUserAndInviteSender[]>([]);
+    isAdminCheck(group, user?.id));
   const [portal, setPortal] = useState(props.fabPortal.current);
 
   useEffect(() => {
@@ -49,8 +45,8 @@ export const ManageGroupMembersTab: React.FC<ManageGroupMembersTabProps> =
 
   // Update isAdmin state if either the group or the user changes
   useEffect(() => {
-    setIsAdmin(isAdminCheck(props.group, user?.id));
-  }, [user, props.group]);
+    setIsAdmin(isAdminCheck(group, user?.id));
+  }, [user, group]);
 
   return (
     <TabPanel
@@ -59,17 +55,11 @@ export const ManageGroupMembersTab: React.FC<ManageGroupMembersTabProps> =
       id='group-tabpanel-members'
       aria-labelledby='group-tab-members'
     >
-      <ManageGroupMemberList
-        group={props.group}
-        additionalInvites={additionalInvites}
-      />
+      <ManageGroupMemberList />
       {
         isAdmin &&
         <Portal container={portal}>
-          <ManageGroupMemberTabSearchUser group={props.group}
-            addInvite={(invite: InviteWithUserAndInviteSender) => {
-              setAdditionalInvites((prev) => [...prev, invite]);
-            }}/>
+          <ManageGroupMemberTabSearchUser />
         </Portal>
 
       }

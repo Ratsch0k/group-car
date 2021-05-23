@@ -3,8 +3,8 @@ import {Request} from 'lib';
 
 export type RevokeAdminRequest = Request<void>;
 export type RevokeAdmin = (
-    groupId: number,
-    userId: number,
+  groupId: number,
+  userId: number,
 ) => RevokeAdminRequest;
 
 /**
@@ -15,9 +15,9 @@ export type RevokeAdmin = (
  * @param axios     Optional axios instance
  */
 export const revokeAdmin: RevokeAdmin = (
-    groupId,
-    userId,
-    axios: AxiosInstance = Axios,
+  groupId,
+  userId,
+  axios: AxiosInstance = Axios,
 ) => {
   return axios.put(`/api/group/${groupId}/member/${userId}/admin/revoke`);
 };

@@ -1,5 +1,4 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
-import {GroupWithOwnerAndMembersAndInvitesAndCars, useModalRouter} from 'lib';
 import {Paper, Tab, Tabs, Theme, Typography} from '@material-ui/core';
 import {useTranslation} from 'react-i18next';
 import SwipeableView from 'react-swipeable-views';
@@ -7,25 +6,16 @@ import {createStyles, makeStyles} from '@material-ui/styles';
 import ManageGroupMembersTab from './ManageGroupMembersTab';
 import ManageGroupCarsTab from './ManageGroupCarsTab';
 import config from 'config';
-
-/**
- * Props for the group management tabs.
- */
-export interface ManageGroupsTabsProps {
-  /**
-   * The group data.
-   */
-  group: GroupWithOwnerAndMembersAndInvitesAndCars;
-
-  /**
-   * Set state action for the group state.
-   */
-  setGroup: React.Dispatch<
-    React.SetStateAction<
-      GroupWithOwnerAndMembersAndInvitesAndCars | null
-    >
-  >;
-}
+import {
+  useAppDispatch,
+  useAppSelector,
+  useShallowAppSelector,
+} from 'lib/redux/hooks';
+import {
+  getModalRoute,
+  goToModal,
+} from 'lib/redux/slices/modalRouter/modalRouterSlice';
+import {getSelectedGroup} from 'lib/redux/slices/group';
 
 /**
  * Styles.
@@ -52,17 +42,19 @@ const useStyles = makeStyles((theme: Theme) =>
  * Component for displaying the group management tabs.
  * @param props Props
  */
-export const ManageGroupTabs: React.FC<ManageGroupsTabsProps> =
-(props: ManageGroupsTabsProps) => {
+export const ManageGroupTabs: React.FC = () => {
   const {t} = useTranslation();
   const classes = useStyles();
-  const {goTo, route} = useModalRouter();
+  const dispatch = useAppDispatch();
+  const route = useAppSelector(getModalRoute);
   const getTabFromRoute = useCallback(() => {
     return route.endsWith('cars') ? 1 : 0;
   }, [route]);
   const [selectedTab, setSelectedTab] = useState<number>(getTabFromRoute());
   const memberFabPortal = useRef<HTMLDivElement>(null);
   const carFabPortal = useRef<HTMLDivElement>(null);
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const group = useShallowAppSelector(getSelectedGroup)!;
 
   useEffect(() => {
     setSelectedTab(getTabFromRoute());
@@ -74,9 +66,9 @@ export const ManageGroupTabs: React.FC<ManageGroupsTabsProps> =
    */
   const handleSelectTab = (index: number) => {
     if (index === 0) {
-      goTo(`/group/manage/${props.group.id}/members`);
+      dispatch(goToModal(`/group/manage/${group.id}/members`));
     } else {
-      goTo(`/group/manage/${props.group.id}/cars`);
+      dispatch(goToModal(`/group/manage/${group.id}/cars`));
     }
     setSelectedTab(index);
   };
@@ -101,7 +93,7 @@ export const ManageGroupTabs: React.FC<ManageGroupsTabsProps> =
                 {t('modals.group.manage.tabs.members.title')}
               </Typography>
               <Typography color='textSecondary' display='inline'>
-                ({props.group.members.length}/{config.group.maxMembers})
+                ({group.members.length}/{config.group.maxMembers})
               </Typography>
             </>
           }
@@ -114,7 +106,7 @@ export const ManageGroupTabs: React.FC<ManageGroupsTabsProps> =
               {t('modals.group.manage.tabs.cars.title')}
             </Typography>
             <Typography color='textSecondary' display='inline'>
-              ({props.group.cars.length}/{config.group.maxCars})
+              ({group.cars.length}/{config.group.maxCars})
             </Typography>
           </>}
           id='group-tab-cars'
@@ -131,15 +123,12 @@ export const ManageGroupTabs: React.FC<ManageGroupsTabsProps> =
         <ManageGroupMembersTab
           className={classes.tabContent}
           visible={selectedTab === 0}
-          group={props.group}
           fabPortal={memberFabPortal}
         />
         <ManageGroupCarsTab
           className={classes.tabContent}
-          group={props.group}
           visible={selectedTab === 1}
           fabPortal={carFabPortal}
-          setGroup={props.setGroup}
         />
       </SwipeableView>
       <div className={classes.fabContainer}>
