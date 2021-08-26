@@ -9,7 +9,7 @@ exports[`matches snapshot 1`] = `
       class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
     >
       <div
-        class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
+        class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
       >
         <div
           class="MuiGrid-root MuiGrid-item"

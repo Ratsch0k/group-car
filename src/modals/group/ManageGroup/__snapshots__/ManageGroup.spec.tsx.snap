@@ -1969,7 +1969,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                         >
                           <img
                             alt="user-2"
@@ -2305,7 +2305,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                         >
                           <img
                             alt="user-2"
@@ -2641,7 +2641,7 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                         >
                           <img
                             alt="user-2"
@@ -2975,7 +2975,7 @@ exports[`Footer Delete button delete group button is visible if user is owner of
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                         >
                           <img
                             alt="user-2"
@@ -3232,7 +3232,7 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                         >
                           <img
                             alt="user-2"
@@ -3269,7 +3269,7 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                         >
                           <img
                             alt="user-12"
@@ -3603,7 +3603,7 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                         >
                           <img
                             alt="user-2"
@@ -3640,7 +3640,7 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                         >
                           <img
                             alt="user-12"
@@ -3893,7 +3893,7 @@ exports[`MemberTab options button click on grant admin dispatches grantAdminRigh
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                         >
                           <img
                             alt="user-2"
@@ -3943,7 +3943,7 @@ exports[`MemberTab options button click on grant admin dispatches grantAdminRigh
                           class="MuiListItemAvatar-root"
                         >
                           <div
-                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                            class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                           >
                             <img
                               alt="user-10"
@@ -4241,7 +4241,7 @@ exports[`MemberTab options button click on grant admin dispatches grantAdminRigh
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                         >
                           <img
                             alt="user-2"
@@ -4291,7 +4291,7 @@ exports[`MemberTab options button click on grant admin dispatches grantAdminRigh
                           class="MuiListItemAvatar-root"
                         >
                           <div
-                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                            class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                           >
                             <img
                               alt="user-10"
@@ -4590,7 +4590,7 @@ exports[`MemberTab options button click on revoke admin will dispatch revokeAdmi
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                         >
                           <img
                             alt="user-2"
@@ -4640,7 +4640,7 @@ exports[`MemberTab options button click on revoke admin will dispatch revokeAdmi
                           class="MuiListItemAvatar-root"
                         >
                           <div
-                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                            class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                           >
                             <img
                               alt="user-10"
@@ -4948,7 +4948,7 @@ exports[`MemberTab options button click on revoke admin will dispatch revokeAdmi
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                         >
                           <img
                             alt="user-2"
@@ -4998,7 +4998,7 @@ exports[`MemberTab options button click on revoke admin will dispatch revokeAdmi
                           class="MuiListItemAvatar-root"
                         >
                           <div
-                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                            class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                           >
                             <img
                               alt="user-10"
@@ -5307,7 +5307,7 @@ exports[`MemberTab options button if member is admin the revoke admin option is 
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                         >
                           <img
                             alt="user-2"
@@ -5357,7 +5357,7 @@ exports[`MemberTab options button if member is admin the revoke admin option is 
                           class="MuiListItemAvatar-root"
                         >
                           <div
-                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                            class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                           >
                             <img
                               alt="user-10"
@@ -5665,7 +5665,7 @@ exports[`MemberTab options button if member is not an admin grant admin option i
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                         >
                           <img
                             alt="user-2"
@@ -5715,7 +5715,7 @@ exports[`MemberTab options button if member is not an admin grant admin option i
                           class="MuiListItemAvatar-root"
                         >
                           <div
-                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                            class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                           >
                             <img
                               alt="user-10"
@@ -6012,7 +6012,7 @@ exports[`MemberTab options button will appear if current user is admin and membe
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                         >
                           <img
                             alt="user-2"
@@ -6049,7 +6049,7 @@ exports[`MemberTab options button will appear if current user is admin and membe
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                         >
                           <img
                             alt="user-10"
@@ -6099,7 +6099,7 @@ exports[`MemberTab options button will appear if current user is admin and membe
                           class="MuiListItemAvatar-root"
                         >
                           <div
-                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                            class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                           >
                             <img
                               alt="user-11"
@@ -6393,7 +6393,7 @@ exports[`MemberTab options button will appear if current user is the owner and m
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                         >
                           <img
                             alt="user-2"
@@ -6443,7 +6443,7 @@ exports[`MemberTab options button will appear if current user is the owner and m
                           class="MuiListItemAvatar-root"
                         >
                           <div
-                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                            class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                           >
                             <img
                               alt="user-10"
@@ -6509,7 +6509,7 @@ exports[`MemberTab options button will appear if current user is the owner and m
                           class="MuiListItemAvatar-root"
                         >
                           <div
-                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                            class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                           >
                             <img
                               alt="user-11"
@@ -6838,7 +6838,7 @@ exports[`MemberTab options button will never appear if current user is not an ad
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                         >
                           <img
                             alt="user-2"
@@ -6865,7 +6865,7 @@ exports[`MemberTab options button will never appear if current user is not an ad
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                         >
                           <img
                             alt="user-10"
@@ -6912,7 +6912,7 @@ exports[`MemberTab options button will never appear if current user is not an ad
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                         >
                           <img
                             alt="user-11"
@@ -7122,7 +7122,7 @@ exports[`MemberTab options button will not appear if current user and member is 
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                         >
                           <img
                             alt="user-2"
@@ -7159,7 +7159,7 @@ exports[`MemberTab options button will not appear if current user and member is 
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                         >
                           <img
                             alt="user-10"
@@ -7206,7 +7206,7 @@ exports[`MemberTab options button will not appear if current user and member is 
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                         >
                           <img
                             alt="user-11"
@@ -7449,7 +7449,7 @@ exports[`MemberTab renders list of invites correctly 1`] = `
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                         >
                           <img
                             alt="user-2"
@@ -7738,7 +7738,7 @@ exports[`MemberTab renders list of members correctly 1`] = `
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                         >
                           <img
                             alt="user-2"
@@ -7788,7 +7788,7 @@ exports[`MemberTab renders list of members correctly 1`] = `
                           class="MuiListItemAvatar-root"
                         >
                           <div
-                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                            class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                           >
                             <img
                               alt="user-3"
@@ -7854,7 +7854,7 @@ exports[`MemberTab renders list of members correctly 1`] = `
                           class="MuiListItemAvatar-root"
                         >
                           <div
-                            class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                            class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                           >
                             <img
                               alt="user-4"
@@ -8247,7 +8247,7 @@ exports[`renders group info if group exists 1`] = `
                         class="MuiListItemAvatar-root"
                       >
                         <div
-                          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+                          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
                         >
                           <img
                             alt="user-2"

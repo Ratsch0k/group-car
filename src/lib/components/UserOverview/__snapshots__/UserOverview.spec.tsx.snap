@@ -12,7 +12,7 @@ exports[`renders and matches snapshot when user is logged in 1`] = `
         class="MuiGrid-root makeStyles-userInfo MuiGrid-item"
       >
         <div
-          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar"
+          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar"
         >
           <img
             alt="user-12"
