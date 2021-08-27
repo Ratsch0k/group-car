@@ -3,7 +3,7 @@
 exports[`renders with given userId 1`] = `
 <div>
   <div
-    class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-3"
+    class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar-3"
   >
     <img
       alt="user-12"

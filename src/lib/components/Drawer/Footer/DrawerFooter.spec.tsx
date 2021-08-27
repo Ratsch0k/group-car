@@ -1,3 +1,4 @@
+import '../../../../__test__/mockAxios';
 import React from 'react';
 import DrawerFooter from './DrawerFooter';
 import testRender from '../../../../__test__/testRender';

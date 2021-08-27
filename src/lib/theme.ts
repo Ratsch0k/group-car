@@ -1,4 +1,4 @@
-import {createMuiTheme} from '@material-ui/core';
+import {createTheme} from '@material-ui/core';
 import {green, orange} from '@material-ui/core/colors';
 
 type Theme = import('@material-ui/core').Theme;
@@ -51,4 +51,4 @@ export const themeProperties: IThemeOptions = {
   },
 };
 
-export const theme = createMuiTheme(themeProperties);
+export const theme = createTheme(themeProperties);

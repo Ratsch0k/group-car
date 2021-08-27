@@ -96,7 +96,7 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                 class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
+                  class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
                 >
                   <div
                     class="MuiGrid-root MuiGrid-item"
@@ -212,7 +212,7 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                         class="MuiCardActions-root makeStyles-actionsRoot makeStyles-actionsContainerDriving MuiCardActions-spacing"
                       >
                         <div
-                          class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-between"
+                          class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-between"
                         >
                           <div
                             class="MuiGrid-root makeStyles-leftActionDriving MuiGrid-item MuiGrid-grid-xs-6"
@@ -322,7 +322,7 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                         class="MuiCardActions-root makeStyles-actionsRoot makeStyles-actionsContainer MuiCardActions-spacing"
                       >
                         <div
-                          class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-between"
+                          class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-between"
                         >
                           <div
                             class="MuiGrid-root makeStyles-leftAction MuiGrid-item MuiGrid-grid-xs-6"
@@ -432,7 +432,7 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                 class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
+                  class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
                 >
                   <div
                     class="MuiGrid-root MuiGrid-item"
@@ -559,7 +559,7 @@ exports[`if user is logged in park with map SelectLocation clicking on map will 
                 class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
+                  class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
                 >
                   <div
                     class="MuiGrid-root MuiGrid-item"
@@ -689,7 +689,7 @@ exports[`if user is logged in park with map clicking on park on map sets selecte
                 class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
+                  class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
                 >
                   <div
                     class="MuiGrid-root MuiGrid-item"
@@ -774,7 +774,7 @@ exports[`if user is logged in renders create group button if user has no groups 
                 class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
+                  class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
                 >
                   <div
                     class="MuiGrid-root MuiGrid-item"
@@ -890,7 +890,7 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
                         class="MuiCardActions-root makeStyles-actionsRoot makeStyles-actionsContainerDriving MuiCardActions-spacing"
                       >
                         <div
-                          class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-between"
+                          class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-between"
                         >
                           <div
                             class="MuiGrid-root makeStyles-leftActionDriving MuiGrid-item MuiGrid-grid-xs-6"
@@ -1000,7 +1000,7 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
                         class="MuiCardActions-root makeStyles-actionsRoot makeStyles-actionsContainer MuiCardActions-spacing"
                       >
                         <div
-                          class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-between"
+                          class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-between"
                         >
                           <div
                             class="MuiGrid-root makeStyles-leftAction MuiGrid-item MuiGrid-grid-xs-6"
@@ -1110,7 +1110,7 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
                 class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
+                  class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
                 >
                   <div
                     class="MuiGrid-root MuiGrid-item"
@@ -1199,7 +1199,7 @@ exports[`if user is logged in renders select group button if user has at least o
                 class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
+                  class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
                 >
                   <div
                     class="MuiGrid-root MuiGrid-item"
@@ -1323,7 +1323,7 @@ exports[`if user is logged in view location location button is disabled if latit
                         class="MuiCardActions-root makeStyles-actionsRoot makeStyles-actionsContainer MuiCardActions-spacing"
                       >
                         <div
-                          class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-between"
+                          class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-between"
                         >
                           <div
                             class="MuiGrid-root makeStyles-leftAction MuiGrid-item MuiGrid-grid-xs-6"
@@ -1430,7 +1430,7 @@ exports[`if user is logged in view location location button is disabled if latit
                         class="MuiCardActions-root makeStyles-actionsRoot makeStyles-actionsContainer MuiCardActions-spacing"
                       >
                         <div
-                          class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-between"
+                          class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-between"
                         >
                           <div
                             class="MuiGrid-root makeStyles-leftAction MuiGrid-item MuiGrid-grid-xs-6"
@@ -1502,7 +1502,7 @@ exports[`if user is logged in view location location button is disabled if latit
                 class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
+                  class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
                 >
                   <div
                     class="MuiGrid-root MuiGrid-item"
@@ -1619,7 +1619,7 @@ exports[`renders NotLoggedIn component if user is not logged in 1`] = `
               class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
             >
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
+                class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
               >
                 <div
                   class="MuiGrid-root MuiGrid-item"
@@ -1739,7 +1739,7 @@ exports[`renders and matches snapshot with not open and not permanent without cr
               class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
             >
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
+                class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
               >
                 <div
                   class="MuiGrid-root MuiGrid-item"
@@ -1812,7 +1812,7 @@ exports[`renders and matches snapshot with not open and permanent without crashi
               class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
             >
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
+                class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
               >
                 <div
                   class="MuiGrid-root MuiGrid-item"
@@ -1928,7 +1928,7 @@ exports[`renders and matches snapshot with open and not permanent without crashi
               class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
             >
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
+                class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
               >
                 <div
                   class="MuiGrid-root MuiGrid-item"
@@ -2001,7 +2001,7 @@ exports[`renders and matches snapshot with open and permanent without crashing 1
               class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
             >
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-evenly"
+                class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
               >
                 <div
                   class="MuiGrid-root MuiGrid-item"

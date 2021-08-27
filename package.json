@@ -8,6 +8,7 @@
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
     "@material-ui/styles": "^4.11.2",
+    "@monsonjeremy/react-leaflet": "^3.2.2",
     "@reduxjs/toolkit": "^1.5.1",
     "@sentry/react": "^6.3.6",
     "@sentry/tracing": "^6.3.6",
@@ -24,7 +25,6 @@
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-i18next": "^11.3.5",
-    "react-leaflet": "^3.0.2",
     "react-redux": "^7.2.3",
     "react-router-dom": "^5.1.2",
     "react-swipeable-views": "^0.13.9",
@@ -99,12 +99,7 @@
     "typescript": "^4.2.0"
   },
   "resolutions": {
-    "object-path": ">=0.11.5",
-    "immer": ">=8.0.1",
-    "marked": ">=2.0.0",
-    "elliptic": ">=6.5.4",
-    "y18n": ">=5.0.5",
-    "hosted-git-info": ">=3.0.8",
-    "xmlhttprequest-ssl": ">=1.6.2"
+    "browserslist": "^4.16.5",
+    "glob-parent": "^5.1.2"
   }
 }
