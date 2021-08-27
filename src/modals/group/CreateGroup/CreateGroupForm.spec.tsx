@@ -1,3 +1,5 @@
+// eslint-disable-next-line
+import mockedAxios from '../../../__test__/mockAxios';
 import CreateGroupForm from "./CreateGroupForm";
 import React from "react";
 import testRender from "../../../__test__/testRender";
