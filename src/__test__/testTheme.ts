@@ -1,7 +1,7 @@
-import {createMuiTheme} from '@material-ui/core';
+import {createTheme} from '@material-ui/core';
 import {themeProperties, IThemeOptions} from '../lib/theme';
 
-export default createMuiTheme({
+export default createTheme({
   ...themeProperties,
   props: {
     MuiButtonBase: {
