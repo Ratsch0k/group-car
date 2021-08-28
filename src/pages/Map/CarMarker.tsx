@@ -1,6 +1,6 @@
 import {LatLng} from 'leaflet';
 import {CarWithDriver} from 'lib';
-import {Marker} from 'react-leaflet';
+import {Marker} from '@monsonjeremy/react-leaflet';
 import React from 'react';
 import {LocationMarker} from 'lib';
 
