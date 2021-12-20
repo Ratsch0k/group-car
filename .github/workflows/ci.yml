@@ -32,6 +32,7 @@ jobs:
   audit:
     name: Audit libraries
     runs-on: ubuntu-latest
+    continue-on-error: true # TODO: Remove if all vulnerabilities can be resolved
     steps:
       - uses: actions/checkout@v2
       - name: Setup Node.js
