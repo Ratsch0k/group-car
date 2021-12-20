@@ -12,7 +12,7 @@
     "@reduxjs/toolkit": "^1.5.1",
     "@sentry/react": "^6.3.6",
     "@sentry/tracing": "^6.3.6",
-    "axios": "^0.21.1",
+    "axios": "^0.24.0",
     "clsx": "^1.1.0",
     "connected-react-router": "^6.9.1",
     "formik": "^2.1.4",
@@ -25,11 +25,12 @@
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-i18next": "^11.3.5",
-    "react-redux": "^7.2.3",
+    "react-redux": "^7.2.6",
     "react-router-dom": "^5.1.2",
     "react-swipeable-views": "^0.13.9",
     "react-transition-group": "^4.4.1",
-    "redux": "^4.0.5",
+    "redux": "^4.1.2",
+    "redux-thunk": "^2.4.1",
     "reselect": "^4.0.0",
     "socket.io-client": "^2.3.0",
     "yup": "^0.28.4"
@@ -73,7 +74,7 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/react-i18next": "^8.1.0",
-    "@types/react-redux": "^7.1.16",
+    "@types/react-redux": "^7.1.20",
     "@types/react-router-dom": "^5.1.5",
     "@types/react-swipeable-views": "^0.13.0",
     "@types/react-transition-group": "^4.4.0",
@@ -99,7 +100,10 @@
     "typescript": "^4.2.0"
   },
   "resolutions": {
-    "browserslist": "^4.16.5",
-    "glob-parent": "^5.1.2"
+    "tmpl": ">=1.0.5",
+    "nth-check": ">=2.0.1",
+    "glob-parent": ">=5.1.2",
+    "browserslist": ">=4.16.5",
+    "immer": ">=9.0.6"
   }
 }

@@ -4,7 +4,7 @@ const csrfPromise = (() => {
   return axios.head('/auth').then((res: AxiosResponse) => {
     const csrf = res.headers['xsrf-token'];
 
-    axios.defaults.headers = {
+    axios.defaults.headers.common = {
       'xsrf-token': csrf,
     };
   });
