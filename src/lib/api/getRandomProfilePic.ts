@@ -1,5 +1,5 @@
-import axiosStatic from 'axios';
-import {Request, AxiosType} from './request';
+import axios from 'axios';
+import {Request} from './request';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type GetRandomProfilePicRequest = Request<any>;
@@ -13,7 +13,6 @@ export type GetRandomProfilePicRequest = Request<any>;
 export const getRandomProfilePic = (
   username: string,
   offset?: number,
-  axios: AxiosType = axiosStatic,
 ): GetRandomProfilePicRequest => {
   if (!username || username.length <= 0) {
     return Promise.reject(new TypeError('Invalid parameters'));
@@ -25,5 +24,6 @@ export const getRandomProfilePic = (
       offset,
     },
     responseType: 'blob',
+    allowUnauthenticated: true,
   });
 };
