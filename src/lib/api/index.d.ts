@@ -68,3 +68,10 @@ export type InviteWithUserAndInviteSender = Invite & InviteUser & InviteSender;
 export type InviteWithGroupAndInviteSender = Invite &
 InviteGroup &
 InviteSender;
+
+/**
+ * Versions of backend systems.
+ */
+export interface BackendVersions {
+  backend: string;
+}
