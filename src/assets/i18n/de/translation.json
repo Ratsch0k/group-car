@@ -580,5 +580,11 @@
         ]
       }
     ]
+  },
+  "versions": {
+    "title": "Versionen",
+    "frontend": "UI",
+    "backend": "Server",
+    "error": "Konnte Versionen vom Server nicht ermitteln"
   }
 }
