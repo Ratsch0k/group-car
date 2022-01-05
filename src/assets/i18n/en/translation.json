@@ -154,5 +154,11 @@
   },
   "privacyPolicy": {
     "title": "Privacy policy"
+  },
+  "versions": {
+    "title": "Versions",
+    "frontend": "UI",
+    "backend": "Server",
+    "error": "Could not determine version of server"
   }
 }
