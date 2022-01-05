@@ -1,6 +1,6 @@
 {
   "name": "group-car",
-  "version": "0.7.2-alpha.1",
+  "version": "0.7.2-alpha.2",
   "proxy": "http://localhost:8080",
   "private": true,
   "dependencies": {
