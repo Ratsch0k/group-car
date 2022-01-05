@@ -17,6 +17,10 @@ import {
 import {useDispatch} from 'react-redux';
 import {closeModal} from '../../lib/redux/slices/modalRouter/modalRouterSlice';
 
+/**
+ * Visualize the backend versions.
+ * @param versions The object containing the backend versions
+ */
 export const VisualizeBackendVersions: FC<{versions: BackendVersions}> = (
   {versions}: {versions: BackendVersions},
 ) => {
@@ -47,6 +51,9 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
   }),
 );
 
+/**
+ * Modal which shows the versions of the front- and backend.
+ */
 export const Versions: FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const {t} = useTranslation();
