@@ -116,7 +116,13 @@
     }
   },
   "settings": {
-    "title": "Settings"
+    "title": "Settings",
+    "system": {
+      "title": "System"
+    },
+    "account": {
+      "title": "Account"
+    }
   },
   "errors": {
     "socketConnection": "Could not initialize realtime update. To receive update about the selected group, you'll have to reload the page.",

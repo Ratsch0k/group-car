@@ -118,7 +118,13 @@
     }
   },
   "settings": {
-    "title": "Einstellungen"
+    "title": "Einstellungen",
+    "system": {
+      "title": "System"
+    },
+    "account": {
+      "title": "Konto"
+    }
   },
   "errors": {
     "socketConnection": "Realtime Updates konnten nicht initialisiert werden. Um Updates über die Gruppe zu erhalten müssen sie die Seite neuladen",
