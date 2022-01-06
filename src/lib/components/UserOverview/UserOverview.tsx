@@ -100,26 +100,19 @@ export const UserOverview: React.FC<UserOverviewProps> =
           {userInfo}
         </Grid>
         <Grid item>
-
           <Button
             fullWidth
             color='primary'
             onClick={() => dispatch(goToModal('/invites'))}
+            startIcon={<MailOutlineIcon fontSize='small' />}
           >
-            <Grid container justify='flex-start' alignItems='center'>
-              <Grid item className={classes.buttonIcon}>
-                <MailOutlineIcon fontSize='small'/>
-              </Grid>
-              <Grid item>
-                <Badge
-                  color='secondary'
-                  badgeContent={invites.length}
-                  max={9}
-                >
-                  {t('user.invites')}
-                </Badge>
-              </Grid>
-            </Grid>
+            <Badge
+              color='secondary'
+              badgeContent={invites.length}
+              max={9}
+            >
+              {t('user.invites')}
+            </Badge>
           </Button>
         </Grid>
         <Grid item>
@@ -127,15 +120,9 @@ export const UserOverview: React.FC<UserOverviewProps> =
             fullWidth
             color='primary'
             onClick={() => dispatch(goToModal('/settings'))}
+            startIcon={<SettingsIcon fontSize='small' />}
           >
-            <Grid container justify='flex-start' alignItems='center'>
-              <Grid item className={classes.buttonIcon}>
-                <SettingsIcon fontSize='small'/>
-              </Grid>
-              <Grid item>
-                {t('user.settings')}
-              </Grid>
-            </Grid>
+            {t('user.settings')}
           </Button>
         </Grid>
         <Grid item>
