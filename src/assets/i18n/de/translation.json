@@ -10,7 +10,8 @@
     "isRequested": "Zurzeit ist es nicht möglich ein Benutzerkonto direkt anzulegen. Ihre Anfrage wird überprüft und falls sie genehmigt wird, erhalten Sie eine Email."
   },
   "user": {
-    "invites": "Einladungen"
+    "invites": "Einladungen",
+    "settings": "Einstellungen"
   },
   "form": {
     "login": "Anmelden",
