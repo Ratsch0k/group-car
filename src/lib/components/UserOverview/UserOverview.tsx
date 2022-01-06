@@ -13,6 +13,8 @@ import {
 import {goToModal} from 'lib/redux/slices/modalRouter/modalRouterSlice';
 import {getIsLoggedIn, getUser, logout} from 'lib/redux/slices/auth';
 import {getAllInvites} from 'lib/redux/slices/invites';
+import SettingsIcon from '@material-ui/icons/Settings';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
 
 const useStyle = makeStyles((theme: GroupCarTheme) =>
   createStyles({
@@ -25,6 +27,11 @@ const useStyle = makeStyles((theme: GroupCarTheme) =>
       marginBottom: theme.spacing(2),
       padding: theme.spacing(1),
       minWidth: 180,
+    },
+    buttonIcon: {
+      marginRight: theme.spacing(1),
+      height: 24,
+      marginLeft: theme.spacing(3),
     },
   }),
 );
@@ -99,13 +106,36 @@ export const UserOverview: React.FC<UserOverviewProps> =
             color='primary'
             onClick={() => dispatch(goToModal('/invites'))}
           >
-            <Badge
-              color='secondary'
-              badgeContent={invites.length}
-              max={9}
-            >
-              {t('user.invites')}
-            </Badge>
+            <Grid container justify='flex-start' alignItems='center'>
+              <Grid item className={classes.buttonIcon}>
+                <MailOutlineIcon fontSize='small'/>
+              </Grid>
+              <Grid item>
+                <Badge
+                  color='secondary'
+                  badgeContent={invites.length}
+                  max={9}
+                >
+                  {t('user.invites')}
+                </Badge>
+              </Grid>
+            </Grid>
+          </Button>
+        </Grid>
+        <Grid item>
+          <Button
+            fullWidth
+            color='primary'
+            onClick={() => dispatch(goToModal('/settings'))}
+          >
+            <Grid container justify='flex-start' alignItems='center'>
+              <Grid item className={classes.buttonIcon}>
+                <SettingsIcon fontSize='small'/>
+              </Grid>
+              <Grid item>
+                {t('user.settings')}
+              </Grid>
+            </Grid>
           </Button>
         </Grid>
         <Grid item>

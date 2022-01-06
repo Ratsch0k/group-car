@@ -117,6 +117,9 @@
       "empty": "Du hast keine Einladungen"
     }
   },
+  "settings": {
+    "title": "Einstellungen"
+  },
   "errors": {
     "socketConnection": "Realtime Updates konnten nicht initialisiert werden. Um Updates über die Gruppe zu erhalten müssen sie die Seite neuladen",
     "NotLoggedInError": "Du bist nicht angemeldet",
