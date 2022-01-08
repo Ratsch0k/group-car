@@ -118,10 +118,12 @@
   "settings": {
     "title": "Settings",
     "system": {
-      "title": "System"
+      "title": "System",
+      "language": "Language"
     },
     "account": {
-      "title": "Account"
+      "title": "Account",
+      "createdAt": "Created at"
     }
   },
   "errors": {
@@ -147,6 +149,8 @@
     "available": "Available",
     "confirm": "Confirm",
     "cancel": "Cancel",
+    "email": "Email",
+    "username": "Username",
     "color": {
       "Red": "Red",
       "Black": "Black",
@@ -170,5 +174,9 @@
     "frontend": "UI",
     "backend": "Server",
     "error": "Could not determine version of server"
+  },
+  "lang": {
+    "en": "English",
+    "de": "German"
   }
 }

@@ -21,7 +21,7 @@ i18n
   .init({
     debug: true,
     resources,
-    fallbackLng: 'de', // Fallback to german
+    fallbackLng: ['de', 'en'], // Fallback to german
 
     load: 'languageOnly',
 

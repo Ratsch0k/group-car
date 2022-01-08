@@ -120,10 +120,12 @@
   "settings": {
     "title": "Einstellungen",
     "system": {
-      "title": "System"
+      "title": "System",
+      "language": "Sprache"
     },
     "account": {
-      "title": "Konto"
+      "title": "Konto",
+      "createdAt": "Erstellt am"
     }
   },
   "errors": {
@@ -134,6 +136,8 @@
   },
   "misc": {
     "or": "oder",
+    "email": "Email",
+    "username": "Benutzername",
     "loading": "Lade",
     "admin": "Admin",
     "owner": "Besitzer",
@@ -596,5 +600,9 @@
     "frontend": "UI",
     "backend": "Server",
     "error": "Konnte Versionen vom Server nicht ermitteln"
+  },
+  "lang": {
+    "en": "Englisch",
+    "de": "Deutsch"
   }
 }

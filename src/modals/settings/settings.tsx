@@ -7,12 +7,12 @@ import {
 import {useDispatch} from 'react-redux';
 import {
   closeModal,
-  getModalLocation, goToModal,
+  goToModal,
 } from '../../lib/redux/slices/modalRouter/modalRouterSlice';
 import {useTranslation} from 'react-i18next';
 import {
   createStyles,
-  DialogContent, Grid, Hidden, IconButton, makeStyles,
+  DialogContent, Divider, Grid, Hidden, IconButton, makeStyles,
 } from '@material-ui/core';
 import {
   SettingsTabs,
@@ -23,8 +23,7 @@ import ArrowBack from '@material-ui/icons/ArrowBack';
 import Build from '@material-ui/icons/Build';
 import AppSettingsTabSystem from './AppSettingsTabSystem';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import {useShallowAppSelector} from '../../lib/redux/hooks';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, useRouteMatch} from 'react-router-dom';
 import AppSettingsTabAccount from './AppSettingsTabAccount';
 
 const useStyles = makeStyles((theme: GroupCarTheme) => createStyles({
@@ -43,6 +42,10 @@ const useStyles = makeStyles((theme: GroupCarTheme) => createStyles({
   },
   contents: {
     width: '100%',
+    overflowY: 'auto',
+  },
+  fullHeight: {
+    height: '100%',
   },
 }));
 
@@ -50,7 +53,7 @@ export const AppSettings: FC = () => {
   const dispatch = useDispatch();
   const {t} = useTranslation();
   const classes = useStyles();
-  const modalLocation = useShallowAppSelector(getModalLocation);
+  const {path} = useRouteMatch();
   const open = useCallback((path: string) => {
     dispatch(goToModal(path));
   }, [dispatch]);
@@ -64,7 +67,7 @@ export const AppSettings: FC = () => {
       <SettingsTab
         icon={<AccountCircleIcon />}
         index={'/settings/account'}
-        value={modalLocation.pathname}
+        value={path}
         open={open as (arg0: unknown) => void}
       >
         {t('settings.account.title')}
@@ -72,7 +75,7 @@ export const AppSettings: FC = () => {
       <SettingsTab
         icon={<Build />}
         index={'/settings/system'}
-        value={modalLocation.pathname}
+        value={path}
         open={open as (arg0: unknown) => void}
       >
         {t('settings.system.title')}
@@ -81,17 +84,17 @@ export const AppSettings: FC = () => {
   );
 
   const contents = (
-    <Switch location={modalLocation}>
-      <Route path='/settings/account'>
+    <Switch>
+      <Route path={`${path}/account`}>
         <AppSettingsTabAccount
-          index='/settings/account'
-          value={modalLocation.pathname}
+          index={`${path}/account`}
+          value={path}
         />
       </Route>
-      <Route path='/settings/system'>
+      <Route path={`${path}/system`}>
         <AppSettingsTabSystem
-          index='/settings/system'
-          value={modalLocation.pathname}
+          index={`${path}/system`}
+          value={path}
         />
       </Route>
       <Hidden mdUp>
@@ -103,9 +106,17 @@ export const AppSettings: FC = () => {
   );
 
   return (
-    <AutoFullscreenDialog open={true} fullWidth maxWidth='md' breakpoint='sm'>
+    <AutoFullscreenDialog
+      open={true}
+      fullWidth
+      maxWidth='md'
+      breakpoint='sm'
+      classes={{
+        paper: classes.fullHeight,
+      }}
+    >
       <SettingsContext.Provider value={{
-        value: modalLocation.pathname,
+        value: path,
         open,
         back,
       }}>
@@ -113,7 +124,7 @@ export const AppSettings: FC = () => {
           <Hidden mdUp>
             <IconButton
               onClick={() => back()}
-              disabled={modalLocation.pathname === '/settings'}
+              disabled={path === '/settings'}
               className={classes.titleIcon}
             >
               <ArrowBack />
@@ -125,22 +136,26 @@ export const AppSettings: FC = () => {
           <Hidden mdUp>
             {
               t(`settings${
-                modalLocation
-                  .pathname
+                path
                   .replace(/\/settings/, '')
                   .replace('/', '.') + '.'
               }title`)
             }
           </Hidden>
         </CloseableDialogTitle>
-        <DialogContent>
-          <Grid container justify='flex-start' wrap='nowrap'>
+        <DialogContent className={classes.fullHeight}>
+          <Grid
+            container
+            justify='flex-start'
+            wrap='nowrap'
+            className={classes.fullHeight}
+          >
             <Hidden smDown>
               <Grid item className={classes.bigSide}>
                 {tabs}
               </Grid>
               <Grid item className={classes.bigSideBorderRoot}>
-                <div className={classes.bigSideBorder} />
+                <Divider orientation='vertical'/>
               </Grid>
             </Hidden>
             <Grid item className={classes.contents}>
