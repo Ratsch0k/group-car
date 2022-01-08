@@ -41,7 +41,7 @@ const config: Config = {
     dsn: process.env.SENTRY_DSN || 'https://46304bd186a44341a70545d48b23647b@o656739.ingest.sentry.io/5762871',
     tracesSampleRate: 1.0,
   },
-  frontend: '0.7.3-alpha.1',
+  frontend: '0.7.3-alpha.2',
 };
 
 export default config;
