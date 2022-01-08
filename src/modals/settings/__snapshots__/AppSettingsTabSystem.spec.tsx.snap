@@ -71,7 +71,7 @@ exports[`AppSettingsTabAccount renders correctly 1`] = `
           :
            
         </b>
-        0.7.2-beta.0
+        0.7.3-alpha.1
       </p>
       <div
         class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"

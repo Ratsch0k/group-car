@@ -13,8 +13,8 @@ describe('AppSettingsTabAccount', () => {
           id: 1,
           username: 'test',
           email: 'test@mail.com',
-          createdAt: new Date(10),
-          updatedAt: new Date(10),
+          createdAt: new Date('December 17, 2020 03:24:00'),
+          updatedAt: new Date('December 17, 2020 03:24:00'),
         }
       }
     }
