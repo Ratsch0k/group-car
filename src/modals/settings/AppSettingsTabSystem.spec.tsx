@@ -3,6 +3,7 @@ import {RootState} from "../../lib/redux/store";
 import testRender from "../../__test__/testRender";
 import AppSettingsTabSystem from "./AppSettingsTabSystem";
 import mockedAxios from "../../__test__/mockAxios";
+import config from '../../config/index';
 
 jest.mock('react-i18next', () => ({
   useTranslation: () => {
@@ -21,6 +22,7 @@ describe('AppSettingsTabAccount', () => {
 
   beforeEach(() => {
     state = {};
+    config.frontend = '1.0';
   });
 
   it('renders correctly', () => {
