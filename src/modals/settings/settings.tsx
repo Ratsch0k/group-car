@@ -1,4 +1,4 @@
-import React, {FC, useCallback} from 'react';
+import React, {FC, useCallback, useState} from 'react';
 import {
   AutoFullscreenDialog,
   CloseableDialogTitle,
@@ -23,8 +23,9 @@ import ArrowBack from '@material-ui/icons/ArrowBack';
 import Build from '@material-ui/icons/Build';
 import AppSettingsTabSystem from './AppSettingsTabSystem';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import {Route, Switch, useRouteMatch} from 'react-router-dom';
+import {Route, Switch, useLocation, useRouteMatch} from 'react-router-dom';
 import AppSettingsTabAccount from './AppSettingsTabAccount';
+import {goBack} from 'connected-react-router';
 
 const useStyles = makeStyles((theme: GroupCarTheme) => createStyles({
   titleIcon: {
@@ -54,29 +55,39 @@ export const AppSettings: FC = () => {
   const {t} = useTranslation();
   const classes = useStyles();
   const {path} = useRouteMatch();
+  const [hasNavigated, setHasNavigated] = useState<boolean>(false);
+  const {pathname} = useLocation();
+
   const open = useCallback((path: string) => {
+    setHasNavigated(true);
     dispatch(goToModal(path));
   }, [dispatch]);
 
   const back = useCallback(() => {
-    dispatch(goToModal('/settings'));
-  }, [dispatch]);
+    if (hasNavigated) {
+      dispatch(goBack());
+    } else {
+      dispatch(goToModal('/settings', true));
+    }
+  }, [dispatch, hasNavigated]);
 
   const tabs = (
     <SettingsTabs>
       <SettingsTab
         icon={<AccountCircleIcon />}
         index={'/settings/account'}
-        value={path}
+        value={pathname}
         open={open as (arg0: unknown) => void}
+        id='settings-account-tab'
       >
         {t('settings.account.title')}
       </SettingsTab>
       <SettingsTab
         icon={<Build />}
         index={'/settings/system'}
-        value={path}
+        value={pathname}
         open={open as (arg0: unknown) => void}
+        id='settings-system-tab'
       >
         {t('settings.system.title')}
       </SettingsTab>
@@ -88,13 +99,13 @@ export const AppSettings: FC = () => {
       <Route path={`${path}/account`}>
         <AppSettingsTabAccount
           index={`${path}/account`}
-          value={path}
+          value={pathname}
         />
       </Route>
       <Route path={`${path}/system`}>
         <AppSettingsTabSystem
           index={`${path}/system`}
-          value={path}
+          value={pathname}
         />
       </Route>
       <Hidden mdUp>
@@ -124,8 +135,9 @@ export const AppSettings: FC = () => {
           <Hidden mdUp>
             <IconButton
               onClick={() => back()}
-              disabled={path === '/settings'}
+              disabled={pathname === '/settings'}
               className={classes.titleIcon}
+              id='settings-back-button'
             >
               <ArrowBack />
             </IconButton>
@@ -136,7 +148,7 @@ export const AppSettings: FC = () => {
           <Hidden mdUp>
             {
               t(`settings${
-                path
+                pathname
                   .replace(/\/settings/, '')
                   .replace('/', '.') + '.'
               }title`)

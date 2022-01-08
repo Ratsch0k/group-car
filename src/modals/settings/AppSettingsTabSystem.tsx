@@ -29,7 +29,7 @@ const ChangeLanguage = () => {
   }, [i18n]);
 
   return (
-    <FormControl variant='outlined'>
+    <FormControl variant='outlined' id='settings-system-tab-content'>
       <InputLabel
         id='settings-change-lang-label'
       >

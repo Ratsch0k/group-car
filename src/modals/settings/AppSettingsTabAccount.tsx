@@ -80,7 +80,11 @@ export const AppSettingsTabAccount: FC<SettingsTabContentProps<string>> = (
   const {t} = useTranslation();
 
   return (
-    <SettingsTabContent index={index} value={value}>
+    <SettingsTabContent
+      index={index}
+      value={value}
+      id='settings-account-tab-content'
+    >
       <Container maxWidth='md'>
         <UserAvatar
           userId={user && user.id}

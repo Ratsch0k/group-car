@@ -5,6 +5,7 @@ import {GroupCarTheme} from '../../theme';
 export interface SettingsTabContentProps<D> {
   index: D;
   value: D;
+  id?: string;
 }
 
 const useStyles = makeStyles((theme: GroupCarTheme) =>
@@ -22,7 +23,7 @@ export const SettingsTabContent: FC<SettingsTabContentProps<unknown>> = (
   const classes = useStyles();
 
   return (
-    <Box className={classes.root}>
+    <Box className={classes.root} id={props.id}>
       {props.children}
     </Box>
   );

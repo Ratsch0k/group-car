@@ -16,6 +16,7 @@ export interface SettingsTabProps<D> {
   dense?: boolean;
   value: D;
   open: (index: D) => void;
+  id: string;
 }
 
 const useStyles = makeStyles((theme: GroupCarTheme) =>
@@ -36,7 +37,7 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
 );
 
 export const SettingsTab: FC<SettingsTabProps<unknown>> = (props) => {
-  const {children, icon, index, dense, open, value} = props;
+  const {children, icon, index, dense, open, value, id} = props;
   const classes = useStyles();
 
   return (
@@ -46,6 +47,7 @@ export const SettingsTab: FC<SettingsTabProps<unknown>> = (props) => {
       className={clsx(classes.root, {[classes.rootSelected]: value === index})}
       color='primary'
       dense={dense}
+      id={id}
     >
       <ListItemIcon style={{color: 'inherit'}}>
         {icon}
