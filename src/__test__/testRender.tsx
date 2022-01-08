@@ -27,6 +27,10 @@ const generateClassName = (rule, stylesheet) => {
   return `${stylesheet.options.classNamePrefix}-${rule.key}`;
 };
 
+export interface TestRenderOptions {
+  width?: string;
+}
+
 
 /**
  * Render function for testing purposes.
@@ -35,14 +39,17 @@ const generateClassName = (rule, stylesheet) => {
  * @param children The children to render
  * @returns The result of the render function.
  */
-function testRender(state: Partial<RootState>, children: React.ReactNode):
-RenderResult & TestRenderResult {
+function testRender(
+  state: Partial<RootState>,
+  children: React.ReactNode,
+  options?: TestRenderOptions,
+): RenderResult & TestRenderResult {
   const store = mockStore(state);
 
   const renderResult = render(
     <Provider store={store}>
       <ConnectedRouter history={history}>
-        <ThemeProvider theme={testTheme}>
+        <ThemeProvider theme={testTheme(options && options.width)}>
           <StylesProvider generateClassName={generateClassName}>
             {children}
           </StylesProvider>

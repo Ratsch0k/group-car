@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppSettingsTabAccount renders correctly 1`] = `
+<body>
+  <div>
+    <div
+      class="MuiBox-root MuiBox-root makeStyles-root"
+    >
+      <div
+        class="MuiFormControl-root"
+        id="settings-system-tab-content"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-filled"
+          data-shrink="true"
+          id="settings-change-lang-label"
+        >
+          settings.system.language
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-formControl MuiInputBase-marginDense MuiOutlinedInput-marginDense"
+        >
+          <div
+            aria-haspopup="listbox"
+            aria-labelledby="settings-change-lang-label settings-change-lang"
+            class="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense"
+            id="settings-change-lang"
+            role="button"
+            tabindex="0"
+          >
+            lang.de
+          </div>
+          <input
+            aria-hidden="true"
+            class="MuiSelect-nativeInput"
+            tabindex="-1"
+            value="de"
+          />
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSelect-icon MuiSelect-iconOutlined"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7 10l5 5 5-5z"
+            />
+          </svg>
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled PrivateNotchedOutline-legendNotched"
+            >
+              <span>
+                settings.system.language
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+        <p
+          class="MuiFormHelperText-root MuiFormHelperText-contained MuiFormHelperText-filled"
+        />
+      </div>
+      <p
+        class="MuiTypography-root MuiTypography-body1"
+      >
+        <b>
+          versions.frontend
+          :
+           
+        </b>
+        1.0
+      </p>
+      <div
+        class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+        role="progressbar"
+        style="width: 2rem; height: 2rem;"
+      >
+        <svg
+          class="MuiCircularProgress-svg"
+          viewBox="22 22 44 44"
+        >
+          <circle
+            class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+            cx="44"
+            cy="44"
+            fill="none"
+            r="20.2"
+            stroke-width="3.6"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</body>
+`;
