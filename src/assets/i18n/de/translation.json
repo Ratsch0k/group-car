@@ -10,7 +10,8 @@
     "isRequested": "Zurzeit ist es nicht möglich ein Benutzerkonto direkt anzulegen. Ihre Anfrage wird überprüft und falls sie genehmigt wird, erhalten Sie eine Email."
   },
   "user": {
-    "invites": "Einladungen"
+    "invites": "Einladungen",
+    "settings": "Einstellungen"
   },
   "form": {
     "login": "Anmelden",
@@ -116,6 +117,17 @@
       "empty": "Du hast keine Einladungen"
     }
   },
+  "settings": {
+    "title": "Einstellungen",
+    "system": {
+      "title": "System",
+      "language": "Sprache"
+    },
+    "account": {
+      "title": "Konto",
+      "createdAt": "Erstellt am"
+    }
+  },
   "errors": {
     "socketConnection": "Realtime Updates konnten nicht initialisiert werden. Um Updates über die Gruppe zu erhalten müssen sie die Seite neuladen",
     "NotLoggedInError": "Du bist nicht angemeldet",
@@ -124,6 +136,8 @@
   },
   "misc": {
     "or": "oder",
+    "email": "Email",
+    "username": "Benutzername",
     "loading": "Lade",
     "admin": "Admin",
     "owner": "Besitzer",
@@ -586,5 +600,9 @@
     "frontend": "UI",
     "backend": "Server",
     "error": "Konnte Versionen vom Server nicht ermitteln"
+  },
+  "lang": {
+    "en": "Englisch",
+    "de": "Deutsch"
   }
 }

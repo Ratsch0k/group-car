@@ -10,5 +10,5 @@ export interface User {
   isBetaUser: boolean;
   createdAt: Date;
   updatedAt: Date;
-  deletedAt: Date;
+  deletedAt?: Date;
 }

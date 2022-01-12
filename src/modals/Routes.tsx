@@ -11,7 +11,8 @@ import {
   closeModal,
   getModalLocation,
 } from 'lib/redux/slices/modalRouter/modalRouterSlice';
-import {Versions} from './versions';
+import Versions from './versions';
+import Settings from './settings';
 
 export const Routes: React.FC = () => {
   const modalLocation = useShallowAppSelector(getModalLocation);
@@ -39,6 +40,9 @@ export const Routes: React.FC = () => {
       </Route>
       <Route path='/versions'>
         <Versions />
+      </Route>
+      <Route path='/settings'>
+        <Settings />
       </Route>
     </Switch>
   );

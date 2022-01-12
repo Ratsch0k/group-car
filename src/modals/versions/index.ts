@@ -1,1 +1,2 @@
-export * from './versions';
+export * from './Versions';
+export {default} from './Versions';
