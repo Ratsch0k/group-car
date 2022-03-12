@@ -29,7 +29,8 @@
       "usernameToShort": "Benutzername muss mindestens ${min} zeichen enthalten",
       "tooLong": "Darf nur maximal {{max}} Zeichen enthalten",
       "tooShort": "Muss mindestens {{min}} Zeichen enthalten",
-      "alreadyInUse": "Wird schon benutzt"
+      "alreadyInUse": "Wird schon benutzt",
+      "notNew": "Muss neu sein"
     },
     "profilePicture": {
       "alt": "Profil Bild",
@@ -125,7 +126,13 @@
     },
     "account": {
       "title": "Konto",
-      "createdAt": "Erstellt am"
+      "createdAt": "Erstellt am",
+      "userInfo": "Benutzerinformationen",
+      "security": {
+        "title": "Sicherheit",
+        "changePassword": "Ändere Passwort",
+        "successfullyChangedPassword": "Passwort wurde erfolgreich geändert"
+      }
     }
   },
   "errors": {
@@ -138,6 +145,11 @@
     "or": "oder",
     "email": "Email",
     "username": "Benutzername",
+    "password": "Passwort",
+    "currentPassword": "Aktuelles Passwort",
+    "newPassword": "Neues Passwort",
+    "confirmNewPassword": "Bestätige neues Password",
+    "edit": "Ändern",
     "loading": "Lade",
     "admin": "Admin",
     "owner": "Besitzer",
@@ -153,6 +165,7 @@
     "available": "Verfügbar",
     "confirm": "Bestätigen",
     "cancel": "Abbrechen",
+    "createdAt": "Erstellt am",
     "color": {
       "Red": "Rot",
       "Black": "Schwarz",
@@ -196,7 +209,7 @@
       },
       {
         "tag": "p",
-        "content": "Die Datenverarbeitung auf dieser Websiteerfolgt durch den Websitebetreiber. Dessen Kontaktdaten k&ouml;nnen Sie dem Impressum dieser Website entnehmen."
+        "content": "Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten k&ouml;nnen Sie dem Impressum dieser Website entnehmen."
       },
       {
         "tag": "p",

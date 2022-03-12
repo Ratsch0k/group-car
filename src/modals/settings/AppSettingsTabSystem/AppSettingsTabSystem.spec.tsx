@@ -1,9 +1,9 @@
-import "../../__test__/mockAxios";
-import {RootState} from "../../lib/redux/store";
-import testRender from "../../__test__/testRender";
+import "../../../__test__/mockAxios";
+import {RootState} from "../../../lib/redux/store";
+import testRender from "../../../__test__/testRender";
 import AppSettingsTabSystem from "./AppSettingsTabSystem";
-import mockedAxios from "../../__test__/mockAxios";
-import config from '../../config/index';
+import mockedAxios from "../../../__test__/mockAxios";
+import config from '../../../config/index';
 
 jest.mock('react-i18next', () => ({
   useTranslation: () => {

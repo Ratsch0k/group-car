@@ -1,10 +1,11 @@
-import "../../__test__/mockAxios";
-import {RootState} from "../../lib/redux/store";
-import testRender from "../../__test__/testRender";
+import "../../../__test__/mockAxios";
+import {RootState} from "../../../lib/redux/store";
+import testRender from "../../../__test__/testRender";
 import AppSettingsTabAccount from "./AppSettingsTabAccount";
 
 describe('AppSettingsTabAccount', () => {
   let state: Partial<RootState>;
+  let resizeObserverMock;
 
   beforeEach(() => {
     state = {
@@ -18,6 +19,13 @@ describe('AppSettingsTabAccount', () => {
         }
       }
     }
+
+    resizeObserverMock = jest.fn().mockImplementation(() => ({
+      observe: jest.fn(),
+      disconnect: jest.fn(),
+    }));
+    window.ResizeObserver = resizeObserverMock;
+
   });
 
   it('renders correctly', () => {

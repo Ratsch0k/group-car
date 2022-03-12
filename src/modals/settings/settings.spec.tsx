@@ -11,6 +11,7 @@ import {CALL_HISTORY_METHOD} from "connected-react-router";
 describe('Settings modal', () => {
   let state: Partial<RootState>;
   let user: User;
+  let resizeObserverMock;
 
   beforeEach(() => {
     user = {
@@ -20,6 +21,12 @@ describe('Settings modal', () => {
       createdAt: new Date(),
       updatedAt: new Date(),
     };
+
+    resizeObserverMock = jest.fn().mockImplementation(() => ({
+      observe: jest.fn(),
+      disconnect: jest.fn(),
+    }));
+    window.ResizeObserver = resizeObserverMock;
 
     history.location.pathname = '/settings';
     history.push('/settings');
@@ -83,7 +90,7 @@ describe('Settings modal', () => {
     expect(baseElement).toMatchSnapshot();
   });
 
-  it('clicking on account opens account page', () => {
+  it('clicking on AppSettingsTabAccount opens AppSettingsTabAccount page', () => {
     const {store, queryByText} = testRender(
       state,
       <Route path='/settings'>
@@ -109,7 +116,7 @@ describe('Settings modal', () => {
     expect(store.getActions()).toContainEqual(expectedAction);
   });
 
-  it('clicking on system opens system page', () => {
+  it('clicking on AppSettingsTabSystem opens AppSettingsTabSystem page', () => {
     const {store, queryByText} = testRender(
       state,
       <Route path='/settings'>
@@ -167,7 +174,7 @@ describe('Settings modal', () => {
   it(
     'clicking back after navigating to page navigates back by going back in history',
     () => {
-      const {baseElement, store, queryByText, debug} = testRender(
+      const {baseElement, store, queryByText} = testRender(
         state,
         <Route path='/settings'>
           <AppSettings />
