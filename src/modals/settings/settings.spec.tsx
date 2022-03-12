@@ -20,6 +20,7 @@ describe('Settings modal', () => {
       email: 'test@mail.com',
       createdAt: new Date(),
       updatedAt: new Date(),
+      isBetaUser: false,
     };
 
     resizeObserverMock = jest.fn().mockImplementation(() => ({
@@ -144,7 +145,7 @@ describe('Settings modal', () => {
 
   it('clicking back navigates back by replacing history', () => {
     history.push('/settings/account');
-    state.router.location.pathname = '/settings/account';
+    state.router!.location.pathname = '/settings/account';
 
     const {baseElement, store} = testRender(
       state,
