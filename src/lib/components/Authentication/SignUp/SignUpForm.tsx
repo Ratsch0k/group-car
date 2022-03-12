@@ -7,6 +7,7 @@ import GenerateProfilePic from './GenerateProfilePic/GenProfilePic';
 import {ProgressButton, PasswordTextField} from 'lib';
 import {FormTextField} from 'lib/components/Input';
 import {useComponentIsMounted} from 'lib/hooks';
+import {username, email, password} from '../../../validators';
 
 export interface SignUpFormProps {
   withSubmit?: boolean;
@@ -27,13 +28,9 @@ export const SignUpForm: React.FC<SignUpFormProps> =
   const isMounted = useComponentIsMounted();
 
   const validationSchema = yup.object({
-    username: yup.string().required(t('form.error.required'))
-      .min(3, t('form.error.usernameToShort'))
-      .matches(/^(\S)*$/, {message: t('form.error.usernameWhitespace')}),
-    email: yup.string().email(t('form.error.invalidEmail'))
-      .required(t('form.error.required')),
-    password: yup.string().min(6, t('form.error.atLeast6'))
-      .required(t('form.error.required')),
+    username,
+    email,
+    password,
   });
 
   const formik = useFormik({
