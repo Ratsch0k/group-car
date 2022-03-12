@@ -1,7 +1,7 @@
 {
   "name": "group-car",
   "version": "0.8.0",
-  "proxy": "http://localhost:8080",
+  "proxy": "http://localhost:8000",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.2",
