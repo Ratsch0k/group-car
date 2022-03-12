@@ -2,28 +2,10 @@ import React, {useState} from 'react';
 import {InputAdornment, IconButton} from '@material-ui/core';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
-import FormTextField from '../FormTextField';
-import {Formik} from 'typings';
+import FormTextField, {FormTextFieldProps} from '../FormTextField';
 
-type TextFieldProps = import('@material-ui/core').TextFieldProps;
-
-export interface PasswordTextFieldProps {
-  value?: string;
-  onChange?(arg0: React.ChangeEvent<HTMLInputElement>): void;
-  size?: TextFieldProps['size'];
-  variant?: TextFieldProps['variant'];
-  id?: string;
-  label?: string;
-  error?: boolean;
-  name?: string;
-  helperText?: string;
-  fullWidth?: boolean;
-  onBlur?: TextFieldProps['onBlur'];
-  formik?: Formik;
-}
-
-export const PasswordTextField: React.FC<PasswordTextFieldProps> =
-  (props: PasswordTextFieldProps) => {
+export const PasswordTextField =
+  (props: FormTextFieldProps): JSX.Element => {
     const {
       label = 'Password *',
       size = 'small',
@@ -44,6 +26,7 @@ export const PasswordTextField: React.FC<PasswordTextFieldProps> =
         label={label}
         type={showPassword ? 'text' : 'password'}
         data-testid='textfield'
+        size={size}
         InputProps={{
           endAdornment: (
             <InputAdornment position='end'>
