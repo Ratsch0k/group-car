@@ -1,3 +1,5 @@
+import './mockAxios';
+import './mockI18n';
 import React from 'react';
 import {render, RenderResult} from '@testing-library/react';
 import {ConnectedRouter} from 'connected-react-router';
@@ -10,7 +12,6 @@ import {
 } from 'redux-mock-store';
 import {RootState} from '../lib/redux/store';
 import mockStore from './mockStore';
-
 
 export interface TestRenderResult {
   store: MockStoreEnhanced<unknown>;
@@ -36,7 +37,9 @@ export interface TestRenderOptions {
  * Render function for testing purposes.
  * Provides the necessary base components and
  * contexts.
+ * @param state Redux state
  * @param children The children to render
+ * @param options Additional options
  * @returns The result of the render function.
  */
 function testRender(

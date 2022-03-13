@@ -2,7 +2,7 @@ import mockedAxios from '../../../__test__/mockAxios';
 import { fireEvent, waitFor, screen } from "@testing-library/react";
 import ManageGroup from "./ManageGroup";
 import React from "react";
-import { SnackbarContext, CarColor, GroupWithOwnerAndMembersAndInvitesAndCars, User, Member, InviteWithUserAndInviteSender, CarWithDriver, Car} from '../../../lib';
+import { SnackbarContext, CarColor, GroupWithOwnerAndMembersAndInvitesAndCars, User, Member, InviteWithUserAndInviteSender, CarWithDriver} from '../../../lib';
 import { MemoryRouter, Route, Switch } from "react-router-dom";
 import userEvent from '@testing-library/user-event';
 import testRender from "../../../__test__/testRender";
@@ -180,7 +180,7 @@ it('renders circular progress while loading group data',() => {
   state.group.loading = true;
   state.group.selectedGroup = null;
 
-  const screen = testRender (
+  const screen = testRender(
     state,
     <ManageGroup groupId={1}/>
   );
@@ -794,7 +794,7 @@ describe('CarTab', () => {
       show: jest.fn(),
     };
   
-    const {baseElement, store} = testRender (
+    const {baseElement} = testRender (
       state,
       <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
         <ManageGroup groupId={2}/>
