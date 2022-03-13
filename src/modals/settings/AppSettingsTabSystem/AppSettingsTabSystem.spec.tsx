@@ -5,18 +5,6 @@ import AppSettingsTabSystem from "./AppSettingsTabSystem";
 import mockedAxios from "../../../__test__/mockAxios";
 import config from '../../../config/index';
 
-jest.mock('react-i18next', () => ({
-  useTranslation: () => {
-    return {
-      t: (str: string) => str,
-      i18n: {
-        languages: ['de', 'en'],
-        language: 'de',
-      }
-    };
-  },
-}));
-
 describe('AppSettingsTabAccount', () => {
   let state: Partial<RootState>;
 
