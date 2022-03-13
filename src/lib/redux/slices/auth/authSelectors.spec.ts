@@ -1,6 +1,6 @@
 import {configureStore, EnhancedStore} from '@reduxjs/toolkit';
-import reducer, {AuthState, setSignUpRequestSent, setUser} from './authSlice';
-import {User} from '../../../../typings/auth';
+import reducer, {setSignUpRequestSent, setUser} from './authSlice';
+import {User} from '../../../../typings';
 import {
   getAuthState,
   getIsLoading,
