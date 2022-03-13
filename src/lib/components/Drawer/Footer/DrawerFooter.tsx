@@ -49,7 +49,7 @@ export const DrawerFooter: React.FC<DrawerFooterProps> =
       className={clsx(props.className, classes.paper)}
     >
       <Container className={classes.container}>
-        <Grid container justify='space-evenly'>
+        <Grid container justifyContent='space-evenly'>
           <Grid item>
             <Link component='button' onClick={
               () => dispatch(goToModal('/privacy-policy'))

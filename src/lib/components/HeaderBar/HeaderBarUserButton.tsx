@@ -95,7 +95,7 @@ export const HeaderBarUserButton: React.FC = () => {
             badgeContent={invites.length}
             max={9}
             color='secondary'
-            overlap='circle'
+            overlap='circular'
           >
             <UserAvatar
               userId={userId}
