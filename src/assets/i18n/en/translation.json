@@ -27,7 +27,8 @@
       "invalidEmail": "Invalid email",
       "usernameWhitespace": "Whitespace not allowed",
       "usernameToShort": "Username has to be at least ${min} characters long",
-      "alreadyInUse": "Already in use"
+      "alreadyInUse": "Already in use",
+      "notNew": "Has to be new"
     },
     "profilePicture": {
       "alt": "profile picture",
@@ -123,7 +124,13 @@
     },
     "account": {
       "title": "Account",
-      "createdAt": "Created at"
+      "createdAt": "Created at",
+      "userInfo": "User information",
+      "security": {
+        "title": "Security",
+        "changePassword": "Change password",
+        "successfullyChangedPassword": "Successfully changed password"
+      }
     }
   },
   "errors": {
@@ -140,6 +147,12 @@
     "you": "You",
     "invitedBy": "Invited by {{by}}",
     "accept": "Accept",
+    "password": "Password",
+    "currentPassword": "Current password",
+    "newPassword": "New password",
+    "confirmNewPassword": "Confirm new password",
+    "edit": "Edit",
+    "createdAt": "Created at",
     "delete": "Delete",
     "close": "Close",
     "yes": "Yes",
