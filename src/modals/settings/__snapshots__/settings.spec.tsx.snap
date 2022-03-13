@@ -198,7 +198,7 @@ exports[`Settings modal renders correctly for small screens 1`] = `
             class="MuiTypography-root MuiTypography-h6"
           >
             <button
-              class="MuiButtonBase-root MuiIconButton-root makeStyles-titleIcon MuiIconButton-disabled MuiButtonBase-disabled"
+              class="MuiButtonBase-root MuiIconButton-root makeStyles-titleIcon makeStyles-hidden MuiIconButton-disabled MuiButtonBase-disabled"
               disabled=""
               id="settings-back-button"
               tabindex="-1"
