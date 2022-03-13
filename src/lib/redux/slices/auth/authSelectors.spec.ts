@@ -8,27 +8,29 @@ import {
   getSignUpRequestSent,
   getUser,
 } from './authSelectors';
+import {RootState} from '../../store';
 
 describe('authSelectors', () => {
-  let store: EnhancedStore<{auth: AuthState}>;
+  let store: EnhancedStore<RootState>;
   let user: User;
 
   beforeEach(() => {
-    store = configureStore({reducer: {auth: reducer}});
+    store = configureStore(
+      {reducer: {auth: reducer}},
+    ) as EnhancedStore<RootState>;
 
     user = {
       id: 1,
       username: 'user',
       email: 'user@mail.com',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-      deletedAt: null,
+      createdAt: new Date().toUTCString(),
+      updatedAt: new Date().toUTCString(),
       isBetaUser: false,
     };
   });
 
   it('getAuthState returns complete auth state', () => {
-    const authState = getAuthState(store.getState());
+    const authState = getAuthState(store.getState() as RootState);
 
     expect(authState).toEqual({
       user: undefined,
@@ -40,7 +42,7 @@ describe('authSelectors', () => {
   it('getUser returns the user value', () => {
     store.dispatch(setUser(user));
 
-    const actualUser = getUser(store.getState());
+    const actualUser = getUser(store.getState() as RootState);
 
     expect(actualUser).toEqual(user);
   });

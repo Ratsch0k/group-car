@@ -1,8 +1,10 @@
 import '../../__test__/mockAxios';
+import '../../__test__/mockI18n';
 import React from 'react';
 import { render, waitFor, screen, fireEvent } from "@testing-library/react";
 import SnackbarProvider, { SnackbarContext, SnackbarType } from "./snackbarContext";
 import { Button } from '@material-ui/core';
+import {act} from "react-dom/test-utils";
 
 describe('show snackbar with type', () => {
   ['success', 'warning', 'error', 'info'].forEach((type) => {
@@ -10,17 +12,14 @@ describe('show snackbar with type', () => {
       describe(`${type} and withClose set to `, () => {
         it(`${withClose} is rendered correctly`, async () => {
           let renderCount = 0;
+          let showSnack: SnackbarContext['show'];
 
           const {baseElement} = render(
             <SnackbarProvider>
               <SnackbarContext.Consumer>
                 {({show}) => {
                   if (renderCount == 0) {
-                    show({
-                      type: type as SnackbarType,
-                      withClose,
-                      content: 'SNACKBAR',
-                    });
+                    showSnack = show;
                   }
                   renderCount++;
                   
@@ -32,6 +31,14 @@ describe('show snackbar with type', () => {
               </SnackbarContext.Consumer>
             </SnackbarProvider>
           );
+
+          act(() => {
+            showSnack({
+              type: type as SnackbarType,
+              withClose,
+              content: 'SNACKBAR',
+            });
+          });
 
           await waitFor(() => expect(screen.queryByText('SNACKBAR')).toBeDefined());
           
@@ -45,17 +52,14 @@ describe('show snackbar with type', () => {
 
 it('click on close closes the snackbar', async () => {
   let renderCount = 0;
+  let showSnack: SnackbarContext['show'];
 
   const {baseElement} = render(
     <SnackbarProvider>
       <SnackbarContext.Consumer>
         {({show}) => {
           if (renderCount == 0) {
-            show({
-              type: 'info',
-              withClose: true,
-              content: 'SNACKBAR',
-            });
+            showSnack = show;
           }
           renderCount++;
           
@@ -68,33 +72,33 @@ it('click on close closes the snackbar', async () => {
     </SnackbarProvider>
   );
 
+  act(() => {
+    showSnack({
+      type: 'info',
+      withClose: true,
+      content: 'SNACKBAR',
+    });
+  });
+
   await waitFor(() => expect(screen.queryByText('SNACKBAR')).toBeDefined());
   expect(baseElement.querySelector('button')).toBeDefined();
   expect(baseElement).toMatchSnapshot();
-  fireEvent.click(baseElement.querySelector('button'));
+  fireEvent.click(baseElement.querySelector('button')!);
 
-  await waitFor(() => expect(screen.queryByText('SNACKBAR')).toBeNull());
+  await waitFor(() => expect(screen.queryByRole('alert')).toBeNull());
   expect(baseElement).toMatchSnapshot();
 });
 
 it('renders action correctly', async () => {
   let renderCount = 0;
+  let showSnack: SnackbarContext['show'];
 
   const {baseElement} = render(
     <SnackbarProvider>
       <SnackbarContext.Consumer>
         {({show}) => {
           if (renderCount == 0) {
-            show({
-              type: 'info',
-              withClose: true,
-              content: 'SNACKBAR',
-              action: (
-                <Button>
-                  BUTTON
-                </Button>
-              ),
-            });
+            showSnack = show;
           }
           renderCount++;
           
@@ -106,6 +110,19 @@ it('renders action correctly', async () => {
       </SnackbarContext.Consumer>
     </SnackbarProvider>
   );
+
+  act(() => {
+    showSnack({
+      type: 'info',
+      withClose: true,
+      content: 'SNACKBAR',
+      action: (
+        <Button>
+          BUTTON
+        </Button>
+      ),
+    });
+  });
 
   await waitFor(() => expect(screen.queryByText('BUTTON')).toBeDefined());
   expect(baseElement).toMatchSnapshot();

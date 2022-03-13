@@ -68,7 +68,7 @@ describe('Settings modal', () => {
   });
 
   it('renders correctly for medium screens', () => {
-    const {baseElement} = testRender(
+    const {baseElement, store} = testRender(
       state,
       <Route path='/settings'>
         <AppSettings />

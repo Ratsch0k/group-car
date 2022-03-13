@@ -1,8 +1,17 @@
 import mockedAxios from '../../../__test__/mockAxios';
+import '../../../__test__/mockI18n';
 import { fireEvent, waitFor, screen } from "@testing-library/react";
 import ManageGroup from "./ManageGroup";
 import React from "react";
-import { SnackbarContext, CarColor, GroupWithOwnerAndMembersAndInvitesAndCars, User, Member, InviteWithUserAndInviteSender, CarWithDriver} from '../../../lib';
+import {
+  SnackbarContext,
+  CarColor,
+  GroupWithOwnerAndMembersAndInvitesAndCars,
+  User,
+  Member,
+  InviteWithUserAndInviteSender,
+  CarWithDriver,
+} from '../../../lib';
 import { MemoryRouter, Route, Switch } from "react-router-dom";
 import userEvent from '@testing-library/user-event';
 import testRender from "../../../__test__/testRender";
@@ -148,7 +157,7 @@ beforeEach(() => {
         id: 2,
         username: 'driver-1'
       },
-      carId: 2,
+      carId: 3,
       createdAt: new Date(),
       updatedAt: new Date(),
       latitude: null,

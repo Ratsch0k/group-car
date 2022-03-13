@@ -1,16 +1,17 @@
 import React from 'react';
+import testRender from '../../../__test__/testRender';
 import mockedAxios from '../../../__test__/mockAxios';
 import {render, screen, waitFor} from '@testing-library/react';
 import {ThemeProvider} from '@material-ui/core';
-import {Drawer} from '../../../lib';
+import {Drawer} from './Drawer';
 import { CarColor, CarWithDriver, GroupWithOwner, GroupWithOwnerAndCars, GroupWithOwnerAndMembersAndInvitesAndCars, User } from '../../api';
 import { MapContext, MapProvider, SnackbarContext } from '../../context';
 import { ModalContext } from '../../ModalRouter';
 import userEvent from '@testing-library/user-event';
 import { LatLng, Map } from 'leaflet';
 import theme from '../../../__test__/testTheme';
-import testRender from '../../../__test__/testRender';
 import { RootState } from '../../redux/store';
+import {act} from "react-dom/test-utils";
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -252,7 +253,7 @@ describe('if user is logged in', () => {
       <Drawer open={false} onClose={jest.fn} permanent={true}/>,
     );
 
-    userEvent.click(baseElement.querySelector(`#drive-car-${cars[0].carId}`));
+    userEvent.click(baseElement.querySelector(`#drive-car-${cars[0].carId}`)!);
     
     const expectedPendingAction = {
       type: 'group/driveCar/pending',
@@ -311,7 +312,7 @@ describe('if user is logged in', () => {
         <Drawer open={false} onClose={jest.fn} permanent={true}/>,
       );
 
-      userEvent.click(baseElement.querySelector(`#park-current-car-${cars[2].carId}`));
+      userEvent.click(baseElement.querySelector(`#park-current-car-${cars[2].carId}`)!);
 
       const expectedPendingAction = {
         type: 'group/parkCar/pending',
@@ -373,7 +374,7 @@ describe('if user is logged in', () => {
         <Drawer open={false} onClose={jest.fn} permanent={true}/>,
       );
 
-      userEvent.click(baseElement.querySelector(`#park-current-car-${cars[2].carId}`));
+      userEvent.click(baseElement.querySelector(`#park-current-car-${cars[2].carId}`)!);
 
       await waitFor(() => expect(snackContext.show).toHaveBeenCalledTimes(1));
       expect(snackContext.show).toHaveBeenCalledWith('error', 'TEST ERROR');
@@ -447,13 +448,13 @@ describe('if user is logged in', () => {
           <Drawer open={false} onClose={jest.fn} permanent={true}/>,
         );
   
-        userEvent.click(baseElement.querySelector(`#park-map-car-${cars[2].carId}`));
+        userEvent.click(baseElement.querySelector(`#park-map-car-${cars[2].carId}`)!);
   
         await waitFor(() => expect(screen.queryByText('drawer.selectLocation.title')).toBeTruthy());
   
         expect(baseElement).toMatchSnapshot();
 
-        userEvent.click(screen.queryByText('misc.cancel'));
+        userEvent.click(screen.queryByText('misc.cancel')!);
 
         await waitFor(() => expect(screen.queryByText('misc.cancel')).toBeFalsy());
 
@@ -491,11 +492,13 @@ describe('if user is logged in', () => {
 
         expect(baseElement).toMatchSnapshot();
 
-        expect(baseElement.querySelector(`#park-map-${cars[2].carId}-confirm`).getAttribute('disabled')).toEqual('');
+        expect(baseElement.querySelector(`#park-map-${cars[2].carId}-confirm`)!.getAttribute('disabled')).toEqual('');
 
-        listener({latlng: new LatLng(50, 8)});
+        act(() => {
+          listener({latlng: new LatLng(50, 8)});
+        });
 
-        await waitFor(() => expect(baseElement.querySelector(`#park-map-${cars[2].carId}-confirm`).getAttribute('disabled')).toBeFalsy());
+        await waitFor(() => expect(baseElement.querySelector(`#park-map-${cars[2].carId}-confirm`)!.getAttribute('disabled')).toBeFalsy());
       });
 
       it('clicking confirm will dispatch parkCar action for car for specified location and set selectedCar to undefined', async () => {
@@ -531,15 +534,17 @@ describe('if user is logged in', () => {
 
         expect(listener).toEqual(expect.any(Function));
 
-        expect(screen.baseElement.querySelector(`#park-map-${cars[2].carId}-confirm`).getAttribute('disabled')).toEqual('');
+        expect(screen.baseElement.querySelector(`#park-map-${cars[2].carId}-confirm`)!.getAttribute('disabled')).toEqual('');
 
         const latlng = new LatLng(50, 8);
 
-        listener({latlng});
+        act(() => {
+          listener({latlng});
+        });
 
-        await waitFor(() => expect(screen.baseElement.querySelector(`#park-map-${cars[2].carId}-confirm`).getAttribute('disabled')).toBeFalsy());
+        await waitFor(() => expect(screen.baseElement.querySelector(`#park-map-${cars[2].carId}-confirm`)!.getAttribute('disabled')).toBeFalsy());
 
-        userEvent.click(screen.baseElement.querySelector(`#park-map-${cars[2].carId}-confirm`));
+        userEvent.click(screen.baseElement.querySelector(`#park-map-${cars[2].carId}-confirm`)!);
 
         const expectedPendingAction = {
           type: 'group/parkCar/pending',
@@ -639,8 +644,8 @@ describe('if user is logged in', () => {
 
       await waitFor(() => expect(baseElement.querySelector(`#view-car-${newCars[0].carId}`)).toBeTruthy());
       expect(baseElement).toMatchSnapshot();
-      expect(baseElement.querySelector(`#view-car-${newCars[0].carId}`).getAttribute('disabled')).toEqual('');
-      expect(baseElement.querySelector(`#view-car-${newCars[1].carId}`).getAttribute('disabled')).toBeFalsy();
+      expect(baseElement.querySelector(`#view-car-${newCars[0].carId}`)!.getAttribute('disabled')).toEqual('');
+      expect(baseElement.querySelector(`#view-car-${newCars[1].carId}`)!.getAttribute('disabled')).toBeFalsy();
     });
 
     it('clicking on location button will call fly on map', async () => {
@@ -695,7 +700,7 @@ describe('if user is logged in', () => {
       );
 
       await waitFor(() => expect(baseElement.querySelector(`#view-car-${newCars[0].carId}`)).toBeTruthy());
-      userEvent.click(baseElement.querySelector(`#view-car-${newCars[0].carId}`));
+      userEvent.click(baseElement.querySelector(`#view-car-${newCars[0].carId}`)!);
 
       await waitFor(() => expect(map.flyTo).toHaveBeenCalledTimes(1));
       expect(map.flyTo).toHaveBeenCalledWith(new LatLng(newCars[0].latitude, newCars[0].longitude), 18, {duration: 1});

@@ -5,6 +5,7 @@ import ChangePassword from './ChangePassword';
 import userEvent from "@testing-library/user-event";
 import {fireEvent, waitFor} from "@testing-library/react";
 import {SnackbarContext} from "../../../../../lib";
+import {act} from "react-dom/test-utils";
 
 describe('ChangePassword', () => {
   let resizeObserverMock: jest.Mock;
@@ -93,10 +94,12 @@ describe('ChangePassword', () => {
 
     describe('if new password different than current password and password ' +
       'is confirmed', () => {
-      it('on submit button enabled', () => {
+      it('on submit button enabled', async () => {
         const {baseElement, queryByText, queryByLabelText} = testRender(
           {} as RootState,
-          <ChangePassword />,
+          <SnackbarContext.Provider value={{show: jest.fn()}}>
+            <ChangePassword />
+          </SnackbarContext.Provider>,
         );
 
         userEvent.click(queryByText('misc.edit')!);
@@ -105,6 +108,7 @@ describe('ChangePassword', () => {
         userEvent.type(queryByLabelText('misc.newPassword')!, 'newpassword');
         userEvent.type(queryByLabelText('misc.confirmNewPassword')!, 'newpassword');
 
+        await waitFor(() => expect(queryByText('settings.account.security.changePassword')!).not.toBeDisabled);
         expect(baseElement).toMatchSnapshot();
       });
 
