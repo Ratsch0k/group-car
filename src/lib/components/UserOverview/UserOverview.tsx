@@ -89,7 +89,7 @@ export const UserOverview: React.FC<UserOverviewProps> =
       <Grid
         container
         direction='column'
-        justify='flex-start'
+        justifyContent='flex-start'
         alignItems='stretch'
         spacing={1}
       >

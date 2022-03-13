@@ -127,11 +127,12 @@ export const AppSettings: FC = () => {
           value={pathname}
         />
       </Route>
-      <Hidden mdUp>
-        <Route path='/settings'>
-          {tabs}
-        </Route>
-      </Hidden>
+      {
+        !mdUp &&
+          <Route path='/settings'>
+            {tabs}
+          </Route>
+      }
     </Switch>
   );
 
@@ -182,7 +183,7 @@ export const AppSettings: FC = () => {
         <DialogContent className={classes.fullHeight}>
           <Grid
             container
-            justify='flex-start'
+            justifyContent='flex-start'
             wrap='nowrap'
             className={classes.fullHeight}
           >

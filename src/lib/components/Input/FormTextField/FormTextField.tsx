@@ -5,7 +5,7 @@ import {useTranslation} from 'react-i18next';
 import {FormikProps} from 'formik';
 
 interface FormTextFieldExtensionProps extends BaseTextFieldProps {
-  formik: Formik | FormikProps<Formik['initialValues']>;
+  formik?: Formik | FormikProps<Formik['initialValues']>;
   name: string;
 }
 

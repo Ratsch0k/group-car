@@ -61,7 +61,7 @@ export const SignUpForm: React.FC<SignUpFormProps> =
         container
         spacing={1}
         direction='column'
-        justify='flex-start'
+        justifyContent='flex-start'
         alignItems='stretch'
       >
         <Grid item>

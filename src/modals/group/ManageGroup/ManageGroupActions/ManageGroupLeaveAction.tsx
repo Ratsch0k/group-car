@@ -4,7 +4,7 @@ import {
   DialogActions,
   DialogContent,
   DialogContentText,
-  DialogTitle,
+  DialogTitle, ModalProps,
 } from '@material-ui/core';
 import {red} from '@material-ui/core/colors';
 import {makeStyles} from '@material-ui/styles';
@@ -12,7 +12,7 @@ import {unwrapResult} from '@reduxjs/toolkit';
 import {ProgressButton, useSnackBar} from 'lib';
 import {useAppDispatch} from 'lib/redux/hooks';
 import {leaveGroup} from 'lib/redux/slices/group';
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {useHistory} from 'react-router-dom';
 
@@ -64,6 +64,15 @@ export const ManageGroupLeaveAction: React.FC<ManageGroupLeaveActionProps> =
     setOpen(true);
   };
 
+  const handleOnClose: ModalProps['onClose'] = useCallback((
+    _event,
+    reason,
+  ) => {
+    if (reason === 'backdropClick') {
+      setOpen(false);
+    }
+  }, []);
+
   return (
     <>
       <Button
@@ -74,7 +83,7 @@ export const ManageGroupLeaveAction: React.FC<ManageGroupLeaveActionProps> =
       >
         {t('modals.group.manage.leaveGroup.button')}
       </Button>
-      <Dialog open={open} onBackdropClick={() => setOpen(false)}>
+      <Dialog open={open} onClose={handleOnClose}>
         <DialogTitle>
           {t('modals.group.manage.leaveGroup.dialog.title')}
         </DialogTitle>

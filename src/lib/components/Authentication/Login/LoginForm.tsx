@@ -53,7 +53,7 @@ export const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps) => {
         container
         spacing={1}
         direction='column'
-        justify='flex-start'
+        justifyContent='flex-start'
         alignItems='stretch'>
         <Grid item xs={12}>
           <FormTextField

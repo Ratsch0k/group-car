@@ -97,7 +97,7 @@ export const GenerateProfilePic: React.FC<GenerateProfilePicProps> =
     <Grid
       container
       direction='column'
-      justify='space-around'
+      justifyContent='space-around'
       alignItems='center'
     >
       <Grid
