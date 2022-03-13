@@ -5,6 +5,7 @@ import reducer, {
   setSignUpRequestSent,
   setUser,
 } from './authSlice';
+import {User} from '../../../../typings';
 
 describe('authReducer', () => {
   let store: EnhancedStore<{auth: AuthState}>;
@@ -21,10 +22,10 @@ describe('authReducer', () => {
         id: 1,
         username: 'user',
         email: 'user@mail.com',
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        createdAt: new Date().toUTCString(),
+        updatedAt: new Date().toUTCString(),
         isBetaUser: false,
-      };
+      } as User;
       store.dispatch(setUser(user));
 
       expect(store.getState().auth.user).toEqual(user);
@@ -37,10 +38,10 @@ describe('authReducer', () => {
         id: 1,
         username: 'user',
         email: 'user@mail.com',
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        createdAt: new Date().toUTCString(),
+        updatedAt: new Date().toUTCString(),
         isBetaUser: false,
-      };
+      } as User;
       store.dispatch(setUser(user));
       store.dispatch(setSignUpRequestSent(true));
 

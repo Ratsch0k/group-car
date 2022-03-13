@@ -3,13 +3,13 @@ import {
   Dialog,
   DialogContent,
   Divider,
-  List,
+  List, ModalProps,
   Theme,
   Typography,
 } from '@material-ui/core';
 import {createStyles, makeStyles} from '@material-ui/styles';
 import {CloseableDialogTitle} from 'lib';
-import React, {useEffect} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import {useTranslation} from 'react-i18next';
 import {useAppDispatch, useShallowAppSelector} from 'lib/redux/hooks';
 import {closeModal} from 'lib/redux/slices/modalRouter/modalRouterSlice';
@@ -47,6 +47,12 @@ export const Invites: React.FC = () => {
     // eslint-disable-next-line
   }, []);
 
+  const handleOnClose: ModalProps['onClose'] = useCallback((_event, reason) => {
+    if (reason === 'backdropClick') {
+      dispatch(closeModal());
+    }
+  }, []);
+
   let content: JSX.Element;
   if (invites.length > 0) {
     content = (
@@ -81,7 +87,7 @@ export const Invites: React.FC = () => {
       open={true}
       fullWidth
       maxWidth='sm'
-      onBackdropClick={() => dispatch(closeModal())}
+      onClose={handleOnClose}
     >
       <CloseableDialogTitle close={() => dispatch(closeModal())}>
         {t('modals.invites.title')}

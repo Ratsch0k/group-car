@@ -1,5 +1,6 @@
 import React from 'react';
 import mockedAxios from '../../../__test__/mockAxios';
+import '../../../__test__/mockI18n';
 import {fireEvent, screen, waitFor} from '@testing-library/react';
 import UserOverview from './UserOverview';
 import testRender from '../../../__test__/testRender';

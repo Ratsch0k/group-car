@@ -1,4 +1,4 @@
-import React, {FC, useCallback, useState} from 'react';
+import React, {FC, useCallback, useEffect, useState} from 'react';
 import {
   AutoFullscreenDialog,
   CloseableDialogTitle,
@@ -12,7 +12,14 @@ import {
 import {useTranslation} from 'react-i18next';
 import {
   createStyles,
-  DialogContent, Divider, Grid, Hidden, IconButton, makeStyles,
+  DialogContent,
+  Divider,
+  Grid,
+  Hidden,
+  IconButton,
+  makeStyles,
+  useMediaQuery,
+  useTheme,
 } from '@material-ui/core';
 import {
   SettingsTabs,
@@ -26,10 +33,14 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import {Route, Switch, useLocation, useRouteMatch} from 'react-router-dom';
 import AppSettingsTabAccount from './AppSettingsTabAccount';
 import {goBack} from 'connected-react-router';
+import clsx from 'clsx';
 
 const useStyles = makeStyles((theme: GroupCarTheme) => createStyles({
   titleIcon: {
     marginLeft: -12,
+  },
+  hidden: {
+    opacity: 0,
   },
   bigSide: {
     flexGrow: 0,
@@ -57,6 +68,14 @@ export const AppSettings: FC = () => {
   const {path} = useRouteMatch();
   const [hasNavigated, setHasNavigated] = useState<boolean>(false);
   const {pathname} = useLocation();
+  const theme = useTheme();
+  const mdUp = useMediaQuery(theme.breakpoints.up('md'));
+
+  useEffect(() => {
+    if (mdUp && pathname === '/settings') {
+      dispatch(goToModal('/settings/account', true));
+    }
+  }, [mdUp, pathname]);
 
   const open = useCallback((path: string) => {
     setHasNavigated(true);
@@ -108,11 +127,12 @@ export const AppSettings: FC = () => {
           value={pathname}
         />
       </Route>
-      <Hidden mdUp>
-        <Route path='/settings'>
-          {tabs}
-        </Route>
-      </Hidden>
+      {
+        !mdUp &&
+          <Route path='/settings'>
+            {tabs}
+          </Route>
+      }
     </Switch>
   );
 
@@ -136,7 +156,12 @@ export const AppSettings: FC = () => {
             <IconButton
               onClick={() => back()}
               disabled={pathname === '/settings'}
-              className={classes.titleIcon}
+              className={
+                clsx(
+                  classes.titleIcon,
+                  {[classes.hidden]: pathname === '/settings'},
+                )
+              }
               id='settings-back-button'
             >
               <ArrowBack />
@@ -158,7 +183,7 @@ export const AppSettings: FC = () => {
         <DialogContent className={classes.fullHeight}>
           <Grid
             container
-            justify='flex-start'
+            justifyContent='flex-start'
             wrap='nowrap'
             className={classes.fullHeight}
           >

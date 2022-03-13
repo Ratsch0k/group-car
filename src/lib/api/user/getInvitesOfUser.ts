@@ -1,5 +1,5 @@
-import Axios, {AxiosInstance} from 'axios';
 import {Request, InviteWithGroupAndInviteSender} from '..';
+import axios from 'axios';
 
 /**
  * Response of get invites of users request.
@@ -16,10 +16,7 @@ export type GetInvitesOfUser = () => GetInvitesOfUserRequest;
 
 /**
  * Gets all invites of the currently logged in user.
- * @param axios Optional axios instance
  */
-export const getInvitesOfUser: GetInvitesOfUser = (
-  axios: AxiosInstance = Axios,
-) => {
+export const getInvitesOfUser: GetInvitesOfUser = () => {
   return axios.get<GetInvitesOfUserResponse>('/api/user/invite');
 };

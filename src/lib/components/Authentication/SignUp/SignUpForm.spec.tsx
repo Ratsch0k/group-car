@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../../../__test__/mockI18n';
 import ReactDOM from 'react-dom';
 import SignUpForm from './SignUpForm';
 

@@ -220,7 +220,7 @@ exports[`CarTab cars tab is rendered correctly 1`] = `
                     </li>
                     <li
                       class="MuiListItem-root MuiListItem-gutters"
-                      id="car-tab-2"
+                      id="car-tab-3"
                     >
                       <div
                         class="MuiListItemAvatar-root"
@@ -936,7 +936,7 @@ exports[`CarTab color selection only shows not used color 1`] = `
                     </li>
                     <li
                       class="MuiListItem-root MuiListItem-gutters"
-                      id="car-tab-2"
+                      id="car-tab-3"
                     >
                       <div
                         class="MuiListItemAvatar-root"

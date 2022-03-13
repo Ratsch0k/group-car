@@ -1,12 +1,13 @@
 import React from 'react';
+import '../../../__test__/mockI18n';
 import {waitFor} from '@testing-library/react';
 import GroupProvider, { GroupUpdater } from './GroupUpdater';
 import { CarColor } from '../../api';
 import {SnackbarContext} from '../../context/snackbarContext';
 import io from 'socket.io-client';
 import testRender from '../../../__test__/testRender';
-import '../../../__test__/mockI18n';
 import { CALL_HISTORY_METHOD } from 'connected-react-router';
+import {act} from "react-dom/test-utils";
 
 jest.mock('socket.io-client');
 
@@ -208,7 +209,9 @@ it('dispatch update action if user logged in', async () => {
       expect(socketMock.on).toHaveBeenCalledWith('error', expect.any(Function));
 
       // Simulate error event
-      errorEventFn();
+      act(() => {
+        errorEventFn();
+      })
 
       await waitFor(() => expect(snackContext.show).toHaveBeenCalledTimes(1));
       expect(snackContext.show).toHaveBeenCalledWith('error', 'errors.socketConnection');
@@ -256,7 +259,9 @@ it('dispatch update action if user logged in', async () => {
       expect(socketMock.on).toHaveBeenCalledWith('connect_error', expect.any(Function));
 
       // Simulate error event
-      errorEventFn();
+      act(() => {
+        errorEventFn();
+      });
 
       await waitFor(() => expect(snackContext.show).toHaveBeenCalledTimes(1));
       expect(snackContext.show).toHaveBeenCalledWith('error', 'errors.socketConnection');

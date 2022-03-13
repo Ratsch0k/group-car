@@ -147,7 +147,76 @@ exports[`Settings modal renders correctly for medium screens 1`] = `
             </div>
             <div
               class="MuiGrid-root makeStyles-contents MuiGrid-item"
-            />
+            >
+              <ul
+                class="MuiList-root MuiList-padding"
+              >
+                <div
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiListItem-root makeStyles-root MuiListItem-gutters MuiListItem-button"
+                  color="primary"
+                  id="settings-account-tab"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    class="MuiListItemIcon-root"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      settings.account.title
+                    </span>
+                  </div>
+                </div>
+                <div
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiListItem-root makeStyles-root MuiListItem-gutters MuiListItem-button"
+                  color="primary"
+                  id="settings-system-tab"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    class="MuiListItemIcon-root"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      settings.system.title
+                    </span>
+                  </div>
+                </div>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -198,7 +267,7 @@ exports[`Settings modal renders correctly for small screens 1`] = `
             class="MuiTypography-root MuiTypography-h6"
           >
             <button
-              class="MuiButtonBase-root MuiIconButton-root makeStyles-titleIcon MuiIconButton-disabled MuiButtonBase-disabled"
+              class="MuiButtonBase-root MuiIconButton-root makeStyles-titleIcon makeStyles-hidden MuiIconButton-disabled MuiButtonBase-disabled"
               disabled=""
               id="settings-back-button"
               tabindex="-1"
@@ -479,7 +548,76 @@ exports[`Settings modal renders correctly on large screens 1`] = `
             </div>
             <div
               class="MuiGrid-root makeStyles-contents MuiGrid-item"
-            />
+            >
+              <ul
+                class="MuiList-root MuiList-padding"
+              >
+                <div
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiListItem-root makeStyles-root MuiListItem-gutters MuiListItem-button"
+                  color="primary"
+                  id="settings-account-tab"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    class="MuiListItemIcon-root"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      settings.account.title
+                    </span>
+                  </div>
+                </div>
+                <div
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiListItem-root makeStyles-root MuiListItem-gutters MuiListItem-button"
+                  color="primary"
+                  id="settings-system-tab"
+                  role="button"
+                  tabindex="0"
+                >
+                  <div
+                    class="MuiListItemIcon-root"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="MuiListItemText-root"
+                  >
+                    <span
+                      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock"
+                    >
+                      settings.system.title
+                    </span>
+                  </div>
+                </div>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

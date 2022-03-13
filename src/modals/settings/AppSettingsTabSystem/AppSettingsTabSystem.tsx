@@ -4,11 +4,11 @@ import React, {
   useCallback,
   useState,
 } from 'react';
-import {VersionsOverview} from '../../lib/components/VersionsOverview';
+import {VersionsOverview} from '../../../lib/components/VersionsOverview';
 import {
   SettingsTabContent,
   SettingsTabContentProps,
-} from '../../lib/components/Settings';
+} from '../../../lib/components/Settings';
 import {
   FormControl,
   FormHelperText,

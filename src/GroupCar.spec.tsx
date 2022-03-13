@@ -1,6 +1,6 @@
 import React from 'react';
-import GroupCar from './GroupCar';
 import testRender from './__test__/testRender';
+import GroupCar from './GroupCar';
 
 it('renders without crashing', () => {
 

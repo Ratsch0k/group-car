@@ -1,10 +1,12 @@
-import "../../__test__/mockAxios";
-import {RootState} from "../../lib/redux/store";
-import testRender from "../../__test__/testRender";
+import "../../../__test__/mockAxios";
+import {RootState} from "../../../lib/redux/store";
+import testRender from "../../../__test__/testRender";
 import AppSettingsTabAccount from "./AppSettingsTabAccount";
+import {AuthState} from "../../../lib/redux/slices/auth";
 
 describe('AppSettingsTabAccount', () => {
   let state: Partial<RootState>;
+  let resizeObserverMock;
 
   beforeEach(() => {
     state = {
@@ -15,9 +17,17 @@ describe('AppSettingsTabAccount', () => {
           email: 'test@mail.com',
           createdAt: new Date('December 17, 2020 03:24:00'),
           updatedAt: new Date('December 17, 2020 03:24:00'),
+          isBetaUser: false,
         }
-      }
+      } as AuthState,
     }
+
+    resizeObserverMock = jest.fn().mockImplementation(() => ({
+      observe: jest.fn(),
+      disconnect: jest.fn(),
+    }));
+    window.ResizeObserver = resizeObserverMock;
+
   });
 
   it('renders correctly', () => {

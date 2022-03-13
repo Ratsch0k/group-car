@@ -6,6 +6,7 @@ import { MapContext } from "../../lib";
 import MapComponent from './Map';
 import testRender from '../../__test__/testRender';
 import { RootState } from "../../lib/redux/store";
+import {act} from "react-dom/test-utils";
 
 describe('Map', () => {
   const customRender = (state: Partial<RootState>, mapContext: MapContext) => {
@@ -78,7 +79,7 @@ describe('Map', () => {
       },
     };
 
-    customRender(state, mapContext);
+    const {baseElement} = customRender(state, mapContext);
 
     await waitFor(() => expect(geolocation.watchPosition).toHaveBeenCalledTimes(1));
     expect(geolocation.watchPosition).toHaveBeenCalledWith(expect.any(Function));
@@ -89,7 +90,10 @@ describe('Map', () => {
         longitude: 8,
       },
     };
-    listener(position);
+
+    act(() => {
+      listener!(position);
+    });
 
     await waitFor(() => expect(map.flyTo).toHaveBeenCalledTimes(1));
     expect(map.flyTo)
@@ -98,6 +102,8 @@ describe('Map', () => {
         18, 
         {duration: 1},
     );
+
+    expect(baseElement).toMatchSnapshot();
   });
 
   describe('if a car is selected and selection is not disabled', () => {
