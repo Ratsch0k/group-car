@@ -8,7 +8,7 @@ export interface User {
   username: string;
   email: string;
   isBetaUser: boolean;
-  createdAt: Date;
-  updatedAt: Date;
-  deletedAt?: Date;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt?: string;
 }
