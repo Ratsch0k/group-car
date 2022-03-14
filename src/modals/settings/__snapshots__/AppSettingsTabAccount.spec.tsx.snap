@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppSettingsTabAccount renders correctly 1`] = `
+<body>
+  <div>
+    <div
+      class="MuiBox-root MuiBox-root makeStyles-root"
+      id="settings-account-tab-content"
+    >
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthMd"
+      >
+        <div
+          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar makeStyles-avatar"
+        >
+          <img
+            alt="user-1"
+            class="MuiAvatar-img"
+            src="/api/user/1/profile-pic"
+          />
+        </div>
+        <div
+          class="MuiContainer-root makeStyles-values MuiContainer-maxWidthSm"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container"
+          >
+            <div
+              class="MuiGrid-root makeStyles-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-item"
+            >
+              <div
+                class="MuiGrid-root makeStyles-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-auto"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body2 MuiTypography-colorPrimary"
+                >
+                  <b>
+                    misc.username
+                  </b>
+                </p>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-auto"
+              >
+                test
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root makeStyles-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-item"
+            >
+              <div
+                class="MuiGrid-root makeStyles-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-auto"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body2 MuiTypography-colorPrimary"
+                >
+                  <b>
+                    misc.email
+                  </b>
+                </p>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-auto"
+              >
+                test@mail.com
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root makeStyles-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-item"
+            >
+              <div
+                class="MuiGrid-root makeStyles-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-auto"
+              >
+                <p
+                  class="MuiTypography-root MuiTypography-body2 MuiTypography-colorPrimary"
+                >
+                  <b>
+                    settings.account.createdAt
+                  </b>
+                </p>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-auto"
+              >
+                12/17/2020, 3:24:00 AM
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
