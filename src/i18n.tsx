@@ -19,7 +19,8 @@ i18n
   .use(initReactI18next) // passes i18n down to react-i18next
   .use(LanguageDetector) // Use browser language detection
   .init({
-    debug: true,
+    debug: process.env.NODE_ENV === 'development' ||
+      process.env.NODE_ENV === 'test',
     resources,
     fallbackLng: ['de', 'en'], // Fallback to german
 

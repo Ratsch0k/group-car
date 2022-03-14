@@ -1,14 +1,15 @@
 import React from 'react';
 import {TextField, BaseTextFieldProps, TextFieldProps} from '@material-ui/core';
 import {Formik} from 'typings';
+import {useTranslation} from 'react-i18next';
+import {FormikProps} from 'formik';
 
-interface FormTextFieldExtensionProps extends Exclude<
-BaseTextFieldProps, 'onBlur' | 'onChange'
-> {
-  formik: Formik;
+interface FormTextFieldExtensionProps extends BaseTextFieldProps {
+  formik?: Formik | FormikProps<Formik['initialValues']>;
+  name: string;
 }
 
-type FormTextFieldProps = FormTextFieldExtensionProps | TextFieldProps;
+export type FormTextFieldProps = FormTextFieldExtensionProps & TextFieldProps;
 
 /**
  * Variant of the TextField with the following changed default values:
@@ -26,6 +27,7 @@ export const FormTextField: React.FC<FormTextFieldProps> =
 (props) => {
   const {name} = props;
   const formik = 'formik' in props ? props.formik : undefined;
+  const {t} = useTranslation();
 
   if (formik) {
     return (
@@ -34,7 +36,7 @@ export const FormTextField: React.FC<FormTextFieldProps> =
         size='small'
         error={formik.touched[name] && formik.errors[name] !== undefined}
         helperText={formik.touched[name] ?
-          formik.errors[name] || ' ' :
+          t(formik.errors[name]) || ' ' :
           ' '}
         variant={
           // eslint-disable-next-line @typescript-eslint/no-explicit-any

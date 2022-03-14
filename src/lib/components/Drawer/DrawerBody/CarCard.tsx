@@ -181,7 +181,7 @@ export const CarCard: React.FC<CarCardProps> = (props: CarCardProps) => {
         >
           <Grid
             container
-            justify='space-between'
+            justifyContent='space-between'
           >
             {
               isAvailable &&

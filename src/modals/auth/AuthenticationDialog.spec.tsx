@@ -1,13 +1,14 @@
 import '../../__test__/mockAxios';
+import testRender from '../../__test__/testRender';
 import React from 'react';
 import {fireEvent} from '@testing-library/react';
 import AuthenticationDialog from './AuthenticationDialog';
 import {Route} from 'react-router-dom';
 import '@testing-library/jest-dom/extend-expect';
-import testRender from '../../__test__/testRender';
 import { RootState } from '../../lib/redux/store';
 import { CALL_HISTORY_METHOD } from 'connected-react-router';
 import history from '../../lib/redux/history';
+import {User} from "../../typings";
 
 describe('AuthenticationDialog', () => {
   let state: Partial<RootState>;
@@ -176,7 +177,7 @@ describe('AuthenticationDialog', () => {
         user: {
           username: 'USER',
           id: 1,
-        },
+        } as User,
         signUpRequestSent: false,
         loading: false,
       },

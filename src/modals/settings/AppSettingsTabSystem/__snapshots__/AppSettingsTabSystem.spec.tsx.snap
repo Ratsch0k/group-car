@@ -28,13 +28,13 @@ exports[`AppSettingsTabAccount renders correctly 1`] = `
             role="button"
             tabindex="0"
           >
-            lang.de
+            lang.en
           </div>
           <input
             aria-hidden="true"
             class="MuiSelect-nativeInput"
             tabindex="-1"
-            value="de"
+            value="en"
           />
           <svg
             aria-hidden="true"
@@ -73,25 +73,16 @@ exports[`AppSettingsTabAccount renders correctly 1`] = `
         </b>
         1.0
       </p>
-      <div
-        class="MuiCircularProgress-root MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
-        role="progressbar"
-        style="width: 2rem; height: 2rem;"
+      <p
+        class="MuiTypography-root MuiTypography-body1"
       >
-        <svg
-          class="MuiCircularProgress-svg"
-          viewBox="22 22 44 44"
-        >
-          <circle
-            class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
-            cx="44"
-            cy="44"
-            fill="none"
-            r="20.2"
-            stroke-width="3.6"
-          />
-        </svg>
-      </div>
+        <b>
+          versions.backend
+          :
+           
+        </b>
+        1.0
+      </p>
     </div>
   </div>
 </body>

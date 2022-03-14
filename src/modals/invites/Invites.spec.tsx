@@ -1,4 +1,5 @@
 import mockedAxios from '../../__test__/mockAxios';
+import '../../__test__/mockI18n';
 import { InviteWithGroupAndInviteSender } from "../../lib";
 import {fireEvent, screen, waitFor} from '@testing-library/react';
 import React from "react";

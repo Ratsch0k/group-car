@@ -1,4 +1,5 @@
 import '../../../__test__/mockAxios';
+import '../../../__test__/mockI18n';
 import { render, screen } from "@testing-library/react";
 import { CarColor } from "../..";
 import CarColorSelection from "./CarColorSelection";

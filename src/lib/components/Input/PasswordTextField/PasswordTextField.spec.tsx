@@ -1,14 +1,15 @@
 import React from 'react';
+import '../../../../__test__/mockI18n';
 import {render, screen, fireEvent} from '@testing-library/react';
 import PasswordTextField from './PasswordTextField';
 import '@testing-library/jest-dom/extend-expect';
 
 it('renders without crashing', () => {
-  render(<PasswordTextField />);
+  render(<PasswordTextField name='test'/>);
 });
 
 it('renders with type password usually', () => {
-  const {container} = render(<PasswordTextField/>);
+  const {container} = render(<PasswordTextField name='test'/>);
 
   expect(container).toMatchSnapshot();
   expect(container.getElementsByTagName('input')[0])
@@ -16,7 +17,7 @@ it('renders with type password usually', () => {
 });
 
 it('type of input changes after button press', () => {
-  const {container} = render(<PasswordTextField/>);
+  const {container} = render(<PasswordTextField name='test'/>);
 
   expect(container).toMatchSnapshot();
   expect(container.getElementsByTagName('input')[0])
