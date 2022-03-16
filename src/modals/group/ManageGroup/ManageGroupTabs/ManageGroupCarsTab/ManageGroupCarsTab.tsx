@@ -4,9 +4,9 @@ import {
 import {RefObject, useEffect, useState} from 'react';
 import {isAdmin as isAdminCheck} from 'lib/util';
 import React from 'react';
-import ManageGroupCarsTabAddFab from './ManageGroupCarsTabAddFab';
+import AddCarFab from './AddCarFab';
 import {Portal} from '@material-ui/core';
-import ManageGroupCarsList from './ManageGroupCarsList';
+import CarsList from './CarsList';
 import {useShallowAppSelector} from 'lib/redux/hooks';
 import {getUser} from 'lib/redux/slices/auth';
 import {getSelectedGroup} from 'lib/redux/slices/group';
@@ -55,11 +55,11 @@ export const ManageGroupCarsTab: React.FC<ManageGRoupCarsTabProps> =
       id='group-tabpanel-cars'
       aria-labelledby='group-tab-cars'
     >
-      <ManageGroupCarsList />
+      <CarsList />
       {
         isAdmin &&
         <Portal container={fabPortal.current} >
-          <ManageGroupCarsTabAddFab />
+          <AddCarFab />
         </Portal>
       }
     </TabPanel>
