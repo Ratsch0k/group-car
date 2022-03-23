@@ -1,7 +1,7 @@
 import {createStyles, Fab, makeStyles, Theme} from '@material-ui/core';
 import React, {useState} from 'react';
 import AddIcon from '@material-ui/icons/Add';
-import ManageGroupCarsCreateDialog from './ManageGroupCarsCreateDialog';
+import CreateCarDialog from './CreateCarDialog';
 import config from 'config';
 import {useShallowAppSelector} from 'lib/redux/hooks';
 import {getSelectedGroup} from 'lib/redux/slices/group';
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
  * Fab to add a new car to a group.
  * @param props Props
  */
-export const ManageGroupCarsTabAddFab: React.FC =() => {
+export const AddCarFab: React.FC =() => {
   const classes = useStyles();
   const [open, setOpen] = useState<boolean>(false);
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -42,7 +42,7 @@ export const ManageGroupCarsTabAddFab: React.FC =() => {
       >
         <AddIcon />
       </Fab>
-      <ManageGroupCarsCreateDialog
+      <CreateCarDialog
         open={open}
         close={() => setOpen(false)}
       />
@@ -50,4 +50,4 @@ export const ManageGroupCarsTabAddFab: React.FC =() => {
   );
 };
 
-export default ManageGroupCarsTabAddFab;
+export default AddCarFab;

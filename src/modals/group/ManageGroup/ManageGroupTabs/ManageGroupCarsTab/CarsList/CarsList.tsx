@@ -2,21 +2,21 @@ import {List} from '@material-ui/core';
 import {useShallowAppSelector} from 'lib/redux/hooks';
 import {getSelectedGroup} from 'lib/redux/slices/group';
 import React from 'react';
-import ManageGroupCarsListItem from './ManageGroupCarsListItem';
+import CarsListItem from './CarsListItem';
 
 
 /**
  * List of all cars.
  * @param props Props
  */
-export const ManageGroupCarsList: React.FC = () => {
+export const CarsList: React.FC = () => {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const group = useShallowAppSelector(getSelectedGroup)!;
 
   return (
     <List>
       {group.cars.map((car, index) => (
-        <ManageGroupCarsListItem
+        <CarsListItem
           car={car}
           key={`car-${car.carId}`}
           divider={!(index === group.cars.length - 1)}
@@ -26,4 +26,4 @@ export const ManageGroupCarsList: React.FC = () => {
   );
 };
 
-export default ManageGroupCarsList;
+export default CarsList;

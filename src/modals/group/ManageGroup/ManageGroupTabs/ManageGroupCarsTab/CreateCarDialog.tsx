@@ -41,7 +41,7 @@ export interface ManageGroupCarsCreateDialogProps {
  * Dialog for creating a new car for the specified group.
  * @param props Props
  */
-export const ManageGroupCarsCreateDialog: React.FC<
+export const CreateCarDialog: React.FC<
 ManageGroupCarsCreateDialogProps
 > = (props: ManageGroupCarsCreateDialogProps) => {
   const {open, close} = props;
@@ -149,4 +149,4 @@ ManageGroupCarsCreateDialogProps
   );
 };
 
-export default ManageGroupCarsCreateDialog;
+export default CreateCarDialog;
