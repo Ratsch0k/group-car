@@ -211,6 +211,14 @@ export const groupSlice = createSlice({
         state.selectedGroup.members[index].isAdmin = isAdmin;
       }
     },
+    removeCar(state, action: PayloadAction<{groupId: number, carId: number}>) {
+      const {groupId, carId} = action.payload;
+
+      if (state.selectedGroup && state.selectedGroup.id === groupId) {
+        state.selectedGroup.cars = state.selectedGroup.cars
+          .filter((car) => car.carId !== carId);
+      }
+    },
   },
   extraReducers: (builder) => {
     builder.addMatcher(isPendingMatcher(name), (state) => {
@@ -235,6 +243,7 @@ export const {
   addInvite,
   reset,
   setAdminOfMember,
+  removeCar,
 } = groupSlice.actions;
 
 export default groupSlice.reducer;

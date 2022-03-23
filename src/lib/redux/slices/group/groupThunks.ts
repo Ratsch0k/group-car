@@ -12,6 +12,7 @@ import {
   addCar,
   addInvite,
   setAdminOfMember,
+  removeCar,
 } from './groupSlice';
 import * as api from 'lib/api';
 import {
@@ -395,6 +396,32 @@ export const createCar = createAsyncThunk(
         return rejectWithValue(new CarAlreadyExistsError());
       }
     }
+    return res.data;
+  },
+);
+
+export interface DeleteCarParams {
+  groupId: number;
+  carId: number;
+}
+
+export const deleteCar = createAsyncThunk(
+  'group/deleteCar',
+  async (
+    {groupId, carId}: DeleteCarParams,
+    {dispatch, rejectWithValue},
+  ) => {
+    let res;
+    // Call api endpoint
+    try {
+      res = await api.deleteCar(groupId, carId);
+    } catch (e) {
+      return rejectWithValue((e as AxiosError<RestError>).response?.data);
+    }
+
+    // Only update local state if that group is currently selected
+    dispatch(removeCar({groupId, carId}));
+
     return res.data;
   },
 );

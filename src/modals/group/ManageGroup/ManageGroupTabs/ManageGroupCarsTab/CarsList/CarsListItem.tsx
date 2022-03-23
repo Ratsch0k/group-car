@@ -32,7 +32,10 @@ export const CarsListItem: React.FC<ManageGroupCarsListItemProps> =
   const {car, divider} = props;
 
   return (
-    <ListItem divider={divider} id={`car-tab-${car.carId}`}>
+    <ListItem
+      divider={divider}
+      id={`car-tab-${car.carId}`}
+    >
       <ListItemAvatar>
         <img
           src={getIcon(car.color)}

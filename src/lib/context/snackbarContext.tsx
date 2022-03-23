@@ -115,6 +115,8 @@ export const SnackbarProvider: React.FC = (props) => {
         } else {
           show('error', e.message);
         }
+
+        return Promise.reject(e);
       },
     );
     axios.interceptors.request.use(
@@ -132,6 +134,8 @@ export const SnackbarProvider: React.FC = (props) => {
         } else {
           show('error', e.message);
         }
+
+        return Promise.reject(e);
       },
     );
   }, [show]);
