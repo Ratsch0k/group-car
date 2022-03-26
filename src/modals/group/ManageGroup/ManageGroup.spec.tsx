@@ -652,6 +652,8 @@ describe('CarTab', () => {
     );
     expect(baseElement.querySelector('#create-car-fab')).toBeFalsy();
 
+    expect(baseElement.querySelector('#group-tab-cars')).toBeTruthy();
+    console.dir(baseElement.querySelector('#group-tab-cars'));
     fireEvent.click(baseElement.querySelector('#group-tab-cars'));
 
     await waitFor(() => expect(baseElement.querySelector('#create-car-fab')).toBeTruthy());

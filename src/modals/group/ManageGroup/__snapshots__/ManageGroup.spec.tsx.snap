@@ -144,109 +144,225 @@ exports[`CarTab cars tab is rendered correctly 1`] = `
                   <ul
                     class="MuiList-root MuiList-padding"
                   >
-                    <li
-                      class="MuiListItem-root MuiListItem-gutters MuiListItem-divider"
-                      id="car-tab-1"
+                    <div
+                      class="MuiCollapse-root MuiCollapse-entered"
+                      style="min-height: 0px;"
                     >
                       <div
-                        class="MuiListItemAvatar-root"
+                        class="MuiCollapse-wrapper"
                       >
-                        <img
-                          alt="car-icon-Red"
-                          height="35x"
-                          src="red_location_marker.svg"
-                          width="35px"
-                        />
-                      </div>
-                      <div
-                        class="MuiListItemText-root MuiListItemText-multiline"
-                      >
-                        <span
-                          class="MuiTypography-root makeStyles-primaryText MuiTypography-body1 MuiTypography-displayBlock"
-                        >
-                          car-1
-                        </span>
                         <div
-                          class="MuiTypography-root MuiListItemText-secondary MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+                          class="MuiCollapse-wrapperInner"
                         >
-                          <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall"
+                          <li
+                            class="MuiListItem-root MuiListItem-gutters MuiListItem-divider"
+                            id="car-tab-1"
                           >
-                            <span
-                              class="MuiChip-label MuiChip-labelSmall"
+                            <div
+                              class="MuiListItemAvatar-root"
                             >
-                              misc.available
-                            </span>
-                          </div>
+                              <img
+                                alt="car-icon-Red"
+                                height="35x"
+                                src="red_location_marker.svg"
+                                width="35px"
+                              />
+                            </div>
+                            <div
+                              class="MuiListItemText-root MuiListItemText-multiline"
+                            >
+                              <span
+                                class="MuiTypography-root makeStyles-primaryText MuiTypography-body1 MuiTypography-displayBlock"
+                              >
+                                car-1
+                              </span>
+                              <div
+                                class="MuiTypography-root MuiListItemText-secondary MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+                              >
+                                <div
+                                  class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall"
+                                >
+                                  <span
+                                    class="MuiChip-label MuiChip-labelSmall"
+                                  >
+                                    misc.available
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class="MuiListItemSecondaryAction-root"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiIconButton-root"
+                                tabindex="0"
+                                title="modals.group.manage.tabs.cars.delete"
+                                type="button"
+                              >
+                                <span
+                                  class="MuiIconButton-label"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-colorError"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4z"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                            </div>
+                          </li>
                         </div>
                       </div>
-                    </li>
-                    <li
-                      class="MuiListItem-root MuiListItem-gutters MuiListItem-divider"
-                      id="car-tab-2"
+                    </div>
+                    <div
+                      class="MuiCollapse-root MuiCollapse-entered"
+                      style="min-height: 0px;"
                     >
                       <div
-                        class="MuiListItemAvatar-root"
+                        class="MuiCollapse-wrapper"
                       >
-                        <img
-                          alt="car-icon-Black"
-                          height="35x"
-                          src="black_location_marker.svg"
-                          width="35px"
-                        />
-                      </div>
-                      <div
-                        class="MuiListItemText-root MuiListItemText-multiline"
-                      >
-                        <span
-                          class="MuiTypography-root makeStyles-primaryText MuiTypography-body1 MuiTypography-displayBlock"
-                        >
-                          car-2
-                        </span>
                         <div
-                          class="MuiTypography-root MuiListItemText-secondary MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+                          class="MuiCollapse-wrapperInner"
                         >
-                          <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall"
+                          <li
+                            class="MuiListItem-root MuiListItem-gutters MuiListItem-divider"
+                            id="car-tab-2"
                           >
-                            <span
-                              class="MuiChip-label MuiChip-labelSmall"
+                            <div
+                              class="MuiListItemAvatar-root"
                             >
-                              misc.available
-                            </span>
-                          </div>
+                              <img
+                                alt="car-icon-Black"
+                                height="35x"
+                                src="black_location_marker.svg"
+                                width="35px"
+                              />
+                            </div>
+                            <div
+                              class="MuiListItemText-root MuiListItemText-multiline"
+                            >
+                              <span
+                                class="MuiTypography-root makeStyles-primaryText MuiTypography-body1 MuiTypography-displayBlock"
+                              >
+                                car-2
+                              </span>
+                              <div
+                                class="MuiTypography-root MuiListItemText-secondary MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+                              >
+                                <div
+                                  class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall"
+                                >
+                                  <span
+                                    class="MuiChip-label MuiChip-labelSmall"
+                                  >
+                                    misc.available
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class="MuiListItemSecondaryAction-root"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiIconButton-root"
+                                tabindex="0"
+                                title="modals.group.manage.tabs.cars.delete"
+                                type="button"
+                              >
+                                <span
+                                  class="MuiIconButton-label"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-colorError"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4z"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                            </div>
+                          </li>
                         </div>
                       </div>
-                    </li>
-                    <li
-                      class="MuiListItem-root MuiListItem-gutters"
-                      id="car-tab-3"
+                    </div>
+                    <div
+                      class="MuiCollapse-root MuiCollapse-entered"
+                      style="min-height: 0px;"
                     >
                       <div
-                        class="MuiListItemAvatar-root"
+                        class="MuiCollapse-wrapper"
                       >
-                        <img
-                          alt="car-icon-Green"
-                          height="35x"
-                          src="green_location_marker.svg"
-                          width="35px"
-                        />
-                      </div>
-                      <div
-                        class="MuiListItemText-root MuiListItemText-multiline"
-                      >
-                        <span
-                          class="MuiTypography-root makeStyles-primaryText MuiTypography-body1 MuiTypography-displayBlock"
-                        >
-                          car-2
-                        </span>
                         <div
-                          class="MuiTypography-root MuiListItemText-secondary MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+                          class="MuiCollapse-wrapperInner"
                         >
-                          modals.group.manage.tabs.cars.drivenBy
+                          <li
+                            class="MuiListItem-root MuiListItem-gutters"
+                            id="car-tab-3"
+                          >
+                            <div
+                              class="MuiListItemAvatar-root"
+                            >
+                              <img
+                                alt="car-icon-Green"
+                                height="35x"
+                                src="green_location_marker.svg"
+                                width="35px"
+                              />
+                            </div>
+                            <div
+                              class="MuiListItemText-root MuiListItemText-multiline"
+                            >
+                              <span
+                                class="MuiTypography-root makeStyles-primaryText MuiTypography-body1 MuiTypography-displayBlock"
+                              >
+                                car-2
+                              </span>
+                              <div
+                                class="MuiTypography-root MuiListItemText-secondary MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+                              >
+                                <div>
+                                  modals.group.manage.tabs.cars.drivenBy
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class="MuiListItemSecondaryAction-root"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiIconButton-root"
+                                tabindex="0"
+                                title="modals.group.manage.tabs.cars.delete"
+                                type="button"
+                              >
+                                <span
+                                  class="MuiIconButton-label"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-colorError"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4z"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                            </div>
+                          </li>
                         </div>
                       </div>
-                    </li>
+                    </div>
                   </ul>
                 </div>
               </div>
@@ -860,109 +976,225 @@ exports[`CarTab color selection only shows not used color 1`] = `
                   <ul
                     class="MuiList-root MuiList-padding"
                   >
-                    <li
-                      class="MuiListItem-root MuiListItem-gutters MuiListItem-divider"
-                      id="car-tab-1"
+                    <div
+                      class="MuiCollapse-root MuiCollapse-entered"
+                      style="min-height: 0px;"
                     >
                       <div
-                        class="MuiListItemAvatar-root"
+                        class="MuiCollapse-wrapper"
                       >
-                        <img
-                          alt="car-icon-Red"
-                          height="35x"
-                          src="red_location_marker.svg"
-                          width="35px"
-                        />
-                      </div>
-                      <div
-                        class="MuiListItemText-root MuiListItemText-multiline"
-                      >
-                        <span
-                          class="MuiTypography-root makeStyles-primaryText MuiTypography-body1 MuiTypography-displayBlock"
-                        >
-                          car-1
-                        </span>
                         <div
-                          class="MuiTypography-root MuiListItemText-secondary MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+                          class="MuiCollapse-wrapperInner"
                         >
-                          <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall"
+                          <li
+                            class="MuiListItem-root MuiListItem-gutters MuiListItem-divider"
+                            id="car-tab-1"
                           >
-                            <span
-                              class="MuiChip-label MuiChip-labelSmall"
+                            <div
+                              class="MuiListItemAvatar-root"
                             >
-                              misc.available
-                            </span>
-                          </div>
+                              <img
+                                alt="car-icon-Red"
+                                height="35x"
+                                src="red_location_marker.svg"
+                                width="35px"
+                              />
+                            </div>
+                            <div
+                              class="MuiListItemText-root MuiListItemText-multiline"
+                            >
+                              <span
+                                class="MuiTypography-root makeStyles-primaryText MuiTypography-body1 MuiTypography-displayBlock"
+                              >
+                                car-1
+                              </span>
+                              <div
+                                class="MuiTypography-root MuiListItemText-secondary MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+                              >
+                                <div
+                                  class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall"
+                                >
+                                  <span
+                                    class="MuiChip-label MuiChip-labelSmall"
+                                  >
+                                    misc.available
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class="MuiListItemSecondaryAction-root"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiIconButton-root"
+                                tabindex="0"
+                                title="modals.group.manage.tabs.cars.delete"
+                                type="button"
+                              >
+                                <span
+                                  class="MuiIconButton-label"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-colorError"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4z"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                            </div>
+                          </li>
                         </div>
                       </div>
-                    </li>
-                    <li
-                      class="MuiListItem-root MuiListItem-gutters MuiListItem-divider"
-                      id="car-tab-2"
+                    </div>
+                    <div
+                      class="MuiCollapse-root MuiCollapse-entered"
+                      style="min-height: 0px;"
                     >
                       <div
-                        class="MuiListItemAvatar-root"
+                        class="MuiCollapse-wrapper"
                       >
-                        <img
-                          alt="car-icon-Black"
-                          height="35x"
-                          src="black_location_marker.svg"
-                          width="35px"
-                        />
-                      </div>
-                      <div
-                        class="MuiListItemText-root MuiListItemText-multiline"
-                      >
-                        <span
-                          class="MuiTypography-root makeStyles-primaryText MuiTypography-body1 MuiTypography-displayBlock"
-                        >
-                          car-2
-                        </span>
                         <div
-                          class="MuiTypography-root MuiListItemText-secondary MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+                          class="MuiCollapse-wrapperInner"
                         >
-                          <div
-                            class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall"
+                          <li
+                            class="MuiListItem-root MuiListItem-gutters MuiListItem-divider"
+                            id="car-tab-2"
                           >
-                            <span
-                              class="MuiChip-label MuiChip-labelSmall"
+                            <div
+                              class="MuiListItemAvatar-root"
                             >
-                              misc.available
-                            </span>
-                          </div>
+                              <img
+                                alt="car-icon-Black"
+                                height="35x"
+                                src="black_location_marker.svg"
+                                width="35px"
+                              />
+                            </div>
+                            <div
+                              class="MuiListItemText-root MuiListItemText-multiline"
+                            >
+                              <span
+                                class="MuiTypography-root makeStyles-primaryText MuiTypography-body1 MuiTypography-displayBlock"
+                              >
+                                car-2
+                              </span>
+                              <div
+                                class="MuiTypography-root MuiListItemText-secondary MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+                              >
+                                <div
+                                  class="MuiChip-root MuiChip-colorPrimary MuiChip-outlined MuiChip-outlinedPrimary MuiChip-sizeSmall WithStyles(ForwardRef(Chip))-sizeSmall"
+                                >
+                                  <span
+                                    class="MuiChip-label MuiChip-labelSmall"
+                                  >
+                                    misc.available
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class="MuiListItemSecondaryAction-root"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiIconButton-root"
+                                tabindex="0"
+                                title="modals.group.manage.tabs.cars.delete"
+                                type="button"
+                              >
+                                <span
+                                  class="MuiIconButton-label"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-colorError"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4z"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                            </div>
+                          </li>
                         </div>
                       </div>
-                    </li>
-                    <li
-                      class="MuiListItem-root MuiListItem-gutters"
-                      id="car-tab-3"
+                    </div>
+                    <div
+                      class="MuiCollapse-root MuiCollapse-entered"
+                      style="min-height: 0px;"
                     >
                       <div
-                        class="MuiListItemAvatar-root"
+                        class="MuiCollapse-wrapper"
                       >
-                        <img
-                          alt="car-icon-Green"
-                          height="35x"
-                          src="green_location_marker.svg"
-                          width="35px"
-                        />
-                      </div>
-                      <div
-                        class="MuiListItemText-root MuiListItemText-multiline"
-                      >
-                        <span
-                          class="MuiTypography-root makeStyles-primaryText MuiTypography-body1 MuiTypography-displayBlock"
-                        >
-                          car-2
-                        </span>
                         <div
-                          class="MuiTypography-root MuiListItemText-secondary MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+                          class="MuiCollapse-wrapperInner"
                         >
-                          modals.group.manage.tabs.cars.drivenBy
+                          <li
+                            class="MuiListItem-root MuiListItem-gutters"
+                            id="car-tab-3"
+                          >
+                            <div
+                              class="MuiListItemAvatar-root"
+                            >
+                              <img
+                                alt="car-icon-Green"
+                                height="35x"
+                                src="green_location_marker.svg"
+                                width="35px"
+                              />
+                            </div>
+                            <div
+                              class="MuiListItemText-root MuiListItemText-multiline"
+                            >
+                              <span
+                                class="MuiTypography-root makeStyles-primaryText MuiTypography-body1 MuiTypography-displayBlock"
+                              >
+                                car-2
+                              </span>
+                              <div
+                                class="MuiTypography-root MuiListItemText-secondary MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+                              >
+                                <div>
+                                  modals.group.manage.tabs.cars.drivenBy
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class="MuiListItemSecondaryAction-root"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiIconButton-root"
+                                tabindex="0"
+                                title="modals.group.manage.tabs.cars.delete"
+                                type="button"
+                              >
+                                <span
+                                  class="MuiIconButton-label"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-colorError"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4z"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                            </div>
+                          </li>
                         </div>
                       </div>
-                    </li>
+                    </div>
                   </ul>
                 </div>
               </div>
@@ -2120,7 +2352,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
           class="MuiDialogContent-root"
         >
           <p
-            class="MuiTypography-root MuiDialogContentText-root makeStyles-contentText MuiTypography-body1 MuiTypography-colorTextSecondary"
+            class="MuiTypography-root MuiDialogContentText-root MuiTypography-body1 MuiTypography-colorTextSecondary"
           >
             modals.group.manage.deleteGroup.dialog.content
           </p>
@@ -2456,7 +2688,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
           class="MuiDialogContent-root"
         >
           <p
-            class="MuiTypography-root MuiDialogContentText-root makeStyles-contentText MuiTypography-body1 MuiTypography-colorTextSecondary"
+            class="MuiTypography-root MuiDialogContentText-root MuiTypography-body1 MuiTypography-colorTextSecondary"
           >
             modals.group.manage.deleteGroup.dialog.content
           </p>
@@ -2792,7 +3024,7 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
           class="MuiDialogContent-root"
         >
           <p
-            class="MuiTypography-root MuiDialogContentText-root makeStyles-contentText MuiTypography-body1 MuiTypography-colorTextSecondary"
+            class="MuiTypography-root MuiDialogContentText-root MuiTypography-body1 MuiTypography-colorTextSecondary"
           >
             modals.group.manage.deleteGroup.dialog.content
           </p>

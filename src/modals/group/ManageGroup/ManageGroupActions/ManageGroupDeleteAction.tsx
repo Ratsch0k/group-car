@@ -79,6 +79,7 @@ export const ManageGroupDeleteAction: React.FC<ManageGroupDeleteActionProps> =
         open={open}
         onConfirm={handleDelete}
         onCancel={() => setOpen(false)}
+        title={t('modals.group.manage.deleteGroup.dialog.title')}
         message={t('modals.group.manage.deleteGroup.dialog.content')}
         loading={loading}
       />
