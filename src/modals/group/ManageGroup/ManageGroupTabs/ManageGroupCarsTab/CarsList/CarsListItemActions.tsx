@@ -46,7 +46,10 @@ export const CarsListItemActions = (
       <>
         <ListItemSecondaryAction>
           <Tooltip title={t('modals.group.manage.tabs.cars.delete').toString()}>
-            <IconButton onClick={() => setOpen(true)}>
+            <IconButton
+              id={`delete-car-${car.carId}`}
+              onClick={() => setOpen(true)}
+            >
               <DeleteOutlineIcon color='error'/>
             </IconButton>
           </Tooltip>

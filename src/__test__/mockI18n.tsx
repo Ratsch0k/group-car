@@ -1,5 +1,4 @@
-import React from 'react';
-
+/* eslint-disable @typescript-eslint/no-explicit-any */
 jest.mock('react-i18next', () => ({
   useTranslation: () => {
     return {
@@ -12,6 +11,6 @@ jest.mock('react-i18next', () => ({
     };
   },
   Trans: (props: any) => {
-    return <div>{props.i18nKey}</div>;
+    return props.i18nKey;
   },
 }));
