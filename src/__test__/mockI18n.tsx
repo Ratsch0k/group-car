@@ -1,3 +1,5 @@
+import React from 'react';
+
 jest.mock('react-i18next', () => ({
   useTranslation: () => {
     return {
@@ -8,5 +10,8 @@ jest.mock('react-i18next', () => ({
         language: 'en',
       },
     };
+  },
+  Trans: (props: any) => {
+    return <div>{props.i18nKey}</div>;
   },
 }));
