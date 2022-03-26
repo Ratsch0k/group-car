@@ -1,28 +1,35 @@
-import {List} from '@material-ui/core';
+import {Collapse, List} from '@material-ui/core';
 import {useShallowAppSelector} from 'lib/redux/hooks';
-import {getSelectedGroup} from 'lib/redux/slices/group';
+import {getGroupCars} from 'lib/redux/slices/group';
 import React from 'react';
 import CarsListItem from './CarsListItem';
+import {TransitionGroup} from 'react-transition-group';
 
 
 /**
  * List of all cars.
- * @param props Props
  */
 export const CarsList: React.FC = () => {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  const group = useShallowAppSelector(getSelectedGroup)!;
+  const cars = useShallowAppSelector(getGroupCars)!;
+
+  if (!cars) {
+    return null;
+  }
 
   return (
-    <List>
-      {group.cars.map((car, index) => (
-        <CarsListItem
-          car={car}
-          key={`car-${car.carId}`}
-          divider={!(index === group.cars.length - 1)}
-        />
+    <TransitionGroup
+      component={List}
+    >
+      {cars.map((car, index) => (
+        <Collapse key={`car-${car.carId}`}>
+          <CarsListItem
+            car={car}
+            divider={!(index === cars.length - 1)}
+          />
+        </Collapse>
       ))}
-    </List>
+    </TransitionGroup>
   );
 };
 

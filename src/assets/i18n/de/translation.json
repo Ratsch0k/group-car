@@ -54,7 +54,7 @@
       }
     },
     "cars": {
-      "drivenBy": "Wird gerade von {{driver}} benutzt",
+      "drivenBy": "Wird gerade von <strong>{{driver}}</strong> benutzt",
       "drive": "Fahre",
       "view": "Standort",
       "parkCurrent": "Parke hier",
@@ -89,9 +89,13 @@
           },
           "cars": {
             "title": "Autos",
-            "drivenBy": "Wird gerade von {{driver}} benutzt",
+            "drivenBy": "Wird gerade von <strong>{{driver}}</strong> benutzt",
             "create": {
               "title": "Neues Auto erstellen"
+            },
+            "deleteDialog": {
+              "title": "Auto löschen",
+              "message": "Bist du dir sicher dass du das Auto <strong>{{name}}</strong> löschen willst?"
             }
           }
         },
@@ -166,6 +170,10 @@
     "confirm": "Bestätigen",
     "cancel": "Abbrechen",
     "createdAt": "Erstellt am",
+    "confirmAction": {
+      "title": "Kritische Aktion",
+      "message": "Bist du dir sicher, das machen willst?"
+    },
     "color": {
       "Red": "Rot",
       "Black": "Schwarz",

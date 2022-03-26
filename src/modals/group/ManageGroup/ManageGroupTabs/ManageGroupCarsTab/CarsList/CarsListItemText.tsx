@@ -1,7 +1,7 @@
 import {ListItemText, makeStyles} from '@material-ui/core';
 import React from 'react';
 import {RoleChip, CarWithDriver} from 'lib';
-import {useTranslation} from 'react-i18next';
+import {Trans, useTranslation} from 'react-i18next';
 
 interface SecondaryTextProps {
   isDriven?: boolean;
@@ -11,7 +11,7 @@ interface SecondaryTextProps {
 const SecondaryText = ({isDriven, car}: SecondaryTextProps): JSX.Element => {
   const {t} = useTranslation();
 
-  if (isDriven) {
+  if (!isDriven) {
     return (
       <RoleChip
         variant='outlined'
@@ -21,9 +21,11 @@ const SecondaryText = ({isDriven, car}: SecondaryTextProps): JSX.Element => {
       />
     );
   } else {
-    return t(
-      'modals.group.manage.tabs.cars.drivenBy',
-      {driver: car.Driver?.username},
+    return (
+      <Trans
+        i18nKey='modals.group.manage.tabs.cars.drivenBy'
+        values={{driver: car.Driver?.username}}
+      />
     );
   }
 };
@@ -49,7 +51,7 @@ export const CarsListItemText =
       primary={car.name}
       secondaryTypographyProps={{component: 'div'}}
       secondary={
-        <SecondaryText isDriven={car.driverId !== undefined} car={car}/>
+        <SecondaryText isDriven={car.driverId !== null} car={car}/>
       }
     />
   );

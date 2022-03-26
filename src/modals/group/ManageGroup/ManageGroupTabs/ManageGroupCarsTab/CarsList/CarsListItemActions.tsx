@@ -12,6 +12,7 @@ import {isAdmin} from 'lib/util';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import {useTranslation} from 'react-i18next';
 import {unwrapResult} from '@reduxjs/toolkit';
+import {Trans} from 'react-i18next';
 
 export interface CarsListItemActionsProps {
   car: CarWithDriver;
@@ -55,6 +56,13 @@ export const CarsListItemActions = (
           onConfirm={handleDelete}
           onCancel={() => setOpen(false)}
           loading={loading}
+          title={t('modals.group.manage.tabs.cars.deleteDialog.title')}
+          message={
+            <Trans
+              i18nKey={'modals.group.manage.tabs.cars.deleteDialog.message'}
+              values={{name: car.name}}
+            />
+          }
         />
       </>
     );
