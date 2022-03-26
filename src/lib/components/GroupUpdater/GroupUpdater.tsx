@@ -2,7 +2,6 @@ import React, {useState, useEffect, useCallback} from 'react';
 import io from 'socket.io-client';
 import {useSnackBar} from 'lib/hooks';
 import {useTranslation} from 'react-i18next';
-import {SocketGroupActionData} from 'typings/socket';
 import {
   useAppDispatch,
   useAppSelector,
@@ -11,7 +10,7 @@ import {
 import {getIsLoggedIn} from 'lib/redux/slices/auth';
 import {
   addCar,
-  getGroupState,
+  getGroupState, removeCar,
   selectAndUpdateGroup,
   update,
   updateCar,
@@ -20,6 +19,9 @@ import {
   getLocation,
   push,
 } from 'connected-react-router';
+import {
+  GroupAction,
+} from '../../../typings';
 
 /**
  * Element for creating and providing the `GroupContext`.
@@ -57,7 +59,7 @@ export const GroupUpdater: React.FC = (props) => {
   /**
    * Handles update events.
    */
-  const socketActionHandler = useCallback((data: SocketGroupActionData) => {
+  const socketActionHandler = useCallback((data: GroupAction) => {
     switch (data.action) {
       case 'add': {
         dispatch(addCar(data.car));
@@ -69,6 +71,10 @@ export const GroupUpdater: React.FC = (props) => {
       }
       case 'park': {
         dispatch(updateCar(data.car));
+        break;
+      }
+      case 'delete': {
+        dispatch(removeCar({groupId: data.car.groupId, carId: data.car.carId}));
         break;
       }
     }
