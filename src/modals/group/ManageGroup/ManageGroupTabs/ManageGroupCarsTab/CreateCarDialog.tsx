@@ -17,8 +17,12 @@ import {
   useSnackBar,
 } from 'lib';
 import {useAppDispatch, useShallowAppSelector} from 'lib/redux/hooks';
-import {createCar, getSelectedGroup} from 'lib/redux/slices/group';
-import React, {useMemo, useState} from 'react';
+import {
+  createCar,
+  getGroupCars,
+  getSelectedGroup,
+} from 'lib/redux/slices/group';
+import React, {useEffect, useMemo, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import * as yup from 'yup';
 
@@ -47,16 +51,27 @@ ManageGroupCarsCreateDialogProps
   const {open, close} = props;
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const group = useShallowAppSelector(getSelectedGroup)!;
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  const cars = useShallowAppSelector(getGroupCars)!;
   const dispatch = useAppDispatch();
   const {t} = useTranslation();
   const availableColors = useMemo(() => {
     return Object.values(CarColor)
       .filter((color) =>
-        group.cars.every((car) => car.color !== color));
-  }, [group.cars]);
+        cars.every((car) => car.color !== color));
+  }, [cars]);
   const [color, setColor] = useState<CarColor>(availableColors[0]);
   const {show} = useSnackBar();
 
+  /**
+   * If cars change and the current color is not available anymore,
+   * set it to the first available one.
+   */
+  useEffect(() => {
+    if (!availableColors.includes(color)) {
+      setColor(availableColors[0]);
+    }
+  }, [cars, availableColors]);
 
   const validationSchema = useMemo(() => yup.object({
     name: yup.string().required(t('form.error.required'))
@@ -66,9 +81,9 @@ ManageGroupCarsCreateDialogProps
         'not-used',
         t('form.error.alreadyInUse'),
         (value) => {
-          return group.cars.every((c) => c.name !== value);
+          return cars.every((c) => c.name !== value);
         }),
-  }), [t, group.cars]);
+  }), [t, cars]);
 
   const formik = useFormik({
     initialValues: {
