@@ -22,7 +22,7 @@ export const themeProperties: IThemeOptions = {
   palette: {
     primary: {
       main: '#00C68A',
-      light: '#98F0D6',
+      light: '#bfecdb',
       dark: '#00A473',
       contrastText: '#FFFFFF',
     },
