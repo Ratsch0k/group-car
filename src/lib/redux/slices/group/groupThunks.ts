@@ -405,6 +405,9 @@ export interface DeleteCarParams {
   carId: number;
 }
 
+/**
+ * Thunk to delete a car.
+ */
 export const deleteCar = createAsyncThunk(
   'group/deleteCar',
   async (
