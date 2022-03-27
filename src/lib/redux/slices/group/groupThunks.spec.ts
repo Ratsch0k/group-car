@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import mockedAxios from '../../../../__test__/mockAxios';
 import mockAxios from '../../../../__test__/mockAxios';
 import mockStore from '../../../../__test__/mockStore';
@@ -24,7 +25,7 @@ import {
   parkCar,
   createCar,
   grantAdminRights,
-  revokeAdminRights,
+  revokeAdminRights, deleteCar,
 } from './groupThunks';
 import {
   NoGroupSelectedError,
@@ -32,6 +33,7 @@ import {
   NotLoggedInError,
   NotOwnerOfGroupError,
 } from '../../../errors';
+import {User} from '../../../../typings';
 
 describe('groupThunks', () => {
   let cars: CarWithDriver[];
@@ -838,7 +840,7 @@ describe('groupThunks', () => {
             user: {
               id: 1,
               username: 'OWNER',
-            },
+            } as User,
             loading: false,
             signUpRequestSent: false,
           },
@@ -913,7 +915,7 @@ describe('groupThunks', () => {
             user: {
               id: 1,
               username: 'OWNER',
-            },
+            } as User,
             loading: false,
             signUpRequestSent: false,
           },
@@ -988,7 +990,7 @@ describe('groupThunks', () => {
             user: {
               id: 1,
               username: 'OWNER',
-            },
+            } as User,
             loading: false,
             signUpRequestSent: false,
           },
@@ -1249,7 +1251,7 @@ describe('groupThunks', () => {
       };
       const store = mockStore({
         auth: {
-          user,
+          user: user as User,
           loading: false,
           signUpRequestSent: false,
         },
@@ -1311,7 +1313,7 @@ describe('groupThunks', () => {
       };
       const store = mockStore({
         auth: {
-          user,
+          user: user as User,
           loading: false,
           signUpRequestSent: false,
         },
@@ -1374,7 +1376,7 @@ describe('groupThunks', () => {
       };
       const store = mockStore({
         auth: {
-          user,
+          user: user as User,
           loading: false,
           signUpRequestSent: false,
         },
@@ -1446,7 +1448,7 @@ describe('groupThunks', () => {
       };
       const store = mockStore({
         auth: {
-          user,
+          user: user as User,
           loading: false,
           signUpRequestSent: false,
         },
@@ -1720,7 +1722,7 @@ describe('groupThunks', () => {
 
       const store = mockStore({
         auth: {
-          user,
+          user: user as User,
           loading: false,
           signUpRequestSent: false,
         },
@@ -1775,7 +1777,7 @@ describe('groupThunks', () => {
 
       const store = mockStore({
         auth: {
-          user,
+          user: user as User,
           loading: false,
           signUpRequestSent: false,
         },
@@ -2007,7 +2009,7 @@ describe('groupThunks', () => {
 
       const store = mockStore({
         auth: {
-          user,
+          user: user as any,
           loading: false,
           signUpRequestSent: false,
         },
@@ -2062,7 +2064,7 @@ describe('groupThunks', () => {
 
       const store = mockStore({
         auth: {
-          user,
+          user: user as any,
           loading: false,
           signUpRequestSent: false,
         },
@@ -2238,6 +2240,121 @@ describe('groupThunks', () => {
       expect(mockAxios.put).toHaveBeenCalledTimes(1);
       expect(mockAxios.put).toHaveBeenCalledWith(
         `/api/group/${fullGroup.id}/member/${arg.userId}/admin/revoke`);
+    });
+  });
+
+  describe('deleteCar', () => {
+    it('dispatches deleteCar request correctly', async () => {
+      const store = mockStore({
+        group: {
+          selectedGroup: fullGroup,
+          ids: groups.map((g) => g.id),
+          entities: groups.reduce((p, c) => ({...p, [c.id]: c}), {}),
+          loading: false,
+        },
+      });
+
+      mockAxios.delete = jest.fn().mockResolvedValue({});
+
+      const groupId = fullGroup.cars[0].groupId;
+      const carId = fullGroup.cars[0].groupId;
+      const arg = {groupId, carId};
+
+      // Dispatch test thunk
+      await store.dispatch(deleteCar(arg));
+
+      // Check if api correctly used
+      expect(mockAxios.delete).toHaveBeenCalled();
+      expect(mockAxios.delete)
+        .toHaveBeenCalledWith(`/api/group/${groupId}/car/${carId}`);
+
+      const pending = {
+        type: 'group/deleteCar/pending',
+        payload: undefined,
+        meta: {
+          requestId: expect.any(String),
+          requestStatus: expect.any(String),
+          arg,
+        },
+      };
+
+      const removeCar = {
+        type: 'group/removeCar',
+        payload: arg,
+      };
+
+      const fulfilled = {
+        type: 'group/deleteCar/fulfilled',
+        payload: undefined,
+        meta: {
+          requestId: expect.any(String),
+          requestStatus: expect.any(String),
+          arg,
+        },
+      };
+
+      // Check if correct actions have been dispatched
+      const actions = store.getActions();
+
+      expect(actions).toContainEqual(pending);
+      expect(actions).toContainEqual(removeCar);
+      expect(actions).toContainEqual(fulfilled);
+    });
+
+    it('returns rejectWithValue if api call ' +
+      'responses with an error', async function() {
+      const store = mockStore({
+        group: {
+          selectedGroup: fullGroup,
+          ids: groups.map((g) => g.id),
+          entities: groups.reduce((p, c) => ({...p, [c.id]: c}), {}),
+          loading: false,
+        },
+      });
+
+      const error = new Error('TEST ERROR');
+      mockAxios.delete = jest.fn().mockRejectedValue(error);
+
+      const groupId = fullGroup.cars[0].groupId;
+      const carId = fullGroup.cars[0].groupId;
+      const arg = {groupId, carId};
+
+      // Dispatch test thunk
+      await store.dispatch(deleteCar(arg));
+
+      // Check if api correctly used
+      expect(mockAxios.delete).toHaveBeenCalled();
+      expect(mockAxios.delete)
+        .toHaveBeenCalledWith(`/api/group/${groupId}/car/${carId}`);
+
+      const pending = {
+        type: 'group/deleteCar/pending',
+        payload: undefined,
+        meta: {
+          requestId: expect.any(String),
+          requestStatus: expect.any(String),
+          arg,
+        },
+      };
+
+      const removeCar = {
+        type: 'group/removeCar',
+        payload: arg,
+      };
+
+      const rejected = {
+        type: 'group/deleteCar/rejected',
+        payload: undefined,
+        meta: expect.anything(),
+        error: expect.anything(),
+      };
+
+      // Check if correct actions have been dispatched
+      const actions = store.getActions();
+
+      expect(actions).toContainEqual(pending);
+      expect(actions).not.toContainEqual(removeCar);
+      expect(actions).toContainEqual(rejected);
     });
   });
 });

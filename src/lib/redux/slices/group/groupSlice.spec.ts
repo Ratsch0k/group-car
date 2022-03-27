@@ -2,7 +2,7 @@ import {GroupWithOwner} from '../../../../lib';
 import {
   addCar,
   addInvite,
-  GroupState,
+  GroupState, removeCar,
   removeGroupWithId,
   selectGroup,
   setAdminOfMember,
@@ -19,6 +19,7 @@ import {createDraft, Draft} from 'immer';
 import {
   CarColor,
   CarWithDriver,
+  GroupWithOwnerAndCars,
   InviteWithUserAndInviteSender,
   Member,
 } from '../../../api';
@@ -569,6 +570,50 @@ describe('groupSlice', () => {
           ...member,
           isAdmin: true,
         });
+      });
+    });
+
+    describe('removeCar', () => {
+      it('removes a car if it belongs to the selected group', () => {
+        // Prepare state and args for reducer
+        (group1 as GroupWithOwnerAndCars).cars = [car];
+        state.selectedGroup = group1;
+
+        const arg = {groupId: car.groupId, carId: car.carId};
+
+        groupSlice.caseReducers.removeCar(state, removeCar(arg));
+
+        // Check if car is removed
+        expect(state.selectedGroup.cars).toHaveLength(0);
+      });
+
+      it('does nothing if any other group is selected', () => {
+        // Create new fake car
+        const otherCar: CarWithDriver = {
+          groupId: group2.id,
+          carId: 1,
+          color: CarColor.Red,
+          createdAt: new Date(0),
+          updatedAt: new Date(0),
+          name: 'OTHER_CAR',
+          latitude: null,
+          longitude: null,
+          driverId: null,
+          Driver: null,
+        };
+
+        // Prepare state and args for reducer
+        (group2 as GroupWithOwnerAndCars).cars = [otherCar];
+        state.selectedGroup = group2;
+
+        // Make copy of state
+        const previousState = Object.assign({}, state);
+
+        const arg = {groupId: car.groupId, carId: car.carId};
+
+        groupSlice.caseReducers.removeCar(state, removeCar(arg));
+
+        expect(state).toEqual(previousState);
       });
     });
   });

@@ -652,6 +652,7 @@ describe('CarTab', () => {
     );
     expect(baseElement.querySelector('#create-car-fab')).toBeFalsy();
 
+    expect(baseElement.querySelector('#group-tab-cars')).toBeTruthy();
     fireEvent.click(baseElement.querySelector('#group-tab-cars'));
 
     await waitFor(() => expect(baseElement.querySelector('#create-car-fab')).toBeTruthy());
@@ -696,7 +697,6 @@ describe('CarTab', () => {
       show: jest.fn(),
     };
 
-    
     const fakeCar = {
       name: 'NEW CAR',
       groupId: fakeGroup.id,
@@ -812,6 +812,208 @@ describe('CarTab', () => {
 
     await waitFor(() => expect(baseElement.querySelector('#create-car-fab')).toBeTruthy());
     expect(baseElement).toMatchSnapshot();
+  });
+
+  describe('delete car button', () => {
+    it('is not visible to non-admins', async () => {
+      const snackbarContext = {
+        show: jest.fn(),
+      };
+
+      const fakeCar: CarWithDriver = {
+        name: 'NEW CAR',
+        groupId: fakeGroup.id,
+        color: CarColor.Red,
+        carId: 41,
+        latitude: null,
+        longitude: null,
+        driverId: null,
+        Driver: null,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      }
+
+      fakeGroup.cars.push(fakeCar);
+
+      // Change state so that fakeUser is not an admin
+      fakeGroup.ownerId = 3;
+      const newOwner = {
+        id: 3,
+        username: 'NOT FAKE USER',
+      };
+      fakeGroup.Owner = newOwner;
+      // This is the membership of fakeUser
+      fakeGroup.members[0].isAdmin = false;
+      fakeGroup.members.push({
+        User: newOwner,
+        isAdmin: true,
+      })
+
+      const {baseElement} = testRender(
+        state,
+        <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
+          <ManageGroup groupId={2}/>
+        </SnackbarContext.Provider>
+      );
+
+      // Navigate to cars tab
+      fireEvent.click(baseElement.querySelector('#group-tab-cars')!);
+
+      // Check if the button exists
+      expect(baseElement.querySelector('#delete-car-' + fakeCar.carId)).toBeFalsy();
+    });
+
+    it('is visible to admins',  () => {
+      const snackbarContext = {
+        show: jest.fn(),
+      };
+
+      const fakeCar: CarWithDriver = {
+        name: 'NEW CAR',
+        groupId: fakeGroup.id,
+        color: CarColor.Red,
+        carId: 41,
+        latitude: null,
+        longitude: null,
+        driverId: null,
+        Driver: null,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      }
+      fakeGroup.cars.push(fakeCar);
+
+      // fakeUser is admin of group on default, no changes to state have to be done
+
+      const {baseElement} = testRender(
+        state,
+        <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
+          <ManageGroup groupId={2}/>
+        </SnackbarContext.Provider>
+      );
+
+      // Navigate to cars tab
+      fireEvent.click(baseElement.querySelector('#group-tab-cars')!);
+
+      // Check if the button exists
+      expect(baseElement.querySelector('#delete-car-' + fakeCar.carId)).toBeTruthy();
+    });
+
+    it('when clicked, opens a confirm dialog', async function() {
+      const snackbarContext = {
+        show: jest.fn(),
+      };
+
+      const fakeCar: CarWithDriver = {
+        name: 'NEW CAR',
+        groupId: fakeGroup.id,
+        color: CarColor.Red,
+        carId: 41,
+        latitude: null,
+        longitude: null,
+        driverId: null,
+        Driver: null,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      }
+      fakeGroup.cars.push(fakeCar);
+
+      // fakeUser is admin of group on default, no changes to state have to be done
+
+      const {baseElement} = testRender(
+        state,
+        <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
+          <ManageGroup groupId={2}/>
+        </SnackbarContext.Provider>
+      );
+
+      // Navigate to cars tab
+      fireEvent.click(baseElement.querySelector('#group-tab-cars')!);
+
+      // Check if the button exists
+      expect(baseElement.querySelector('#delete-car-' + fakeCar.carId)).toBeTruthy();
+
+      // Click button
+      fireEvent.click(baseElement.querySelector('#delete-car-' + fakeCar.carId)!);
+
+      // Test snapshot
+      expect(baseElement).toMatchSnapshot();
+    });
+
+    it('when confirm the deletion, delete the car', async function() {
+      const snackbarContext = {
+        show: jest.fn(),
+      };
+
+      const fakeCar: CarWithDriver = {
+        name: 'NEW CAR',
+        groupId: fakeGroup.id,
+        color: CarColor.Red,
+        carId: 41,
+        latitude: null,
+        longitude: null,
+        driverId: null,
+        Driver: null,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      }
+      fakeGroup.cars.push(fakeCar);
+
+      // fakeUser is admin of group on default, no changes to state have to be done
+
+      // Mock delete request
+      mockedAxios.delete = jest.fn().mockResolvedValue({});
+
+      const {baseElement, store, queryByText} = testRender(
+        state,
+        <SnackbarContext.Provider value={snackbarContext as unknown as SnackbarContext}>
+          <ManageGroup groupId={2}/>
+        </SnackbarContext.Provider>
+      );
+
+      // Navigate to cars tab
+      fireEvent.click(baseElement.querySelector('#group-tab-cars')!);
+
+      // Check if the button exists
+      expect(baseElement.querySelector('#delete-car-' + fakeCar.carId)).toBeTruthy();
+
+      // Click button
+      fireEvent.click(baseElement.querySelector('#delete-car-' + fakeCar.carId)!);
+
+      // Click on yes
+      fireEvent.click(queryByText('misc.yes')!);
+
+      // Check if appropriate actions have been emitted
+      const expectedPendingAction = {
+        type: 'group/deleteCar/pending',
+        payload: undefined,
+        meta: {
+          requestId: expect.any(String),
+          requestStatus: expect.any(String),
+          arg: {groupId: fakeGroup.id, carId: fakeCar.carId},
+        },
+      };
+
+      const expectedRemoveCar = {
+        type: 'group/removeCar',
+        payload: {groupId: fakeGroup.id, carId: fakeCar.carId},
+      }
+
+      const expectedFulfilledAction = {
+        type: 'group/deleteCar/fulfilled',
+        payload: undefined,
+        meta: {
+          requestId: expect.any(String),
+          requestStatus: expect.any(String),
+          arg: {groupId: fakeGroup.id, carId: fakeCar.carId},
+        },
+      };
+
+      await waitFor(() => expect(store.getActions()).toContainEqual(expectedPendingAction));
+      await waitFor(() => expect(store.getActions()).toContainEqual(expectedRemoveCar));
+      await waitFor(() => expect(store.getActions()).toContainEqual(expectedFulfilledAction));
+
+      expect(mockedAxios.delete).toHaveBeenCalledWith(`/api/group/${fakeGroup.id}/car/${fakeCar.carId}`);
+    });
   });
 });
 
