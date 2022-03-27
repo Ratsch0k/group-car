@@ -31,7 +31,7 @@ import {
  * `ApiContext` to be higher
  * in the tree. The `AuthContext` is needed
  * because it will reload all groups if
- * the logged in user changes and the `ApiContext`
+ * the logged-in user changes and the `ApiContext`
  * is needed because it needs the api calls to load
  * group data.
  * @param props Children.
@@ -128,7 +128,7 @@ export const GroupUpdater: React.FC = (props) => {
     if (/^\/group\/\d+$/.test(path)) {
       return path.split('/')[2];
     } else {
-      undefined;
+      return undefined;
     }
   }, []);
 

@@ -8,6 +8,11 @@ interface SecondaryTextProps {
   car: CarWithDriver;
 }
 
+/**
+ * Secondary text for a car in the cars list.
+ * @param isDriven Whether the car is currently driven
+ * @param car The car
+ */
 const SecondaryText = ({isDriven, car}: SecondaryTextProps): JSX.Element => {
   const {t} = useTranslation();
 
@@ -41,6 +46,10 @@ export interface ManageGroupCarsListItemTextProps {
   car: CarWithDriver;
 }
 
+/**
+ * ListText for a car in the cars list.
+ * @param car Car for which the text is
+ */
 export const CarsListItemText =
 ({car}: ManageGroupCarsListItemTextProps): JSX.Element => {
   const classes = useStyles();

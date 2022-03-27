@@ -18,6 +18,10 @@ export interface CarsListItemActionsProps {
   car: CarWithDriver;
 }
 
+/**
+ * List of actions for a car.
+ * @param car The car
+ */
 export const CarsListItemActions = (
   {car}: CarsListItemActionsProps,
 ): JSX.Element | null => {

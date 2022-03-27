@@ -18,7 +18,7 @@ export interface ManageGroupCarsListItemProps {
   car: CarWithDriver;
 
   /**
-   * Whether or not a divider should be placed under this item.
+   * Whether a divider should be placed under this item.
    */
   divider?: boolean;
 }
