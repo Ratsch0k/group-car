@@ -1,8 +1,7 @@
-import {createStyles, makeStyles, useMediaQuery} from '@material-ui/core';
+import {Box, createStyles, makeStyles, useMediaQuery} from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar/AppBar';
 import IconButton from '@material-ui/core/IconButton';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import EmojiTransportationIcon from '@material-ui/icons/EmojiTransportation';
 import MenuIcon from '@material-ui/icons/Menu';
 import {useTheme} from '@material-ui/core';
@@ -10,6 +9,7 @@ import React from 'react';
 import HeaderBarUserButton from './HeaderBarUserButton';
 import {GroupCarTheme} from 'lib';
 import clsx from 'clsx';
+import Logo from '../Icons/Logo';
 
 /**
  * Styles.
@@ -17,11 +17,13 @@ import clsx from 'clsx';
 const useStyles = makeStyles((theme: GroupCarTheme) =>
   createStyles({
     root: {
-      flexGrow: 1,
+      display: 'flex',
       textAlign: 'left',
     },
-    title: {
+    logo: {
       flexGrow: 1,
+      display: 'flex',
+      alignSelf: 'center',
     },
     appBar: {
       height: theme.shape.headerHeight,
@@ -41,7 +43,7 @@ interface HeaderBarProps {
    */
   openDrawer(): void;
   /**
-   * Whether or not to show a button to open the drawer.
+   * Whether to show a button to open the drawer.
    */
   noMenuButton: boolean;
 }
@@ -58,9 +60,9 @@ export const HeaderBar: React.FC<HeaderBarProps> = (props: HeaderBarProps) => {
   return (
     <AppBar className={classes.appBar}>
       <Toolbar className={classes.root}>
-        <Typography className={classes.title} variant={smallerXs ? 'h5' : 'h4'}>
-          Group Car
-        </Typography>
+        <Box className={classes.logo}>
+          <Logo />
+        </Box>
         <HeaderBarUserButton />
         <IconButton
           color='inherit'
