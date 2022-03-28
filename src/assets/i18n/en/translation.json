@@ -94,7 +94,8 @@
             "deleteDialog": {
               "title": "Delete car",
               "message": "Are you sure you want to delete the car <strong>{{name}}</strong>?"
-            }
+            },
+            "delete": "Delete the car"
           }
         }
       },
