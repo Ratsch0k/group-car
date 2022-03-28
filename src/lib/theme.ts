@@ -5,8 +5,13 @@ type Theme = import('@material-ui/core').Theme;
 type ThemeOptions = import('@material-ui/core').ThemeOptions;
 type Shape = import('@material-ui/core/styles/shape').Shape;
 
+export interface HeaderHeight {
+  small: number;
+  default: number;
+}
+
 interface IShape extends Shape {
-  headerHeight: number;
+  headerHeight: HeaderHeight;
   drawerWidth: number;
 }
 
@@ -46,7 +51,10 @@ export const themeProperties: IThemeOptions = {
     },
   },
   shape: {
-    headerHeight: 64,
+    headerHeight: {
+      small: 48,
+      default: 64,
+    },
     drawerWidth: 350,
   },
 };

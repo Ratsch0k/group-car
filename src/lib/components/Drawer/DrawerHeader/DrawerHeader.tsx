@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
     },
     root: {
       paddingRight: theme.spacing(3),
-      height: theme.shape.headerHeight,
+      height: theme.shape.headerHeight.default,
       alignItems: 'center',
     },
   }),

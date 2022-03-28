@@ -21,10 +21,8 @@ const GroupCar: React.FC = () => {
         display: 'flex',
       },
       content: {
-        paddingTop: theme.shape.headerHeight,
         paddingRight: largerLg ? theme.shape.drawerWidth : 0,
         width: '100%',
-        height: `calc(100% - ${theme.shape.headerHeight}px)`,
         flexGrow: 1,
       },
     }),

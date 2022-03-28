@@ -5,11 +5,28 @@ import {
   Marker,
   Circle,
 } from '@monsonjeremy/react-leaflet';
-import {LocationMarker, PositionMarker, useMap} from 'lib';
+import {GroupCarTheme, LocationMarker, PositionMarker, useMap} from 'lib';
 import {LatLng, LeafletMouseEvent} from 'leaflet';
 import CarMarker from './CarMarker';
 import {useShallowAppSelector} from 'lib/redux/hooks';
 import {getGroupCars} from 'lib/redux/slices/group';
+import {
+  createStyles,
+  makeStyles,
+  useMediaQuery,
+  useTheme,
+} from '@material-ui/core';
+
+const useStyles = makeStyles<
+GroupCarTheme,
+{isSmall: boolean}
+>((theme: GroupCarTheme) => createStyles({
+  map: ({isSmall}) => ({
+    '& .leaflet-top': {
+      top: theme.shape.headerHeight[isSmall ? 'small' : 'default'],
+    },
+  }),
+}));
 
 /**
  * Map component.
@@ -23,6 +40,9 @@ export const Map: React.FC = () => {
   const id = useRef<number>();
   const flew = useRef<boolean>(false);
   const timeoutId = useRef<NodeJS.Timeout>();
+  const theme = useTheme();
+  const smallerXs = useMediaQuery(theme.breakpoints.down('xs'));
+  const classes = useStyles({isSmall: smallerXs});
 
   useEffect(() => {
     if (map) {
@@ -80,6 +100,7 @@ export const Map: React.FC = () => {
       center={new LatLng(50.815781, 10.055568)}
       zoom={6}
       whenCreated={setMap}
+      className={classes.map}
     >
       <TileLayer
         attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

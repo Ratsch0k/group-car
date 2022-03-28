@@ -29,8 +29,8 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
       zIndex: theme.zIndex.appBar - 1,
     },
     drawerPaperPermanent: {
-      height: `calc(100% - ${theme.shape.headerHeight}px)`,
-      marginTop: theme.shape.headerHeight,
+      height: `calc(100% - ${theme.shape.headerHeight.default}px)`,
+      marginTop: theme.shape.headerHeight.default,
     },
     footer: {
       flex: '0 0 auto',
