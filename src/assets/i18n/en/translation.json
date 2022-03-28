@@ -52,7 +52,7 @@
       }
     },
     "cars": {
-      "drivenBy": "Currently used by {{driver}}",
+      "drivenBy": "Currently used by <strong>{{driver}}</strong>",
       "drive": "Drive",
       "view": "Location",
       "parkCurrent": "Park here",
@@ -87,9 +87,13 @@
           },
           "cars": {
             "title": "Cars",
-            "drivenBy": "Currently used by {{driver}}",
+            "drivenBy": "Currently used by <strong>{{driver}}</strong>",
             "create": {
               "title": "Create a new car"
+            },
+            "deleteDialog": {
+              "title": "Delete car",
+              "message": "Are you sure you want to delete the car <strong>{{name}}</strong>?"
             }
           }
         }
@@ -164,6 +168,10 @@
     "cancel": "Cancel",
     "email": "Email",
     "username": "Username",
+    "confirmAction": {
+      "title": "Are you sure?",
+      "message": "Are you sure you want to do this?"
+    },
     "color": {
       "Red": "Red",
       "Black": "Black",

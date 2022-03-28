@@ -1,20 +1,17 @@
 import {
   Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
   makeStyles,
 } from '@material-ui/core';
 import {red} from '@material-ui/core/colors';
 import {unwrapResult} from '@reduxjs/toolkit';
-import {ProgressButton, useSnackBar} from 'lib';
+import {useSnackBar} from 'lib';
 import {useAppDispatch} from 'lib/redux/hooks';
 import {deleteGroup} from 'lib/redux/slices/group';
 import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {useHistory} from 'react-router-dom';
+import ConfirmActionDialog
+  from '../../../../lib/components/ConfirmActionDialog/ConfirmActionDialog';
 
 /**
  * Props for the group delete action.
@@ -68,10 +65,6 @@ export const ManageGroupDeleteAction: React.FC<ManageGroupDeleteActionProps> =
     history.push('/');
   };
 
-  const handleNo = () => {
-    setOpen(false);
-  };
-
   return (
     <>
       <Button
@@ -82,31 +75,14 @@ export const ManageGroupDeleteAction: React.FC<ManageGroupDeleteActionProps> =
       >
         {t('modals.group.manage.deleteGroup.button')}
       </Button>
-      <Dialog open={open}>
-        <DialogTitle>
-          {t('modals.group.manage.deleteGroup.dialog.title')}
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText className={classes.contentText}>
-            {t('modals.group.manage.deleteGroup.dialog.content')}
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button
-            onClick={handleNo}
-            disabled={loading}
-          >
-            {t('misc.no')}
-          </Button>
-          <ProgressButton
-            loading={loading}
-            color='primary'
-            onClick={handleDelete}
-          >
-            {t('misc.yes')}
-          </ProgressButton>
-        </DialogActions>
-      </Dialog>
+      <ConfirmActionDialog
+        open={open}
+        onConfirm={handleDelete}
+        onCancel={() => setOpen(false)}
+        title={t('modals.group.manage.deleteGroup.dialog.title')}
+        message={t('modals.group.manage.deleteGroup.dialog.content')}
+        loading={loading}
+      />
     </>
   );
 };

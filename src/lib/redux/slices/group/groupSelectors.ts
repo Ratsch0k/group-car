@@ -1,7 +1,7 @@
 import {CarWithDriver} from 'lib';
 import {GroupWithOwner, InviteWithUserAndInviteSender, Member} from 'lib/api';
 import {RootState} from 'lib/redux/store';
-import {groupsAdapter} from './groupSlice';
+import groupsAdapter from './groupAdapter';
 
 export const {
   selectById: getGroupById,
