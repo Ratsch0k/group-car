@@ -47,7 +47,6 @@ export const AuthChecker: React.FC = (props) => {
       user !== undefined
     ) {
       dispatch(reset());
-      dispatch(push('/auth'));
     }
     return Promise.reject(error);
   }, [user, isLoggedIn]);
