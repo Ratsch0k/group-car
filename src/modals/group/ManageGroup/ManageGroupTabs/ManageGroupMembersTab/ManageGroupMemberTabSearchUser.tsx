@@ -24,6 +24,7 @@ import {useAppDispatch, useShallowAppSelector} from 'lib/redux/hooks';
 import {getSelectedGroup, inviteUser} from 'lib/redux/slices/group';
 import {unwrapResult} from '@reduxjs/toolkit';
 import {UserSimple} from 'typings';
+import {glowShadow} from '../../../../../lib/util/glowShadow';
 
 /**
  * Special variant of the TextField.
@@ -55,6 +56,7 @@ const useStyles = makeStyles((theme: Theme) =>
       'bottom': theme.spacing(1),
       'right': theme.spacing(1),
       'transition': 'width 500ms, position 500ms',
+      'boxShadow': glowShadow(theme.palette.secondary.main, 1),
       '&$fabDisabled': {
         boxShadow: 'none',
         backgroundColor: theme.palette.secondary.main,
@@ -110,7 +112,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 /**
- * Fab which transforms to a invite user bar.
+ * Fab which transforms to an invite user bar.
  */
 export const ManageGroupMemberTabSearchUser: React.FC = () => {
   const classes = useStyles();

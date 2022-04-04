@@ -5,6 +5,7 @@ import CreateCarDialog from './CreateCarDialog';
 import config from 'config';
 import {useShallowAppSelector} from 'lib/redux/hooks';
 import {getSelectedGroup} from 'lib/redux/slices/group';
+import {glowShadow} from '../../../../../lib/util/glowShadow';
 
 /**
  * Styles.
@@ -15,15 +16,15 @@ const useStyles = makeStyles((theme: Theme) =>
       position: 'absolute',
       bottom: theme.spacing(1),
       right: theme.spacing(1),
+      boxShadow: glowShadow(theme.palette.secondary.main, 1),
     },
   }),
 );
 
 /**
  * Fab to add a new car to a group.
- * @param props Props
  */
-export const AddCarFab: React.FC =() => {
+export const AddCarFab: React.FC = () => {
   const classes = useStyles();
   const [open, setOpen] = useState<boolean>(false);
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
