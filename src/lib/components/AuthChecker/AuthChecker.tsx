@@ -1,4 +1,4 @@
-import React, {useEffect, useCallback} from 'react';
+import React, {useEffect, useCallback, useState} from 'react';
 import axios from 'lib/client';
 import {AxiosError} from 'axios';
 import {
@@ -12,6 +12,8 @@ import {
   getIsLoggedIn,
   reset,
 } from 'lib/redux/slices/auth';
+import {getLocation, push} from 'connected-react-router';
+import {unwrapResult} from '@reduxjs/toolkit';
 
 /**
  * Component for handling initial session check and logging out if
@@ -23,6 +25,14 @@ export const AuthChecker: React.FC = (props) => {
   const user = useShallowAppSelector(getUser);
   const isLoggedIn = useAppSelector(getIsLoggedIn);
   const dispatch = useAppDispatch();
+  const {pathname} = useShallowAppSelector(getLocation);
+  const [checkedSession, setCheckedSession] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (!isLoggedIn && !pathname.startsWith('/auth') && checkedSession) {
+      dispatch(push('/auth'));
+    }
+  }, [isLoggedIn, pathname, checkedSession]);
 
   /**
    * Handles error messages.
@@ -37,9 +47,28 @@ export const AuthChecker: React.FC = (props) => {
       user !== undefined
     ) {
       dispatch(reset());
+      dispatch(push('/auth'));
     }
     return Promise.reject(error);
   }, [user, isLoggedIn]);
+
+  const removeLoader = useCallback(() => {
+    const loader = document.getElementById('loader');
+    if (loader) {
+      loader.style.opacity = '0';
+    }
+
+    // Remove loading spinner from DOM after it faded out
+    const timeout = setTimeout(() => {
+      if (loader) {
+        loader.remove();
+      }
+    }, 500);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, []);
 
   /**
    * Register response interceptor which
@@ -54,8 +83,18 @@ export const AuthChecker: React.FC = (props) => {
 
   // Send request which checks if client is logged in
   useEffect(() => {
-    dispatch(checkLoggedInThunk());
-    // eslint-disable-next-line
+    const initialLogInCheck = async () => {
+      try {
+        unwrapResult(await dispatch(checkLoggedInThunk()));
+      } catch {
+        // Ignore
+      } finally {
+        removeLoader();
+        setCheckedSession(true);
+      }
+    };
+
+    initialLogInCheck();
   }, []);
 
   return (

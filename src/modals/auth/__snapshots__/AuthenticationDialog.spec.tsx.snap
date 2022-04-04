@@ -219,16 +219,16 @@ exports[`AuthenticationDialog back button button navigates back from form 1`] = 
                 class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
               >
                 <div
-                  class="MuiBox-root MuiBox-root makeStyles-wrapper"
+                  class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-contained makeStyles-glow makeStyles-glow makeStyles-button MuiButton-containedPrimary MuiButton-fullWidth"
                     id="login-submit"
                     tabindex="0"
                     type="submit"
                   >
                     <span
-                      class="MuiButton-label"
+                      class="MuiButton-label makeStyles-label"
                     >
                       form.login
                     </span>
