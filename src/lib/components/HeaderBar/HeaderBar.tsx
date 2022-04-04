@@ -21,7 +21,7 @@ import Logo from '../Icons/Logo';
  */
 const useStyles = makeStyles<
 GroupCarTheme,
-{isSmall: boolean}
+{isMedium: boolean}
 >((theme: GroupCarTheme) =>
   createStyles({
     root: {
@@ -33,13 +33,13 @@ GroupCarTheme,
       display: 'flex',
       alignSelf: 'center',
     },
-    appBar: ({isSmall}) => ({
-      height: isSmall ?
-        theme.shape.headerHeight.small :
-        theme.shape.headerHeight.default,
-      background: alpha(theme.palette.primary.light, 0.7),
-      backdropFilter: 'blur(4px)',
-      color: theme.palette.primary.dark,
+    appBar: ({isMedium}) => ({
+      background: alpha(theme.palette.background.paper, 0.7),
+      backdropFilter: theme.palette.blur,
+      color: theme.palette.primary.main,
+      left: 0,
+      width: isMedium ? '100%' : `calc(100% - ${theme.shape.drawerWidth}px)`,
+      borderBottom: `1px solid ${theme.palette.primary.main}`,
     }),
     smallIconButton: {
       padding: theme.spacing(1),
@@ -68,10 +68,14 @@ interface HeaderBarProps {
 export const HeaderBar: React.FC<HeaderBarProps> = (props: HeaderBarProps) => {
   const theme = useTheme();
   const smallerXs = useMediaQuery(theme.breakpoints.down('xs'));
-  const classes = useStyles({isSmall: smallerXs});
+  const largerLg = useMediaQuery(theme.breakpoints.up('lg'));
+  const classes = useStyles({isMedium: !largerLg});
 
   return (
-    <AppBar className={classes.appBar}>
+    <AppBar
+      className={classes.appBar}
+      elevation={0}
+    >
       <Toolbar
         className={classes.root}
         variant={smallerXs ? 'dense' : 'regular'}

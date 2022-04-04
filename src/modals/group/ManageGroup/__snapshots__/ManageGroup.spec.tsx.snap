@@ -33,7 +33,7 @@ exports[`CarTab cars tab is rendered correctly 1`] = `
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container MuiPaper-outlined makeStyles-paperOutlined MuiPaper-rounded"
+          class="MuiBox-root MuiBox-root makeStyles-root"
         >
           <div
             class="MuiTabs-root"
@@ -104,7 +104,7 @@ exports[`CarTab cars tab is rendered correctly 1`] = `
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
+                class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator makeStyles-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -410,13 +410,23 @@ exports[`CarTab cars tab is rendered correctly 1`] = `
           class="MuiBox-root MuiBox-root"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button"
             tabindex="0"
             type="button"
           >
             <span
               class="MuiButton-label"
             >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M14.12 10.47L12 12.59l-2.13-2.12-1.41 1.41L10.59 14l-2.12 2.12 1.41 1.41L12 15.41l2.12 2.12 1.41-1.41L13.41 14l2.12-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9z"
+                />
+              </svg>
               modals.group.manage.deleteGroup.button
             </span>
           </button>
@@ -462,7 +472,7 @@ exports[`CarTab clicking add fab opens create car dialog 1`] = `
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container MuiPaper-outlined makeStyles-paperOutlined MuiPaper-rounded"
+          class="MuiBox-root MuiBox-root makeStyles-root"
         >
           <div
             class="MuiTabs-root"
@@ -533,7 +543,7 @@ exports[`CarTab clicking add fab opens create car dialog 1`] = `
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
+                class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator makeStyles-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -618,13 +628,23 @@ exports[`CarTab clicking add fab opens create car dialog 1`] = `
           class="MuiBox-root MuiBox-root"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button"
             tabindex="0"
             type="button"
           >
             <span
               class="MuiButton-label"
             >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M14.12 10.47L12 12.59l-2.13-2.12-1.41 1.41L10.59 14l-2.12 2.12 1.41 1.41L12 15.41l2.12 2.12 1.41-1.41L13.41 14l2.12-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9z"
+                />
+              </svg>
               modals.group.manage.deleteGroup.button
             </span>
           </button>
@@ -653,7 +673,7 @@ exports[`CarTab clicking add fab opens create car dialog 1`] = `
       tabindex="-1"
     >
       <div
-        class="MuiPaper-root MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiPaper-elevation24 MuiPaper-rounded"
+        class="MuiPaper-root MuiDialog-paper makeStyles-rounded MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiPaper-elevation24 MuiPaper-rounded"
         role="dialog"
       >
         <div
@@ -791,7 +811,7 @@ exports[`CarTab clicking add fab opens create car dialog 1`] = `
             </div>
           </div>
           <div
-            class="MuiDialogActions-root MuiDialogActions-spacing"
+            class="MuiDialogActions-root makeStyles-action MuiDialogActions-spacing"
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-text"
@@ -804,21 +824,17 @@ exports[`CarTab clicking add fab opens create car dialog 1`] = `
                 misc.close
               </span>
             </button>
-            <div
-              class="MuiBox-root MuiBox-root makeStyles-wrapper"
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-contained makeStyles-glow makeStyles-glow makeStyles-button MuiButton-containedPrimary"
+              tabindex="0"
+              type="submit"
             >
-              <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                tabindex="0"
-                type="submit"
+              <span
+                class="MuiButton-label makeStyles-label"
               >
-                <span
-                  class="MuiButton-label"
-                >
-                  misc.create
-                </span>
-              </button>
-            </div>
+                misc.create
+              </span>
+            </button>
           </div>
         </form>
       </div>
@@ -866,7 +882,7 @@ exports[`CarTab color selection only shows not used color 1`] = `
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container MuiPaper-outlined makeStyles-paperOutlined MuiPaper-rounded"
+          class="MuiBox-root MuiBox-root makeStyles-root"
         >
           <div
             class="MuiTabs-root"
@@ -937,7 +953,7 @@ exports[`CarTab color selection only shows not used color 1`] = `
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
+                class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator makeStyles-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -1243,13 +1259,23 @@ exports[`CarTab color selection only shows not used color 1`] = `
           class="MuiBox-root MuiBox-root"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button"
             tabindex="0"
             type="button"
           >
             <span
               class="MuiButton-label"
             >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M14.12 10.47L12 12.59l-2.13-2.12-1.41 1.41L10.59 14l-2.12 2.12 1.41 1.41L12 15.41l2.12 2.12 1.41-1.41L13.41 14l2.12-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9z"
+                />
+              </svg>
               modals.group.manage.deleteGroup.button
             </span>
           </button>
@@ -1279,7 +1305,7 @@ exports[`CarTab color selection only shows not used color 1`] = `
       tabindex="-1"
     >
       <div
-        class="MuiPaper-root MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiPaper-elevation24 MuiPaper-rounded"
+        class="MuiPaper-root MuiDialog-paper makeStyles-rounded MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiPaper-elevation24 MuiPaper-rounded"
         role="dialog"
       >
         <div
@@ -1418,7 +1444,7 @@ exports[`CarTab color selection only shows not used color 1`] = `
             </div>
           </div>
           <div
-            class="MuiDialogActions-root MuiDialogActions-spacing"
+            class="MuiDialogActions-root makeStyles-action MuiDialogActions-spacing"
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-text"
@@ -1431,21 +1457,17 @@ exports[`CarTab color selection only shows not used color 1`] = `
                 misc.close
               </span>
             </button>
-            <div
-              class="MuiBox-root MuiBox-root makeStyles-wrapper"
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-contained makeStyles-glow makeStyles-glow makeStyles-button MuiButton-containedPrimary"
+              tabindex="0"
+              type="submit"
             >
-              <button
-                class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-                tabindex="0"
-                type="submit"
+              <span
+                class="MuiButton-label makeStyles-label"
               >
-                <span
-                  class="MuiButton-label"
-                >
-                  misc.create
-                </span>
-              </button>
-            </div>
+                misc.create
+              </span>
+            </button>
           </div>
         </form>
       </div>
@@ -1687,7 +1709,7 @@ exports[`CarTab delete car button when clicked, opens a confirm dialog 1`] = `
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container MuiPaper-outlined makeStyles-paperOutlined MuiPaper-rounded"
+          class="MuiBox-root MuiBox-root makeStyles-root"
         >
           <div
             class="MuiTabs-root"
@@ -1758,7 +1780,7 @@ exports[`CarTab delete car button when clicked, opens a confirm dialog 1`] = `
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
+                class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator makeStyles-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -1920,13 +1942,23 @@ exports[`CarTab delete car button when clicked, opens a confirm dialog 1`] = `
           class="MuiBox-root MuiBox-root"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button"
             tabindex="0"
             type="button"
           >
             <span
               class="MuiButton-label"
             >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M14.12 10.47L12 12.59l-2.13-2.12-1.41 1.41L10.59 14l-2.12 2.12 1.41 1.41L12 15.41l2.12 2.12 1.41-1.41L13.41 14l2.12-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9z"
+                />
+              </svg>
               modals.group.manage.deleteGroup.button
             </span>
           </button>
@@ -1990,21 +2022,17 @@ exports[`CarTab delete car button when clicked, opens a confirm dialog 1`] = `
               misc.no
             </span>
           </button>
-          <div
-            class="MuiBox-root MuiBox-root makeStyles-wrapper"
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button MuiButton-textPrimary makeStyles-textPrimary"
+            tabindex="0"
+            type="button"
           >
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-              tabindex="0"
-              type="button"
+            <span
+              class="MuiButton-label makeStyles-label"
             >
-              <span
-                class="MuiButton-label"
-              >
-                misc.yes
-              </span>
-            </button>
-          </div>
+              misc.yes
+            </span>
+          </button>
         </div>
       </div>
     </div>
@@ -2049,7 +2077,7 @@ exports[`CarTab entering a name and clicking create dispatches createCar action 
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container MuiPaper-outlined makeStyles-paperOutlined MuiPaper-rounded"
+          class="MuiBox-root MuiBox-root makeStyles-root"
         >
           <div
             class="MuiTabs-root"
@@ -2120,7 +2148,7 @@ exports[`CarTab entering a name and clicking create dispatches createCar action 
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
+                class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator makeStyles-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -2205,13 +2233,23 @@ exports[`CarTab entering a name and clicking create dispatches createCar action 
           class="MuiBox-root MuiBox-root"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button"
             tabindex="0"
             type="button"
           >
             <span
               class="MuiButton-label"
             >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M14.12 10.47L12 12.59l-2.13-2.12-1.41 1.41L10.59 14l-2.12 2.12 1.41 1.41L12 15.41l2.12 2.12 1.41-1.41L13.41 14l2.12-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9z"
+                />
+              </svg>
               modals.group.manage.deleteGroup.button
             </span>
           </button>
@@ -2255,7 +2293,7 @@ exports[`CarTab is automatically selected if modal route is /group/manage/:group
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container MuiPaper-outlined makeStyles-paperOutlined MuiPaper-rounded"
+          class="MuiBox-root MuiBox-root makeStyles-root"
         >
           <div
             class="MuiTabs-root"
@@ -2326,7 +2364,7 @@ exports[`CarTab is automatically selected if modal route is /group/manage/:group
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
+                class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator makeStyles-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -2389,13 +2427,23 @@ exports[`CarTab is automatically selected if modal route is /group/manage/:group
           class="MuiBox-root MuiBox-root"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button"
             tabindex="0"
             type="button"
           >
             <span
               class="MuiButton-label"
             >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M14.12 10.47L12 12.59l-2.13-2.12-1.41 1.41L10.59 14l-2.12 2.12 1.41 1.41L12 15.41l2.12 2.12 1.41-1.41L13.41 14l2.12-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9z"
+                />
+              </svg>
               modals.group.manage.deleteGroup.button
             </span>
           </button>
@@ -2462,7 +2510,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container MuiPaper-outlined makeStyles-paperOutlined MuiPaper-rounded"
+          class="MuiBox-root MuiBox-root makeStyles-root"
         >
           <div
             class="MuiTabs-root"
@@ -2533,7 +2581,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
+                class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator makeStyles-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -2667,13 +2715,23 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
           class="MuiBox-root MuiBox-root"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button"
             tabindex="0"
             type="button"
           >
             <span
               class="MuiButton-label"
             >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M14.12 10.47L12 12.59l-2.13-2.12-1.41 1.41L10.59 14l-2.12 2.12 1.41 1.41L12 15.41l2.12 2.12 1.41-1.41L13.41 14l2.12-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9z"
+                />
+              </svg>
               modals.group.manage.deleteGroup.button
             </span>
           </button>
@@ -2737,21 +2795,17 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
               misc.no
             </span>
           </button>
-          <div
-            class="MuiBox-root MuiBox-root makeStyles-wrapper"
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button MuiButton-textPrimary makeStyles-textPrimary"
+            tabindex="0"
+            type="button"
           >
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-              tabindex="0"
-              type="button"
+            <span
+              class="MuiButton-label makeStyles-label"
             >
-              <span
-                class="MuiButton-label"
-              >
-                misc.yes
-              </span>
-            </button>
-          </div>
+              misc.yes
+            </span>
+          </button>
         </div>
       </div>
     </div>
@@ -2798,7 +2852,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container MuiPaper-outlined makeStyles-paperOutlined MuiPaper-rounded"
+          class="MuiBox-root MuiBox-root makeStyles-root"
         >
           <div
             class="MuiTabs-root"
@@ -2869,7 +2923,7 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
+                class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator makeStyles-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -3003,13 +3057,23 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
           class="MuiBox-root MuiBox-root"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button"
             tabindex="0"
             type="button"
           >
             <span
               class="MuiButton-label"
             >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M14.12 10.47L12 12.59l-2.13-2.12-1.41 1.41L10.59 14l-2.12 2.12 1.41 1.41L12 15.41l2.12 2.12 1.41-1.41L13.41 14l2.12-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9z"
+                />
+              </svg>
               modals.group.manage.deleteGroup.button
             </span>
           </button>
@@ -3073,21 +3137,17 @@ exports[`Footer Delete button clicking no on delete group dialog closes delete g
               misc.no
             </span>
           </button>
-          <div
-            class="MuiBox-root MuiBox-root makeStyles-wrapper"
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button MuiButton-textPrimary makeStyles-textPrimary"
+            tabindex="0"
+            type="button"
           >
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-              tabindex="0"
-              type="button"
+            <span
+              class="MuiButton-label makeStyles-label"
             >
-              <span
-                class="MuiButton-label"
-              >
-                misc.yes
-              </span>
-            </button>
-          </div>
+              misc.yes
+            </span>
+          </button>
         </div>
       </div>
     </div>
@@ -3134,7 +3194,7 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container MuiPaper-outlined makeStyles-paperOutlined MuiPaper-rounded"
+          class="MuiBox-root MuiBox-root makeStyles-root"
         >
           <div
             class="MuiTabs-root"
@@ -3205,7 +3265,7 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
+                class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator makeStyles-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -3339,13 +3399,23 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
           class="MuiBox-root MuiBox-root"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button"
             tabindex="0"
             type="button"
           >
             <span
               class="MuiButton-label"
             >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M14.12 10.47L12 12.59l-2.13-2.12-1.41 1.41L10.59 14l-2.12 2.12 1.41 1.41L12 15.41l2.12 2.12 1.41-1.41L13.41 14l2.12-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9z"
+                />
+              </svg>
               modals.group.manage.deleteGroup.button
             </span>
           </button>
@@ -3409,21 +3479,17 @@ exports[`Footer Delete button clicking on delete group button opens delete dialo
               misc.no
             </span>
           </button>
-          <div
-            class="MuiBox-root MuiBox-root makeStyles-wrapper"
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button MuiButton-textPrimary makeStyles-textPrimary"
+            tabindex="0"
+            type="button"
           >
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-              tabindex="0"
-              type="button"
+            <span
+              class="MuiButton-label makeStyles-label"
             >
-              <span
-                class="MuiButton-label"
-              >
-                misc.yes
-              </span>
-            </button>
-          </div>
+              misc.yes
+            </span>
+          </button>
         </div>
       </div>
     </div>
@@ -3468,7 +3534,7 @@ exports[`Footer Delete button delete group button is visible if user is owner of
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container MuiPaper-outlined makeStyles-paperOutlined MuiPaper-rounded"
+          class="MuiBox-root MuiBox-root makeStyles-root"
         >
           <div
             class="MuiTabs-root"
@@ -3539,7 +3605,7 @@ exports[`Footer Delete button delete group button is visible if user is owner of
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
+                class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator makeStyles-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -3673,13 +3739,23 @@ exports[`Footer Delete button delete group button is visible if user is owner of
           class="MuiBox-root MuiBox-root"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button"
             tabindex="0"
             type="button"
           >
             <span
               class="MuiButton-label"
             >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M14.12 10.47L12 12.59l-2.13-2.12-1.41 1.41L10.59 14l-2.12 2.12 1.41 1.41L12 15.41l2.12 2.12 1.41-1.41L13.41 14l2.12-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9z"
+                />
+              </svg>
               modals.group.manage.deleteGroup.button
             </span>
           </button>
@@ -3725,7 +3801,7 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container MuiPaper-outlined makeStyles-paperOutlined MuiPaper-rounded"
+          class="MuiBox-root MuiBox-root makeStyles-root"
         >
           <div
             class="MuiTabs-root"
@@ -3796,7 +3872,7 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
+                class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator makeStyles-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -3967,7 +4043,7 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
           class="MuiBox-root MuiBox-root"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button"
             tabindex="0"
             type="button"
           >
@@ -4032,26 +4108,22 @@ exports[`Footer Leave button clicking leave group opens dialog 1`] = `
             type="button"
           >
             <span
-              class="MuiButton-label"
+              class="MuiButton-label makeStyles-label"
             >
               misc.no
             </span>
           </button>
-          <div
-            class="MuiBox-root MuiBox-root makeStyles-wrapper"
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button MuiButton-textPrimary makeStyles-textPrimary"
+            tabindex="0"
+            type="button"
           >
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary"
-              tabindex="0"
-              type="button"
+            <span
+              class="MuiButton-label makeStyles-label"
             >
-              <span
-                class="MuiButton-label"
-              >
-                misc.yes
-              </span>
-            </button>
-          </div>
+              misc.yes
+            </span>
+          </button>
         </div>
       </div>
     </div>
@@ -4096,7 +4168,7 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container MuiPaper-outlined makeStyles-paperOutlined MuiPaper-rounded"
+          class="MuiBox-root MuiBox-root makeStyles-root"
         >
           <div
             class="MuiTabs-root"
@@ -4167,7 +4239,7 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
+                class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator makeStyles-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -4338,7 +4410,7 @@ exports[`Footer Leave button leave group button is visible if user is not owner 
           class="MuiBox-root MuiBox-root"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button"
             tabindex="0"
             type="button"
           >
@@ -4386,7 +4458,7 @@ exports[`MemberTab options button click on grant admin dispatches grantAdminRigh
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container MuiPaper-outlined makeStyles-paperOutlined MuiPaper-rounded"
+          class="MuiBox-root MuiBox-root makeStyles-root"
         >
           <div
             class="MuiTabs-root"
@@ -4457,7 +4529,7 @@ exports[`MemberTab options button click on grant admin dispatches grantAdminRigh
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
+                class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator makeStyles-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -4647,13 +4719,23 @@ exports[`MemberTab options button click on grant admin dispatches grantAdminRigh
           class="MuiBox-root MuiBox-root"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button"
             tabindex="0"
             type="button"
           >
             <span
               class="MuiButton-label"
             >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M14.12 10.47L12 12.59l-2.13-2.12-1.41 1.41L10.59 14l-2.12 2.12 1.41 1.41L12 15.41l2.12 2.12 1.41-1.41L13.41 14l2.12-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9z"
+                />
+              </svg>
               modals.group.manage.deleteGroup.button
             </span>
           </button>
@@ -4734,7 +4816,7 @@ exports[`MemberTab options button click on grant admin dispatches grantAdminRigh
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container MuiPaper-outlined makeStyles-paperOutlined MuiPaper-rounded"
+          class="MuiBox-root MuiBox-root makeStyles-root"
         >
           <div
             class="MuiTabs-root"
@@ -4805,7 +4887,7 @@ exports[`MemberTab options button click on grant admin dispatches grantAdminRigh
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
+                class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator makeStyles-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -4995,13 +5077,23 @@ exports[`MemberTab options button click on grant admin dispatches grantAdminRigh
           class="MuiBox-root MuiBox-root"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button"
             tabindex="0"
             type="button"
           >
             <span
               class="MuiButton-label"
             >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M14.12 10.47L12 12.59l-2.13-2.12-1.41 1.41L10.59 14l-2.12 2.12 1.41 1.41L12 15.41l2.12 2.12 1.41-1.41L13.41 14l2.12-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9z"
+                />
+              </svg>
               modals.group.manage.deleteGroup.button
             </span>
           </button>
@@ -5083,7 +5175,7 @@ exports[`MemberTab options button click on revoke admin will dispatch revokeAdmi
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container MuiPaper-outlined makeStyles-paperOutlined MuiPaper-rounded"
+          class="MuiBox-root MuiBox-root makeStyles-root"
         >
           <div
             class="MuiTabs-root"
@@ -5154,7 +5246,7 @@ exports[`MemberTab options button click on revoke admin will dispatch revokeAdmi
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
+                class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator makeStyles-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -5354,13 +5446,23 @@ exports[`MemberTab options button click on revoke admin will dispatch revokeAdmi
           class="MuiBox-root MuiBox-root"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button"
             tabindex="0"
             type="button"
           >
             <span
               class="MuiButton-label"
             >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M14.12 10.47L12 12.59l-2.13-2.12-1.41 1.41L10.59 14l-2.12 2.12 1.41 1.41L12 15.41l2.12 2.12 1.41-1.41L13.41 14l2.12-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9z"
+                />
+              </svg>
               modals.group.manage.deleteGroup.button
             </span>
           </button>
@@ -5441,7 +5543,7 @@ exports[`MemberTab options button click on revoke admin will dispatch revokeAdmi
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container MuiPaper-outlined makeStyles-paperOutlined MuiPaper-rounded"
+          class="MuiBox-root MuiBox-root makeStyles-root"
         >
           <div
             class="MuiTabs-root"
@@ -5512,7 +5614,7 @@ exports[`MemberTab options button click on revoke admin will dispatch revokeAdmi
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
+                class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator makeStyles-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -5712,13 +5814,23 @@ exports[`MemberTab options button click on revoke admin will dispatch revokeAdmi
           class="MuiBox-root MuiBox-root"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button"
             tabindex="0"
             type="button"
           >
             <span
               class="MuiButton-label"
             >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M14.12 10.47L12 12.59l-2.13-2.12-1.41 1.41L10.59 14l-2.12 2.12 1.41 1.41L12 15.41l2.12 2.12 1.41-1.41L13.41 14l2.12-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9z"
+                />
+              </svg>
               modals.group.manage.deleteGroup.button
             </span>
           </button>
@@ -5800,7 +5912,7 @@ exports[`MemberTab options button if member is admin the revoke admin option is 
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container MuiPaper-outlined makeStyles-paperOutlined MuiPaper-rounded"
+          class="MuiBox-root MuiBox-root makeStyles-root"
         >
           <div
             class="MuiTabs-root"
@@ -5871,7 +5983,7 @@ exports[`MemberTab options button if member is admin the revoke admin option is 
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
+                class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator makeStyles-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -6071,13 +6183,23 @@ exports[`MemberTab options button if member is admin the revoke admin option is 
           class="MuiBox-root MuiBox-root"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button"
             tabindex="0"
             type="button"
           >
             <span
               class="MuiButton-label"
             >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M14.12 10.47L12 12.59l-2.13-2.12-1.41 1.41L10.59 14l-2.12 2.12 1.41 1.41L12 15.41l2.12 2.12 1.41-1.41L13.41 14l2.12-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9z"
+                />
+              </svg>
               modals.group.manage.deleteGroup.button
             </span>
           </button>
@@ -6158,7 +6280,7 @@ exports[`MemberTab options button if member is not an admin grant admin option i
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container MuiPaper-outlined makeStyles-paperOutlined MuiPaper-rounded"
+          class="MuiBox-root MuiBox-root makeStyles-root"
         >
           <div
             class="MuiTabs-root"
@@ -6229,7 +6351,7 @@ exports[`MemberTab options button if member is not an admin grant admin option i
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
+                class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator makeStyles-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -6419,13 +6541,23 @@ exports[`MemberTab options button if member is not an admin grant admin option i
           class="MuiBox-root MuiBox-root"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button"
             tabindex="0"
             type="button"
           >
             <span
               class="MuiButton-label"
             >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M14.12 10.47L12 12.59l-2.13-2.12-1.41 1.41L10.59 14l-2.12 2.12 1.41 1.41L12 15.41l2.12 2.12 1.41-1.41L13.41 14l2.12-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9z"
+                />
+              </svg>
               modals.group.manage.deleteGroup.button
             </span>
           </button>
@@ -6505,7 +6637,7 @@ exports[`MemberTab options button will appear if current user is admin and membe
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container MuiPaper-outlined makeStyles-paperOutlined MuiPaper-rounded"
+          class="MuiBox-root MuiBox-root makeStyles-root"
         >
           <div
             class="MuiTabs-root"
@@ -6576,7 +6708,7 @@ exports[`MemberTab options button will appear if current user is admin and membe
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
+                class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator makeStyles-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -6803,7 +6935,7 @@ exports[`MemberTab options button will appear if current user is admin and membe
           class="MuiBox-root MuiBox-root"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button"
             tabindex="0"
             type="button"
           >
@@ -6886,7 +7018,7 @@ exports[`MemberTab options button will appear if current user is the owner and m
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container MuiPaper-outlined makeStyles-paperOutlined MuiPaper-rounded"
+          class="MuiBox-root MuiBox-root makeStyles-root"
         >
           <div
             class="MuiTabs-root"
@@ -6957,7 +7089,7 @@ exports[`MemberTab options button will appear if current user is the owner and m
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
+                class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator makeStyles-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -7213,13 +7345,23 @@ exports[`MemberTab options button will appear if current user is the owner and m
           class="MuiBox-root MuiBox-root"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button"
             tabindex="0"
             type="button"
           >
             <span
               class="MuiButton-label"
             >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M14.12 10.47L12 12.59l-2.13-2.12-1.41 1.41L10.59 14l-2.12 2.12 1.41 1.41L12 15.41l2.12 2.12 1.41-1.41L13.41 14l2.12-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9z"
+                />
+              </svg>
               modals.group.manage.deleteGroup.button
             </span>
           </button>
@@ -7331,7 +7473,7 @@ exports[`MemberTab options button will never appear if current user is not an ad
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container MuiPaper-outlined makeStyles-paperOutlined MuiPaper-rounded"
+          class="MuiBox-root MuiBox-root makeStyles-root"
         >
           <div
             class="MuiTabs-root"
@@ -7402,7 +7544,7 @@ exports[`MemberTab options button will never appear if current user is not an ad
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
+                class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator makeStyles-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -7567,7 +7709,7 @@ exports[`MemberTab options button will never appear if current user is not an ad
           class="MuiBox-root MuiBox-root"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button"
             tabindex="0"
             type="button"
           >
@@ -7615,7 +7757,7 @@ exports[`MemberTab options button will not appear if current user and member is 
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container MuiPaper-outlined makeStyles-paperOutlined MuiPaper-rounded"
+          class="MuiBox-root MuiBox-root makeStyles-root"
         >
           <div
             class="MuiTabs-root"
@@ -7686,7 +7828,7 @@ exports[`MemberTab options button will not appear if current user and member is 
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
+                class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator makeStyles-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -7894,7 +8036,7 @@ exports[`MemberTab options button will not appear if current user and member is 
           class="MuiBox-root MuiBox-root"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button"
             tabindex="0"
             type="button"
           >
@@ -7942,7 +8084,7 @@ exports[`MemberTab renders list of invites correctly 1`] = `
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container MuiPaper-outlined makeStyles-paperOutlined MuiPaper-rounded"
+          class="MuiBox-root MuiBox-root makeStyles-root"
         >
           <div
             class="MuiTabs-root"
@@ -8013,7 +8155,7 @@ exports[`MemberTab renders list of invites correctly 1`] = `
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
+                class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator makeStyles-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -8183,13 +8325,23 @@ exports[`MemberTab renders list of invites correctly 1`] = `
           class="MuiBox-root MuiBox-root"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button"
             tabindex="0"
             type="button"
           >
             <span
               class="MuiButton-label"
             >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M14.12 10.47L12 12.59l-2.13-2.12-1.41 1.41L10.59 14l-2.12 2.12 1.41 1.41L12 15.41l2.12 2.12 1.41-1.41L13.41 14l2.12-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9z"
+                />
+              </svg>
               modals.group.manage.deleteGroup.button
             </span>
           </button>
@@ -8231,7 +8383,7 @@ exports[`MemberTab renders list of members correctly 1`] = `
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container MuiPaper-outlined makeStyles-paperOutlined MuiPaper-rounded"
+          class="MuiBox-root MuiBox-root makeStyles-root"
         >
           <div
             class="MuiTabs-root"
@@ -8302,7 +8454,7 @@ exports[`MemberTab renders list of members correctly 1`] = `
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
+                class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator makeStyles-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -8558,13 +8710,23 @@ exports[`MemberTab renders list of members correctly 1`] = `
           class="MuiBox-root MuiBox-root"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button"
             tabindex="0"
             type="button"
           >
             <span
               class="MuiButton-label"
             >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M14.12 10.47L12 12.59l-2.13-2.12-1.41 1.41L10.59 14l-2.12 2.12 1.41 1.41L12 15.41l2.12 2.12 1.41-1.41L13.41 14l2.12-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9z"
+                />
+              </svg>
               modals.group.manage.deleteGroup.button
             </span>
           </button>
@@ -8740,7 +8902,7 @@ exports[`renders group info if group exists 1`] = `
         style="height: 400px;"
       >
         <div
-          class="MuiPaper-root makeStyles-container MuiPaper-outlined makeStyles-paperOutlined MuiPaper-rounded"
+          class="MuiBox-root MuiBox-root makeStyles-root"
         >
           <div
             class="MuiTabs-root"
@@ -8811,7 +8973,7 @@ exports[`renders group info if group exists 1`] = `
                 </button>
               </div>
               <span
-                class="PrivateTabIndicator-root PrivateTabIndicator-colorSecondary MuiTabs-indicator"
+                class="PrivateTabIndicator-root PrivateTabIndicator-colorPrimary MuiTabs-indicator makeStyles-indicator"
                 style="left: 0px; width: 0px;"
               />
             </div>
@@ -8945,13 +9107,23 @@ exports[`renders group info if group exists 1`] = `
           class="MuiBox-root MuiBox-root"
         >
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-button MuiButton-fullWidth"
+            class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button"
             tabindex="0"
             type="button"
           >
             <span
               class="MuiButton-label"
             >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M14.12 10.47L12 12.59l-2.13-2.12-1.41 1.41L10.59 14l-2.12 2.12 1.41 1.41L12 15.41l2.12 2.12 1.41-1.41L13.41 14l2.12-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4zM6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9z"
+                />
+              </svg>
               modals.group.manage.deleteGroup.button
             </span>
           </button>

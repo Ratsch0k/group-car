@@ -1,10 +1,10 @@
-import {Button, Grid, Box, Typography, Badge} from '@material-ui/core';
+import {Grid, Box, Typography, Badge} from '@material-ui/core';
 import {createStyles, makeStyles} from '@material-ui/styles';
 import React, {useState, useEffect} from 'react';
 import UserAvatar from '../UserAvatar/UserAvatar';
 import {useTranslation} from 'react-i18next';
 import {grey} from '@material-ui/core/colors';
-import {GroupCarTheme} from 'lib';
+import {Button, ButtonProps, GroupCarTheme} from 'lib';
 import {
   useAppDispatch,
   useAppSelector,
@@ -15,6 +15,30 @@ import {getIsLoggedIn, getUser, logout} from 'lib/redux/slices/auth';
 import {getAllInvites} from 'lib/redux/slices/invites';
 import SettingsIcon from '@material-ui/icons/Settings';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+
+const useButtonStyles = makeStyles({
+  root: {
+    justifyContent: 'flex-start',
+  },
+});
+
+const ListButton = (props: ButtonProps) => {
+  const {classes, ...rest} = props;
+  const styleClasses = useButtonStyles();
+
+  return (
+    <Button
+      fullWidth
+      color='primary'
+      classes={{
+        root: styleClasses.root,
+        ...classes,
+      }}
+      {...rest}
+    />
+  );
+};
 
 const useStyle = makeStyles((theme: GroupCarTheme) =>
   createStyles({
@@ -29,9 +53,8 @@ const useStyle = makeStyles((theme: GroupCarTheme) =>
       minWidth: 180,
     },
     buttonIcon: {
+      marginLeft: theme.spacing(2),
       marginRight: theme.spacing(1),
-      height: 24,
-      marginLeft: theme.spacing(3),
     },
   }),
 );
@@ -100,12 +123,10 @@ export const UserOverview: React.FC<UserOverviewProps> =
           {userInfo}
         </Grid>
         <Grid item>
-          <Button
-            fullWidth
-            color='primary'
+          <ListButton
             onClick={() => dispatch(goToModal('/invites'))}
-            startIcon={<MailOutlineIcon fontSize='small' />}
           >
+            <MailOutlineIcon fontSize='small' className={classes.buttonIcon} />
             <Badge
               color='secondary'
               badgeContent={invites.length}
@@ -113,28 +134,25 @@ export const UserOverview: React.FC<UserOverviewProps> =
             >
               {t('user.invites')}
             </Badge>
-          </Button>
+          </ListButton>
         </Grid>
         <Grid item>
-          <Button
-            fullWidth
-            color='primary'
+          <ListButton
             onClick={() => dispatch(goToModal('/settings'))}
-            startIcon={<SettingsIcon fontSize='small' />}
           >
+            <SettingsIcon fontSize='small' className={classes.buttonIcon} />
             {t('user.settings')}
-          </Button>
+          </ListButton>
         </Grid>
         <Grid item>
-          <Button
+          <ListButton
             data-testid='logout-button'
-            color='primary'
-            variant='contained'
+            color={undefined}
             onClick={handleLogout}
-            fullWidth
           >
+            <ExitToAppIcon fontSize='small' className={classes.buttonIcon} />
             {t('form.logout')}
-          </Button>
+          </ListButton>
         </Grid>
       </Grid>
     </Box>

@@ -3,7 +3,6 @@ import {
   ListItemText,
   ListItemSecondaryAction,
   Grid,
-  Button,
   CircularProgress,
   Box,
   Theme,
@@ -11,7 +10,11 @@ import {
   useTheme,
 } from '@material-ui/core';
 import {createStyles, makeStyles} from '@material-ui/styles';
-import {InviteWithGroupAndInviteSender, useStateIfMounted} from 'lib';
+import {
+  InviteWithGroupAndInviteSender,
+  useStateIfMounted,
+  IconButton,
+} from 'lib';
 import {useAppDispatch} from 'lib/redux/hooks';
 import {
   acceptInvite,
@@ -19,6 +22,7 @@ import {
 } from 'lib/redux/slices/invites';
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
+import {Check, Delete} from '@material-ui/icons';
 
 /**
  * Props for the InvitesListItem
@@ -49,11 +53,6 @@ const useStyles = makeStyles((theme: Theme) =>
     loader: {
       display: 'grid',
       alignItems: 'center',
-    },
-    twoLinesSecondaryAction: {
-      position: 'unset',
-      marginTop: theme.spacing(2),
-      marginLeft: theme.spacing(2),
     },
   }),
 );
@@ -130,34 +129,29 @@ export const InvitesListItem: React.FC<InvitesListItemProps> =
           })
         }
       />
-      <ListItemSecondaryAction
-        classes={{
-          root: smallerSm ?
-            classes.twoLinesSecondaryAction :
-            undefined,
-        }}
-      >
+      <ListItemSecondaryAction>
         <Grid container spacing={1}>
           <Grid item>
-            <Button
+            <IconButton
               color='primary'
-              variant='outlined'
+              tooltip={t('misc.accept').toString()}
               disabled={loading}
               onClick={handleAccept}
               id={`invite-${invite.groupId}-accept-btn`}
             >
-              {t('misc.accept')}
-            </Button>
+              <Check />
+            </IconButton>
           </Grid>
           <Grid item>
-            <Button
-              variant='outlined'
+            <IconButton
+              tooltip={t('misc.delete').toString()}
+              color='error'
               disabled={loading}
               onClick={handleReject}
               id={`invite-${invite.groupId}-delete-btn`}
             >
-              {t('misc.delete')}
-            </Button>
+              <Delete />
+            </IconButton>
           </Grid>
         </Grid>
       </ListItemSecondaryAction>

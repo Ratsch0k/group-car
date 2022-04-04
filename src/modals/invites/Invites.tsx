@@ -1,6 +1,5 @@
 import {
   Box,
-  Dialog,
   DialogContent,
   Divider,
   List, ModalProps,
@@ -8,7 +7,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import {createStyles, makeStyles} from '@material-ui/styles';
-import {CloseableDialogTitle} from 'lib';
+import {CloseableDialogTitle, Dialog} from 'lib';
 import React, {useCallback, useEffect} from 'react';
 import {useTranslation} from 'react-i18next';
 import {useAppDispatch, useShallowAppSelector} from 'lib/redux/hooks';

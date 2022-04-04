@@ -1,13 +1,10 @@
 import React from 'react';
 import {
-  Button,
   CircularProgress,
   makeStyles,
   createStyles,
-  Box,
 } from '@material-ui/core';
-
-type ButtonProps = import('@material-ui/core').ButtonProps;
+import {Button, ButtonProps} from '../Button';
 
 export interface ProgressButtonProps extends ButtonProps {
   loading?: boolean;
@@ -25,7 +22,7 @@ export const ProgressButton: React.FC<ProgressButtonProps> = (props) => {
 
   const useStyle = makeStyles(() =>
     createStyles({
-      wrapper: {
+      button: {
         position: 'relative',
       },
       progress: {
@@ -41,10 +38,12 @@ export const ProgressButton: React.FC<ProgressButtonProps> = (props) => {
   const classes = useStyle();
 
   return (
-    <Box className={classes.wrapper}>
-      <Button {...rest} disabled={disabled || loading}>
-        {children}
-      </Button>
+    <Button
+      className={classes.button}
+      {...rest}
+      disabled={disabled || loading}
+    >
+      {children}
       {
         loading &&
         <CircularProgress
@@ -53,7 +52,7 @@ export const ProgressButton: React.FC<ProgressButtonProps> = (props) => {
           size={progressSize}
         />
       }
-    </Box>
+    </Button>
   );
 };
 

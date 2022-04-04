@@ -4,7 +4,7 @@ exports[`Map zooms to current position when first found 1`] = `
 <body>
   <div>
     <div
-      class="leaflet-container leaflet-grab leaflet-touch-drag"
+      class="makeStyles-map leaflet-container leaflet-grab leaflet-touch-drag"
       style="position: relative;"
       tabindex="0"
     >

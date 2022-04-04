@@ -28,7 +28,7 @@ exports[`Invites modal renders list of invites correctly 1`] = `
       tabindex="-1"
     >
       <div
-        class="MuiPaper-root MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiDialog-paperFullWidth MuiPaper-elevation24 MuiPaper-rounded"
+        class="MuiPaper-root MuiDialog-paper makeStyles-rounded MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiDialog-paperFullWidth MuiPaper-elevation24 MuiPaper-rounded"
         role="dialog"
       >
         <div
@@ -97,15 +97,25 @@ exports[`Invites modal renders list of invites correctly 1`] = `
                     class="MuiGrid-root MuiGrid-item"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary"
+                      class="MuiButtonBase-root MuiIconButton-root makeStyles-button makeStyles-button"
                       id="invite-1-accept-btn"
                       tabindex="0"
+                      title="misc.accept"
                       type="button"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiIconButton-label"
                       >
-                        misc.accept
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                          />
+                        </svg>
                       </span>
                     </button>
                   </div>
@@ -113,15 +123,25 @@ exports[`Invites modal renders list of invites correctly 1`] = `
                     class="MuiGrid-root MuiGrid-item"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-outlined"
+                      class="MuiButtonBase-root MuiIconButton-root makeStyles-button makeStyles-button"
                       id="invite-1-delete-btn"
                       tabindex="0"
+                      title="misc.delete"
                       type="button"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiIconButton-label"
                       >
-                        misc.delete
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                          />
+                        </svg>
                       </span>
                     </button>
                   </div>
@@ -162,15 +182,25 @@ exports[`Invites modal renders list of invites correctly 1`] = `
                     class="MuiGrid-root MuiGrid-item"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary"
+                      class="MuiButtonBase-root MuiIconButton-root makeStyles-button makeStyles-button"
                       id="invite-2-accept-btn"
                       tabindex="0"
+                      title="misc.accept"
                       type="button"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiIconButton-label"
                       >
-                        misc.accept
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                          />
+                        </svg>
                       </span>
                     </button>
                   </div>
@@ -178,15 +208,25 @@ exports[`Invites modal renders list of invites correctly 1`] = `
                     class="MuiGrid-root MuiGrid-item"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-outlined"
+                      class="MuiButtonBase-root MuiIconButton-root makeStyles-button makeStyles-button"
                       id="invite-2-delete-btn"
                       tabindex="0"
+                      title="misc.delete"
                       type="button"
                     >
                       <span
-                        class="MuiButton-label"
+                        class="MuiIconButton-label"
                       >
-                        misc.delete
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                          />
+                        </svg>
                       </span>
                     </button>
                   </div>

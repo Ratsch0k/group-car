@@ -1,7 +1,7 @@
 import React from 'react';
-import {DialogContent, Dialog} from '@material-ui/core';
+import {DialogContent} from '@material-ui/core';
 import {useTranslation} from 'react-i18next';
-import {CloseableDialogTitle, Imprint} from 'lib';
+import {CloseableDialogTitle, Dialog, Imprint} from 'lib';
 import {useAppDispatch} from 'lib/redux/hooks';
 import {closeModal} from 'lib/redux/slices/modalRouter/modalRouterSlice';
 

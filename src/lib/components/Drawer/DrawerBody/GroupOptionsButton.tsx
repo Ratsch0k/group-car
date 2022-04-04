@@ -1,17 +1,39 @@
-import React, {useRef, useState} from 'react';
+import React, {useCallback, useRef, useState} from 'react';
 import {
-  Button,
   Popper,
   Box,
   Grow,
-  ClickAwayListener,
+  ClickAwayListener, Grid, Tooltip,
 } from '@material-ui/core';
 import {useTranslation} from 'react-i18next';
 import GroupOptionsMenu from './GroupOptionsMenu';
 import {makeStyles, createStyles} from '@material-ui/styles';
 import {GroupCarTheme} from 'lib/theme';
-import {useShallowAppSelector} from 'lib/redux/hooks';
-import {getSelectedGroup} from 'lib/redux/slices/group';
+import {useAppDispatch, useShallowAppSelector} from 'lib/redux/hooks';
+import {getIsLoading, getSelectedGroup} from 'lib/redux/slices/group';
+import {Button} from 'lib';
+import EditIcon from '@material-ui/icons/Edit';
+import {goToModal} from '../../../redux/slices/modalRouter/modalRouterSlice';
+
+const useStyles = makeStyles((theme: GroupCarTheme) => createStyles({
+  groupButtonContainer: {
+    flexGrow: 1,
+    flexShrink: 1,
+  },
+  editButtonContainer: {
+    flexGrow: 0,
+    flexShrink: 0,
+  },
+  editButtonRoot: {
+    minWidth: 36,
+  },
+  menuContainer: {
+    marginTop: theme.spacing(1),
+  },
+  popper: {
+    zIndex: theme.zIndex.tooltip,
+  },
+}));
 
 /**
  * Button for opening group options.
@@ -22,19 +44,9 @@ export const GroupOptionsButton: React.FC = () => {
   const anchorRef = useRef<HTMLButtonElement>(null);
   const [open, setOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
-
-  const useStyles = makeStyles((theme: GroupCarTheme) =>
-    createStyles({
-      menuContainer: {
-        width: anchorRef.current ? anchorRef.current.clientWidth : undefined,
-        marginTop: theme.spacing(1),
-      },
-      popper: {
-        zIndex: theme.zIndex.tooltip,
-      },
-    }),
-  );
+  const groupIsLoading = useShallowAppSelector(getIsLoading);
   const classes = useStyles();
+  const dispatch = useAppDispatch();
 
   const handleClose = () => {
     if (!loading) {
@@ -47,47 +59,78 @@ export const GroupOptionsButton: React.FC = () => {
     }
   };
 
+  const handleManageGroup = useCallback(() => {
+    if (selectedGroup !== null) {
+      dispatch(goToModal(`/group/manage/${selectedGroup.id}`));
+    }
+  }, [selectedGroup]);
+
   return (
-    <ClickAwayListener onClickAway={handleClose}>
-      <Box>
-        <Button
-          fullWidth
-          ref={anchorRef}
-          disableElevation
-          color='primary'
-          variant='contained'
-          onClick={handleOpenToggle}
-        >
-          {
-            selectedGroup !== null ?
-              selectedGroup.name :
-              t('drawer.groupMenu.noSelection')
-          }
-        </Button>
-        <Popper
-          open={open}
-          anchorEl={anchorRef.current}
-          transition
-          disablePortal
-          placement='bottom-end'
-          className={classes.popper}
-        >
-          {({TransitionProps}) => (
-            <Grow {...TransitionProps}>
-              <Box
-                className={classes.menuContainer}
-              >
-                <GroupOptionsMenu
-                  loading={loading}
-                  setLoading={setLoading}
-                  close={handleClose}
-                />
-              </Box>
-            </Grow>
-          )}
-        </Popper>
-      </Box>
-    </ClickAwayListener>
+    <Grid container spacing={1}>
+      <Grid item className={classes.groupButtonContainer}>
+        <ClickAwayListener onClickAway={handleClose}>
+          <Box>
+            <Button
+              fullWidth
+              ref={anchorRef}
+              disableElevation
+              color='primary'
+              variant='contained'
+              onClick={handleOpenToggle}
+            >
+              {
+                selectedGroup !== null ?
+                  selectedGroup.name :
+                  t('drawer.groupMenu.noSelection')
+              }
+            </Button>
+            <Popper
+              open={open}
+              anchorEl={anchorRef.current}
+              transition
+              placement='bottom-end'
+              className={classes.popper}
+              disablePortal
+            >
+              {({TransitionProps}) => (
+                <Grow {...TransitionProps}>
+                  <Box
+                    className={classes.menuContainer}
+                    style={{
+                      width: anchorRef.current ?
+                        anchorRef.current.clientWidth :
+                        undefined,
+                    }}
+                  >
+                    <GroupOptionsMenu
+                      loading={loading}
+                      setLoading={setLoading}
+                      close={handleClose}
+                    />
+                  </Box>
+                </Grow>
+              )}
+            </Popper>
+          </Box>
+        </ClickAwayListener>
+      </Grid>
+      <Grid item className={classes.editButtonContainer}>
+        <Tooltip title={t('drawer.groupMenu.item.manage').toString()}>
+          <span>
+            <Button
+              color='primary'
+              classes={{
+                root: classes.editButtonRoot,
+              }}
+              disabled={groupIsLoading || selectedGroup === null}
+              onClick={handleManageGroup}
+            >
+              <EditIcon/>
+            </Button>
+          </span>
+        </Tooltip>
+      </Grid>
+    </Grid>
   );
 };
 

@@ -1,15 +1,15 @@
 import {
-  Button,
   Dialog,
   DialogActions,
   DialogContent,
   DialogContentText,
-  DialogTitle, ModalProps,
+  DialogTitle,
+  ModalProps,
 } from '@material-ui/core';
 import {red} from '@material-ui/core/colors';
 import {makeStyles} from '@material-ui/styles';
 import {unwrapResult} from '@reduxjs/toolkit';
-import {ProgressButton, useSnackBar} from 'lib';
+import {Button, ProgressButton, useSnackBar} from 'lib';
 import {useAppDispatch} from 'lib/redux/hooks';
 import {leaveGroup} from 'lib/redux/slices/group';
 import React, {useCallback, useState} from 'react';
@@ -28,8 +28,10 @@ export interface ManageGroupLeaveActionProps {
  */
 const useStyles = makeStyles({
   button: {
-    color: red['700'],
-    borderColor: red['700'],
+    'color': red['700'],
+    '&:hover': {
+      backgroundColor: red['50'],
+    },
   },
 });
 
@@ -76,10 +78,9 @@ export const ManageGroupLeaveAction: React.FC<ManageGroupLeaveActionProps> =
   return (
     <>
       <Button
-        variant='outlined'
         className={classes.button}
-        fullWidth
         onClick={handleClick}
+        noBold
       >
         {t('modals.group.manage.leaveGroup.button')}
       </Button>

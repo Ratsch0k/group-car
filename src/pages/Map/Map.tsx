@@ -25,6 +25,9 @@ GroupCarTheme,
     '& .leaflet-top': {
       top: theme.shape.headerHeight[isSmall ? 'small' : 'default'],
     },
+    '& .leaflet-right': {
+      right: isSmall ? 0 : theme.shape.drawerWidth,
+    },
   }),
 }));
 

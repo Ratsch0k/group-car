@@ -2,9 +2,10 @@ import React, {useState} from 'react';
 import {
   CloseableDialogTitle,
   GroupCarTheme,
+  Dialog,
 } from 'lib';
 import {useTranslation} from 'react-i18next';
-import {DialogContent, Dialog} from '@material-ui/core';
+import {DialogContent} from '@material-ui/core';
 import CreateGroupForm from './CreateGroupForm';
 import {makeStyles, createStyles} from '@material-ui/styles';
 import {useAppDispatch} from 'lib/redux/hooks';

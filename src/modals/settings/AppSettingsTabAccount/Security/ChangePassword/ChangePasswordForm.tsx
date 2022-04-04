@@ -83,7 +83,13 @@ export const ChangePasswordForm =
             <Grid item>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
+                  <Button fullWidth onClick={onClose}>
+                    {t('misc.cancel')}
+                  </Button>
+                </Grid>
+                <Grid item xs={12} sm={6}>
                   <ProgressButton
+                    glow='primary'
                     disabled={!props.isValid || !props.dirty}
                     loading={props.isSubmitting}
                     id='change-password-button'
@@ -94,11 +100,6 @@ export const ChangePasswordForm =
                   >
                     {t('settings.account.security.changePassword')}
                   </ProgressButton>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <Button fullWidth onClick={onClose}>
-                    {t('misc.cancel')}
-                  </Button>
                 </Grid>
               </Grid>
             </Grid>

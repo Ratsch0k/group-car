@@ -1,10 +1,9 @@
 import {
-  Button,
   makeStyles,
 } from '@material-ui/core';
 import {red} from '@material-ui/core/colors';
 import {unwrapResult} from '@reduxjs/toolkit';
-import {useSnackBar} from 'lib';
+import {Button, useSnackBar} from 'lib';
 import {useAppDispatch} from 'lib/redux/hooks';
 import {deleteGroup} from 'lib/redux/slices/group';
 import React, {useState} from 'react';
@@ -12,6 +11,9 @@ import {useTranslation} from 'react-i18next';
 import {useHistory} from 'react-router-dom';
 import ConfirmActionDialog
   from '../../../../lib/components/ConfirmActionDialog/ConfirmActionDialog';
+import DeleteForeverOutlinedIcon from
+  '@material-ui/icons/DeleteForeverOutlined';
+
 
 /**
  * Props for the group delete action.
@@ -28,8 +30,11 @@ export interface ManageGroupDeleteActionProps {
  */
 const useStyles = makeStyles({
   button: {
-    color: red['700'],
-    borderColor: red['700'],
+    'color': red['700'],
+    'alignSelf': 'flex-end',
+    '&:hover': {
+      backgroundColor: red['50'],
+    },
   },
   contentText: {
     whiteSpace: 'pre-line',
@@ -68,11 +73,11 @@ export const ManageGroupDeleteAction: React.FC<ManageGroupDeleteActionProps> =
   return (
     <>
       <Button
-        variant='outlined'
-        fullWidth
         onClick={handleClick}
         className={classes.button}
+        noBold
       >
+        <DeleteForeverOutlinedIcon />
         {t('modals.group.manage.deleteGroup.button')}
       </Button>
       <ConfirmActionDialog

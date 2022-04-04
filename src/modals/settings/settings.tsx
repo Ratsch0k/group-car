@@ -51,6 +51,7 @@ const useStyles = makeStyles((theme: GroupCarTheme) => createStyles({
   },
   bigSideBorderRoot: {
     margin: theme.spacing(2),
+    marginLeft: -1,
   },
   contents: {
     width: '100%',

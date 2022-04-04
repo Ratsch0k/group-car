@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
-import {Paper, Tab, Tabs, Theme, Typography} from '@material-ui/core';
+import {Box, Tab, Tabs, Typography} from '@material-ui/core';
 import {useTranslation} from 'react-i18next';
 import SwipeableView from 'react-swipeable-views';
 import {createStyles, makeStyles} from '@material-ui/styles';
@@ -16,23 +16,26 @@ import {
   goToModal,
 } from 'lib/redux/slices/modalRouter/modalRouterSlice';
 import {getSelectedGroup} from 'lib/redux/slices/group';
+import {GroupCarTheme} from '../../../../lib';
 
 /**
  * Styles.
  */
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles((theme: GroupCarTheme) =>
   createStyles({
-    paperOutlined: {
-      borderColor: theme.palette.secondary.main,
+    root: {
+      borderRadius: theme.shape.borderRadiusSized.large,
+      border: `1px solid ${theme.palette.primary.main}`,
+      height: '100%',
     },
     tabContent: {
       height: 'calc(100% - 59px)',
     },
-    container: {
-      height: '100%',
-    },
     fabContainer: {
       position: 'relative',
+    },
+    indicator: {
+      height: 1,
     },
   }),
 );
@@ -40,7 +43,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
 /**
  * Component for displaying the group management tabs.
- * @param props Props
  */
 export const ManageGroupTabs: React.FC = () => {
   const {t} = useTranslation();
@@ -74,16 +76,14 @@ export const ManageGroupTabs: React.FC = () => {
   };
 
   return (
-    <Paper
-      variant='outlined'
-      classes={{
-        outlined: classes.paperOutlined,
-      }}
-      className={classes.container}
-    >
+    <Box className={classes.root}>
       <Tabs
+        classes={{
+          indicator: classes.indicator,
+        }}
         value={selectedTab}
         onChange={(_event, index: number) => handleSelectTab(index)}
+        indicatorColor='primary'
         variant='fullWidth'
       >
         <Tab
@@ -137,7 +137,7 @@ export const ManageGroupTabs: React.FC = () => {
       <div className={classes.fabContainer}>
         <div ref={carFabPortal} />
       </div>
-    </Paper>
+    </Box>
   );
 };
 

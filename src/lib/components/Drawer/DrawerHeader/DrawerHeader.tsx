@@ -1,5 +1,12 @@
 import React from 'react';
-import {Box, IconButton, makeStyles, createStyles} from '@material-ui/core';
+import {
+  Box,
+  IconButton,
+  makeStyles,
+  createStyles,
+  useTheme,
+  useMediaQuery,
+} from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import {GroupCarTheme} from 'lib';
 
@@ -10,13 +17,12 @@ interface DrawerHeaderProps {
 
 const useStyles = makeStyles((theme: GroupCarTheme) =>
   createStyles({
-    closeButton: {
-      float: 'right',
-    },
     root: {
-      paddingRight: theme.spacing(3),
-      height: theme.shape.headerHeight.default,
+      paddingRight: theme.spacing(2),
       alignItems: 'center',
+      display: 'flex',
+      justifyContent: 'flex-end',
+      ...theme.mixins.toolbar,
     },
   }),
 );
@@ -28,6 +34,8 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
 export const DrawerHeader: React.FC<DrawerHeaderProps> =
 (props: DrawerHeaderProps) => {
   const classes = useStyles();
+  const theme = useTheme();
+  const isLessEqualXs = useMediaQuery(theme.breakpoints.down('xs'));
   const {
     noCloseButton,
     close,
@@ -40,10 +48,9 @@ export const DrawerHeader: React.FC<DrawerHeaderProps> =
         <IconButton
           id='drawer-close'
           data-testid='close'
-          className={classes.closeButton}
           onClick={close}
         >
-          <CloseIcon fontSize='large'/>
+          <CloseIcon fontSize={isLessEqualXs ? 'medium' : 'large'}/>
         </IconButton>
       }
     </Box>

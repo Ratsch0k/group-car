@@ -22,14 +22,16 @@ exports[`AppSettingsTabAccount renders correctly 1`] = `
               <p
                 class="MuiTypography-root makeStyles-title MuiTypography-body1"
               >
-                settings.account.userInfo
+                <b>
+                  settings.account.userInfo
+                </b>
               </p>
             </div>
             <div
               class="MuiGrid-root makeStyles-line MuiGrid-item"
             >
               <hr
-                class="MuiDivider-root"
+                class="MuiDivider-root makeStyles-divider"
               />
             </div>
           </div>
@@ -60,9 +62,7 @@ exports[`AppSettingsTabAccount renders correctly 1`] = `
                     <p
                       class="MuiTypography-root MuiTypography-body2 MuiTypography-colorPrimary"
                     >
-                      <b>
-                        misc.username
-                      </b>
+                      misc.username
                     </p>
                   </div>
                   <div
@@ -84,9 +84,7 @@ exports[`AppSettingsTabAccount renders correctly 1`] = `
                     <p
                       class="MuiTypography-root MuiTypography-body2 MuiTypography-colorPrimary"
                     >
-                      <b>
-                        misc.email
-                      </b>
+                      misc.email
                     </p>
                   </div>
                   <div
@@ -108,9 +106,7 @@ exports[`AppSettingsTabAccount renders correctly 1`] = `
                     <p
                       class="MuiTypography-root MuiTypography-body2 MuiTypography-colorPrimary"
                     >
-                      <b>
-                        misc.createdAt
-                      </b>
+                      misc.createdAt
                     </p>
                   </div>
                   <div
@@ -135,14 +131,16 @@ exports[`AppSettingsTabAccount renders correctly 1`] = `
               <p
                 class="MuiTypography-root makeStyles-title MuiTypography-body1"
               >
-                settings.account.security.title
+                <b>
+                  settings.account.security.title
+                </b>
               </p>
             </div>
             <div
               class="MuiGrid-root makeStyles-line MuiGrid-item"
             >
               <hr
-                class="MuiDivider-root"
+                class="MuiDivider-root makeStyles-divider"
               />
             </div>
           </div>
@@ -156,9 +154,7 @@ exports[`AppSettingsTabAccount renders correctly 1`] = `
               <p
                 class="MuiTypography-root MuiTypography-body2 MuiTypography-colorPrimary"
               >
-                <b>
-                  misc.password
-                </b>
+                misc.password
               </p>
             </div>
             <div

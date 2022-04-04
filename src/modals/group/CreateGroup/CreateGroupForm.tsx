@@ -101,17 +101,19 @@ export const CreateGroupForm: React.FC<CreateGroupFormProps> =
             rows={6}
           />
         </Grid>
-        <Grid item>
-          <ProgressButton
-            fullWidth
-            id='create-group-submit'
-            loading={formik.isSubmitting}
-            variant='contained'
-            type='submit'
-            color='primary'
-          >
-            {t('modals.group.create.create')}
-          </ProgressButton>
+        <Grid item container justifyContent='flex-end'>
+          <Grid item>
+            <ProgressButton
+              id='create-group-submit'
+              loading={formik.isSubmitting}
+              variant='contained'
+              type='submit'
+              color='primary'
+              glow='primary'
+            >
+              {t('modals.group.create.create')}
+            </ProgressButton>
+          </Grid>
         </Grid>
       </Grid>
     </form>

@@ -6,7 +6,7 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
 >
   <div>
     <div
-      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer makeStyles-drawerPermanent"
+      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer"
     >
       <div
         class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
@@ -49,29 +49,25 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                 <div
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
                 >
-                  <div
-                    class="MuiBox-root MuiBox-root makeStyles-wrapper"
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-contained makeStyles-button MuiButton-containedPrimary MuiButton-disabled MuiButton-fullWidth MuiButtonBase-disabled"
+                    disabled=""
+                    id="park-map-2-confirm"
+                    tabindex="-1"
+                    type="button"
                   >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-disabled MuiButton-fullWidth MuiButtonBase-disabled"
-                      disabled=""
-                      id="park-map-2-confirm"
-                      tabindex="-1"
-                      type="button"
+                    <span
+                      class="MuiButton-label makeStyles-label"
                     >
-                      <span
-                        class="MuiButton-label"
-                      >
-                        misc.confirm
-                      </span>
-                    </button>
-                  </div>
+                      misc.confirm
+                    </span>
+                  </button>
                 </div>
                 <div
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSecondary MuiButton-fullWidth"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textSecondary MuiButton-fullWidth"
                     id="park-map-2-cancel"
                     tabindex="0"
                     type="button"
@@ -90,32 +86,28 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
             class="MuiBox-root MuiBox-root makeStyles-footer"
           >
             <div
-              class="MuiPaper-root makeStyles-footer makeStyles-paper MuiPaper-elevation6"
+              class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
             >
               <div
-                class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
+                class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
+                  class="MuiGrid-root MuiGrid-item"
                 >
-                  <div
-                    class="MuiGrid-root MuiGrid-item"
+                  <button
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
                   >
-                    <button
-                      class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-                    >
-                      privacyPolicy.title
-                    </button>
-                  </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-item"
+                    privacyPolicy.title
+                  </button>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item"
+                >
+                  <button
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
                   >
-                    <button
-                      class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-                    >
-                      imprint.title
-                    </button>
-                  </div>
+                    imprint.title
+                  </button>
                 </div>
               </div>
             </div>
@@ -133,7 +125,7 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
 >
   <div>
     <div
-      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer makeStyles-drawerPermanent"
+      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer"
     >
       <div
         class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
@@ -151,19 +143,56 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                 class="MuiBox-root MuiBox-root makeStyles-btn"
               >
                 <div
-                  class="MuiBox-root MuiBox-root"
+                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1"
                 >
-                  <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-disableElevation MuiButton-fullWidth"
-                    tabindex="0"
-                    type="button"
+                  <div
+                    class="MuiGrid-root makeStyles-groupButtonContainer MuiGrid-item"
+                  >
+                    <div
+                      class="MuiBox-root MuiBox-root"
+                    >
+                      <button
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-contained MuiButton-containedPrimary MuiButton-disableElevation MuiButton-fullWidth"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="MuiButton-label makeStyles-label"
+                        >
+                          SELECTED GROUP
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="MuiGrid-root makeStyles-editButtonContainer MuiGrid-item"
                   >
                     <span
-                      class="MuiButton-label"
+                      class=""
+                      title="drawer.groupMenu.item.manage"
                     >
-                      SELECTED GROUP
+                      <button
+                        class="MuiButtonBase-root MuiButton-root makeStyles-editButtonRoot MuiButton-text MuiButton-textPrimary makeStyles-textPrimary"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="MuiButton-label makeStyles-label"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                            />
+                          </svg>
+                        </span>
+                      </button>
                     </span>
-                  </button>
+                  </div>
                 </div>
               </div>
               <div
@@ -176,10 +205,10 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                     class="MuiGrid-root MuiGrid-item"
                   >
                     <div
-                      class="MuiPaper-root MuiCard-root makeStyles-carContainerDriving MuiPaper-outlined MuiPaper-rounded"
+                      class="MuiPaper-root MuiCard-root makeStyles-cardRoot makeStyles-carContainerDriving MuiPaper-outlined MuiPaper-rounded"
                     >
                       <div
-                        class="MuiCardHeader-root"
+                        class="MuiCardHeader-root makeStyles-cardHeader"
                       >
                         <div
                           class="MuiCardHeader-avatar"
@@ -209,13 +238,13 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                         </div>
                       </div>
                       <div
-                        class="MuiCardActions-root makeStyles-actionsRoot makeStyles-actionsContainerDriving MuiCardActions-spacing"
+                        class="MuiCardActions-root MuiCardActions-spacing"
                       >
                         <div
-                          class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-between"
+                          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1"
                         >
                           <div
-                            class="MuiGrid-root makeStyles-leftActionDriving MuiGrid-item MuiGrid-grid-xs-6"
+                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
                           >
                             <button
                               class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-textDriving MuiButton-fullWidth"
@@ -262,11 +291,7 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                                     d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"
                                   />
                                 </svg>
-                                <p
-                                  class="MuiTypography-root makeStyles-parkOnMapText MuiTypography-body1"
-                                >
-                                  drawer.cars.parkMap
-                                </p>
+                                drawer.cars.parkMap
                               </span>
                             </button>
                           </div>
@@ -278,10 +303,10 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                     class="MuiGrid-root MuiGrid-item"
                   >
                     <div
-                      class="MuiPaper-root MuiCard-root MuiPaper-outlined MuiPaper-rounded"
+                      class="MuiPaper-root MuiCard-root makeStyles-cardRoot MuiPaper-outlined MuiPaper-rounded"
                     >
                       <div
-                        class="MuiCardHeader-root"
+                        class="MuiCardHeader-root makeStyles-cardHeader"
                       >
                         <div
                           class="MuiCardHeader-avatar"
@@ -319,16 +344,16 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                         </div>
                       </div>
                       <div
-                        class="MuiCardActions-root makeStyles-actionsRoot makeStyles-actionsContainer MuiCardActions-spacing"
+                        class="MuiCardActions-root MuiCardActions-spacing"
                       >
                         <div
-                          class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-between"
+                          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1"
                         >
                           <div
-                            class="MuiGrid-root makeStyles-leftAction MuiGrid-item MuiGrid-grid-xs-6"
+                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
                           >
                             <button
-                              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-fullWidth"
+                              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary makeStyles-textPrimary MuiButton-fullWidth"
                               id="drive-car-1"
                               tabindex="0"
                               type="button"
@@ -354,7 +379,7 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
                           >
                             <button
-                              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-fullWidth"
+                              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary makeStyles-textPrimary MuiButton-fullWidth"
                               id="view-car-1"
                               tabindex="0"
                               type="button"
@@ -384,10 +409,10 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                     class="MuiGrid-root MuiGrid-item"
                   >
                     <div
-                      class="MuiPaper-root MuiCard-root MuiPaper-outlined MuiPaper-rounded"
+                      class="MuiPaper-root MuiCard-root makeStyles-cardRoot MuiPaper-outlined MuiPaper-rounded"
                     >
                       <div
-                        class="MuiCardHeader-root"
+                        class="MuiCardHeader-root makeStyles-cardHeader"
                       >
                         <div
                           class="MuiCardHeader-avatar"
@@ -426,32 +451,28 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
             class="MuiBox-root MuiBox-root makeStyles-footer"
           >
             <div
-              class="MuiPaper-root makeStyles-footer makeStyles-paper MuiPaper-elevation6"
+              class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
             >
               <div
-                class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
+                class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
+                  class="MuiGrid-root MuiGrid-item"
                 >
-                  <div
-                    class="MuiGrid-root MuiGrid-item"
+                  <button
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
                   >
-                    <button
-                      class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-                    >
-                      privacyPolicy.title
-                    </button>
-                  </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-item"
+                    privacyPolicy.title
+                  </button>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item"
+                >
+                  <button
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
                   >
-                    <button
-                      class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-                    >
-                      imprint.title
-                    </button>
-                  </div>
+                    imprint.title
+                  </button>
                 </div>
               </div>
             </div>
@@ -469,7 +490,7 @@ exports[`if user is logged in park with map SelectLocation clicking on map will 
 >
   <div>
     <div
-      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer makeStyles-drawerPermanent"
+      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer"
     >
       <div
         class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
@@ -512,29 +533,25 @@ exports[`if user is logged in park with map SelectLocation clicking on map will 
                 <div
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
                 >
-                  <div
-                    class="MuiBox-root MuiBox-root makeStyles-wrapper"
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-contained makeStyles-button MuiButton-containedPrimary MuiButton-disabled MuiButton-fullWidth MuiButtonBase-disabled"
+                    disabled=""
+                    id="park-map-2-confirm"
+                    tabindex="-1"
+                    type="button"
                   >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-disabled MuiButton-fullWidth MuiButtonBase-disabled"
-                      disabled=""
-                      id="park-map-2-confirm"
-                      tabindex="-1"
-                      type="button"
+                    <span
+                      class="MuiButton-label makeStyles-label"
                     >
-                      <span
-                        class="MuiButton-label"
-                      >
-                        misc.confirm
-                      </span>
-                    </button>
-                  </div>
+                      misc.confirm
+                    </span>
+                  </button>
                 </div>
                 <div
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSecondary MuiButton-fullWidth"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textSecondary MuiButton-fullWidth"
                     id="park-map-2-cancel"
                     tabindex="0"
                     type="button"
@@ -553,32 +570,28 @@ exports[`if user is logged in park with map SelectLocation clicking on map will 
             class="MuiBox-root MuiBox-root makeStyles-footer"
           >
             <div
-              class="MuiPaper-root makeStyles-footer makeStyles-paper MuiPaper-elevation6"
+              class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
             >
               <div
-                class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
+                class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
+                  class="MuiGrid-root MuiGrid-item"
                 >
-                  <div
-                    class="MuiGrid-root MuiGrid-item"
+                  <button
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
                   >
-                    <button
-                      class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-                    >
-                      privacyPolicy.title
-                    </button>
-                  </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-item"
+                    privacyPolicy.title
+                  </button>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item"
+                >
+                  <button
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
                   >
-                    <button
-                      class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-                    >
-                      imprint.title
-                    </button>
-                  </div>
+                    imprint.title
+                  </button>
                 </div>
               </div>
             </div>
@@ -599,7 +612,7 @@ exports[`if user is logged in park with map clicking on park on map sets selecte
       Car3
     </p>
     <div
-      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer makeStyles-drawerPermanent"
+      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer"
     >
       <div
         class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
@@ -642,29 +655,25 @@ exports[`if user is logged in park with map clicking on park on map sets selecte
                 <div
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
                 >
-                  <div
-                    class="MuiBox-root MuiBox-root makeStyles-wrapper"
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-contained makeStyles-button MuiButton-containedPrimary MuiButton-disabled MuiButton-fullWidth MuiButtonBase-disabled"
+                    disabled=""
+                    id="park-map-2-confirm"
+                    tabindex="-1"
+                    type="button"
                   >
-                    <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-disabled MuiButton-fullWidth MuiButtonBase-disabled"
-                      disabled=""
-                      id="park-map-2-confirm"
-                      tabindex="-1"
-                      type="button"
+                    <span
+                      class="MuiButton-label makeStyles-label"
                     >
-                      <span
-                        class="MuiButton-label"
-                      >
-                        misc.confirm
-                      </span>
-                    </button>
-                  </div>
+                      misc.confirm
+                    </span>
+                  </button>
                 </div>
                 <div
                   class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-6"
                 >
                   <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSecondary MuiButton-fullWidth"
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textSecondary MuiButton-fullWidth"
                     id="park-map-2-cancel"
                     tabindex="0"
                     type="button"
@@ -683,32 +692,28 @@ exports[`if user is logged in park with map clicking on park on map sets selecte
             class="MuiBox-root MuiBox-root makeStyles-footer"
           >
             <div
-              class="MuiPaper-root makeStyles-footer makeStyles-paper MuiPaper-elevation6"
+              class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
             >
               <div
-                class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
+                class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
+                  class="MuiGrid-root MuiGrid-item"
                 >
-                  <div
-                    class="MuiGrid-root MuiGrid-item"
+                  <button
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
                   >
-                    <button
-                      class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-                    >
-                      privacyPolicy.title
-                    </button>
-                  </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-item"
+                    privacyPolicy.title
+                  </button>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item"
+                >
+                  <button
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
                   >
-                    <button
-                      class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-                    >
-                      imprint.title
-                    </button>
-                  </div>
+                    imprint.title
+                  </button>
                 </div>
               </div>
             </div>
@@ -726,7 +731,7 @@ exports[`if user is logged in renders create group button if user has no groups 
 >
   <div>
     <div
-      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer makeStyles-drawerPermanent"
+      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer"
     >
       <div
         class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
@@ -744,12 +749,12 @@ exports[`if user is logged in renders create group button if user has no groups 
                 class="MuiBox-root MuiBox-root makeStyles-btn"
               >
                 <button
-                  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-disableElevation MuiButton-fullWidth"
+                  class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-contained MuiButton-containedPrimary MuiButton-disableElevation MuiButton-fullWidth"
                   tabindex="0"
                   type="button"
                 >
                   <span
-                    class="MuiButton-label"
+                    class="MuiButton-label makeStyles-label"
                   >
                     drawer.createGroup
                   </span>
@@ -768,32 +773,28 @@ exports[`if user is logged in renders create group button if user has no groups 
             class="MuiBox-root MuiBox-root makeStyles-footer"
           >
             <div
-              class="MuiPaper-root makeStyles-footer makeStyles-paper MuiPaper-elevation6"
+              class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
             >
               <div
-                class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
+                class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
+                  class="MuiGrid-root MuiGrid-item"
                 >
-                  <div
-                    class="MuiGrid-root MuiGrid-item"
+                  <button
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
                   >
-                    <button
-                      class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-                    >
-                      privacyPolicy.title
-                    </button>
-                  </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-item"
+                    privacyPolicy.title
+                  </button>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item"
+                >
+                  <button
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
                   >
-                    <button
-                      class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-                    >
-                      imprint.title
-                    </button>
-                  </div>
+                    imprint.title
+                  </button>
                 </div>
               </div>
             </div>
@@ -811,7 +812,7 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
 >
   <div>
     <div
-      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer makeStyles-drawerPermanent"
+      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer"
     >
       <div
         class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
@@ -829,19 +830,56 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
                 class="MuiBox-root MuiBox-root makeStyles-btn"
               >
                 <div
-                  class="MuiBox-root MuiBox-root"
+                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1"
                 >
-                  <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-disableElevation MuiButton-fullWidth"
-                    tabindex="0"
-                    type="button"
+                  <div
+                    class="MuiGrid-root makeStyles-groupButtonContainer MuiGrid-item"
+                  >
+                    <div
+                      class="MuiBox-root MuiBox-root"
+                    >
+                      <button
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-contained MuiButton-containedPrimary MuiButton-disableElevation MuiButton-fullWidth"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="MuiButton-label makeStyles-label"
+                        >
+                          SELECTED GROUP
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="MuiGrid-root makeStyles-editButtonContainer MuiGrid-item"
                   >
                     <span
-                      class="MuiButton-label"
+                      class=""
+                      title="drawer.groupMenu.item.manage"
                     >
-                      SELECTED GROUP
+                      <button
+                        class="MuiButtonBase-root MuiButton-root makeStyles-editButtonRoot MuiButton-text MuiButton-textPrimary makeStyles-textPrimary"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="MuiButton-label makeStyles-label"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                            />
+                          </svg>
+                        </span>
+                      </button>
                     </span>
-                  </button>
+                  </div>
                 </div>
               </div>
               <div
@@ -854,10 +892,10 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
                     class="MuiGrid-root MuiGrid-item"
                   >
                     <div
-                      class="MuiPaper-root MuiCard-root makeStyles-carContainerDriving MuiPaper-outlined MuiPaper-rounded"
+                      class="MuiPaper-root MuiCard-root makeStyles-cardRoot makeStyles-carContainerDriving MuiPaper-outlined MuiPaper-rounded"
                     >
                       <div
-                        class="MuiCardHeader-root"
+                        class="MuiCardHeader-root makeStyles-cardHeader"
                       >
                         <div
                           class="MuiCardHeader-avatar"
@@ -887,13 +925,13 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
                         </div>
                       </div>
                       <div
-                        class="MuiCardActions-root makeStyles-actionsRoot makeStyles-actionsContainerDriving MuiCardActions-spacing"
+                        class="MuiCardActions-root MuiCardActions-spacing"
                       >
                         <div
-                          class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-between"
+                          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1"
                         >
                           <div
-                            class="MuiGrid-root makeStyles-leftActionDriving MuiGrid-item MuiGrid-grid-xs-6"
+                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
                           >
                             <button
                               class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-textDriving MuiButton-fullWidth"
@@ -940,11 +978,7 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
                                     d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"
                                   />
                                 </svg>
-                                <p
-                                  class="MuiTypography-root makeStyles-parkOnMapText MuiTypography-body1"
-                                >
-                                  drawer.cars.parkMap
-                                </p>
+                                drawer.cars.parkMap
                               </span>
                             </button>
                           </div>
@@ -956,10 +990,10 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
                     class="MuiGrid-root MuiGrid-item"
                   >
                     <div
-                      class="MuiPaper-root MuiCard-root MuiPaper-outlined MuiPaper-rounded"
+                      class="MuiPaper-root MuiCard-root makeStyles-cardRoot MuiPaper-outlined MuiPaper-rounded"
                     >
                       <div
-                        class="MuiCardHeader-root"
+                        class="MuiCardHeader-root makeStyles-cardHeader"
                       >
                         <div
                           class="MuiCardHeader-avatar"
@@ -997,16 +1031,16 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
                         </div>
                       </div>
                       <div
-                        class="MuiCardActions-root makeStyles-actionsRoot makeStyles-actionsContainer MuiCardActions-spacing"
+                        class="MuiCardActions-root MuiCardActions-spacing"
                       >
                         <div
-                          class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-between"
+                          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1"
                         >
                           <div
-                            class="MuiGrid-root makeStyles-leftAction MuiGrid-item MuiGrid-grid-xs-6"
+                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
                           >
                             <button
-                              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-fullWidth"
+                              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary makeStyles-textPrimary MuiButton-fullWidth"
                               id="drive-car-1"
                               tabindex="0"
                               type="button"
@@ -1032,7 +1066,7 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
                             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
                           >
                             <button
-                              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-fullWidth"
+                              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary makeStyles-textPrimary MuiButton-fullWidth"
                               id="view-car-1"
                               tabindex="0"
                               type="button"
@@ -1062,10 +1096,10 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
                     class="MuiGrid-root MuiGrid-item"
                   >
                     <div
-                      class="MuiPaper-root MuiCard-root MuiPaper-outlined MuiPaper-rounded"
+                      class="MuiPaper-root MuiCard-root makeStyles-cardRoot MuiPaper-outlined MuiPaper-rounded"
                     >
                       <div
-                        class="MuiCardHeader-root"
+                        class="MuiCardHeader-root makeStyles-cardHeader"
                       >
                         <div
                           class="MuiCardHeader-avatar"
@@ -1104,32 +1138,28 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
             class="MuiBox-root MuiBox-root makeStyles-footer"
           >
             <div
-              class="MuiPaper-root makeStyles-footer makeStyles-paper MuiPaper-elevation6"
+              class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
             >
               <div
-                class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
+                class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
+                  class="MuiGrid-root MuiGrid-item"
                 >
-                  <div
-                    class="MuiGrid-root MuiGrid-item"
+                  <button
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
                   >
-                    <button
-                      class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-                    >
-                      privacyPolicy.title
-                    </button>
-                  </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-item"
+                    privacyPolicy.title
+                  </button>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item"
+                >
+                  <button
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
                   >
-                    <button
-                      class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-                    >
-                      imprint.title
-                    </button>
-                  </div>
+                    imprint.title
+                  </button>
                 </div>
               </div>
             </div>
@@ -1147,7 +1177,7 @@ exports[`if user is logged in renders select group button if user has at least o
 >
   <div>
     <div
-      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer makeStyles-drawerPermanent"
+      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer"
     >
       <div
         class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
@@ -1165,19 +1195,57 @@ exports[`if user is logged in renders select group button if user has at least o
                 class="MuiBox-root MuiBox-root makeStyles-btn"
               >
                 <div
-                  class="MuiBox-root MuiBox-root"
+                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1"
                 >
-                  <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-disableElevation MuiButton-fullWidth"
-                    tabindex="0"
-                    type="button"
+                  <div
+                    class="MuiGrid-root makeStyles-groupButtonContainer MuiGrid-item"
+                  >
+                    <div
+                      class="MuiBox-root MuiBox-root"
+                    >
+                      <button
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-contained MuiButton-containedPrimary MuiButton-disableElevation MuiButton-fullWidth"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="MuiButton-label makeStyles-label"
+                        >
+                          drawer.groupMenu.noSelection
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="MuiGrid-root makeStyles-editButtonContainer MuiGrid-item"
                   >
                     <span
-                      class="MuiButton-label"
+                      class=""
+                      title="drawer.groupMenu.item.manage"
                     >
-                      drawer.groupMenu.noSelection
+                      <button
+                        class="MuiButtonBase-root MuiButton-root makeStyles-editButtonRoot MuiButton-text MuiButton-textPrimary makeStyles-textPrimary MuiButton-disabled MuiButtonBase-disabled"
+                        disabled=""
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="MuiButton-label makeStyles-label"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                            />
+                          </svg>
+                        </span>
+                      </button>
                     </span>
-                  </button>
+                  </div>
                 </div>
               </div>
               <div
@@ -1193,32 +1261,28 @@ exports[`if user is logged in renders select group button if user has at least o
             class="MuiBox-root MuiBox-root makeStyles-footer"
           >
             <div
-              class="MuiPaper-root makeStyles-footer makeStyles-paper MuiPaper-elevation6"
+              class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
             >
               <div
-                class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
+                class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
+                  class="MuiGrid-root MuiGrid-item"
                 >
-                  <div
-                    class="MuiGrid-root MuiGrid-item"
+                  <button
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
                   >
-                    <button
-                      class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-                    >
-                      privacyPolicy.title
-                    </button>
-                  </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-item"
+                    privacyPolicy.title
+                  </button>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item"
+                >
+                  <button
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
                   >
-                    <button
-                      class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-                    >
-                      imprint.title
-                    </button>
-                  </div>
+                    imprint.title
+                  </button>
                 </div>
               </div>
             </div>
@@ -1236,7 +1300,7 @@ exports[`if user is logged in view location location button is disabled if latit
 >
   <div>
     <div
-      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer makeStyles-drawerPermanent"
+      class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer"
     >
       <div
         class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
@@ -1254,19 +1318,56 @@ exports[`if user is logged in view location location button is disabled if latit
                 class="MuiBox-root MuiBox-root makeStyles-btn"
               >
                 <div
-                  class="MuiBox-root MuiBox-root"
+                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1"
                 >
-                  <button
-                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-disableElevation MuiButton-fullWidth"
-                    tabindex="0"
-                    type="button"
+                  <div
+                    class="MuiGrid-root makeStyles-groupButtonContainer MuiGrid-item"
+                  >
+                    <div
+                      class="MuiBox-root MuiBox-root"
+                    >
+                      <button
+                        class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-contained MuiButton-containedPrimary MuiButton-disableElevation MuiButton-fullWidth"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="MuiButton-label makeStyles-label"
+                        >
+                          SELECTED GROUP
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="MuiGrid-root makeStyles-editButtonContainer MuiGrid-item"
                   >
                     <span
-                      class="MuiButton-label"
+                      class=""
+                      title="drawer.groupMenu.item.manage"
                     >
-                      SELECTED GROUP
+                      <button
+                        class="MuiButtonBase-root MuiButton-root makeStyles-editButtonRoot MuiButton-text MuiButton-textPrimary makeStyles-textPrimary"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="MuiButton-label makeStyles-label"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                            />
+                          </svg>
+                        </span>
+                      </button>
                     </span>
-                  </button>
+                  </div>
                 </div>
               </div>
               <div
@@ -1279,10 +1380,10 @@ exports[`if user is logged in view location location button is disabled if latit
                     class="MuiGrid-root MuiGrid-item"
                   >
                     <div
-                      class="MuiPaper-root MuiCard-root MuiPaper-outlined MuiPaper-rounded"
+                      class="MuiPaper-root MuiCard-root makeStyles-cardRoot MuiPaper-outlined MuiPaper-rounded"
                     >
                       <div
-                        class="MuiCardHeader-root"
+                        class="MuiCardHeader-root makeStyles-cardHeader"
                       >
                         <div
                           class="MuiCardHeader-avatar"
@@ -1320,16 +1421,16 @@ exports[`if user is logged in view location location button is disabled if latit
                         </div>
                       </div>
                       <div
-                        class="MuiCardActions-root makeStyles-actionsRoot makeStyles-actionsContainer MuiCardActions-spacing"
+                        class="MuiCardActions-root MuiCardActions-spacing"
                       >
                         <div
-                          class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-between"
+                          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1"
                         >
                           <div
-                            class="MuiGrid-root makeStyles-leftAction MuiGrid-item MuiGrid-grid-xs-6"
+                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
                           >
                             <button
-                              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-fullWidth"
+                              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary makeStyles-textPrimary MuiButton-fullWidth"
                               id="drive-car-1"
                               tabindex="0"
                               type="button"
@@ -1355,7 +1456,7 @@ exports[`if user is logged in view location location button is disabled if latit
                             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
                           >
                             <button
-                              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-disabled MuiButton-fullWidth MuiButtonBase-disabled"
+                              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary makeStyles-textPrimary MuiButton-disabled MuiButton-fullWidth MuiButtonBase-disabled"
                               disabled=""
                               id="view-car-1"
                               tabindex="-1"
@@ -1386,10 +1487,10 @@ exports[`if user is logged in view location location button is disabled if latit
                     class="MuiGrid-root MuiGrid-item"
                   >
                     <div
-                      class="MuiPaper-root MuiCard-root MuiPaper-outlined MuiPaper-rounded"
+                      class="MuiPaper-root MuiCard-root makeStyles-cardRoot MuiPaper-outlined MuiPaper-rounded"
                     >
                       <div
-                        class="MuiCardHeader-root"
+                        class="MuiCardHeader-root makeStyles-cardHeader"
                       >
                         <div
                           class="MuiCardHeader-avatar"
@@ -1427,16 +1528,16 @@ exports[`if user is logged in view location location button is disabled if latit
                         </div>
                       </div>
                       <div
-                        class="MuiCardActions-root makeStyles-actionsRoot makeStyles-actionsContainer MuiCardActions-spacing"
+                        class="MuiCardActions-root MuiCardActions-spacing"
                       >
                         <div
-                          class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-between"
+                          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1"
                         >
                           <div
-                            class="MuiGrid-root makeStyles-leftAction MuiGrid-item MuiGrid-grid-xs-6"
+                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
                           >
                             <button
-                              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-fullWidth"
+                              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary makeStyles-textPrimary MuiButton-fullWidth"
                               id="drive-car-2"
                               tabindex="0"
                               type="button"
@@ -1462,7 +1563,7 @@ exports[`if user is logged in view location location button is disabled if latit
                             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
                           >
                             <button
-                              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-fullWidth"
+                              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary makeStyles-textPrimary MuiButton-fullWidth"
                               id="view-car-2"
                               tabindex="0"
                               type="button"
@@ -1496,32 +1597,28 @@ exports[`if user is logged in view location location button is disabled if latit
             class="MuiBox-root MuiBox-root makeStyles-footer"
           >
             <div
-              class="MuiPaper-root makeStyles-footer makeStyles-paper MuiPaper-elevation6"
+              class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
             >
               <div
-                class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
+                class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
               >
                 <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
+                  class="MuiGrid-root MuiGrid-item"
                 >
-                  <div
-                    class="MuiGrid-root MuiGrid-item"
+                  <button
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
                   >
-                    <button
-                      class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-                    >
-                      privacyPolicy.title
-                    </button>
-                  </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-item"
+                    privacyPolicy.title
+                  </button>
+                </div>
+                <div
+                  class="MuiGrid-root MuiGrid-item"
+                >
+                  <button
+                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
                   >
-                    <button
-                      class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-                    >
-                      imprint.title
-                    </button>
-                  </div>
+                    imprint.title
+                  </button>
                 </div>
               </div>
             </div>
@@ -1568,7 +1665,7 @@ exports[`renders NotLoggedIn component if user is not logged in 1`] = `
             class="MuiBox-root MuiBox-root makeStyles-root"
           >
             <button
-              class="MuiButtonBase-root MuiIconButton-root makeStyles-closeButton"
+              class="MuiButtonBase-root MuiIconButton-root"
               data-testid="close"
               id="drawer-close"
               tabindex="0"
@@ -1613,32 +1710,28 @@ exports[`renders NotLoggedIn component if user is not logged in 1`] = `
           class="MuiBox-root MuiBox-root makeStyles-footer"
         >
           <div
-            class="MuiPaper-root makeStyles-footer makeStyles-paper MuiPaper-elevation6"
+            class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
           >
             <div
-              class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
+              class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
             >
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
+                class="MuiGrid-root MuiGrid-item"
               >
-                <div
-                  class="MuiGrid-root MuiGrid-item"
+                <button
+                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
                 >
-                  <button
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-                  >
-                    privacyPolicy.title
-                  </button>
-                </div>
-                <div
-                  class="MuiGrid-root MuiGrid-item"
+                  privacyPolicy.title
+                </button>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item"
+              >
+                <button
+                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
                 >
-                  <button
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-                  >
-                    imprint.title
-                  </button>
-                </div>
+                  imprint.title
+                </button>
               </div>
             </div>
           </div>
@@ -1688,7 +1781,7 @@ exports[`renders and matches snapshot with not open and not permanent without cr
             class="MuiBox-root MuiBox-root makeStyles-root"
           >
             <button
-              class="MuiButtonBase-root MuiIconButton-root makeStyles-closeButton"
+              class="MuiButtonBase-root MuiIconButton-root"
               data-testid="close"
               id="drawer-close"
               tabindex="0"
@@ -1733,32 +1826,28 @@ exports[`renders and matches snapshot with not open and not permanent without cr
           class="MuiBox-root MuiBox-root makeStyles-footer"
         >
           <div
-            class="MuiPaper-root makeStyles-footer makeStyles-paper MuiPaper-elevation6"
+            class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
           >
             <div
-              class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
+              class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
             >
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
+                class="MuiGrid-root MuiGrid-item"
               >
-                <div
-                  class="MuiGrid-root MuiGrid-item"
+                <button
+                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
                 >
-                  <button
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-                  >
-                    privacyPolicy.title
-                  </button>
-                </div>
-                <div
-                  class="MuiGrid-root MuiGrid-item"
+                  privacyPolicy.title
+                </button>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item"
+              >
+                <button
+                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
                 >
-                  <button
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-                  >
-                    imprint.title
-                  </button>
-                </div>
+                  imprint.title
+                </button>
               </div>
             </div>
           </div>
@@ -1776,7 +1865,7 @@ exports[`renders and matches snapshot with not open and not permanent without cr
 exports[`renders and matches snapshot with not open and permanent without crashing 1`] = `
 <div>
   <div
-    class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer makeStyles-drawerPermanent"
+    class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer"
   >
     <div
       class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
@@ -1806,32 +1895,28 @@ exports[`renders and matches snapshot with not open and permanent without crashi
           class="MuiBox-root MuiBox-root makeStyles-footer"
         >
           <div
-            class="MuiPaper-root makeStyles-footer makeStyles-paper MuiPaper-elevation6"
+            class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
           >
             <div
-              class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
+              class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
             >
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
+                class="MuiGrid-root MuiGrid-item"
               >
-                <div
-                  class="MuiGrid-root MuiGrid-item"
+                <button
+                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
                 >
-                  <button
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-                  >
-                    privacyPolicy.title
-                  </button>
-                </div>
-                <div
-                  class="MuiGrid-root MuiGrid-item"
+                  privacyPolicy.title
+                </button>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item"
+              >
+                <button
+                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
                 >
-                  <button
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-                  >
-                    imprint.title
-                  </button>
-                </div>
+                  imprint.title
+                </button>
               </div>
             </div>
           </div>
@@ -1877,7 +1962,7 @@ exports[`renders and matches snapshot with open and not permanent without crashi
             class="MuiBox-root MuiBox-root makeStyles-root"
           >
             <button
-              class="MuiButtonBase-root MuiIconButton-root makeStyles-closeButton"
+              class="MuiButtonBase-root MuiIconButton-root"
               data-testid="close"
               id="drawer-close"
               tabindex="0"
@@ -1922,32 +2007,28 @@ exports[`renders and matches snapshot with open and not permanent without crashi
           class="MuiBox-root MuiBox-root makeStyles-footer"
         >
           <div
-            class="MuiPaper-root makeStyles-footer makeStyles-paper MuiPaper-elevation6"
+            class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
           >
             <div
-              class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
+              class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
             >
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
+                class="MuiGrid-root MuiGrid-item"
               >
-                <div
-                  class="MuiGrid-root MuiGrid-item"
+                <button
+                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
                 >
-                  <button
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-                  >
-                    privacyPolicy.title
-                  </button>
-                </div>
-                <div
-                  class="MuiGrid-root MuiGrid-item"
+                  privacyPolicy.title
+                </button>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item"
+              >
+                <button
+                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
                 >
-                  <button
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-                  >
-                    imprint.title
-                  </button>
-                </div>
+                  imprint.title
+                </button>
               </div>
             </div>
           </div>
@@ -1965,7 +2046,7 @@ exports[`renders and matches snapshot with open and not permanent without crashi
 exports[`renders and matches snapshot with open and permanent without crashing 1`] = `
 <div>
   <div
-    class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer makeStyles-drawerPermanent"
+    class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer"
   >
     <div
       class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
@@ -1995,32 +2076,28 @@ exports[`renders and matches snapshot with open and permanent without crashing 1
           class="MuiBox-root MuiBox-root makeStyles-footer"
         >
           <div
-            class="MuiPaper-root makeStyles-footer makeStyles-paper MuiPaper-elevation6"
+            class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
           >
             <div
-              class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
+              class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
             >
               <div
-                class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
+                class="MuiGrid-root MuiGrid-item"
               >
-                <div
-                  class="MuiGrid-root MuiGrid-item"
+                <button
+                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
                 >
-                  <button
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-                  >
-                    privacyPolicy.title
-                  </button>
-                </div>
-                <div
-                  class="MuiGrid-root MuiGrid-item"
+                  privacyPolicy.title
+                </button>
+              </div>
+              <div
+                class="MuiGrid-root MuiGrid-item"
+              >
+                <button
+                  class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
                 >
-                  <button
-                    class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-                  >
-                    imprint.title
-                  </button>
-                </div>
+                  imprint.title
+                </button>
               </div>
             </div>
           </div>

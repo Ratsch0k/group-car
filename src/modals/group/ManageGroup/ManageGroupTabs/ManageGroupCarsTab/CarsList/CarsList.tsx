@@ -18,18 +18,21 @@ export const CarsList: React.FC = () => {
   }
 
   return (
-    <TransitionGroup
-      component={List}
+    <List
     >
-      {cars.map((car, index) => (
-        <Collapse key={`car-${car.carId}`}>
-          <CarsListItem
-            car={car}
-            divider={!(index === cars.length - 1)}
-          />
-        </Collapse>
-      ))}
-    </TransitionGroup>
+      <TransitionGroup
+        component={null}
+      >
+        {cars.map((car, index) => (
+          <Collapse key={`car-${car.carId}`}>
+            <CarsListItem
+              car={car}
+              divider={!(index === cars.length - 1)}
+            />
+          </Collapse>
+        ))}
+      </TransitionGroup>
+    </List>
   );
 };
 

@@ -6,7 +6,7 @@ import {useTranslation} from 'react-i18next';
 import {
   ProgressButton,
   PasswordTextField,
-  FormTextField,
+  FormTextField, Button,
 } from 'lib';
 import {login} from 'lib/redux/slices/auth';
 import {useAppDispatch} from 'lib/redux/hooks';
@@ -16,6 +16,8 @@ export interface LoginFormProps {
   withSubmit?: boolean;
   onFinished?(): void;
   setLoading?(arg0: boolean): void;
+  withGoBack?: boolean;
+  goBack?: () => void;
 }
 
 export const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps) => {
@@ -74,17 +76,37 @@ export const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps) => {
         </Grid>
         {
           props.withSubmit &&
-          <Grid item xs={12}>
-            <ProgressButton
-              fullWidth
-              id='login-submit'
-              type='submit'
-              variant='contained'
-              color='primary'
-              loading={formik.isSubmitting}
-            >
-              {t('form.login')}
-            </ProgressButton>
+          <Grid
+            item
+            xs={12}
+            container={props.withGoBack}
+            spacing={props.withGoBack ? 1 : undefined}
+          >
+            {
+              props.withGoBack &&
+                <Grid item xs={6}>
+                  <Button
+                    fullWidth
+                    onClick={props.goBack}
+                    disabled={formik.isSubmitting}
+                  >
+                    {t('misc.back')}
+                  </Button>
+                </Grid>
+            }
+            <Grid item xs={props.withGoBack ? 6 : 12}>
+              <ProgressButton
+                fullWidth
+                id='login-submit'
+                type='submit'
+                variant='contained'
+                color='primary'
+                loading={formik.isSubmitting}
+                glow='primary'
+              >
+                {t('form.login')}
+              </ProgressButton>
+            </Grid>
           </Grid>
         }
       </Grid>

@@ -1,10 +1,9 @@
 import {
-  Button,
-  Dialog,
+  Button, createStyles,
   DialogActions,
   DialogContent,
   DialogTitle,
-  Grid,
+  Grid, makeStyles,
 } from '@material-ui/core';
 import {unwrapResult} from '@reduxjs/toolkit';
 import {useFormik} from 'formik';
@@ -15,6 +14,7 @@ import {
   FormTextField,
   ProgressButton,
   useSnackBar,
+  Dialog, GroupCarTheme,
 } from 'lib';
 import {useAppDispatch, useShallowAppSelector} from 'lib/redux/hooks';
 import {
@@ -41,6 +41,12 @@ export interface ManageGroupCarsCreateDialogProps {
   close: () => void;
 }
 
+const useStyles = makeStyles((theme: GroupCarTheme) => createStyles({
+  action: {
+    padding: theme.spacing(3),
+  },
+}));
+
 /**
  * Dialog for creating a new car for the specified group.
  * @param props Props
@@ -62,6 +68,7 @@ ManageGroupCarsCreateDialogProps
   }, [cars]);
   const [color, setColor] = useState<CarColor>(availableColors[0]);
   const {show} = useSnackBar();
+  const classes = useStyles();
 
   /**
    * If cars change and the current color is not available anymore,
@@ -143,7 +150,7 @@ ManageGroupCarsCreateDialogProps
             </Grid>
           </Grid>
         </DialogContent>
-        <DialogActions>
+        <DialogActions className={classes.action}>
           <Button
             disabled={formik.isSubmitting}
             onClick={handleClose}
@@ -155,6 +162,8 @@ ManageGroupCarsCreateDialogProps
             loading={formik.isSubmitting}
             disabled={!formik.isValid}
             type='submit'
+            variant='contained'
+            glow='primary'
           >
             {t('misc.create')}
           </ProgressButton>

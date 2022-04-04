@@ -107,19 +107,19 @@ exports[`matches snapshot 1`] = `
           </div>
         </div>
         <div
-          class="MuiGrid-root MuiGrid-item"
+          class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-justify-content-xs-flex-end"
         >
           <div
-            class="MuiBox-root MuiBox-root makeStyles-wrapper"
+            class="MuiGrid-root MuiGrid-item"
           >
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-contained makeStyles-glow makeStyles-glow makeStyles-button MuiButton-containedPrimary"
               id="create-group-submit"
               tabindex="0"
               type="submit"
             >
               <span
-                class="MuiButton-label"
+                class="MuiButton-label makeStyles-label"
               >
                 modals.group.create.create
               </span>
