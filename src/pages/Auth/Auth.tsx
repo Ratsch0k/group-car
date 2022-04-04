@@ -32,7 +32,6 @@ const useStyles = makeStyles((theme: GroupCarTheme) => createStyles({
   },
   container: {
     backgroundColor: alpha(theme.palette.background.default, 0.5),
-    borderRadius: theme.shape.borderRadius,
     border: `2px solid ${theme.palette.background.default}`,
     margin: 'auto',
     minHeight: '25rem',
@@ -42,6 +41,7 @@ const useStyles = makeStyles((theme: GroupCarTheme) => createStyles({
     flexDirection: 'column',
     alignItems: 'stretch',
     overflow: 'hidden',
+    borderRadius: theme.shape.borderRadiusSized.large,
   },
   contentWrapper: {
     flexGrow: 1,
@@ -50,6 +50,12 @@ const useStyles = makeStyles((theme: GroupCarTheme) => createStyles({
     justifyContent: 'center',
     transition: 'height 500ms',
     position: 'relative',
+  },
+  paperRounded: {
+    borderRadius: theme.shape.borderRadiusSized.large,
+  },
+  paperRoot: {
+    backgroundColor: 'unset',
   },
   content: {
     padding: theme.spacing(2),
@@ -173,7 +179,13 @@ export const Authentication = (props: AuthenticationProps): JSX.Element => {
     <Box className={classes.root}>
       <GradientBackground />
       <Container maxWidth='sm'>
-        <Paper elevation={15}>
+        <Paper
+          elevation={15}
+          classes={{
+            rounded: classes.paperRounded,
+            root: classes.paperRoot,
+          }}
+        >
           <Box className={classes.container}>
             <AuthHeader />
             <div className={classes.contentWrapper} ref={contentWrapperRef}>

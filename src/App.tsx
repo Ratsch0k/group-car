@@ -14,6 +14,7 @@ import store from './lib/redux/store';
 import history from 'lib/redux/history';
 import {ConnectedRouter} from 'connected-react-router';
 import Routes from './pages';
+import ModalRoutes from './modals';
 
 const App: React.FC = () => {
   return (
@@ -27,6 +28,7 @@ const App: React.FC = () => {
                   <GroupUpdater>
                     <InvitesUpdater>
                       <Routes />
+                      <ModalRoutes />
                     </InvitesUpdater>
                   </GroupUpdater>
                 </MapProvider>

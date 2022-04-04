@@ -7,6 +7,7 @@ const useStyles = makeStyles({
     height: '100%',
     position: 'absolute',
     overflow: 'hidden',
+    zIndex: -1,
   },
 });
 

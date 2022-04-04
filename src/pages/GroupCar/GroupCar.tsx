@@ -7,7 +7,7 @@ import {
   HeaderBar,
 } from 'lib';
 import Map from '../Map';
-import ModalRoutes from '../../modals/Routes';
+import GroupCarModals from './GroupCarModals';
 
 const GroupCar: React.FC = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -43,7 +43,7 @@ const GroupCar: React.FC = () => {
           <Map />
         </Box>
       </Box>
-      <ModalRoutes />
+      <GroupCarModals />
     </>
   );
 };
