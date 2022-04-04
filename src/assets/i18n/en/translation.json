@@ -1,5 +1,6 @@
 {
   "auth": {
+    "title": "Log in or create an account",
     "dialog": {
       "title": {
         "authenticate": "Authentication",
@@ -7,7 +8,8 @@
         "/auth/sign-up": "Sign up"
       }
     },
-    "isRequested": "It's currently not possible to sign up directly. Your request was successfully received and will be processed shortly. If your request is granted you will receive an email."
+    "isRequested": "It's currently not possible to sign up directly. Your request was successfully received and will be processed shortly. If your request is granted you will receive an email.",
+    "success": "Successfully logged in"
   },
   "user": {
     "invites": "Invites",
@@ -142,7 +144,8 @@
     "socketConnection": "Could not initialize realtime update. To receive update about the selected group, you'll have to reload the page.",
     "NotLoggedInError": "You have to be logged in",
     "UsernameAlreadyExistsError": "Username exists already",
-    "InvalidLoginError": "Username or password is invalid"
+    "InvalidLoginError": "Username or password is invalid",
+    "IncorrectPasswordError": "Incorrect password"
   },
   "misc": {
     "or": "or",
@@ -168,6 +171,7 @@
     "confirm": "Confirm",
     "cancel": "Cancel",
     "email": "Email",
+    "back": "Back",
     "username": "Username",
     "confirmAction": {
       "title": "Are you sure?",
