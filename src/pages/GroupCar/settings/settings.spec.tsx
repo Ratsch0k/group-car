@@ -1,12 +1,12 @@
 import '../../../__test__/mockAxios';
-import testRender from "../../../__test__/testRender";
-import {RootState} from "../../../lib/redux/store";
-import {User} from "../../typings";
-import AppSettings from "./settings";
-import history from "../../../lib/redux/history";
-import { Route } from "react-router-dom";
-import {fireEvent} from "@testing-library/react";
-import {CALL_HISTORY_METHOD} from "connected-react-router";
+import testRender from '../../../__test__/testRender';
+import {RootState} from '../../../lib/redux/store';
+import {User} from '../../../typings';
+import AppSettings from './settings';
+import history from '../../../lib/redux/history';
+import { Route } from 'react-router-dom';
+import {fireEvent} from '@testing-library/react';
+import {CALL_HISTORY_METHOD} from 'connected-react-router';
 
 describe('Settings modal', () => {
   let state: Partial<RootState>;
@@ -18,8 +18,8 @@ describe('Settings modal', () => {
       username: 'test',
       id: 1,
       email: 'test@mail.com',
-      createdAt: new Date(),
-      updatedAt: new Date(),
+      createdAt: new Date(0).toString(),
+      updatedAt: new Date(10).toString(),
       isBetaUser: false,
     };
 

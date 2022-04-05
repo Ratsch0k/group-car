@@ -7,7 +7,6 @@ import {AuthState} from "../../../../lib/redux/slices/auth";
 
 describe('AppSettingsTabAccount', () => {
   let state: Partial<RootState>;
-  let resizeObserverMock;
 
   beforeEach(() => {
     state = {
@@ -22,12 +21,6 @@ describe('AppSettingsTabAccount', () => {
         }
       } as AuthState,
     }
-
-    resizeObserverMock = jest.fn().mockImplementation(() => ({
-      observe: jest.fn(),
-      disconnect: jest.fn(),
-    }));
-    window.ResizeObserver = resizeObserverMock;
 
   });
 

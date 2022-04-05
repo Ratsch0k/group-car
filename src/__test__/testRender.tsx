@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import './mockAxios';
 import './mockI18n';
 import React from 'react';
@@ -13,8 +14,14 @@ import {
 import {RootState} from '../lib/redux/store';
 import mockStore from './mockStore';
 
+export interface GlobalMocks {
+  ResizeObserver: jest.Mock<{observe: jest.Mock, disconnect: jest.Mock}>;
+}
+
+
 export interface TestRenderResult {
   store: MockStoreEnhanced<unknown>;
+  globalMocks: GlobalMocks;
 }
 
 /**
@@ -24,7 +31,7 @@ export interface TestRenderResult {
  * @param stylesheet Stylesheet
  * @returns The class name
  */
-const generateClassName = (rule, stylesheet) => {
+const generateClassName = (rule: any, stylesheet: any) => {
   return `${stylesheet.options.classNamePrefix}-${rule.key}`;
 };
 
@@ -32,6 +39,20 @@ export interface TestRenderOptions {
   width?: string;
 }
 
+/**
+ * Mock all global function which are used.
+ */
+const mockGlobals = (): GlobalMocks => {
+  // Mock ResizeObserver
+  const resizeObserverMock = jest.fn().mockImplementation(() => ({
+    observe: jest.fn(),
+    disconnect: jest.fn(),
+  }));
+  window.ResizeObserver = resizeObserverMock;
+
+  // Return global mocks
+  return {ResizeObserver: resizeObserverMock};
+};
 
 /**
  * Render function for testing purposes.
@@ -48,6 +69,7 @@ function testRender(
   options?: TestRenderOptions,
 ): RenderResult & TestRenderResult {
   const store = mockStore(state);
+  const globalMocks = mockGlobals();
 
   const renderResult = render(
     <Provider store={store}>
@@ -63,6 +85,7 @@ function testRender(
 
   return {
     ...renderResult,
+    globalMocks,
     store,
   };
 }
