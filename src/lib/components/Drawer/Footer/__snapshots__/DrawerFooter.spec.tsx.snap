@@ -3,32 +3,28 @@
 exports[`matches snapshot 1`] = `
 <div>
   <div
-    class="MuiPaper-root makeStyles-paper MuiPaper-elevation6"
+    class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
   >
     <div
-      class="MuiContainer-root makeStyles-container MuiContainer-maxWidthLg"
+      class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
     >
       <div
-        class="MuiGrid-root MuiGrid-container MuiGrid-justify-content-xs-space-evenly"
+        class="MuiGrid-root MuiGrid-item"
       >
-        <div
-          class="MuiGrid-root MuiGrid-item"
+        <button
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
         >
-          <button
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-          >
-            privacyPolicy.title
-          </button>
-        </div>
-        <div
-          class="MuiGrid-root MuiGrid-item"
+          privacyPolicy.title
+        </button>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item"
+      >
+        <button
+          class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
         >
-          <button
-            class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorPrimary"
-          >
-            imprint.title
-          </button>
-        </div>
+          imprint.title
+        </button>
       </div>
     </div>
   </div>

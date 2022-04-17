@@ -1,13 +1,12 @@
 import {
-  Button,
+  alpha,
   Card,
   CardActions,
   CardHeader,
   Grid,
-  Theme,
-  Typography,
+  Typography, useMediaQuery, useTheme,
 } from '@material-ui/core';
-import {CarWithDriver, RoleChip, useMap} from 'lib';
+import {Button, CarWithDriver, GroupCarTheme, RoleChip, useMap} from 'lib';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {createStyles, makeStyles} from '@material-ui/styles';
@@ -36,12 +35,12 @@ export interface CarCardProps {
   addDrivingCar(car: CarWithDriver): Promise<void>;
 
   /**
-   * Whether or not this card should be disabled.
+   * Whether this card should be disabled.
    */
   disabled?: boolean;
 
   /**
-   * Whether or not this car is available.
+   * Whether this car is available.
    *
    * If this is true, neither `isDriving` nor `isInUse` should
    * be true.
@@ -49,7 +48,7 @@ export interface CarCardProps {
   isAvailable?: boolean;
 
   /**
-   * Whether or not the currently logged in user is currently
+   * Whether the currently logged in user is currently
    * driving the car.
    *
    * If this is true, neither `isAvailable` nor `isInUse` should
@@ -58,7 +57,7 @@ export interface CarCardProps {
   isDriving?: boolean;
 
   /**
-   * Whether or not another user is driving this car.
+   * Whether another user is driving this car.
    *
    * If this is true, neither `isAvailable` nor `isDriving` should
    * be true.
@@ -77,30 +76,21 @@ export interface CarCardProps {
   parkWithMap: (car: CarWithDriver) => void;
 }
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles((theme: GroupCarTheme) =>
   createStyles({
-    actionsRoot: {
-      padding: 0,
+    cardHeader: {
+      paddingBottom: theme.spacing(1),
     },
-    actionsContainer: {
-      borderTop: `1px solid ${theme.palette.divider}`,
-    },
-    actionsContainerDriving: {
-      borderTop: `1px solid ${theme.palette.primary.contrastText}`,
-    },
-    leftAction: {
-      borderRight: `1px solid ${theme.palette.divider}`,
-    },
-    leftActionDriving: {
-      borderRight: `1px solid ${theme.palette.primary.contrastText}`,
-    },
-    parkOnMapText: {
-      fontSize: '0.7rem',
+    cardRoot: {
+      border: `1px solid ${theme.palette.primary.main}`,
     },
     carContainerDriving: {
       backgroundColor: theme.palette.primary.main,
       color: theme.palette.primary.contrastText,
-      border: `1px solid ${theme.palette.primary.contrastText}`,
+      border: `1px solid ${theme.palette.primary.main}`,
+    },
+    frostedBackground: {
+      backgroundColor: alpha(theme.palette.background.paper, 0.6),
     },
     avatarIcon: {
       backgroundColor: grey[200],
@@ -131,17 +121,24 @@ export const CarCard: React.FC<CarCardProps> = (props: CarCardProps) => {
   const {t} = useTranslation();
   const classes = useStyles();
   const {map} = useMap();
+  const theme = useTheme();
+  const isLargerLg = useMediaQuery(theme.breakpoints.up('lg'));
 
   return (
     <Card
       variant='outlined'
       classes={{
-        root: clsx({
-          [classes.carContainerDriving]: isDriving,
-        }),
+        root: clsx(
+          classes.cardRoot,
+          {
+            [classes.frostedBackground]: isLargerLg && !isDriving,
+            [classes.carContainerDriving]: isDriving,
+          },
+        ),
       }}
     >
       <CardHeader
+        className={classes.cardHeader}
         avatar={
           <img
             src={getIcon(car.color)}
@@ -170,29 +167,23 @@ export const CarCard: React.FC<CarCardProps> = (props: CarCardProps) => {
       />
       {
         (isAvailable || isDriving) &&
-        <CardActions
-          className={clsx({
-            [classes.actionsContainer]: isAvailable,
-            [classes.actionsContainerDriving]: isDriving,
-          })}
-          classes={{
-            root: classes.actionsRoot,
-          }}
-        >
+        <CardActions>
           <Grid
             container
-            justifyContent='space-between'
+            spacing={1}
           >
             {
               isAvailable &&
               <>
-                <Grid item xs={6} className={classes.leftAction}
+                <Grid item xs={6}
                 >
                   <Button
                     fullWidth
+                    color='primary'
                     onClick={() => addDrivingCar(car)}
                     disabled={disabled}
                     id={`drive-car-${car.carId}`}
+                    noBold
                   >
                     <DriveEtaIcon />
                     {t('drawer.cars.drive')}
@@ -202,7 +193,9 @@ export const CarCard: React.FC<CarCardProps> = (props: CarCardProps) => {
                   <Button
                     disabled={!car.latitude || !car.longitude}
                     fullWidth
+                    color='primary'
                     id={`view-car-${car.carId}`}
+                    noBold
                     onClick={() => {
                       // eslint-disable-next-line
                       map?.flyTo(new LatLng(car.latitude!, car.longitude!), 18, {duration: 1});
@@ -217,12 +210,13 @@ export const CarCard: React.FC<CarCardProps> = (props: CarCardProps) => {
             {
               isDriving &&
               <>
-                <Grid item xs={6} className={classes.leftActionDriving}>
+                <Grid item xs={6}>
                   <Button
                     fullWidth
                     disabled={disabled}
                     className={classes.textDriving}
                     onClick={() => parkAtCurrent(car.carId)}
+                    noBold
                     id={`park-current-car-${car.carId}`}
                   >
                     <GpsFixedIcon />
@@ -234,13 +228,12 @@ export const CarCard: React.FC<CarCardProps> = (props: CarCardProps) => {
                     fullWidth
                     disabled={disabled}
                     className={classes.textDriving}
+                    noBold
                     onClick={() => parkWithMap(car)}
                     id={`park-map-car-${car.carId}`}
                   >
                     <MapIcon />
-                    <Typography className={classes.parkOnMapText}>
-                      {t('drawer.cars.parkMap')}
-                    </Typography>
+                    {t('drawer.cars.parkMap')}
                   </Button>
                 </Grid>
               </>

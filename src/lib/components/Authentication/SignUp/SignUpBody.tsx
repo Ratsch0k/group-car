@@ -15,6 +15,7 @@ export interface SignUpBodyProps {
   withSubmit?: boolean;
   onFinished?(): void;
   setLoading?(arg0: boolean): void;
+  goBack?: () => void;
 }
 
 /**
@@ -24,7 +25,7 @@ export interface SignUpBodyProps {
  * @param props Forwards props to the SignUpForm
  */
 export const SignUpBody: React.FC<SignUpBodyProps> = (props) => {
-  // Whether or not sign up is not directly possible.
+  // Whether sign up is not directly possible.
   const isSignUpThroughRequest = useAppSelector(getSignUpRequestSent);
 
   const dispatch = useAppDispatch();

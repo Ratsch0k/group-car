@@ -2,59 +2,52 @@
 
 exports[`renders with button disabled and circular progress if loading 1`] = `
 <div>
-  <div
-    class="MuiBox-root MuiBox-root-6 makeStyles-wrapper-4"
+  <button
+    class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button-8 Mui-disabled Mui-disabled"
+    disabled=""
+    tabindex="-1"
+    type="button"
   >
-    <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-text Mui-disabled Mui-disabled"
-      disabled=""
-      tabindex="-1"
-      type="button"
+    <span
+      class="MuiButton-label makeStyles-label-11"
     >
-      <span
-        class="MuiButton-label"
-      />
-    </button>
-    <div
-      class="MuiCircularProgress-root makeStyles-progress-5 MuiCircularProgress-colorSecondary MuiCircularProgress-indeterminate"
-      role="progressbar"
-      style="width: 28px; height: 28px;"
-    >
-      <svg
-        class="MuiCircularProgress-svg"
-        viewBox="22 22 44 44"
+      <div
+        class="MuiCircularProgress-root makeStyles-progress-9 MuiCircularProgress-colorSecondary MuiCircularProgress-indeterminate"
+        role="progressbar"
+        style="width: 28px; height: 28px;"
       >
-        <circle
-          class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
-          cx="44"
-          cy="44"
-          fill="none"
-          r="20.2"
-          stroke-width="3.6"
-        />
-      </svg>
-    </div>
-  </div>
+        <svg
+          class="MuiCircularProgress-svg"
+          viewBox="22 22 44 44"
+        >
+          <circle
+            class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+            cx="44"
+            cy="44"
+            fill="none"
+            r="20.2"
+            stroke-width="3.6"
+          />
+        </svg>
+      </div>
+    </span>
+  </button>
 </div>
 `;
 
 exports[`renders with button not disabled and with no pr ogress if not loading 1`] = `
 <div>
-  <div
-    class="MuiBox-root MuiBox-root-9 makeStyles-wrapper-7"
+  <button
+    class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button-15"
+    tabindex="0"
+    type="button"
   >
-    <button
-      class="MuiButtonBase-root MuiButton-root MuiButton-text"
-      tabindex="0"
-      type="button"
-    >
-      <span
-        class="MuiButton-label"
-      />
-      <span
-        class="MuiTouchRipple-root"
-      />
-    </button>
-  </div>
+    <span
+      class="MuiButton-label makeStyles-label-18"
+    />
+    <span
+      class="MuiTouchRipple-root"
+    />
+  </button>
 </div>
 `;

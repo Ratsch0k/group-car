@@ -10,7 +10,6 @@ import {useTranslation} from 'react-i18next';
 import GroupSelectionMenu from './GroupSelectionMenu';
 import AddIcon from '@material-ui/icons/Add';
 import MenuIconItem from 'lib/components/MenuIconItem';
-import EditIcon from '@material-ui/icons/Edit';
 import ListIcon from '@material-ui/icons/List';
 import {useAppDispatch, useShallowAppSelector} from 'lib/redux/hooks';
 import {goToModal} from 'lib/redux/slices/modalRouter/modalRouterSlice';
@@ -26,7 +25,7 @@ export interface GroupOptionsMenuProps {
   close(): void;
 
   /**
-   * Whether or not this component should be in the loading state.
+   * Whether this component should be in the loading state.
    */
   loading: boolean;
 
@@ -109,19 +108,6 @@ export const GroupOptionsMenu: React.FC<GroupOptionsMenuProps>=
           >
             {t('drawer.groupMenu.item.create')}
           </MenuIconItem>
-          {
-            selectedGroup !== null &&
-            <MenuIconItem
-              onClick={
-                () => dispatch(goToModal(`/group/manage/${selectedGroup.id}`))
-              }
-              icon={<EditIcon />}
-              disabled={props.loading}
-              button
-            >
-              {t('drawer.groupMenu.item.manage')}
-            </MenuIconItem>
-          }
           {
             (
               groups.length > 1 ||

@@ -1,23 +1,18 @@
 import React from 'react';
-import {waitFor} from '@testing-library/react';
+import {act, waitFor} from '@testing-library/react';
 import testRender from '../../../__test__/testRender';
 import mockedAxios from '../../../__test__/mockAxios';
 import AuthChecker from '../AuthChecker/AuthChecker';
 
 
 describe('AuthChecker', () => {
-  const fakeUser = {
-    username: 'TEST',
-    email: 'TEST',
-    isBetaUser: false,
-    id: 10,
-  };
     it('dispatches checkLoggedIn action', async () => {
       const state = {
         auth: {
           user: undefined,
         },
       };
+
       const {store} = testRender(
         state,
         <AuthChecker />,
@@ -36,7 +31,7 @@ describe('AuthChecker', () => {
 
       describe('if response is NotLoggedInError', () => {
         it(
-          'and user is logged in,  dispatches reset auth state action',
+          'and user is logged in, dispatches reset auth state action',
           async () => {
           const state = {
             auth: {
@@ -53,10 +48,13 @@ describe('AuthChecker', () => {
             errorHandler = fn;
           });
 
-          const {store} = testRender(
-            state,
-            <AuthChecker />,
-          );
+          let store;
+          act(() => {
+            ({store} = testRender(
+              state,
+              <AuthChecker />,
+            ));
+          })
     
           const fakeError = {
             response: {
@@ -68,12 +66,14 @@ describe('AuthChecker', () => {
             }
           }
 
-          let errorThrown = false;
-          try {
-            await errorHandler(fakeError);
-          } catch {
-            errorThrown = true;
-          }
+            let errorThrown = false;
+          await act((async () => {
+            try {
+              await errorHandler(fakeError);
+            } catch {
+              errorThrown = true;
+            }
+          }));
           expect(errorThrown).toBeTruthy();
 
           const expectedAction = {
@@ -83,7 +83,6 @@ describe('AuthChecker', () => {
           
           const actions = store.getActions();
           expect(actions).toContainEqual(expectedAction);
-          expect(actions).toHaveLength(3);
         });
 
         it('and user is not logged in, do nothing', async() => {
@@ -115,11 +114,13 @@ describe('AuthChecker', () => {
           }
 
           let errorThrown = false;
-          try {
-            await errorHandler(fakeError);
-          } catch {
-            errorThrown = true;
-          }
+          await act(async () => {
+            try {
+              await errorHandler(fakeError);
+            } catch {
+              errorThrown = true;
+            }
+          });
           expect(errorThrown).toBeTruthy();
 
           const notExpectedAction = {
@@ -129,7 +130,6 @@ describe('AuthChecker', () => {
           
           const actions = store.getActions();
           expect(actions).not.toContainEqual(notExpectedAction);
-          expect(actions).toHaveLength(2);
         });
       });
 
@@ -162,11 +162,13 @@ describe('AuthChecker', () => {
         }
 
         let errorThrown = false;
-        try {
-          await errorHandler(fakeError);
-        } catch {
-          errorThrown = true;
-        }
+        await act(async () => {
+          try {
+            await errorHandler(fakeError);
+          } catch {
+            errorThrown = true;
+          }
+        });
         expect(errorThrown).toBeTruthy();
 
         const notExpectedAction = {
@@ -176,7 +178,6 @@ describe('AuthChecker', () => {
         
         const actions = store.getActions();
         expect(actions).not.toContainEqual(notExpectedAction);
-        expect(actions).toHaveLength(2);
       });
     })
 

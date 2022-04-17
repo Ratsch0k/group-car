@@ -17,7 +17,7 @@ export interface AttributeFieldProps extends ComponentPropsWithRef<'div'> {
 
 const useStyles = makeStyles((theme: GroupCarTheme) => createStyles({
   root: {
-    border: `1px solid ${theme.palette.divider}`,
+    border: `1px solid ${theme.palette.primary.main}`,
     borderRadius: theme.shape.borderRadius,
     margin: `${theme.spacing(1)}px 0px`,
     padding: theme.spacing(1),
@@ -53,7 +53,7 @@ forwardRef<HTMLDivElement, AttributeFieldProps>((
     >
       <Grid item className={isUp ? classes.title : undefined}>
         <Typography variant='body2' color='primary'>
-          <b>{label}</b>
+          {label}
         </Typography>
       </Grid>
       <Grid item className={classes.content}>

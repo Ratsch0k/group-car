@@ -50,7 +50,7 @@ export const logout = createAsyncThunk(
       dispatch(reset());
       dispatch(resetGroup());
       dispatch(resetInvites());
-      dispatch(replace('/'));
+      dispatch(replace('/auth'));
     } catch (e) {
       const error = e as AxiosError<RestError>;
       return rejectWithValue(error.response?.data);

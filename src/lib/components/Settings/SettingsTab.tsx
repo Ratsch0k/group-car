@@ -23,15 +23,20 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
   createStyles({
     root: {
       '&:hover': {
-        color: theme.palette.primary.dark,
+        color: theme.palette.primary.main,
         background: alpha(theme.palette.primary.main, 0.04),
+        borderRight: `2px solid ${theme.palette.primary.main}`,
       },
-      'transition': '250ms all',
+      'transition': '250ms color',
       'borderRadius': theme.shape.borderRadius,
+      'borderRight': `2px solid #FFFFFF00`,
+      'borderTopRightRadius': 0,
+      'borderBottomRightRadius': 0,
     },
     rootSelected: {
       color: theme.palette.secondary.dark,
       background: alpha(theme.palette.secondary.main, 0.04),
+      borderRight: `2px solid ${theme.palette.secondary.main}`,
     },
   }),
 );

@@ -4,7 +4,7 @@ import {useFormik} from 'formik';
 import * as yup from 'yup';
 import {useTranslation} from 'react-i18next';
 import GenerateProfilePic from './GenerateProfilePic/GenProfilePic';
-import {ProgressButton, PasswordTextField} from 'lib';
+import {ProgressButton, PasswordTextField, Button} from 'lib';
 import {FormTextField} from 'lib/components/Input';
 import {useComponentIsMounted} from 'lib/hooks';
 import {username, email, password} from '../../../validators';
@@ -19,6 +19,7 @@ export interface SignUpFormProps {
     password: string,
     offset: number
   ): Promise<void>;
+  goBack?: () => void;
 }
 
 export const SignUpForm: React.FC<SignUpFormProps> =
@@ -101,17 +102,36 @@ export const SignUpForm: React.FC<SignUpFormProps> =
         </Grid>
         {
           props.withSubmit &&
-          <Grid item>
-            <ProgressButton
-              id='signup-submit'
-              fullWidth
-              type='submit'
-              loading={formik.isSubmitting}
-              variant='contained'
-              color='primary'
-            >
-              {t('form.sign-up')}
-            </ProgressButton>
+          <Grid
+            item
+            container={Boolean(props.goBack)}
+            spacing={props.goBack ? 2 : 0}
+          >
+            {
+              Boolean(props.goBack) &&
+                <Grid item xs={6}>
+                  <Button
+                    onClick={props.goBack}
+                    fullWidth
+                    disabled={formik.isSubmitting}
+                  >
+                    {t('misc.back')}
+                  </Button>
+                </Grid>
+            }
+            <Grid item xs={props.goBack ? 6 : 12}>
+              <ProgressButton
+                id='signup-submit'
+                fullWidth
+                type='submit'
+                loading={formik.isSubmitting}
+                variant='contained'
+                color='primary'
+                glow='primary'
+              >
+                {t('form.sign-up')}
+              </ProgressButton>
+            </Grid>
           </Grid>
         }
       </Grid>

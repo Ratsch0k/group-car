@@ -1,5 +1,5 @@
 import React from 'react';
-import {Drawer as MatDrawer, Container, Box} from '@material-ui/core';
+import {Drawer as MatDrawer, Container, Box, alpha} from '@material-ui/core';
 import {makeStyles, createStyles} from '@material-ui/styles';
 import clsx from 'clsx';
 import {GroupCarTheme} from 'lib';
@@ -25,12 +25,11 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
       maxWidth: theme.shape.drawerWidth,
       width: '100%',
     },
-    drawerPermanent: {
-      zIndex: theme.zIndex.appBar - 1,
-    },
     drawerPaperPermanent: {
-      height: `calc(100% - ${theme.shape.headerHeight}px)`,
-      marginTop: theme.shape.headerHeight,
+      borderLeft: `1px solid ${theme.palette.primary.main}`,
+      zIndex: theme.zIndex.appBar,
+      backgroundColor: alpha(theme.palette.background.paper, 0.7),
+      backdropFilter: theme.palette.blur,
     },
     footer: {
       flex: '0 0 auto',
@@ -48,6 +47,7 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
     },
     header: {
       flex: '0 0 auto',
+      ...theme.mixins.toolbar,
     },
   }),
 );
@@ -57,13 +57,12 @@ export const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
   const classes = useStyles();
   const isLoggedIn = useAppSelector(getIsLoggedIn);
 
-
   return (
     <MatDrawer
       anchor='right'
       open={open || permanent}
       onClose={onClose}
-      className={clsx(classes.drawer, {[classes.drawerPermanent]: permanent})}
+      className={clsx(classes.drawer)}
       variant={permanent ? 'permanent': 'temporary'}
       ModalProps={{
         keepMounted: true,
@@ -71,9 +70,7 @@ export const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
       classes={{
         paper: clsx(
           classes.drawerPaper,
-          {
-            [classes.drawerPaperPermanent]: permanent,
-          },
+          {[classes.drawerPaperPermanent]: permanent},
         ),
       }}
     >
@@ -92,7 +89,7 @@ export const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
             <DrawerNotLoggedIn />
         }
         <Box className={classes.footer}>
-          <DrawerFooter className={classes.footer}/>
+          <DrawerFooter />
         </Box>
       </Box>
     </MatDrawer>

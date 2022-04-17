@@ -13,7 +13,6 @@ import {useTranslation} from 'react-i18next';
  * Component for selecting the location
  * of a selected car. Expects to have access to the
  * MapContext and that a car is selected. Doesn't provide the map interface.
- * @param props Props
  */
 export const SelectLocation: React.FC = () => {
   const {t} = useTranslation();
@@ -103,6 +102,7 @@ export const SelectLocation: React.FC = () => {
             variant='contained'
             color='primary'
             fullWidth
+            glow={location === undefined ? undefined : 'primary'}
             onClick={handleConfirm}
             disabled={location === undefined}
             loading={loading.current}
@@ -113,7 +113,6 @@ export const SelectLocation: React.FC = () => {
         </Grid>
         <Grid item xs={12} md={6}>
           <Button
-            variant='outlined'
             color='secondary'
             onClick={handleClose}
             fullWidth

@@ -1,8 +1,15 @@
-import {DialogProps, Dialog, useMediaQuery} from '@material-ui/core';
+import {
+  DialogProps,
+  Dialog,
+  useMediaQuery,
+  makeStyles,
+  createStyles,
+} from '@material-ui/core';
 import React from 'react';
 import {Breakpoint} from '@material-ui/core/styles/createBreakpoints';
 import {useTheme} from '@material-ui/styles';
 import {GroupCarTheme} from 'lib/theme';
+import clsx from 'clsx';
 
 /**
  * Props for the auto fullscreen dialog.
@@ -17,6 +24,12 @@ export interface AutoFullscreenDialogProps extends DialogProps {
   breakpoint?: Breakpoint;
 }
 
+const useStyles = makeStyles((theme: GroupCarTheme) => createStyles({
+  paper: {
+    borderRadius: theme.shape.borderRadiusSized.large,
+  },
+}));
+
 /**
  * Variant of the dialog which switches to fullscreen once the screen width is
  * smaller than the defined breakpoint.
@@ -24,7 +37,9 @@ export interface AutoFullscreenDialogProps extends DialogProps {
  */
 export const AutoFullscreenDialog: React.FC<AutoFullscreenDialogProps> =
 (props) => {
-  const {children, breakpoint, ...rest} = props;
+  const {children, breakpoint, classes, ...rest} = props;
+  const {paper, ...unusedClasses} = classes || {};
+  const customClasses = useStyles();
 
   const theme = useTheme<GroupCarTheme>();
 
@@ -35,7 +50,17 @@ export const AutoFullscreenDialog: React.FC<AutoFullscreenDialogProps> =
   );
 
   return (
-    <Dialog maxWidth={breakpoint} fullScreen={!largerThanBreakpoint} {...rest}>
+    <Dialog
+      maxWidth={breakpoint}
+      fullScreen={!largerThanBreakpoint}
+      classes={{
+        paper: clsx(paper, {
+          [customClasses.paper]: largerThanBreakpoint,
+        }),
+        ...unusedClasses,
+      }}
+      {...rest}
+    >
       {children}
     </Dialog>
   );

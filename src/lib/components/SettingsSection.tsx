@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme: GroupCarTheme) => ({
     paddingBottom: theme.spacing(2),
   },
   title: {
-    color: theme.palette.text.secondary,
+    color: theme.palette.primary.main,
   },
   header: {
     marginBottom: theme.spacing(2),
@@ -22,6 +22,9 @@ const useStyles = makeStyles((theme: GroupCarTheme) => ({
     flexGrow: 1,
     flexShrink: 1,
     paddingLeft: theme.spacing(1),
+  },
+  divider: {
+    backgroundColor: theme.palette.primary.main,
   },
 }));
 
@@ -33,13 +36,13 @@ export const SettingsSection: React.FC<SettingsSectionProps> = (props) => {
     <>
       <Box className={classes.root}>
         <Grid container alignItems='center' className={classes.header}>
-          <Grid item style={{}}>
+          <Grid item>
             <Typography className={classes.title} variant='body1'>
-              {title}
+              <b>{title}</b>
             </Typography>
           </Grid>
           <Grid item className={classes.line}>
-            <Divider />
+            <Divider className={classes.divider} />
           </Grid>
         </Grid>
         {children}

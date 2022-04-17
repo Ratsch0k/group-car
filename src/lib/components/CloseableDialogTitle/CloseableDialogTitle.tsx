@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
     closeButton: {
       float: 'right',
       marginTop: `-${theme.spacing(1)}px`,
-      marginRight: `-${theme.spacing(1)}px`,
+      marginRight: `-${theme.spacing(2)}px`,
     },
   }),
 );

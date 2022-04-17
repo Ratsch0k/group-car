@@ -1,31 +1,46 @@
-import {createStyles, makeStyles, useMediaQuery} from '@material-ui/core';
+import {
+  alpha,
+  Box,
+  createStyles,
+  makeStyles,
+  useMediaQuery,
+} from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar/AppBar';
 import IconButton from '@material-ui/core/IconButton';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import EmojiTransportationIcon from '@material-ui/icons/EmojiTransportation';
 import MenuIcon from '@material-ui/icons/Menu';
 import {useTheme} from '@material-ui/core';
 import React from 'react';
 import HeaderBarUserButton from './HeaderBarUserButton';
 import {GroupCarTheme} from 'lib';
 import clsx from 'clsx';
+import Logo from '../Icons/Logo';
 
 /**
  * Styles.
  */
-const useStyles = makeStyles((theme: GroupCarTheme) =>
+const useStyles = makeStyles<
+GroupCarTheme,
+{isMedium: boolean}
+>((theme: GroupCarTheme) =>
   createStyles({
     root: {
-      flexGrow: 1,
+      display: 'flex',
       textAlign: 'left',
     },
-    title: {
+    logo: {
       flexGrow: 1,
+      display: 'flex',
+      alignSelf: 'center',
     },
-    appBar: {
-      height: theme.shape.headerHeight,
-    },
+    appBar: ({isMedium}) => ({
+      background: alpha(theme.palette.background.paper, 0.7),
+      backdropFilter: theme.palette.blur,
+      color: theme.palette.primary.main,
+      left: 0,
+      width: isMedium ? '100%' : `calc(100% - ${theme.shape.drawerWidth}px)`,
+      borderBottom: `1px solid ${theme.palette.primary.main}`,
+    }),
     smallIconButton: {
       padding: theme.spacing(1),
     },
@@ -41,7 +56,7 @@ interface HeaderBarProps {
    */
   openDrawer(): void;
   /**
-   * Whether or not to show a button to open the drawer.
+   * Whether to show a button to open the drawer.
    */
   noMenuButton: boolean;
 }
@@ -51,24 +66,24 @@ interface HeaderBarProps {
  * @param props Props.
  */
 export const HeaderBar: React.FC<HeaderBarProps> = (props: HeaderBarProps) => {
-  const classes = useStyles();
   const theme = useTheme();
   const smallerXs = useMediaQuery(theme.breakpoints.down('xs'));
+  const largerLg = useMediaQuery(theme.breakpoints.up('lg'));
+  const classes = useStyles({isMedium: !largerLg});
 
   return (
-    <AppBar className={classes.appBar}>
-      <Toolbar className={classes.root}>
-        <Typography className={classes.title} variant={smallerXs ? 'h5' : 'h4'}>
-          Group Car
-        </Typography>
+    <AppBar
+      className={classes.appBar}
+      elevation={0}
+    >
+      <Toolbar
+        className={classes.root}
+        variant={smallerXs ? 'dense' : 'regular'}
+      >
+        <Box className={classes.logo}>
+          <Logo fontSize={smallerXs ? 'default' : 'large'}/>
+        </Box>
         <HeaderBarUserButton />
-        <IconButton
-          color='inherit'
-          className={clsx({[classes.smallIconButton]: smallerXs})}
-          disabled
-        >
-          <EmojiTransportationIcon fontSize={smallerXs ? 'default' : 'large'}/>
-        </IconButton>
         {
           !props.noMenuButton &&
           <IconButton

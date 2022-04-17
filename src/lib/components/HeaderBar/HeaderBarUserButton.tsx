@@ -27,6 +27,9 @@ const useStyles = makeStyles((theme: Theme) =>
     smallIconButton: {
       padding: theme.spacing(1),
     },
+    popper: {
+      zIndex: theme.zIndex.drawer,
+    },
   }),
 );
 
@@ -108,13 +111,13 @@ export const HeaderBarUserButton: React.FC = () => {
           open={Boolean(anchor)}
           anchorEl={anchor}
           placement='bottom'
-          disablePortal={true}
           transition
+          className={classes.popper}
         >
           {({TransitionProps}) => (
             <Fade {...TransitionProps} timeout={200}>
               <Paper
-                elevation={6}
+                elevation={15}
               >
                 <UserOverview
                   onClose={handleClose}

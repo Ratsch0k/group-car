@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {makeStyles} from '@material-ui/styles';
-import {Grid, Button, Typography, Paper} from '@material-ui/core';
-import {getRandomProfilePic} from 'lib';
+import {Grid, Typography, Paper} from '@material-ui/core';
+import {Button, getRandomProfilePic} from 'lib';
 import {useTranslation} from 'react-i18next';
-import {grey} from '@material-ui/core/colors';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 type AxiosResponse = import('axios').AxiosResponse;
@@ -26,7 +25,7 @@ const useStyle = makeStyles({
   imgContainer: {
     width: imgDim,
     height: imgDim,
-    border: `2px solid ${grey[100]}`,
+    border: `2px solid white`,
     borderRadius: '50%',
     overflow: 'hidden',
   },
@@ -104,7 +103,7 @@ export const GenerateProfilePic: React.FC<GenerateProfilePicProps> =
         item
 
       >
-        <Paper className={classes.imgContainer} elevation={5}>
+        <Paper className={classes.imgContainer} elevation={0}>
           {data ?
             <img
               className={classes.img}
@@ -130,11 +129,7 @@ export const GenerateProfilePic: React.FC<GenerateProfilePicProps> =
           color='secondary'
           disabled={!username || username.length <= 0 || loading}
         >
-          {
-            !username || username.length <= 0 ?
-              t('form.profilePicture.noUsername') :
-              t('form.profilePicture.generateNew')
-          }
+          {t('form.profilePicture.generateNew')}
         </Button>
       </Grid>
     </Grid>

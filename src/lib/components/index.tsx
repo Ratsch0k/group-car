@@ -20,3 +20,6 @@ export * from './AuthChecker';
 export * from './GroupUpdater';
 export * from './InvitesUpdater';
 export * from './ConfirmActionDialog';
+export * from './GradientBackground';
+export * from './Dialog';
+export * from './IconButton';

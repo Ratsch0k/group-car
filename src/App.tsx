@@ -1,5 +1,4 @@
 import React from 'react';
-import GroupCar from './GroupCar';
 import {ThemeProvider} from '@material-ui/core';
 import {
   theme,
@@ -10,11 +9,12 @@ import {
   SnackbarProvider,
   InvitesUpdater,
 } from 'lib';
-import ModalRoutes from 'modals';
 import {Provider} from 'react-redux';
 import store from './lib/redux/store';
 import history from 'lib/redux/history';
 import {ConnectedRouter} from 'connected-react-router';
+import Routes from './pages';
+import ModalRoutes from './modals';
 
 const App: React.FC = () => {
   return (
@@ -27,7 +27,7 @@ const App: React.FC = () => {
                 <MapProvider>
                   <GroupUpdater>
                     <InvitesUpdater>
-                      <GroupCar />
+                      <Routes />
                       <ModalRoutes />
                     </InvitesUpdater>
                   </GroupUpdater>

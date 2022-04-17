@@ -2,7 +2,6 @@ import React from 'react';
 import {Typography, Grid, Box} from '@material-ui/core';
 import {makeStyles, createStyles} from '@material-ui/styles';
 import DoneIcon from '@material-ui/icons/Done';
-import {green} from '@material-ui/core/colors';
 import {GroupCarTheme} from 'lib';
 import {useTranslation} from 'react-i18next';
 
@@ -22,7 +21,6 @@ export const SignUpThroughRequest: React.FC = () => {
       },
       'checkMarkContainer': {
         borderRadius: '50%',
-        backgroundColor: green[500],
         height: theme.spacing(8),
         width: theme.spacing(8),
         display: 'grid',
@@ -37,8 +35,8 @@ export const SignUpThroughRequest: React.FC = () => {
       'checkMark': {
         display: 'grid',
         placeItems: 'center',
-        color: '#FFFFFF',
         fontSize: '3em',
+        color: theme.palette.primary.main,
       },
       'text': {
         opacity: 0,

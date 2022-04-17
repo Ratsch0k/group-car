@@ -1,6 +1,6 @@
 import mockStore from '../../../../__test__/mockStore';
 import mockAxios from '../../../../__test__/mockAxios';
-import {User} from '../../../../typings/auth';
+import {User} from '../../../../typings';
 import {
   checkLoggedIn,
   login,
@@ -180,7 +180,7 @@ describe('authThunks', () => {
       expect(actions).toContainEqual({
         type: CALL_HISTORY_METHOD,
         payload: {
-          args: ['/'],
+          args: ['/auth'],
           method: 'replace',
         },
       });

@@ -12,10 +12,211 @@
     <link rel="apple-touch-icon" href="logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link rel="stylesheet" href="%PUBLIC_URL%/index.css" />
+    <style>
+      @keyframes container {
+        0% {
+          width: 30px;
+        }
+        35%, 60% {
+          width: 100px;
+        }
+        95% {
+          width: 30px;
+        }
+      }
+
+      @keyframes line {
+        0%, 5% {
+          width: 100%;
+        }
+        45%, 50% {
+          width: 30%;
+        }
+        85% {
+          width: 100%;
+        }
+      }
+
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      #loading-spinner {
+        width: 100%;
+        margin-left: auto;
+        animation: line 1.5s ease-in-out infinite;
+        border-radius: 5px;
+        height: 10px;
+        background-color: currentColor;
+      }
+      #loading-spinner-container {
+        width: 30px;
+        animation: container 1.5s ease-in-out infinite;
+      }
+
+      #loading-spinner-wrapper {
+        width:100px;
+        align-content: center;
+      }
+
+      #loader {
+        height: 100%;
+        width: 100%;
+        position:absolute;
+        z-index: 2000;
+        background-color: white;
+        transition: opacity 250ms;
+      }
+
+      #loader-root {
+        height: 100%;
+        width: 100%;
+      }
+
+      #loader-container {
+        height: 100%;
+        width: 100%;
+        animation: fade-in 1s both;
+      }
+
+      #logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        color: #00C68A;
+        flex-direction: column;
+      }
+
+      .spot-primary {
+        position: absolute;
+        width: 200vw;
+        height: 200vw;
+        transform: translate(-100vw, -100vw);
+        background: radial-gradient(circle, rgba(0,198,138,0.4) 0%, rgba(255,255,255,0) 70%);
+      }
+      .spot-primary-dark {
+        position: absolute;
+        width: 110vw;
+        height: 110vw;
+        transform: translate(-55vw, -55vw);
+        background: radial-gradient(circle, rgba(0,164,115,0.8) 0%, rgba(255,255,255,0) 70%);
+      }
+
+      .spot-secondary {
+        position: absolute;
+        width: 120vw;
+        height: 120vw;
+        transform: translate(-60vw, -60vw);
+        background: radial-gradient(circle, rgba(173,0,216,0.3) 0%, rgba(255,255,255,0) 70%);
+      }
+
+      #spot-container {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        position: absolute;
+      }
+
+      #spot1 {
+        top: 5vh;
+      }
+
+      #spot2 {
+        top: 50vh;
+        left: 110vw;
+      }
+
+      #spot3 {
+        top: 90vh;
+        left: 10vw;
+      }
+    </style>
     <title>My Group Car</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="loader">
+      <div id="loader-root">
+        <div id="spot-container">
+          <div id="spot1" class="spot-primary"></div>
+          <div id="spot2" class="spot-primary-dark"></div>
+          <div id="spot3" class="spot-secondary"></div>
+        </div>
+        <div id="loader-container">
+          <div id="logo">
+            <svg
+                    width="200"
+                    height="200"
+                    viewBox="0 0 264.58 264.58"
+                    xmlns="http://www.w3.org/2000/svg"
+            >
+              <g stroke-linecap="round" stroke-width="10" fill="none" stroke="currentColor">
+                <path d="m88.221 45h94.89"/>
+                <path d="m110.52 31h21.776"/>
+                <path d="m144.1 31 11.926 0.05635"/>
+                <path d="m197.09 157 11.926 0.0563"/>
+                <path d="m164.06 143.12h44.176"/>
+                <path d="m139.74 143 11.926 0.0563"/>
+                <path d="m181.03 199.07 11.926 0.0563"/>
+                <path d="m187.35 185.06h21.776"/>
+                <path d="m187.41 171h21.776"/>
+                <path d="m182.43 59 11.926 0.05635"/>
+                <path d="m182.89 73h21.776"/>
+                <path d="m75.391 59h21.776"/>
+                <path d="m60.117 73 11.926 0.05635"/>
+                <path d="m72 87 11.926 0.05635"/>
+                <path d="m192.66 87 11.926 0.05635"/>
+                <path d="m58 101h21.776"/>
+                <path d="m58 129 11.926 0.0564"/>
+                <path d="m58 115h21.776"/>
+                <path d="m58 143 11.926 0.0564"/>
+                <path d="m72 157 11.926 0.0563"/>
+                <path d="m62.153 171h21.776"/>
+                <path d="m62.559 185.05 11.926 0.0563"/>
+                <path d="m88.237 185 11.926 0.0563"/>
+                <path d="m69.896 199.01h21.776"/>
+                <path d="m79.718 213 11.926 0.0563"/>
+                <path d="m105.57 213h21.776"/>
+                <path d="m109.84 227h44.176"/>
+                <path d="m168.09 227.14 11.926 0.0563"/>
+                <path d="m154.93 213 11.926 0.0563"/>
+                <path d="m180.82 213h21.776"/>
+
+                <g fill="currentColor" stroke="none">
+                  <circle cx="182.98" cy="157" r="5"/>
+                  <circle cx="58" cy="157" r="5"/>
+                  <circle cx="168.51" cy="59" r="5"/>
+                  <circle cx="86.307" cy="73" r="5"/>
+                  <circle cx="207.14" cy="199" r="5"/>
+                  <circle cx="84" cy="143" r="5"/>
+                  <circle cx="141.15" cy="213" r="5"/>
+                  <circle cx="84" cy="129" r="5"/>
+                  <circle cx="95.652" cy="227" r="5"/>
+                  <circle cx="105.66" cy="199.01" r="5"/>
+                  <circle cx="58" cy="87" r="5"/>
+                </g>
+              </g>
+            </svg>
+            <div>
+              LOADING...
+            </div>
+            <div id="loading-spinner-wrapper">
+              <div id="loading-spinner-container">
+              <div id="loading-spinner">
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div id="root"></div>
   </body>
 </html>

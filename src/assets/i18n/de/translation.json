@@ -1,5 +1,6 @@
 {
   "auth": {
+    "title": "Melde dich an oder erstelle ein Konto",
     "dialog": {
       "title": {
         "authenticate": "Anmeldung",
@@ -7,7 +8,8 @@
         "/auth/sign-up": "Account erstellen"
       }
     },
-    "isRequested": "Zurzeit ist es nicht möglich ein Benutzerkonto direkt anzulegen. Ihre Anfrage wird überprüft und falls sie genehmigt wird, erhalten Sie eine Email."
+    "isRequested": "Zurzeit ist es nicht möglich ein Benutzerkonto direkt anzulegen. Ihre Anfrage wird überprüft und falls sie genehmigt wird, erhalten Sie eine Email.",
+    "success": "Erfolgreich angemeldet"
   },
   "user": {
     "invites": "Einladungen",
@@ -96,7 +98,8 @@
             "deleteDialog": {
               "title": "Auto löschen",
               "message": "Bist du dir sicher dass du das Auto <strong>{{name}}</strong> löschen willst?"
-            }
+            },
+            "delete": "Lösche das Auto"
           }
         },
         "leaveGroup": {
@@ -143,7 +146,8 @@
     "socketConnection": "Realtime Updates konnten nicht initialisiert werden. Um Updates über die Gruppe zu erhalten müssen sie die Seite neuladen",
     "NotLoggedInError": "Du bist nicht angemeldet",
     "UsernameAlreadyExistsError": "Der Benutzername existiert bereits",
-    "InvalidLoginError": "Benutzername oder Password ist falsch"
+    "InvalidLoginError": "Benutzername oder Password ist falsch",
+    "IncorrectPasswordError": "Falsches Password"
   },
   "misc": {
     "or": "oder",
@@ -155,6 +159,7 @@
     "confirmNewPassword": "Bestätige neues Password",
     "edit": "Ändern",
     "loading": "Lade",
+    "back": "Zurück",
     "admin": "Admin",
     "owner": "Besitzer",
     "you": "Du",
