@@ -98,6 +98,11 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
     },
     textDriving: {
       color: theme.palette.primary.contrastText,
+      whiteSpace: 'nowrap',
+    },
+    actionsDriving: {
+      paddingLeft: 0,
+      paddingRight: 0,
     },
   }),
 );
@@ -167,10 +172,11 @@ export const CarCard: React.FC<CarCardProps> = (props: CarCardProps) => {
       />
       {
         (isAvailable || isDriving) &&
-        <CardActions>
+        <CardActions className={clsx(isDriving && classes.actionsDriving)}>
           <Grid
             container
             spacing={1}
+            justifyContent='space-evenly'
           >
             {
               isAvailable &&
@@ -210,7 +216,7 @@ export const CarCard: React.FC<CarCardProps> = (props: CarCardProps) => {
             {
               isDriving &&
               <>
-                <Grid item xs={6}>
+                <Grid item>
                   <Button
                     fullWidth
                     disabled={disabled}
@@ -223,7 +229,7 @@ export const CarCard: React.FC<CarCardProps> = (props: CarCardProps) => {
                     {t('drawer.cars.parkCurrent')}
                   </Button>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item>
                   <Button
                     fullWidth
                     disabled={disabled}

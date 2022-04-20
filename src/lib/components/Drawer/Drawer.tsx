@@ -9,6 +9,7 @@ import DrawerBody from './DrawerBody';
 import DrawerNotLoggedIn from './DrawerNotLoggedIn';
 import {useAppSelector} from 'lib/redux/hooks';
 import {getIsLoggedIn} from 'lib/redux/slices/auth';
+import {isFirefox} from 'react-device-detect';
 
 interface DrawerProps {
   open: boolean;
@@ -26,10 +27,15 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
       width: '100%',
     },
     drawerPaperPermanent: {
-      borderLeft: `1px solid ${theme.palette.primary.main}`,
+      borderLeft: `1px solid ${theme.palette.background.paper}`,
       zIndex: theme.zIndex.appBar,
-      backgroundColor: alpha(theme.palette.background.paper, 0.7),
+    },
+    blurred: {
+      backgroundColor: alpha(theme.palette.background.paper, 0.5),
       backdropFilter: theme.palette.blur,
+    },
+    plain: {
+      backgroundColor: theme.palette.background.paper,
     },
     footer: {
       flex: '0 0 auto',
@@ -70,7 +76,11 @@ export const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
       classes={{
         paper: clsx(
           classes.drawerPaper,
-          {[classes.drawerPaperPermanent]: permanent},
+          {
+            [classes.drawerPaperPermanent]: permanent,
+            [classes.blurred]: permanent && !isFirefox,
+            [classes.plain]: permanent && isFirefox,
+          },
         ),
       }}
     >

@@ -15,6 +15,7 @@ import HeaderBarUserButton from './HeaderBarUserButton';
 import {GroupCarTheme} from 'lib';
 import clsx from 'clsx';
 import Logo from '../Icons/Logo';
+import {isFirefox} from 'react-device-detect';
 
 /**
  * Styles.
@@ -34,13 +35,18 @@ GroupCarTheme,
       alignSelf: 'center',
     },
     appBar: ({isMedium}) => ({
-      background: alpha(theme.palette.background.paper, 0.7),
-      backdropFilter: theme.palette.blur,
       color: theme.palette.primary.main,
       left: 0,
       width: isMedium ? '100%' : `calc(100% - ${theme.shape.drawerWidth}px)`,
-      borderBottom: `1px solid ${theme.palette.primary.main}`,
+      borderBottom: `1px solid ${theme.palette.background.paper}`,
     }),
+    blurred: {
+      background: alpha(theme.palette.background.paper, 0.5),
+      backdropFilter: theme.palette.blur,
+    },
+    plain: {
+      background: theme.palette.background.paper,
+    },
     smallIconButton: {
       padding: theme.spacing(1),
     },
@@ -73,7 +79,10 @@ export const HeaderBar: React.FC<HeaderBarProps> = (props: HeaderBarProps) => {
 
   return (
     <AppBar
-      className={classes.appBar}
+      className={clsx(
+        classes.appBar,
+        isFirefox ? classes.plain : classes.blurred,
+      )}
       elevation={0}
     >
       <Toolbar

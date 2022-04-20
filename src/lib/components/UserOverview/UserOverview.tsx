@@ -53,7 +53,7 @@ const useStyle = makeStyles((theme: GroupCarTheme) =>
       minWidth: 180,
     },
     buttonIcon: {
-      marginLeft: theme.spacing(2),
+      marginLeft: theme.spacing(1),
       marginRight: theme.spacing(1),
     },
   }),

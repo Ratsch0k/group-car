@@ -7,6 +7,7 @@ import * as Sentry from '@sentry/react';
 import {Integrations} from '@sentry/tracing';
 import config from 'config';
 import history from './lib/redux/history';
+import App from './App';
 
 /**
  * Initialise sentry
@@ -31,8 +32,6 @@ L.Icon.Default.mergeOptions({
   iconUrl: require('leaflet/dist/images/marker-icon.png'),
   shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 });
-
-const App = React.lazy(() => import('./App'));
 
 ReactDOM.render(
   <Suspense fallback={null}>
