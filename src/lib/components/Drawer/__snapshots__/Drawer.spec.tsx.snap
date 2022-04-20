@@ -9,7 +9,7 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
       class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer"
     >
       <div
-        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent makeStyles-blurred MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
       >
         <div
           class="MuiBox-root MuiBox-root makeStyles-container"
@@ -128,7 +128,7 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
       class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer"
     >
       <div
-        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent makeStyles-blurred MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
       >
         <div
           class="MuiBox-root MuiBox-root makeStyles-container"
@@ -238,13 +238,13 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                         </div>
                       </div>
                       <div
-                        class="MuiCardActions-root MuiCardActions-spacing"
+                        class="MuiCardActions-root makeStyles-actionsDriving MuiCardActions-spacing"
                       >
                         <div
-                          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1"
+                          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-justify-content-xs-space-evenly"
                         >
                           <div
-                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
+                            class="MuiGrid-root MuiGrid-item"
                           >
                             <button
                               class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-textDriving MuiButton-fullWidth"
@@ -270,7 +270,7 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                             </button>
                           </div>
                           <div
-                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
+                            class="MuiGrid-root MuiGrid-item"
                           >
                             <button
                               class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-textDriving MuiButton-fullWidth"
@@ -347,7 +347,7 @@ exports[`if user is logged in park with map SelectLocation clicking on cancel wi
                         class="MuiCardActions-root MuiCardActions-spacing"
                       >
                         <div
-                          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1"
+                          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-justify-content-xs-space-evenly"
                         >
                           <div
                             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
@@ -493,7 +493,7 @@ exports[`if user is logged in park with map SelectLocation clicking on map will 
       class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer"
     >
       <div
-        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent makeStyles-blurred MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
       >
         <div
           class="MuiBox-root MuiBox-root makeStyles-container"
@@ -615,7 +615,7 @@ exports[`if user is logged in park with map clicking on park on map sets selecte
       class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer"
     >
       <div
-        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent makeStyles-blurred MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
       >
         <div
           class="MuiBox-root MuiBox-root makeStyles-container"
@@ -734,7 +734,7 @@ exports[`if user is logged in renders create group button if user has no groups 
       class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer"
     >
       <div
-        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent makeStyles-blurred MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
       >
         <div
           class="MuiBox-root MuiBox-root makeStyles-container"
@@ -815,7 +815,7 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
       class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer"
     >
       <div
-        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent makeStyles-blurred MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
       >
         <div
           class="MuiBox-root MuiBox-root makeStyles-container"
@@ -925,13 +925,13 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
                         </div>
                       </div>
                       <div
-                        class="MuiCardActions-root MuiCardActions-spacing"
+                        class="MuiCardActions-root makeStyles-actionsDriving MuiCardActions-spacing"
                       >
                         <div
-                          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1"
+                          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-justify-content-xs-space-evenly"
                         >
                           <div
-                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
+                            class="MuiGrid-root MuiGrid-item"
                           >
                             <button
                               class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-textDriving MuiButton-fullWidth"
@@ -957,7 +957,7 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
                             </button>
                           </div>
                           <div
-                            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
+                            class="MuiGrid-root MuiGrid-item"
                           >
                             <button
                               class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-textDriving MuiButton-fullWidth"
@@ -1034,7 +1034,7 @@ exports[`if user is logged in renders list of cars correctly if a group is selec
                         class="MuiCardActions-root MuiCardActions-spacing"
                       >
                         <div
-                          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1"
+                          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-justify-content-xs-space-evenly"
                         >
                           <div
                             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
@@ -1180,7 +1180,7 @@ exports[`if user is logged in renders select group button if user has at least o
       class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer"
     >
       <div
-        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent makeStyles-blurred MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
       >
         <div
           class="MuiBox-root MuiBox-root makeStyles-container"
@@ -1303,7 +1303,7 @@ exports[`if user is logged in view location location button is disabled if latit
       class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer"
     >
       <div
-        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+        class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent makeStyles-blurred MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
       >
         <div
           class="MuiBox-root MuiBox-root makeStyles-container"
@@ -1424,7 +1424,7 @@ exports[`if user is logged in view location location button is disabled if latit
                         class="MuiCardActions-root MuiCardActions-spacing"
                       >
                         <div
-                          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1"
+                          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-justify-content-xs-space-evenly"
                         >
                           <div
                             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
@@ -1531,7 +1531,7 @@ exports[`if user is logged in view location location button is disabled if latit
                         class="MuiCardActions-root MuiCardActions-spacing"
                       >
                         <div
-                          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1"
+                          class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1 MuiGrid-justify-content-xs-space-evenly"
                         >
                           <div
                             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
@@ -1868,7 +1868,7 @@ exports[`renders and matches snapshot with not open and permanent without crashi
     class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer"
   >
     <div
-      class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+      class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent makeStyles-blurred MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
     >
       <div
         class="MuiBox-root MuiBox-root makeStyles-container"
@@ -2049,7 +2049,7 @@ exports[`renders and matches snapshot with open and permanent without crashing 1
     class="MuiDrawer-root MuiDrawer-docked makeStyles-drawer"
   >
     <div
-      class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+      class="MuiPaper-root MuiDrawer-paper makeStyles-drawerPaper makeStyles-drawerPaperPermanent makeStyles-blurred MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
     >
       <div
         class="MuiBox-root MuiBox-root makeStyles-container"
