@@ -11,14 +11,13 @@ Share you car's location with your family or group with a single press of a butt
 
 --------
 
-Source Code of the frontend for website www.groupcars.de (*if domain available*)
+Source Code of the frontend for website groupcars.de (*if domain available*)
 
 Used Technologies:
   - Managment
     + GitHub
-    + Travis CI
+    + GitHub workflow
   - Frontend
-    + (OAuth2.0)
     + React.js
     + Material Design
   - Backend
@@ -43,6 +42,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
+To start the app in demo mode use `yarn start:demo`.
+This will set the environment variable `REACT_APP_DEMO_MODE` to `true` and start the website.
+
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.<br>
@@ -57,6 +59,8 @@ The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+To build the website in forced demo mode use `yarn build:demo`.
 
 ### `yarn eject`
 

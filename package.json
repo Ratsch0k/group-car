@@ -39,7 +39,9 @@
   "scripts": {
     "start": "cross-env ESLINT_NO_DEV_ERRORS='true' react-scripts start",
     "start:secure": "cross-env HTTPS=true react-scripts start",
+    "start:demo": "cross-env REACT_APP_DEMO_MODE=true ESLINT_NO_DEV_ERRORS=true react-scripts start",
     "build": "react-scripts build",
+    "build:demo": "cross-env REACT_APP_DEMO_MODE=true react-scripts build",
     "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject",
     "eslint": "./node_modules/.bin/eslint . --ext .js,.jsx,.ts,.tsx",
