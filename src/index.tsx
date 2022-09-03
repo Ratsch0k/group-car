@@ -7,6 +7,7 @@ import * as Sentry from '@sentry/react';
 import {Integrations} from '@sentry/tracing';
 import config from 'config';
 import history from './lib/redux/history';
+import DemoApp from 'DemoApp';
 import App from './App';
 
 /**
@@ -33,9 +34,19 @@ L.Icon.Default.mergeOptions({
   shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 });
 
-ReactDOM.render(
-  <Suspense fallback={null}>
-    <App/>
-  </Suspense>,
-  document.getElementById('root'),
-);
+if (process.env.REACT_APP_DEMO_MODE) {
+  ReactDOM.render(
+    <Suspense fallback={null}>
+      <DemoApp />
+    </Suspense>,
+    document.getElementById('root'),
+  );
+} else {
+  ReactDOM.render(
+    <Suspense fallback={null}>
+      <App/>
+    </Suspense>,
+    document.getElementById('root'),
+  );
+}
+

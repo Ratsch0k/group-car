@@ -90,7 +90,7 @@ export const GroupUpdater: React.FC = (props) => {
     }
 
     if (selectedGroup) {
-      setSocket(io(`/group/${selectedGroup.id}`, {path: '/socket'}));
+      setSocket(io.connect(`/group/${selectedGroup.id}`, {path: '/socket'}));
     }
 
     return () => {
