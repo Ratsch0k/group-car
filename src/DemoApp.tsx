@@ -14,9 +14,23 @@ import {Provider} from 'react-redux';
 import store from './lib/redux/store';
 import history from 'lib/redux/history';
 import {ConnectedRouter} from 'connected-react-router';
-import Routes from './pages';
 import ModalRoutes from './modals';
+import GroupCar from 'pages/GroupCar';
+import {Route, Switch} from 'react-router-dom';
+import DemoAuthentication from './lib/demo/DemoAuthentication';
 
+const DemoRoutes = () => {
+  return (
+    <Switch>
+      <Route path='/auth'>
+        <DemoAuthentication />
+      </Route>
+      <Route path='/'>
+        <GroupCar/>
+      </Route>
+    </Switch>
+  );
+};
 
 const DemoApp: React.FC = () => {
   return (
@@ -29,7 +43,7 @@ const DemoApp: React.FC = () => {
                 <MapProvider>
                   <GroupUpdater>
                     <InvitesUpdater>
-                      <Routes />
+                      <DemoRoutes />
                       <ModalRoutes />
                     </InvitesUpdater>
                   </GroupUpdater>

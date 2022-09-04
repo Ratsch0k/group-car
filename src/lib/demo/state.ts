@@ -253,6 +253,8 @@ const invites = {
   },
 };
 
+export const loginUser = users[1];
+
 /**
  * Demo state
  *

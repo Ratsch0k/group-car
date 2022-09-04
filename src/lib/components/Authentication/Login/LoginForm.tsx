@@ -18,6 +18,17 @@ export interface LoginFormProps {
   setLoading?(arg0: boolean): void;
   withGoBack?: boolean;
   goBack?: () => void;
+  /**
+   * Forced username.
+   * If set, the user can only log in with this username.
+   */
+  username?: string;
+
+  /**
+   * Forced password.
+   * If set, the user can only log in with this password.
+   */
+  password?: string;
 }
 
 export const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps) => {
@@ -31,8 +42,8 @@ export const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps) => {
 
   const formik = useFormik({
     initialValues: {
-      username: '',
-      password: '',
+      username: props.username ? props.username : '',
+      password: props.password ? props.password : '',
     },
     validationSchema,
     onSubmit: (values) => {
@@ -63,7 +74,9 @@ export const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps) => {
             label={t('form.username') + ' *'}
             id='login-username'
             name='username'
+            value={props.username ? props.username : undefined}
             formik={formik}
+            disabled={Boolean(props.username)}
           />
         </Grid>
         <Grid item xs={12}>
@@ -71,7 +84,9 @@ export const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps) => {
             id='login-password'
             name='password'
             label={t('form.password') + ' *'}
+            value={props.password ? props.password : undefined}
             formik={formik}
+            disabled={Boolean(props.password)}
           />
         </Grid>
         {

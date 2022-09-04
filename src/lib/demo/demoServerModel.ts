@@ -84,6 +84,16 @@ class DemoServerModel {
   }
 
   /**
+   * Logs the user out.
+   * @returns Response
+   */
+  logout() {
+    this.state.isLoggedIn = false;
+
+    return {status: 204};
+  }
+
+  /**
    * Gets all invites of the user.
    *
    * To simulate the user being invited while their on the page
@@ -630,6 +640,13 @@ class DemoServerModel {
         simpleObj = obj.map((e) => this.convert(e));
       } else {
         simpleObj = Object.assign({}, obj);
+
+        // Iterate through attributes of object and convert nested proxies
+        for (const [key, value] of Object.entries(simpleObj)) {
+          if (typeof value === 'object' && value !== null) {
+            simpleObj[key] = this.convert(value);
+          }
+        }
       }
 
       return simpleObj;

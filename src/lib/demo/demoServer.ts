@@ -38,6 +38,7 @@ class DemoServer {
    * @returns Response
    */
   handleRequest(method: string, path: string, data: any): any {
+    console.log(`${method} ${path}`);
     let responseData;
     switch (method) {
       case 'get': responseData = this.get(path); break;
@@ -132,9 +133,6 @@ class DemoServer {
       config: {},
     } as AxiosResponse;
 
-    console.log('SUCCESS WITH:');
-    console.log(response);
-
     return response;
   }
 
@@ -228,6 +226,7 @@ class DemoServer {
     switch (path) {
       case '/auth/token': return this.model.checkLoggedIn();
       case '/auth/login': return this.model.login(data);
+      case '/auth/logout': return this.model.logout();
     }
 
     if (path.startsWith('/api/group/')) {

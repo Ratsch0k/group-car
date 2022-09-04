@@ -7,7 +7,6 @@ import * as Sentry from '@sentry/react';
 import {Integrations} from '@sentry/tracing';
 import config from 'config';
 import history from './lib/redux/history';
-import DemoApp from 'DemoApp';
 import App from './App';
 
 /**
@@ -35,6 +34,9 @@ L.Icon.Default.mergeOptions({
 });
 
 if (process.env.REACT_APP_DEMO_MODE) {
+  // Split demo code from main bundle to reduce its size
+  const DemoApp = React.lazy(() => import('./DemoApp'));
+
   ReactDOM.render(
     <Suspense fallback={null}>
       <DemoApp />
