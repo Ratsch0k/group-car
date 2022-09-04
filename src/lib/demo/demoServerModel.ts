@@ -54,9 +54,7 @@ class DemoServerModel {
       status: 401,
       data: {
         message: 'Credentials incorrect',
-        details: {
-          errorName: 'unauthorizedError',
-        },
+        errorName: 'unauthorizedError',
       },
     };
   }
@@ -75,9 +73,7 @@ class DemoServerModel {
         status: 401,
         data: {
           message: 'Not logged in',
-          details: {
-            errorName: 'UnauthorizedError',
-          },
+          errorName: 'UnauthorizedError',
         },
       };
     }
@@ -163,9 +159,7 @@ class DemoServerModel {
       status: 404,
       data: {
         message: 'Group doesn\'t exist',
-        details: {
-          errorName: 'GroupNotFoundError',
-        },
+        errorName: 'GroupNotFoundError',
       },
     };
   }
@@ -290,9 +284,7 @@ class DemoServerModel {
       status: 401,
       data: {
         message: 'Not authorized',
-        details: {
-          errorName: 'UnauthorizedError',
-        },
+        errorName: 'UnauthorizedError',
       },
     };
   }
@@ -310,9 +302,7 @@ class DemoServerModel {
         status: 400,
         data: {
           message: 'You cannot leave a group you are the owner of',
-          details: {
-            errorName: 'IsOwnerOfGroupError',
-          },
+          errorName: 'IsOwnerOfGroupError',
         },
       };
     }
@@ -336,9 +326,7 @@ class DemoServerModel {
         status: 404,
         data: {
           message: 'Car doesn\'t exist',
-          details: {
-            errorName: 'CarNotFoundError',
-          },
+          errorName: 'CarNotFoundError',
         },
       };
     }
@@ -370,9 +358,7 @@ class DemoServerModel {
         status: 404,
         data: {
           message: 'Car doesn\'t exist',
-          details: {
-            errorName: 'CarNotFoundError',
-          },
+          errorName: 'CarNotFoundError',
         },
       };
     }
@@ -444,9 +430,7 @@ class DemoServerModel {
       status: 401,
       data: {
         message: 'Not admin of group',
-        details: {
-          errorName: 'NotAdminOfGroupError',
-        },
+        errorName: 'NotAdminOfGroupError',
       },
     };
   }
@@ -469,9 +453,7 @@ class DemoServerModel {
           status: 400,
           data: {
             message: 'User is not a member of the group',
-            details: {
-              errorName: 'UserNotMemberOfGroup',
-            },
+            errorName: 'UserNotMemberOfGroup',
           },
         };
       }
@@ -554,9 +536,7 @@ class DemoServerModel {
       status: 401,
       data: {
         message: 'Not admin of the group',
-        details: {
-          errorName: 'NotAdminOfGroupError',
-        },
+        errorName: 'NotAdminOfGroupError',
       },
     };
   }
@@ -580,9 +560,7 @@ class DemoServerModel {
       status: 401,
       data: {
         message: 'Not admin of the group',
-        details: {
-          errorName: 'NotAdminOfGroupError',
-        },
+        errorName: 'NotAdminOfGroupError',
       },
     };
   }
@@ -608,9 +586,7 @@ class DemoServerModel {
       status: 401,
       data: {
         message: 'Not owner of group',
-        details: {
-          errorName: 'NotOwnerOfGroupError',
-        },
+        errorName: 'NotOwnerOfGroupError',
       },
     };
   }

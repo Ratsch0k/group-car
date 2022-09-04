@@ -178,7 +178,7 @@ class DemoServer {
     return {
       data: {
         message: 'Request not supported',
-        errorName: 'notSupported',
+        errorName: 'InDemoNotSupported',
       },
       status: 500,
     };
@@ -210,7 +210,7 @@ class DemoServer {
     return {
       data: {
         message: 'Request not supported',
-        errorName: 'notSupported',
+        errorName: 'InDemoNotSupported',
       },
       status: 500,
     };
@@ -257,7 +257,7 @@ class DemoServer {
     return {
       data: {
         message: 'Request not supported',
-        errorName: 'notSupported',
+        errorName: 'InDemoNotSupported',
       },
       status: 500,
     };
@@ -297,7 +297,7 @@ class DemoServer {
     return {
       data: {
         message: 'Request not supported',
-        errorName: 'notSupported',
+        errorName: 'InDemoNotSupported',
       },
       status: 500,
     };
@@ -323,7 +323,7 @@ class DemoServer {
     return {
       data: {
         message: 'Request not supported',
-        errorName: 'notSupported',
+        errorName: 'InDemoNotSupported',
       },
       status: 500,
     };
