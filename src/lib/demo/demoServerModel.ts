@@ -73,7 +73,7 @@ class DemoServerModel {
         status: 401,
         data: {
           message: 'Not logged in',
-          errorName: 'UnauthorizedError',
+          errorName: 'NotLoggedInError',
         },
       };
     }

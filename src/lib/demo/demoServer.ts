@@ -38,7 +38,6 @@ class DemoServer {
    * @returns Response
    */
   handleRequest(method: string, path: string, data: any): any {
-    console.log(`${method} ${path}`);
     let responseData;
     switch (method) {
       case 'get': responseData = this.get(path); break;
@@ -50,7 +49,14 @@ class DemoServer {
       default: throw new Error('Method not supported');
     }
 
-    return this.convertHandlerResponseToAxiosResponse(responseData);
+    let status = 200;
+    if (typeof responseData === 'object') {
+      status = responseData.status;
+    }
+    console.log(`${method} ${path} - ${status}`);
+
+    return this.convertHandlerResponseToAxiosResponse(
+      method, path, responseData);
   }
 
   /**
@@ -59,6 +65,8 @@ class DemoServer {
    * @param handlerResponse Handler response to convert
    */
   convertHandlerResponseToAxiosError(
+    method: string,
+    path: string,
     handlerResponse: HandlerResponseObject,
   ): any {
     const restError = {
@@ -79,12 +87,18 @@ class DemoServer {
         ...this.DEFAULT_HEADERS,
         ...handlerResponse.headers,
       },
-      config: {},
+      config: {
+        url: path,
+        method,
+      },
       request: undefined,
     };
 
     const axiosError = {
-      config: {},
+      config: {
+        url: path,
+        method,
+      },
       code: handlerResponse.status,
       request: undefined,
       response: axiosResponse,
@@ -101,6 +115,8 @@ class DemoServer {
    * @param handlerResponse Handler response to convert
    */
   convertHandlerResponseToAxiosResponse(
+    method: string,
+    path: string,
     handlerResponse: HandlerResponse,
   ): any {
     // Convert handlerResponse to HandlerResponseObject if its only a string
@@ -121,7 +137,7 @@ class DemoServer {
     // Create an AxiosError instead and throw it
     if (handlerResponse.status >= 400) {
       // This will always throw
-      this.convertHandlerResponseToAxiosError(handlerResponse);
+      this.convertHandlerResponseToAxiosError(method, path, handlerResponse);
     }
 
     // Creates object mimicking an AxiosResponse
@@ -130,7 +146,10 @@ class DemoServer {
       status: handlerResponse.status,
       statusText: handlerResponse.status.toString(),
       headers: handlerResponse.headers,
-      config: {},
+      config: {
+        url: path,
+        method,
+      },
     } as AxiosResponse;
 
     return response;

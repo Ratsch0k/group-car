@@ -51,8 +51,6 @@ class AxiosWrapper {
    * @returns Request handler for the given method
    */
   createAxiosRequestHandler(method: string): any {
-    console.log(`WRAP ${method}`);
-
     return async (...params: any) => {
       const [path, data] = params;
 
