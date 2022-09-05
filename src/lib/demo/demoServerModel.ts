@@ -491,7 +491,7 @@ class DemoServerModel {
     if (this.state.invites[user.id] === undefined) {
       this.state.invites[user.id] = {};
     }
-    
+
     this.state.invites[user.id][groupId] = {
       User: getSimpleUser(user.id),
       userId: user.id,
