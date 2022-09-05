@@ -483,7 +483,6 @@ class DemoServerModel {
    * @returns Response
    */
   inviteUser(groupId: number, data: any) {
-    debugger;
     const username = data.username;
 
     const user = Object.values(this.state.users)
