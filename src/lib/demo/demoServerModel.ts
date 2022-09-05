@@ -483,11 +483,16 @@ class DemoServerModel {
    * @returns Response
    */
   inviteUser(groupId: number, data: any) {
+    debugger;
     const username = data.username;
 
     const user = Object.values(this.state.users)
       .find((user: any) => user.username === username) as any;
 
+    if (this.state.invites[user.id] === undefined) {
+      this.state.invites[user.id] = {};
+    }
+    
     this.state.invites[user.id][groupId] = {
       User: getSimpleUser(user.id),
       userId: user.id,
