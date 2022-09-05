@@ -145,7 +145,8 @@
     "NotLoggedInError": "You have to be logged in",
     "UsernameAlreadyExistsError": "Username exists already",
     "InvalidLoginError": "Username or password is invalid",
-    "IncorrectPasswordError": "Incorrect password"
+    "IncorrectPasswordError": "Incorrect password",
+    "InDemoNotSupported": "This functionality is not supported in the demo"
   },
   "misc": {
     "or": "or",
@@ -204,5 +205,9 @@
   "lang": {
     "en": "English",
     "de": "German"
+  },
+  "demo": {
+    "title": "Demo mode",
+    "info": "Try mygroupcar.de out<br/><br/>We prepared a user account for you that you can log into, as well as a few groups on which you can try out some functionalities. The demo mode is running on your local device. All changes you make are stored and will be deleted once you close the browser window.<br/><br/>Because the website isn't running in its usual environment, there may occur some weird bugs. Additionally, not every functionality of the real website is supported. For example, it is not possible to create a new account or to change the password of your demo user account."
   }
 }

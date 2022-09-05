@@ -1,7 +1,7 @@
 import React from 'react';
 import {DialogContent, DialogContentText} from '@material-ui/core';
 import {useState} from 'react';
-import {useTranslation} from 'react-i18next';
+import {Trans, useTranslation} from 'react-i18next';
 import {CloseableDialogTitle, Dialog} from '../components';
 
 const SESSION_KEY = 'demoInfoClose';
@@ -34,7 +34,7 @@ const DemoInfo = (): JSX.Element => {
       </CloseableDialogTitle>
       <DialogContent>
         <DialogContentText>
-          {t('demo.info')}
+          <Trans i18nKey='demo.info' />
         </DialogContentText>
       </DialogContent>
     </Dialog>
