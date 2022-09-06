@@ -1,12 +1,13 @@
 import {
   Container,
   Grid,
+  Link,
   makeStyles,
   Typography,
 } from '@material-ui/core';
 import React from 'react';
 import {Button} from '../../lib';
-import {useTranslation} from 'react-i18next';
+import {Trans, useTranslation} from 'react-i18next';
 
 const useStyles = makeStyles({
   buttonContainer: {
@@ -72,6 +73,19 @@ export const AuthOverview = (props: AuthOverviewProps): JSX.Element => {
         <AuthButton onClick={toSignUp}>
           {t('form.sign-up')}
         </AuthButton>
+        <Typography color='textSecondary'>
+          <Trans
+            i18nKey='auth.tryDemo'
+            components={[
+              <Link
+                referrerPolicy='no-referrer'
+                target='_blank'
+                href='https://demo.mygroupcar.de'
+                key='demo-link'
+              />,
+            ]}
+          />
+        </Typography>
       </Grid>
     </Container>
   );

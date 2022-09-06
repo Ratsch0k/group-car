@@ -254,6 +254,11 @@ exports[`Auth is rendered correctly 1`] = `
                         </span>
                       </button>
                     </div>
+                    <p
+                      class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary"
+                    >
+                      auth.tryDemo
+                    </p>
                   </div>
                 </div>
               </div>
