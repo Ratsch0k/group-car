@@ -7,19 +7,20 @@ import * as Sentry from '@sentry/react';
 import {Integrations} from '@sentry/tracing';
 import config from 'config';
 import history from './lib/redux/history';
-import App from './App';
 
 /**
  * Initialise sentry
  */
-Sentry.init({
-  dsn: config.sentry.dsn,
-  integrations: [new Integrations.BrowserTracing({
-    routingInstrumentation: Sentry.reactRouterV5Instrumentation(history),
-  })],
-  tracesSampleRate: config.sentry.tracesSampleRate,
-  normalizeDepth: config.sentry.normalizeDepth,
-});
+if (!process.env.REACT_APP_DEMO_MODE) {
+  Sentry.init({
+    dsn: config.sentry.dsn,
+    integrations: [new Integrations.BrowserTracing({
+      routingInstrumentation: Sentry.reactRouterV5Instrumentation(history),
+    })],
+    tracesSampleRate: config.sentry.tracesSampleRate,
+    normalizeDepth: config.sentry.normalizeDepth,
+  });
+}
 
 /**
  * Set up icons for leaflet
@@ -33,9 +34,24 @@ L.Icon.Default.mergeOptions({
   shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 });
 
-ReactDOM.render(
-  <Suspense fallback={null}>
-    <App/>
-  </Suspense>,
-  document.getElementById('root'),
-);
+if (process.env.REACT_APP_DEMO_MODE) {
+  // Split demo code from main bundle to reduce its size
+  const DemoApp = React.lazy(() => import('./DemoApp'));
+
+  ReactDOM.render(
+    <Suspense fallback={null}>
+      <DemoApp />
+    </Suspense>,
+    document.getElementById('root'),
+  );
+} else {
+  const App = React.lazy(() => import('./App'));
+
+  ReactDOM.render(
+    <Suspense fallback={null}>
+      <App/>
+    </Suspense>,
+    document.getElementById('root'),
+  );
+}
+

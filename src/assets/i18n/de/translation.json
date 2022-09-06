@@ -147,7 +147,8 @@
     "NotLoggedInError": "Du bist nicht angemeldet",
     "UsernameAlreadyExistsError": "Der Benutzername existiert bereits",
     "InvalidLoginError": "Benutzername oder Password ist falsch",
-    "IncorrectPasswordError": "Falsches Password"
+    "IncorrectPasswordError": "Falsches Password",
+    "InDemoNotSuppored": "Funktionalität wird in der Demo nicht unterstützt"
   },
   "misc": {
     "or": "oder",
@@ -630,5 +631,9 @@
   "lang": {
     "en": "Englisch",
     "de": "Deutsch"
+  },
+  "demo": {
+    "title": "Demo Modus",
+    "info": "Probiere mygroupcar.de im Demo Modus aus<br/><br/>Ein Benutzeraccount wird für dich bereit gestellt mit dem du dich einloggen kannst, sowie ein paar Gruppen an denen du die unterschiedlichen Funktionalitäten ausprobieren kannst. Der Demo Modus läuft lokal auf deinem Gerät. Deine Änderungen, z.B. an Gruppen, werden gespeichert und erst gelöscht, wenn du das Browserfenster schließt.<br/><br/>Da die Webseite nicht in ihrer normalen Umgebung läuft, ist es möglich, dass merkwürdige Fehler auftauchen. Außerdem werden nicht alle Funktionalitäten der Webseite angeboten. Es ist zum Beispiel nicht möglich einen neuen Benutzeraccount zu erstellen, oder das Password des Demo Accounts zu verändern."
   }
 }
