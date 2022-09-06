@@ -9,7 +9,8 @@
       }
     },
     "isRequested": "Zurzeit ist es nicht möglich ein Benutzerkonto direkt anzulegen. Ihre Anfrage wird überprüft und falls sie genehmigt wird, erhalten Sie eine Email.",
-    "success": "Erfolgreich angemeldet"
+    "success": "Erfolgreich angemeldet",
+    "tryDemo": "oder du kannst die <0>DEMO</0> ausprobieren"
   },
   "user": {
     "invites": "Einladungen",
