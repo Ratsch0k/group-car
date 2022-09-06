@@ -10,10 +10,11 @@ import {
   createStyles,
   Container,
   Typography,
+  Link,
 } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import React, {useEffect} from 'react';
-import {useTranslation} from 'react-i18next';
+import {Trans, useTranslation} from 'react-i18next';
 import CloseIcon from '@material-ui/icons/Close';
 import {Route, Switch, useRouteMatch, useLocation} from 'react-router-dom';
 import {
@@ -50,6 +51,9 @@ const useStyle = makeStyles((theme: Theme) =>
     },
     closeButton: {
       float: 'right',
+    },
+    footer: {
+      paddingTop: theme.spacing(1),
     },
   }),
 );
@@ -178,6 +182,23 @@ export const AuthenticationDialog: React.FC<AuthenticationDialogProps> =
             >
               {t('form.sign-up')}
             </Button>
+            <Typography
+              align='center'
+              className={classes.footer}
+              color='textSecondary'
+            >
+              <Trans
+                i18nKey='auth.tryDemo'
+                components={[
+                  <Link
+                    href='https://demo.mygroupcar.de'
+                    referrerPolicy='no-referrer'
+                    target='_blank'
+                    key='demo-link'
+                  />,
+                ]}
+              />
+            </Typography>
           </Route>
         </Switch>
       </DialogContent>
