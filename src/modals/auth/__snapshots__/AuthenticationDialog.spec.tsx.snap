@@ -370,6 +370,11 @@ exports[`AuthenticationDialog login button navigates to correct url 1`] = `
               form.sign-up
             </span>
           </button>
+          <p
+            class="MuiTypography-root makeStyles-footer MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
+          >
+            auth.tryDemo
+          </p>
         </div>
       </div>
     </div>
@@ -503,6 +508,11 @@ exports[`AuthenticationDialog matches snapshot 1`] = `
               form.sign-up
             </span>
           </button>
+          <p
+            class="MuiTypography-root makeStyles-footer MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
+          >
+            auth.tryDemo
+          </p>
         </div>
       </div>
     </div>
@@ -636,6 +646,11 @@ exports[`AuthenticationDialog sign up button navigates to correct url 1`] = `
               form.sign-up
             </span>
           </button>
+          <p
+            class="MuiTypography-root makeStyles-footer MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
+          >
+            auth.tryDemo
+          </p>
         </div>
       </div>
     </div>

@@ -7,7 +7,8 @@
         "/auth/sign-up": "Account erstellen"
       }
     },
-    "isRequested": "Zurzeit ist es nicht möglich ein Benutzerkonto direkt anzulegen. Ihre Anfrage wird überprüft und falls sie genehmigt wird, erhalten Sie eine Email."
+    "isRequested": "Zurzeit ist es nicht möglich ein Benutzerkonto direkt anzulegen. Ihre Anfrage wird überprüft und falls sie genehmigt wird, erhalten Sie eine Email.",
+    "tryDemo": "oder du kannst die <0>DEMO</0> ausprobieren"
   },
   "user": {
     "invites": "Einladungen",
