@@ -4,12 +4,12 @@ import {
   SnackbarCloseReason,
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
+import {Alert} from '@material-ui/lab';
 import {AxiosError} from 'axios';
 import axios from 'lib/client';
 import isRestError from 'lib/util/isRestError';
 import React, {useCallback, useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
-import Alert from 'lib/components/Alert';
 
 /**
  * Types of snackbars.
@@ -154,6 +154,7 @@ export const SnackbarProvider: React.FC = (props) => {
         {
           activeSnack &&
           <Alert
+            elevation={24}
             severity={activeSnack.type}
             action={
               <React.Fragment>
