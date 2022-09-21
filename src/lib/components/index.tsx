@@ -23,3 +23,4 @@ export * from './ConfirmActionDialog';
 export * from './GradientBackground';
 export * from './Dialog';
 export * from './IconButton';
+export * from './Alert';

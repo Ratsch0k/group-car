@@ -1,18 +1,15 @@
 import {
-  createStyles,
-  IconButton, makeStyles,
+  IconButton,
   Snackbar,
   SnackbarCloseReason,
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
-import {Alert} from '@material-ui/lab';
 import {AxiosError} from 'axios';
 import axios from 'lib/client';
 import isRestError from 'lib/util/isRestError';
 import React, {useCallback, useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
-import {glowShadow} from '../util/glowShadow';
-import {GroupCarTheme} from '../theme';
+import Alert from 'lib/components/Alert';
 
 /**
  * Types of snackbars.
@@ -42,18 +39,6 @@ export const SnackbarContext = React.createContext<SnackbarContext>({
 });
 SnackbarContext.displayName = 'SnackbarContext';
 
-const useStyles = makeStyles((theme: GroupCarTheme) => createStyles({
-  success: {
-    boxShadow: glowShadow(theme.palette.success.main, 2),
-  },
-  warning: {
-    boxShadow: glowShadow(theme.palette.warning.main, 2),
-  },
-  error: {
-    boxShadow: glowShadow(theme.palette.error.main, 2),
-  },
-}));
-
 /**
  * Provider for the SnackbarContext.
  * @param props Props
@@ -63,7 +48,6 @@ export const SnackbarProvider: React.FC = (props) => {
   const [open, setOpen] = useState<boolean>(false);
   const [activeSnack, setActiveSnack] = useState<ShowOptions>();
   const {t} = useTranslation();
-  const classes = useStyles();
 
 
   const show: Show = useCallback((
@@ -171,11 +155,6 @@ export const SnackbarProvider: React.FC = (props) => {
           activeSnack &&
           <Alert
             severity={activeSnack.type}
-            classes={{
-              standardSuccess: classes.success,
-              standardError: classes.error,
-              standardWarning: classes.warning,
-            }}
             action={
               <React.Fragment>
                 {activeSnack.action}
