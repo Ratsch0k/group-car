@@ -6,10 +6,6 @@ import React, {
 } from 'react';
 import {VersionsOverview} from 'lib/components/VersionsOverview';
 import {
-  SettingsTabContent,
-  SettingsTabContentProps,
-} from 'lib/components/Settings';
-import {
   FormControl,
   FormHelperText,
   InputLabel,
@@ -57,16 +53,12 @@ const ChangeLanguage = () => {
   );
 };
 
-export const AppSettingsTabSystem: FC<SettingsTabContentProps<string>> = (
-  props,
-) => {
-  const {index, value} = props;
-
+export const AppSettingsTabSystem: FC = () => {
   return (
-    <SettingsTabContent index={index} value={value}>
+    <>
       <ChangeLanguage />
       <VersionsOverview />
-    </SettingsTabContent>
+    </>
   );
 };
 

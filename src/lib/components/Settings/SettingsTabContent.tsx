@@ -11,8 +11,10 @@ export interface SettingsTabContentProps<D> {
 const useStyles = makeStyles((theme: GroupCarTheme) =>
   createStyles({
     root: {
-      paddingBottom: theme.spacing(1),
-      paddingTop: theme.spacing(1),
+      height: '100%',
+      padding: theme.spacing(3),
+      paddingTop: 0,
+      overflow: 'auto',
     },
   }),
 );

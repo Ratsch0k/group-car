@@ -5,7 +5,6 @@ import {
   CenteredCircularProgress,
 } from 'lib';
 import ManageGroupErrorHandler from './ManageGroupNoGroupError';
-import {ManageGroupOverview} from './ManageGroupOverview';
 import {useParams} from 'react-router-dom';
 import {
   useAppDispatch,
@@ -81,7 +80,7 @@ export const ManageGroup: React.FC<ManageGroupProps> =
   if (isLoading && group === null && error === null) {
     return <CenteredCircularProgress />;
   } else if (error === null && group !== null) {
-    return <ManageGroupOverview />;
+    return <div></div>;
   } else {
     return <ManageGroupErrorHandler/>;
   }

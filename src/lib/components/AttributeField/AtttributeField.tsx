@@ -3,6 +3,7 @@ import React, {
   forwardRef,
 } from 'react';
 import {
+  alpha,
   createStyles,
   Grid,
   makeStyles,
@@ -17,7 +18,7 @@ export interface AttributeFieldProps extends ComponentPropsWithRef<'div'> {
 
 const useStyles = makeStyles((theme: GroupCarTheme) => createStyles({
   root: {
-    border: `1px solid ${theme.palette.primary.main}`,
+    background: alpha(theme.palette.primary.light, 0.1),
     borderRadius: theme.shape.borderRadius,
     margin: `${theme.spacing(1)}px 0px`,
     padding: theme.spacing(1),
@@ -28,6 +29,10 @@ const useStyles = makeStyles((theme: GroupCarTheme) => createStyles({
   },
   content: {
     flex: '1 1',
+  },
+  label: {
+    fontWeight: 'bold',
+    color: theme.palette.primary.dark,
   },
 }));
 
@@ -52,7 +57,7 @@ forwardRef<HTMLDivElement, AttributeFieldProps>((
       {...rest}
     >
       <Grid item className={isUp ? classes.title : undefined}>
-        <Typography variant='body2' color='primary'>
+        <Typography variant='body2' className={classes.label}>
           {label}
         </Typography>
       </Grid>

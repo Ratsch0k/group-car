@@ -66,7 +66,13 @@ export const themeProperties: IThemeOptions = {
       default: '#f5f5f5',
       paper: '#ffffff',
     },
-    blur: 'blur(8px)',
+    blur: 'blur(32px)',
+    text: {
+      primary: 'rgba(0, 0, 0, 0.75)',
+      secondary: 'rgba(0, 0, 0, 0.54)',
+      disabled: 'rgba(0, 0, 0, 0.38)',
+      hint: 'rgba(0, 0, 0, 0.38)',
+    },
   },
   mixins: {
     toolbar: {

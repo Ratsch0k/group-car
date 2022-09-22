@@ -28,6 +28,9 @@ const useStyles = makeStyles((theme: GroupCarTheme) => createStyles({
   paper: {
     borderRadius: theme.shape.borderRadiusSized.large,
   },
+  backdropRoot: {
+    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+  },
 }));
 
 /**
@@ -59,6 +62,12 @@ export const AutoFullscreenDialog: React.FC<AutoFullscreenDialogProps> =
         }),
         ...unusedClasses,
       }}
+      BackdropProps={{
+        classes: {
+          root: customClasses.backdropRoot,
+        },
+      }}
+      className={props.className}
       {...rest}
     >
       {children}

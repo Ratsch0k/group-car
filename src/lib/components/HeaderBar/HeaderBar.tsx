@@ -38,10 +38,9 @@ GroupCarTheme,
       color: theme.palette.primary.main,
       left: 0,
       width: isMedium ? '100%' : `calc(100% - ${theme.shape.drawerWidth}px)`,
-      borderBottom: `1px solid ${theme.palette.background.paper}`,
     }),
     blurred: {
-      background: alpha(theme.palette.background.paper, 0.5),
+      background: alpha(theme.palette.background.paper, 0.7),
       backdropFilter: theme.palette.blur,
     },
     plain: {

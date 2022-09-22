@@ -27,11 +27,11 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
       width: '100%',
     },
     drawerPaperPermanent: {
-      borderLeft: `1px solid ${theme.palette.background.paper}`,
       zIndex: theme.zIndex.appBar,
+      border: 'none',
     },
     blurred: {
-      backgroundColor: alpha(theme.palette.background.paper, 0.5),
+      backgroundColor: alpha(theme.palette.background.paper, 0.7),
       backdropFilter: theme.palette.blur,
     },
     plain: {
