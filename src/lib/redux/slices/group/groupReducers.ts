@@ -230,13 +230,13 @@ export const removeGroupWithIdReducer: GroupReducer<number> = (
   state,
   {payload: id},
 ) => {
-  groupsAdapter.removeOne(state, id);
-
   // Check if that group is currently selected, deselect it then
   const selectedGroup = state.selectedGroup;
   if (selectedGroup && selectedGroup.id === id) {
     state.selectedGroup = null;
   }
+
+  groupsAdapter.removeOne(state, id);
 };
 
 /**

@@ -3,16 +3,16 @@
 exports[`renders with button disabled and circular progress if loading 1`] = `
 <div>
   <button
-    class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button-8 Mui-disabled Mui-disabled"
+    class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button-11 Mui-disabled Mui-disabled"
     disabled=""
     tabindex="-1"
     type="button"
   >
     <span
-      class="MuiButton-label makeStyles-label-11"
+      class="MuiButton-label makeStyles-label-14"
     >
       <div
-        class="MuiCircularProgress-root makeStyles-progress-9 MuiCircularProgress-colorSecondary MuiCircularProgress-indeterminate"
+        class="MuiCircularProgress-root makeStyles-progress-12 MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
         role="progressbar"
         style="width: 28px; height: 28px;"
       >
@@ -38,12 +38,12 @@ exports[`renders with button disabled and circular progress if loading 1`] = `
 exports[`renders with button not disabled and with no pr ogress if not loading 1`] = `
 <div>
   <button
-    class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button-15"
+    class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button-21"
     tabindex="0"
     type="button"
   >
     <span
-      class="MuiButton-label makeStyles-label-18"
+      class="MuiButton-label makeStyles-label-24"
     />
     <span
       class="MuiTouchRipple-root"

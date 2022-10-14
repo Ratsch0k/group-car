@@ -15,6 +15,7 @@ import history from 'lib/redux/history';
 import {ConnectedRouter} from 'connected-react-router';
 import Routes from './pages';
 import ModalRoutes from './modals';
+import PermissionHandler from 'lib/context';
 
 const App: React.FC = () => {
   return (
@@ -24,14 +25,16 @@ const App: React.FC = () => {
           <ConnectedRouter history={history}>
             <ModalRouter>
               <AuthChecker>
-                <MapProvider>
-                  <GroupUpdater>
-                    <InvitesUpdater>
-                      <Routes />
-                      <ModalRoutes />
-                    </InvitesUpdater>
-                  </GroupUpdater>
-                </MapProvider>
+                <PermissionHandler>
+                  <MapProvider>
+                    <GroupUpdater>
+                      <InvitesUpdater>
+                        <Routes />
+                        <ModalRoutes />
+                      </InvitesUpdater>
+                    </GroupUpdater>
+                  </MapProvider>
+                </PermissionHandler>
               </AuthChecker>
             </ModalRouter>
           </ConnectedRouter>

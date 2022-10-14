@@ -14,3 +14,4 @@ export * from './getCars';
 export * from './driveCar';
 export * from './parkCar';
 export * from './deleteCar';
+export * from './updateGroup';

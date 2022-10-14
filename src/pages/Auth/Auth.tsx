@@ -4,6 +4,8 @@ import {
   Box,
   Container,
   createStyles,
+  Grid,
+  Link,
   makeStyles,
   Paper,
 } from '@material-ui/core';
@@ -22,6 +24,7 @@ import {CSSTransition, SwitchTransition} from 'react-transition-group';
 import {getIsLoggedIn} from '../../lib/redux/slices/auth';
 import useSnackbar from '../../lib/hooks/useSnackbar';
 import {useTranslation} from 'react-i18next';
+import {goToModal} from 'lib/redux/slices/modalRouter/modalRouterSlice';
 
 const useStyles = makeStyles((theme: GroupCarTheme) => createStyles({
   root: {
@@ -61,6 +64,9 @@ const useStyles = makeStyles((theme: GroupCarTheme) => createStyles({
     padding: theme.spacing(2),
     paddingBottom: 0,
   },
+  contentRoot: {
+    zIndex: 10,
+  },
   divider: {
     backgroundColor: theme.palette.background.default,
     height: 2,
@@ -78,6 +84,22 @@ const useStyles = makeStyles((theme: GroupCarTheme) => createStyles({
   exitActive: {
     opacity: 0,
     transition: 'opacity 125ms',
+  },
+  footer: {
+    position: 'absolute',
+    bottom: 0,
+    margin: 'auto',
+    width: '100%',
+    zIndex: 0,
+  },
+  footerLinks: {
+    margin: 'auto',
+    marginBottom: theme.spacing(1),
+    padding: theme.spacing(1),
+    background: alpha(theme.palette.background.paper, 0.4),
+    borderRadius: theme.shape.borderRadiusSized.default,
+    width: 'fit-content',
+    color: theme.palette.primary.dark,
   },
 }));
 
@@ -178,7 +200,7 @@ export const Authentication = (props: AuthenticationProps): JSX.Element => {
   return (
     <Box className={classes.root}>
       <GradientBackground />
-      <Container maxWidth='sm'>
+      <Container maxWidth='sm' className={classes.contentRoot}>
         <Paper
           elevation={15}
           classes={{
@@ -237,6 +259,28 @@ export const Authentication = (props: AuthenticationProps): JSX.Element => {
           </Box>
         </Paper>
       </Container>
+      <Box className={classes.footer}>
+        <Grid container spacing={2} className={classes.footerLinks}>
+          <Grid item>
+            <Link
+              color='inherit'
+              component='button'
+              onClick={() => dispatch(goToModal('/privacy-policy'))}
+            >
+              {t('privacyPolicy.title')}
+            </Link>
+          </Grid>
+          <Grid item>
+            <Link
+              color='inherit'
+              component='button'
+              onClick={() => dispatch(goToModal('/imprint'))}
+            >
+              {t('imprint.title')}
+            </Link>
+          </Grid>
+        </Grid>
+      </Box>
     </Box>
   );
 };

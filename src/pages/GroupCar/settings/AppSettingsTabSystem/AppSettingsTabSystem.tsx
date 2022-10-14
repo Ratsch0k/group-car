@@ -13,6 +13,7 @@ import {
   Select,
 } from '@material-ui/core';
 import {useTranslation} from 'react-i18next';
+import SettingsTabTitle from 'lib/components/Settings/SettingsTabTitle';
 
 const ChangeLanguage = () => {
   const {i18n, t} = useTranslation();
@@ -54,8 +55,13 @@ const ChangeLanguage = () => {
 };
 
 export const AppSettingsTabSystem: FC = () => {
+  const {t} = useTranslation();
+
   return (
     <>
+      <SettingsTabTitle>
+        {t('settings.system.title')}
+      </SettingsTabTitle>
       <ChangeLanguage />
       <VersionsOverview />
     </>

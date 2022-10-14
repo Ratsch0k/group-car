@@ -23,14 +23,18 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
     root: {
       '&:hover': {
         color: theme.palette.primary.dark,
-        background: alpha(theme.palette.primary.dark, 0.1),
+        background: alpha(theme.palette.primary.dark, 0.15),
       },
       'transition': '250ms all',
       'borderRadius': theme.shape.borderRadius,
     },
     rootSelected: {
-      color: theme.palette.primary.dark,
-      background: alpha(theme.palette.primary.main, 0.1),
+      'color': theme.palette.primary.contrastText,
+      'background': theme.palette.primary.main,
+      '&:hover': {
+        color: theme.palette.primary.contrastText,
+        background: theme.palette.primary.dark,
+      },
     },
     itemIconRoot: {
       minWidth: 36,

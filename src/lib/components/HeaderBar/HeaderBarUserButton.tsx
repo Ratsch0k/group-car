@@ -9,7 +9,6 @@ import {
   Box,
   useTheme,
   useMediaQuery,
-  Theme,
 } from '@material-ui/core';
 import UserAvatar from '../UserAvatar';
 import UserOverview from '../UserOverview/UserOverview';
@@ -18,17 +17,23 @@ import clsx from 'clsx';
 import {useAppDispatch, useShallowAppSelector} from 'lib/redux/hooks';
 import {getUser, openAuthDialog} from 'lib/redux/slices/auth';
 import {getAllInvites} from 'lib/redux/slices/invites';
+import coloredShadow from 'lib/util/coloredShadow';
+import {GroupCarTheme} from 'lib/theme';
 
 /**
  * Styles.
  */
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles((theme: GroupCarTheme) =>
   createStyles({
     smallIconButton: {
       padding: theme.spacing(1),
     },
     popper: {
       zIndex: theme.zIndex.drawer,
+    },
+    paper: {
+      boxShadow: coloredShadow('#0F0F0F', 3),
+      borderRadius: theme.shape.borderRadiusSized.large,
     },
   }),
 );
@@ -117,7 +122,9 @@ export const HeaderBarUserButton: React.FC = () => {
           {({TransitionProps}) => (
             <Fade {...TransitionProps} timeout={200}>
               <Paper
-                elevation={15}
+                classes={{
+                  root: classes.paper,
+                }}
               >
                 <UserOverview
                   onClose={handleClose}

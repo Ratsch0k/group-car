@@ -2,9 +2,7 @@ import React, {FC} from 'react';
 import {Box, createStyles, makeStyles} from '@material-ui/core';
 import {GroupCarTheme} from '../../theme';
 
-export interface SettingsTabContentProps<D> {
-  index: D;
-  value: D;
+export interface SettingsTabContentProps {
   id?: string;
 }
 
@@ -19,7 +17,7 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
   }),
 );
 
-export const SettingsTabContent: FC<SettingsTabContentProps<unknown>> = (
+export const SettingsTabContent: FC<SettingsTabContentProps> = (
   props,
 ) => {
   const classes = useStyles();

@@ -3,7 +3,6 @@ import {closeModal} from 'lib/redux/slices/modalRouter/modalRouterSlice';
 import {CloseableDialogTitle} from '../CloseableDialogTitle';
 import React, {useCallback, useEffect, useRef} from 'react';
 import {
-  Box,
   Grid,
   Hidden,
   IconButton,
@@ -20,6 +19,14 @@ const useStyles = makeStyles({
   },
   button: {
     overflow: 'hidden',
+  },
+  titleWrapper: {
+    flex: '1 1',
+    minWidth: 0,
+    fontWeight: 'bold',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
   },
 });
 
@@ -51,22 +58,23 @@ export const SettingsTitle: React.FC<SettingsTitleProps> = (props) => {
         buttonRef.current.style.width = '0px';
       }
 
+      if (buttonRef.current.animate) {
+        const collapseAnimation = buttonRef.current.animate([
+          {
+            width: showBackButton ? 0 : `${originalWidth}px`,
+            offset: 0,
+          },
+        ], {
+          duration: 250,
+          easing: 'ease-in-out',
+        });
 
-      const collapseAnimation = buttonRef.current.animate([
-        {
-          width: showBackButton ? 0 : `${originalWidth}px`,
-          offset: 0,
-        },
-      ], {
-        duration: 250,
-        easing: 'ease-in-out',
-      });
+        collapseAnimation.addEventListener('finish', () => {
+          collapseAnimation.cancel();
+        });
 
-      collapseAnimation.addEventListener('finish', () => {
-        collapseAnimation.cancel();
-      });
-
-      collapseAnimation.play();
+        collapseAnimation.play();
+      }
     }
   }, [showBackButton]);
 
@@ -95,9 +103,9 @@ export const SettingsTitle: React.FC<SettingsTitleProps> = (props) => {
   }, []);
 
   return (
-    <Box>
+    <>
       <CloseableDialogTitle close={() => dispatch(closeModal())}>
-        <Grid container alignItems='center'>
+        <Grid container alignItems='center' wrap='nowrap'>
           <Hidden mdUp>
             <Grid item innerRef={handleNodeAttached} className={classes.button}>
               <IconButton
@@ -105,18 +113,25 @@ export const SettingsTitle: React.FC<SettingsTitleProps> = (props) => {
                 disabled={!showBackButton}
                 size={mdUp ? 'medium' : 'small'}
               >
-                <ArrowBack fontSize={mdUp ? 'large' : 'large'} color='action'/>
+                <ArrowBack
+                  fontSize={mdUp ? 'large' : 'default'}
+                  color='action'
+                />
               </IconButton>
             </Grid>
           </Hidden>
-          <Grid item>
-            <Typography variant='h4' className={classes.title} display='inline'>
+          <Grid item alignContent='center' className={classes.titleWrapper}>
+            <Typography
+              variant={mdUp ? 'h4' : 'h5'}
+              className={classes.title}
+              display='inline'
+            >
               {children}
             </Typography>
           </Grid>
         </Grid>
       </CloseableDialogTitle>
-    </Box>
+    </>
   );
 };
 

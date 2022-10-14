@@ -8,19 +8,22 @@ import {useAppDispatch, useShallowAppSelector} from 'lib/redux/hooks';
 import {getUser} from 'lib/redux/slices/auth';
 import CarCard from './CarCard';
 import {
-  driveCar,
   getGroupCars,
   getSelectedGroup,
-  parkCar as parkCarThunk,
 } from 'lib/redux/slices/group';
 import {unwrapResult} from '@reduxjs/toolkit';
+import {
+  driveCar,
+  parkCar as parkCarThunk,
+} from 'lib/redux/slices/group/groupThunks';
+import useGeolocation from 'lib/hooks/useGeolocation';
 
 /**
  * Styles.
  */
 const useStyles = makeStyles({
   root: {
-    overflowY: 'auto',
+    overflow: 'visible',
   },
 });
 
@@ -37,6 +40,7 @@ export const CarCards: React.FC = () => {
   const {t} = useTranslation();
   const [open, setOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
+  const {getCurrentPosition} = useGeolocation();
   const [drivingCars, setDrivingCars] = useState<CarWithDriver[]>(
     groupCars?.filter((car) => car.driverId === user?.id) || [],
   );
@@ -71,15 +75,21 @@ export const CarCards: React.FC = () => {
       const position = await new Promise<
       GeolocationPosition
       >((resolve, reject) => {
-        navigator.geolocation.getCurrentPosition((position) => {
+        return getCurrentPosition((position) => {
           resolve(position);
         }, (error) => {
-          reject(error);
+          if (error.code === error.PERMISSION_DENIED) {
+            reject(t('map.locationDenied'));
+          } else {
+            reject(t('error.LocationUnavailableError'));
+          }
+        }).catch(() => {
+          reject(t('map.locationDenied'));
         });
       });
       await parkCar(carId, position.coords.latitude, position.coords.longitude);
     } catch (e) {
-      show('error', (e as GeolocationPositionError).message);
+      show('error', e as string);
     } finally {
       setOpen(false);
       setLoading(false);
@@ -122,7 +132,7 @@ export const CarCards: React.FC = () => {
       <Grid
         container
         direction='column'
-        spacing={1}
+        spacing={4}
         wrap='nowrap'
         className={classes.root}
       >

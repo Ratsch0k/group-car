@@ -127,7 +127,7 @@ export const SignUpForm: React.FC<SignUpFormProps> =
                 loading={formik.isSubmitting}
                 variant='contained'
                 color='primary'
-                glow='primary'
+                shadow
               >
                 {t('form.sign-up')}
               </ProgressButton>

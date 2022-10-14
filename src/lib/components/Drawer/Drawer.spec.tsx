@@ -12,6 +12,7 @@ import { LatLng, Map } from 'leaflet';
 import theme from '../../../__test__/testTheme';
 import { RootState } from '../../redux/store';
 import {act} from "react-dom/test-utils";
+import PermissionHandlerContext from '../../context/PermissionHandler/PermissionHandlerContext';
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -72,12 +73,32 @@ describe('if user is logged in', () => {
     state: any,
     snackContext: SnackbarContext,
     children?: React.ReactNode,
+    permissionContext?: PermissionHandlerContext,
   ) => {
+    const defaultPermissionContext: PermissionHandlerContext = {
+      checkPermission(name) {
+        return Promise.resolve({
+          onchange: undefined,
+          state: 'granted',
+          addEventListener: () => undefined,
+          removeEventListener: () => undefined,
+          dispatchEvent: () => undefined,
+        } as any);
+      },
+      requestPermission(name) {
+        return Promise.resolve();
+      }
+    }
+
     return testRender(
       state,
       <MapProvider>
         <SnackbarContext.Provider value={snackContext}>
-          {children}
+          <PermissionHandlerContext.Provider
+            value={permissionContext ?? defaultPermissionContext}
+          >
+            {children}
+          </PermissionHandlerContext.Provider>
         </SnackbarContext.Provider>
       </MapProvider>
     );
@@ -356,13 +377,6 @@ describe('if user is logged in', () => {
     it('shows snackbar if current position cannot be gotten', async () => {
       state.group.selectedGroup = group;
 
-      const geolocation = {
-        getCurrentPosition: jest.fn().mockImplementation((result, error) => {
-          error(new Error('TEST ERROR'));
-        }),
-      } as unknown as Geolocation;
-  
-      (navigator.geolocation as any) = geolocation;
 
       const snackContext = {
         show: jest.fn(),
@@ -372,12 +386,22 @@ describe('if user is logged in', () => {
         state,
         snackContext,
         <Drawer open={false} onClose={jest.fn} permanent={true}/>,
+        {
+          checkPermission(name) {
+              return {
+                state: 'denied',
+              } as any;
+          },
+          requestPermission(name) {
+              return Promise.reject()
+          },
+        },
       );
 
       userEvent.click(baseElement.querySelector(`#park-current-car-${cars[2].carId}`)!);
 
       await waitFor(() => expect(snackContext.show).toHaveBeenCalledTimes(1));
-      expect(snackContext.show).toHaveBeenCalledWith('error', 'TEST ERROR');
+      expect(snackContext.show).toHaveBeenCalledWith('error', 'map.locationDenied');
     });
   });
 

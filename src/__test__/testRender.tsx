@@ -6,13 +6,15 @@ import {render, RenderResult} from '@testing-library/react';
 import {ConnectedRouter} from 'connected-react-router';
 import {Provider} from 'react-redux';
 import history from '../lib/redux/history';
-import {StylesProvider, ThemeProvider} from '@material-ui/styles';
+import {StylesProvider} from '@material-ui/styles';
+import {MuiThemeProvider} from '@material-ui/core';
 import testTheme from './testTheme';
 import {
   MockStoreEnhanced,
 } from 'redux-mock-store';
 import {RootState} from '../lib/redux/store';
 import mockStore from './mockStore';
+import mediaQuery from 'css-mediaquery';
 
 export interface GlobalMocks {
   ResizeObserver: jest.Mock<{observe: jest.Mock, disconnect: jest.Mock}>;
@@ -40,17 +42,32 @@ export interface TestRenderOptions {
 }
 
 /**
+ * Creates a match media to fix useMediaQuery in tests.
+ * @param width Width of window
+ * @returns Match media mock
+ */
+function createMatchMedia(width: any) {
+  return (query: any) => ({
+    matches: mediaQuery.match(query, {width}),
+    addListener: () => undefined,
+    removeEventListener: () => undefined,
+  });
+}
+
+
+/**
  * Mock all global function which are used.
  */
-const mockGlobals = (): GlobalMocks => {
+const mockGlobals = (width: number): GlobalMocks => {
   // Mock ResizeObserver
   const resizeObserverMock = jest.fn().mockImplementation(() => ({
     observe: jest.fn(),
     disconnect: jest.fn(),
   }));
   window.ResizeObserver = resizeObserverMock;
+  window.innerWidth = width;
+  window.matchMedia = createMatchMedia(window.innerWidth) as any;
 
-  // Return global mocks
   return {ResizeObserver: resizeObserverMock};
 };
 
@@ -69,16 +86,19 @@ function testRender(
   options?: TestRenderOptions,
 ): RenderResult & TestRenderResult {
   const store = mockStore(state);
-  const globalMocks = mockGlobals();
+  const theme = testTheme(options && options.width);
+  const width = theme.breakpoints.values[
+    options && options.width ? options.width : 'lg'];
+  const globalMocks = mockGlobals(width);
 
   const renderResult = render(
     <Provider store={store}>
       <ConnectedRouter history={history}>
-        <ThemeProvider theme={testTheme(options && options.width)}>
+        <MuiThemeProvider theme={theme}>
           <StylesProvider generateClassName={generateClassName}>
             {children}
           </StylesProvider>
-        </ThemeProvider>
+        </MuiThemeProvider>
       </ConnectedRouter>
     </Provider>,
   );

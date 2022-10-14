@@ -44,7 +44,6 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
       paddingTop: theme.spacing(2),
       paddingBottom: theme.spacing(2),
       flex: '1 1 100%',
-      overflow: 'hidden',
     },
     container: {
       display: 'flex',

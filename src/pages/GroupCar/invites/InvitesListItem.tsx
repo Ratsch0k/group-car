@@ -3,13 +3,7 @@ import {
   ListItemText,
   ListItemSecondaryAction,
   Grid,
-  CircularProgress,
-  Box,
-  Theme,
-  useMediaQuery,
-  useTheme,
 } from '@material-ui/core';
-import {createStyles, makeStyles} from '@material-ui/styles';
 import {
   InviteWithGroupAndInviteSender,
   useStateIfMounted,
@@ -23,6 +17,7 @@ import {
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {Check, Delete} from '@material-ui/icons';
+import InvitesListItemLoader from './InvitesListItemLoader';
 
 /**
  * Props for the InvitesListItem
@@ -32,30 +27,12 @@ export interface InvitesListItemProps {
    * The invite of this item.
    */
   invite: InviteWithGroupAndInviteSender;
-}
 
-/**
- * Styles.
- */
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    loaderContainer: {
-      position: 'absolute',
-      display: 'grid',
-      placeItems: 'center',
-      width: '100%',
-      height: '100%',
-      background: 'rgba(0, 0, 0, 0.04)',
-      borderRadius: theme.shape.borderRadius,
-      marginRight: `-${theme.spacing(4)}px`,
-      marginLeft: `-${theme.spacing(2)}px`,
-    },
-    loader: {
-      display: 'grid',
-      alignItems: 'center',
-    },
-  }),
-);
+  /**
+   * Callback to for the element to delete itself.
+   */
+  deleteSelf: () => void;
+}
 
 /**
  * Represents one list item in the invite list.
@@ -63,28 +40,39 @@ const useStyles = makeStyles((theme: Theme) =>
 export const InvitesListItem: React.FC<InvitesListItemProps> =
 (props: InvitesListItemProps) => {
   const {t} = useTranslation();
-  const {invite} = props;
+  const {invite, deleteSelf} = props;
   const dispatch = useAppDispatch();
   const [loading, setLoading] = useStateIfMounted<boolean>(false);
-  const classes = useStyles();
-  const theme = useTheme();
-  const smallerSm = useMediaQuery(theme.breakpoints.down('sm'));
   const listItemRef = useRef<HTMLLIElement>(null);
   const [listItemHeight, setListItemHeight] = useState<number>(4);
+  const [showAccept, setShowAccept] = useState(false);
 
   const handleAccept = useCallback(async () => {
+    let timeout: NodeJS.Timeout;
+
     setLoading(true);
     try {
       await dispatch(acceptInvite(invite.groupId));
-    } finally {
+      setShowAccept(true);
+      timeout = setTimeout(() => {
+        deleteSelf();
+      }, 3000);
+    } catch {
       setLoading(false);
     }
+
+    return () => {
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+    };
   }, [invite]);
 
   const handleReject = useCallback(async () => {
     setLoading(true);
     try {
       await dispatch(rejectInvite(invite.groupId));
+      deleteSelf();
     } finally {
       setLoading(false);
     }
@@ -106,18 +94,11 @@ export const InvitesListItem: React.FC<InvitesListItemProps> =
       key={`invite-${invite.groupId}`}
       ref={listItemRef}
     >
-      {
-        loading &&
-        <Box
-          className={classes.loaderContainer}
-          style={smallerSm ? {
-            height: listItemHeight - 4,
-            top: 0,
-          } : undefined}
-        >
-          <CircularProgress />
-        </Box>
-      }
+      <InvitesListItemLoader
+        loading={loading}
+        showAccepted={showAccept}
+        parentHeight={listItemHeight}
+      />
       <ListItemText
         primary={invite.Group.name}
         primaryTypographyProps={{
@@ -145,7 +126,6 @@ export const InvitesListItem: React.FC<InvitesListItemProps> =
           <Grid item>
             <IconButton
               tooltip={t('misc.delete').toString()}
-              color='error'
               disabled={loading}
               onClick={handleReject}
               id={`invite-${invite.groupId}-delete-btn`}

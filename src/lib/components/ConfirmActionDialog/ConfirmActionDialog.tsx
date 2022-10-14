@@ -1,5 +1,5 @@
 import {
-  Button, Dialog,
+  Button,
   DialogActions,
   DialogContent,
   DialogContentText,
@@ -8,6 +8,7 @@ import {
 import {ProgressButton} from '../Input';
 import React, {MouseEvent} from 'react';
 import {useTranslation} from 'react-i18next';
+import {Dialog} from 'lib';
 
 /**
  * Props for the {@link ConfirmActionDialog}
@@ -70,7 +71,7 @@ export const ConfirmActionDialog = (
   } = props;
 
   return (
-    <Dialog open={open}>
+    <Dialog open={open} onClose={onCancel}>
       <DialogTitle>
         {title}
       </DialogTitle>
@@ -89,6 +90,7 @@ export const ConfirmActionDialog = (
         <ProgressButton
           loading={loading}
           color='primary'
+          variant='contained'
           onClick={onConfirm}
         >
           {t('misc.yes')}

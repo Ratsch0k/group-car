@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: GroupCarTheme) => ({
     color: theme.palette.text.secondary,
   },
   header: {
-    marginBottom: theme.spacing(2),
+    marginBottom: theme.spacing(0),
     marginTop: theme.spacing(1),
   },
   line: {

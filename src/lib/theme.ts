@@ -90,8 +90,8 @@ export const themeProperties: IThemeOptions = {
     drawerWidth: 350,
     borderRadius: 10,
     borderRadiusSized: {
-      default: 10,
-      large: 16,
+      default: 12,
+      large: 18,
       small: 8,
     },
   },
@@ -121,7 +121,7 @@ export const themeProperties: IThemeOptions = {
     '-4px -4px 32px rgba(145, 145, 145, 0.25), -8px 8px 32px rgba(145, 145, 145, 0.25)',
     '-4px -4px 32px rgba(145, 145, 145, 0.25), -8px 8px 32px rgba(145, 145, 145, 0.25)',
     '-4px -4px 32px rgba(145, 145, 145, 0.25), -8px 8px 32px rgba(145, 145, 145, 0.25)',
-    '-4px -4px 32px rgba(145, 145, 145, 0.25), -8px 8px 32px rgba(145, 145, 145, 0.25)',
+    '0px -4px 32px rgba(0, 0, 0, 0.25), -8px 20px 32px rgba(0, 0, 0, 0.25)',
   ],
 };
 

@@ -1,4 +1,4 @@
-import {Button, Grid} from '@material-ui/core';
+import {Button, Grid, useTheme} from '@material-ui/core';
 import React from 'react';
 import {Formik} from 'formik';
 import * as yup from 'yup';
@@ -32,6 +32,7 @@ export const ChangePasswordForm =
   const {t} = useTranslation();
   const {show} = useSnackbar();
   const {onClose} = props;
+  const theme = useTheme();
 
   return (
     <Formik
@@ -52,7 +53,13 @@ export const ChangePasswordForm =
     >
       {(props) =>
         <form onSubmit={props.handleSubmit}>
-          <Grid container direction='column' spacing={1} wrap='nowrap'>
+          <Grid
+            container
+            direction='column'
+            spacing={1}
+            wrap='nowrap'
+            style={{paddingTop: theme.spacing(1)}}
+          >
             <Grid item>
               <TextField
                 name='old'
@@ -89,7 +96,7 @@ export const ChangePasswordForm =
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <ProgressButton
-                    glow='primary'
+                    shadow
                     disabled={!props.isValid || !props.dirty}
                     loading={props.isSubmitting}
                     id='change-password-button'

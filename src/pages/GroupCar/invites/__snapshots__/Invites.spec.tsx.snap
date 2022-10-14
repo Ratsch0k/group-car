@@ -32,207 +32,246 @@ exports[`Invites modal renders list of invites correctly 1`] = `
         role="dialog"
       >
         <div
-          class="MuiDialogTitle-root"
+          class="MuiDialogTitle-root makeStyles-root"
         >
           <h2
             class="MuiTypography-root MuiTypography-h6"
           >
-            modals.invites.title
-            <button
-              class="MuiButtonBase-root MuiIconButton-root makeStyles-closeButton"
-              tabindex="0"
-              type="button"
+            <div
+              class="MuiGrid-root MuiGrid-container MuiGrid-wrap-xs-nowrap"
             >
-              <span
-                class="MuiIconButton-label"
+              <div
+                class="MuiGrid-root makeStyles-title MuiGrid-item"
               >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root"
-                  focusable="false"
-                  viewBox="0 0 24 24"
+                modals.invites.title
+              </div>
+              <div
+                class="MuiGrid-root makeStyles-closeButton MuiGrid-item"
+              >
+                <button
+                  class="MuiButtonBase-root MuiIconButton-root"
+                  tabindex="0"
+                  type="button"
                 >
-                  <path
-                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                  />
-                </svg>
-              </span>
-            </button>
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
           </h2>
         </div>
         <div
           class="MuiDialogContent-root"
+          style="min-height: 100px;"
         >
           <ul
             class="MuiList-root MuiList-padding"
           >
-            <li
-              class="MuiListItem-container"
+            <div
+              class="MuiCollapse-root MuiCollapse-entered"
+              style="min-height: 0px;"
             >
               <div
-                class="MuiListItem-root MuiListItem-gutters MuiListItem-secondaryAction"
+                class="MuiCollapse-wrapper"
               >
                 <div
-                  class="MuiListItemText-root MuiListItemText-multiline"
+                  class="MuiCollapse-wrapperInner"
                 >
-                  <span
-                    class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-colorTextPrimary MuiTypography-displayBlock"
+                  <li
+                    class="MuiListItem-container"
                   >
-                    group-1
-                  </span>
-                  <p
-                    class="MuiTypography-root MuiListItemText-secondary MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                  >
-                    misc.invitedBy
-                  </p>
+                    <div
+                      class="MuiListItem-root MuiListItem-gutters MuiListItem-secondaryAction"
+                    >
+                      <div
+                        class="MuiListItemText-root MuiListItemText-multiline"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-colorTextPrimary MuiTypography-displayBlock"
+                        >
+                          group-1
+                        </span>
+                        <p
+                          class="MuiTypography-root MuiListItemText-secondary MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+                        >
+                          misc.invitedBy
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="MuiListItemSecondaryAction-root"
+                    >
+                      <div
+                        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1"
+                      >
+                        <div
+                          class="MuiGrid-root MuiGrid-item"
+                        >
+                          <button
+                            class="MuiButtonBase-root MuiIconButton-root makeStyles-button makeStyles-button"
+                            id="invite-1-accept-btn"
+                            tabindex="0"
+                            title="misc.accept"
+                            type="button"
+                          >
+                            <span
+                              class="MuiIconButton-label"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                                />
+                              </svg>
+                            </span>
+                          </button>
+                        </div>
+                        <div
+                          class="MuiGrid-root MuiGrid-item"
+                        >
+                          <button
+                            class="MuiButtonBase-root MuiIconButton-root makeStyles-button makeStyles-button"
+                            id="invite-1-delete-btn"
+                            tabindex="0"
+                            title="misc.delete"
+                            type="button"
+                          >
+                            <span
+                              class="MuiIconButton-label"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                                />
+                              </svg>
+                            </span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
                 </div>
               </div>
-              <div
-                class="MuiListItemSecondaryAction-root"
-              >
-                <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1"
-                >
-                  <div
-                    class="MuiGrid-root MuiGrid-item"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiIconButton-root makeStyles-button makeStyles-button"
-                      id="invite-1-accept-btn"
-                      tabindex="0"
-                      title="misc.accept"
-                      type="button"
-                    >
-                      <span
-                        class="MuiIconButton-label"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                          />
-                        </svg>
-                      </span>
-                    </button>
-                  </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-item"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiIconButton-root makeStyles-button makeStyles-button"
-                      id="invite-1-delete-btn"
-                      tabindex="0"
-                      title="misc.delete"
-                      type="button"
-                    >
-                      <span
-                        class="MuiIconButton-label"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-                          />
-                        </svg>
-                      </span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <hr
-              class="MuiDivider-root"
-            />
-            <li
-              class="MuiListItem-container"
+            </div>
+            <div
+              class="MuiCollapse-root MuiCollapse-entered"
+              style="min-height: 0px;"
             >
               <div
-                class="MuiListItem-root MuiListItem-gutters MuiListItem-secondaryAction"
+                class="MuiCollapse-wrapper"
               >
                 <div
-                  class="MuiListItemText-root MuiListItemText-multiline"
+                  class="MuiCollapse-wrapperInner"
                 >
-                  <span
-                    class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-colorTextPrimary MuiTypography-displayBlock"
+                  <hr
+                    class="MuiDivider-root"
+                  />
+                  <li
+                    class="MuiListItem-container"
                   >
-                    group-2
-                  </span>
-                  <p
-                    class="MuiTypography-root MuiListItemText-secondary MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
-                  >
-                    misc.invitedBy
-                  </p>
+                    <div
+                      class="MuiListItem-root MuiListItem-gutters MuiListItem-secondaryAction"
+                    >
+                      <div
+                        class="MuiListItemText-root MuiListItemText-multiline"
+                      >
+                        <span
+                          class="MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-colorTextPrimary MuiTypography-displayBlock"
+                        >
+                          group-2
+                        </span>
+                        <p
+                          class="MuiTypography-root MuiListItemText-secondary MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-displayBlock"
+                        >
+                          misc.invitedBy
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="MuiListItemSecondaryAction-root"
+                    >
+                      <div
+                        class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1"
+                      >
+                        <div
+                          class="MuiGrid-root MuiGrid-item"
+                        >
+                          <button
+                            class="MuiButtonBase-root MuiIconButton-root makeStyles-button makeStyles-button"
+                            id="invite-2-accept-btn"
+                            tabindex="0"
+                            title="misc.accept"
+                            type="button"
+                          >
+                            <span
+                              class="MuiIconButton-label"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                                />
+                              </svg>
+                            </span>
+                          </button>
+                        </div>
+                        <div
+                          class="MuiGrid-root MuiGrid-item"
+                        >
+                          <button
+                            class="MuiButtonBase-root MuiIconButton-root makeStyles-button makeStyles-button"
+                            id="invite-2-delete-btn"
+                            tabindex="0"
+                            title="misc.delete"
+                            type="button"
+                          >
+                            <span
+                              class="MuiIconButton-label"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="MuiSvgIcon-root"
+                                focusable="false"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                                />
+                              </svg>
+                            </span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
                 </div>
               </div>
-              <div
-                class="MuiListItemSecondaryAction-root"
-              >
-                <div
-                  class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-1"
-                >
-                  <div
-                    class="MuiGrid-root MuiGrid-item"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiIconButton-root makeStyles-button makeStyles-button"
-                      id="invite-2-accept-btn"
-                      tabindex="0"
-                      title="misc.accept"
-                      type="button"
-                    >
-                      <span
-                        class="MuiIconButton-label"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-                          />
-                        </svg>
-                      </span>
-                    </button>
-                  </div>
-                  <div
-                    class="MuiGrid-root MuiGrid-item"
-                  >
-                    <button
-                      class="MuiButtonBase-root MuiIconButton-root makeStyles-button makeStyles-button"
-                      id="invite-2-delete-btn"
-                      tabindex="0"
-                      title="misc.delete"
-                      type="button"
-                    >
-                      <span
-                        class="MuiIconButton-label"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-                          />
-                        </svg>
-                      </span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </li>
+            </div>
           </ul>
         </div>
       </div>

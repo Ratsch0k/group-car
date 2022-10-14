@@ -14,6 +14,7 @@ import ListIcon from '@material-ui/icons/List';
 import {useAppDispatch, useShallowAppSelector} from 'lib/redux/hooks';
 import {goToModal} from 'lib/redux/slices/modalRouter/modalRouterSlice';
 import {getAllGroups, getSelectedGroup} from 'lib/redux/slices/group';
+import coloredShadow from 'lib/util/coloredShadow';
 
 /**
  * Props for the group options menu.
@@ -59,6 +60,7 @@ export const GroupOptionsMenu: React.FC<GroupOptionsMenuProps>=
           groupSelectionMenuRef.current?.scrollHeight :
           mainMenuRef.current?.scrollHeight,
         transition: 'height 250ms ease-out',
+        boxShadow: coloredShadow(theme.palette.primary.dark, 5),
       },
       subMenu: {
         height: openSubMenu ? 'auto' : 0,
@@ -81,7 +83,6 @@ export const GroupOptionsMenu: React.FC<GroupOptionsMenuProps>=
   return (
     <Paper
       classes={{root: classes.paper}}
-      elevation={8}
     >
 
       <div

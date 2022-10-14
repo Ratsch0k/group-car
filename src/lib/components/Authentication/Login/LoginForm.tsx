@@ -117,7 +117,7 @@ export const LoginForm: React.FC<LoginFormProps> = (props: LoginFormProps) => {
                 variant='contained'
                 color='primary'
                 loading={formik.isSubmitting}
-                glow='primary'
+                shadow
               >
                 {t('form.login')}
               </ProgressButton>

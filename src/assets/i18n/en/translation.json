@@ -16,6 +16,9 @@
     "invites": "Invites",
     "settings": "Settings"
   },
+  "map": {
+    "locationDenied": "We need your permission to be able to access and show your current location."
+  },
   "form": {
     "login": "Login",
     "sign-up": "Sign up",
@@ -81,18 +84,31 @@
         "title": "Group management",
         "loadingFailed": "The group couldn't be found",
         "tabs": {
+          "general": {
+            "title": "General",
+            "description": "View all general information about this group. If you are an admin, you can change the following fields."
+          },
           "members": {
             "title": "Members",
+            "description": "The following users are either members or invited to the group.",
             "options": {
               "grantAdmin": "Grant admin",
               "revokeAdmin": "Revoke admin"
-            }
+            },
+            "invite": "Invite user"
           },
           "cars": {
             "title": "Cars",
+            "description": "View and manage all cars of the group. Each car has a unique name and color.",
             "drivenBy": "Currently used by <strong>{{driver}}</strong>",
-            "create": {
-              "title": "Create a new car"
+            "addCar": {
+              "title": "Add a new car",
+              "button": "Add car"
+            },
+            "emptyList": {
+              "title": "No cars yet",
+              "description": "This group has no cars yet. Only admins are able to add cars. If you wish to add a new car, ask a admin to do it for you.",
+              "adminDescription": "This group has no cars yet. To add a car, click on <strong>Add car</strong>, select a fitting name and color, and click on <strong>Create</strong>"
             },
             "deleteDialog": {
               "title": "Delete car",
@@ -100,11 +116,20 @@
             },
             "delete": "Delete the car"
           }
+        },
+        "permissionPrompt": {
+          "denied": "Permission was denied",
+          "promptMe": "Prompt permission",
+          "geolocation": {
+            "title": "Access to your location"
+          }
         }
       },
       "leaveGroup": {
         "button": "Leave the group",
         "success": "Successfully left the group",
+        "title": "Leave group",
+        "description": "Here you can leave the group. You will loose all access to the group until an admin invites you again.",
         "dialog": {
           "title": "Leave",
           "content": "Are you sure you want to leave the group?"
@@ -113,6 +138,8 @@
       "deleteGroup": {
         "button": "Delete group",
         "success": "Successfully delete group",
+        "title": "Delete group",
+        "description": "Here, you can permanently delete the group. This action is irreversible. If you only intend to leave the group, you can alternatively transfer ownership to another member and the leave the group.",
         "dialog": {
           "title": "Delete group",
           "content": "Are you sure you want to delete this group?\nIf you only want to leave the group, then you could transfer your ownership to another member and then leave the group."
@@ -121,7 +148,8 @@
     },
     "invites": {
       "title": "Invites",
-      "empty": "You have no invites"
+      "empty": "You have no invites",
+      "accepted": "You're now a member"
     }
   },
   "settings": {
@@ -147,7 +175,10 @@
     "UsernameAlreadyExistsError": "Username exists already",
     "InvalidLoginError": "Username or password is invalid",
     "IncorrectPasswordError": "Incorrect password",
-    "InDemoNotSupported": "This functionality is not supported in the demo"
+    "InDemoNotSupported": "This functionality is not supported in the demo",
+    "UserNotFoundError": "User doesn't exist",
+    "AlreadyInvitedError": "User is already invited",
+    "InternalError": "An unexpected error occurred"
   },
   "misc": {
     "or": "or",
@@ -189,7 +220,10 @@
       "Purple": "Purple",
       "Brown": "Brown",
       "Orange": "Orange"
-    }
+    },
+    "name": "Name",
+    "description": "Description",
+    "invite": "Invite"
   },
   "imprint": {
     "title": "Imprint"

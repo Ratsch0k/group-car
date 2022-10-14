@@ -1,12 +1,17 @@
 import {
+  createStyles,
   IconButton,
+  makeStyles,
   Snackbar,
   SnackbarCloseReason,
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import {Alert} from '@material-ui/lab';
 import {AxiosError} from 'axios';
+import clsx from 'clsx';
 import axios from 'lib/client';
+import {GroupCarTheme} from 'lib/theme';
+import coloredShadow from 'lib/util/coloredShadow';
 import isRestError from 'lib/util/isRestError';
 import React, {useCallback, useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
@@ -40,14 +45,27 @@ export const SnackbarContext = React.createContext<SnackbarContext>({
 SnackbarContext.displayName = 'SnackbarContext';
 
 /**
+ * Styles.
+ */
+const useStyles = makeStyles((theme: GroupCarTheme) => createStyles({
+  hidden: {
+    display: 'none',
+  },
+  alert: {
+    boxShadow: coloredShadow('#000000', 2),
+    borderRadius: theme.shape.borderRadiusSized.default,
+  },
+}));
+
+/**
  * Provider for the SnackbarContext.
  * @param props Props
  */
 export const SnackbarProvider: React.FC = (props) => {
   const [queue, setQueue] = useState<ShowOptions[]>([]);
-  const [open, setOpen] = useState<boolean>(false);
   const [activeSnack, setActiveSnack] = useState<ShowOptions>();
   const {t} = useTranslation();
+  const classes = useStyles();
 
 
   const show: Show = useCallback((
@@ -70,19 +88,15 @@ export const SnackbarProvider: React.FC = (props) => {
       };
     }
 
-    setOpen(false);
     setQueue((prev) => [...prev, options]);
   }, []);
 
   useEffect(() => {
-    if (!open && queue.length && !activeSnack) {
+    if (activeSnack === undefined && queue.length > 0) {
       setActiveSnack(queue[0]);
       setQueue((prev) => prev.slice(1, prev.length));
-      setOpen(true);
-    } else if (open && queue.length) {
-      setOpen(false);
     }
-  }, [open, queue, activeSnack]);
+  }, [queue, activeSnack]);
 
   const handleClose = useCallback((
     event: React.SyntheticEvent<unknown, Event>,
@@ -91,10 +105,10 @@ export const SnackbarProvider: React.FC = (props) => {
     if (reason === 'clickaway') {
       return;
     }
-    setOpen(false);
+    closeSnackbar();
   }, []);
 
-  const handleOnExited = useCallback(() => {
+  const closeSnackbar = useCallback(() => {
     setActiveSnack(undefined);
   }, []);
 
@@ -143,40 +157,46 @@ export const SnackbarProvider: React.FC = (props) => {
   return (
     <SnackbarContext.Provider value={{show}}>
       {props.children}
-      <Snackbar
-        open={open}
-        autoHideDuration={5000}
-        onClose={handleClose}
-        TransitionProps={{
-          onExited: handleOnExited,
-        }}
-      >
-        {
-          activeSnack &&
-          <Alert
-            elevation={24}
-            severity={activeSnack.type}
-            action={
-              <React.Fragment>
-                {activeSnack.action}
-                {
-                  activeSnack.withClose &&
-                  <IconButton
-                    onClick={() => setOpen(false)}
-                    color='inherit'
-                    size='small'
-                  >
-                    <CloseIcon fontSize='small'/>
-                  </IconButton>
-                }
-              </React.Fragment>
-            }
-            closeText={t('misc.close')}
-          >
-            {activeSnack.content}
-          </Alert>
+      <div
+        className={
+          clsx({[classes.hidden]: activeSnack === undefined})
         }
-      </Snackbar>
+      >
+        <Snackbar
+          open={activeSnack !== undefined}
+          autoHideDuration={5000}
+          onClose={handleClose}
+          TransitionProps={{
+            onExited: closeSnackbar,
+          }}
+        >
+          {
+            activeSnack &&
+              <Alert
+                className={classes.alert}
+                severity={activeSnack.type}
+                action={
+                  <React.Fragment>
+                    {activeSnack.action}
+                    {
+                      activeSnack.withClose &&
+                      <IconButton
+                        onClick={closeSnackbar}
+                        color='inherit'
+                        size='small'
+                      >
+                        <CloseIcon fontSize='small'/>
+                      </IconButton>
+                    }
+                  </React.Fragment>
+                }
+                closeText={t('misc.close')}
+              >
+                {activeSnack.content}
+              </Alert>
+          }
+        </Snackbar>
+      </div>
     </SnackbarContext.Provider>
   );
 };

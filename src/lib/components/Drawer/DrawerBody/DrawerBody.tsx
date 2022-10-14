@@ -23,8 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
     cars: {
       marginTop: theme.spacing(2),
       flex: '1 1 100%',
-      overflowY: 'auto',
-      overflowX: 'hidden',
+      overflow: 'visible',
     },
   }),
 );

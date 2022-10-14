@@ -17,8 +17,8 @@ import {goToModal} from '../../../redux/slices/modalRouter/modalRouterSlice';
 
 const useStyles = makeStyles((theme: GroupCarTheme) => createStyles({
   groupButtonContainer: {
-    flexGrow: 1,
-    flexShrink: 1,
+    flex: '1 1 auto',
+    minWidth: 0,
   },
   editButtonContainer: {
     flexGrow: 0,
@@ -66,7 +66,7 @@ export const GroupOptionsButton: React.FC = () => {
   }, [selectedGroup]);
 
   return (
-    <Grid container spacing={1}>
+    <Grid container spacing={1} wrap='nowrap'>
       <Grid item className={classes.groupButtonContainer}>
         <ClickAwayListener onClickAway={handleClose}>
           <Box>
@@ -77,6 +77,7 @@ export const GroupOptionsButton: React.FC = () => {
               color='primary'
               variant='contained'
               onClick={handleOpenToggle}
+              textEllipsis
             >
               {
                 selectedGroup !== null ?
