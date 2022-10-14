@@ -198,8 +198,8 @@ export const Map: React.FC = () => {
       </MapContainer>
       <Tooltip title={
         watchCurrentPos && location ?
-          t('map.showLocation') :
-          t('map.moveToLocation')
+          t('map.showLocation').toString() :
+          t('map.moveToLocation').toString()
       }>
         <Fab
           id='show-current-position'
