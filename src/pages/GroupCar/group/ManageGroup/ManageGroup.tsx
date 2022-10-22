@@ -2,10 +2,7 @@ import React, {useEffect} from 'react';
 import {
   RestError,
   useStateIfMounted,
-  CenteredCircularProgress,
 } from 'lib';
-import ManageGroupErrorHandler from './ManageGroupNoGroupError';
-import {ManageGroupOverview} from './ManageGroupOverview';
 import {useParams} from 'react-router-dom';
 import {
   useAppDispatch,
@@ -15,56 +12,42 @@ import {
 import {
   getIsLoading,
   getSelectedGroup,
-  selectAndUpdateGroup,
-  updateSelectedGroup,
 } from 'lib/redux/slices/group';
-
-/**
- * Props for the manage group component.
- */
-export interface ManageGroupProps {
-  /**
-   * Id of the group. If not provided this
-   * component will try to get the parameter `:groupId` from
-   * the path. If that's not possible it will show an error
-   * message.
-   */
-  groupId?: number;
-}
+import Settings from 'lib/components/Settings';
+import {useGroupTabs} from './useGroupTabs';
+import {
+  updateSelectedGroup,
+  selectAndUpdateGroup,
+} from 'lib/redux/slices/group/groupThunks';
+import ManageGroupErrorHandler from './ManageGroupNoGroupError';
+import {unwrapResult} from '@reduxjs/toolkit';
 
 /**
  * Component for managing the specified group.
  * @param props - The props.
  */
-export const ManageGroup: React.FC<ManageGroupProps> =
-(props: ManageGroupProps) => {
+export const ManageGroup: React.FC = () => {
   const dispatch = useAppDispatch();
   const {groupId: groupIdParam} = useParams<{groupId: string}>();
   const [error, setError] = useStateIfMounted<RestError | null | boolean>(null);
   const group = useShallowAppSelector(getSelectedGroup);
   const isLoading = useAppSelector(getIsLoading);
+  const tabs = useGroupTabs();
 
   // Get the group
   useEffect(() => {
     const f = async () => {
     // Get the group id
-      let selectedGroupId: number;
-
-      if (typeof props.groupId === 'number') {
-        selectedGroupId = props.groupId;
-      } else {
-      // Try to get the groupId from the path
-        selectedGroupId = parseInt(groupIdParam);
-      }
+      const selectedGroupId = parseInt(groupIdParam, 10);
 
       if (typeof selectedGroupId !== 'undefined' && !isNaN(selectedGroupId)) {
         try {
           if (group && group.id === selectedGroupId) {
-            await dispatch(updateSelectedGroup(selectedGroupId));
+            unwrapResult(await dispatch(updateSelectedGroup(selectedGroupId)));
           } else {
-            await dispatch(selectAndUpdateGroup({
-              id: selectedGroupId, force: true,
-            }));
+            unwrapResult(await dispatch(selectAndUpdateGroup({
+              id: selectedGroupId,
+            })));
           }
         } catch {
           setError(true);
@@ -76,15 +59,16 @@ export const ManageGroup: React.FC<ManageGroupProps> =
 
     f();
     // eslint-disable-next-line
-  }, [props.groupId, groupIdParam]);
+  }, [groupIdParam]);
 
-  if (isLoading && group === null && error === null) {
-    return <CenteredCircularProgress />;
-  } else if (error === null && group !== null) {
-    return <ManageGroupOverview />;
-  } else {
-    return <ManageGroupErrorHandler/>;
-  }
+  return (
+    <Settings
+      tabs={tabs}
+      loading={!group && isLoading}
+      title={group ? group.name : ''}
+      error={error ? <ManageGroupErrorHandler /> : undefined}
+    />
+  );
 };
 
 export default ManageGroup;

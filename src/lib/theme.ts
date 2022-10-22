@@ -24,10 +24,12 @@ interface IPalette extends Palette {
   blur: string;
 }
 
+
 export interface IThemeOptions extends ThemeOptions {
   shape: Partial<IShape>;
   palette: Partial<IPalette>;
 }
+
 
 export interface GroupCarTheme extends Theme {
   shape: IShape;
@@ -64,7 +66,13 @@ export const themeProperties: IThemeOptions = {
       default: '#f5f5f5',
       paper: '#ffffff',
     },
-    blur: 'blur(8px)',
+    blur: 'blur(32px)',
+    text: {
+      primary: 'rgba(0, 0, 0, 0.75)',
+      secondary: 'rgba(0, 0, 0, 0.54)',
+      disabled: 'rgba(0, 0, 0, 0.38)',
+      hint: 'rgba(0, 0, 0, 0.38)',
+    },
   },
   mixins: {
     toolbar: {
@@ -82,11 +90,39 @@ export const themeProperties: IThemeOptions = {
     drawerWidth: 350,
     borderRadius: 10,
     borderRadiusSized: {
-      default: 10,
-      large: 16,
+      default: 12,
+      large: 18,
       small: 8,
     },
   },
+  /* eslint-disable max-len */
+  shadows: [
+    'none',
+    '-1px 1px 4px rgba(171, 171, 171, 0.25), -1px 1px 4px rgba(171, 171, 171, 0.25)',
+    '-1px 1px 4px rgba(171, 171, 171, 0.25), -1px 1px 4px rgba(171, 171, 171, 0.25)',
+    '-1px 1px 4px rgba(171, 171, 171, 0.25), -1px 1px 4px rgba(171, 171, 171, 0.25)',
+    '-1px 1px 4px rgba(171, 171, 171, 0.25), -1px 1px 4px rgba(171, 171, 171, 0.25)',
+    '-1px 1px 4px rgba(171, 171, 171, 0.25), -1px 1px 4px rgba(171, 171, 171, 0.25)',
+    '-1px 1px 4px rgba(171, 171, 171, 0.25), -1px 1px 4px rgba(171, 171, 171, 0.25)',
+    '-1px 1px 4px rgba(171, 171, 171, 0.25), -1px 1px 4px rgba(171, 171, 171, 0.25)',
+    '-4px 4px 16px rgba(171, 171, 171, 0.25), 1px 1px 16px rgba(171, 171, 171, 0.25)',
+    '-4px 4px 16px rgba(171, 171, 171, 0.25), 1px 1px 16px rgba(171, 171, 171, 0.25)',
+    '-4px 4px 16px rgba(171, 171, 171, 0.25), 1px 1px 16px rgba(171, 171, 171, 0.25)',
+    '-4px 4px 16px rgba(171, 171, 171, 0.25), 1px 1px 16px rgba(171, 171, 171, 0.25)',
+    '-4px 4px 16px rgba(171, 171, 171, 0.25), 1px 1px 16px rgba(171, 171, 171, 0.25)',
+    '-4px 4px 16px rgba(171, 171, 171, 0.25), 1px 1px 16px rgba(171, 171, 171, 0.25)',
+    '-4px 4px 16px rgba(171, 171, 171, 0.25), 1px 1px 16px rgba(171, 171, 171, 0.25)',
+    '-4px 4px 16px rgba(171, 171, 171, 0.25), 1px 1px 16px rgba(171, 171, 171, 0.25)',
+    '-4px 4px 16px rgba(171, 171, 171, 0.25), 1px 1px 16px rgba(171, 171, 171, 0.25)',
+    '-4px 4px 16px rgba(171, 171, 171, 0.25), 1px 1px 16px rgba(171, 171, 171, 0.25)',
+    '-4px 4px 16px rgba(171, 171, 171, 0.25), 1px 1px 16px rgba(171, 171, 171, 0.25)',
+    '-4px -4px 32px rgba(145, 145, 145, 0.25), -8px 8px 32px rgba(145, 145, 145, 0.25)',
+    '-4px -4px 32px rgba(145, 145, 145, 0.25), -8px 8px 32px rgba(145, 145, 145, 0.25)',
+    '-4px -4px 32px rgba(145, 145, 145, 0.25), -8px 8px 32px rgba(145, 145, 145, 0.25)',
+    '-4px -4px 32px rgba(145, 145, 145, 0.25), -8px 8px 32px rgba(145, 145, 145, 0.25)',
+    '-4px -4px 32px rgba(145, 145, 145, 0.25), -8px 8px 32px rgba(145, 145, 145, 0.25)',
+    '0px -4px 32px rgba(0, 0, 0, 0.25), -8px 20px 32px rgba(0, 0, 0, 0.25)',
+  ],
 };
 
 export const theme = createTheme(themeProperties);

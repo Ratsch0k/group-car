@@ -9,11 +9,8 @@ import {
 } from 'lib/redux/hooks';
 import {getIsLoggedIn} from 'lib/redux/slices/auth';
 import {
-  addCar,
-  getGroupState, removeCar,
-  selectAndUpdateGroup,
-  update,
-  updateCar,
+  getGroupIds,
+  getSelectedGroup,
 } from 'lib/redux/slices/group';
 import {
   getLocation,
@@ -22,6 +19,12 @@ import {
 import {
   GroupAction,
 } from '../../../typings';
+import {
+  addCar,
+  removeCar,
+  updateCar,
+} from 'lib/redux/slices/group/groupSlice';
+import {selectAndUpdateGroup, update} from 'lib/redux/slices/group/groupThunks';
 
 /**
  * Element for creating and providing the `GroupContext`.
@@ -38,7 +41,8 @@ import {
  */
 export const GroupUpdater: React.FC = (props) => {
   const dispatch = useAppDispatch();
-  const {selectedGroup} = useShallowAppSelector(getGroupState);
+  const selectedGroup = useShallowAppSelector(getSelectedGroup);
+  const groupIds = useShallowAppSelector(getGroupIds);
   const {show} = useSnackBar();
   const [socket, setSocket] = useState<SocketIOClient.Socket>();
   const {t} = useTranslation();
@@ -134,7 +138,12 @@ export const GroupUpdater: React.FC = (props) => {
 
   useEffect(() => {
     const groupId = parseInt(getGroupId(location.pathname) || '', 10);
-    if (groupId && !selectedGroup && isLoggedIn) {
+    if (
+      groupId &&
+      !selectedGroup &&
+      isLoggedIn &&
+      groupIds.some((value) => value === groupId)
+    ) {
       dispatch(selectAndUpdateGroup({id: groupId, force: true}));
     }
     if (selectedGroup && (!groupId || groupId !== selectedGroup.id)) {

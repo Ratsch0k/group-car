@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback, useState} from 'react';
 import {TextField, BaseTextFieldProps, TextFieldProps} from '@material-ui/core';
 import {Formik} from 'typings';
 import {useTranslation} from 'react-i18next';
@@ -7,6 +7,7 @@ import {FormikProps} from 'formik';
 interface FormTextFieldExtensionProps extends BaseTextFieldProps {
   formik?: Formik | FormikProps<Formik['initialValues']>;
   name: string;
+  disableHelperTextPadding?: boolean;
 }
 
 export type FormTextFieldProps = FormTextFieldExtensionProps & TextFieldProps;
@@ -25,25 +26,42 @@ export type FormTextFieldProps = FormTextFieldExtensionProps & TextFieldProps;
  */
 export const FormTextField: React.FC<FormTextFieldProps> =
 (props) => {
-  const {name} = props;
+  const {name, disableHelperTextPadding} = props;
   const formik = 'formik' in props ? props.formik : undefined;
   const {t} = useTranslation();
+  const [hasChanged, setHasChanged] = useState<boolean>(false);
+  const handleChange = useCallback((event: React.ChangeEvent<unknown>) => {
+    setHasChanged(true);
+    formik?.handleChange(event);
+  }, [formik]);
+
+  type ErrorObject = {key: string, options: Record<string, unknown>};
+  const showError = useCallback((errorObject: ErrorObject | string) => {
+    if (!errorObject) {
+      return undefined;
+    }
+
+    if (typeof errorObject === 'string') {
+      return t(errorObject);
+    }
+
+    return t(errorObject.key, errorObject.options);
+  }, [t]);
 
   if (formik) {
     return (
       <TextField
         fullWidth
         size='small'
-        error={formik.touched[name] && formik.errors[name] !== undefined}
-        helperText={formik.touched[name] ?
-          t(formik.errors[name]) || ' ' :
-          ' '}
+        error={hasChanged && formik.errors[name] !== undefined}
+        helperText={(hasChanged &&
+          showError(formik.errors[name])) || !disableHelperTextPadding && ' '}
         variant={
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           'outlined' as any
         }
         onBlur={formik.handleBlur}
-        onChange={formik.handleChange}
+        onChange={handleChange}
         value={formik.values[name]}
         disabled={formik.isSubmitting}
         {...props}

@@ -1,21 +1,36 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {
   MapContainer,
   TileLayer,
   Marker,
   Circle,
 } from '@monsonjeremy/react-leaflet';
-import {GroupCarTheme, LocationMarker, PositionMarker, useMap} from 'lib';
+import {
+  Fab,
+  GroupCarTheme,
+  LocationMarker,
+  PositionMarker,
+  useMap,
+  useSnackBar,
+} from 'lib';
 import {LatLng, LeafletMouseEvent} from 'leaflet';
 import CarMarker from './CarMarker';
 import {useShallowAppSelector} from 'lib/redux/hooks';
 import {getGroupCars} from 'lib/redux/slices/group';
 import {
+  alpha,
   createStyles,
+  darken,
   makeStyles,
+  Tooltip,
   useMediaQuery,
   useTheme,
 } from '@material-ui/core';
+import {LocationSearching, MyLocation} from '@material-ui/icons';
+import clsx from 'clsx';
+import {blue} from '@material-ui/core/colors';
+import useGeolocation from 'lib/hooks/useGeolocation';
+import {useTranslation} from 'react-i18next';
 
 const useStyles = makeStyles<
 GroupCarTheme,
@@ -29,6 +44,32 @@ GroupCarTheme,
       right: isSmall ? 0 : theme.shape.drawerWidth,
     },
   }),
+  fab: {
+    position: 'absolute',
+    top: theme.shape.headerHeight.small + theme.spacing(1),
+    [theme.breakpoints.up('sm')]: {
+      top: theme.shape.headerHeight.default + theme.spacing(1),
+    },
+    right: theme.spacing(1),
+    [theme.breakpoints.up('lg')]: {
+      right: theme.shape.drawerWidth + theme.spacing(1),
+    },
+    zIndex: 1000,
+    background: alpha(theme.palette.background.paper, 0.7),
+    backdropFilter: theme.palette.blur,
+    ['&:hover']: {
+      background: alpha(darken(theme.palette.background.paper, 0.1), 0.7),
+    },
+    color: theme.palette.text.primary,
+  },
+  fabActive: {
+    color: blue[600],
+  },
+  root: {
+    width: '100%',
+    height: '100%',
+    position: 'relative',
+  },
 }));
 
 /**
@@ -46,10 +87,22 @@ export const Map: React.FC = () => {
   const theme = useTheme();
   const smallerXs = useMediaQuery(theme.breakpoints.down('xs'));
   const classes = useStyles({isSmall: smallerXs});
+  const [watchCurrentPos, setWatchCurrentPos] = useState(false);
+  const geolocation = useGeolocation();
+  const {show} = useSnackBar();
+  const {t} = useTranslation();
 
-  useEffect(() => {
-    if (map) {
-      id.current = navigator.geolocation.watchPosition((position) => {
+  const handleCurrentLocation = useCallback(() => {
+    if (!map) {
+      return;
+    }
+
+    if (watchCurrentPos) {
+      if (location) {
+        map?.flyTo(location);
+      }
+    } else {
+      geolocation.watchPosition((position) => {
         const latLng = new LatLng(
           position.coords.latitude,
           position.coords.longitude,
@@ -65,18 +118,27 @@ export const Map: React.FC = () => {
         }
 
         setLocation(latLng);
+      }).then((watchId) => {
+        setWatchCurrentPos(true);
+        id.current = watchId;
+      }).catch(() => {
+        show({
+          type: 'error',
+          content: t('map.locationDenied'),
+          withClose: true,
+        });
       });
     }
 
     return () => {
       if (id.current) {
-        navigator.geolocation.clearWatch(id.current);
+        geolocation.clearWatch(id.current);
       }
       if (timeoutId.current) {
         clearTimeout(timeoutId.current);
       }
     };
-  }, [map]);
+  }, [watchCurrentPos, location, map]);
 
   useEffect(() => {
     const listener = (event: LeafletMouseEvent) => {
@@ -99,40 +161,66 @@ export const Map: React.FC = () => {
   }, [map, selectedCar, selectionDisabled]);
 
   return (
-    <MapContainer
-      center={new LatLng(50.815781, 10.055568)}
-      zoom={6}
-      whenCreated={setMap}
-      className={classes.map}
-    >
-      <TileLayer
-        attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      {
-        location &&
-        <Marker position={location} icon={PositionMarker} />
-      }
-      {
-        location && acc &&
-        <Circle center={location} radius={acc} opacity={0.5}/>
-      }
-      {
-        selectedCar && selectedLocation &&
+    <div className={classes.root}>
+      <MapContainer
+        center={new LatLng(50.815781, 10.055568)}
+        zoom={6}
+        whenCreated={setMap}
+        className={classes.map}
+      >
+        <TileLayer
+          attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        {
+          watchCurrentPos &&
+            location &&
+            <Marker position={location} icon={PositionMarker} />
+        }
+        {
+          watchCurrentPos && location && acc &&
+            <Circle center={location} radius={acc} opacity={0.5}/>
+        }
+        {
+          selectedCar && selectedLocation &&
         <Marker
           position={selectedLocation}
           icon={LocationMarker[selectedCar.color]}
         />
-      }
-      {
-        !selectedCar &&
+        }
+        {
+          !selectedCar &&
         groupCars &&
         groupCars.filter((car) => car.driverId === null).map((car) => {
           return <CarMarker key={`car-marker-${car.carId}`} car={car} />;
         })
-      }
-    </MapContainer>
+        }
+      </MapContainer>
+      <Tooltip title={
+        watchCurrentPos && location ?
+          t('map.showLocation').toString() :
+          t('map.moveToLocation').toString()
+      }>
+        <Fab
+          id='show-current-position'
+          className={clsx(
+            classes.fab,
+            {[classes.fabActive]: watchCurrentPos && location},
+          )}
+          size='small'
+          onClick={handleCurrentLocation}
+        >
+          {
+            watchCurrentPos && location ?
+              <MyLocation /> :
+              <LocationSearching />
+          }
+        </Fab>
+
+      </Tooltip>
+    </div>
   );
 };
 
 export default Map;
+

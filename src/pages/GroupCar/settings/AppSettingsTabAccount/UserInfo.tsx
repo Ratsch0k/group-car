@@ -55,8 +55,9 @@ export const UserInfo = (): JSX.Element => {
           </Field>
           <Field label={t('misc.createdAt')}>
             {
-              user !== undefined &&
-              new Date(user.createdAt).toLocaleString()
+              user !== undefined ?
+                new Date(user.createdAt).toLocaleString():
+                ''
             }
           </Field>
         </Grid>

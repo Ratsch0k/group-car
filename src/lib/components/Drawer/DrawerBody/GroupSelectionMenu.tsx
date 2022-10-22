@@ -5,14 +5,15 @@ import {
   IconButton,
   MenuItem,
   makeStyles,
+  Typography,
 } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import {useAppDispatch, useShallowAppSelector} from 'lib/redux/hooks';
 import {
   getNotSelectedGroups,
-  selectAndUpdateGroup,
 } from 'lib/redux/slices/group';
 import {unwrapResult} from '@reduxjs/toolkit';
+import {selectAndUpdateGroup} from 'lib/redux/slices/group/groupThunks';
 
 /**
  * Props for the group selection menu.
@@ -45,6 +46,11 @@ const useStyles = makeStyles({
   list: {
     maxHeight: 300,
     overflowY: 'auto',
+  },
+  text: {
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
   },
 });
 
@@ -80,7 +86,9 @@ export const GroupSelectionMenu: React.FC<GroupSelectionMenuProps> =
             }
           }}
         >
-          {group.name}
+          <Typography className={classes.text}>
+            {group.name}
+          </Typography>
         </MenuItem>
       );
     });

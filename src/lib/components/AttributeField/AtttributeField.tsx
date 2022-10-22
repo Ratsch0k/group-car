@@ -3,9 +3,12 @@ import React, {
   forwardRef,
 } from 'react';
 import {
+  alpha,
   createStyles,
   Grid,
+  GridProps,
   makeStyles,
+  TextFieldProps,
   Typography, useMediaQuery, useTheme,
 } from '@material-ui/core';
 import {GroupCarTheme} from '../../theme';
@@ -13,11 +16,30 @@ import {GroupCarTheme} from '../../theme';
 export interface AttributeFieldProps extends ComponentPropsWithRef<'div'> {
   label: string | React.ReactNode;
   breakpoint?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  editable?: boolean;
+  TextFieldProps?: TextFieldProps;
+  ContentProps?: GridProps;
 }
 
 const useStyles = makeStyles((theme: GroupCarTheme) => createStyles({
+  children: {
+  },
+  content: {
+    flex: '1 1',
+    minWidth: 0,
+    overflow: 'hidden',
+    padding: '0px !important',
+    [theme.breakpoints.down('sm')]: {
+      padding: `${theme.spacing(1)}px !important`,
+    },
+  },
+  label: {
+    fontWeight: 'bold',
+    color: theme.palette.primary.main,
+    padding: theme.spacing(0.5),
+  },
   root: {
-    border: `1px solid ${theme.palette.primary.main}`,
+    background: alpha(theme.palette.primary.main, 0.08),
     borderRadius: theme.shape.borderRadius,
     margin: `${theme.spacing(1)}px 0px`,
     padding: theme.spacing(1),
@@ -26,9 +48,6 @@ const useStyles = makeStyles((theme: GroupCarTheme) => createStyles({
   title: {
     flexBasis: 100,
   },
-  content: {
-    flex: '1 1',
-  },
 }));
 
 export const AttributeField =
@@ -36,7 +55,13 @@ forwardRef<HTMLDivElement, AttributeFieldProps>((
   props,
   ref,
 ) => {
-  const {label, children, breakpoint = 'sm', ...rest} = props;
+  const {
+    label,
+    breakpoint = 'sm',
+    children,
+    ContentProps,
+    ...rest
+  } = props;
   const classes = useStyles();
   const theme = useTheme();
   const isUp = useMediaQuery(theme.breakpoints.up(breakpoint));
@@ -51,12 +76,23 @@ forwardRef<HTMLDivElement, AttributeFieldProps>((
       ref={ref}
       {...rest}
     >
-      <Grid item className={isUp ? classes.title : undefined}>
-        <Typography variant='body2' color='primary'>
+      <Grid
+        item
+        className={isUp ? classes.title : undefined}
+        container
+        alignItems='flex-start'
+      >
+        <Typography variant='body2' className={classes.label}>
           {label}
         </Typography>
       </Grid>
-      <Grid item className={classes.content}>
+      <Grid
+        item
+        className={classes.content}
+        container
+        alignItems='center'
+        {...ContentProps}
+      >
         {children}
       </Grid>
     </Grid>

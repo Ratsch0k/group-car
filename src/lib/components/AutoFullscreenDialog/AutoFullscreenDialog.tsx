@@ -25,8 +25,14 @@ export interface AutoFullscreenDialogProps extends DialogProps {
 }
 
 const useStyles = makeStyles((theme: GroupCarTheme) => createStyles({
-  paper: {
+  notFullscreen: {
     borderRadius: theme.shape.borderRadiusSized.large,
+  },
+  fullscreen: {
+    borderRadius: 0,
+  },
+  backdropRoot: {
+    backgroundColor: 'rgba(0, 0, 0, 0.2)',
   },
 }));
 
@@ -46,7 +52,7 @@ export const AutoFullscreenDialog: React.FC<AutoFullscreenDialogProps> =
 
   // Check if screen width is smaller than the defined breakpoint
   const largerThanBreakpoint = useMediaQuery(
-    theme.breakpoints.up(breakpoint || 'lg'),
+    theme.breakpoints.up(breakpoint || 'md'),
   );
 
   return (
@@ -55,10 +61,17 @@ export const AutoFullscreenDialog: React.FC<AutoFullscreenDialogProps> =
       fullScreen={!largerThanBreakpoint}
       classes={{
         paper: clsx(paper, {
-          [customClasses.paper]: largerThanBreakpoint,
+          [customClasses.notFullscreen]: largerThanBreakpoint,
+          [customClasses.fullscreen]: !largerThanBreakpoint,
         }),
         ...unusedClasses,
       }}
+      BackdropProps={{
+        classes: {
+          root: customClasses.backdropRoot,
+        },
+      }}
+      className={props.className}
       {...rest}
     >
       {children}

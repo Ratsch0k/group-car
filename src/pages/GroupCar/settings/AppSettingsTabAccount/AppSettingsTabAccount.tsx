@@ -1,38 +1,31 @@
 import React, {FC} from 'react';
 import {
-  SettingsTabContent,
-  SettingsTabContentProps,
-} from 'lib/components/Settings';
-import {
-  Container,
+  Box,
 } from '@material-ui/core';
 import {useTranslation} from 'react-i18next';
 import {UserInfo} from './UserInfo';
 import SettingsSection from 'lib/components/SettingsSection';
 import Security from './Security';
+import SettingsTabTitle from 'lib/components/Settings/SettingsTabTitle';
 
 
-export const AppSettingsTabAccount: FC<SettingsTabContentProps<string>> = (
-  props,
-) => {
-  const {index, value} = props;
+export const AppSettingsTabAccount: FC = () => {
   const {t} = useTranslation();
 
   return (
-    <SettingsTabContent
-      index={index}
-      value={value}
-      id='settings-account-tab-content'
-    >
-      <Container maxWidth='md'>
+    <>
+      <SettingsTabTitle>
+        {t('settings.account.title')}
+      </SettingsTabTitle>
+      <Box>
         <SettingsSection title={t('settings.account.userInfo')}>
           <UserInfo />
         </SettingsSection>
         <SettingsSection title={t('settings.account.security.title')}>
           <Security />
         </SettingsSection>
-      </Container>
-    </SettingsTabContent>
+      </Box>
+    </>
   );
 };
 

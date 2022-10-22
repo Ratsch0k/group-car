@@ -4,186 +4,199 @@ exports[`AppSettingsTabAccount renders correctly 1`] = `
 <body>
   <div>
     <div
-      class="MuiBox-root MuiBox-root makeStyles-root"
-      id="settings-account-tab-content"
+      class="MuiGrid-root makeStyles-root MuiGrid-container MuiGrid-align-items-xs-center"
     >
       <div
-        class="MuiContainer-root MuiContainer-maxWidthMd"
+        class="MuiGrid-root makeStyles-titleItem MuiGrid-item"
+      >
+        <h5
+          class="MuiTypography-root makeStyles-title MuiTypography-h5"
+        >
+          <b>
+            settings.account.title
+          </b>
+        </h5>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item"
+      />
+    </div>
+    <div
+      class="MuiBox-root MuiBox-root"
+    >
+      <div
+        class="MuiBox-root MuiBox-root makeStyles-root"
       >
         <div
-          class="MuiBox-root MuiBox-root makeStyles-root"
+          class="MuiGrid-root makeStyles-header MuiGrid-container MuiGrid-align-items-xs-center"
         >
           <div
-            class="MuiGrid-root makeStyles-header MuiGrid-container MuiGrid-align-items-xs-center"
+            class="MuiGrid-root MuiGrid-item"
+          >
+            <p
+              class="MuiTypography-root makeStyles-title MuiTypography-body1"
+            >
+              <b>
+                settings.account.userInfo
+              </b>
+            </p>
+          </div>
+          <div
+            class="MuiGrid-root makeStyles-line MuiGrid-item"
+          >
+            <hr
+              class="MuiDivider-root makeStyles-divider"
+            />
+          </div>
+        </div>
+        <div
+          class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar makeStyles-avatar"
+        >
+          <img
+            alt="user-1"
+            class="MuiAvatar-img"
+            src="/api/user/1/profile-pic"
+          />
+        </div>
+        <div
+          class="MuiBox-root MuiBox-root makeStyles-values"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column MuiGrid-wrap-xs-nowrap"
           >
             <div
               class="MuiGrid-root MuiGrid-item"
             >
-              <p
-                class="MuiTypography-root makeStyles-title MuiTypography-body1"
-              >
-                <b>
-                  settings.account.userInfo
-                </b>
-              </p>
-            </div>
-            <div
-              class="MuiGrid-root makeStyles-line MuiGrid-item"
-            >
-              <hr
-                class="MuiDivider-root makeStyles-divider"
-              />
-            </div>
-          </div>
-          <div
-            class="MuiAvatar-root MuiAvatar-circular makeStyles-avatar makeStyles-avatar"
-          >
-            <img
-              alt="user-1"
-              class="MuiAvatar-img"
-              src="/api/user/1/profile-pic"
-            />
-          </div>
-          <div
-            class="MuiBox-root MuiBox-root makeStyles-values"
-          >
-            <div
-              class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column MuiGrid-wrap-xs-nowrap"
-            >
               <div
-                class="MuiGrid-root MuiGrid-item"
+                class="MuiGrid-root makeStyles-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-wrap-xs-nowrap"
               >
                 <div
-                  class="MuiGrid-root makeStyles-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-column MuiGrid-wrap-xs-nowrap"
+                  class="MuiGrid-root makeStyles-title MuiGrid-container MuiGrid-item MuiGrid-align-items-xs-flex-start"
                 >
-                  <div
-                    class="MuiGrid-root MuiGrid-item"
+                  <p
+                    class="MuiTypography-root makeStyles-label MuiTypography-body2"
                   >
-                    <p
-                      class="MuiTypography-root MuiTypography-body2 MuiTypography-colorPrimary"
-                    >
-                      misc.username
-                    </p>
-                  </div>
-                  <div
-                    class="MuiGrid-root makeStyles-content MuiGrid-item"
-                  >
-                    test
-                  </div>
+                    misc.username
+                  </p>
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-content MuiGrid-container MuiGrid-item MuiGrid-align-items-xs-center"
+                >
+                  test
                 </div>
               </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
               <div
-                class="MuiGrid-root MuiGrid-item"
+                class="MuiGrid-root makeStyles-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-wrap-xs-nowrap"
               >
                 <div
-                  class="MuiGrid-root makeStyles-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-column MuiGrid-wrap-xs-nowrap"
+                  class="MuiGrid-root makeStyles-title MuiGrid-container MuiGrid-item MuiGrid-align-items-xs-flex-start"
                 >
-                  <div
-                    class="MuiGrid-root MuiGrid-item"
+                  <p
+                    class="MuiTypography-root makeStyles-label MuiTypography-body2"
                   >
-                    <p
-                      class="MuiTypography-root MuiTypography-body2 MuiTypography-colorPrimary"
-                    >
-                      misc.email
-                    </p>
-                  </div>
-                  <div
-                    class="MuiGrid-root makeStyles-content MuiGrid-item"
-                  >
-                    test@mail.com
-                  </div>
+                    misc.email
+                  </p>
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-content MuiGrid-container MuiGrid-item MuiGrid-align-items-xs-center"
+                >
+                  test@mail.com
                 </div>
               </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item"
+            >
               <div
-                class="MuiGrid-root MuiGrid-item"
+                class="MuiGrid-root makeStyles-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-wrap-xs-nowrap"
               >
                 <div
-                  class="MuiGrid-root makeStyles-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-column MuiGrid-wrap-xs-nowrap"
+                  class="MuiGrid-root makeStyles-title MuiGrid-container MuiGrid-item MuiGrid-align-items-xs-flex-start"
                 >
-                  <div
-                    class="MuiGrid-root MuiGrid-item"
+                  <p
+                    class="MuiTypography-root makeStyles-label MuiTypography-body2"
                   >
-                    <p
-                      class="MuiTypography-root MuiTypography-body2 MuiTypography-colorPrimary"
-                    >
-                      misc.createdAt
-                    </p>
-                  </div>
-                  <div
-                    class="MuiGrid-root makeStyles-content MuiGrid-item"
-                  >
-                    12/17/2020, 3:24:00 AM
-                  </div>
+                    misc.createdAt
+                  </p>
+                </div>
+                <div
+                  class="MuiGrid-root makeStyles-content MuiGrid-container MuiGrid-item MuiGrid-align-items-xs-center"
+                >
+                  12/17/2020, 3:24:00 AM
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+      <div
+        class="MuiBox-root MuiBox-root makeStyles-root"
+      >
         <div
-          class="MuiBox-root MuiBox-root makeStyles-root"
+          class="MuiGrid-root makeStyles-header MuiGrid-container MuiGrid-align-items-xs-center"
         >
           <div
-            class="MuiGrid-root makeStyles-header MuiGrid-container MuiGrid-align-items-xs-center"
+            class="MuiGrid-root MuiGrid-item"
           >
-            <div
-              class="MuiGrid-root MuiGrid-item"
+            <p
+              class="MuiTypography-root makeStyles-title MuiTypography-body1"
             >
-              <p
-                class="MuiTypography-root makeStyles-title MuiTypography-body1"
-              >
-                <b>
-                  settings.account.security.title
-                </b>
-              </p>
-            </div>
-            <div
-              class="MuiGrid-root makeStyles-line MuiGrid-item"
-            >
-              <hr
-                class="MuiDivider-root makeStyles-divider"
-              />
-            </div>
+              <b>
+                settings.account.security.title
+              </b>
+            </p>
           </div>
           <div
-            class="MuiGrid-root makeStyles-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-direction-xs-column MuiGrid-wrap-xs-nowrap"
-            style="overflow: hidden;"
+            class="MuiGrid-root makeStyles-line MuiGrid-item"
+          >
+            <hr
+              class="MuiDivider-root makeStyles-divider"
+            />
+          </div>
+        </div>
+        <div
+          class="MuiGrid-root makeStyles-root MuiGrid-container MuiGrid-spacing-xs-2 MuiGrid-wrap-xs-nowrap"
+          style="overflow: hidden;"
+        >
+          <div
+            class="MuiGrid-root makeStyles-title MuiGrid-container MuiGrid-item MuiGrid-align-items-xs-flex-start"
+          >
+            <p
+              class="MuiTypography-root makeStyles-label MuiTypography-body2"
+            >
+              misc.password
+            </p>
+          </div>
+          <div
+            class="MuiGrid-root makeStyles-content MuiGrid-container MuiGrid-item MuiGrid-align-items-xs-center"
           >
             <div
-              class="MuiGrid-root MuiGrid-item"
+              style="transition: height 250ms ease-in-out; width: 100%;"
             >
-              <p
-                class="MuiTypography-root MuiTypography-body2 MuiTypography-colorPrimary"
-              >
-                misc.password
-              </p>
-            </div>
-            <div
-              class="MuiGrid-root makeStyles-content MuiGrid-item"
-            >
-              <div
-                style="transition: height 250ms ease-in-out;"
-              >
-                <div>
-                  <div
-                    class="makeStyles-root"
+              <div>
+                <div
+                  class="makeStyles-root"
+                >
+                  <p
+                    class="MuiTypography-root makeStyles-text MuiTypography-body1"
                   >
-                    <p
-                      class="MuiTypography-root makeStyles-text MuiTypography-body1"
+                    ********
+                  </p>
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button MuiButton-textPrimary"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="MuiButton-label"
                     >
-                      ********
-                    </p>
-                    <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-button MuiButton-textPrimary"
-                      tabindex="0"
-                      type="button"
-                    >
-                      <span
-                        class="MuiButton-label"
-                      >
-                        misc.edit
-                      </span>
-                    </button>
-                  </div>
+                      misc.edit
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ForwardedRef} from 'react';
 import {
   createStyles,
   DialogProps,
@@ -13,9 +13,9 @@ const useStyles = makeStyles((theme: GroupCarTheme) => createStyles({
   },
 }));
 
-export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>((
+export const Dialog = React.forwardRef((
   props: DialogProps,
-  ref,
+  ref: ForwardedRef<unknown>,
 ) => {
   const {classes, ...rest} = props;
   const customClasses = useStyles();

@@ -1,6 +1,9 @@
 import {CarWithDriver} from 'lib';
 import {GroupWithOwner, InviteWithUserAndInviteSender, Member} from 'lib/api';
 import {RootState} from 'lib/redux/store';
+import {isAdmin} from 'lib/util';
+import {createSelector} from 'reselect';
+import {getUser} from '../auth/authSelectors';
 import groupsAdapter from './groupAdapter';
 
 export const {
@@ -41,3 +44,19 @@ export const getMembers = (state: RootState): Member[] | undefined =>
 export const getGroupInvites = (state: RootState):
 InviteWithUserAndInviteSender[] | undefined =>
   state.group.selectedGroup?.invites;
+
+export const isAdminOfSelectedGroup = createSelector(
+  [getUser, getSelectedGroup],
+  (user, group) => {
+    if (user && group) {
+      return isAdmin(group, user.id);
+    }
+  },
+);
+
+export const isOwnerOfSelectedGroup = createSelector(
+  [getUser, getSelectedGroup],
+  (user, selectedGroup) => {
+    return user && selectedGroup && selectedGroup.ownerId === user.id;
+  },
+);

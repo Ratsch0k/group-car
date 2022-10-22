@@ -2,22 +2,22 @@ import React, {FC} from 'react';
 import {Box, createStyles, makeStyles} from '@material-ui/core';
 import {GroupCarTheme} from '../../theme';
 
-export interface SettingsTabContentProps<D> {
-  index: D;
-  value: D;
+export interface SettingsTabContentProps {
   id?: string;
 }
 
 const useStyles = makeStyles((theme: GroupCarTheme) =>
   createStyles({
     root: {
-      paddingBottom: theme.spacing(1),
-      paddingTop: theme.spacing(1),
+      height: '100%',
+      padding: theme.spacing(3),
+      paddingTop: 0,
+      overflow: 'auto',
     },
   }),
 );
 
-export const SettingsTabContent: FC<SettingsTabContentProps<unknown>> = (
+export const SettingsTabContent: FC<SettingsTabContentProps> = (
   props,
 ) => {
   const classes = useStyles();

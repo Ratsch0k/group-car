@@ -1,7 +1,7 @@
 {
   "name": "group-car",
   "version": "1.0.0-beta.1",
-  "proxy": "http://localhost:8000",
+  "proxy": "http://localhost:8080",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.2",
@@ -69,6 +69,7 @@
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^10.0.3",
     "@testing-library/user-event": "^12.1.1",
+    "@types/css-mediaquery": "^0.1.1",
     "@types/i18next": "^13.0.0",
     "@types/jest": "^26.0.10",
     "@types/leaflet": "^1.5.17",
@@ -88,6 +89,7 @@
     "@typescript-eslint/eslint-plugin": "^4.21.0",
     "@typescript-eslint/parser": "^4.21.0",
     "cross-env": "^7.0.2",
+    "css-mediaquery": "^0.1.2",
     "eslint": "^7.23.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-standard": "^14.1.1",

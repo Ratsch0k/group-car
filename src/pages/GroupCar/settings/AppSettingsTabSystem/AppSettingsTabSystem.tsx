@@ -6,10 +6,6 @@ import React, {
 } from 'react';
 import {VersionsOverview} from 'lib/components/VersionsOverview';
 import {
-  SettingsTabContent,
-  SettingsTabContentProps,
-} from 'lib/components/Settings';
-import {
   FormControl,
   FormHelperText,
   InputLabel,
@@ -17,6 +13,7 @@ import {
   Select,
 } from '@material-ui/core';
 import {useTranslation} from 'react-i18next';
+import SettingsTabTitle from 'lib/components/Settings/SettingsTabTitle';
 
 const ChangeLanguage = () => {
   const {i18n, t} = useTranslation();
@@ -57,16 +54,17 @@ const ChangeLanguage = () => {
   );
 };
 
-export const AppSettingsTabSystem: FC<SettingsTabContentProps<string>> = (
-  props,
-) => {
-  const {index, value} = props;
+export const AppSettingsTabSystem: FC = () => {
+  const {t} = useTranslation();
 
   return (
-    <SettingsTabContent index={index} value={value}>
+    <>
+      <SettingsTabTitle>
+        {t('settings.system.title')}
+      </SettingsTabTitle>
       <ChangeLanguage />
       <VersionsOverview />
-    </SettingsTabContent>
+    </>
   );
 };
 

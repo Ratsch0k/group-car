@@ -6,9 +6,9 @@ import {
   Grid,
   Typography, useMediaQuery, useTheme,
 } from '@material-ui/core';
-import {Button, CarWithDriver, GroupCarTheme, RoleChip, useMap} from 'lib';
+import {Button, CarWithDriver, GroupCarTheme, useMap, Chip} from 'lib';
 import React from 'react';
-import {useTranslation} from 'react-i18next';
+import {Trans, useTranslation} from 'react-i18next';
 import {createStyles, makeStyles} from '@material-ui/styles';
 import DriveEtaIcon from '@material-ui/icons/DriveEta';
 import MapIcon from '@material-ui/icons/Map';
@@ -18,6 +18,7 @@ import clsx from 'clsx';
 import {grey} from '@material-ui/core/colors';
 import getIcon from 'lib/util/getIcon';
 import {LatLng} from 'leaflet';
+import coloredShadow from 'lib/util/coloredShadow';
 
 /**
  * Props for the car card.
@@ -82,12 +83,14 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
       paddingBottom: theme.spacing(1),
     },
     cardRoot: {
-      border: `1px solid ${theme.palette.primary.main}`,
+      transition: '250ms all',
+      color: theme.palette.text.primary,
     },
     carContainerDriving: {
       backgroundColor: theme.palette.primary.main,
       color: theme.palette.primary.contrastText,
       border: `1px solid ${theme.palette.primary.main}`,
+      boxShadow: coloredShadow(theme.palette.primary.dark, 4),
     },
     frostedBackground: {
       backgroundColor: alpha(theme.palette.background.paper, 0.6),
@@ -132,6 +135,8 @@ export const CarCard: React.FC<CarCardProps> = (props: CarCardProps) => {
   return (
     <Card
       variant='outlined'
+      key={`car-card-${car.groupId}-${car.carId}`}
+      id={`car-card-${car.groupId}-${car.carId}`}
       classes={{
         root: clsx(
           classes.cardRoot,
@@ -155,15 +160,17 @@ export const CarCard: React.FC<CarCardProps> = (props: CarCardProps) => {
         title={<b>{car.name}</b>}
         subheader={
           isAvailable ?
-            <RoleChip
+            <Chip
               color={'primary'}
               label={t('misc.available')}
-              variant='outlined'
               size='small'
             /> :
             isInUse ?
               <Typography color='textSecondary' variant='subtitle2'>
-                {t('drawer.cars.drivenBy', {driver: car.Driver?.username})}
+                <Trans
+                  i18nKey='drawer.cars.drivenBy'
+                  tOptions={{driver: car.Driver?.username}}
+                />
               </Typography>:
               <Typography className={classes.textDriving} variant='subtitle2'>
                 {t('drawer.cars.youAreDriving')}
@@ -189,9 +196,9 @@ export const CarCard: React.FC<CarCardProps> = (props: CarCardProps) => {
                     onClick={() => addDrivingCar(car)}
                     disabled={disabled}
                     id={`drive-car-${car.carId}`}
-                    noBold
+                    disableCapitalization
+                    startIcon={<DriveEtaIcon />}
                   >
-                    <DriveEtaIcon />
                     {t('drawer.cars.drive')}
                   </Button>
                 </Grid>
@@ -201,13 +208,13 @@ export const CarCard: React.FC<CarCardProps> = (props: CarCardProps) => {
                     fullWidth
                     color='primary'
                     id={`view-car-${car.carId}`}
-                    noBold
+                    disableCapitalization
                     onClick={() => {
                       // eslint-disable-next-line
                       map?.flyTo(new LatLng(car.latitude!, car.longitude!), 18, {duration: 1});
                     }}
+                    startIcon={<SearchIcon />}
                   >
-                    <SearchIcon />
                     {t('drawer.cars.view')}
                   </Button>
                 </Grid>
@@ -222,10 +229,10 @@ export const CarCard: React.FC<CarCardProps> = (props: CarCardProps) => {
                     disabled={disabled}
                     className={classes.textDriving}
                     onClick={() => parkAtCurrent(car.carId)}
-                    noBold
+                    disableCapitalization
                     id={`park-current-car-${car.carId}`}
+                    startIcon={<GpsFixedIcon />}
                   >
-                    <GpsFixedIcon />
                     {t('drawer.cars.parkCurrent')}
                   </Button>
                 </Grid>
@@ -234,11 +241,11 @@ export const CarCard: React.FC<CarCardProps> = (props: CarCardProps) => {
                     fullWidth
                     disabled={disabled}
                     className={classes.textDriving}
-                    noBold
+                    disableCapitalization
                     onClick={() => parkWithMap(car)}
                     id={`park-map-car-${car.carId}`}
+                    startIcon={<MapIcon />}
                   >
-                    <MapIcon />
                     {t('drawer.cars.parkMap')}
                   </Button>
                 </Grid>

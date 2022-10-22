@@ -48,7 +48,7 @@ export const ProgressButton: React.FC<ProgressButtonProps> = (props) => {
         loading &&
         <CircularProgress
           className={classes.progress}
-          color='secondary'
+          color='primary'
           size={progressSize}
         />
       }

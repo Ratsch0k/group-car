@@ -12,10 +12,10 @@ const useStyles = makeStyles((theme: GroupCarTheme) => ({
     paddingBottom: theme.spacing(2),
   },
   title: {
-    color: theme.palette.primary.main,
+    color: theme.palette.text.secondary,
   },
   header: {
-    marginBottom: theme.spacing(2),
+    marginBottom: theme.spacing(0),
     marginTop: theme.spacing(1),
   },
   line: {
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: GroupCarTheme) => ({
     paddingLeft: theme.spacing(1),
   },
   divider: {
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.text.secondary,
   },
 }));
 

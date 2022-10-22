@@ -16,6 +16,9 @@
     "invites": "Einladungen",
     "settings": "Einstellungen"
   },
+  "map": {
+    "locationDenied": "Wir brauchen deine Erlaubnis um deinen Standort abfragen und anzeigen zu dürfen."
+  },
   "form": {
     "login": "Anmelden",
     "sign-up": "Erstellen",
@@ -83,37 +86,58 @@
         "title": "Gruppenverwaltung",
         "loadingFailed": "Die Gruppe konnte nicht gefunden werden",
         "tabs": {
+          "general": {
+            "title": "Allgemein",
+            "description": "Sieh dir allgemeine Informationen der Gruppe an. Wenn du ein Administrator der Gruppe bist, kannst du diese Informationen auch abändern."
+          },
           "members": {
             "title": "Mitglieder",
+            "description": "Die folgenden Benutzer sind entweder Mitglieder oder wurden bereits zu der Gruppe eingeladen.",
             "options": {
               "grantAdmin": "Admin Rechte geben",
               "revokeAdmin": "Admin Rechte wegnehmen"
-            }
+            },
+            "invite": "Benutzer einladen"
           },
           "cars": {
             "title": "Autos",
+            "description": "Verwalte alle Autos dieser Gruppe. Jedes Auto hat einen einzigartigen Namen und Farbe.",
             "drivenBy": "Wird gerade von <strong>{{driver}}</strong> benutzt",
-            "create": {
-              "title": "Neues Auto erstellen"
+            "addCar": {
+              "title": "Neues Auto erstellen",
+              "button": "Auto hinzufügen"
+            },
+            "emptyList": {
+              "title": "Noch keine Autos",
+              "description": "Diese Gruppe hat noch keine Autos. Nur Admins dürfen Autos hinzufügen, falls du also ein Auto hinzufügen musst du einen Admin darum fragen.",
+              "adminDescription": "Diese Gruppe hat noch keine Autos. Um ein Auto hinzuzufügen, klicke auf den Knopf <strong>Auto hinzufügen</strong>, gebe einen Namen ein, wähle eine Farbe aus und drücke auf <strong>Erstellen</strong>."
             },
             "deleteDialog": {
               "title": "Auto löschen",
               "message": "Bist du dir sicher dass du das Auto <strong>{{name}}</strong> löschen willst?"
             },
             "delete": "Lösche das Auto"
+          },
+          "settings": {
+            "title": "Einstellungen",
+            "description": "Hier kannst du weitere Einstellungen an der Gruppe vornehmen, wie zum Beispiel, die Gruppe verlassen."
           }
         },
         "leaveGroup": {
           "button": "Gruppe verlassen",
           "success": "Erfolgreich verlassen",
+          "title": "Austreten",
+          "description": "Hier kannst du aus der Gruppe beitreten. Diese Aktion kann nicht rückgängig gemacht werden, außer du wirst wieder eingeladen.",
           "dialog": {
-            "title": "Austreten",
+            "title": "Gruppe verlassen",
             "content": "Bist du sicher dass du die Gruppe verlassen willst?"
           }
         },
         "deleteGroup": {
           "button": "Gruppe löschen",
           "success": "Die Gruppe wurde erfolgreich gelöscht",
+          "title": "Gruppe löschen",
+          "description": "Hiermit kannst du die Gruppe für immer löschen. Die Gruppe kann danach nicht mehr wieder hergestellt werden. Falls du nur beabsichtigst die Gruppe zu verlassen, kannst du alternativ die Besitzerrechte an ein Mitglied der Gruppe übertragen und die Gruppe dann verlassen.",
           "dialog": {
             "title": "Gruppe löschen",
             "content": "Bist du dir sicher dass du diese Gruppe löschen willst?\nFalls du die Gruppe nur verlassen willst, dann kannst du deinen Besitz an ein Mitglied übertragen und dann die Gruppe verlassen."
@@ -123,7 +147,17 @@
     },
     "invites": {
       "title": "Einladungen",
-      "empty": "Du hast keine Einladungen"
+      "empty": "Du hast keine Einladungen",
+      "accepted": "Du bist jetzt ein Mitglied"
+    },
+    "permissionPrompt": {
+      "denied": "Du hast uns den Zugriff verboten oder den Dialog geschlossen.<br/><br/>Falls das ein Fehler war, kannst du nochmal auf den Knopf <strong>Frage Berechtigung an</strong> drücken.<br/><br/>Falls der Knopf keinen Dialog öffnet, hast du uns den Zugriff verboten. In dem Fall musst du uns in den Einstellungen deines Browsers für diese Webseite die Berechtigung erteilen und die Seite neu laden.",
+      "granted": "Vielen dank für die Erlaubnis. Du kannst diesen Dialog jetzt schließen.",
+      "promptMe": "Frage Berechtigung an",
+      "geolocation": {
+        "title": "Zugriff auf deinen Standort",
+        "description": "Wir brauchen deine Erlaubnis um auf deinen Standort zugreifen zu dürfen.<br/><br/>Wir benutzen deinen Standort nur um ihn auf der Karte anzuzeigen und damit du ein Fahrzeug an deinem jetzigen Standort parken kannst. Dein Standort wird nur lokal während der Benutzung der Webseite gespeichert.<br/><br/>Um uns den Zugriff zu erlauben, drücke auf den Knopf <strong>Frage Berechtigung an</strong> und erlaube den Zugriff in dem dann erscheinenden Browserdialog."
+      }
     }
   },
   "settings": {
@@ -149,7 +183,10 @@
     "UsernameAlreadyExistsError": "Der Benutzername existiert bereits",
     "InvalidLoginError": "Benutzername oder Password ist falsch",
     "IncorrectPasswordError": "Falsches Password",
-    "InDemoNotSuppored": "Funktionalität wird in der Demo nicht unterstützt"
+    "InDemoNotSuppored": "Funktionalität wird in der Demo nicht unterstützt",
+    "UserNotFoundError": "Dieser Benutzer existiert nicht",
+    "AlreadyInvitedError": "Wurde bereits eingeladen",
+    "InternalError": "Ein unerwarteter Fehler ist aufgetreten"
   },
   "misc": {
     "or": "oder",
@@ -172,11 +209,12 @@
     "yes": "Ja",
     "no": "Nein",
     "clear": "Löschen",
-    "create": "Erstelle",
+    "create": "Erstellen",
     "available": "Verfügbar",
     "confirm": "Bestätigen",
     "cancel": "Abbrechen",
     "createdAt": "Erstellt am",
+    "save": "Speichern",
     "confirmAction": {
       "title": "Kritische Aktion",
       "message": "Bist du dir sicher, das machen willst?"
@@ -191,7 +229,10 @@
       "Purple": "Lila",
       "Brown": "Braun",
       "Orange": "Orange"
-    }
+    },
+    "name": "Name",
+    "description": "Beschreibung",
+    "invite": "Einladen"
   },
   "imprint": {
     "title": "Impressum"

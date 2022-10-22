@@ -11,7 +11,7 @@ import {
   signUp as signUpApi,
   checkLoggedIn as checkLoggedInApi,
 } from 'lib/api';
-import {reset as resetGroup} from '../group';
+import {reset as resetGroup} from '../group/groupSlice';
 import {reset as resetInvites} from '../invites';
 
 export interface LoginParams {

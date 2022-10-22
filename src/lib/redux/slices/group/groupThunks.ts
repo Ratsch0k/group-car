@@ -4,7 +4,7 @@ import {
   selectGroup,
   addGroup,
   updateGroups,
-  updateGroup,
+  updateGroup as updateGroupReducer,
   removeGroupWithId,
   setDriverOfCar,
   setLocationOfCar,
@@ -17,6 +17,7 @@ import {
 import * as api from 'lib/api';
 import {
   CarColor,
+  GroupWithOwner,
   GroupWithOwnerAndMembersAndInvitesAndCars,
   InviteWithUserAndInviteSender,
   RestError,
@@ -150,6 +151,31 @@ export const createGroup = createAsyncThunk(
   },
 );
 
+export interface UpdateGroupParams extends CreateGroupParams {
+  id: number;
+}
+
+export const updateGroup = createAsyncThunk(
+  'group/updateGroup',
+  async (
+    {id, name, description}: UpdateGroupParams,
+    {dispatch, rejectWithValue},
+  ) => {
+    try {
+      const updateGroupResponse = await api.updateGroup(id, name, description);
+
+      const updatedGroup = updateGroupResponse.data;
+
+      dispatch(updateGroupReducer(updatedGroup as GroupWithOwner));
+
+      return updateGroupResponse.data;
+    } catch (e) {
+      const error = (e as AxiosError<RestError>).response?.data;
+      return rejectWithValue(error);
+    }
+  },
+);
+
 /**
  * Updates groups and selectedGroup.
  */
@@ -186,7 +212,7 @@ export const getGroup = createAsyncThunk(
       const res = await api.getGroup(id);
       const newGroup = res.data;
 
-      dispatch(updateGroup(newGroup));
+      dispatch(updateGroupReducer(newGroup));
 
       return res.data;
     } catch (e) {

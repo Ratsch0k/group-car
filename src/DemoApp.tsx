@@ -18,6 +18,7 @@ import ModalRoutes from './modals';
 import GroupCar from 'pages/GroupCar';
 import {Route, Switch} from 'react-router-dom';
 import DemoAuthentication from './lib/demo/DemoAuthentication';
+import PermissionHandler from 'lib/context';
 
 const DemoRoutes = () => {
   return (
@@ -40,14 +41,16 @@ const DemoApp: React.FC = () => {
           <ConnectedRouter history={history}>
             <ModalRouter>
               <AuthChecker>
-                <MapProvider>
-                  <GroupUpdater>
-                    <InvitesUpdater>
-                      <DemoRoutes />
-                      <ModalRoutes />
-                    </InvitesUpdater>
-                  </GroupUpdater>
-                </MapProvider>
+                <PermissionHandler>
+                  <MapProvider>
+                    <GroupUpdater>
+                      <InvitesUpdater>
+                        <DemoRoutes />
+                        <ModalRoutes />
+                      </InvitesUpdater>
+                    </GroupUpdater>
+                  </MapProvider>
+                </PermissionHandler>
               </AuthChecker>
             </ModalRouter>
           </ConnectedRouter>

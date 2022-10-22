@@ -47,7 +47,7 @@ const useStyle = makeStyles((theme: GroupCarTheme) =>
     },
     userInfo: {
       border: `1px solid ${grey[500]}`,
-      borderRadius: theme.shape.borderRadius,
+      borderRadius: theme.shape.borderRadiusSized.default,
       marginBottom: theme.spacing(2),
       padding: theme.spacing(1),
       minWidth: 180,

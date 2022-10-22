@@ -5,7 +5,7 @@ import * as api from 'lib/api';
 import {AxiosError} from 'axios';
 import {addInvites, getInviteById, removeInvite} from './invitesSlice';
 import {RestError} from 'lib/api';
-import {update} from '../group';
+import {update} from '../group/groupThunks';
 
 /**
  * Gets all invites from the currently logged in user.

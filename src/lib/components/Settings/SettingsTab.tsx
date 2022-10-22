@@ -12,9 +12,8 @@ import clsx from 'clsx';
 
 export interface SettingsTabProps<D> {
   icon: React.ReactNode;
-  index: D;
   dense?: boolean;
-  value: D;
+  selected?: boolean;
   open: (index: D) => void;
   id: string;
 }
@@ -23,41 +22,51 @@ const useStyles = makeStyles((theme: GroupCarTheme) =>
   createStyles({
     root: {
       '&:hover': {
-        color: theme.palette.primary.main,
-        background: alpha(theme.palette.primary.main, 0.04),
-        borderRight: `2px solid ${theme.palette.primary.main}`,
+        color: theme.palette.primary.dark,
+        background: alpha(theme.palette.primary.dark, 0.15),
       },
-      'transition': '250ms color',
+      'transition': '250ms all',
       'borderRadius': theme.shape.borderRadius,
-      'borderRight': `2px solid #FFFFFF00`,
-      'borderTopRightRadius': 0,
-      'borderBottomRightRadius': 0,
     },
     rootSelected: {
-      color: theme.palette.secondary.dark,
-      background: alpha(theme.palette.secondary.main, 0.04),
-      borderRight: `2px solid ${theme.palette.secondary.main}`,
+      'color': theme.palette.primary.contrastText,
+      'background': theme.palette.primary.main,
+      '&:hover': {
+        color: theme.palette.primary.contrastText,
+        background: theme.palette.primary.dark,
+      },
+    },
+    itemIconRoot: {
+      minWidth: 36,
+    },
+    itemText: {
+      fontWeight: 'bold',
     },
   }),
 );
 
 export const SettingsTab: FC<SettingsTabProps<unknown>> = (props) => {
-  const {children, icon, index, dense, open, value, id} = props;
+  const {children, icon, dense, open, selected, id} = props;
   const classes = useStyles();
 
   return (
     <ListItem
-      onClick={() => open(index)}
+      onClick={open}
       button
-      className={clsx(classes.root, {[classes.rootSelected]: value === index})}
+      className={clsx(classes.root, {[classes.rootSelected]: selected})}
       color='primary'
       dense={dense}
       id={id}
     >
-      <ListItemIcon style={{color: 'inherit'}}>
+      <ListItemIcon
+        style={{color: 'inherit'}}
+        classes={{
+          root: classes.itemIconRoot,
+        }}
+      >
         {icon}
       </ListItemIcon>
-      <ListItemText>
+      <ListItemText primaryTypographyProps={{className: classes.itemText}}>
         {children}
       </ListItemText>
     </ListItem>

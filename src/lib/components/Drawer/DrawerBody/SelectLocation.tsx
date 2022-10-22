@@ -3,7 +3,8 @@ import {unwrapResult} from '@reduxjs/toolkit';
 import {LatLng, LeafletMouseEvent} from 'leaflet';
 import {useMap, CarWithDriver, ProgressButton} from 'lib';
 import {useAppDispatch, useShallowAppSelector} from 'lib/redux/hooks';
-import {getSelectedGroup, parkCar} from 'lib/redux/slices/group';
+import {getSelectedGroup} from 'lib/redux/slices/group';
+import {parkCar} from 'lib/redux/slices/group/groupThunks';
 import React, {useEffect, useRef} from 'react';
 import {useState} from 'react';
 import {useTranslation} from 'react-i18next';
@@ -101,11 +102,12 @@ export const SelectLocation: React.FC = () => {
           <ProgressButton
             variant='contained'
             color='primary'
+            shadow
             fullWidth
-            glow={location === undefined ? undefined : 'primary'}
             onClick={handleConfirm}
             disabled={location === undefined}
             loading={loading.current}
+            size='large'
             id={`park-map-${car.carId}-confirm`}
           >
             {t('misc.confirm')}
@@ -113,8 +115,8 @@ export const SelectLocation: React.FC = () => {
         </Grid>
         <Grid item xs={12} md={6}>
           <Button
-            color='secondary'
             onClick={handleClose}
+            size='large'
             fullWidth
             disabled={loading.current}
             id={`park-map-${car.carId}-cancel`}

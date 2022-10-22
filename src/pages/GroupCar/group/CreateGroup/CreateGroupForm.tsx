@@ -6,7 +6,7 @@ import {useFormik} from 'formik';
 import * as yup from 'yup';
 import {useAppDispatch} from 'lib/redux/hooks';
 import {unwrapResult} from '@reduxjs/toolkit';
-import {createGroup} from 'lib/redux/slices/group';
+import {createGroup} from 'lib/redux/slices/group/groupThunks';
 
 const minNameLength = 4;
 const maxNameLength = 30;
@@ -109,7 +109,7 @@ export const CreateGroupForm: React.FC<CreateGroupFormProps> =
               variant='contained'
               type='submit'
               color='primary'
-              glow='primary'
+              shadow
             >
               {t('modals.group.create.create')}
             </ProgressButton>

@@ -23,7 +23,7 @@ exports[`Auth is rendered correctly 1`] = `
         />
       </div>
       <div
-        class="MuiContainer-root MuiContainer-maxWidthSm"
+        class="MuiContainer-root makeStyles-contentRoot MuiContainer-maxWidthSm"
       >
         <div
           class="MuiPaper-root makeStyles-paperRoot MuiPaper-elevation15 MuiPaper-rounded makeStyles-paperRounded"
@@ -263,6 +263,32 @@ exports[`Auth is rendered correctly 1`] = `
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiBox-root MuiBox-root makeStyles-footer"
+      >
+        <div
+          class="MuiGrid-root makeStyles-footerLinks MuiGrid-container MuiGrid-spacing-xs-2"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-item"
+          >
+            <button
+              class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorInherit"
+            >
+              privacyPolicy.title
+            </button>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item"
+          >
+            <button
+              class="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiLink-button MuiTypography-colorInherit"
+            >
+              imprint.title
+            </button>
           </div>
         </div>
       </div>

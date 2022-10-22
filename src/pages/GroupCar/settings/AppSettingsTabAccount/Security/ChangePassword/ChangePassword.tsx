@@ -88,7 +88,10 @@ export const ChangePassword = (): JSX.Element => {
       label={t('misc.password')}
       style={{overflow: 'hidden'}}
     >
-      <div ref={wrapperRef} style={{transition: 'height 250ms ease-in-out'}}>
+      <div
+        ref={wrapperRef}
+        style={{transition: 'height 250ms ease-in-out', width: '100%'}}
+      >
         <div ref={contentRef}>
           {
             isEditing ?

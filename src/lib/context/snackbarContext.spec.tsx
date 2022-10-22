@@ -1,7 +1,8 @@
 import '../../__test__/mockAxios';
 import '../../__test__/mockI18n';
 import React from 'react';
-import { render, waitFor, screen, fireEvent } from "@testing-library/react";
+import testRender from '../../__test__/testRender';
+import { waitFor, screen, fireEvent } from "@testing-library/react";
 import SnackbarProvider, { SnackbarContext, SnackbarType } from "./snackbarContext";
 import { Button } from '@material-ui/core';
 import {act} from "react-dom/test-utils";
@@ -14,7 +15,8 @@ describe('show snackbar with type', () => {
           let renderCount = 0;
           let showSnack: SnackbarContext['show'];
 
-          const {baseElement} = render(
+          const {baseElement} = testRender(
+            undefined,
             <SnackbarProvider>
               <SnackbarContext.Consumer>
                 {({show}) => {
@@ -54,7 +56,8 @@ it('click on close closes the snackbar', async () => {
   let renderCount = 0;
   let showSnack: SnackbarContext['show'];
 
-  const {baseElement} = render(
+  const {baseElement} = testRender(
+    undefined,
     <SnackbarProvider>
       <SnackbarContext.Consumer>
         {({show}) => {
@@ -93,7 +96,8 @@ it('renders action correctly', async () => {
   let renderCount = 0;
   let showSnack: SnackbarContext['show'];
 
-  const {baseElement} = render(
+  const {baseElement} = testRender(
+    undefined,
     <SnackbarProvider>
       <SnackbarContext.Consumer>
         {({show}) => {
